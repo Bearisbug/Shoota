@@ -1,0 +1,82 @@
+# 长局 部署手册
+
+## 1. 环境信息表
+
+| 项 | 值 |
+| --- | --- |
+| 部署目标 | `paas` |
+| 平台 | Cloudflare Workers 静态资源 · Worker `changju` · 账号 ID `627a6218f132dffc9cb22dd50c2fe1a6`（Bearisbug 的 Cloudflare 账号） |
+| 发布策略 | 平台内建（paas）：新版本上传完再整体切换，切换无停机 |
+| 域名 | https://changju.kaivia.ai （Worker 自定义域名；workers.dev 与预览地址已关闭） |
+| DNS | Cloudflare，kaivia.ai zone；`changju` 这条记录由 Worker 自定义域名自动创建和维护，不要手改 |
+| 健康检查 | 请求 https://changju.kaivia.ai/ 。身份断言：首页含 `<title>长局游戏平台</title>`。版本断言：`public/` 下每个文件与本次提交逐字节一致。纯静态站没有健康端点，用内容比对代替 service/slot/version 三元组 |
+| CI | GitHub Actions `.github/workflows/deploy.yml`：`check`（质量门）→ `deploy`（部署、健康检查、失败回滚）；PR 只跑 `check` |
+| 服务器 / 应用目录 / 镜像 / 端口 / 反代 | N/A（没有自管服务器） |
+| Synco 编排 | 未挂接（paas 目标不走 Synco 部署方式） |
+
+## 2. 日常发布
+
+push 到 `main` 即自动发布：质量门 `node scripts/check.mjs` → 记下当前线上版本号 → `wrangler deploy` → 健康检查（最多重试 12 次，每次间隔 10 秒）→ 不通过就 `wrangler rollback` 回到部署前的版本，并把 run 标成失败。进度在仓库 Actions 页看，每次发布也会出现在仓库 Environments 页的 `production` 下。手动重跑：Actions 页 → deploy → Run workflow。
+
+上线前提：改动已在本地过一遍 README「本地预览」里的流程，并且 `node scripts/check.mjs` 通过。
+
+## 3. 查日志 / 排障
+
+- **部署日志**：Actions 里对应 run 的 `deploy` job。每一步失败的原因都写在日志里：质量门列出出错的文件和段落；健康检查列出不一致的文件路径。
+- **线上版本历史**：`npx wrangler@4.151.1 deployments list --name changju`，每个版本的 message 以 commit 短哈希开头。
+- **当前线上版本**：`npx wrangler@4.151.1 deployments status --name changju`。
+- **游戏打不开**：先看 `https://changju.kaivia.ai/games/<id>.html` 是否返回 200，再看 `CATALOG` 里的 `src` 是否和文件名一致。本地双击打开 `index.html` 时游戏一定打不开（`fetch` 不支持 file://），这不是线上问题。
+- **玩家说进度没了**：进度只存在玩家自己的浏览器里，换设备、换浏览器、清缓存都会丢。让玩家用站内「存档」页的存档码迁移；平台侧没有数据可以恢复。
+- 以上命令都要先设置 token：`export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)`。
+
+## 4. 回滚
+
+```bash
+export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)
+npx wrangler@4.151.1 deployments list --name changju          # 找到要回到的版本号
+npx wrangler@4.151.1 rollback <版本号> --name changju -m "回滚原因" -y
+```
+
+回滚只改线上，不改 git。下一次 push main 会把 `main` 的内容重新发上去，所以回滚之后还要 `git revert` 出问题的提交，否则坏版本会被再次发布。
+
+CI 的自动回滚目标是「本次部署前的线上版本」。只要每次失败的部署都回滚成功，它就是最后一次通过健康检查的版本。如果连回滚这一步也失败了（run 日志里 rollback 步骤报错），就按上面的命令手动回到最后一个健康版本。
+
+回滚后在第 10 节登记一行。
+
+## 5. 密钥清单
+
+| 层 | 键名 | 用途 |
+| --- | --- | --- |
+| GitHub Secrets | `CLOUDFLARE_API_TOKEN` | CI 部署与回滚。Cloudflare 账号级 token `changju-ci-deploy`，权限：账号的 Workers Scripts Write，kaivia.ai 的 Workers Routes Write 与 Zone Read。同值存在 Bitwarden 条目 `CHANGJU_CI_DEPLOY_TOKEN` |
+| 运行时 | 无 | 纯静态站，没有运行时密钥 |
+
+账号 ID 不是密钥，直接写在 `wrangler.jsonc` 的 `account_id`。
+
+**轮换 token**：在 Cloudflare 新建同权限的 token → `bw edit` 更新 `CHANGJU_CI_DEPLOY_TOKEN` → `bw get password CHANGJU_CI_DEPLOY_TOKEN | gh secret set CLOUDFLARE_API_TOKEN -R Bearisbug/changju` → 在 Actions 页手动 Run workflow 验证 → 删除旧 token。有协作者离开时也要轮换：仓库写权限能读到这个 Secret。
+
+## 6. 数据库备份与恢复
+
+N/A — 本项目无自管数据库。玩家进度只存在玩家自己的浏览器（localStorage 与 IndexedDB），平台侧没有数据可以备份；玩家自己备份走站内「存档」页的存档码。
+
+## 7. 手动部署兜底（CI 不可用时）
+
+```bash
+export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)
+npx wrangler@4.151.1 deployments status --name changju          # ① 记下当前版本号，出问题时回滚用
+node scripts/check.mjs                                           # ② 质量门
+npx wrangler@4.151.1 deploy --message "$(git rev-parse --short HEAD) manual"   # ③ 部署
+curl -fsSL https://changju.kaivia.ai/ | grep -c '<title>长局游戏平台</title>'   # ④ 身份断言，应输出 1
+for f in $(cd public && find . -type f | sed 's#^\./##'); do                    # ⑤ 逐文件比对，无输出即全部一致
+  p=$f; [ "$f" = index.html ] && p=""
+  [ "$(shasum -a 256 < public/$f | cut -d' ' -f1)" = "$(curl -fsSL "https://changju.kaivia.ai/$p?v=$RANDOM" | shasum -a 256 | cut -d' ' -f1)" ] || echo "不一致：/$p"
+done
+```
+
+④ 或 ⑤ 不通过，就用 ① 记下的版本号按第 4 节回滚。
+
+## 10. 变更记录
+
+| 日期 | 事件 | 记录 |
+| --- | --- | --- |
+| 2026-10-18 | 首次上线（手动） | 单文件版（平台 + 6 款游戏 base64 内嵌）手动部署到 Worker `changju`，绑定 changju.kaivia.ai |
+| 2026-10-18 | 建仓与管线 | 拆成 `public/index.html` + `public/games/*.html`，F1 移到商店第一位；建 GitHub 仓库 Bearisbug/changju，push main 自动部署 |

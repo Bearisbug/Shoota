@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>长局游戏平台</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Barlow+Condensed:wght@500;600&display=swap" media="print" onload="this.media='all'">
+<style>
+/* Layout: Steam-style store shell — sticky top bar, wide featured hero with a side rail, capsule grid; a game runs in a full-bleed overlay with a thin platform bar on top. Single dark look by choice. */
+:root{
+  --bg:#10151c;        /* page ground */
+  --top:#0b0f14;       /* top bar */
+  --panel:#18202a;     /* blocks, cards */
+  --raised:#222c38;    /* hover, selected */
+  --line:#2a3644;
+  --fg:#e4ebf2;
+  --muted:#8c9aaa;
+  --faint:#5d6b7b;
+  --accent:#3ddc97;    /* 主按钮「开始游戏」 */
+  --accent-ink:#052618;
+  --gold:#e9c46a;      /* 待导入 / 提醒 */
+  --blue:#66c0f4;      /* 推荐 / 本机导入 */
+  --red:#e5636a;       /* 不推荐 / 错误 */
+  --display:"Noto Serif SC","Songti SC","STSong",serif;
+  --body:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --num:"Barlow Condensed","Noto Sans SC",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--fg);font:15px/1.65 var(--body);-webkit-font-smoothing:antialiased;min-height:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--top)}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3{text-wrap:balance;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--top);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-block:10px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:30px;height:30px;border-radius:6px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:900 17px/1 var(--display)}
+.logo b{font:900 22px/1 var(--display);letter-spacing:.06em}
+.nav{display:flex;gap:2px}
+.nav a{padding:6px 12px;border-radius:6px;text-decoration:none;color:var(--muted);font-weight:500;white-space:nowrap}
+.nav a:hover{color:var(--fg)}
+.nav a[aria-current="page"]{color:var(--fg);background:var(--raised)}
+.search{flex:1 1 200px;max-width:300px;margin-left:auto;position:relative}
+.search input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:7px 12px 7px 34px}
+.search input::placeholder{color:var(--faint)}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--faint);fill:none;stroke-width:2}
+.acct{position:relative}
+.avatar{width:34px;height:34px;border-radius:50%;border:0;background:var(--raised);color:var(--fg);font-weight:700;cursor:pointer;display:grid;place-items:center}
+.menu{position:absolute;right:0;top:calc(100% + 8px);background:var(--panel);border:1px solid var(--line);border-radius:8px;min-width:220px;padding:6px;box-shadow:0 12px 30px rgba(0,0,0,.45);display:grid}
+.menu .who{padding:8px 10px 10px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.menu .who b{display:block}
+.menu .who span{color:var(--muted);font-size:13px;word-break:break-all}
+.menu button,.menu a{background:none;border:0;text-align:left;padding:8px 10px;border-radius:6px;cursor:pointer;text-decoration:none;font-size:14px}
+.menu button:hover,.menu a:hover{background:var(--raised)}
+@media (max-width:760px){
+  .search{order:5;flex-basis:100%;max-width:none;margin-left:0}
+  .top .wrap{gap:10px}
+  .acct{margin-left:auto}
+  .nav a{padding:6px 8px}
+}
+@media (max-width:420px){.logo b{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--raised);border-radius:6px;padding:8px 16px;cursor:pointer;text-decoration:none;font-weight:500;white-space:nowrap}
+.btn:hover{border-color:var(--faint)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn-primary:hover{filter:brightness(1.08);border-color:var(--accent)}
+.btn-lg{padding:12px 22px;font-size:16px}
+.btn-quiet{background:none;border-color:transparent;color:var(--muted)}
+.btn-quiet:hover{color:var(--fg);border-color:transparent}
+.btn-danger{color:var(--red)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;padding:2px 9px;border-radius:999px;background:var(--raised);color:var(--muted);white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.ok{color:var(--accent);background:rgba(61,220,151,.1)}
+.pill.dev{color:var(--gold);background:rgba(233,196,106,.1)}
+.tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:4px;background:#1d2733;color:#a9c1d6;text-decoration:none;cursor:pointer;border:0}
+.tag:hover{background:#26384a;color:var(--fg)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+
+/* cover art */
+.cv{position:relative;overflow:hidden;background:#05070a;aspect-ratio:46/21;max-width:100%;width:100%;border-radius:6px;container-type:inline-size;isolation:isolate}
+.cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cv-t{position:absolute;left:6%;right:40%;bottom:13%;font:900 clamp(15px,8.2cqw,64px)/1.06 var(--display);letter-spacing:.03em;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.cv-s{display:block;margin-top:.45em;font:500 clamp(9px,2.4cqw,17px)/1.3 var(--body);letter-spacing:.04em;opacity:.85;text-shadow:none}
+.cv[data-c="douluo"] .cv-t{color:#f3d58a}
+.cv[data-c="hougong"] .cv-t{color:#f7e7c4}
+.cv[data-c="f1"] .cv-t{color:#fff;font-family:var(--num);font-weight:600;letter-spacing:.02em;font-style:italic;font-size:clamp(14px,6.6cqw,50px)}
+.cv[data-c="nba"] .cv-t{color:#fff;font-family:var(--num);font-weight:600;letter-spacing:.02em;font-size:clamp(14px,6.6cqw,50px);right:30%}
+.cv[data-c="lol"] .cv-t{color:#d9f6ff}
+.cv[data-c="yike"] .cv-t{color:#efd58e}
+.cv[data-c="auto"] .cv-t{color:#fff}
+
+/* store */
+.page{padding-block:28px 64px;display:grid;gap:40px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+.sec-h h2{font:700 19px/1.3 var(--body)}
+.sec-h .aside{color:var(--muted);font-size:13px}
+
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;background:var(--panel);border-radius:8px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.hero-art{display:block;text-decoration:none}
+.hero-art .cv{border-radius:0;height:100%;aspect-ratio:auto;min-height:250px}
+.hero-info{padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.hero-info h3{font:900 26px/1.2 var(--display)}
+.hero-info p{margin:0;color:#c3cfdb;font-size:14px}
+.hero-info .grow{flex:1}
+.hero-info .acts{display:flex;gap:8px;flex-wrap:wrap}
+.hero-nav{display:flex;justify-content:center;gap:8px;margin-top:14px}
+.hero-nav button{width:28px;height:6px;border-radius:3px;border:0;background:var(--line);cursor:pointer;padding:0}
+.hero-nav button[aria-pressed="true"]{background:var(--fg)}
+@media (max-width:820px){.hero{grid-template-columns:1fr}.hero-art .cv{aspect-ratio:46/21;min-height:0}}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:14px}
+.chip:hover{border-color:var(--faint)}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:700}
+.chip .n{font-family:var(--num);color:var(--muted);margin-left:4px}
+.chip[aria-pressed="true"] .n{color:var(--bg);opacity:.6}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px 18px}
+.cap{display:grid;gap:9px;text-decoration:none;align-content:start;min-width:0}
+.cap-row b{flex:1}
+.cap .cv{transition:transform .18s ease,box-shadow .18s ease}
+.cap:hover .cv,.cap:focus-visible .cv{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.5)}
+.cap-row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.cap b{font-weight:700;font-size:15px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cap p{margin:0;color:var(--muted);font-size:13px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cap .meta{color:var(--faint);font-size:12px}
+
+.cont{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.cont a{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;align-items:center;background:var(--panel);border-radius:8px;padding:10px;text-decoration:none}
+.cont a:hover{background:var(--raised)}
+.cont b{display:block;font-size:14px}
+.cont span{color:var(--muted);font-size:12px}
+
+.empty{border:1px dashed var(--line);border-radius:8px;padding:28px;text-align:center;color:var(--muted);display:grid;gap:12px;justify-items:center}
+
+.band{background:var(--panel);border-radius:8px;padding:22px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.band h3{font:700 17px/1.4 var(--body)}
+.band p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:60ch}
+
+/* detail */
+.crumbs{color:var(--muted);font-size:13px;display:flex;gap:6px;flex-wrap:wrap}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--fg)}
+.d-head{display:grid;gap:6px}
+.d-head h1{font:900 clamp(26px,4vw,38px)/1.15 var(--display);letter-spacing:.02em}
+.d-head .sub{color:var(--muted)}
+.d-top{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:22px;align-items:start}
+.d-side{display:grid;gap:14px;background:var(--panel);border-radius:8px;padding:18px}
+.d-side .tagline{margin:0;color:#c9d5e1;font-size:14px}
+.facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;margin:0;font-size:13px}
+.facts dt{color:var(--faint)}
+.facts dd{margin:0;color:var(--fg)}
+.d-body{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:22px;align-items:start}
+.d-main{display:grid;gap:34px;min-width:0}
+.d-main section{display:grid;gap:12px}
+.d-main h2{font:700 13px/1 var(--body);color:var(--muted);letter-spacing:.08em;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.prose p{margin:0 0 .8em;max-width:68ch;color:#cfd9e3}
+.prose p:last-child{margin-bottom:0}
+.steps{margin:0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;color:#cfd9e3;counter-increment:s}
+.steps li::before{content:counter(s);font:600 15px/26px var(--num);width:26px;height:26px;border-radius:50%;background:var(--raised);text-align:center;color:var(--fg)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tbl table{border-collapse:collapse;width:100%;min-width:560px;font-size:13px}
+.tbl th,.tbl td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{color:var(--muted);font-weight:500;background:var(--panel)}
+.tbl tr:last-child td{border-bottom:0}
+.perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.perk{background:var(--panel);border-radius:8px;padding:14px}
+.perk b{display:block;margin-bottom:4px;font-family:var(--display);font-size:16px;color:var(--gold)}
+.perk span{color:var(--muted);font-size:13px}
+.note{background:rgba(233,196,106,.08);border:1px solid rgba(233,196,106,.25);color:#e8d7a8;border-radius:8px;padding:12px 14px;font-size:13px}
+.d-aside{display:grid;gap:14px}
+.box{background:var(--panel);border-radius:8px;padding:16px;display:grid;gap:10px}
+.box h3{font:700 14px/1.4 var(--body)}
+.box p{margin:0;color:var(--muted);font-size:13px}
+.statline{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted)}
+.statline b{color:var(--fg);font-family:var(--num);font-size:16px;font-weight:600}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+@media (max-width:900px){.d-top,.d-body{grid-template-columns:1fr}}
+
+/* backup */
+textarea,.field input,.field select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 12px}
+textarea{min-height:96px;resize:vertical}
+.bk-code{font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all;color:var(--muted)}
+.bk-list{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.bk-list li{display:flex;justify-content:space-between;gap:12px;font-size:14px}
+.bk-list span{color:var(--muted);font-size:13px;white-space:nowrap}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+
+/* library */
+.lib{display:grid;grid-template-columns:280px minmax(0,1fr);gap:20px;align-items:start}
+.lib-list{background:var(--panel);border-radius:8px;padding:8px;display:grid;gap:2px}
+.lib-list button{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;align-items:center;border:0;background:none;text-align:left;border-radius:6px;padding:6px;cursor:pointer}
+.lib-list button:hover{background:var(--raised)}
+.lib-list button[aria-pressed="true"]{background:var(--raised);box-shadow:inset 3px 0 0 var(--accent)}
+.lib-list .cv{border-radius:3px}
+.lib-list b{display:block;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lib-list span{font-size:12px;color:var(--muted)}
+.lib-main{display:grid;gap:18px;min-width:0}
+.lib-hero{position:relative;border-radius:8px;overflow:hidden}
+.lib-hero .cv{border-radius:0}
+.lib-bar{display:flex;gap:24px;align-items:center;flex-wrap:wrap;background:var(--panel);border-radius:8px;padding:14px 18px}
+.kv{display:grid}
+.kv span{font-size:12px;color:var(--muted)}
+.kv b{font:600 20px/1.2 var(--num)}
+@media (max-width:820px){.lib{grid-template-columns:1fr}}
+
+/* login */
+.auth{max-width:420px;margin:24px auto 0;background:var(--panel);border-radius:10px;padding:28px;display:grid;gap:18px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.auth h1{font:900 26px/1.2 var(--display)}
+.auth .lead{margin:0;color:var(--muted);font-size:14px}
+.field{display:grid;gap:6px}
+.field label{font-size:13px;color:var(--muted)}
+.field input{padding:11px 12px;font-size:16px}
+.err{color:var(--red);font-size:13px;margin:0;min-height:1em}
+.demo-code{background:rgba(102,192,244,.08);border:1px solid rgba(102,192,244,.3);border-radius:8px;padding:12px 14px;font-size:13px;color:#bfe3f8;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.demo-code b{font:600 22px/1 var(--num);letter-spacing:.2em;color:var(--fg)}
+.code-boxes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.code-boxes input{text-align:center;font:600 24px/1 var(--num);padding:12px 0;background:var(--bg);border:1px solid var(--line);border-radius:6px;width:100%}
+.code-boxes input:focus{border-color:var(--accent);outline:none}
+.auth .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.linkbtn{background:none;border:0;padding:0;color:var(--blue);cursor:pointer;font-size:13px}
+.linkbtn[disabled]{color:var(--faint);cursor:default}
+.fine{font-size:12px;color:var(--faint);margin:0}
+
+/* player */
+#player{position:fixed;inset:0;z-index:50;background:#000;display:grid;grid-template-rows:auto minmax(0,1fr)}
+.pbar{display:flex;align-items:center;gap:14px;padding:8px max(12px,env(safe-area-inset-right,0px)) 8px max(12px,env(safe-area-inset-left,0px));padding-top:calc(8px + env(safe-area-inset-top,0px));background:var(--top);border-bottom:1px solid var(--line);font-size:13px;flex-wrap:wrap}
+.pbar .t{font-weight:700;font-size:14px}
+.pbar .st{color:var(--muted);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pbar .saved{color:var(--faint)}
+.pbar .saved.on{color:var(--accent)}
+.pstage{position:relative;background:#000;padding-bottom:env(safe-area-inset-bottom,0px)}
+.pstage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+.loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);background:var(--bg)}
+
+/* toasts */
+#toasts{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:60;display:grid;gap:8px;justify-items:end;pointer-events:none}
+.toast{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:10px 14px;box-shadow:0 12px 30px rgba(0,0,0,.5);max-width:340px;font-size:14px;animation:tin .25s ease}
+.toast.ach{border-left-color:var(--gold)}
+.toast.ach small{display:block;color:var(--gold);font-size:12px}
+.toast.bad{border-left-color:var(--red)}
+@keyframes tin{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+
+<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#store" aria-label="长局首页"><span class="logo-mark">局</span><b>长局</b></a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#store" data-nav="store">商店</a>
+      <a href="#library" data-nav="library">游戏库</a>
+      <a href="#backup" data-nav="backup">存档</a>
+    </nav>
+    <label class="search"><span class="sr">搜索游戏</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      <input id="q" type="search" placeholder="搜索游戏、类型" autocomplete="off">
+    </label>
+    <div class="acct" id="acct"></div>
+  </div>
+</header>
+<main id="view" class="wrap"></main>
+<div id="player" hidden>
+  <div class="pbar">
+    <button class="btn" id="pExit" type="button">← 退出游戏</button>
+    <span class="t" id="pTitle"></span>
+    <span class="st" id="pStatus"></span>
+    <span class="saved" id="pSaved">存档待写入</span>
+    <span class="num" id="pTime">本次 0 分钟</span>
+    <button class="btn" id="pFull" type="button">全屏</button>
+  </div>
+  <div class="pstage" id="pStage"></div>
+</div>
+<div id="toasts" aria-live="polite"></div>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const now = () => Date.now();
+
+/* ───────── 游戏目录（桌面上的 6 款，随平台一起发布在 games/ 下） ───────── */
+const CATALOG = [
+  { id:'f1', title:'F1 Team Principal 2026', sub:'车队领队', genre:'赛车经理', tags:['赛车经理','体育','策略','实时比赛'],
+    src:'games/f1.html', size:494022, status:'ok', session:'一场比赛周末约 10 分钟', saves:'自动存档',
+    tagline:'出任 F1 车队领队，在 2026 新规则时代管研发、排策略、守住董事会的目标。',
+    about:[
+      '出任一支 F1 车队的领队，迎接 2026 新规则时代：主动空气动力学和 50/50 混动功率分配让所有车队重新洗牌。',
+      '比赛之间管研发：风洞、模拟器、工厂产线，每一笔支出都受成本上限约束。比赛周末排练习赛计划，正赛里实时决定进站、undercut、overcut 和车队指令。',
+      '董事会会给出车队积分榜目标。达不到，领队的位子就不保。'
+    ],
+    loop:['赛车研发：安排升级项目，投入风洞、模拟器和工厂产线','比赛周末：制定练习赛计划，找最佳调校','正赛：天气、轮胎断崖、VSC 和安全车随时改写局面，进站与车队指令由你决定','赛季末：对照董事会目标结算，写进领队履历'],
+    notes:['涉及真实车队、车手与 F1 商标，公开上线前需要处理授权，或改用虚构名称。'] },
+
+  { id:'douluo', title:'斗罗·万相', sub:'十个出身 · 一条世界线', genre:'人生模拟', tags:['人生模拟','角色扮演','Roguelite','多结局'],
+    src:'games/douluo.html', size:691839, status:'dev', version:'v3', session:'一局 15–25 分钟', saves:'自动存档，跨周目保留宿命点',
+    tagline:'选一个出身进入斗罗大陆，从六岁觉醒武魂过完一生。改写原著要花宿命点。',
+    about:[
+      '选一个出身进入斗罗大陆，从六岁觉醒武魂开始过完一生。10 个原创身份共享同一条世界线：猎魂之夜，苏夜在进攻方，玉衡在被灭的宗门里，林照守在七宝城堡。',
+      '平时是几十字的短事件，原著大事和身份命运节点才展开成剧情。门槛公开，胜算藏着。改写原著要花宿命点，世界线偏移会一直留到结局。',
+      '一生走完，会生成一份卷宗式人物画像：封号、六维雷达、性格标签、魂环颜色、三张榜单上的名次，以及身后事。'
+    ],
+    loop:['季初：原著关键节点按年份触发，再抽 0–2 个短事件','季中：3 个行动点，可以修炼、猎魂、冥想、结交、历练、打斗魂场','季末：季报结算等级、金魂币、伤势和大陆动静','越往后成长越慢，回合越长：40 级前 4 个月一回合，70 级后一年一回合'],
+    identities:[
+      ['武魂殿·黄金一代','苏夜','冥月灯','猎魂之夜放走蓝电血脉；在比比东与千仞雪之间站队'],
+      ['蓝电霸王龙·玉家子弟','玉衡','蓝电霸王龙','救下灭门之夜的族人；追查宗主三块魂骨'],
+      ['星斗·十万年魂兽化形','白霜','霜角白鹿','星湖之战替小舞挡下，或者自己献祭'],
+      ['千古家族·第三代传承人','千古明','光明圣龙＋黑暗魔龙','在天使与罗刹之间选边，或走原创神位'],
+      ['杀戮之都·堕落者','墨刃','血纹双刃','地狱路，杀戮之王唐晨的秘密'],
+      ['七宝琉璃宗·剑斗罗亲传','林照','寒霜剑','保住师父尘心的右臂和性命'],
+      ['天斗皇室·暗卫','纪无声','影蝠','提前揭穿太子；宫变时选择效忠的对象'],
+      ['星罗皇族·庶出皇子','戴澜','雷纹白虎','改写夺嫡与星罗的参战方式'],
+      ['海神岛·潮音岛民','凌汐','潮音螺','海神九考的旁观与协助；波赛西的献祭'],
+      ['庚辛城·神匠学徒','欧冶青','熔炉','楼高殉器能否避免；三大暗器图纸的去向']
+    ],
+    perks:[['原著记忆','所有先知机缘的时间、地点、原主一清二楚；关键节点显示原著结局；榜单提前一年揭晓。'],['神眷之体','体魄、精神各 +8，伤势恢复翻倍。'],['宿命之子','本局额外 +2 宿命点，可以多改一次命。']],
+    notes:['原著 IP 属唐家三少／阅文，公开上线前需要取得授权。'] },
+
+  { id:'hougong', title:'后宫生死簿', sub:'卷首 · 生死簿', genre:'宫廷养成', tags:['宫廷养成','剧情','多结局','历史'],
+    src:'games/hougong.html', size:106613, status:'ok', session:'按季推进', saves:'自动存档',
+    tagline:'以《后宫·甄嬛传》为背景的原创养成。从殿选开始，在请安、争宠、子嗣和站队之间活下去。',
+    about:[
+      '以电视剧《后宫·甄嬛传》为背景的原创养成游戏。你扮演一名秀女，从殿选开始，在请安、争宠、子嗣和站队之间活下去。',
+      '出身决定开局：上三旗世家初封贵人，官宦之女初封常在，小吏之女初封答应。位分、年例银、服色、选秀、建储等典制兼采《国朝宫史》。',
+      '宫里的死法很多。走错一步，结局会写进生死簿，并附一条「按」，讲清它在剧中和典制里的来由。'
+    ],
+    loop:['选出身：满洲大姓、官宦之女、小吏之女，初封位分不同','每季先处理事件，再用行动经营圣宠、才貌和人情','左栏宫册记下画像、位分、指标与人情，起居注记下你做过的每件事','死局整页化为内务府档册，收进生死簿'],
+    notes:['人物与情节依电视剧设定，公开上线前需要确认改编授权。'] },
+
+  { id:'nba', title:'NBA Basketball Manager 2026', sub:'总经理模式', genre:'体育经理', tags:['体育经理','篮球','策略','长线经营'],
+    src:'games/nba.html', size:495292, status:'ok', session:'按赛季推进', saves:'8 个存档位',
+    tagline:'执掌一支 NBA 球队：轮换、交易、选秀一手包办，带队打进季后赛。',
+    about:[
+      '执掌一支 NBA 球队，从轮换、交易到选秀一手包办。',
+      '每名球员有风格评分和特质，比如大心脏、稳定输出、空间型射手。特质会在比赛模拟里真实改变命中率和战术。',
+      '交易要过工资帽，球探会提前告诉你哪届选秀出了世代天赋。8 个存档位，可以同时经营几条时间线。'
+    ],
+    loop:['组建阵容：签约、交易、安排轮换','常规赛：逐场模拟，看球员特质如何影响比赛','交易截止日与选秀：在工资帽内补强，押注未来','季后赛：大心脏球员在关键时刻接管比赛'],
+    notes:['涉及真实球队、球员与 NBA 商标，公开上线前需要处理授权，或改用虚构名称。'] },
+
+  { id:'lol', title:'峡谷经理 2027', sub:'电竞战队经理', genre:'电竞经理', tags:['电竞经理','体育','策略','长线经营'],
+    src:'games/lol.html', size:115414, status:'ok', session:'按赛季推进', saves:'自动存档',
+    tagline:'成为一支英雄联盟职业战队的经理，从 2027 赛季打到全球总决赛。',
+    about:[
+      '成为 LPL、LCK 等赛区一支战队的经理，接续真实的 2026 赛季结果，从 2027 赛季开打。',
+      '选手有操作、运营、团战、英雄池、稳定等评分，达到条件会点亮徽章。Fearless 赛制下，英雄池深的选手后几局不掉状态。',
+      '管工资帽、转会费和外援名额，一路打到季后赛和全球总决赛。'
+    ],
+    loop:['选择赛区和战队，接手 2027 赛季','管理阵容：转会、薪资、外援名额','比赛日：BP 与比赛模拟，一血、小龙、龙魂实时播报','季后赛与全球总决赛：老将和大心脏选手的舞台'],
+    notes:['涉及真实战队、选手与赛事商标，公开上线前需要处理授权，或改用虚构名称。'] },
+
+  { id:'yike', title:'一克之差', sub:'药铺抓药', genre:'益智解谜', tags:['益智解谜','关卡','短局'],
+    src:'games/yike.html', size:34274, status:'ok', session:'一关几分钟', saves:'自动记录关卡与最好成绩',
+    tagline:'药铺抓药，一克都不能差。把药包放上戥秤，右盘正好等于砝码才算称完。',
+    about:[
+      '药铺抓药，一克都不能差。三台戥秤各有一张方子，把药柜上的药包放上去，右盘总重正好等于左边砝码，秤就平了，换下一张方子。',
+      '超重会翻盘，整盘药包掉进暂存台；暂存台放不下就输。压在下面的药包看不到重量，秤盘上的药包放上去就拿不回来。',
+      '撤回、透视、换方子三种道具帮你翻身。第一关是热身，往后压在最底下的那几包最要命。'
+    ],
+    loop:['点亮着的药包，它会放上选中的那台秤；点秤可以换','右盘正好等于砝码，秤就平了','超重翻盘，药包掉进暂存台；暂存台满了就输','用撤回、透视、换方子渡过难关'] }
+];
+
+/* ───────── 本机存储：localStorage 放账号与统计，IndexedDB 放各游戏存档 ───────── */
+const META_KEY = 'changju.meta.v1';
+const blank = () => ({ session:null, users:{}, stats:{}, wish:{}, achDefs:{}, sendLog:{} });
+let meta = (() => { try { const s = localStorage.getItem(META_KEY); if (s) return Object.assign(blank(), JSON.parse(s)); } catch (e) {} return blank(); })();
+function persist(){ try { localStorage.setItem(META_KEY, JSON.stringify(meta)); } catch (e) {} }
+
+const IDB = (() => {
+  const mem = { games:new Map(), kv:new Map() };
+  let p = null;
+  function open(){
+    if (p) return p;
+    p = new Promise(res => {
+      try {
+        const r = indexedDB.open('changju', 1);
+        r.onupgradeneeded = () => { const d = r.result; d.createObjectStore('games', { keyPath:'id' }); d.createObjectStore('kv'); };
+        r.onsuccess = () => res(r.result); r.onerror = () => res(null); r.onblocked = () => res(null);
+      } catch (e) { res(null); }
+    });
+    return p;
+  }
+  function req(store, mode, make){
+    return open().then(d => new Promise(res => {
+      if (!d) return res(undefined);
+      try { const q = make(d.transaction(store, mode).objectStore(store)); q.onsuccess = () => res(q.result); q.onerror = () => res(undefined); }
+      catch (e) { res(undefined); }
+    }));
+  }
+  return {
+    async get(store, key){ const d = await open(); return d ? req(store, 'readonly', s => s.get(key)) : mem[store].get(key); },
+    async put(store, val, key){ const d = await open(); if (!d) { mem[store].set(key ?? val.id, val); return; } return req(store, 'readwrite', s => key === undefined ? s.put(val) : s.put(val, key)); }
+  };
+})();
+
+/* ───────── 账号 ───────── */
+const me = () => { const s = meta.session; return s && meta.users[s.email] ? { email:s.email, ...meta.users[s.email] } : null; };
+function peek(gid, email = me()?.email){ return email && meta.stats[email] && meta.stats[email][gid] || null; }
+function stat(gid){ const e = me()?.email; if (!e) return null; meta.stats[e] ??= {}; return meta.stats[e][gid] ??= { seconds:0, last:0, ach:{}, status:'' }; }
+function hashId(s){ let h = 2166136261; for (const c of s) { h ^= c.codePointAt(0); h = Math.imul(h, 16777619); } return 'u' + (h >>> 0).toString(16); }
+
+/* ───────── 游戏列表 ───────── */
+function allGames(){
+  return CATALOG.map(g => ({ ...g, playable:true }));
+}
+const findGame = id => allGames().find(g => g.id === id);
+const achList = g => g.achievements || meta.achDefs[g.id] || [];
+
+function statusPill(g){
+  if (g.status === 'dev') return '<span class="pill dev">开发中 · 可玩</span>';
+  return '<span class="pill ok">可玩</span>';
+}
+const fmtSize = b => b >= 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB';
+function fmtPlay(sec){
+  if (!sec) return '还没玩过';
+  const m = Math.round(sec / 60);
+  if (m < 1) return '不到 1 分钟';
+  if (m < 60) return m + ' 分钟';
+  return (sec / 3600).toFixed(1) + ' 小时';
+}
+function fmtWhen(ts){
+  if (!ts) return '—';
+  const d = new Date(ts), diff = now() - ts;
+  if (diff < 60e3) return '刚刚';
+  if (diff < 3600e3) return Math.floor(diff / 60e3) + ' 分钟前';
+  if (diff < 86400e3) return Math.floor(diff / 3600e3) + ' 小时前';
+  return d.toLocaleDateString('zh-CN', { month:'long', day:'numeric' });
+}
+
+/* ───────── 封面：按题材用 canvas 画，没有任何商标 ───────── */
+const coverCache = new Map();
+function rng(seed){ let a = 0; for (const c of seed) a = (a * 31 + c.codePointAt(0)) | 0; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function coverURL(g){
+  const kind = ['douluo','hougong','f1','nba','lol','yike'].includes(g.id) ? g.id : 'auto';
+  const key = kind + '|' + g.id;
+  if (coverCache.has(key)) return coverCache.get(key);
+  const W = 920, H = 420, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  const x = cv.getContext('2d'), R = rng(g.id);
+  let url = '';
+  try {
+    if (kind === 'douluo') {
+      let gr = x.createRadialGradient(W*.72, H*.5, 10, W*.72, H*.5, W*.7); gr.addColorStop(0, '#3a2a78'); gr.addColorStop(.45, '#171236'); gr.addColorStop(1, '#07080f');
+      x.fillStyle = gr; x.fillRect(0, 0, W, H);
+      for (let i = 0; i < 140; i++) { x.fillStyle = `rgba(220,210,255,${R()*.5})`; x.fillRect(R()*W, R()*H, 1.5, 1.5); }
+      // 唐昊的九环：黄黄紫紫黑黑黑黑红
+      const rings = ['#e9c46a','#e9c46a','#9b6bdf','#9b6bdf','#0b0b10','#0b0b10','#0b0b10','#0b0b10','#e0484f'];
+      const cx = W*.73, cy = H*.52;
+      rings.forEach((c, i) => {
+        const r = 34 + i * 21;
+        x.save(); x.beginPath(); x.arc(cx, cy, r, 0, Math.PI*2);
+        if (c === '#0b0b10') { x.lineWidth = 9; x.strokeStyle = c; x.shadowColor = 'rgba(160,140,255,.35)'; x.shadowBlur = 8; x.stroke(); x.lineWidth = 1; x.strokeStyle = 'rgba(190,170,255,.35)'; x.stroke(); }
+        else { x.lineWidth = 6; x.strokeStyle = c; x.shadowColor = c; x.shadowBlur = i === 8 ? 30 : 16; x.stroke(); }
+        x.restore();
+      });
+      gr = x.createRadialGradient(cx, cy, 0, cx, cy, 30); gr.addColorStop(0, 'rgba(255,240,200,.95)'); gr.addColorStop(1, 'rgba(255,240,200,0)');
+      x.fillStyle = gr; x.beginPath(); x.arc(cx, cy, 30, 0, Math.PI*2); x.fill();
+      gr = x.createLinearGradient(0, 0, W*.6, 0); gr.addColorStop(0, 'rgba(7,8,15,.85)'); gr.addColorStop(1, 'rgba(7,8,15,0)'); x.fillStyle = gr; x.fillRect(0, 0, W, H);
+    } else if (kind === 'hougong') {
+      let gr = x.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#7a1b1b'); gr.addColorStop(1, '#3d0c0e'); x.fillStyle = gr; x.fillRect(0, 0, W, H);
+      // 琉璃瓦
+      for (let row = 0; row < 3; row++) for (let i = -1; i < 26; i++) {
+        const tx = i * 38 + (row % 2) * 19, ty = 10 + row * 18;
+        x.fillStyle = row === 2 ? '#a77a1c' : '#d9a634'; x.beginPath(); x.ellipse(tx, ty, 21, 14, 0, 0, Math.PI); x.fill();
+        x.strokeStyle = 'rgba(80,40,0,.35)'; x.lineWidth = 2; x.stroke();
+      }
+      x.fillStyle = '#5a1416'; x.fillRect(0, 62, W, 10);
+      // 月洞门
+      const mx = W*.74, my = H*.62, mr = 128;
+      x.fillStyle = '#25070a'; x.beginPath(); x.arc(mx, my, mr, 0, Math.PI*2); x.fill();
+      gr = x.createRadialGradient(mx, my - 30, 10, mx, my, mr); gr.addColorStop(0, 'rgba(240,210,150,.35)'); gr.addColorStop(1, 'rgba(240,210,150,0)');
+      x.fillStyle = gr; x.beginPath(); x.arc(mx, my, mr, 0, Math.PI*2); x.fill();
+      x.strokeStyle = '#c8952e'; x.lineWidth = 5; x.beginPath(); x.arc(mx, my, mr + 4, 0, Math.PI*2); x.stroke();
+      // 宫灯
+      [[W*.56, 120], [W*.92, 120]].forEach(([lx, ly]) => { x.strokeStyle = '#c8952e'; x.lineWidth = 2; x.beginPath(); x.moveTo(lx, 72); x.lineTo(lx, ly - 22); x.stroke(); x.fillStyle = '#e8442f'; x.shadowColor = '#ff8a4a'; x.shadowBlur = 24; x.beginPath(); x.ellipse(lx, ly, 18, 24, 0, 0, Math.PI*2); x.fill(); x.shadowBlur = 0; x.fillStyle = '#d9a634'; x.fillRect(lx - 10, ly - 26, 20, 5); x.fillRect(lx - 10, ly + 21, 20, 5); });
+      gr = x.createLinearGradient(0, 0, W*.6, 0); gr.addColorStop(0, 'rgba(40,6,8,.8)'); gr.addColorStop(1, 'rgba(40,6,8,0)'); x.fillStyle = gr; x.fillRect(0, 70, W, H);
+    } else if (kind === 'f1') {
+      x.fillStyle = '#16181c'; x.fillRect(0, 0, W, H);
+      for (let i = 0; i < 2600; i++) { x.fillStyle = `rgba(255,255,255,${R()*.05})`; x.fillRect(R()*W, R()*H, 2, 2); }
+      x.save(); x.translate(W*.62, H*.5); x.rotate(-0.32);
+      for (let i = 0; i < 26; i++) { x.fillStyle = `rgba(${200+R()*55|0},${30+R()*40|0},${40+R()*30|0},${.15+R()*.5})`; x.fillRect(-W + R()*W*.8, -H + i*34 + R()*12, 200 + R()*560, 3 + R()*5); }
+      x.restore();
+      // 路肩
+      x.save(); x.translate(0, H - 44); x.transform(1, 0, -0.5, 1, 0, 0);
+      for (let i = 0; i < 30; i++) { x.fillStyle = i % 2 ? '#f2f2f2' : '#d72a2a'; x.fillRect(i * 46, 0, 46, 22); }
+      x.restore();
+      // 方格旗
+      for (let r = 0; r < 6; r++) for (let c = 0; c < 9; c++) { x.fillStyle = (r + c) % 2 ? 'rgba(255,255,255,.85)' : 'rgba(0,0,0,.85)'; x.fillRect(W - 220 + c*22, 40 + r*22 + Math.sin(c/2)*6, 22, 22); }
+      const gr = x.createLinearGradient(0, 0, W*.6, 0); gr.addColorStop(0, 'rgba(10,10,12,.85)'); gr.addColorStop(1, 'rgba(10,10,12,0)'); x.fillStyle = gr; x.fillRect(0, 0, W, H - 50);
+    } else if (kind === 'nba') {
+      for (let i = 0; i < 14; i++) { const t = .55 + R()*.15; x.fillStyle = `rgb(${200*t+20|0},${120*t+10|0},${60*t|0})`; x.fillRect(0, i*30, W, 30); x.fillStyle = 'rgba(0,0,0,.12)'; x.fillRect(0, i*30, W, 1); for (let k = 0; k < 4; k++) x.fillRect(R()*W, i*30, 1, 30); }
+      x.strokeStyle = 'rgba(255,255,255,.85)'; x.lineWidth = 5;
+      const bx = W*.86, by = H*.5;
+      x.beginPath(); x.arc(bx, by, 250, Math.PI*.5, Math.PI*1.5); x.stroke();
+      x.strokeRect(bx - 190, by - 75, 220, 150);
+      x.beginPath(); x.arc(bx - 190, by, 75, Math.PI*.5, Math.PI*1.5); x.stroke();
+      x.fillStyle = 'rgba(160,40,30,.55)'; x.fillRect(bx - 188, by - 73, 216, 146);
+      x.fillStyle = '#e8762b'; x.beginPath(); x.arc(W*.6, H*.3, 44, 0, Math.PI*2); x.fill();
+      x.strokeStyle = '#3a1a08'; x.lineWidth = 3; x.beginPath(); x.arc(W*.6, H*.3, 44, 0, Math.PI*2); x.moveTo(W*.6 - 44, H*.3); x.lineTo(W*.6 + 44, H*.3); x.moveTo(W*.6, H*.3 - 44); x.lineTo(W*.6, H*.3 + 44); x.stroke();
+      const gr = x.createLinearGradient(0, 0, W*.65, 0); gr.addColorStop(0, 'rgba(25,12,6,.88)'); gr.addColorStop(1, 'rgba(25,12,6,0)'); x.fillStyle = gr; x.fillRect(0, 0, W, H);
+    } else if (kind === 'lol') {
+      let gr = x.createLinearGradient(0, 0, W, H); gr.addColorStop(0, '#0a1a24'); gr.addColorStop(1, '#06222a'); x.fillStyle = gr; x.fillRect(0, 0, W, H);
+      x.strokeStyle = 'rgba(80,190,220,.18)'; x.lineWidth = 1;
+      for (let r = 0; r < 12; r++) for (let c = 0; c < 22; c++) { const hx = c*48 + (r%2)*24, hy = r*42; x.beginPath(); for (let k = 0; k < 6; k++) { const a = Math.PI/3*k + Math.PI/6; x.lineTo(hx + 26*Math.cos(a), hy + 26*Math.sin(a)); } x.closePath(); x.stroke(); }
+      x.strokeStyle = 'rgba(60,170,255,.55)'; x.lineWidth = 34; x.beginPath(); x.moveTo(W*.42, H + 20); x.bezierCurveTo(W*.62, H*.6, W*.78, H*.45, W + 20, -20); x.stroke();
+      x.strokeStyle = 'rgba(200,170,90,.7)'; x.lineWidth = 6;
+      x.beginPath(); x.moveTo(W*.45, H - 20); x.lineTo(W*.45, 30); x.lineTo(W - 30, 30); x.stroke();
+      x.beginPath(); x.moveTo(W*.45, H - 20); x.lineTo(W - 30, H - 20); x.lineTo(W - 30, 30); x.stroke();
+      x.beginPath(); x.moveTo(W*.45, H - 20); x.lineTo(W - 30, 30); x.stroke();
+      [[W*.45, H - 20, '#46c3ff'], [W - 30, 30, '#ff5a5a']].forEach(([px, py, c]) => { x.fillStyle = c; x.shadowColor = c; x.shadowBlur = 30; x.beginPath(); x.arc(px, py, 18, 0, Math.PI*2); x.fill(); x.shadowBlur = 0; });
+      gr = x.createLinearGradient(0, 0, W*.6, 0); gr.addColorStop(0, 'rgba(4,14,20,.9)'); gr.addColorStop(1, 'rgba(4,14,20,0)'); x.fillStyle = gr; x.fillRect(0, 0, W, H);
+    } else if (kind === 'yike') {
+      let gr = x.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#1b3f37'); gr.addColorStop(1, '#0f2621'); x.fillStyle = gr; x.fillRect(0, 0, W, H);
+      // 药柜格子
+      x.strokeStyle = 'rgba(201,162,74,.25)'; x.lineWidth = 2;
+      for (let r = 0; r < 5; r++) for (let c = 0; c < 6; c++) { const dx = W*.5 + c*76, dy = 16 + r*80; x.strokeRect(dx, dy, 68, 70); x.fillStyle = 'rgba(201,162,74,.5)'; x.beginPath(); x.arc(dx + 34, dy + 40, 4, 0, Math.PI*2); x.fill(); }
+      // 戥秤
+      const sx = W*.72, sy = H*.38;
+      x.strokeStyle = '#efd58e'; x.lineWidth = 5; x.beginPath(); x.moveTo(sx - 170, sy); x.lineTo(sx + 170, sy); x.stroke();
+      x.lineWidth = 3; x.beginPath(); x.moveTo(sx, sy); x.lineTo(sx, sy - 40); x.stroke();
+      [-150, 150].forEach(o => { x.beginPath(); x.moveTo(sx + o, sy); x.lineTo(sx + o - 46, sy + 110); x.moveTo(sx + o, sy); x.lineTo(sx + o + 46, sy + 110); x.stroke(); x.fillStyle = '#c9a24a'; x.beginPath(); x.ellipse(sx + o, sy + 112, 60, 14, 0, 0, Math.PI*2); x.fill(); });
+      x.fillStyle = '#efd58e'; x.fillRect(sx - 172, sy + 72, 40, 34);
+      [[sx + 128, sy + 88, '#e7dcc4'], [sx + 162, sy + 90, '#d8c9a5']].forEach(([px, py, c]) => { x.fillStyle = c; x.save(); x.translate(px, py); x.rotate(.1); x.fillRect(-18, -14, 36, 26); x.strokeStyle = '#8b3a2a'; x.lineWidth = 2; x.beginPath(); x.moveTo(-18, 0); x.lineTo(18, 0); x.stroke(); x.restore(); });
+      gr = x.createLinearGradient(0, 0, W*.6, 0); gr.addColorStop(0, 'rgba(10,30,26,.92)'); gr.addColorStop(1, 'rgba(10,30,26,0)'); x.fillStyle = gr; x.fillRect(0, 0, W, H);
+    } else {
+      const hue = Math.floor(R()*360);
+      let gr = x.createLinearGradient(0, 0, W, H); gr.addColorStop(0, `hsl(${hue},45%,24%)`); gr.addColorStop(1, `hsl(${(hue+50)%360},50%,10%)`); x.fillStyle = gr; x.fillRect(0, 0, W, H);
+      for (let r = 0; r < 9; r++) for (let c = 0; c < 18; c++) { const v = R(); if (v < .5) continue; x.fillStyle = `hsla(${hue+30},70%,${50+v*30}%,${(v-.5)*.6})`; x.fillRect(W*.45 + c*28, 20 + r*44, 22, 36); }
+      gr = x.createLinearGradient(0, 0, W*.6, 0); gr.addColorStop(0, 'rgba(0,0,0,.6)'); gr.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = gr; x.fillRect(0, 0, W, H);
+    }
+    url = cv.toDataURL('image/jpeg', .86);
+  } catch (e) { url = ''; }
+  coverCache.set(key, url);
+  return url;
+}
+function cover(g, opts = {}){
+  const kind = ['douluo','hougong','f1','nba','lol','yike'].includes(g.id) ? g.id : 'auto';
+  const url = coverURL(g);
+  return `<div class="cv" data-c="${kind}">${url ? `<img src="${url}" alt="">` : ''}${opts.noTitle ? '' : `<div class="cv-t">${esc(g.title)}${opts.sub && g.sub ? `<span class="cv-s">${esc(g.sub)}</span>` : ''}</div>`}</div>`;
+}
+
+/* ───────── 小工具 ───────── */
+function toast(msg, kind = ''){
+  const t = document.createElement('div'); t.className = 'toast ' + kind; t.innerHTML = msg;
+  $('#toasts').appendChild(t); setTimeout(() => t.remove(), kind === 'ach' ? 5200 : 3600);
+}
+const ui = { q:'', genre:'全部', hero:0, lib:null, menu:false, returnTo:null,
+  login:{ step:'email', email:'', err:'', pending:null, name:'' } };
+
+/* ───────── 路由 ───────── */
+function go(h){ if (location.hash.slice(1) === h) route(); else location.hash = h; }
+window.addEventListener('hashchange', route);
+function route(){
+  const h = location.hash.slice(1) || 'store';
+  ui.menu = false;
+  if (!h.startsWith('play-')) closePlayer();
+  document.querySelectorAll('[data-nav]').forEach(a => a.toggleAttribute('aria-current', false));
+  const nav = h.startsWith('library') ? 'library' : h === 'backup' ? 'backup' : (h === 'store' || h.startsWith('game-')) ? 'store' : '';
+  if (nav) $(`[data-nav="${nav}"]`).setAttribute('aria-current', 'page');
+  renderAcct();
+  if (h === 'login') { location.replace('#store'); return; }
+  if (h.startsWith('play-')) { openPlayer(h.slice(5)); return; }
+  if (h.startsWith('game-')) renderGame(h.slice(5));
+  else if (h === 'library') renderLibrary();
+  else if (h === 'backup') renderBackup();
+  else renderStore();
+  window.scrollTo(0, 0);
+}
+
+/* ───────── 顶栏账号 ───────── */
+function renderAcct(){
+  const u = me(), el = $('#acct');
+  el.innerHTML = `<button class="avatar" type="button" data-act="menu" aria-haspopup="true" aria-expanded="${ui.menu}" aria-label="账号菜单">${esc((u.nickname || u.email)[0].toUpperCase())}</button>
+    ${ui.menu ? `<div class="menu" role="menu"><div class="who"><b>${esc(u.nickname)}</b><span>存档自动保存在这台设备</span></div>
+      <a href="#library" role="menuitem">我的游戏库</a></div>` : ''}`;
+}
+
+/* ───────── 商店 ───────── */
+function renderStore(){
+  const games = allGames(), u = me();
+  const featured = games;
+  ui.hero = Math.min(ui.hero, featured.length - 1);
+  const f = featured[ui.hero];
+  const genreCount = {}; games.forEach(g => genreCount[g.genre] = (genreCount[g.genre] || 0) + 1);
+  const q = ui.q.trim().toLowerCase();
+  const shown = games.filter(g => (ui.genre === '全部' || g.genre === ui.genre) && (!q || (g.title + g.genre + g.tags.join('') + g.tagline).toLowerCase().includes(q)));
+  const recent = u ? games.filter(g => peek(g.id)?.last).sort((a, b) => peek(b.id).last - peek(a.id).last).slice(0, 3) : [];
+  $('#view').innerHTML = `<div class="page">
+    ${q ? '' : `<section aria-label="精选">
+      <div class="sec-h"><h2>精选与推荐</h2><span class="aside">${featured.length} 款游戏</span></div>
+      <div class="hero">
+        <a class="hero-art" href="#game-${f.id}">${cover(f, { sub:true })}</a>
+        <div class="hero-info">
+          <h3>${esc(f.title)}</h3>
+          <div>${statusPill(f)}</div>
+          <p>${esc(f.tagline)}</p>
+          <div class="tags">${f.tags.map(t => `<button class="tag" type="button" data-genre="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+          <div class="grow"></div>
+          <div class="acts"><a class="btn btn-primary" href="#play-${f.id}">开始游戏</a><a class="btn" href="#game-${f.id}">查看详情</a></div>
+        </div>
+      </div>
+      <div class="hero-nav">${featured.map((g, i) => `<button type="button" data-hero="${i}" aria-pressed="${i === ui.hero}" aria-label="${esc(g.title)}"></button>`).join('')}</div>
+    </section>`}
+    ${recent.length && !q ? `<section><div class="sec-h"><h2>继续游玩</h2></div><div class="cont">${recent.map(g => `
+      <a href="#play-${g.id}">${cover(g, { noTitle:true })}<div><b>${esc(g.title)}</b><span>${fmtPlay(peek(g.id).seconds)} · ${fmtWhen(peek(g.id).last)}${peek(g.id).status ? ' · ' + esc(peek(g.id).status) : ''}</span></div></a>`).join('')}</div></section>` : ''}
+    <section>
+      <div class="sec-h"><h2>${q ? `搜索「${esc(ui.q.trim())}」` : '全部游戏'}</h2><span class="aside">${shown.length} 款</span></div>
+      <div class="chips" style="margin-bottom:18px">${['全部', ...Object.keys(genreCount)].map(gn => `<button class="chip" type="button" data-genre="${esc(gn)}" aria-pressed="${ui.genre === gn}">${esc(gn)}<span class="n">${gn === '全部' ? games.length : genreCount[gn]}</span></button>`).join('')}</div>
+      ${shown.length ? `<div class="grid">${shown.map(capsule).join('')}</div>` :
+        `<div class="empty">没有找到匹配的游戏。<button class="btn" type="button" data-act="clear-filter">清除筛选</button></div>`}
+    </section>
+    <section class="band">
+      <div><h3>进度只存在这台设备上</h3><p>不用注册，存档自动保存在这个浏览器里。换手机、换浏览器或清理缓存前，先复制一份存档码，到新设备上粘贴回来就能接着玩。</p></div>
+      <a class="btn" href="#backup">备份 / 恢复进度</a>
+    </section>
+  </div>`;
+}
+function capsule(g){
+  const s = peek(g.id);
+  return `<a class="cap" href="#game-${g.id}">${cover(g)}
+    <div class="cap-row"><b>${esc(g.title)}</b>${statusPill(g)}</div>
+    <p>${esc(g.tagline)}</p>
+    <span class="meta">${esc(g.genre)}${s?.seconds ? ' · 已玩 ' + fmtPlay(s.seconds) : ''}</span></a>`;
+}
+
+/* ───────── 游戏详情 ───────── */
+function renderGame(id){
+  const g = findGame(id);
+  if (!g) { $('#view').innerHTML = `<div class="page"><div class="empty">找不到这款游戏，它可能已从这台设备移除。<a class="btn" href="#store">回到商店</a></div></div>`; return; }
+  const u = me(), s = peek(g.id), wished = u && (meta.wish[u.email] || []).includes(g.id);
+  const achs = achList(g), got = s ? Object.keys(s.ach || {}) : [];
+  $('#view').innerHTML = `<div class="page" style="gap:22px">
+    <div class="crumbs"><a href="#store">商店</a><span>›</span><a href="#store" data-genre="${esc(g.genre)}">${esc(g.genre)}</a><span>›</span><span>${esc(g.title)}</span></div>
+    <div class="d-head"><h1>${esc(g.title)}</h1>${g.sub ? `<div class="sub">${esc(g.sub)}</div>` : ''}</div>
+    <div class="d-top">
+      <div>${cover(g, { sub:true })}</div>
+      <aside class="d-side">
+        <p class="tagline">${esc(g.tagline)}</p>
+        <dl class="facts">
+          <dt>类型</dt><dd>${esc(g.genre)}</dd>
+          <dt>一局</dt><dd>${esc(g.session)}</dd>
+          <dt>存档</dt><dd>${esc(g.saves)}</dd>
+          <dt>大小</dt><dd class="num">${fmtSize(g.size || 0)}${g.version ? ' · ' + esc(g.version) : ''}</dd>
+        </dl>
+        <div class="tags">${g.tags.map(t => `<button class="tag" type="button" data-genre="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+        <div>${statusPill(g)}</div>
+      </aside>
+    </div>
+    <div class="d-body">
+      <div class="d-main">
+        <section class="box" style="grid-template-columns:minmax(0,1fr) auto;align-items:center;padding:18px 20px">
+          <div><h3 style="font-size:17px">开始玩《${esc(g.title)}》</h3><p>${s?.seconds ? `你已玩 ${fmtPlay(s.seconds)}，上次 ${fmtWhen(s.last)}。存档会接着上次。` : '点开就能玩，存档自动保存。'}</p></div>
+          <a class="btn btn-primary btn-lg" href="#play-${g.id}">${s?.seconds ? '继续游戏' : '开始游戏'}</a>
+        </section>
+        <section><h2>关于这款游戏</h2><div class="prose">${g.about.map(p => `<p>${esc(p)}</p>`).join('')}</div></section>
+        ${g.loop ? `<section><h2>一局怎么玩</h2><ol class="steps">${g.loop.map(l => `<li><span>${esc(l)}</span></li>`).join('')}</ol></section>` : ''}
+        ${g.identities ? `<section><h2>十个出身</h2><div class="tbl"><table><thead><tr><th>身份</th><th>默认名</th><th>武魂</th><th>改命高光</th></tr></thead><tbody>
+          ${g.identities.map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join('')}</tbody></table></div></section>` : ''}
+        ${g.perks ? `<section><h2>金手指 · 开局三选一</h2><div class="perks">${g.perks.map(p => `<div class="perk"><b>${esc(p[0])}</b><span>${esc(p[1])}</span></div>`).join('')}</div></section>` : ''}
+      </div>
+      <div class="d-aside">
+        ${u ? `<div class="box"><h3>你的记录</h3>
+          <div class="statline"><span>游玩时间</span><b>${fmtPlay(s?.seconds || 0)}</b></div>
+          <div class="statline"><span>上次游玩</span><b style="font-family:var(--body);font-size:13px">${fmtWhen(s?.last)}</b></div>
+          ${s?.status ? `<div class="statline"><span>进度</span><b style="font-family:var(--body);font-size:13px">${esc(s.status)}</b></div>` : ''}
+          <button class="btn" type="button" data-act="wish" data-id="${g.id}">${wished ? '✓ 已在愿望单' : '加入愿望单'}</button></div>` : ''}
+        <div class="box"><h3>成就</h3>
+          ${achs.length ? `<div class="statline"><span>已解锁</span><b>${got.filter(k => achs.some(a => a.key === k)).length} / ${achs.length}</b></div>
+            <div class="bar"><i style="width:${Math.round(got.filter(k => achs.some(a => a.key === k)).length / achs.length * 100)}%"></i></div>
+            ${achs.map(a => `<div class="statline"><span style="color:${got.includes(a.key) ? 'var(--gold)' : 'var(--muted)'}">${got.includes(a.key) ? '★' : '☆'} ${esc(a.name)}</span></div>`).join('')}`
+          : `<p>这款游戏还没接入平台成就。游戏调用 <code>Platform.unlock()</code> 后，成就会出现在这里。</p>`}
+        </div>
+        ${(g.notes || []).length ? `<div class="note"><b style="display:block;margin-bottom:4px">上线前</b>${g.notes.map(esc).join('<br>')}</div>` : ''}
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ───────── 游戏库 ───────── */
+function renderLibrary(){
+  const u = me();
+  const wish = meta.wish[u.email] || [];
+  const games = allGames().filter(g => peek(g.id)?.last || wish.includes(g.id))
+    .sort((a, b) => (peek(b.id)?.last || 0) - (peek(a.id)?.last || 0));
+  if (!games.length) { $('#view').innerHTML = `<div class="page"><div class="empty"><b style="color:var(--fg);font-size:17px">游戏库还是空的</b>玩过或加入愿望单的游戏会出现在这里。<a class="btn btn-primary" href="#store">去商店挑一款</a></div></div>`; return; }
+  if (!games.some(g => g.id === ui.lib)) ui.lib = games[0].id;
+  const g = games.find(x => x.id === ui.lib), s = peek(g.id) || {}, achs = achList(g), got = Object.keys(s.ach || {}).filter(k => achs.some(a => a.key === k));
+  const total = games.reduce((n, x) => n + (peek(x.id)?.seconds || 0), 0);
+  $('#view').innerHTML = `<div class="page" style="gap:20px">
+    <div class="sec-h" style="margin:0"><h2 style="font:900 26px/1.2 var(--display)">我的游戏库</h2><span class="aside">${games.length} 款${total >= 60 ? ' · 共 ' + fmtPlay(total) : ''}</span></div>
+    <div class="lib">
+      <div class="lib-list" role="list">${games.map(x => `<button type="button" role="listitem" data-lib="${x.id}" aria-pressed="${x.id === g.id}">${cover(x, { noTitle:true })}<div style="min-width:0"><b>${esc(x.title)}</b><span>${peek(x.id)?.seconds ? fmtPlay(peek(x.id).seconds) : wish.includes(x.id) ? '愿望单' : '还没玩过'}</span></div></button>`).join('')}</div>
+      <div class="lib-main">
+        <div class="lib-hero">${cover(g, { sub:true })}</div>
+        <div class="lib-bar">
+          <a class="btn btn-primary btn-lg" href="#play-${g.id}">${s.seconds ? '继续游戏' : '开始游戏'}</a>
+          <div class="kv"><span>游玩时间</span><b>${fmtPlay(s.seconds || 0)}</b></div>
+          <div class="kv"><span>上次游玩</span><b style="font-family:var(--body);font-size:15px;font-weight:500">${fmtWhen(s.last)}</b></div>
+          ${achs.length ? `<div class="kv"><span>成就</span><b>${got.length} / ${achs.length}</b></div>` : ''}
+          ${s.status ? `<div class="kv"><span>进度</span><b style="font-family:var(--body);font-size:15px;font-weight:500">${esc(s.status)}</b></div>` : ''}
+          <a class="btn btn-quiet" href="#game-${g.id}" style="margin-left:auto">商店页面</a>
+        </div>
+        <div class="box"><h3>关于存档</h3><p>《${esc(g.title)}》的存档自动保存在这台设备的浏览器里，下次打开接着玩。换浏览器或清除网站数据后进度会丢失，<a href="#backup" style="color:var(--blue)">先复制一份存档码</a>，到新设备上粘贴就能恢复。</p></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ───────── 本机玩家（demo 不需要注册） ───────── */
+function ensurePlayer(){
+  if (meta.session && meta.users[meta.session.email]) return;
+  meta.users.local ??= { nickname:'玩家', created:now() };
+  meta.session = { email:'local', at:now() }; persist();
+}
+ensurePlayer();
+
+/* ───────── 备份 / 恢复进度：存档码是 'CJ1' + base64(gzip(JSON))；浏览器不支持压缩时退回 'CJ0' + base64(JSON) ───────── */
+async function packSaves(){
+  const u = me(), saves = {}, stats = {};
+  for (const g of allGames()) {
+    const ls = await IDB.get('kv', u.email + '|' + g.id), s = peek(g.id);
+    if ((ls && Object.keys(ls).length) || s?.seconds) { saves[g.id] = ls || {}; if (s) stats[g.id] = s; }
+  }
+  return { v:1, at:now(), saves, stats, wish:meta.wish[u.email] || [], achDefs:meta.achDefs };
+}
+const gzip = (bytes, Stream) => new Response(new Blob([bytes]).stream().pipeThrough(new Stream('gzip'))).arrayBuffer().then(b => new Uint8Array(b));
+async function encodeSaves(d){
+  let bytes = new TextEncoder().encode(JSON.stringify(d)), tag = 'CJ0';
+  if (window.CompressionStream) { bytes = await gzip(bytes, CompressionStream); tag = 'CJ1'; }
+  let bin = ''; for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  return tag + btoa(bin);
+}
+async function decodeSaves(code){
+  code = code.replace(/\s+/g, '');
+  const tag = code.slice(0, 3);
+  if (tag === 'CJ1' && !window.DecompressionStream) throw new Error('old');
+  if (tag !== 'CJ0' && tag !== 'CJ1') throw new Error('bad');
+  let bytes = Uint8Array.from(atob(code.slice(3)), c => c.charCodeAt(0));
+  if (tag === 'CJ1') bytes = await gzip(bytes, DecompressionStream);
+  const d = JSON.parse(new TextDecoder().decode(bytes));
+  if (!d || d.v !== 1 || !d.saves || typeof d.saves !== 'object') throw new Error('bad');
+  return d;
+}
+async function applySaves(d){
+  const u = me(), ids = Object.keys(d.saves).filter(id => findGame(id));
+  meta.stats[u.email] ??= {};
+  for (const id of ids) {
+    await IDB.put('kv', d.saves[id], u.email + '|' + id);
+    meta.stats[u.email][id] = d.stats?.[id] || { seconds:0, last:d.at, ach:{}, status:'' };
+    if (d.achDefs?.[id]) meta.achDefs[id] = d.achDefs[id];
+  }
+  meta.wish[u.email] = [...new Set([...(meta.wish[u.email] || []), ...(d.wish || []).filter(id => findGame(id))])];
+  persist();
+  return ids.length;
+}
+const titles = ids => ids.map(id => '《' + esc(findGame(id).title) + '》').join('');
+async function renderBackup(){
+  const d = await packSaves(), have = Object.keys(d.saves);
+  const code = have.length ? await encodeSaves(d) : '';
+  if (location.hash.slice(1) !== 'backup') return;
+  $('#view').innerHTML = `<div class="page" style="gap:22px;max-width:760px;margin:0 auto">
+    <div class="d-head"><h1>备份 / 恢复进度</h1><div class="sub">不用注册账号，进度保存在这台设备的浏览器里。换手机、换浏览器或清理缓存都会丢失进度，提前复制一份存档码存好。</div></div>
+    <section class="box" style="gap:14px">
+      <h3>备份这台设备的进度</h3>
+      ${have.length ? `<ul class="bk-list">${have.map(id => `<li>${esc(findGame(id).title)}<span>${fmtPlay(d.stats[id]?.seconds || 0)}${d.stats[id]?.status ? ' · ' + esc(d.stats[id].status) : ''}</span></li>`).join('')}</ul>
+        <label class="sr" for="bkOut">存档码</label>
+        <textarea id="bkOut" class="bk-code" rows="3" readonly>${code}</textarea>
+        <div class="acts"><button class="btn btn-primary" type="button" data-act="bk-copy">复制存档码</button><button class="btn" type="button" data-act="bk-file">下载存档文件</button></div>
+        <p class="fine">存档码共 ${code.length.toLocaleString('zh-CN')} 个字符，只包含游戏进度。可以发到微信「文件传输助手」，或存进备忘录。</p>`
+      : `<p>这台设备上还没有游戏进度。玩过之后，再回来复制存档码。</p><div class="acts"><a class="btn" href="#store">去商店挑一款</a></div>`}
+    </section>
+    <form class="box" id="bkIn" style="gap:12px" novalidate>
+      <h3>在这台设备上恢复进度</h3>
+      <p>粘贴在另一台设备上复制的存档码，或者选择下载的存档文件（.txt）。</p>
+      <label class="sr" for="bkCode">存档码</label>
+      <textarea id="bkCode" class="bk-code" rows="3" placeholder="粘贴存档码，以 CJ 开头" aria-describedby="bkErr" spellcheck="false" autocomplete="off"></textarea>
+      <p class="err" id="bkErr" role="alert"></p>
+      <div class="acts">
+        <button class="btn btn-primary" type="submit" id="bkGo">恢复进度</button>
+        <label class="btn" id="bkPick">选择存档文件<input id="bkFile" type="file" accept=".txt,text/plain" class="sr"></label>
+        <button class="btn btn-quiet" type="button" id="bkCancel" hidden>取消</button>
+      </div>
+      <div class="note" id="bkAsk" tabindex="-1" hidden></div>
+    </form>
+  </div>`;
+  let pending = null;
+  const form = $('#bkIn'), input = $('#bkCode'), err = $('#bkErr'), ask = $('#bkAsk');
+  const reset = () => { pending = null; ask.hidden = true; $('#bkCancel').hidden = true; $('#bkPick').hidden = false; $('#bkGo').textContent = '恢复进度'; };
+  const fail = msg => { reset(); err.textContent = msg; input.setAttribute('aria-invalid', 'true'); input.focus(); };
+  input.addEventListener('input', () => { err.textContent = ''; input.removeAttribute('aria-invalid'); if (pending) reset(); });
+  $('#bkCancel').addEventListener('click', () => { reset(); input.focus(); });
+  $('#bkFile').addEventListener('change', e => {
+    const f = e.target.files[0]; e.target.value = '';
+    if (f) f.text().then(t => { input.value = t.trim(); err.textContent = ''; form.requestSubmit(); }, () => fail('读不了这个文件。请重新选择下载的存档文件，或者直接粘贴存档码。'));
+  });
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (pending) {
+      const n = await applySaves(pending);
+      toast(`已恢复 ${n} 款游戏的进度`); go('library'); return;
+    }
+    if (!input.value.trim()) return fail('先粘贴存档码，或者点「选择存档文件」。');
+    let got;
+    try { got = await decodeSaves(input.value); }
+    catch (x) { return fail(x.message === 'old' ? '这个浏览器版本太旧，读不了这份存档码。换系统自带的浏览器，或者升级系统后再试。' : '这段存档码读不出来，可能复制时漏了开头或结尾。回到原设备点「复制存档码」，整段重新复制一次。'); }
+    const ids = Object.keys(got.saves).filter(id => findGame(id));
+    if (!ids.length) return fail('这份存档码里没有本平台游戏的进度。');
+    const over = ids.filter(id => have.includes(id));
+    pending = got;
+    ask.innerHTML = `这份存档码导出于 ${esc(new Date(got.at).toLocaleString('zh-CN', { month:'long', day:'numeric', hour:'2-digit', minute:'2-digit' }))}，包含${titles(ids)}的进度。`
+      + (over.length ? `恢复后，这台设备上${titles(over)}现在的进度会被替换，替换后找不回来。` : '');
+    ask.hidden = false; $('#bkPick').hidden = true; $('#bkCancel').hidden = false; $('#bkGo').textContent = '确认恢复';
+    $('#bkGo').focus();
+  });
+}
+
+/* ───────── 运行游戏 ───────── */
+let P = null;
+const EMBED = window.__CJ_GAMES__ || null;   // 单文件版：游戏以 base64 打包在页面里
+async function getHtml(g){
+  if (EMBED && EMBED[g.id]) { try { return new TextDecoder().decode(Uint8Array.from(atob(EMBED[g.id]), c => c.charCodeAt(0))); } catch (e) {} }
+  if (g.src) { try { const r = await fetch(g.src); if (r.ok) return await r.text(); } catch (e) {} }
+  return null;
+}
+function inject(html, init){
+  const json = JSON.stringify(init).replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
+  const boot = '<script>(function(){var I=' + json + ';' + BOOT + '})();<\/script>';
+  const head = html.match(/<head[^>]*>/i);
+  if (head) return html.slice(0, head.index + head[0].length) + boot + html.slice(head.index + head[0].length);
+  const dt = html.match(/<!doctype[^>]*>/i);
+  if (dt) return html.slice(0, dt.index + dt[0].length) + boot + html.slice(dt.index + dt[0].length);
+  return boot + html;
+}
+// 注入到游戏里的引导脚本：接管 localStorage、提供 Platform SDK
+const BOOT = `
+var post=function(m){m.__cj=1;try{parent.postMessage(m,'*')}catch(e){}};
+var data=I.storage||{},has=function(k){return Object.prototype.hasOwnProperty.call(data,k)};
+var ls={getItem:function(k){k=String(k);return has(k)?data[k]:null},
+setItem:function(k,v){k=String(k);v=String(v);data[k]=v;post({type:'ls-set',k:k,v:v})},
+removeItem:function(k){k=String(k);if(has(k)){delete data[k];post({type:'ls-del',k:k})}},
+clear:function(){for(var k in data)delete data[k];post({type:'ls-clear'})},
+key:function(i){var ks=Object.keys(data);return i<ks.length?ks[i]:null}};
+Object.defineProperty(ls,'length',{get:function(){return Object.keys(data).length}});
+var lsp=typeof Proxy==='function'?new Proxy(ls,{get:function(t,p){if(p in t)return t[p];if(typeof p==='string'&&has(p))return data[p];return undefined},set:function(t,p,v){t.setItem(p,v);return true},deleteProperty:function(t,p){t.removeItem(p);return true}}):ls;
+var sd={},ss={getItem:function(k){return Object.prototype.hasOwnProperty.call(sd,k)?sd[k]:null},setItem:function(k,v){sd[String(k)]=String(v)},removeItem:function(k){delete sd[k]},clear:function(){sd={}},key:function(i){return Object.keys(sd)[i]||null}};
+try{Object.defineProperty(window,'localStorage',{configurable:true,get:function(){return lsp}})}catch(e){}
+try{Object.defineProperty(window,'sessionStorage',{configurable:true,get:function(){return ss}})}catch(e){}
+var done={};
+window.Platform=Object.freeze({version:'1.0',game:I.game,user:I.user,
+unlock:function(k){k=String(k);if(done[k])return;done[k]=1;post({type:'unlock',key:k})},
+defineAchievements:function(list){try{post({type:'defs',list:JSON.parse(JSON.stringify(list||[]))})}catch(e){}},
+setStatus:function(t){post({type:'status',text:String(t).slice(0,60)})},
+exit:function(){post({type:'exit'})}});
+`;
+async function openPlayer(id){
+  const g = findGame(id);
+  if (!g) { go('store'); return; }
+  const u = me();
+  if (P && P.gid === id) return;
+  closePlayer();
+  const st = stat(id); st.last = now(); persist();
+  navigator.storage?.persist?.();
+  const key = u.email + '|' + id;
+  P = { gid:id, key, ls:{}, secs:0, timer:null, saveT:null, frame:null };
+  $('#pTitle').textContent = g.title; $('#pStatus').textContent = st.status || ''; $('#pTime').textContent = '本次 0 分钟';
+  $('#pSaved').textContent = '读取存档…'; $('#pSaved').className = 'saved';
+  $('#pStage').innerHTML = '<div class="loading">正在载入游戏…</div>';
+  $('#player').hidden = false; document.body.style.overflow = 'hidden';
+  const [html, ls] = await Promise.all([getHtml(g), IDB.get('kv', key)]);
+  if (!P || P.gid !== id) return;
+  if (!html) { closePlayer(); toast('游戏文件读取失败，请稍后再试，或重新上架这款游戏。', 'bad'); go('game-' + id); return; }
+  P.ls = ls || {};
+  const fr = document.createElement('iframe');
+  fr.setAttribute('sandbox', 'allow-scripts allow-forms allow-pointer-lock');
+  fr.setAttribute('title', g.title);
+  fr.setAttribute('allow', 'fullscreen; autoplay');
+  fr.srcdoc = inject(html, { game:{ id, title:g.title }, user:{ id:hashId(u.email), nickname:u.nickname }, storage:P.ls });
+  P.frame = fr;
+  $('#pStage').innerHTML = ''; $('#pStage').appendChild(fr);
+  $('#pSaved').textContent = Object.keys(P.ls).length ? '已读取存档' : '新存档';
+  P.timer = setInterval(() => {
+    if (document.hidden || !P) return;
+    P.secs += 5; const s = stat(P.gid); s.seconds = (s.seconds || 0) + 5; s.last = now();
+    if (P.secs % 30 === 0) persist();
+    $('#pTime').textContent = '本次 ' + Math.floor(P.secs / 60) + ' 分钟';
+  }, 5000);
+}
+function saveLs(){
+  if (!P) return;
+  clearTimeout(P.saveT); P.saveT = null;
+  IDB.put('kv', P.ls, P.key);
+  const t = new Date(); $('#pSaved').textContent = `已存档 ${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}`; $('#pSaved').className = 'saved on';
+}
+function dirty(){ if (P && !P.saveT) P.saveT = setTimeout(saveLs, 700); }
+function closePlayer(){
+  if (!P) { $('#player').hidden = true; document.body.style.overflow = ''; return; }
+  if (P.saveT) saveLs();
+  clearInterval(P.timer); persist();
+  if (P.frame) P.frame.srcdoc = '';
+  P = null;
+  $('#pStage').innerHTML = ''; $('#player').hidden = true; document.body.style.overflow = '';
+  try { if (document.fullscreenElement) document.exitFullscreen(); } catch (e) {}
+}
+window.addEventListener('message', e => {
+  if (!P || !P.frame || e.source !== P.frame.contentWindow) return;
+  const m = e.data; if (!m || m.__cj !== 1) return;
+  if (m.type === 'ls-set') { P.ls[m.k] = String(m.v); dirty(); }
+  else if (m.type === 'ls-del') { delete P.ls[m.k]; dirty(); }
+  else if (m.type === 'ls-clear') { P.ls = {}; dirty(); }
+  else if (m.type === 'status') { const s = stat(P.gid); s.status = String(m.text).slice(0, 60); $('#pStatus').textContent = s.status; persist(); }
+  else if (m.type === 'defs' && Array.isArray(m.list)) {
+    meta.achDefs[P.gid] = m.list.slice(0, 200).filter(a => a && a.key).map(a => ({ key:String(a.key).slice(0, 60), name:String(a.name || a.key).slice(0, 40) })); persist();
+  }
+  else if (m.type === 'unlock') {
+    const s = stat(P.gid), k = String(m.key).slice(0, 60);
+    if (s.ach[k]) return;
+    s.ach[k] = now(); persist();
+    const g = findGame(P.gid), a = achList(g).find(x => x.key === k);
+    toast(`<small>解锁成就 · ${esc(g.title)}</small>${esc(a ? a.name : k)}`, 'ach');
+  }
+  else if (m.type === 'exit') go('game-' + P.gid);
+});
+window.addEventListener('pagehide', () => { if (P) { saveLs(); persist(); } });
+$('#pExit').addEventListener('click', () => { const id = P?.gid; go(id ? 'game-' + id : 'store'); });
+$('#pFull').addEventListener('click', () => {
+  const el = $('#player');
+  try { (el.requestFullscreen ? el.requestFullscreen() : Promise.reject()).catch(() => toast('这个窗口不支持全屏。')); } catch (e) { toast('这个窗口不支持全屏。'); }
+});
+
+/* ───────── 交互 ───────── */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-act],[data-genre],[data-hero],[data-lib],[data-login]');
+  if (!t) { if (ui.menu && !e.target.closest('.acct')) { ui.menu = false; renderAcct(); } return; }
+  if (t.hasAttribute('data-login')) { const h = location.hash.slice(1); if (h && h !== 'login') ui.returnTo = ui.returnTo || h; return; }
+  if (t.dataset.genre !== undefined) {
+    e.preventDefault(); ui.genre = t.dataset.genre; ui.q = ''; $('#q').value = '';
+    const known = allGames().some(g => g.genre === ui.genre);
+    if (!known && ui.genre !== '全部') { ui.genre = '全部'; ui.q = t.dataset.genre; $('#q').value = ui.q; }
+    if ((location.hash.slice(1) || 'store') === 'store') renderStore(); else go('store');
+    return;
+  }
+  if (t.dataset.hero !== undefined) { ui.hero = +t.dataset.hero; renderStore(); return; }
+  if (t.dataset.lib !== undefined) { ui.lib = t.dataset.lib; renderLibrary(); return; }
+  const a = t.dataset.act;
+  if (a === 'menu') { ui.menu = !ui.menu; renderAcct(); }
+  else if (a === 'clear-filter') { ui.genre = '全部'; ui.q = ''; $('#q').value = ''; renderStore(); }
+  else if (a === 'wish') {
+    const u = me(); if (!u) return; const list = meta.wish[u.email] ??= []; const id = t.dataset.id;
+    const i = list.indexOf(id); if (i >= 0) list.splice(i, 1); else list.push(id); persist();
+    toast(i >= 0 ? '已移出愿望单' : '已加入愿望单'); renderGame(id);
+  }
+  else if (a === 'bk-copy') {
+    const out = $('#bkOut'), ok = () => toast('存档码已复制。发到微信「文件传输助手」或存进备忘录。');
+    (navigator.clipboard ? navigator.clipboard.writeText(out.value) : Promise.reject()).then(ok, () => { out.select(); document.execCommand('copy') ? ok() : toast('没能自动复制。长按上面的存档码，全选后复制。', 'bad'); });
+  }
+  else if (a === 'bk-file') {
+    const url = URL.createObjectURL(new Blob([$('#bkOut').value], { type:'text/plain' }));
+    Object.assign(document.createElement('a'), { href:url, download:`长局存档-${new Date().toLocaleDateString('sv')}.txt` }).click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+});
+$('#q').addEventListener('input', e => {
+  ui.q = e.target.value; ui.genre = '全部';
+  if ((location.hash.slice(1) || 'store') !== 'store') { location.hash = 'store'; return; }
+  renderStore(); const q = $('#q'); q.focus();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && ui.menu) { ui.menu = false; renderAcct(); } });
+
+/* ───────── 启动 ───────── */
+(async () => {
+  route();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => {});
+})();
+})();
+</script>
+
+</body>
+</html>
