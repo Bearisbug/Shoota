@@ -6,20 +6,20 @@
 
 | 键名 | 配到哪 | 来源 | 配置动作（零回显） | 验证 | 状态 |
 | --- | --- | --- | --- | --- | --- |
-| `CLOUDFLARE_API_TOKEN` | GitHub Secrets（Bearisbug/changju） | 生成：Cloudflare 账号级 token `changju-ci-deploy`，已录入 Bitwarden 条目 `CHANGJU_CI_DEPLOY_TOKEN` | A：`bw get password CHANGJU_CI_DEPLOY_TOKEN \| gh secret set CLOUDFLARE_API_TOKEN -R Bearisbug/changju` | `gh secret list -R Bearisbug/changju` 见键名；首次 Actions 部署成功 | ☐ |
+| `CLOUDFLARE_API_TOKEN` | GitHub Secrets（Bearisbug/changju） | 生成：Cloudflare 账号级 token `changju-ci-deploy`，已录入 Bitwarden 条目 `CHANGJU_CI_DEPLOY_TOKEN` | A：`bw get password CHANGJU_CI_DEPLOY_TOKEN \| gh secret set CLOUDFLARE_API_TOKEN -R Bearisbug/changju` | `gh secret list -R Bearisbug/changju` 见键名；首次 Actions 部署成功 | ☑ 2026-10-18：secret list 见 `CLOUDFLARE_API_TOKEN`；run 39104230080 部署成功 |
 
 ## 2. 部署步骤清单
 
-- [ ] 1. 盘点完成、本清单建档、§1 密钥表列全（A）· 验证：§1 无缺行
-- [ ] 2. 健康检查口径（A）· 验证：静态站没有健康端点，改为首页身份断言 + `public/` 逐文件内容比对；本地用 `bash -eo pipefail` 跑同一段脚本，线上内容不一致时报文件路径、访问别的站时报身份断言失败
+- [x] 1. 盘点完成、本清单建档、§1 密钥表列全（A）· 验证：§1 无缺行 · 2026-10-18
+- [x] 2. 健康检查口径（A）· 验证：静态站没有健康端点，改为首页身份断言 + `public/` 逐文件内容比对；本地用 `bash -eo pipefail` 跑同一段脚本，线上内容不一致时报文件路径、访问别的站时报身份断言失败 · 2026-10-18 已实测两种失败输出
 - 2b / 3 / 4. N/A（paas 目标：没有自管服务器、容器槽和宿主端口）
-- [ ] 5. 产物生成（A）· 验证：`bash check.sh <项目根>` 绿
-- [ ] 6. §1 密钥全配齐（A）· 验证：§1 全部 ☑
-- [ ] 7. 首次部署真跑通（★A1；A）· 验证：push main 触发的 Actions run 全绿，健康检查日志显示身份断言通过、全部文件与该提交一致
-- [ ] 8. 线上冒烟一轮（★P2；A）· 验证：§5 的最小冒烟集在 https://changju.kaivia.ai 上逐条通过并登记
-- [ ] 9. 回滚演练（★A3；A）· 验证：按 DEPLOY.md 第 4 节手动回滚到上一版本，线上内容随之变化，再恢复到最新版本
-- [ ] 9c. 失败路径（P4；A）· 验证：推一个健康检查必然不通过的提交，run 自动回滚、线上回到之前的版本；验完 revert
-- [ ] 11. 交付自查（A）· 验证：check.sh 绿 + CHECKLIST 通用节与 A 节逐项过 + AGENTS.md「部署」段已写入
+- [x] 5. 产物生成（A）· 验证：`bash check.sh <项目根>` 绿 · 2026-10-18
+- [x] 6. §1 密钥全配齐（A）· 验证：§1 全部 ☑ · 2026-10-18
+- [x] 7. 首次部署真跑通（★A1；A）· 验证：push main 触发的 Actions run 全绿，健康检查日志显示身份断言通过、全部文件与该提交一致 · 2026-10-18 run 39104230080：线上版本 1a400272 → 258e54c3，第 1 次检查通过，7 个文件与 d51b61c 一致
+- [x] 8. 线上冒烟一轮（★P2；A）· 验证：§5 的最小冒烟集在 https://changju.kaivia.ai 上逐条通过并登记 · 2026-10-18 RUN-1
+- [x] 9. 回滚演练（★A3；A）· 验证：按 DEPLOY.md 第 4 节手动回滚到上一版本，线上内容随之变化，再恢复到最新版本 · 2026-10-18：rollback 到 1a400272 后首页 2,655,759 字节（单文件版），恢复到 258e54c3 后 72,099 字节，7 个文件与仓库一致
+- [x] 9c. 失败路径（P4；A）· 验证：推一个健康检查必然不通过的提交，run 自动回滚、线上回到之前的版本；验完 revert · 2026-10-18 run 39104526094：07b2bb9 用 `.assetsignore` 漏传 yike.html，部署出 4a9c5dfd，健康检查 12 次未过，自动回滚到 258e54c3；revert 后 run 39104744918 全绿
+- [x] 11. 交付自查（A）· 验证：check.sh 绿 + CHECKLIST 通用节与 A 节逐项过 + AGENTS.md「部署」段已写入 · 2026-10-18
 
 ## 3. 提速优化菜单（可选；默认全不做）
 
@@ -49,3 +49,4 @@
 
 | 轮次 | 日期 | 环境 | 结果 |
 | --- | --- | --- | --- |
+| RUN-1 | 2026-10-18 | 线上 https://changju.kaivia.ai （@d51b61c，Edge 无头：桌面 1280 宽 + 手机 390 宽） | S1–S5 全部通过；控制台只有浏览器自动请求 `/favicon.ico` 的 404（站点没有图标） |

@@ -80,3 +80,5 @@ done
 | --- | --- | --- |
 | 2026-10-18 | 首次上线（手动） | 单文件版（平台 + 6 款游戏 base64 内嵌）手动部署到 Worker `changju`，绑定 changju.kaivia.ai |
 | 2026-10-18 | 建仓与管线 | 拆成 `public/index.html` + `public/games/*.html`，F1 移到商店第一位；建 GitHub 仓库 Bearisbug/changju，push main 自动部署 |
+| 2026-10-18 | 回滚演练 | 手动 rollback 到 1a400272（单文件版）再恢复到 258e54c3，线上内容随之切换，恢复后 7 个文件与仓库一致 |
+| 2026-10-18 | 失败路径演练 | 07b2bb9 故意漏传 yike.html，run 39104526094 健康检查未过、自动回滚到 258e54c3；revert 为 bddcf06 后重新部署通过 |
