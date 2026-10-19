@@ -366,8 +366,16 @@ function toast(m){const t=el(`<div class="toast" role="status">${esc(m)}</div>`)
 function year(){const r=R();return r.y0+Math.floor(r.t/12)} function season(){return SEASONS[Math.floor((R().t%12)/3)]}
 function age(){return year()-P().birthYear}
 function fateAvail(){return S.meta.fate+(R()?R().bonusFate:0)}
-function power(r){r=r||R();const x=r.x||{};return Math.round((r.lv*10+r.rings.reduce((a,x)=>a+RING_POW[ringColor(x.years)],0)+r.a.体魄*.8+r.a.精神*.8+r.bones.reduce((a,b)=>a+bonePow(b),0))*md("power")*(1+whBonus(r))*(1+godBonus(r))*(1+facPerk("power"))+(x.iceGear||0)+(x.sword||0)*6+((x.sword||0)>=100?r.lv*4:(x.sword||0)>=50?r.lv*2:0)+(x.gear||0)+(S.run&&S.run.id==="xingluo"?Math.max(0,r.rep["星罗"]||0)*3:0))}
-function cap(r){return r.lv>=99&&r.god?100:Math.min(99,10*(r.rings.length+1))}
+function power(r){r=r||R();const x=r.x||{};return Math.round((r.lv*10+r.rings.reduce((a,x)=>a+RING_POW[ringColor(x.years)]*(x.fit||1),0)+r.a.体魄*.8+r.a.精神*.8+r.bones.reduce((a,b)=>a+bonePow(b),0))*md("power")*(1+whBonus(r))*(1+godBonus(r))*(1+facPerk("power"))+Math.min(x.iceGear||0,r.lv*10)+Math.min(x.sword||0,120)*4+((x.sword||0)>=100?r.lv*3:(x.sword||0)>=50?r.lv*1.5:0)+Math.min(x.gear||0,r.lv*12)+(S.run&&S.run.id==="xingluo"?Math.max(0,r.rep["星罗"]||0)*3:0))}
+function offerRing(x){ const r=R(); const sp={n:x.beast||"",el:guessEl(x.beast||x.skill||""),kind:x.kind};
+  const ch=[1,2,3].filter(i=>i===1||(r.x["wh"+i]&&r.x["wh"+i].state!=="vessel")).map(i=>{ const n=ringsOf(r,i).length; const f=fitOf(i,sp); const room=i===1?true:n<Math.min(9,Math.floor(r.lv/10)); const capY=capFor(i);
+    return {t:`吸收到${WHN[i]}「${i===1?wname():r.x["wh"+i].name}」`,hint:`契合：${f.n}（威力 ×${f.m}）· 第${n+1}环，常规上限 ${yLabel(capY)}${x.years>capY?" · 越限，会受伤":""}${i===1&&n>=9?" · 九环已满，替换最弱一环":""}${i===1&&r.lv<cap(r)-0.001?" · 还没到瓶颈，提前吸收会抬高魂力上限":""}`,absorb:{ring:x,on:i,fit:f.m,fitN:f.n,capY},dis:room?null:"魂力等级不够再加环"} });
+  ch.push({t:"不吸收，放它走",hint:"魂环散去，不留任何东西",win:{text:"你看着那道魂环慢慢散在风里，没有伸手。",d:{}}});
+  r.queue.push({k:"ring",id:"ring_"+Date.now(),ev:{title:`魂环：${yLabel(x.years)}${x.beast||""}`,text:`${x.beast||"魂兽"}留下了一道${yLabel(x.years)}的${RCN[ringColor(x.years)]}色魂环「${x.skill||""}」。${x.desc||""}\n要不要吸收？吸收到哪个武魂上？`,choices:ch}}) }
+function capFor(on){ const r=R(); return on===1?CAPS[Math.min(8,mainRings(r).length)]:CAPS[Math.max(0,Math.min(8,Math.floor(r.lv/10)-1))] }
+function mainRings(r){r=r||R(); return r.rings.filter(x=>!x.on||x.on===1)}
+function ringsOf(r,i){return i===1?mainRings(r):r.rings.filter(x=>x.on===i)}
+function cap(r){return r.lv>=99&&r.god?100:Math.min(99,10*(mainRings(r).length+1))}
 function wuT(){return TIER_T[wtier()]||1}
 function genius(){return 1+(P().innate||0)/40}
 function trainGain(r,months){const f=(r.lv<70?1:1/(1+((r.lv-70)/20)**2))*(r.lv>=90?.5:1);return .13*wuT()*genius()*md("train")*(1+facPerk("train"))*(.7+r.a.悟性/150)*months*f*(r.hurt>50?.5:1)}
@@ -387,7 +395,7 @@ function startTurn(){
   // key nodes due
   for(const n of p.nodes){ if(r.nodesDone.includes(n.id)) continue; if(n.year>y) continue;
     if(condOK(n.cond)) r.queue.push({k:"node",id:n.id}); r.nodesDone.push(n.id) }
-  const fz=myFac(); if(fz){ r.facDone=r.facDone||[]; for(const n of fz.nodes){ if(r.facDone.includes(n.id)||n.year>y) continue; if(condOK(n.cond)){ r.queue.push({k:"fnode",id:n.id}); r.facDone.push(n.id) } else if(y>n.year+1) r.facDone.push(n.id) } }
+  const fz=myFac(); if(fz){ r.facDone=r.facDone||[]; for(const n of fz.nodes){ if(r.facDone.includes(n.id)||n.year>y) continue; if(n.canon&&/^M/.test(n.canon)&&(packHasCanon(n.canon)||canonTaken(n.canon,"f"))){ r.facDone.push(n.id); continue } if(condOK(n.cond)){ r.queue.push({k:"fnode",id:n.id}); r.facDone.push(n.id) } else if(y>n.year+1) r.facDone.push(n.id) } }
   // random events
   const pool=p.events.map(e=>({e,src:"p"})).concat(COMMON.map(e=>({e,src:"c"}))).concat(fortunes().map(e=>({e,src:"f"}))).filter(({e})=>evOK(e,y));
   const nEv = r.queue.length? (rnd()<.6?1:0) : 1+(rnd()<.55?1:0)+(rnd()<.2?1:0);
@@ -406,16 +414,21 @@ function fortunes(){return (FORT.common||[]).concat((FORT.byId&&FORT.byId[S.run.
 function known(t){const r=R();return r.perk==="memory"||r.heard.includes(t.id)}
 const TIER_MIN={凡:0,良:12,珍:28,绝:45,神:60};
 function tMin(t){ const rr=S.run; if(rr&&t.id==="t_s2_bingdi"&&rr.flags.includes("s_bingcan_host")) return 35; if(rr&&t.id==="t_s2_xuedi"&&rr.flags.includes("s_bingdi_fused")) return 50; if(t.minLevel!=null) return t.minLevel; const n=(t.name||"")+(t.place||""); if(/冰火|两仪|玄冰草|杏娇疏|相思断肠|绮罗|奇茸|八瓣仙兰|鸡冠凤凰|水仙玉肌|九品紫芝|望穿秋水/.test(n)) return 25; if(/天梦冰蚕/.test(n)) return 15; if(/曼陀罗|板晶|发金/.test(n)) return 5; if(/人面魔蛛|八蛛矛/.test(n)) return 25; if(/帝天|龙神|银龙/.test(n)) return 80; return TIER_MIN[t.tier]??30 }
-function treasNow(){const r=R(),y=year();return TREAS.filter(t=>t.yearMin<=y&&t.yearMax>=y&&!r.treasDone.includes(t.id)&&known(t)&&r.lv>=tMin(t))}
+function markCanon(c,src){ if(!c) return; const r=R(); r.canonBy=r.canonBy||{}; if(!r.canonBy[c]) r.canonBy[c]=src }
+function canonTaken(c,src){ if(!c) return false; const r=R(); const by=(r.canonBy||{})[c]; return !!by&&by!==src }
+function packHasCanon(c){ return !!c&&P().nodes.some(n=>n.canon===c) }
+function tooLow(t){ const r=R(); return t.tier!=="神"&&tMin(t)<r.lv-35 }
+function treasNow(){const r=R(),y=year();return TREAS.filter(t=>t.yearMin<=y&&t.yearMax>=y&&!r.treasDone.includes(t.id)&&known(t)&&r.lv>=tMin(t)&&!tooLow(t)&&!canonTaken(t.canon,"t"))}
 function offsetOf(n,y){const r=R();return (r.world.offset||[]).filter(o=>o.n===n&&o.y<=y).reduce((a,o)=>a+o.v,0)}
-function wevNow(){const r=R(),y=year();return WEV.filter(w=>w.yearMin<=y&&w.yearMax>=y&&r.lv>=w.lv&&!r.treasDone.includes(w.id)&&w.choices.some(c=>needOKc(c)[0]&&true))}
-function evOK(e,y){const r=R(),w=e.when||{}; if(e.once!==false&&r.evSeen.includes(e.id)) return false; if(w.yearMin&&y<w.yearMin) return false; if(w.yearMax&&y>w.yearMax) return false; if(w.levelMin&&r.lv<w.levelMin) return false; if(w.levelMax&&r.lv>w.levelMax) return false; if(w.flag&&!r.flags.includes(w.flag)) return false; if(w.notFlag&&r.flags.includes(w.notFlag)) return false; if(w.ageMin&&age()<w.ageMin) return false; if(w.ageMax&&age()>w.ageMax) return false; return true}
+function wevNow(){const r=R(),y=year();return WEV.filter(w=>w.yearMin<=y&&w.yearMax>=y&&r.lv>=w.lv&&!r.treasDone.includes(w.id)&&!canonTaken(w.canon,"w")&&!packHasCanon(w.canon)&&!(myFac()&&myFac().nodes.some(n=>n.canon===w.canon))&&w.choices.some(c=>needOKc(c)[0]&&true))}
+function evMaxNeed(e){let m=0; for(const c of e.choices||[]) if(c.need&&c.need.战力) m=Math.max(m,c.need.战力); return m}
+function evOK(e,y){const r=R(),w=e.when||{}; const mn=evMaxNeed(e); if(mn&&r.lv>=40&&mn<power()*.25) return false; if(e.once!==false&&r.evSeen.includes(e.id)) return false; if(w.yearMin&&y<w.yearMin) return false; if(w.yearMax&&y>w.yearMax) return false; if(w.levelMin&&r.lv<w.levelMin) return false; if(w.levelMax&&r.lv>w.levelMax) return false; if(w.flag&&!r.flags.includes(w.flag)) return false; if(w.notFlag&&r.flags.includes(w.notFlag)) return false; if(w.ageMin&&age()<w.ageMin) return false; if(w.ageMax&&age()>w.ageMax) return false; return true}
 function condOK(c){const r=R(); if(!c) return true; if(c.rankMin!=null&&!(r.fac&&r.fac.rank>=c.rankMin)) return false; if(c.bond){ for(const[k,v] of Object.entries(c.bond)) if((r.bonds[k]||0)<v) return false } if(c.flag&&!r.flags.includes(c.flag)) return false; if(c.notFlag&&r.flags.includes(c.notFlag)) return false; if(c.levelMin&&r.lv<c.levelMin) return false; if(c.flags&&!c.flags.every(f=>r.flags.includes(f))) return false; if(c.anyFlag&&!c.anyFlag.some(f=>r.flags.includes(f))) return false; return true}
 function statOf(k){const r=R(); return k==="战力"?power():k==="金魂币"?r.coins:k==="名望"?r.fame:k==="等级"?r.lv:(r.a[k]||0)}
 function needOK(need){if(!need) return [true,""]; for(const[k,v] of Object.entries(need)){ if(statOf(k)<v) return [false,`${k} ≥ ${v}`] } return [true,""]}
 /* 剧情里需要战力的选项 = 一场战斗 */
 function isFight(c){return !!(c&&c.need&&c.need.战力&&!c.duel)}
-function needOKc(c){ if(!isFight(c)) return needOK(c.need); const o=Object.assign({},c.need); const p=o.战力; delete o.战力; const r=needOK(o); if(!r[0]) return r; return power()>=p*.6?[true,""]:[false,`战力 ≥ ${Math.round(p*.6)}`] }
+function needOKc(c){ if(c&&c.dis) return [false,c.dis]; if(!isFight(c)) return needOK(c.need); const o=Object.assign({},c.need); const p=o.战力; delete o.战力; const r=needOK(o); if(!r[0]) return r; return power()>=p*.6?[true,""]:[false,`战力 ≥ ${Math.round(p*.6)}`] }
 function choiceChips(c){ if(!isFight(c)) return needChips(c.need); const o=Object.assign({},c.need); const p=o.战力; delete o.战力; const pw=power(); const [lb,cl]=oddsLabel(pw,p*.85);
   return `<span class="chip ${pw>=p*.6?cl:"red"}">⚔ 要打一场 · 敌方战力 ${Math.round(p*.85)} · ${pw>=p*.6?lb:"差距太大"}</span>`+needChips(o) }
 const WAR_RE=/军|战争|攻城|守城|守关|关隘|北伐|南征|兵|阵|宫变|围剿|夜袭|驰援|大典|决战|嘉陵关|天斗城|星罗城|猎魂之夜/;
@@ -493,6 +506,7 @@ const FOE={
 "斩杀魔蛛，夺环夺骨":["人面魔蛛",0,"万年魂兽","攻","魔蛛毒刺"],"替唐三护法守夜":["人面魔蛛",0,"万年魂兽","攻","魔蛛毒刺"],
 "助唐三斩鲸，只取鲸脑":["深海魔鲸王",0,"百万年魂兽","攻","深海之怒"],"斩杀鲸王，夺珠夺骨":["深海魔鲸王",0,"百万年魂兽","攻","深海之怒"]
 };
+function npcLevel(n){ const y=year(); const e=WORLD.fenghao.find(e=>e.n===n); if(e&&!(e.dead&&e.dead<y)) return Math.min(99,(lvAt(e,y)||0)+offsetOf(n,y)); const m=NPC_MID.find(x=>x.n===n); if(m) return m.lv; const g=NPC_YOUNG.find(x=>x.n===n); if(g) return Math.min(88,Math.round(g.l+(y-2644)*g.g)); return 0 }
 function fightFoe(c,ctx){ const op0=Math.round(c.need.战力*.85); const F=FOE[c.t]; if(F){ const d=DUEL_DB[F[0]]||[]; return {n:F[0],h:"",w:F[2]||d[0]||"不明武魂",st:F[3]||d[1]||"攻",ult:F[4]||d[2]||"全力一击",war:!!F[1],op:op0} } const ct=(c.t||"")+"｜"+(c.hint||""); const ally=(txt,k)=>{ const i=txt.indexOf(k); return /[助帮替护救随陪跟和与给向同领带]$/.test(txt.slice(Math.max(0,i-2),i))||/[助帮替护救随陪跟和与给向同领带]/.test(txt.slice(Math.max(0,i-1),i)) };
   const allies=new Set(Object.keys(DUEL_DB).filter(k=>ct.includes(k)&&ally(ct,k)));
   const named=txt=>Object.keys(DUEL_DB).filter(k=>txt.includes(k)&&!allies.has(k)&&!ally(txt,k)).sort((a,b)=>txt.indexOf(a)-txt.indexOf(b))[0];
@@ -503,14 +517,14 @@ function fightFoe(c,ctx){ const op0=Math.round(c.need.战力*.85); const F=FOE[c
   if(n){ const d=DUEL_DB[n]; return {n,h:"",w:d[0],st:d[1],ult:d[2],war,op} }
   if(f) return {n:f+(war?"大军":"强者"),h:"",w:war?"大军":"魂师",st:"攻",ult:war?"全军压上":"围攻",war,op};
   return {n:ctx.beast||"对手",h:"",w:ctx.beast?"魂兽":"不明武魂",st:"攻",ult:ctx.beast?"垂死反扑":"全力一击",war,op} }
-function fightThen(c,ctx,cb){ const x=fightFoe(c,ctx); duelFight(x,{plot:true,war:x.war,op:x.op,title:ctx.title,quick:power()>=c.need.战力*1.3,done:res=>cb(res.win)}) }
+function fightThen(c,ctx,cb){ const x=fightFoe(c,ctx); const lv=npcLevel(x.n); if(lv) x.op=Math.max(x.op,npcPower(lv)); if(power()>=x.op*1.5){ toast(`实力碾压，${x.n}不是你的对手`); return cb(true) } duelFight(x,{plot:true,war:x.war,op:x.op,title:ctx.title,quick:power()>=c.need.战力*1.3,done:res=>cb(res.win)}) }
 function needChips(need){if(!need) return ""; return Object.entries(need).map(([k,v])=>{const ok=statOf(k)>=v;return `<span class="chip ${ok?"jade":"red"}">需${k} ${v}</span>`}).join("")}
 
 /* apply delta, return list of display deltas */
 function apply(d){
   const r=R(),out=[]; if(!d) return out;
   const add=(lab,v,unit)=>{ if(!v) return; out.push({t:`${lab} ${v>0?"+":""}${Math.round(v*10)/10}${unit||""}`,up:v>0}) };
-  if(d.ring) for(const x of [].concat(d.ring)) gainRing(x,out);
+  if(d.ring) for(const x of [].concat(d.ring)){ if(x.direct||x.noBone&&x.beast==="天梦冰蚕") gainRing(Object.assign({},x),out); else { offerRing(x); out.push({t:`魂环机会：${yLabel(x.years)}${x.beast||""}（吸不吸收由你定）`,up:true}) } }
   if(d.bone) for(const b of [].concat(d.bone)){ const nb=Object.assign({},b); nb.years=boneYears(nb); (r.bag=r.bag||[]).push(nb); out.push({t:`魂骨入袋：${BONE_T[boneTi(nb)].n}·${b.slot}·${b.name}（战力 +${bonePow(nb)}）`,up:true}) }
   if(d.等级) { const before=r.lv; addLevel(d.等级); add("等级",Math.round((r.lv-before)*10)/10) }
   for(const k of ATTRS) if(d[k]){ add(k,d[k]); gainA(k,d[k],out) }
@@ -592,8 +606,11 @@ function ringUp(u,out){const r=R(); if(!r.rings.length) return; const idx=r.ring
   for(const i of sel){ const x=r.rings[i]; const before=x.years, c0=ringColor(before); x.years=Math.round(Math.min(1e6,before*(u.mul||1)+(u.add||0))); const c1=ringColor(x.years);
     out&&out.push({t:`第${i+1}魂环 ${yLabel(before)} → ${yLabel(x.years)}${c0!==c1?"（"+RCN[c0]+"→"+RCN[c1]+"）":""}`,up:true});
     if(c0!==c1){ const at=x.kind==="攻"||x.kind==="防"?"体魄":"精神"; gainA(at,3,out) } }}
-function gainRing(x,out){const r=R(); if(r.rings.length>=9){ const lo=r.rings.reduce((a,y,i)=>y.years<r.rings[a].years?i:a,0); if(x.years>r.rings[lo].years){ r.rings[lo]=x; out&&out.push({t:`魂环替换：${yLabel(x.years)}「${x.skill}」`,up:true}) } addLevel(1); return }
-  r.rings.push(x); dropBone(x,out); const col=ringColor(x.years); r.lv=Math.min(cap(r),r.lv); const bonus=RING_LV[col]||0; if(r.bank>0){const add=Math.min(r.bank,cap(r)-r.lv); r.lv+=add; r.bank-=add} if(bonus) addLevel(bonus); const at=x.kind==="攻"||x.kind==="防"?"体魄":"精神"; const ab=[1,2,3,4,6,8][["white","yellow","purple","black","red","gold"].indexOf(col)]; gainA(at,ab,out); out&&out.push({t:`第${r.rings.length}魂环 ${yLabel(x.years)}·${RCN[col]}「${x.skill}」`,up:true}); out&&out.push({t:`${at} +${ab}`,up:true})}
+function gainRing(x,out){const r=R(); const on=x.on||1; const mine=ringsOf(r,on);
+  if(mine.length>=9){ const lo=mine.reduce((a,y)=>y.years<a.years?y:a,mine[0]); if(x.years>lo.years){ r.rings[r.rings.indexOf(lo)]=x; out&&out.push({t:`${WHN[on]}魂环替换：${yLabel(x.years)}「${x.skill}」`,up:true}) } if(on===1) addLevel(1); return }
+  r.rings.push(x); dropBone(x,out); const col=ringColor(x.years); const ab=[1,2,3,4,6,8][["white","yellow","purple","black","red","gold"].indexOf(col)]; const at=x.kind==="攻"||x.kind==="防"?"体魄":"精神";
+  if(on===1){ r.lv=Math.min(cap(r),r.lv); const bonus=RING_LV[col]||0; if(r.bank>0){const add=Math.min(r.bank,cap(r)-r.lv); r.lv+=add; r.bank-=add} if(bonus) addLevel(bonus) }
+  gainA(at,on===1?ab:Math.ceil(ab/2),out); out&&out.push({t:`${on===1?"":WHN[on]+"·"}第${ringsOf(r,on).length}魂环 ${yLabel(x.years)}·${RCN[col]}「${x.skill}」${x.fitN?"（契合"+x.fitN+"）":""}`,up:true}); out&&out.push({t:`${at} +${on===1?ab:Math.ceil(ab/2)}`,up:true})}
 
 /* ============ resolve choices ============ */
 function resolveChoice(c,forced){
@@ -611,11 +628,11 @@ function resolveChoice(c,forced){
 
 /* ============ actions ============ */
 function actions(){
-  const r=R(),p=P(),f=p.flavor||{}; const k=r.rings.length; const bott=r.lv>=cap(r)-0.001&&k<9&&r.lv<99;
+  const r=R(),p=P(),f=p.flavor||{}; const k=mainRings(r).length; const bott=r.lv>=cap(r)-0.001&&k<9&&r.lv<99; const extraOpen=whTargets().some(t=>t.i>1&&t.open);
   const repK=FACTION_REP[p.id]||"宗门";
   return [
     {id:"train",n:"修炼",d:bott?`瓶颈：需第${k+1}魂环`:`魂力 +${trainGain(r,MSTEP(r.lv)).toFixed(2)} 级`,hot:false},
-    {id:"hunt",n:p.id==="beast"?"凝环":"猎魂",d:k>=9?"九环已满":bott?(p.id==="beast"?`自生第${k+1}魂环，零风险`:`获取第${k+1}魂环`):`未到瓶颈（${10*(k+1)}级）`,dis:!bott,hot:bott},
+    {id:"hunt",n:p.id==="beast"&&bott?"凝环":"猎魂",d:bott?(p.id==="beast"?`自生第${k+1}魂环，零风险`:`主武魂第${k+1}魂环`+(extraOpen?"；副武魂也能加环":"")):extraOpen?"给第二、第三武魂加环":k>=9?"九环已满":`未到瓶颈（${10*(k+1)}级）`,dis:!(bott||extraOpen),hot:bott},
     ...[2,3].filter(i=>r.x["wh"+i]&&r.x["wh"+i].act).map(i=>({id:"sp"+i,n:(i===2?"❄ ":"✧ ")+r.x["wh"+i].act.n,d:r.x["wh"+i].act.d,hot:true})),
     ...(WXo().act?[{id:"sp",n:"★ "+WXo().act.n,d:(["qiangu","shalu","huangshi","landian"].includes(p.id)&&r.hurt>=60)?"伤势过重，先疗伤":WXo().act.d,dis:(p.id==="shenjiang"&&r.coins<50+Math.round(r.lv*3))||(["qiangu","shalu","huangshi","landian"].includes(p.id)&&r.hurt>=60),hot:true}]:[]),
     {id:"body",n:"锤炼",d:"体魄 +3~4（战力 +2.4~3.2），伤势 +5",dis:r.hurt>=90},
@@ -635,7 +652,7 @@ function actions(){
 function doAction(id){
   const r=R(),p=P(); if(r.ap<=0) return; const m=MSTEP(r.lv); let txt="",ds=[];
   const rk=FACTION_REP[p.id]||"宗门";
-  if(id==="hunt"&&p.id==="beast") return selfRing();
+  if(id==="hunt"&&p.id==="beast"&&r.lv>=cap(r)-0.001&&mainRings(r).length<9) return selfRing();
   if(id==="hunt") return huntModal();
   if(id==="sp"){ const res=special(); txt=res.txt; ds=res.ds; }
   if(id==="sp2"||id==="sp3"){ const w=r.x["wh"+id[2]]; if(w.state==="vessel"){ ds=apply({精神:4,悟性:2}); txt=/冰蚕/.test(w.name)?"天梦冰蚕在你的精神之海里翻了个身，替你冥想了一整季。它还在等一头够格的冰属魂兽。":"空武魂里的本源慢慢流转，替你温养了一整季。" } else { const g=w.ice>=2?40:w.ice?25:20; r.x.iceGear=(r.x.iceGear||0)+g; ds=[{t:`${w.name} 战力 +${g}`,up:true}].concat(apply(w.ice>=2?{体魄:5,精神:3}:w.ice?{体魄:4}:{体魄:3,精神:3})); txt=w.ice?"极致之冰从骨髓里透出来，你一呼一吸都带着霜。":`${w.name}的魂灵与你同修了一季。` } }
@@ -645,7 +662,7 @@ function doAction(id){
   if(id==="world") return worldModal();
   if(id==="duel") return duelModal();
   if(id==="bond") return bondModal();
-  if(id==="train"){ const g=trainGain(r,m); if(r.lv>=cap(r)-0.001&&r.rings.length<9&&r.lv<99){ r.bank+=g; txt="瓶颈未破，魂力只能积压在体内。"; ds=[{t:`积压魂力 +${g.toFixed(2)}`,up:true}] } else { const b=r.lv; addLevel(g); txt=["你闭关修炼，魂力在经脉里一圈圈流转。","清晨借紫气打坐，魂力略有精进。","一整季都在修炼，进境平稳。"][Math.floor(rnd()*3)]; ds=[{t:`等级 +${(r.lv-b).toFixed(2)}`,up:true}] } }
+  if(id==="train"){ const g=trainGain(r,m); if(r.lv>=cap(r)-0.001&&mainRings(r).length<9&&r.lv<99){ r.bank+=g; txt="瓶颈未破，魂力只能积压在体内。"; ds=[{t:`积压魂力 +${g.toFixed(2)}`,up:true}] } else { const b=r.lv; addLevel(g); txt=["你闭关修炼，魂力在经脉里一圈圈流转。","清晨借紫气打坐，魂力略有精进。","一整季都在修炼，进境平稳。"][Math.floor(rnd()*3)]; ds=[{t:`等级 +${(r.lv-b).toFixed(2)}`,up:true}] } }
   if(id==="body"){ const v=Math.round((3+(rnd()<.5?1:0))*md("body")); ds=apply({体魄:v,伤势:5}); if(p.id==="qibao"){ r.x.sword+=2; ds.push({t:"剑意 +2",up:true}) } txt="负重、搏击、冷水，筋骨一点点被磨出来。" }
   if(id==="mind"){ const d={精神:3+(rnd()<.5?1:0)}; if(rnd()<.25) d.悟性=1; ds=apply(d); txt="你静坐观想武魂，精神力缓缓凝实。" }
   if(id==="read"){ if(r.lv>=60){ ds=apply({悟性:3,精神:2}); txt="你闭关参悟，武魂与魂环的联系越来越清晰。" } else { ds=apply({悟性:2,金魂币:-20}); txt="你在典籍里找到前人对武魂的笔记。" } }
@@ -678,60 +695,93 @@ function special(){
   return {txt,ds};
 }
 function selfRing(){
-  const r=R(),p=P(),k=r.rings.length,slot=(p.rings||[]).find(x=>x.slot===k+1); const capY=CAPS[k];
+  const r=R(),p=P(),k=mainRings(r).length,slot=(p.rings||[]).find(x=>x.slot===k+1); const capY=CAPS[k];
   const o=(slot&&slot.options&&slot.options[0])||{skill:"第"+(k+1)+"魂技",kind:"控"}; const ds=[];
   gainRing({beast:"自生",years:Math.round(Math.min(capY*.92,k>=8?150000:capY)),kind:o.kind,skill:o.skill,desc:o.desc||""},ds);
   r.ap--; checkEvo(ds); r.actLog.push({n:"凝环",txt:"不用杀戮，你自己的本源凝成了新的魂环。",ds}); save(); render();
 }
 function niceY(y){const p=Math.pow(10,Math.max(0,Math.floor(Math.log10(y))-1));return Math.round(y/p)*p}
-const NEED_T=[[10,40],[100,80],[400,120],[1000,200],[2000,330],[5000,500],[12000,750],[20000,950],[50000,1300],[100000,1900],[300000,2800],[1000000,4000]];
-function needOfYears(y){ if(y<=NEED_T[0][0]) return NEED_T[0][1]; for(let i=1;i<NEED_T.length;i++){ const[a,va]=NEED_T[i-1],[b,vb]=NEED_T[i]; if(y<=b){ const t=(Math.log10(y)-Math.log10(a))/(Math.log10(b)-Math.log10(a)); return Math.round(va+(vb-va)*t) } } return 4000 }
+const NEED_T=[[10,50],[100,90],[400,150],[1000,250],[2000,380],[5000,600],[12000,850],[20000,1000],[50000,1500],[99999,2000],[100000,2800],[300000,4000],[1000000,6000]];
+function needOfYears(y){ if(y<=NEED_T[0][0]) return NEED_T[0][1]; for(let i=1;i<NEED_T.length;i++){ const[a,va]=NEED_T[i-1],[b,vb]=NEED_T[i]; if(y<=b){ const t=(Math.log10(y)-Math.log10(a))/(Math.log10(b)-Math.log10(a)); return Math.round(va+(vb-va)*t) } } return NEED_T[NEED_T.length-1][1] }
+/* ---- 武魂与魂兽的契合 ---- */
+const EL_CONF=[["冰","火"],["光","暗"],["水","火"],["木","火"],["雷","土"]];
+const WH_EL={wuhun:[["暗","灵"],"控"],landian:[["雷","龙"],"攻"],beast:[["冰","灵"],"控"],qiangu:[["光","暗","龙"],"攻"],shalu:[["暗","毒"],"敏"],qibao:[["冰"],"攻"],huangshi:[["暗","风"],"敏"],xingluo:[["雷","力"],"攻"],haishen:[["水","灵"],"辅"],shenjiang:[["火","土"],"防"]};
+function guessEl(s){const m=[["冰",/冰|雪|霜|寒/],["火",/火|焱|炎|熔|烈/],["雷",/雷|电/],["毒",/毒|蛛|蛇|蝎/],["光",/光|圣|天使|翡翠/],["暗",/暗|冥|影|鬼|魇|魔/],["水",/海|水|鲸|潮|鲨|蟹/],["龙",/龙|蛟|蜥/],["灵",/精神|梦|灵|魂|蝶|狐/],["力",/熊|猿|牛|虎|犀|力|獒/],["风",/风|狼|鹰|蝠|鹤/],["木",/藤|草|树|花/],["土",/土|岩|蚁|龟|甲/]]; const e=m.filter(([,re])=>re.test(s||"")).map(x=>x[0]); return e.length?e.slice(0,2):["力"]}
+function guessKind(s){return /控/.test(s||"")?"控":/辅/.test(s||"")?"辅":/防|锻/.test(s||"")?"防":/敏/.test(s||"")?"敏":"攻"}
+function whProfile(i){ const r=R(); if(i===1){ const w=WH_EL[S.run.id]||[guessEl(P().wuhun.name),guessKind(P().wuhun.system)]; return {el:w[0],kind:w[1],name:wname()} } const w=r.x["wh"+i]||{}; return {el:w.el||guessEl((w.name||"")+(w.system||"")),kind:w.kind||guessKind(w.system),name:w.name||""} }
+function fitOf(i,sp){ const w=whProfile(i); let sc=0; const els=[].concat(sp.el||guessEl(sp.n||sp.beast)); if(els.some(e=>w.el.includes(e))) sc+=2; if(els.some(e=>w.el.some(x=>EL_CONF.some(([a,b])=>(a===x&&b===e)||(b===x&&a===e))))) sc-=2; if((sp.kind||"")===w.kind) sc+=1;
+  return sc>=3?{n:"极佳",m:1.3,c:"jade"}:sc>=2?{n:"良好",m:1.12,c:"jade"}:sc>=0?{n:"一般",m:1,c:""}:{n:"排斥",m:.7,c:"red"} }
+/* ---- 猎场：不设等级门槛，弱小时进深处会遇到要命的凶兽 ---- */
+const SP=(n,el,kind,lo,hi,sk)=>({n,el,kind,lo,hi,sk});
 const HUNT_ZONES=[
- {n:"猎魂森林",min:0,lo:10,hi:900,d:"国家圈养的魂兽，以百年为主，最安全",b:["曼陀罗蛇","鬼藤","风狼","幽冥狼","铁甲犀"]},
- {n:"落日森林",min:12,lo:200,hi:9000,d:"千年魂兽成群，深处有万年魂兽",b:["地穴魔蛛","碧磷毒蛇","凤尾鸡冠蛇","烈焰狮","玄水龟"]},
- {n:"星斗大森林·外围",min:10,lo:100,hi:6000,d:"人面魔蛛的地盘，天才们第一次猎魂常来这里",b:["人面魔蛛","疾风魔狼","白目魔虎","鬼面蝠","紫纹蟒"]},
- {n:"星斗大森林·中圈",min:40,lo:3000,hi:60000,d:"万年魂兽横行，越往里越危险",b:["千钧蚁","三眼魔狐","赤魔獒","青鳞蛟","暗影豹"]},
- {n:"极北之地·外围",min:45,lo:5000,hi:80000,d:"冰雪魂兽，冰属性魂环的宝库",b:["冰熊","雪魔","冰碧蝎","霜狼王","冰原巨蜥"]},
- {n:"大海·魔鲸海域",min:55,lo:8000,hi:150000,d:"海魂兽年限高，上岸会削弱，海上猎杀更难",b:["邪魔虎鲸","魔魂大白鲨","深海魔鱼","海龙蛟","巨钳蟹王"]},
- {n:"星斗大森林·核心圈",min:72,lo:50000,hi:350000,d:"数十万年凶兽的领地",b:["泰坦巨猿族","天青牛蟒族","暗魔邪神虎","地狱魔蛛","翡翠天鹅族"]},
- {n:"极北之地·核心冰原",min:80,lo:80000,hi:450000,d:"冰帝、雪帝的领域，极致之冰",b:["冰碧帝皇蝎族","泰坦雪魔","冰天雪女族","极北冰龙"]},
+ {n:"猎魂森林",d:"国家圈养的魂兽，以百年为主",sp:[SP("曼陀罗蛇",["毒"],"控",100,900,"缠绕"),SP("鬼藤",["木"],"控",50,800,"藤缚"),SP("风狼",["风"],"敏",50,700,"疾风爪"),SP("幽冥狼",["暗"],"敏",200,1500,"幽冥突袭"),SP("铁甲犀",["土"],"防",100,2000,"铁甲冲撞"),SP("夜光蝶",["灵"],"辅",50,600,"夜光迷梦")]},
+ {n:"落日森林",d:"千年魂兽成群，深处有万年魂兽，还藏着冰火两仪眼",sp:[SP("地穴魔蛛",["毒"],"攻",1000,30000,"蛛刺"),SP("碧磷毒蛇",["毒"],"控",300,8000,"碧磷毒雾"),SP("烈焰狮",["火"],"攻",500,12000,"烈焰咆哮"),SP("玄水龟",["水","土"],"防",500,15000,"玄水护盾"),SP("凤尾鸡冠蛇",["火"],"控",800,6000,"凤尾火缠"),SP("幻影灵狐",["灵"],"控",300,9000,"幻影迷心")]},
+ {n:"星斗大森林·外围",d:"天才们第一次猎魂常来这里",sp:[SP("人面魔蛛",["毒"],"控",1000,20000,"蛛网束缚"),SP("疾风魔狼",["风"],"敏",200,8000,"疾风连斩"),SP("白目魔虎",["力"],"攻",500,15000,"虎啸"),SP("鬼面蝠",["暗","风"],"敏",200,6000,"鬼面音波"),SP("紫纹蟒",["毒"],"攻",300,9000,"绞杀"),SP("雷电狼",["雷"],"敏",500,12000,"雷光爪"),SP("梦幻灵蝶",["灵"],"辅",100,5000,"梦幻鳞粉")]},
+ {n:"星斗大森林·中圈",d:"万年魂兽横行，星湖在此",sp:[SP("千钧蚁",["土"],"防",5000,80000,"千钧之力"),SP("三眼魔狐",["灵"],"控",3000,120000,"三眼摄魂"),SP("赤魔獒",["火","力"],"攻",5000,90000,"赤焰撕咬"),SP("青鳞蛟",["水","龙"],"攻",8000,150000,"蛟龙摆尾"),SP("暗影豹",["暗"],"敏",5000,100000,"暗影突袭"),SP("雷霆巨犀",["雷","土"],"防",10000,130000,"雷霆冲锋"),SP("摄魂魔眼",["灵"],"控",4000,80000,"魔眼凝视")]},
+ {n:"炎狱火山",d:"落日森林以南的活火山，火属魂兽的老巢",sp:[SP("熔岩巨蜥",["火","龙"],"防",3000,150000,"熔岩甲"),SP("炎魔",["火"],"攻",20000,350000,"炎魔之拳"),SP("火凤雀",["火","风"],"敏",5000,200000,"凤火流星"),SP("地火蚯",["火","土"],"控",1000,60000,"地火喷涌")]},
+ {n:"雷霆崖",d:"终年雷暴的绝壁，雷属与亚龙种魂兽出没",sp:[SP("雷翼鹰",["雷","风"],"敏",3000,180000,"雷翼斩"),SP("雷鳞地龙",["雷","龙"],"攻",8000,320000,"雷鳞龙息"),SP("紫电雷豹",["雷"],"敏",2000,90000,"紫电连闪"),SP("岩雷龟",["雷","土"],"防",5000,160000,"雷岩壁")]},
+ {n:"极北之地·外围",d:"冰雪魂兽，冰属性魂环的宝库",sp:[SP("冰熊",["冰","力"],"防",5000,120000,"冰熊震地"),SP("雪魔",["冰"],"攻",8000,150000,"雪魔撕裂"),SP("霜狼",["冰","风"],"敏",5000,60000,"霜牙"),SP("冰原巨蜥",["冰","龙"],"防",6000,90000,"冰甲"),SP("雪原灵狐",["冰","灵"],"控",4000,70000,"冰魄迷踪")]},
+ {n:"大海·魔鲸海域",d:"海魂兽年限高，上岸会削弱，海上猎杀更难",sp:[SP("邪魔虎鲸",["水"],"攻",20000,300000,"血潮撕咬"),SP("魔魂大白鲨",["水"],"攻",10000,250000,"魔魂鲨咬"),SP("深海魔鱼",["水","毒"],"控",8000,120000,"深海毒雾"),SP("海龙蛟",["水","龙"],"控",30000,280000,"海龙漩涡"),SP("巨钳蟹",["水","土"],"防",10000,150000,"巨钳"),SP("雷鳗",["雷","水"],"敏",8000,140000,"雷鳗电流")]},
+ {n:"星斗大森林·核心圈",d:"数十万年凶兽的领地，万兽之王在此",sp:[SP("天青牛蟒种",["力","毒"],"防",80000,500000,"牛蟒缠身"),SP("泰坦巨猿种",["力"],"攻",100000,600000,"泰坦之拳"),SP("暗魔邪神虎种",["暗","力"],"攻",100000,500000,"邪神虎啸"),SP("地狱魔蛛",["毒","暗"],"控",60000,350000,"地狱蛛网"),SP("翡翠天鹅种",["光"],"辅",50000,300000,"翡翠之光"),SP("幽冥灵猫种",["暗"],"敏",50000,250000,"幽冥瞬杀"),SP("梦魇巨蝶",["灵"],"控",50000,250000,"梦魇")]},
+ {n:"极北之地·核心冰原",d:"冰帝、雪帝的领域，极致之冰",sp:[SP("冰碧蝎",["冰","毒"],"攻",100000,450000,"冰碧毒尾"),SP("泰坦雪魔种",["冰","力"],"攻",120000,500000,"雪魔崩山"),SP("霜月天狐",["冰","灵"],"控",80000,350000,"霜月摄魂"),SP("极北冰龙",["冰","龙"],"攻",200000,700000,"冰龙吐息"),SP("雪域灵鹿",["冰","灵"],"辅",80000,280000,"雪域圣光")]},
 ];
-function huntModal(){
-  const r=R(),p=P(),k=r.rings.length; const capY=CAPS[k]; const pw=power();
+function zoneTop(z){return Math.max(...z.sp.map(s=>s.hi))}
+function zoneDanger(z){return needOfYears(niceY(Math.sqrt(z.sp.reduce((a,s)=>a+s.lo,0)/z.sp.length*zoneTop(z))))}
+function whTargets(){const r=R(); return [1,2,3].filter(i=>i===1||(r.x["wh"+i]&&r.x["wh"+i].state!=="vessel")).map(i=>{ const n=ringsOf(r,i).length; const open=i===1?(n<9&&r.lv>=cap(r)-0.001):n<Math.min(9,Math.floor(r.lv/10)); return {i,n,open,cap:capFor(i),name:i===1?wname():r.x["wh"+i].name} })}
+function canHunt(){return whTargets().some(t=>t.open)}
+function huntModal(on){
+  const r=R(),p=P(); const ts=whTargets(); const open=ts.filter(t=>t.open);
+  if(!on){ if(open.length===1) on=open[0].i; else if(open.length>1){
+    const m=el(`<div class="modal" role="dialog" aria-modal="true"><div class="box"><div class="sec-t">猎魂 · 先选这个魂环给哪个武魂</div><h3>为哪个武魂猎魂？</h3>
+    <p class="dim" style="margin:0;font-size:13px">主武魂的魂环决定魂力等级上限；第二、第三武魂的魂环提升它们各自的战力加成，数量受魂力等级限制（每 10 级一环）。不同武魂契合的魂兽不同。</p>
+    <div class="opts">${ts.map(t=>`<button class="opt" data-wh="${t.i}" ${t.open?"":"disabled"}><span class="t">${WHN[t.i]} · ${esc(t.name)}</span><span class="m">已有 ${t.n} 环 · 下一环常规上限 ${yLabel(t.cap)} · 偏好：${whProfile(t.i).el.join("、")}属性 · ${whProfile(t.i).kind}系</span>${t.open?"":`<span class="m"><span class="chip">${t.i===1?"未到瓶颈":"魂力等级不够再加环"}</span></span>`}</button>`).join("")}</div><button class="btn" data-x>算了</button></div></div>`);
+    m.querySelector("[data-x]").onclick=()=>m.remove(); m.querySelectorAll("[data-wh]").forEach(b=>b.onclick=()=>{ m.remove(); huntModal(+b.dataset.wh) }); document.body.appendChild(m); return } else return toast("现在没有能加环的武魂") }
+  const k=ringsOf(r,on).length; const capY=capFor(on); const pw=power(); const prof=whProfile(on);
+  const tmOK=on===1&&k===0&&!r.flags.includes("tianmeng_seen")&&p.id!=="beast";
   const m=el(`<div class="modal" role="dialog" aria-modal="true"><div class="box">
-    <div class="sec-t">猎魂 · 第${k+1}魂环 · 常规上限 ${yLabel(capY)} · 你的战力 ${pw}</div><h3>去哪里猎魂？</h3>
-    <div class="opts">${HUNT_ZONES.map((z,i)=>{const ok=r.lv>=z.min; const tm=k===0&&!r.flags.includes("tianmeng_seen")&&/星斗大森林·外围/.test(z.n)&&p.id!=="beast";
-      return `<button class="opt" data-z="${i}" ${ok?"":"disabled"} ${tm?'style="border-color:var(--t-shen)"':""}><span class="t">${esc(z.n)} <span class="faint" style="font-weight:400">${yLabel(z.lo)}–${yLabel(z.hi)}</span></span><span class="m">${esc(z.d)}</span><span class="m"><span class="chip ${ok?"jade":"red"}">需 ${z.min} 级</span>${tm?`<span class="chip gold">${r.perk==="memory"?"原著记忆：天梦冰蚕就在这里":"最近有说不清的异动"}</span>`:""}</span></button>`}).join("")}</div>
+    <div class="sec-t">猎魂 · ${WHN[on]}「${esc(prof.name)}」第${k+1}环 · 常规上限 ${yLabel(capY)} · 你的战力 ${pw}</div><h3>去哪里猎魂？</h3>
+    <p class="dim" style="margin:0;font-size:13px">哪里都能去，但实力不够时深入凶地，可能撞上要命的魂兽。每个猎场每季刷出的魂兽不一样；和武魂越契合，魂环越强。</p>
+    <div class="opts">${HUNT_ZONES.map((z,i)=>{ const D=zoneDanger(z); const risk=pw>=D?["安全","jade"]:pw>=D*.6?["有风险","gold"]:["极危险","red"];
+      const good=z.sp.filter(s=>fitOf(on,s).m>=1.12); const best=good.length?Math.max(...good.map(s=>s.hi)):0; const tm=tmOK&&/星斗大森林·外围/.test(z.n);
+      return `<button class="opt" data-z="${i}" ${tm?'style="border-color:var(--t-shen)"':""}><span class="t">${esc(z.n)} <span class="faint" style="font-weight:400">最高约 ${yLabel(niceY(zoneTop(z)))}</span></span><span class="m">${esc(z.d)}</span><span class="m"><span class="chip ${risk[1]}">${risk[0]} · 凶兽战力约 ${D}</span><span class="chip ${best?"jade":""}">${best?`与${esc(prof.name)}契合的最高约 ${yLabel(niceY(best))}`:"没有特别契合的魂兽"}</span>${tm?`<span class="chip gold">${r.perk==="memory"?"原著记忆：天梦冰蚕就在这里":"最近有说不清的异动"}</span>`:""}</span></button>`}).join("")}</div>
     <button class="btn" data-x>算了</button></div></div>`);
   m.querySelector("[data-x]").onclick=()=>m.remove();
-  m.querySelectorAll("[data-z]").forEach(b=>b.onclick=()=>{ m.remove(); const z=HUNT_ZONES[+b.dataset.z]; if(k===0&&!r.flags.includes("tianmeng_seen")&&/星斗大森林·外围/.test(z.n)&&p.id!=="beast") return treasureModal(TIANMENG); zoneHunt(z) });
+  m.querySelectorAll("[data-z]").forEach(b=>b.onclick=()=>{ m.remove(); const z=HUNT_ZONES[+b.dataset.z]; if(tmOK&&/星斗大森林·外围/.test(z.n)) return treasureModal(TIANMENG); enterZone(z,on) });
   document.body.appendChild(m);
 }
-function zoneHunt(z){
-  const r=R(),p=P(),k=r.rings.length,slot=(p.rings||[]).find(x=>x.slot===k+1); const capY=CAPS[k]; const pw=power();
-  const nm2=i=>z.b[i%z.b.length]; const kinds=["攻","控","防","敏","辅"]; const opts=[];
-  const mk=(y,i,tag,desc)=>({zone:1,beast:nm2(i),years:niceY(y),kind:(slot&&slot.options&&slot.options[0]&&slot.options[0].kind)||kinds[i%5],skill:((slot&&slot.options&&slot.options[0]&&slot.options[0].skill)||"第"+(k+1)+"魂技")+(tag?"·"+tag:""),desc,need:{战力:needOfYears(niceY(y))}});
-  const seen=new Set();
-  if(capY*.45>=z.hi){ [Math.max(z.lo,z.hi*.3),z.hi*.6,z.hi].forEach((y,i)=>{ const v=niceY(y); if(seen.has(v)) return; seen.add(v); opts.push(mk(v,i,i===2?"王":"",i===2?"此地最强的魂兽":"常规之选")) }) }
-  else { const tgt=[capY*.45,capY,capY*2.2,capY*8].map(y=>Math.max(z.lo,Math.min(z.hi,y)));
-  tgt.forEach((y,i)=>{ const v=niceY(y); if(seen.has(v)) return; seen.add(v); opts.push(mk(v,i,v>capY?(v>capY*3?"真":"极"):(v<capY*.6?"弱":""),v>capY?"越限魂环：年限更高，魂技更强":v<capY*.6?"稳妥之选":"常规之选")) }) }
-  for(const o of ((slot&&slot.options)||[])) if(o.years>=z.lo&&o.years<=z.hi) opts.push(Object.assign({},o,{desc:(o.desc||"")+"（本命之选）",need:{战力:needOfYears(o.years)}}));
-  if(md("hunt")!==1) for(const o of opts) o.need=Object.assign({},o.need,{战力:Math.round(o.need.战力*md("hunt"))});
+function rollEnc(z,k){ const out=[]; for(let i=0;i<5;i++){ const sp=z.sp[Math.floor(rnd()*z.sp.length)]; const u=Math.pow(rnd(),1.7); out.push({sp:sp.n,years:niceY(sp.lo*Math.pow(sp.hi/sp.lo,u))}) } return out.sort((a,b)=>a.years-b.years) }
+function enterZone(z,on){ const r=R(); r.hz=r.hz||{}; const key=z.n; let c=r.hz[key];
+  if(!c||c.t!==r.turns){ c=r.hz[key]={t:r.turns,enc:rollEnc(z),risk:null}; const D=zoneDanger(z), pw=power();
+    if(pw<D*.6){ const p=Math.min(.75,(D*.6-pw)/(D*.6)*1.3); if(rnd()<p){ const sp=z.sp.slice().sort((a,b)=>b.hi-a.hi)[0]; c.risk={sp:sp.n,years:niceY(Math.max(sp.lo,sp.hi*.4))} } } save() }
+  if(c.risk&&!c.riskDone) return dangerModal(z,on,c);
+  zoneHunt(z,on) }
+function dangerModal(z,on,c){ const r=R(); const y=c.risk.years, op=needOfYears(y), pw=power(); const flee=clamp(.35+r.a.气运/200+r.a.精神/400,.2,.85);
+  const m=el(`<div class="modal" role="dialog" aria-modal="true"><div class="box"><div class="sec-t">${esc(z.n)} · 遭遇</div><h3>${yLabel(y)}${esc(c.risk.sp)}盯上了你</h3>
+  <div class="tx" style="font-family:var(--f-serif);font-size:15px;line-height:1.8">你才走进${esc(z.n)}不远，林子忽然安静了。一头${yLabel(y)}的${esc(c.risk.sp)}从暗处走出来，它的气息压得你喘不过气——这不是你这个境界该来的地方。</div>
+  <div class="opts"><button class="opt" data-i="0"><span class="t">掉头就跑</span><span class="m">逃脱机会约 ${Math.round(flee*100)}%（看气运与精神），失败就只能硬拼</span></button>
+  <button class="opt alter" data-i="1"><span class="t">拼了</span><span class="m">对方战力约 ${op}，你 ${pw}。输了会死；赢了，它的魂环归你</span></button></div></div></div>`);
+  const fight=()=>duelFight({n:yLabel(y)+c.risk.sp,h:"",w:"魂兽",st:"攻",ult:"致命一击"},{plot:true,op,title:z.n,done:res=>{ c.riskDone=true; if(res.win){ const ds=apply({名望:6,trait:{险:2}}); c.enc.push({sp:c.risk.sp,years:y,won:true}); r.actLog.push({n:"死里逃生",txt:`你在${z.n}以弱胜强，斩杀了${yLabel(y)}${c.risk.sp}。`,ds}); save(); zoneHunt(z,on) } else { r.pendingEnd={k:"death",cause:`实力不足深入${z.n}，葬身${yLabel(y)}${c.risk.sp}之口`}; save(); render(); setTimeout(()=>finish(),1200) } }});
+  m.querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>{ m.remove(); if(b.dataset.i==="0"){ if(rnd()<flee){ c.riskDone=true; c.fled=true; const ds=apply({伤势:20}); r.actLog.push({n:"逃命",txt:`你从${z.n}里逃了出来，这一季别再进去了。`,ds}); save(); render() } else fight() } else fight() });
+  document.body.appendChild(m) }
+function zoneHunt(z,on){
+  const r=R(),p=P(); on=on||1; if(r.hz&&r.hz[z.n]&&r.hz[z.n].fled) return toast("刚从那里逃出来，这一季先别去了");
+  const k=ringsOf(r,on).length; const capY=capFor(on); const pw=power(); const c=r.hz[z.n]; const prof=whProfile(on);
+  const slot=on===1?(p.rings||[]).find(x=>x.slot===k+1):null;
+  const opts=c.enc.map(e=>{ const sp=z.sp.find(s=>s.n===e.sp)||{n:e.sp,el:guessEl(e.sp),kind:"攻",sk:"魂技"}; const f=fitOf(on,sp); return {beast:sp.n,years:e.years,kind:sp.kind,el:sp.el,skill:sp.sk+(e.years>capY?"·越限":""),desc:e.won?"你以弱胜强亲手斩杀的凶兽":"",fit:f.m,fitN:f.n,fitC:f.c,need:{战力:e.won?0:needOfYears(e.years)},on} });
+  for(const o of ((slot&&slot.options)||[])) if(o.years>=z.sp.reduce((a,s)=>Math.min(a,s.lo),1e9)&&o.years<=zoneTop(z)){ const f=fitOf(on,{n:o.beast,el:prof.el,kind:o.kind}); opts.push(Object.assign({},o,{desc:(o.desc||"")+"（本命之选）",need:{战力:needOfYears(o.years)},fit:Math.max(1.12,f.m),fitN:f.m>=1.12?f.n:"良好",fitC:"jade",on})) }
+  if(md("hunt")!==1) for(const o of opts) if(o.need.战力) o.need={战力:Math.round(o.need.战力*md("hunt"))};
   opts.sort((a,b)=>a.years-b.years);
-  const aw=awakened(r), ves=vessel(r); let on=1; const canSeal=o=>ves&&o.zone&&o.years>=1e5&&(!/冰/.test(ves.w.system)||/极北/.test(z.n));
+  const ves=vessel(r); const canSeal=o=>ves&&o.years>=1e5&&(!/冰/.test(ves.w.system)||/极北/.test(z.n));
   const m=el(`<div class="modal" role="dialog" aria-modal="true"><div class="box">
-    <div class="sec-t">${esc(z.n)} · 第${k+1}魂环 · 常规上限 ${yLabel(capY)}</div><h3>选择目标魂兽</h3>
-    <p class="dim" style="margin:0;font-size:13px">战力达标就一定能猎杀并吸收，越限魂环也一样（越限会受些伤）。你的战力 <b class="num">${pw}</b>。</p>
-    ${aw.length?`<div class="seg"><span class="dim">魂环附加到：</span><button data-on="1" class="on">主武魂·${esc(wname())}</button>${aw.map(a=>`<button data-on="${a.i}">${WHN[a.i]}·${esc(a.w.name)}</button>`).join("")}</div><div class="faint" style="font-size:12px">附在第二、第三武魂上的魂环，会抬高该武魂的战力加成（白 1% → 金 12%）。</div>`:""}
-    ${ves?`<div class="faint" style="font-size:12px">你有一个空武魂（${esc(ves.w.name)}）。${/冰/.test(ves.w.system)?"在极北之地遇到":"遇到"}十万年以上的魂兽，可以不吸收魂环，把它的魂灵封进去，让空武魂觉醒。</div>`:""}
-    <div class="opts">${opts.map((o,i)=>{const need=o.need.战力; const ok=pw>=need; const over=o.years>capY;
-      return `<button class="opt ${over?"alter":""}" data-i="${i}" ${ok?"":"disabled"}><span class="t">${esc(o.beast)} · ${yLabel(o.years)} <span class="ring" style="border-color:${RC[ringColor(o.years)]};width:12px;height:12px;vertical-align:-1px"></span></span><span class="m">${esc(o.kind||"")} · 「${esc(o.skill)}」 ${esc(o.desc||"")}</span><span class="m"><span class="chip ${ok?"jade":"red"}">需战力 ${need}${ok?"":" · 差 "+(need-pw)}</span>${over?`<span class="chip red">越限 ${Math.round(o.years/capY*100)}%</span>`:""}${o.years>=1e6?'<span class="chip gold">不掉魂骨，撑开空武魂位</span>':o.years>=1e5?'<span class="chip gold">必掉十万年魂骨</span>':o.years>=5e4?'<span class="chip">30% 掉万年魂骨</span>':o.years>=1e4?'<span class="chip">12% 掉万年魂骨</span>':o.years>=1e3?'<span class="chip">5% 掉千年魂骨</span>':""}</span></button>${canSeal(o)&&ok?`<button class="btn" data-s="${i}" style="margin-top:-4px">✧ 把${esc(o.beast)}的魂灵封入空武魂（不吸收魂环）</button>`:""}`}).join("")}</div>
-    <div class="dim" style="font-size:12.5px">涨战力：修炼升级（每级 +10）、锤炼与冥想（每点 +0.8）、魂骨（百年 20 / 千年 60 / 万年 200 / 十万年 600 / 百万年 1500）、机缘与武魂特性。</div>
+    <div class="sec-t">${esc(z.n)} · ${WHN[on]}「${esc(prof.name)}」第${k+1}环 · 常规上限 ${yLabel(capY)}</div><h3>这一季在这里撞见的魂兽</h3>
+    <p class="dim" style="margin:0;font-size:13px">战力达标就能猎杀并吸收；越限会受伤，契合排斥的魂环会打折。你的战力 <b class="num">${pw}</b>。同一季再来，还是这几头。</p>
+    ${ves?`<div class="faint" style="font-size:12px">你有一个空武魂（${esc(ves.w.name)}）。遇到十万年以上的魂兽，可以不吸收魂环，把它的魂灵封进去。</div>`:""}
+    <div class="opts">${opts.map((o,i)=>{const need=o.need.战力; const ok=pw>=need; const over=o.years>capY*(o.fit>=1.3?1.3:1);
+      return `<button class="opt ${over?"alter":""}" data-i="${i}" ${ok?"":"disabled"}><span class="t">${esc(o.beast)} · ${yLabel(o.years)} <span class="ring" style="border-color:${RC[ringColor(o.years)]};width:12px;height:12px;vertical-align:-1px"></span></span><span class="m">${esc([].concat(o.el||[]).join("·"))} · ${esc(o.kind||"")}系 · 「${esc(o.skill)}」 ${esc(o.desc||"")}</span><span class="m"><span class="chip ${o.fitC||""}">契合：${o.fitN||"一般"}（魂环威力 ×${o.fit||1}）</span><span class="chip ${ok?"jade":"red"}">需战力 ${need}${ok?"":" · 差 "+(need-pw)}</span>${over?`<span class="chip red">越限 ${Math.round(o.years/capY*100)}%</span>`:""}${o.years>=1e6?'<span class="chip gold">不掉魂骨，撑开空武魂位</span>':o.years>=1e5?'<span class="chip gold">必掉十万年魂骨</span>':o.years>=5e4?'<span class="chip">30% 掉万年魂骨</span>':o.years>=1e4?'<span class="chip">12% 掉万年魂骨</span>':o.years>=1e3?'<span class="chip">5% 掉千年魂骨</span>':""}</span></button>${on===1&&canSeal(o)&&ok?`<button class="btn" data-s="${i}" style="margin-top:-4px">✧ 把${esc(o.beast)}的魂灵封入空武魂（不吸收魂环）</button>`:""}`}).join("")}</div>
     <button class="btn" data-back>← 换个地方</button></div></div>`);
-  m.querySelector("[data-back]").onclick=()=>{ m.remove(); huntModal() };
-  m.querySelectorAll("[data-on]").forEach(b=>b.onclick=()=>{ on=+b.dataset.on; m.querySelectorAll("[data-on]").forEach(x=>x.classList.toggle("on",x===b)) });
+  m.querySelector("[data-back]").onclick=()=>{ m.remove(); huntModal(on) };
   m.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{ m.remove(); sealSoul(opts[+b.dataset.s]) });
-  m.querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>{ m.remove(); const o=Object.assign({},opts[+b.dataset.i]); if(on>1) o.on=on; hunt(o,capY) });
+  m.querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>{ m.remove(); const o=opts[+b.dataset.i]; c.enc=c.enc.filter(e=>!(e.sp===o.beast&&e.years===o.years)); hunt(o,capY) });
   document.body.appendChild(m);
 }
 const TIANMENG={id:"t_tianmeng",name:"天梦冰蚕",tier:"神",place:"星斗大森林·外围",canon:null,
@@ -740,8 +790,8 @@ const TIANMENG={id:"t_tianmeng",name:"天梦冰蚕",tier:"神",place:"星斗大�
   {t:"接纳它，与冰蚕融合",hint:"二部中霍雨浩的选择：百万年第一魂环＋一个空的冰系武魂位，日后与冰帝融合才会觉醒",need:{精神:15},win:{text:"冰蚕化作一道白光钻进你眉心，在精神之海里打了个滚住下。它把百万年的本源凝成你的第一魂环——一道金色的魂环，又在你精神之海里撑开了一个空的冰系武魂位。「这里先空着，等你找到一头够格的冰属魂兽——比如极北那只脾气很坏的蝎子——它住进来，你的第二武魂才算活了。」",d:{wuhun2:{name:"天梦冰蚕·空武魂",state:"vessel",tier:"空",system:"冰系·待融合",desc:"百万年天梦冰蚕在精神之海撑开的冰系空武魂，本身不加战力；有极致之冰的魂兽融进来才会觉醒",fuse:"冰帝（极北之地·碧冰谷，约 70 级起）；或在极北猎魂时把十万年以上冰属魂兽的魂灵封进来",act:{n:"冰蚕冥想",d:"天梦冰蚕在精神之海里替你修炼：精神 +4、悟性 +2"}},ring:{beast:"天梦冰蚕",noBone:true,years:1000000,kind:"控",skill:"天梦冰封",desc:"天梦冰蚕以百万年本源凝成的第一魂环，金色"},精神:15,悟性:8,reveal:["天梦冰蚕"],flags:["overlimit","s_bingcan_host","tianmeng_seen"],trait:{险:1}}}},
   {t:"婉拒，另寻魂兽",win:{text:"冰蚕叹了口气，缩回雾里：「也罢，人各有命。」临走前，它往你脑海里塞了一缕精神本源当见面礼。",d:{精神:6,悟性:3,reveal:["天梦冰蚕"],flags:["tianmeng_seen"]}}}]};
 function hunt(o,capY){
-  const r=R(); let ds=[]; let txt; const over=o.years>capY;
-  gainRing(o,ds);
+  const r=R(); let ds=[]; let txt; const over=o.years>capY*((o.fit||1)>=1.3?1.3:1); const x=Object.assign({},o); delete x.need; delete x.fitC;
+  gainRing(x,ds); if((o.fit||1)<1) ds=ds.concat(apply({伤势:10}));
   if(over){ txt=`越限吸收，你硬生生扛住了${yLabel(o.years)}的魂环。`; r.trait.险+=1; ds=ds.concat(apply({伤势:12,精神:2})) }
   else txt=`你亲手斩杀${o.beast}，魂环缓缓升起，融入体内。`;
   r.ap--; checkEvo(ds); r.actLog.push({n:"猎魂",txt,ds}); save(); render();
@@ -762,7 +812,7 @@ function treasureModal(t){
   <div class="tx" style="font-family:var(--f-serif);font-size:15px;line-height:1.85;white-space:pre-line">${esc(nm(t.text))}</div>
   <div class="opts" id="tops">${(t.choices||[]).map((c,j)=>{ if(c.cond&&!condOK(c.cond)) return "";const[ok]=needOKc(c);const cost=0;const poor=cost>fateAvail();return `<button class="opt ${c.canonChange?"alter":""}" data-c="${j}" ${(!ok||poor)?"disabled":""}><span class="t">${esc(nm(c.t))}</span>${c.hint?`<span class="m">${esc(nm(c.hint))}</span>`:""}<span class="m">${choiceChips(c)}${cost?`<span class="chip gold">宿命 −${cost}</span>`:""}${c.canonChange?`<span class="chip red">改写原著</span>`:""}${c.win&&c.win.d&&c.win.d.death?`<span class="chip red">致命：选了会死</span>`:""}${c.chance!=null&&!(c.need&&Object.keys(c.need).length)?`<span class="chip">看运气</span>`:""}</span></button>`}).join("")}</div><button class="btn" data-close>暂且作罢（不耗行动点）</button></div></div>`);
   m.querySelector("[data-close]").onclick=()=>{ m.remove(); render() };
-  m.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{ const c=t.choices[+b.dataset.c]; if(isFight(c)){ m.style.display="none"; fightThen(c,{title:t.name,text:t.text,beast:/魂兽|魔蛛|蛇|鲸|虎|熊|蚁|蝎|龙|猿|牛蟒|狼|藤/.test(t.name)&&!WAR_RE.test(c.t)?t.name:null},win=>{ m.style.display=""; goT(c,resolveChoice(c,win)) }) } else goT(c,resolveChoice(c)) });
+  m.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{ const c=t.choices[+b.dataset.c]; if(t.canon) markCanon(t.canon,/^w_/.test(t.id)?"w":"t"); if(isFight(c)){ m.style.display="none"; fightThen(c,{title:t.name,text:t.text,beast:/魂兽|魔蛛|蛇|鲸|虎|熊|蚁|蝎|龙|猿|牛蟒|狼|藤/.test(t.name)&&!WAR_RE.test(c.t)?t.name:null},win=>{ m.style.display=""; goT(c,resolveChoice(c,win)) }) } else goT(c,resolveChoice(c)) });
   const goT=(c,res)=>{ const took=Object.keys((res.ok?c.win:(c.lose||c.win)).d||{}).length>0;
     r.treasDone.push(t.id); r.ap--; r.actLog.push({n:"寻访·"+t.name,txt:res.text||"",ds:res.ds}); checkDeath(); save();
     m.querySelector(".box").innerHTML=`<div class="sec-t">${esc(t.name)}</div><h3>${res.chance?(res.ok?"成了":"失手了"):"结果"}</h3><div style="font-family:var(--f-serif);font-size:15px;line-height:1.8">${esc(nm(res.text||""))}</div><div class="deltas">${res.ds.map(d=>`<span class="delta ${d.up?"up":"dn"}">${esc(d.t)}</span>`).join("")}</div>${res.note?`<div class="dim" style="font-size:12.5px">${esc(res.note)}</div>`:""}<button class="btn pri" data-x>好</button>`;
@@ -782,7 +832,7 @@ function regionModal(){
 function explore(g){
   if(g.id==="shalu") return shaluModal();
   const r=R(); const y=year(); const tierF=1+g.min/25; let ds=[],txt="";
-  const here=TREAS.filter(t=>g.kw.test(t.place||"")&&t.yearMin<=y&&t.yearMax>=y&&!r.treasDone.includes(t.id)&&r.lv>=tMin(t));
+  const here=TREAS.filter(t=>g.kw.test(t.place||"")&&t.yearMin<=y&&t.yearMax>=y&&!r.treasDone.includes(t.id)&&r.lv>=tMin(t)&&!tooLow(t)&&!canonTaken(t.canon,"t"));
   const luck=rnd()*100+r.a.气运*.5;
   if(here.length&&(luck>55||here.some(t=>known(t)))){ const t=here.find(t=>known(t))||here[Math.floor(rnd()*here.length)]; if(!r.heard.includes(t.id)) r.heard.push(t.id); r.ap--; save(); return treasureModalFree(t) }
   if(luck>92&&r.rings.length&&r.lv>=30){ ds=[]; ringUp({target:"lowest",mul:1.6},ds); ds=ds.concat(apply({精神:2})); txt=`${g.n}深处有一口古泉，你把魂环浸进泉眼，最弱的那一环蜕变了。` }
@@ -833,7 +883,8 @@ function worldModal(){
   document.body.appendChild(m);
 }
 function treasureModalFree(t){ R().ap++; treasureModal(t) }
-function npcPower(lv){return Math.round(lv*12*(1+Math.pow(lv/100,4)*4)+(lv>=91?400:0))}
+const NPC_T=[[1,30],[10,150],[20,280],[30,450],[40,650],[50,900],[60,1150],[70,1450],[80,1900],[90,2500],[91,2800],[93,3100],[95,3500],[97,4100],[98,4700],[99,5600]];
+function npcPower(lv){ if(lv<=1) return 30; for(let i=1;i<NPC_T.length;i++){ const[a,va]=NPC_T[i-1],[b,vb]=NPC_T[i]; if(lv<=b) return Math.round(va+(vb-va)*(lv-a)/(b-a)) } return 5600 }
 const DUEL_DB={千道流:["六翼天使","攻","天使圣剑"],唐晨:["昊天锤","攻","杀神领域"],波赛西:["海神","控","海神审判"],比比东:["死亡蛛皇","控","罗刹魔镰"],金鳄斗罗:["黄金鳄王","攻","金鳄斩"],千钧斗罗:["盘龙棍","攻","千钧一棍"],降魔斗罗:["盘龙棍","防","降魔棍阵"],唐啸:["昊天锤","攻","大须弥锤"],唐昊:["昊天锤","攻","大须弥锤"],尘心:["七杀剑","攻","七杀剑意"],古榕:["骨龙","防","骨龙真身"],月关:["奇茸通天菊","控","菊花残·满地伤"],鬼魅:["鬼","敏","鬼影迷踪"],独孤博:["碧磷蛇皇","控","碧磷紫毒"],海龙斗罗:["海龙","攻","海龙吐息"],海马斗罗:["海马","敏","踏浪千里"],海矛斗罗:["海之矛","攻","破海一矛"],海幻斗罗:["虚幻之蛇","控","千幻蛇阵"],海魔女:["人鱼","控","魔女之歌"],拓跋希:["圣龙","攻","圣龙真身"],千仞雪:["六翼天使","攻","天使圣剑"],唐三:["蓝银皇·昊天锤","控","佛怒唐莲"],小舞:["柔骨兔","敏","无敌金身·八段摔"],戴沐白:["邪眸白虎","攻","白虎金刚变"],宁荣荣:["九宝琉璃塔","辅","九宝转出有琉璃"],马红俊:["邪火凤凰","攻","凤凰啸天击"],朱竹清:["幽冥灵猫","敏","幽冥百爪"],奥斯卡:["香肠","辅","镜像肠"],弗兰德:["四眼猫鹰","敏","鹰眼锁喉"],赵无极:["大力金刚熊","防","金刚怒熊"],柳二龙:["火龙","攻","火龙真身"],宁风致:["七宝琉璃塔","辅","琉璃天火"],泰坦:["泰坦巨猿","攻","泰坦之怒"],牛皋:["玄武龟","防","玄武真身"],白鹤:["白鹤","敏","鹤唳九天"],杨无敌:["破魂枪","攻","破之意志"],萨拉斯:["白金主教","控","圣光审判"],呼延震:["天斗战魂","攻","破阵一击"],胡列娜:["妖狐","控","妖媚"],邪月:["月刃","敏","月轮斩"],焱:["火焰领主","攻","焱火焚天"],戴维斯:["邪眸白虎","攻","白虎烈光波"],玉天恒:["蓝电霸王龙","攻","雷霆龙爪"],火舞:["火焰","攻","火舞旋风"],风笑天:["疾风双头狼","敏","双狼风刃"],独孤雁:["碧磷蛇","控","碧磷毒雾"],叶泠泠:["九心海棠","辅","海棠回春"]};
 const NPC_YOUNG=[{n:"玉天恒",l:40,g:2.4},{n:"火舞",l:38,g:2.2},{n:"风笑天",l:39,g:2.3},{n:"独孤雁",l:37,g:2.2},{n:"叶泠泠",l:36,g:2}];
 const TACT={atk:{n:"强攻",d:"抢攻压制。克控制，被防守反击克"},ctl:{n:"控制",d:"封锁对手。克防守反击，被强攻克"},def:{n:"防守反击",d:"以守代攻。克强攻，也能接住对手的绝招"}};
@@ -864,7 +915,7 @@ function stakeModal(x){const r=R(); const ti=Math.min(3,stakeTier(x.lv)); const 
   m.querySelector("[data-x]").onclick=()=>m.remove();
   m.querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>{ m.remove(); r.ap--; duelFight(x,{stake:+b.dataset.i?{ti,pay}:null,done:res=>{ r.actLog.push({n:"挑战·"+x.n,txt:res.text,ds:res.ds}); save(); render() }}) });
   document.body.appendChild(m)}
-function duelCards(){const r=R(); const c=[]; if(r.lv>=60) c.push({n:"武魂真身",m:1.5}); if(r.x.domain) c.push({n:"杀神领域",m:1.5}); if(r.x.god) c.push({n:GODS[r.x.god].card,m:GODS[r.x.god].m});
+function duelCards(){const r=R(); const c=[]; if(r.lv>=60) c.push({n:"武魂真身",m:1.4}); if(r.x.domain) c.push({n:"杀神领域",m:1.45}); if(r.x.god) c.push({n:GODS[r.x.god].card,m:GODS[r.x.god].m});
   for(const a of awakened(r)) c.push({n:WHN[a.i]+"·"+a.w.name,m:1.45});
   r.bones.filter(b=>boneTi(b)>=2).sort((a,b)=>boneTi(b)-boneTi(a)).slice(0,3).forEach(b=>c.push({n:b.name.replace(/·.*$/,"")+(b.slot)+"骨技",m:boneTi(b)>=3?1.45:1.3}));
   if(r.items.some(n=>/阳泉水/.test(n))) c.push({n:"一滴阳泉水",m:1.6,item:"阳泉水·温玉瓶"});
@@ -887,13 +938,13 @@ function duelFight(x,opt){
       <div style="text-align:right"><b>${esc(x.n)}</b>${x.h?` <span class="faint">${esc(x.h)}</span>`:""}<div class="faint" style="font-size:12px">${esc(x.w)}${x.lv?" · "+x.lv+"级":""} · 战力约 ${op}</div></div></div>
     ${st.log.map(l=>`<div style="font-size:13.5px;padding:6px 0;border-top:1px solid var(--line)"><b style="color:${l.win?"var(--jade)":"var(--red)"}">${W?["","第一阵","第二阵","决战"][l.r]:"第"+l.r+"局"} ${l.win?"胜":"负"}</b> · ${esc(l.t)}</div>`).join("")}
     ${st.over?`<div class="res" style="margin-top:10px"><div class="rt"><b>${st.res.win?"胜":"败"}</b>${st.res.text?" · "+esc(st.res.text):""}</div><div class="deltas">${st.res.ds.map(d=>`<span class="delta ${d.up?"up":"dn"}">${esc(d.t)}</span>`).join("")}</div></div><button class="btn pri" data-close>${opt.plot?"看结果":"收起"}</button>`
-     :`${insight()}<div class="opts">${opt.quick&&st.round===1?`<button class="opt" data-i="q"><span class="t">实力碾压，直接拿下</span><span class="m">你的战力远超对方，不必细打</span></button>`:""}${Object.entries(TACT).map(([k,t])=>`<button class="opt" data-i="t:${k}"><span class="t">${TN[k]}</span><span class="m">${W?t.d.replace(/强攻/g,"冲阵").replace(/控制/g,"奇袭").replace(/防守反击/g,"据守").replace("绝招","总攻"):t.d}</span></button>`).join("")}${cards.map((c,i)=>`<button class="opt alter" data-i="c:${i}" ${used.has(i)?"disabled":""}><span class="t">底牌 · ${esc(c.n)}</span><span class="m">本局威力 ×${c.m}，无视克制${c.item?"（用掉道具）":""}${used.has(i)?" · 已用":""}</span></button>`).join("")}</div>`}`;
+     :`${insight()}<div class="opts">${opt.quick&&st.round===1?`<button class="opt" data-i="q"><span class="t">实力碾压，直接拿下</span><span class="m">你的战力远超对方，不必细打</span></button>`:""}${Object.entries(TACT).map(([k,t])=>`<button class="opt" data-i="t:${k}"><span class="t">${TN[k]}</span><span class="m">${W?t.d.replace(/强攻/g,"冲阵").replace(/控制/g,"奇袭").replace(/防守反击/g,"据守").replace("绝招","总攻"):t.d}</span></button>`).join("")}${cards.map((c,i)=>`<button class="opt alter" data-i="c:${i}" ${used.size?"disabled":""}><span class="t">底牌 · ${esc(c.n)}</span><span class="m">本局威力 ×${c.m}，无视克制${c.item?"（用掉道具）":""} · 每场只能动用一张${used.has(i)?" · 已用":used.size?" · 已动用过底牌":""}</span></button>`).join("")}</div>`}`;
     box.querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>play(b.dataset.i));
     const cl=box.querySelector("[data-close]"); if(cl) cl.onclick=()=>{ m.remove(); opt.done&&opt.done(st.res) } };
   const play=(sel)=>{ if(sel==="q"){ st.me=2; st.over=true; st.log.push({r:1,win:true,t:`${x.n}在你面前撑不过三招。`}); st.res=settle(true); return draw() } const [kind,v]=sel.split(":"); let my=pw*(.9+rnd()*.2), th=op*(.9+rnd()*.2); let myT, cardN=null;
     const ult=nextOpp==="ult"; const thT=ult?"atk":nextOpp; if(ult) st.ultUsed=true;
     if(kind==="c"){ const c=cards[+v]; used.add(+v); my*=c.m; cardN=c.n; myT=null; if(c.item){ const k=r.items.indexOf(c.item); if(k>=0) r.items.splice(k,1) } if(ult) th*=1.25 }
-    else { myT=v; if(ult){ if(myT==="def") my*=1.35; else th*=1.6 } else { if(BEATS[myT]===thT) my*=1.35; else if(BEATS[thT]===myT) th*=1.35 } }
+    else { myT=v; if(ult){ if(myT==="def") my*=1.25; else th*=1.6 } else { if(BEATS[myT]===thT) my*=1.25; else if(BEATS[thT]===myT) th*=1.25 } }
     const win=my>=th; if(win) st.me++; else st.them++;
     const tag=cardN?"":ult?(myT==="def"?"（接住了绝招）":"（硬吃绝招）"):BEATS[myT]===thT?"（你克制了对方）":BEATS[thT]===myT?"（被对方克制）":"（同招硬拼）"; const mine=(cardN?`动用底牌「${cardN}」`:`以「${TN[myT]}」`); const theirs=ult?`${W?"总攻":"绝招"}「${x.ult}」`:`「${TN[thT]}」`;
     const hit=(W?["阵线被撕开一道口子","折了一员大将","后撤了十里","军旗倒了一面","阵脚大乱"]:["连退七步","魂环一暗","嘴角溢血","护体魂力被撕开一道口子","单膝跪地"])[Math.floor(rnd()*5)];
@@ -910,8 +961,8 @@ function duelFight(x,opt){
     checkDeath(); save(); return {win,text,ds} };
   prep(); draw();
 }
-function challengerFor(r){ if(r.lv<45) return null; const ch=Math.min(.35,.1+r.fame/300); if(rnd()>=ch) return null;
-  const pool=duelPool(r.lv-8,r.lv+12).filter(x=>!(r.beaten||[]).includes(x.n)); if(!pool.length) return null; const x=pool[Math.floor(rnd()*pool.length)];
+function challengerFor(r){ if(r.lv<45) return null; const ch=Math.min(.2,.05+r.fame/600); if(rnd()>=ch) return null; const pw=power();
+  const pool=duelPool(r.lv-10,r.lv+30).filter(x=>!(r.beaten||[]).includes(x.n)&&npcPower(x.lv)>=pw*.7&&npcPower(x.lv)<=pw*1.4); if(!pool.length) return null; const x=pool[Math.floor(rnd()*pool.length)];
   const t=[`${x.n}${x.h?"（"+x.h+"）":""}派人送来一封战书：「久闻大名。三日后，城外比武台，胜负自知。」`,
     `${x.n}堵在你的住处门口，${x.w}的气息毫不掩饰：「听说你最近风头很盛，让我看看是真是假。」`,
     `酒楼里有人放出话来：${x.n}要和你一战。拒绝，就是怯战。`,
@@ -1010,7 +1061,7 @@ function topbar(){const r=R(); return `<div class="top"><div class="wrap">
   <button class="btn" id="tb-save">存档</button>
   <button class="btn" id="tb-home">退出</button>
   <button class="btn pri" id="tb-end">结束本季</button></div></div>`}
-function emblem(){const r=R(); const n=9; const rs=r.rings; let arcs=""; for(let i=0;i<n;i++){const rad=28-i*2.6; const col=rs[i]?RC[ringColor(rs[i].years)]:"var(--line)"; arcs+=`<circle cx="32" cy="32" r="${rad}" fill="none" stroke="${col}" stroke-width="${rs[i]?2:0.8}" ${rs[i]?"":'stroke-dasharray="2 3"'}/>`} return `<svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">${arcs}<text x="32" y="38" text-anchor="middle" font-size="16" fill="var(--fg)" font-family="var(--f-disp)">${esc(P().wuhun.name[0])}</text></svg>`}
+function emblem(){const r=R(); const n=9; const rs=mainRings(r); let arcs=""; for(let i=0;i<n;i++){const rad=28-i*2.6; const col=rs[i]?RC[ringColor(rs[i].years)]:"var(--line)"; arcs+=`<circle cx="32" cy="32" r="${rad}" fill="none" stroke="${col}" stroke-width="${rs[i]?2:0.8}" ${rs[i]?"":'stroke-dasharray="2 3"'}/>`} return `<svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">${arcs}<text x="32" y="38" text-anchor="middle" font-size="16" fill="var(--fg)" font-family="var(--f-disp)">${esc(P().wuhun.name[0])}</text></svg>`}
 function side(){const r=R(),p=P(); const bond=Object.entries(r.bonds).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1])).slice(0,7);
   const bar=(k,v,mx,cls)=>`<div class="bar"><span>${k}</span><span class="tr"><span class="fi ${cls||""}" style="width:${clamp(v/mx*100,0,100)}%"></span></span><span class="v">${Math.round(v)}${mx>100?`<span class="faint" style="font-size:10px">/${mx}</span>`:""}</span></div>`;
   const bb=(k,v)=>{const pct=clamp(v,-100,100)/2;return `<div class="bbar"><span>${esc(k)}</span><span class="tr"><span class="z"></span><span class="fi ${pct<0?"neg":""}" style="${pct<0?`left:${50+pct}%;width:${-pct}%`:`left:50%;width:${pct}%`}"></span></span><span class="num" style="text-align:right">${v}</span></div>`};
@@ -1018,7 +1069,7 @@ function side(){const r=R(),p=P(); const bond=Object.entries(r.bonds).sort((a,b)
   <div class="card" style="display:grid;gap:12px">
     <div class="dossier-h">${emblem()}<div><div class="nm">${esc(r.name)}</div><div class="dim" style="font-size:12.5px">${esc(p.title)}</div><div style="font-size:12.5px"><span class="tier tier-${wtier()}">${esc(wtier())}</span> · ${esc(wname())} · ${esc(p.wuhun.system||"")}</div>${[2,3].filter(i=>r.x["wh"+i]).map(i=>{const w=r.x["wh"+i]; return `<div style="font-size:12.5px">${WHN[i]}：${w.state==="vessel"?`<span class="chip gold" style="padding:0 6px">空·待融合</span> ${esc(w.name)}`:`<span class="tier tier-${w.tier}">${esc(w.tier)}</span> · ${esc(w.name)}`}</div>`}).join("")}<div class="faint" style="font-size:12px">特性「${esc(WXo().trait||"")}」${r.x.sword?` · 剑意 ${r.x.sword}`:""}${r.x.devour?` · 噬影 ${r.x.devour}`:""}${r.x.gear?` · 器械战力 ${r.x.gear}`:""}</div></div></div>
     ${traitPanel()}
-    <div><div class="sec-t">魂环 ${r.rings.length}/9</div><div class="ringstrip">${Array.from({length:9},(_,i)=>r.rings[i]?`<span class="ring" title="${esc(yLabel(r.rings[i].years)+" "+r.rings[i].skill)}" style="border-color:${RC[ringColor(r.rings[i].years)]}"></span>`:`<span class="ring empty"></span>`).join("")}</div></div>
+    ${[1,2,3].filter(i=>i===1||(r.x["wh"+i]&&r.x["wh"+i].state!=="vessel")).map(i=>{const rs=ringsOf(r,i); return `<div><div class="sec-t">${i===1?"魂环":WHN[i]+"魂环"} ${rs.length}/9</div><div class="ringstrip">${Array.from({length:9},(_,j)=>rs[j]?`<span class="ring" title="${esc(yLabel(rs[j].years)+" "+rs[j].skill)}" style="border-color:${RC[ringColor(rs[j].years)]}"></span>`:`<span class="ring empty"></span>`).join("")}</div></div>`}).join("")}
     <div><div class="sec-t" title="属性满了以后，溢出部分一半抬高上限、三成转成气运">六维 · 满了会抬高上限</div><div class="bars">${bar("魂力",r.lv,100)}${ATTRS.map(k=>bar(k,r.a[k],acap(k))).join("")}${bar("伤势",r.hurt,100,"red")}</div></div>
   </div>
   ${r.fac?(()=>{const f=myFac(); const q=f.rankReq&&f.rankReq[r.fac.rank+1]; return `<div class="card"><div class="sec-t">所属势力</div><div style="font-family:var(--f-serif);font-weight:900;font-size:16px">${esc(f.name)} · ${esc(f.ranks[r.fac.rank])}</div><div class="dim" style="font-size:12.5px">${esc(f.perk&&f.perk.desc||"")}</div>${q?`<div class="bar" style="margin-top:8px"><span>功勋</span><span class="tr"><span class="fi" style="width:${Math.min(100,r.fac.merit/(q.merit||1)*100)}%"></span></span><span class="v">${r.fac.merit}</span></div><div class="faint" style="font-size:12px">晋升「${esc(f.ranks[r.fac.rank+1])}」需功勋 ${q.merit}、${q["等级"]||0} 级</div>`:`<div class="faint" style="font-size:12px">已到顶</div>`}</div>`})():""}
@@ -1041,7 +1092,7 @@ function renderGame(){
   app.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>buyLot(+b.dataset.buy));
   app.querySelectorAll("[data-sell]").forEach(b=>b.onclick=()=>sellBone(+b.dataset.sell));
 }
-function evById(q){ if(q.k==="duel") return q.ev; if(q.k==="node") return P().nodes.find(n=>n.id===q.id); if(q.k==="fnode") return (myFac()?myFac().nodes:[]).find(n=>n.id===q.id); return (q.src==="c"?COMMON:q.src==="f"?fortunes():P().events).find(e=>e.id===q.id) }
+function evById(q){ if(q.k==="duel"||q.k==="ring") return q.ev; if(q.k==="node") return P().nodes.find(n=>n.id===q.id); if(q.k==="fnode") return (myFac()?myFac().nodes:[]).find(n=>n.id===q.id); return (q.src==="c"?COMMON:q.src==="f"?fortunes():P().events).find(e=>e.id===q.id) }
 function tabSeason(){
   const r=R(); let h=""; const now=treasNow();
   if(now.length||(r.rumors&&r.rumors.length)) h+=`<section class="ev" style="border-color:var(--t-shen)"><div class="eh"><span class="chip gold">机缘</span><h3>${now.length?"机缘正当时":"江湖风声"}</h3></div>
@@ -1049,7 +1100,7 @@ function tabSeason(){
    ${(r.rumors||[]).map(x=>{const t=T_BY[x.id];return x.k==="heard"?`<div style="font-size:13.5px">听闻：${esc(t.rumor)}</div>`:`<div style="font-size:13.5px" class="dim">已错过：${esc(t.name)}，已归${esc(t.owner||"他人")}。</div>`}).join("")}</section>`;
   for(let i=0;i<r.queue.length;i++){const q=r.queue[i]; const e=evById(q); if(!e) continue; const node=q.k==="node"||q.k==="fnode";
     const canon=node&&e.canon&&CANON_BY[e.canon];
-    h+=`<section class="ev ${node?"node":""}"><div class="eh">${q.k==="duel"?`<span class="chip red">战书</span>`:q.k==="fnode"?`<span class="chip gold">势力剧情 · ${esc(myFac().name)}</span>`:node?`<span class="chip gold">关键节点</span>`:`<span class="chip">事件</span>`}<h3>${esc(nm(e.title))}</h3>${canon?`<span class="chip">原著 ${esc(canon.id)}</span>`:""}</div>
+    h+=`<section class="ev ${node?"node":""}"><div class="eh">${q.k==="ring"?`<span class="chip gold">魂环</span>`:q.k==="duel"?`<span class="chip red">战书</span>`:q.k==="fnode"?`<span class="chip gold">势力剧情 · ${esc(myFac().name)}</span>`:node?`<span class="chip gold">关键节点</span>`:`<span class="chip">事件</span>`}<h3>${esc(nm(e.title))}</h3>${canon?`<span class="chip">原著 ${esc(canon.id)}</span>`:""}</div>
     ${node&&e.echo&&r.flags.includes(e.echo.flag)?`<div class="echo">${esc(nm(e.echo.text))}</div>`:""}
     <div class="tx">${esc(nm(e.text))}</div>
     ${node&&canon&&r.perk==="memory"?`<div class="echo" style="color:var(--dim);border-color:var(--line-2)">原著记忆：${esc(canon.event)} → ${esc(canon.result)}</div>`:""}
@@ -1064,10 +1115,10 @@ function tabSeason(){
   return h;
 }
 function wireSeason(){
-  app.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{const r=R(); const q=r.queue[+b.dataset.q]; const e=evById(q); const c=+b.dataset.c<0?{t:"量力而退",win:{text:"你掂量了一下自己的斤两，没有贸然出手。",d:{}}}:e.choices[+b.dataset.c]; if(isFight(c)){ fightThen(c,{title:e.title,text:e.text},win=>{ const res=resolveChoice(c,win); Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds,ok:res.ok,chance:res.chance,note:res.note}); checkDeath(); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame() }); return } if(c.duel){ duelFight(q.x,{stake:q.stake,done:res=>{ Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds}); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame() }}); return } const res=resolveChoice(c); Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds,ok:res.ok,chance:res.chance,note:res.note}); checkDeath(); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame()});
+  app.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{const r=R(); const q=r.queue[+b.dataset.q]; const e=evById(q); if(e&&e.canon&&/^M/.test(e.canon)) markCanon(e.canon,q.k==="node"?"p":q.k==="fnode"?"f":"e"); const c=+b.dataset.c<0?{t:"量力而退",win:{text:"你掂量了一下自己的斤两，没有贸然出手。",d:{}}}:e.choices[+b.dataset.c]; if(c.absorb){ const a=c.absorb; const ds=[]; const x=Object.assign({},a.ring,{on:a.on,fit:a.fit,fitN:a.fitN}); gainRing(x,ds); let more=[]; if(x.years>a.capY*(a.fit>=1.3?1.3:1)) more=apply({伤势:12,精神:2}); if(a.fit<1) more=more.concat(apply({伤势:10})); checkEvo(ds); Object.assign(q,{done:true,pick:c.t,text:"魂环缓缓沉入体内，与武魂合为一体。",ds:ds.concat(more)}); checkDeath(); save(); renderGame(); return } if(isFight(c)){ fightThen(c,{title:e.title,text:e.text},win=>{ const res=resolveChoice(c,win); Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds,ok:res.ok,chance:res.chance,note:res.note}); checkDeath(); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame() }); return } if(c.duel){ duelFight(q.x,{stake:q.stake,done:res=>{ Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds}); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame() }}); return } const res=resolveChoice(c); Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds,ok:res.ok,chance:res.chance,note:res.note}); checkDeath(); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame()});
   app.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>doAction(b.dataset.a));
   const e=document.getElementById("endturn"); if(e) e.onclick=endTurn;
-  const au=document.getElementById("autoturn"); if(au) au.onclick=()=>{ const r=R(); let n=0; while(r.ap>0&&n++<3){ const bott=r.lv>=cap(r)-0.001&&r.rings.length<9&&r.lv<99; if(bott){ toast("卡在瓶颈，先去猎魂"); break } doAction("train") } };
+  const au=document.getElementById("autoturn"); if(au) au.onclick=()=>{ const r=R(); let n=0; while(r.ap>0&&n++<3){ const bott=r.lv>=cap(r)-0.001&&mainRings(r).length<9&&r.lv<99; if(bott){ toast("卡在瓶颈，先去猎魂"); break } doAction("train") } };
 }
 function tabFortune(){const r=R(),y=year(),mem=r.perk==="memory";
   const rows=TREAS.filter(t=>mem||r.heard.includes(t.id)||r.treasDone.includes(t.id)).sort((a,b)=>a.yearMin-b.yearMin);
@@ -1080,8 +1131,11 @@ function fmtC(v){return v>=1e4?(Math.round(v/1e3)/10)+"万":String(v)}
 function mkBone(ti,beast,slot){ const y=[300,3000,30000,150000,1000000][ti]; const kinds=["攻","控","防","敏"]; const k=kinds[Math.floor(rnd()*4)]; const main=(k==="攻"||k==="防")?"体魄":k==="敏"?"气运":"精神";
   const at={[main]:[2,4,7,12,18][ti]}; const sec=[0,0,2,6,10][ti]; if(sec) at[main==="体魄"?"精神":"体魄"]=sec; slot=slot||SLOTS[Math.floor(rnd()*6)];
   return {slot,years:y,name:`${beast}·${slot}骨`,desc:["百年魂骨，聊胜于无","千年魂骨，小有加成","万年魂骨，自带一个魂骨技能","十万年魂骨，魂骨技能堪比一个魂环","百万年魂骨，几近神物"][ti],attrs:at} }
-function aucLots(){const r=R(),y=year(); if(r.auc&&r.auc.y===y) return r.auc.lots; const tiers=r.lv<20?[0,0,1]:r.lv<40?[0,1,1,2]:r.lv<70?[1,2,2,3]:[2,2,3,3];
-  const lots=[]; for(let i=0;i<3;i++){ const ti=tiers[Math.floor(rnd()*tiers.length)]; const z=HUNT_ZONES[Math.min(HUNT_ZONES.length-1,ti*2+Math.floor(rnd()*2))]; const b=mkBone(ti,z.b[Math.floor(rnd()*z.b.length)].replace(/族$/,"")); b.price=bonePrice(b); lots.push(b) }
+const AUC_SP=[["风狼","铁甲犀","幽冥狼","鬼藤"],["碧磷毒蛇","烈焰狮","玄水龟","疾风魔狼","紫纹蟒"],["千钧蚁","赤魔獒","暗影豹","冰熊","霜狼","巨钳蟹"],["魔熊","巨蟒","岩蜥","海蛟"]];
+function aucLots(){const r=R(),y=year(); if(r.auc&&r.auc.y===y) return r.auc.lots; const lots=[];
+  for(let i=0;i<3;i++){ const q=rnd(); let ti=r.lv<20?(q<.75?0:1):r.lv<40?(q<.4?0:q<.92?1:2):(q<.15?0:q<.7?1:2);
+    if(r.lv>=70&&rnd()<.03) ti=3;
+    const nm=AUC_SP[ti][Math.floor(rnd()*AUC_SP[ti].length)]; const b=mkBone(ti,ti===3?"来历不明的十万年"+nm:nm); if(ti===3) b.desc="一位封号斗罗身后流出的遗物，猎杀它的那头十万年魂兽早已死了几十年。"; b.price=bonePrice(b); lots.push(b) }
   r.auc={y,lots}; return lots}
 function buyLot(i){const r=R(); const b=r.auc.lots[i]; if(!b||r.coins<b.price) return; r.coins-=b.price; r.auc.lots.splice(i,1); const nb=Object.assign({},b); delete nb.price; (r.bag=r.bag||[]).push(nb); toast(`拍下 ${BONE_T[boneTi(nb)].n}魂骨「${nb.name}」，花费 ${fmtC(b.price)} 金魂币`); save(); render()}
 function fuseBone(i){const r=R(); const b=r.bag.splice(i,1)[0]; const j=r.bones.findIndex(x=>x.slot===b.slot); const ds=[];
@@ -1095,7 +1149,7 @@ function whCard(){const r=R(); const p=P();
     if(w.state==="vessel") return `<div class="w vessel"><div><b>${WHN[i]} · ${esc(w.name)}</b> <span class="chip gold" style="padding:0 6px">空 · 待融合</span></div><div class="dim" style="font-size:12.5px">${esc(w.desc||"")}</div><div style="font-size:12.5px">融合途径：${esc(w.fuse||"")}</div><div class="faint" style="font-size:12px">空武魂不加战力；行动「${esc(w.act.n)}」可以先拿它冥想。</div></div>`;
     return `<div class="w"><div><b>${WHN[i]} · ${esc(w.name)}</b> <span class="tier tier-${w.tier}">${esc(w.tier)}</span> <span class="faint">${esc(w.system||"")}</span></div><div class="dim" style="font-size:12.5px">${esc(w.desc||"")}</div><div class="faint" style="font-size:12px">战力加成 +${Math.round(whPow(r,i)*100)}%（本体 ${Math.round((w.power||0)*100)}% ＋ 附环 ${ringsOn(r,i).length} 个）${w.act?" · 专属行动「"+esc(w.act.n)+"」":""}</div></div>` };
   return `<div class="card" style="margin-bottom:12px"><div class="sec-t">武魂 · 主 / 第二 / 第三</div><div class="whs">${[1,2,3].map(row).join("")}</div></div>`}
-function tabRings(){const r=R(); const k=r.rings.length;
+function tabRings(){const r=R(); const k=mainRings(r).length;
   return `${whCard()}<div class="card"><div class="sec-t">魂环 · 下一个吸收上限：${k<9?yLabel(CAPS[k]):"—"}</div>
   ${r.rings.length?`<div class="tbl-wrap"><table><thead><tr><th>#</th><th>魂兽</th><th class="r">年限</th><th>魂技</th><th>类型</th><th>附于</th></tr></thead><tbody>${r.rings.map((x,i)=>`<tr><td><span class="ring" style="border-color:${RC[ringColor(x.years)]}"></span></td><td>${esc(x.beast||"")}</td><td class="r num">${yLabel(x.years)}</td><td>${esc(x.skill)}<div class="faint" style="font-size:12px;white-space:normal">${esc(x.desc||"")}</div></td><td>${esc(x.kind||"")}</td><td class="faint">${x.on>1?WHN[x.on]:"主武魂"}</td></tr>`).join("")}</tbody></table></div>`:`<p class="dim">还没有魂环。到 10 级瓶颈后，用「猎魂」获取第一魂环。</p>`}
   </div>
@@ -1106,14 +1160,14 @@ function tabRings(){const r=R(); const k=r.rings.length;
 
   <div class="card" style="margin-top:12px"><div class="sec-t">物品袋</div>
   ${(r.bag||[]).length?`<div class="opts">${r.bag.map((b,i)=>{const occ=r.bones.find(x=>x.slot===b.slot);return `<div class="opt"><span class="t">${boneChip(b)} ${esc(b.slot)} · ${esc(b.name)}</span><span class="m">${esc(b.desc||"")} · 战力 +${bonePow(b)}${b.attrs?" · "+Object.entries(b.attrs).map(([k,v])=>k+"+"+v).join(" "):""}${occ?` · 当前「${esc(occ.name)}」${BONE_T[boneTi(occ)].n} +${bonePow(occ)}`:""}</span><span style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px"><button class="btn pri" data-fuse="${i}">${occ?"融合（替换「"+esc(occ.name)+"」）":"融合"}</button><button class="btn" data-sell="${i}">出售 ${fmtC(boneValue(b))} 金</button></span></div>`}).join("")}</div>`:`<p class="dim" style="margin:0">魂骨掉落后先放在这里，想融合再融合，也可以卖掉。</p>`}
-  <div style="margin-top:12px"><div class="sec-t">拍卖行 · 斗罗历 ${year()} · 每年换一批 · 你有 ${fmtC(r.coins)} 金魂币</div><div class="opts">${aucLots().map((b,i)=>`<div class="opt" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span style="min-width:0">${boneChip(b)} <b>${esc(b.slot)} · ${esc(b.name)}</b><br><span class="faint" style="font-size:12px">战力 +${bonePow(b)} · ${Object.entries(b.attrs).map(([k,v])=>k+"+"+v).join(" ")}</span></span><button class="btn ${r.coins>=b.price?"pri":""}" data-buy="${i}" ${r.coins>=b.price?"":"disabled"}>${fmtC(b.price)} 金</button></div>`).join("")||'<p class="dim" style="margin:0">今年的拍品已经被你买空了。</p>'}</div><div class="faint" style="font-size:12px;margin-top:4px">魂骨是硬通货：百年几千，千年几万，万年二三十万，十万年上百万，百万年有价无市。卖出按六成收。</div></div>
+  <div style="margin-top:12px"><div class="sec-t">拍卖行 · 斗罗历 ${year()} · 每年换一批 · 你有 ${fmtC(r.coins)} 金魂币</div><div class="opts">${aucLots().map((b,i)=>`<div class="opt" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span style="min-width:0">${boneChip(b)} <b>${esc(b.slot)} · ${esc(b.name)}</b><br><span class="faint" style="font-size:12px">战力 +${bonePow(b)} · ${Object.entries(b.attrs).map(([k,v])=>k+"+"+v).join(" ")}</span></span><button class="btn ${r.coins>=b.price?"pri":""}" data-buy="${i}" ${r.coins>=b.price?"":"disabled"}>${fmtC(b.price)} 金</button></div>`).join("")||'<p class="dim" style="margin:0">今年的拍品已经被你买空了。</p>'}</div><div class="faint" style="font-size:12px;margin-top:4px">魂骨是硬通货：百年几千，千年几万，万年二三十万。十万年魂骨极少流入市面——每块都意味着一头十万年魂兽已经死了，活着的魂兽王者身上的骨头不可能出现在这里。卖出按六成收。</div></div>
   ${r.items.length?`<div style="margin-top:12px"><div class="sec-t">道具 · ${r.items.length} 件 · 用掉它们来抬高属性上限、涨气运</div><div class="opts">${r.items.map((n,i)=>{const f=itemFx(n); return `<div class="opt" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span style="min-width:0"><b>${esc(n)}</b><br><span class="faint" style="font-size:12px">${f?esc(f.v+"："+fxText(f)):"已赠出的信物"}</span></span>${f?`<button class="btn pri" data-use="${i}">${f.v}</button>`:""}</div>`}).join("")}</div></div>`:""}
   ${(r.itemsUsed||[]).length?`<div class="faint" style="font-size:12px;margin-top:8px">已用掉：${r.itemsUsed.map(esc).join("、")}</div>`:""}</div>
   <div class="card" style="margin-top:12px"><div class="sec-t">数值说明</div><div class="dim" style="font-size:12.5px;display:grid;gap:4px">
   <div>修炼：Δ等级 = 0.13 × 武魂系数（${wuT()}）× 天才系数（${genius().toFixed(2)}，先天魂力/40）× (0.7 + 悟性/150) × 回合月数 × 衰减；70 级后变慢。</div>
   <div>吸收上限：${CAPS.slice(0,8).map((c,i)=>`第${i+1}环 ${yLabel(c)}`).join("，")}，第九环可达十万年以上。</div>
   <div>战力 = 等级×10 + 魂环（白5 黄15 紫40 黑100 红250）+ 体魄×0.8 + 精神×0.8 + 魂骨（百年20 千年60 万年200 十万年600 百万年1500，外附×1.5）。</div>
-  <div>猎魂：战力达标即必定猎杀并吸收，越限魂环也一样（门槛更高，吸收时伤势 +12）。每个魂环位都有稳妥、常规、越限、传说级越限四档可选。</div><div>魂环进化：武魂进化到极品时全部魂环年限 ×1.2，进化到神级时全部 +2 万年；部分机缘（泉眼、仙草、海神之光等）也能提升已吸收魂环的年限，颜色跟着变。</div><div>魂骨：十万年魂环必掉十万年魂骨；百万年魂环不掉魂骨，而是撑开一个空武魂位；万年约一成（五万年以上三成），千年 5%，百年 2%。魂骨按年限分五档，战力差距极大（百年 20 → 百万年 1500），价格从几千到几百万，先进物品袋，想融合再融合</div><div>第二、第三武魂：百万年魂环撑开空武魂位，空武魂不加战力；融合剧情（冰帝、雪帝等）或在猎魂时把十万年以上魂兽的魂灵封进去，它才会觉醒。觉醒后猎魂可以选择把魂环附在它身上，每个附环再加 1%–12% 战力。</div><div>属性上限：六维默认上限 100（最高 200）。满了以后再加，溢出部分一半抬高上限、三成转成气运；道具可以炼化、参悟、祭炼或珍藏，直接抬高上限并涨气运。</div><div>行动随境界变化：40 级起历练变成闯荡禁地，斗魂场变成高阶；60 级起开放「天下大势」与「挑战强者」；70 级起深入禁地、坐镇一方。</div><div>其他检定：有门槛的选项，达标即成功；只有不设门槛的冒险选项才看运气（气运越高越好），失手也不会致命。伤势满 100 会昏迷一季，不会死；伤势超过 50 修炼减半。</div></div></div>`}
+  <div>猎魂：先选给哪个武魂加环，再选猎场。猎场不设等级门槛，但实力不够时深入凶地会撞上要命的魂兽（可以逃，打输了会死）。每个猎场每季刷出的魂兽不同；战力达标即可猎杀吸收，越限会受伤。</div><div>契合：魂兽属性与武魂相合、类型一致时契合度高（极佳 ×1.3 并多给三成年限余量，良好 ×1.12），属性相冲则排斥（×0.7 还会受伤）。剧情和机缘给的魂环会先问你吸不吸收、吸到哪个武魂上。</div><div>强弱参照：普通封号斗罗战力约 2800，十万年魂兽约 2800；七十级的超级天才配合战术和底牌，才有机会赢下九十级的封号斗罗。实力远超对手的剧情战斗会直接拿下，不再细打。</div><div>魂环进化：武魂进化到极品时全部魂环年限 ×1.2，进化到神级时全部 +2 万年；部分机缘（泉眼、仙草、海神之光等）也能提升已吸收魂环的年限，颜色跟着变。</div><div>魂骨：十万年魂环必掉十万年魂骨；百万年魂环不掉魂骨，而是撑开一个空武魂位；万年约一成（五万年以上三成），千年 5%，百年 2%。魂骨按年限分五档，战力差距极大（百年 20 → 百万年 1500），价格从几千到几百万，先进物品袋，想融合再融合</div><div>第二、第三武魂：百万年魂环撑开空武魂位，空武魂不加战力；融合剧情（冰帝、雪帝等）或在猎魂时把十万年以上魂兽的魂灵封进去，它才会觉醒。觉醒后猎魂可以选择把魂环附在它身上，每个附环再加 1%–12% 战力。</div><div>属性上限：六维默认上限 100（最高 200）。满了以后再加，溢出部分一半抬高上限、三成转成气运；道具可以炼化、参悟、祭炼或珍藏，直接抬高上限并涨气运。</div><div>行动随境界变化：40 级起历练变成闯荡禁地，斗魂场变成高阶；60 级起开放「天下大势」与「挑战强者」；70 级起深入禁地、坐镇一方。</div><div>其他检定：有门槛的选项，达标即成功；只有不设门槛的冒险选项才看运气（气运越高越好），失手也不会致命。伤势满 100 会昏迷一季，不会死；伤势超过 50 修炼减半。</div></div></div>`}
 function tabRank(){
   const data=SUB==="power"?rankPower():SUB==="beast"?rankBeast():rankWuhun();
   let t="";
@@ -1244,7 +1298,7 @@ function setup(p){
   document.getElementById("go").onclick=()=>{newRun(p,document.getElementById("nm").value.trim()||p.defaultName,perk);TAB="season";render()};
   window.scrollTo(0,0);
 }
-window.__dl={S:()=>S,R,P,power,year,home,render,huntModal,fuseBone,useItem,sealSoul,zoneHunt:z=>zoneHunt(HUNT_ZONES[z]),tm:id=>treasureModal(T_BY[id]||WEV.find(w=>w.id===id)),duelModal,startTurn,render,shalu:()=>shaluModal(),joinModal:()=>joinModal(),foes:()=>{const L=[]; const all=[...TREAS.map(t=>({t,ctx:{title:t.name,text:t.text,beast:/魂兽|魔蛛|蛇|鲸|虎|熊|蚁|蝎|龙|猿|牛蟒|狼|藤/.test(t.name)?t.name:null}})),...WEV.map(t=>({t,ctx:{title:t.name,text:t.text}})),...PACKS.flatMap(p=>p.nodes.map(t=>({t,ctx:{title:t.title,text:t.text}}))),...FACS.flatMap(f=>f.nodes.map(t=>({t,ctx:{title:t.title,text:t.text}})))]; for(const {t,ctx} of all) for(const c of t.choices||[]) if(isFight(c)){ const x=fightFoe(c,ctx); L.push((x.war?"[战]":"[斗]")+" "+(t.name||t.title)+" ｜ "+c.t+" → "+x.n) } return L}};
+window.__dl={S:()=>S,R,P,power,year,home,render,huntModal,fuseBone,useItem,sealSoul,zoneHunt:z=>zoneHunt(HUNT_ZONES[z]),tm:id=>treasureModal(T_BY[id]||WEV.find(w=>w.id===id)),duelModal,startTurn,render,wev:()=>wevNow().map(w=>w.id),shalu:()=>shaluModal(),joinModal:()=>joinModal(),foes:()=>{const L=[]; const all=[...TREAS.map(t=>({t,ctx:{title:t.name,text:t.text,beast:/魂兽|魔蛛|蛇|鲸|虎|熊|蚁|蝎|龙|猿|牛蟒|狼|藤/.test(t.name)?t.name:null}})),...WEV.map(t=>({t,ctx:{title:t.name,text:t.text}})),...PACKS.flatMap(p=>p.nodes.map(t=>({t,ctx:{title:t.title,text:t.text}}))),...FACS.flatMap(f=>f.nodes.map(t=>({t,ctx:{title:t.title,text:t.text}})))]; for(const {t,ctx} of all) for(const c of t.choices||[]) if(isFight(c)){ const x=fightFoe(c,ctx); L.push((x.war?"[战]":"[斗]")+" "+(t.name||t.title)+" ｜ "+c.t+" → "+x.n) } return L}};
 if(S.run&&S.run.settled) S.run=null;
 if(S.run&&!S.run.x) S.run.x={evo:0,sword:0,devour:0,gear:0};
 if(S.run&&!S.run.bag) S.run.bag=[];
