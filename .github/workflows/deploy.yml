@@ -64,7 +64,7 @@ jobs:
           for try in $(seq 1 12); do
             bad=""
             home=$(curl -fsSL "$SITE/?v=$GITHUB_SHA") || home=""
-            case "$home" in *'<title>长局游戏平台</title>'*) ;; *) bad="身份断言：首页不是长局游戏平台" ;; esac
+            case "$home" in *'<title>shoota 游戏平台</title>'*) ;; *) bad="身份断言：首页不是 shoota 游戏平台" ;; esac
             if [ -z "$bad" ]; then
               for f in $(cd public && find . -type f | sed 's#^\./##' | sort); do
                 path=$f; [ "$f" = index.html ] && path=""
@@ -73,7 +73,7 @@ jobs:
                 [ "$want" = "$got" ] || { bad="/$path 与本次提交的内容不一致"; break; }
               done
             fi
-            [ -z "$bad" ] && { echo "✓ 第 $try 次检查通过：首页是长局，$(find public -type f | wc -l) 个文件与 ${GITHUB_SHA::7} 一致"; exit 0; }
+            [ -z "$bad" ] && { echo "✓ 第 $try 次检查通过：首页是 shoota，$(find public -type f | wc -l) 个文件与 ${GITHUB_SHA::7} 一致"; exit 0; }
             echo "第 $try 次未通过：$bad"; sleep 10
           done
           exit 1

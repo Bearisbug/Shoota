@@ -1,4 +1,4 @@
-# 长局
+# shoota
 
 文字游戏平台，纯静态站：`public/index.html` 是平台，`public/games/*.html` 是各款游戏。目录说明、本地预览、加游戏的方法见 `README.md`。
 

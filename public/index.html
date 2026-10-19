@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>长局游戏平台</title>
+<title>shoota 游戏平台</title>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +45,7 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--top);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-block:10px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-mark{width:30px;height:30px;border-radius:6px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:900 17px/1 var(--display)}
+.logo-mark{width:30px;height:30px;display:block;flex:none}
 .logo b{font:900 22px/1 var(--display);letter-spacing:.06em}
 .nav{display:flex;gap:2px}
 .nav a{padding:6px 12px;border-radius:6px;text-decoration:none;color:var(--muted);font-weight:500;white-space:nowrap}
@@ -266,7 +267,7 @@ textarea{min-height:96px;resize:vertical}
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#store" aria-label="长局首页"><span class="logo-mark">局</span><b>长局</b></a>
+    <a class="logo" href="#store" aria-label="shoota 首页"><img class="logo-mark" src="logo.svg" alt="" width="30" height="30"><b>shoota</b></a>
     <nav class="nav" aria-label="主导航">
       <a href="#store" data-nav="store">商店</a>
       <a href="#library" data-nav="library">游戏库</a>
@@ -302,6 +303,16 @@ const now = () => Date.now();
 
 /* ───────── 游戏目录（桌面上的 6 款，随平台一起发布在 games/ 下） ───────── */
 const CATALOG = [
+  { id:'yexiao', title:'重生之我是夜宵摊摊主', sub:'夜市经营 · 重生复仇', genre:'模拟经营', tags:['模拟经营','策略','实时经营','重生'],
+    src:'games/yexiao.html', size:203928, status:'ok', session:'一晚约 1–2 分钟', saves:'自动存档，可回到当晚开市前重来',
+    tagline:'上一世被对面夜市挤到收摊。重生回摆摊第一晚，这一次把整条街做成城市夜经济名片。',
+    about:[
+      '上一世，你在这条街摆了十年夜宵摊。对面的夜市抢走了客人，城管的罚单、彪哥的「管理费」一笔笔掏空了本钱，最后在一个雨夜收了摊。重生回到摆摊第一晚，你知道接下来会发生什么。',
+      '每晚 18:00 开市、24:00 收摊。摆摊、升级、挂灯笼、凑搭配，招商把别人的摊位签进来；发传单、限时打折、请网红探店，客人的评价会实时刷出来。排队太久，客人就去对面了。',
+      '对面先后会开起阿嬷、阿凯、小美三家夜市，一家比一家难缠。比成交额、抢摊主、借钱扩张，把对手拖到还不上贷款就能让它关门。从美食街做到游乐区、文创市集，一路做成国家级旅游景区。'
+    ],
+    loop:['白天：用赚来的钱开新摊、升级、摆装饰，招商签下摊主','开市：发传单、打折、投放广告，盯着排队和客人评价','收摊：结算成交额、人工、食材和还贷，和对面比输赢','长线：扩建新区、提升旅游等级，把对面的夜市一家家干倒'] },
+
   { id:'f1', title:'F1 Team Principal 2026', sub:'车队领队', genre:'赛车经理', tags:['赛车经理','体育','策略','实时比赛'],
     src:'games/f1.html', size:494022, status:'ok', session:'一场比赛周末约 10 分钟', saves:'自动存档',
     tagline:'出任 F1 车队领队，在 2026 新规则时代管研发、排策略、守住董事会的目标。',
@@ -314,14 +325,15 @@ const CATALOG = [
     notes:['涉及真实车队、车手与 F1 商标，公开上线前需要处理授权，或改用虚构名称。'] },
 
   { id:'douluo', title:'斗罗·万相', sub:'十个出身 · 一条世界线', genre:'人生模拟', tags:['人生模拟','角色扮演','Roguelite','多结局'],
-    src:'games/douluo.html', size:691839, status:'dev', version:'v3', session:'一局 15–25 分钟', saves:'自动存档，跨周目保留宿命点',
-    tagline:'选一个出身进入斗罗大陆，从六岁觉醒武魂过完一生。改写原著要花宿命点。',
+    src:'games/douluo.html', size:1105234, status:'dev', version:'v4', session:'一局 15–25 分钟', saves:'自动存档，跨周目保留宿命点',
+    tagline:'选一个出身进入斗罗大陆，从六岁觉醒武魂过完一生。拜入史莱克、自立门户，或者走上成神之路。',
     about:[
       '选一个出身进入斗罗大陆，从六岁觉醒武魂开始过完一生。10 个原创身份共享同一条世界线：猎魂之夜，苏夜在进攻方，玉衡在被灭的宗门里，林照守在七宝城堡。',
       '平时是几十字的短事件，原著大事和身份命运节点才展开成剧情。门槛公开，胜算藏着。改写原著要花宿命点，世界线偏移会一直留到结局。',
+      '人生不止一条路：可以交一枚金魂币报考史莱克，一路做到院长、创立海神阁；可以开宗立派、招兵买马，和天下争地盘；魂力走到尽头，还能选一道神位，过完九考成神。',
       '一生走完，会生成一份卷宗式人物画像：封号、六维雷达、性格标签、魂环颜色、三张榜单上的名次，以及身后事。'
     ],
-    loop:['季初：原著关键节点按年份触发，再抽 0–2 个短事件','季中：3 个行动点，可以修炼、猎魂、冥想、结交、历练、打斗魂场','季末：季报结算等级、金魂币、伤势和大陆动静','越往后成长越慢，回合越长：40 级前 4 个月一回合，70 级后一年一回合'],
+    loop:['季初：原著关键节点按年份触发，再抽 0–2 个短事件','季中：3 个行动点，可以修炼、猎魂、冥想、结交、历练、打斗魂场','季末：季报结算等级、金魂币、伤势和大陆动静','中后期：守史莱克、带着自己的组织攻城略地，或者接受神位的九道神考','越往后成长越慢，回合越长：40 级前 4 个月一回合，70 级后一年一回合'],
     identities:[
       ['武魂殿·黄金一代','苏夜','冥月灯','猎魂之夜放走蓝电血脉；在比比东与千仞雪之间站队'],
       ['蓝电霸王龙·玉家子弟','玉衡','蓝电霸王龙','救下灭门之夜的族人；追查宗主三块魂骨'],
@@ -360,14 +372,15 @@ const CATALOG = [
     notes:['涉及真实球队、球员与 NBA 商标，公开上线前需要处理授权，或改用虚构名称。'] },
 
   { id:'lol', title:'峡谷经理 2027', sub:'电竞战队经理', genre:'电竞经理', tags:['电竞经理','体育','策略','长线经营'],
-    src:'games/lol.html', size:115414, status:'ok', session:'按赛季推进', saves:'自动存档',
-    tagline:'成为一支英雄联盟职业战队的经理，从 2027 赛季打到全球总决赛。',
+    src:'games/lol.html', size:223730, status:'ok', session:'按赛季推进', saves:'自动存档',
+    tagline:'成为一支英雄联盟职业战队的经理，亲手 BP、在关键节点拍板，从 2027 赛季打到全球总决赛。',
     about:[
       '成为 LPL、LCK 等赛区一支战队的经理，接续真实的 2026 赛季结果，从 2027 赛季开打。',
+      '每局先打完整的 20 手 BP：看对方的招牌英雄和克制关系，选手拿不顺手的英雄熟练度会很低。开局后比赛停在对线期、每条龙、团战爆发前这些节点，由你决定接团、换线还是让资源；不想操心可以全部交给教练组。',
       '选手有操作、运营、团战、英雄池、稳定等评分，达到条件会点亮徽章。Fearless 赛制下，英雄池深的选手后几局不掉状态。',
-      '管工资帽、转会费和外援名额，一路打到季后赛和全球总决赛。'
+      '管工资帽、转会和球队之间的交易，人气决定赞助，超出工资帽要交奢侈税。一路打过双败制季后赛、MSI 和全球总决赛，争年度 MVP。'
     ],
-    loop:['选择赛区和战队，接手 2027 赛季','管理阵容：转会、薪资、外援名额','比赛日：BP 与比赛模拟，一血、小龙、龙魂实时播报','季后赛与全球总决赛：老将和大心脏选手的舞台'],
+    loop:['选择赛区和战队，接手 2027 赛季','管理阵容：转会、交易、薪资、外援名额','比赛日：20 手 BP，再在对线、刷龙、团战等关键节点拍板','季后赛、MSI 与全球总决赛：老将和大心脏选手的舞台'],
     notes:['涉及真实战队、选手与赛事商标，公开上线前需要处理授权，或改用虚构名称。'] },
 
   { id:'yike', title:'一克之差', sub:'药铺抓药', genre:'益智解谜', tags:['益智解谜','关卡','短局'],
@@ -975,7 +988,7 @@ document.addEventListener('click', e => {
   }
   else if (a === 'bk-file') {
     const url = URL.createObjectURL(new Blob([$('#bkOut').value], { type:'text/plain' }));
-    Object.assign(document.createElement('a'), { href:url, download:`长局存档-${new Date().toLocaleDateString('sv')}.txt` }).click();
+    Object.assign(document.createElement('a'), { href:url, download:`shoota-存档-${new Date().toLocaleDateString('sv')}.txt` }).click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 });

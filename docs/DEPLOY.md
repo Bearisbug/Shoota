@@ -1,4 +1,4 @@
-# 长局 部署手册
+# shoota 部署手册
 
 ## 1. 环境信息表
 
@@ -9,7 +9,7 @@
 | 发布策略 | 平台内建（paas）：新版本上传完再整体切换，切换无停机 |
 | 域名 | https://shoota.ai （根域，Worker 自定义域名；workers.dev 与预览地址已关闭） |
 | DNS | Cloudflare，shoota.ai zone；根域这条记录由 Worker 自定义域名自动创建和维护，不要手改。`www.shoota.ai` 由 zone 的 Redirect Rule 301 跳到 `https://shoota.ai`，路径和参数原样保留，浏览器会带上 `#` 后面的部分；它的 DNS 记录是橙云的 `AAAA 100::` 占位、没有源站。这两项不在 `wrangler.jsonc` 里，在 Cloudflare 面板 shoota.ai → Rules → Redirect Rules 管理。www 不能改成直接显示网站：存档按域名隔离，www 和根域会成两份互不相通的进度。在 CI 里部署时，wrangler 会直接覆盖与配置域名冲突的 DNS 记录、不提示，往 `wrangler.jsonc` 加域名前先确认该主机名上没有在用的记录 |
-| 健康检查 | 请求 https://shoota.ai/ 。身份断言：首页含 `<title>长局游戏平台</title>`。版本断言：`public/` 下每个文件与本次提交逐字节一致。纯静态站没有健康端点，用内容比对代替 service/slot/version 三元组 |
+| 健康检查 | 请求 https://shoota.ai/ 。身份断言：首页含 `<title>shoota 游戏平台</title>`。版本断言：`public/` 下每个文件与本次提交逐字节一致。纯静态站没有健康端点，用内容比对代替 service/slot/version 三元组 |
 | CI | GitHub Actions `.github/workflows/deploy.yml`：`check`（质量门）→ `deploy`（部署、健康检查、失败回滚）；PR 只跑 `check` |
 | 服务器 / 应用目录 / 镜像 / 端口 / 反代 | N/A（没有自管服务器） |
 | Synco 编排 | 未挂接（paas 目标不走 Synco 部署方式） |
@@ -65,7 +65,7 @@ export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)
 npx wrangler@4.151.1 deployments status --name changju          # ① 记下当前版本号，出问题时回滚用
 node scripts/check.mjs                                           # ② 质量门
 npx wrangler@4.151.1 deploy --message "$(git rev-parse --short HEAD) manual"   # ③ 部署
-curl -fsSL https://shoota.ai/ | grep -c '<title>长局游戏平台</title>'   # ④ 身份断言，应输出 1
+curl -fsSL https://shoota.ai/ | grep -c '<title>shoota 游戏平台</title>'   # ④ 身份断言，应输出 1
 for f in $(cd public && find . -type f | sed 's#^\./##'); do                    # ⑤ 逐文件比对，无输出即全部一致
   p=$f; [ "$f" = index.html ] && p=""
   [ "$(shasum -a 256 < public/$f | cut -d' ' -f1)" = "$(curl -fsSL "https://shoota.ai/$p?v=$RANDOM" | shasum -a 256 | cut -d' ' -f1)" ] || echo "不一致：/$p"
