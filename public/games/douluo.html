@@ -217,6 +217,7 @@ const ATTRS=["体魄","精神","悟性","魅力","气运"];
 const TIER_T={"废":.35,"下":.6,"中":.8,"上":1.0,"顶":1.2,"极":1.4,"神":1.6};
 const TIER_RANK={"神":7,"极":6,"顶":5,"上":4,"中":3,"下":2,"废":1};
 const CAPS=[423,764,1760,5000,12000,20000,50000,100000,1e7];
+function ringPow(y){return Math.round(5*Math.sqrt(Math.max(10,y)/50))}
 const RING_POW={white:5,yellow:15,purple:40,black:100,red:250,gold:600};
 const RING_LV={white:0,yellow:1,purple:2,black:3,red:6,gold:10};
 const RC={white:"var(--r-white)",yellow:"var(--r-yellow)",purple:"var(--r-purple)",black:"var(--r-black)",red:"var(--r-red)",gold:"var(--r-gold)"};
@@ -292,7 +293,7 @@ function WXo(){return WX[S.run.id]||{mods:{},evo:[{lv:0,name:P().wuhun.name,tier
 function md(k){return (WXo().mods||{})[k]||1}
 function curEvo(){const w=WXo();return w.evo[Math.min(S.run.x.evo,w.evo.length-1)]}
 function wname(){return curEvo().name} function wtier(){return curEvo().tier}
-function checkEvo(out){const r=R(),w=WXo(); while(r.x.evo+1<w.evo.length){const nx=w.evo[r.x.evo+1]; if(r.lv>=nx.lv&&(!nx.dev||r.x.devour>=nx.dev)){ r.x.evo++; out.push({t:`武魂进化：${nx.name}（${nx.tier}）`,up:true}); if(nx.gain) out.push(...apply(nx.gain)); if(nx.tier==="极") ringUp({target:"all",mul:1.2},out); if(nx.tier==="神") ringUp({target:"all",add:20000},out) } else break }}
+function checkEvo(out){const r=R(),w=WXo(); while(r.x.evo+1<w.evo.length){const nx=w.evo[r.x.evo+1]; if(r.lv>=nx.lv&&(!nx.dev||r.x.devour>=nx.dev)){ r.x.evo++; out.push({t:`武魂进化：${nx.name}（${nx.tier}）`,up:true}); if(nx.gain) out.push(...apply(nx.gain)); if(nx.tier==="极") ringUp({target:"all",mul:1.2},out); if(nx.tier==="神") ringUp({target:"all",mul:1.25},out) } else break }}
 
 const WEV=[
  {id:"w_dasai",name:"全大陆高级魂师学院精英大赛",place:"武魂城",yearMin:2645,yearMax:2645,lv:35,canon:"M38",tier:"珍",
@@ -366,7 +367,7 @@ function toast(m){const t=el(`<div class="toast" role="status">${esc(m)}</div>`)
 function year(){const r=R();return r.y0+Math.floor(r.t/12)} function season(){return SEASONS[Math.floor((R().t%12)/3)]}
 function age(){return year()-P().birthYear}
 function fateAvail(){return S.meta.fate+(R()?R().bonusFate:0)}
-function power(r){r=r||R();const x=r.x||{};return Math.round((r.lv*10+r.rings.reduce((a,x)=>a+RING_POW[ringColor(x.years)]*(x.fit||1),0)+r.a.体魄*.8+r.a.精神*.8+r.bones.reduce((a,b)=>a+bonePow(b),0))*md("power")*(1+whBonus(r))*(1+godBonus(r))*(1+facPerk("power"))+Math.min(x.iceGear||0,r.lv*10)+Math.min(x.sword||0,120)*4+((x.sword||0)>=100?r.lv*3:(x.sword||0)>=50?r.lv*1.5:0)+Math.min(x.gear||0,r.lv*12)+(S.run&&S.run.id==="xingluo"?Math.max(0,r.rep["星罗"]||0)*3:0))}
+function power(r){r=r||R();const x=r.x||{};return Math.round((r.lv*10+r.rings.reduce((a,x)=>a+ringPow(x.years)*(x.fit||1),0)+r.a.体魄*.8+r.a.精神*.8+r.bones.reduce((a,b)=>a+bonePow(b),0))*md("power")*(1+whBonus(r))*(1+godBonus(r))*(1+facPerk("power"))+Math.min(x.iceGear||0,r.lv*10)+Math.min(x.sword||0,120)*4+((x.sword||0)>=100?r.lv*3:(x.sword||0)>=50?r.lv*1.5:0)+Math.min(x.gear||0,r.lv*12)+(S.run&&S.run.id==="xingluo"?Math.max(0,r.rep["星罗"]||0)*3:0))}
 function offerRing(x){ const r=R(); const sp={n:x.beast||"",el:guessEl(x.beast||x.skill||""),kind:x.kind};
   const ch=[1,2,3].filter(i=>i===1||(r.x["wh"+i]&&r.x["wh"+i].state!=="vessel")).map(i=>{ const n=ringsOf(r,i).length; const f=fitOf(i,sp); const room=i===1?true:n<Math.min(9,Math.floor(r.lv/10)); const capY=capFor(i);
     return {t:`吸收到${WHN[i]}「${i===1?wname():r.x["wh"+i].name}」`,hint:`契合：${f.n}（威力 ×${f.m}）· 第${n+1}环，常规上限 ${yLabel(capY)}${x.years>capY?" · 越限，会受伤":""}${i===1&&n>=9?" · 九环已满，替换最弱一环":""}${i===1&&r.lv<cap(r)-0.001?" · 还没到瓶颈，提前吸收会抬高魂力上限":""}`,absorb:{ring:x,on:i,fit:f.m,fitN:f.n,capY},dis:room?null:"魂力等级不够再加环"} });
@@ -395,9 +396,9 @@ function startTurn(){
   // key nodes due
   for(const n of p.nodes){ if(r.nodesDone.includes(n.id)) continue; if(n.year>y) continue;
     if(condOK(n.cond)) r.queue.push({k:"node",id:n.id}); r.nodesDone.push(n.id) }
-  const fz=myFac(); if(fz){ r.facDone=r.facDone||[]; for(const n of fz.nodes){ if(r.facDone.includes(n.id)||n.year>y) continue; if(n.canon&&/^M/.test(n.canon)&&(packHasCanon(n.canon)||canonTaken(n.canon,"f"))){ r.facDone.push(n.id); continue } if(condOK(n.cond)){ r.queue.push({k:"fnode",id:n.id}); r.facDone.push(n.id) } else if(y>n.year+1) r.facDone.push(n.id) } }
+  const fz=myFac(); if(fz){ r.facDone=r.facDone||[]; for(const n of fz.nodes){ if(r.facDone.includes(n.id)||n.year>y) continue; if(n.canon&&/^M/.test(n.canon)&&(packHasCanon(n.canon)||canonTaken(n.canon,"f"))){ r.facDone.push(n.id); continue } if(condOK(n.cond)&&evAllowed(n,true)){ r.queue.push({k:"fnode",id:n.id}); r.facDone.push(n.id) } else if(y>n.year+1) r.facDone.push(n.id) } }
   // random events
-  const pool=p.events.map(e=>({e,src:"p"})).concat(COMMON.map(e=>({e,src:"c"}))).concat(fortunes().map(e=>({e,src:"f"}))).filter(({e})=>evOK(e,y));
+  const pool=p.events.map(e=>({e,src:"p"})).concat(COMMON.map(e=>({e,src:"c"}))).concat(fortunes().map(e=>({e,src:"f"}))).filter(({e,src})=>evOK(e,y)&&evAllowed(e,src!=="p"));
   const nEv = r.queue.length? (rnd()<.6?1:0) : 1+(rnd()<.55?1:0)+(rnd()<.2?1:0);
   r.rumors=[];
   for(const t of TREAS){ if(r.treasDone.includes(t.id)||r.missed.includes(t.id)) continue;
@@ -421,7 +422,7 @@ function packHasCanon(c){ return !!c&&P().nodes.some(n=>n.canon===c) }
 function tooLow(t){ const r=R(); return t.tier!=="神"&&tMin(t)<r.lv-35 }
 function treasNow(){const r=R(),y=year();return TREAS.filter(t=>t.yearMin<=y&&t.yearMax>=y&&!r.treasDone.includes(t.id)&&known(t)&&r.lv>=tMin(t)&&!tooLow(t)&&!canonTaken(t.canon,"t"))}
 function offsetOf(n,y){const r=R();return (r.world.offset||[]).filter(o=>o.n===n&&o.y<=y).reduce((a,o)=>a+o.v,0)}
-function wevNow(){const r=R(),y=year();return WEV.filter(w=>w.yearMin<=y&&w.yearMax>=y&&r.lv>=w.lv&&!r.treasDone.includes(w.id)&&!canonTaken(w.canon,"w")&&!packHasCanon(w.canon)&&!(myFac()&&myFac().nodes.some(n=>n.canon===w.canon))&&w.choices.some(c=>needOKc(c)[0]&&true))}
+function wevNow(){const r=R(),y=year();return WEV.filter(w=>w.yearMin<=y&&w.yearMax>=y&&r.lv>=w.lv&&!r.treasDone.includes(w.id)&&!canonTaken(w.canon,"w")&&!packHasCanon(w.canon)&&!(myFac()&&myFac().nodes.some(n=>n.canon===w.canon))&&w.choices.some(c=>needOKc(c)[0]&&choiceAllowed(c,{text:w.text})))}
 function evMaxNeed(e){let m=0; for(const c of e.choices||[]) if(c.need&&c.need.战力) m=Math.max(m,c.need.战力); return m}
 function evOK(e,y){const r=R(),w=e.when||{}; const mn=evMaxNeed(e); if(mn&&r.lv>=40&&mn<power()*.25) return false; if(e.once!==false&&r.evSeen.includes(e.id)) return false; if(w.yearMin&&y<w.yearMin) return false; if(w.yearMax&&y>w.yearMax) return false; if(w.levelMin&&r.lv<w.levelMin) return false; if(w.levelMax&&r.lv>w.levelMax) return false; if(w.flag&&!r.flags.includes(w.flag)) return false; if(w.notFlag&&r.flags.includes(w.notFlag)) return false; if(w.ageMin&&age()<w.ageMin) return false; if(w.ageMax&&age()>w.ageMax) return false; return true}
 function condOK(c){const r=R(); if(!c) return true; if(c.rankMin!=null&&!(r.fac&&r.fac.rank>=c.rankMin)) return false; if(c.bond){ for(const[k,v] of Object.entries(c.bond)) if((r.bonds[k]||0)<v) return false } if(c.flag&&!r.flags.includes(c.flag)) return false; if(c.notFlag&&r.flags.includes(c.notFlag)) return false; if(c.levelMin&&r.lv<c.levelMin) return false; if(c.flags&&!c.flags.every(f=>r.flags.includes(f))) return false; if(c.anyFlag&&!c.anyFlag.some(f=>r.flags.includes(f))) return false; return true}
@@ -429,9 +430,10 @@ function statOf(k){const r=R(); return k==="战力"?power():k==="金魂币"?r.co
 function needOK(need){if(!need) return [true,""]; for(const[k,v] of Object.entries(need)){ if(statOf(k)<v) return [false,`${k} ≥ ${v}`] } return [true,""]}
 /* 剧情里需要战力的选项 = 一场战斗 */
 function isFight(c){return !!(c&&c.need&&c.need.战力&&!c.duel)}
-function needOKc(c){ if(c&&c.dis) return [false,c.dis]; if(!isFight(c)) return needOK(c.need); const o=Object.assign({},c.need); const p=o.战力; delete o.战力; const r=needOK(o); if(!r[0]) return r; return power()>=p*.6?[true,""]:[false,`战力 ≥ ${Math.round(p*.6)}`] }
-function choiceChips(c){ if(!isFight(c)) return needChips(c.need); const o=Object.assign({},c.need); const p=o.战力; delete o.战力; const pw=power(); const [lb,cl]=oddsLabel(pw,p*.85);
-  return `<span class="chip ${pw>=p*.6?cl:"red"}">⚔ 要打一场 · 敌方战力 ${Math.round(p*.85)} · ${pw>=p*.6?lb:"差距太大"}</span>`+needChips(o) }
+function fightOp(c){ const x=fightFoe(c,{}); const lv=npcLevel(x.n); return lv?Math.max(x.op,npcPower(lv)):x.op }
+function needOKc(c){ if(c&&c.dis) return [false,c.dis]; if(!isFight(c)) return needOK(c.need); const o=Object.assign({},c.need); delete o.战力; const r=needOK(o); if(!r[0]) return r; const op=fightOp(c); return power()>=op*FIGHT_LO?[true,""]:[false,`战力 ≥ ${Math.round(op*FIGHT_LO)}`] }
+function choiceChips(c){ if(!isFight(c)) return needChips(c.need); const o=Object.assign({},c.need); delete o.战力; const pw=power(); const op=fightOp(c); const [lb,cl]=oddsLabel(pw,op);
+  return `<span class="chip ${cl}">⚔ 要打一场 · 敌方战力约 ${op} · ${lb}</span>`+needChips(o) }
 const WAR_RE=/军|战争|攻城|守城|守关|关隘|北伐|南征|兵|阵|宫变|围剿|夜袭|驰援|大典|决战|嘉陵关|天斗城|星罗城|猎魂之夜/;
 const FAC_RE=/武魂殿|天斗|星罗|昊天宗|蓝电|七宝|杀戮之都|海神岛|史莱克|唐门|狼盗|海盗/;
 const FOE={
@@ -519,7 +521,7 @@ function fightFoe(c,ctx){ const op0=Math.round(c.need.战力*.85); const F=FOE[c
   if(n){ const d=DUEL_DB[n]; return {n,h:"",w:d[0],st:d[1],ult:d[2],war,op} }
   if(f) return {n:f+(war?"大军":"强者"),h:"",w:war?"大军":"魂师",st:"攻",ult:war?"全军压上":"围攻",war,op};
   return {n:ctx.beast||"对手",h:"",w:ctx.beast?"魂兽":"不明武魂",st:"攻",ult:ctx.beast?"垂死反扑":"全力一击",war,op} }
-function fightThen(c,ctx,cb){ const x=fightFoe(c,ctx); const lv=npcLevel(x.n); if(lv) x.op=Math.max(x.op,npcPower(lv)); if(power()>=x.op*1.5){ toast(`实力碾压，${x.n}不是你的对手`); return cb(true) } duelFight(x,{plot:true,war:x.war,op:x.op,title:ctx.title,quick:power()>=c.need.战力*1.3,done:res=>cb(res.win)}) }
+function fightThen(c,ctx,cb){ const x=fightFoe(c,ctx); const lv=npcLevel(x.n); if(lv) x.op=Math.max(x.op,npcPower(lv)); if(power()>=x.op*FIGHT_HI){ toast(`实力碾压，${x.n}不是你的对手`); return cb(true) } duelFight(x,{plot:true,war:x.war,op:x.op,title:ctx.title,quick:power()>=c.need.战力*1.3,done:res=>cb(res.win)}) }
 function needChips(need){if(!need) return ""; return Object.entries(need).map(([k,v])=>{const ok=statOf(k)>=v;return `<span class="chip ${ok?"jade":"red"}">需${k} ${v}</span>`}).join("")}
 
 /* apply delta, return list of display deltas */
@@ -555,7 +557,7 @@ function apply(d){
 function addLevel(x){const r=R(); const c=cap(r); let want=r.lv+x; if(want>c){ r.bank+=want-c; want=c } r.lv=Math.max(0,Math.round(want*100)/100)}
 const SLOTS=["头","躯干","左臂","右臂","左腿","右腿"];
 /* ---- 属性上限：溢出的属性抬高上限并转成气运 ---- */
-const ACAP_MAX=200;
+const ACAP_MAX=1e9;
 function acap(k,r){r=r||R(); return (r.acap&&r.acap[k])||100}
 function gainA(k,v,out){const r=R(); r.acap=r.acap||{}; const c=acap(k); if(v<=0){ r.a[k]=clamp(r.a[k]+v,0,c); return }
   const room=Math.max(0,c-r.a[k]); const g=Math.min(v,room); r.a[k]=Math.round((r.a[k]+g)*10)/10; const over=Math.round((v-g)*10)/10; if(over<=0) return;
@@ -594,11 +596,11 @@ const BONE_Y={"七彩幻境头骨":1e5,"万年残缺头骨":1e4,"八蛛矛":1e4,
 function boneYears(b){ if(b.years) return b.years; if(BONE_Y[b.name]) return BONE_Y[b.name]; const n=b.name||""; if(/百万年/.test(n)) return 1e6; if(/十万年/.test(n)) return 1e5; if(/万年/.test(n)) return 1e4; if(/千年/.test(n)) return 1e3; if(/百年/.test(n)) return 100;
   const s=Object.values(b.attrs||{}).reduce((a,v)=>a+v,0); return s>=16?1e5:s>=9?1e4:s>=5?1e3:100 }
 function boneTi(b){const y=boneYears(b); return y>=1e6?4:y>=1e5?3:y>=1e4?2:y>=1e3?1:0}
-function bonePow(b){return Math.round(BONE_T[boneTi(b)].pow*(b.slot==="外附"?1.5:1))}
-function boneChip(b){const i=boneTi(b),t=BONE_T[i]; return `<span class="bt t${i}" style="${i<4&&i!==2?"color:"+t.c:""}">${t.n}${b.slot==="外附"?"·外附":""}</span>`}
+function bonePow(b){return Math.round(20*Math.pow(Math.max(100,boneYears(b))/300,.53)*(b.slot==="外附"?1.5:1))}
+function boneChip(b){const i=boneTi(b),t=BONE_T[i]; return `<span class="bt t${i}" style="${i<4&&i!==2?"color:"+t.c:""}">${yLabel(boneYears(b))}${b.slot==="外附"?"·外附":""}</span>`}
 function dropBone(x,out){const r=R(); if(!x||x.beast==="自生"||x.noBone) return; const y=x.years; if(y>=1e6&&openVessel(x,out)) return; const p=y>=1e5?1:y>=5e4?.3:y>=1e4?.12:y>=1e3?.05:y>=100?.02:0; if(rnd()>=p) return;
   const have=new Set(r.bones.map(b=>b.slot).concat((r.bag||[]).map(b=>b.slot))); const miss=SLOTS.filter(s=>!have.has(s)); const slot=(y>=1e5&&rnd()<.08)?"外附":(miss.length?miss[Math.floor(rnd()*miss.length)]:SLOTS[Math.floor(rnd()*6)]);
-  const main=(x.kind==="攻"||x.kind==="防")?"体魄":x.kind==="敏"?"气运":"精神"; const ti=y>=1e6?4:y>=1e5?3:y>=1e4?2:y>=1e3?1:0; const amt=[2,4,7,12,18][ti]; const at={[main]:amt}; const sec=[0,0,2,6,10][ti]; if(sec) at[main==="体魄"?"精神":"体魄"]=sec;
+  const main=(x.kind==="攻"||x.kind==="防")?"体魄":x.kind==="敏"?"气运":"精神"; const ti=y>=1e6?4:y>=1e5?3:y>=1e4?2:y>=1e3?1:0; const amt=Math.max(1,Math.round(1.2*Math.pow(y/100,.33))); const at={[main]:amt}; const sec=y>=1e4?Math.round(amt*.5):0; if(sec) at[main==="体魄"?"精神":"体魄"]=sec;
   const b={slot,years:y,name:`${(x.beast||"魂兽").replace(/（.*?）/,"")}·${slot}骨`,desc:["百年魂骨，聊胜于无","千年魂骨，小有加成","万年魂骨，自带一个魂骨技能","十万年魂骨，魂骨技能堪比一个魂环","百万年魂骨，几近神物"][ti],attrs:at};
   (r.bag=r.bag||[]).push(b); out&&out.push({t:`魂骨掉落：${BONE_T[ti].n}${b.name}（战力 +${bonePow(b)}，已放入物品袋）`,up:true})}
 function ringUp(u,out){const r=R(); if(!r.rings.length) return; const idx=r.rings.map((x,i)=>i); let sel;
@@ -630,7 +632,7 @@ function resolveChoice(c,forced){
 
 /* ============ actions ============ */
 function actions(){
-  const r=R(),p=P(),f=p.flavor||{}; const k=mainRings(r).length; const bott=r.lv>=cap(r)-0.001&&k<9&&r.lv<99; const extraOpen=whTargets().some(t=>t.i>1&&t.open);
+  const r=R(),p=P(),f=p.flavor||{}; const k=mainRings(r).length; const bott=r.lv>=cap(r)-0.001&&k<9&&r.lv<99; const extraOpen=p.id!=="beast"&&whTargets().some(t=>t.i>1&&t.open);
   const repK=FACTION_REP[p.id]||"宗门";
   return [
     {id:"train",n:"修炼",d:bott?`瓶颈：需第${k+1}魂环`:`魂力 +${trainGain(r,MSTEP(r.lv)).toFixed(2)} 级`,hot:false},
@@ -649,14 +651,14 @@ function actions(){
     r.lv>=60?{id:"duel",n:"挑战强者",d:"选对手、押赌注、三局两胜：赢魂骨、涨名望"}:{id:"arena",n:r.lv>=40?"大斗魂场·高阶":"斗魂场",d:r.lv<(p.id==="shalu"?10:20)?`需 ${p.id==="shalu"?10:20} 级`:r.hurt>=70?"伤势过重":"赢金魂币与名望，可能受伤",dis:r.lv<(p.id==="shalu"?10:20)||r.hurt>=70},
     r.lv>=70?{id:"work",n:"坐镇一方",d:"各方供奉与名望，金魂币大笔进账"}:r.lv>=40?{id:"work",n:"接悬赏",d:"高额悬赏，金魂币与名望"}:{id:"work",n:(f.work&&f.work.name)||"打工",d:(f.work&&f.work.desc)||"赚取金魂币"},
     r.fac?{id:"fac",n:"◇ "+(myFac().task&&myFac().task.name||"势力差事"),d:`功勋 +${Math.round(6+r.lv/10+r.fame/20)}，俸禄与晋升`}:{id:"fac",n:(f.faction&&f.faction.name)||"势力差事",d:`${repK}声望 +，金魂币 +`},
-    ...(!r.fac&&FACS.length&&(r.lv>=30||year()>=2644)?[(()=>{const can=FACS.some(f=>f.id!=="shaludu"&&needOK(f.join&&f.join.need)[0]);return {id:"join",n:"◇ 投身势力",d:can?"选择一个宗门或势力，开启专属剧情与晋升":"还没有势力看得上你：先攒名望（最低 10）",dis:!can,hot:can}})()]:[]),
+    ...(!r.fac&&FACS.length&&(r.lv>=30||year()>=2644)?[(()=>{const can=FACS.some(f=>f.id!=="shaludu"&&idp().fac.includes(f.id)&&needOK(f.join&&f.join.need)[0]);return {id:"join",n:"◇ 投身势力",d:can?"选择一个宗门或势力，开启专属剧情与晋升":"还没有势力看得上你：先攒名望（最低 10）",dis:!can,hot:can}})()]:[]),
     {id:"heal",n:"疗伤",d:r.hurt?`伤势 −35，花费 30 金魂币`:"没有伤",dis:!r.hurt},
   ];
 }
 function doAction(id){
   const r=R(),p=P(); if(r.ap<=0) return; const m=MSTEP(r.lv); let txt="",ds=[];
   const rk=FACTION_REP[p.id]||"宗门";
-  if(id==="hunt"&&p.id==="beast"&&r.lv>=cap(r)-0.001&&mainRings(r).length<9) return selfRing();
+  if(id==="hunt"&&p.id==="beast"){ if(r.lv>=cap(r)-0.001&&mainRings(r).length<9) return selfRing(); return toast("你是魂兽，不会去猎杀同族") }
   if(id==="hunt") return huntModal();
   if(id==="god") return godModal();
   if(id==="org") return orgModal();
@@ -758,9 +760,13 @@ function huntModal(on){
 }
 const EPI=["血瞳","独角","苍鬃","裂空","千疤","白骨","赤鳞","断尾","金纹","噬月","碎岳","霜牙","焚天","鬼面","九环纹","隐雷","踏浪","孤王","老疤","无声"];
 function epiName(sp,y){ if(y<5e4) return sp.n; const e=EPI[Math.floor(rnd()*EPI.length)]; return y>=1e5?`${e}·${sp.n.replace(/种$/,"")}王`:`${e}${sp.n.replace(/种$/,"")}` }
-function rollEnc(z,k){ const out=[]; const used=new Set(); for(let i=0;i<6;i++){ let sp=z.sp[Math.floor(rnd()*z.sp.length)]; if(used.has(sp.n)&&rnd()<.7) sp=z.sp[Math.floor(rnd()*z.sp.length)]; used.add(sp.n); const u=Math.pow(rnd(),1.6); const y=niceY(sp.lo*Math.pow(sp.hi/sp.lo,u)); out.push({sp:sp.n,years:y,nm:epiName(sp,y)}) } return out.sort((a,b)=>a.years-b.years) }
+function rollEnc(z,capY){ const r=R(); const out=[]; const used=new Set(); let over=0, tenk=0; const tenkCh=Math.max(0,.18-.05*(r.tenK||0));
+  for(let i=0;i<6;i++){ let sp=z.sp[Math.floor(rnd()*z.sp.length)]; if(used.has(sp.n)&&rnd()<.7) sp=z.sp[Math.floor(rnd()*z.sp.length)]; used.add(sp.n); const u=Math.pow(rnd(),1.6); let y=niceY(sp.lo*Math.pow(sp.hi/sp.lo,u));
+    if(capY&&y>capY){ if(over>=1||rnd()>.3) y=niceY(Math.max(sp.lo,Math.min(y,capY*(.5+rnd()*.5)))); else over++ }
+    if(y>=1e5){ if(tenk>=1||rnd()>tenkCh) y=niceY(Math.min(y,99000*(.4+rnd()*.5))); else tenk++ }
+    if(y<sp.lo) y=sp.lo; out.push({sp:sp.n,years:y,nm:epiName(sp,y)}) } return out.sort((a,b)=>a.years-b.years) }
 function enterZone(z,on){ const r=R(); r.hz=r.hz||{}; const key=z.n; let c=r.hz[key];
-  if(!c||c.t!==r.turns){ c=r.hz[key]={t:r.turns,enc:rollEnc(z),risk:null}; const D=zoneDanger(z), pw=power();
+  if(!c||c.t!==r.turns){ c=r.hz[key]={t:r.turns,enc:rollEnc(z,capFor(on)),risk:null}; const D=zoneDanger(z), pw=power();
     if(pw<D*.6){ const p=Math.min(.75,(D*.6-pw)/(D*.6)*1.3); if(rnd()<p){ const top=z.sp.slice().sort((a,b)=>b.hi-a.hi).slice(0,4); const sp=top[Math.floor(rnd()*top.length)]; const y=niceY(Math.max(sp.lo,sp.hi*(.3+rnd()*.3))); c.risk={sp:epiName(sp,y),years:y} } } save() }
   if(c.risk&&!c.riskDone) return dangerModal(z,on,c);
   zoneHunt(z,on) }
@@ -799,7 +805,7 @@ const TIANMENG={id:"t_tianmeng",name:"天梦冰蚕",tier:"神",place:"星斗大�
   {t:"接纳它，与冰蚕融合",hint:"二部中霍雨浩的选择：百万年第一魂环＋一个空的冰系武魂位，日后与冰帝融合才会觉醒",need:{精神:15},win:{text:"冰蚕化作一道白光钻进你眉心，在精神之海里打了个滚住下。它把百万年的本源凝成你的第一魂环——一道金色的魂环，又在你精神之海里撑开了一个空的冰系武魂位。「这里先空着，等你找到一头够格的冰属魂兽——比如极北那只脾气很坏的蝎子——它住进来，你的第二武魂才算活了。」",d:{wuhun2:{name:"天梦冰蚕·空武魂",state:"vessel",tier:"空",system:"冰系·待融合",desc:"百万年天梦冰蚕在精神之海撑开的冰系空武魂，本身不加战力；有极致之冰的魂兽融进来才会觉醒",fuse:"冰帝（极北之地·碧冰谷，约 70 级起）；或在极北猎魂时把十万年以上冰属魂兽的魂灵封进来",act:{n:"冰蚕冥想",d:"天梦冰蚕在精神之海里替你修炼：精神 +4、悟性 +2"}},ring:{beast:"天梦冰蚕",noBone:true,years:1000000,kind:"控",skill:"天梦冰封",desc:"天梦冰蚕以百万年本源凝成的第一魂环，金色"},精神:15,悟性:8,reveal:["天梦冰蚕"],flags:["overlimit","s_bingcan_host","tianmeng_seen"],trait:{险:1}}}},
   {t:"婉拒，另寻魂兽",win:{text:"冰蚕叹了口气，缩回雾里：「也罢，人各有命。」临走前，它往你脑海里塞了一缕精神本源当见面礼。",d:{精神:6,悟性:3,reveal:["天梦冰蚕"],flags:["tianmeng_seen"]}}}]};
 function hunt(o,capY){
-  const r=R(); let ds=[]; let txt; const over=o.years>capY*((o.fit||1)>=1.3?1.3:1); const x=Object.assign({},o); delete x.need; delete x.fitC;
+  const r=R(); let ds=[]; let txt; if(o.years>=1e5) r.tenK=(r.tenK||0)+1; const over=o.years>capY*((o.fit||1)>=1.3?1.3:1); const x=Object.assign({},o); delete x.need; delete x.fitC;
   gainRing(x,ds); if((o.fit||1)<1) ds=ds.concat(apply({伤势:10}));
   if(over){ txt=`越限吸收，你硬生生扛住了${yLabel(o.years)}的魂环。`; r.trait.险+=1; ds=ds.concat(apply({伤势:12,精神:2})) }
   else txt=`你亲手斩杀${o.beast}，魂环缓缓升起，融入体内。`;
@@ -819,7 +825,7 @@ function treasureModal(t){
   const r=R();
   const m=el(`<div class="modal" role="dialog" aria-modal="true"><div class="box"><div class="sec-t"><span style="color:${TIERC[t.tier]||"inherit"}">【${esc(t.tier||"")}】</span> ${esc(t.place)}${t.canon&&CANON_BY[t.canon]?" · 原著 "+t.canon:""}</div><h3>${esc(t.name)}</h3>
   <div class="tx" style="font-family:var(--f-serif);font-size:15px;line-height:1.85;white-space:pre-line">${esc(nm(t.text))}</div>
-  <div class="opts" id="tops">${(t.choices||[]).map((c,j)=>{ if(c.cond&&!condOK(c.cond)) return "";const[ok]=needOKc(c);const cost=0;const poor=cost>fateAvail();return `<button class="opt ${c.canonChange?"alter":""}" data-c="${j}" ${(!ok||poor)?"disabled":""}><span class="t">${esc(nm(c.t))}</span>${c.hint?`<span class="m">${esc(nm(c.hint))}</span>`:""}<span class="m">${choiceChips(c)}${cost?`<span class="chip gold">宿命 −${cost}</span>`:""}${c.canonChange?`<span class="chip red">改写原著</span>`:""}${c.win&&c.win.d&&c.win.d.death?`<span class="chip red">致命：选了会死</span>`:""}${c.chance!=null&&!(c.need&&Object.keys(c.need).length)?`<span class="chip">看运气</span>`:""}</span></button>`}).join("")}</div><button class="btn" data-close>暂且作罢（不耗行动点）</button></div></div>`);
+  <div class="opts" id="tops">${(t.choices||[]).map((c,j)=>{ if(c.cond&&!condOK(c.cond)) return ""; if(t.id!=="t_tianmeng"&&!choiceAllowed(c,{text:t.text,beast:/魂兽|魔蛛|蛇|鲸|虎|熊|蚁|蝎|龙|猿|牛蟒|狼|藤/.test(t.name)?t.name:null})) return "";const[ok]=needOKc(c);const cost=0;const poor=cost>fateAvail();return `<button class="opt ${c.canonChange?"alter":""}" data-c="${j}" ${(!ok||poor)?"disabled":""}><span class="t">${esc(nm(c.t))}</span>${c.hint?`<span class="m">${esc(nm(c.hint))}</span>`:""}<span class="m">${choiceChips(c)}${cost?`<span class="chip gold">宿命 −${cost}</span>`:""}${c.canonChange?`<span class="chip red">改写原著</span>`:""}${c.win&&c.win.d&&c.win.d.death?`<span class="chip red">致命：选了会死</span>`:""}${c.chance!=null&&!(c.need&&Object.keys(c.need).length)?`<span class="chip">看运气</span>`:""}</span></button>`}).join("")}</div><button class="btn" data-close>暂且作罢（不耗行动点）</button></div></div>`);
   m.querySelector("[data-close]").onclick=()=>{ m.remove(); render() };
   m.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{ const c=t.choices[+b.dataset.c]; if(t.canon) markCanon(t.canon,/^w_/.test(t.id)?"w":"t"); if(isFight(c)){ m.style.display="none"; fightThen(c,{title:t.name,text:t.text,beast:/魂兽|魔蛛|蛇|鲸|虎|熊|蚁|蝎|龙|猿|牛蟒|狼|藤/.test(t.name)&&!WAR_RE.test(c.t)?t.name:null},win=>{ m.style.display=""; goT(c,resolveChoice(c,win)) }) } else goT(c,resolveChoice(c)) });
   const goT=(c,res)=>{ const took=Object.keys((res.ok?c.win:(c.lose||c.win)).d||{}).length>0;
@@ -851,6 +857,29 @@ function explore(g){
   r.ap--; checkEvo(ds); r.actLog.push({n:"历练·"+g.n,txt,ds}); checkDeath(); save(); render();
 }
 
+
+/* ================= 出身一致性：同一个人不会站到自己出身的对面 ================= */
+const IDP={wuhun:{loyal:["武魂殿"],rival:["宗门"],side:["武魂殿"],fac:["wuhundian","zili"]},
+ landian:{loyal:["宗门","天斗"],rival:["武魂殿"],side:["蓝电","天斗"],fac:["landian","tiandou","haotian","tangmen","shilaike","zili"]},
+ beast:{loyal:["魂兽"],rival:["武魂殿"],side:["魂兽"],fac:["shilaike","tangmen","haishendao","zili"],beast:1},
+ qiangu:{loyal:[],rival:[],side:[],fac:["wuhundian","tiandou","zili"]},
+ shalu:{loyal:[],rival:[],side:[],fac:["wuhundian","tangmen","zili"]},
+ qibao:{loyal:["宗门","天斗"],rival:["武魂殿"],side:["七宝","天斗"],fac:["qibao","tiandou","haotian","tangmen","shilaike","zili"]},
+ huangshi:{loyal:["天斗"],rival:["星罗"],side:["天斗"],fac:["tiandou","wuhundian","zili"]},
+ xingluo:{loyal:["星罗"],rival:["天斗"],side:["星罗"],fac:["xingluo","shilaike","zili"]},
+ haishen:{loyal:[],rival:[],side:["海神岛"],fac:["haishendao","tangmen","shilaike","zili"]},
+ shenjiang:{loyal:[],rival:[],side:[],fac:["tangmen","wuhundian","xingluo","tiandou","shilaike","zili"]}};
+function idp(){return IDP[S.run.id]||{loyal:[],rival:[],side:[],fac:FACS.map(f=>f.id)}}
+const SIDE_RE=[["武魂殿",/武魂殿|教皇|武魂帝国|殿供奉|长老殿|执法队|寂灭|萨拉斯|鬼魅|月关|菊鬼|胡列娜|邪月|^焱|比比东|千道流|金鳄|千钧斗罗|降魔斗罗|刺血斗罗/],["天斗",/天斗|雪崩|雪夜|雪星|哈根达斯|巴拉克|嘉陵关守/],["星罗",/星罗|戴维斯|戴沐白|呼延震|三皇子|幽冥白虎|朱竹清/],["七宝",/七宝|宁风致|尘心|古榕|宁荣荣/],["蓝电",/蓝电|玉元震|玉天恒/],["海神岛",/海神岛|圣柱|海马斗罗|海龙斗罗|海矛斗罗|海幻斗罗|海魔女|波赛西/],["魂兽",/魂兽|魔蛛|虎鲸|鲸王|蛇|熊君|赤王|紫姬|帝天|大明|二明|泰坦巨猿|蚁皇|凶兽|魔虎|鲸$|雪帝|冰帝|冰熊王/]];
+function sideOf(name){ const hit=SIDE_RE.find(([,re])=>re.test(name||"")); return hit?hit[0]:null }
+function choiceAllowed(c,ctx){ const P0=idp(); const d=(c.win&&c.win.d)||{}; const rp=d.rep||{};
+  for(const k of P0.loyal) if((rp[k]||0)<=-8) return false;
+  if(!P0.loyal.some(k=>(rp[k]||0)>=8)) for(const k of P0.rival) if((rp[k]||0)>=15) return false;
+  if(isFight(c)){ const F=FOE[c.t]; const f=F?{n:F[0]}:fightFoe(c,{beast:ctx&&ctx.beast}); const sd=sideOf(f.n)||(!F&&ctx&&ctx.beast?"魂兽":null); if(sd&&P0.side.includes(sd)) return false }
+  if(P0.beast&&(/斩杀|猎杀|夺环|斩蛇|斩鲸|夺其魂环|夺三万年环|斩了魔蝠/.test(c.t||"")||(rp.魂兽||0)<=-5)) return false;
+  return true }
+function evAllowed(e,shared){ if(!shared) return true; return !(e.choices||[]).length||(e.choices||[]).some(c=>choiceAllowed(c,{text:e.text})) }
+
 /* ================= 成神之路 ================= */
 const GOD_ID={wuhun:"冥月神",landian:"雷霆龙神",beast:"雪神",qiangu:"光暗龙神",shalu:"杀神",qibao:"剑神",huangshi:"暗影之神",xingluo:"白虎战神",haishen:"潮汐之神",shenjiang:"锻造之神"};
 function godOptions(){ const r=R(),id=S.run.id; const o=[{k:"self",n:GOD_ID[id]||"新神",d:"以自己的武魂开辟一道新的神位。没有前人留下的路，也不必与谁争"}];
@@ -868,6 +897,9 @@ function godModal(){ const r=R();
     m.querySelector("[data-x]").onclick=()=>m.remove(); m.querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>{ m.remove(); const o=os[+b.dataset.i]; r.godQ={k:o.k,n:o.n,rival:o.rival||null,step:0,done:false}; r.actLog.push({n:"成神之路",txt:`你选定了${o.n}的神位，九考开始。`,ds:[]}); save(); render() }); document.body.appendChild(m); return }
   const T=GOD_TRIALS[r.godQ.step]; const pass=(txt,extra)=>{ r.godQ.step++; r.x.godPow=(r.x.godPow||0)+.04; const ds=[{t:`${T.n}通过（${r.godQ.step}/9）· 战力 +4%`,up:true}].concat(apply(Object.assign({精神:3,体魄:3},extra||{}))); r.actLog.push({n:`神考·${T.n}`,txt,ds}); if(r.godQ.step>=9) godDone(); save(); render() };
   const fail=(txt)=>{ const ds=apply({伤势:25}); r.actLog.push({n:`神考·${T.n}`,txt:txt+"下一季可以再来。",ds}); save(); render() };
+  const pre=T.type==="fight"?T.op:T.type==="final"&&r.godQ.rival?Math.max(npcPower(npcLevel(r.godQ.rival)||99),5000):T.type==="final"?4800:0;
+  if(pre&&power()<pre*FIGHT_LO) return toast(`${T.n}：对方战力约 ${pre}，你现在毫无胜算（至少要 ${Math.round(pre*FIGHT_LO)}），先去变强`);
+  if(T.type==="stat"&&(r.a[T.k]||0)<T.v) return toast(`${T.n}需要${T.k} ${T.v}，你现在 ${Math.round(r.a[T.k]||0)}`);
   r.ap--;
   if(T.type==="stat"){ return (r.a[T.k]||0)>=T.v?pass(`${T.d}——你过了。`):fail(`${T.k}不够（需 ${T.v}），${T.n}没能通过。`) }
   if(T.type==="fight"){ return duelFight(T.foe,{plot:true,op:T.op,title:"神考·"+T.n,done:res=>res.win?pass(`你过了${T.n}。`):fail(`${T.n}没能撑过去。`)}) }
@@ -879,8 +911,31 @@ function godModal(){ const r=R();
   else if(T.type==="final"){ const rv=r.godQ.rival; if(rv){ const lv=npcLevel(rv)||99; const d=DUEL_DB[rv]||["神位候选","攻","神技"]; m.remove(); return duelFight({n:rv,h:"",w:d[0],st:d[1],ult:d[2]},{plot:true,op:Math.max(npcPower(lv),5000),title:"神考·承之考",done:res=>{ if(res.win){ apply({world:{offset:{[rv]:-8},note:`你在承之考中击败了${rv}，${r.godQ.n}的神位归你`}}); pass(`${rv}倒下了。${r.godQ.n}的神位只认一个人，是你。`) } else fail(`${rv}守住了神位。`) }}) }
     add("回答神位的最后一问","「你成神，是为了什么？」",()=>{ m.remove(); duelFight({n:r.godQ.n+"的意志",h:"",w:"神位",st:"控",ult:"神罚"},{plot:true,op:4800,title:"神考·承之考",done:res=>res.win?pass("神位的意志沉默了很久，最后为你让开了路。"):fail("神位的意志把你推了回来。")}) }) }
 }
-function godDone(){ const r=R(); r.godQ.done=true; r.god=true; r.lv=100; r.queue.push({k:"godend",id:"godend",ev:{title:`成神：${r.godQ.n}`,text:`九考尽过。斗罗历 ${year()}，${r.name}成为${r.godQ.n}。神界的门在头顶打开，人间的一切还在脚下。`,choices:[{t:"飞升神界",hint:"以神的身份结束这一生（结局）",win:{text:"你踏进了光里。",d:{ending:"__god"}}},{t:"留在人间",hint:"继续以神的身份走完这几年",win:{text:"你没有走。神留在人间，人间会变成什么样？",d:{名望:20}}}]}}) }
-function godEnding(){ const r=R(); return {id:"g_god_"+(r.godQ&&r.godQ.k),title:"结局·"+(r.godQ?r.godQ.n:"成神"),type:"神",grade:3,text:`斗罗历 ${year()}，${r.name}过完九考，成为${r.godQ?r.godQ.n:"神"}。${r.godQ&&r.godQ.rival?r.godQ.rival+"没能走完这条路。":"这是一道前所未有的新神位。"}${r.world.notes.length?"原著已经被你改得面目全非。":""}`,afterlife:[`${r.godQ?r.godQ.n:"新神"}的神殿在大陆上立了起来`,r.org?`你创立的「${r.org.name}」成了神的人间道场`:"你走过的地方，都有人记得你",`后世的魂师在祈祷时会念你的名字：${r.name}`]} }
+function godDone(){ const r=R(); r.godQ.done=true; r.god=true; r.lv=100; r.queue.push(godWarEvent()) }
+function godEndEvent(){ const r=R(); r.queue.push({k:"godend",id:"godend",ev:{title:`成神：${r.godQ.n}`,text:`九考尽过。斗罗历 ${year()}，${r.name}成为${r.godQ.n}。神界的门在头顶打开，人间的一切还在脚下。`,choices:[{t:"飞升神界",hint:"以神的身份结束这一生（结局）",win:{text:"你踏进了光里。",d:{ending:"__god"}}},{t:"留在人间",hint:"继续以神的身份走完这几年",win:{text:"你没有走。神留在人间，人间会变成什么样？",d:{名望:20}}}]}}) }
+function godEnding(){ const r=R(); return {id:"g_god_"+(r.godQ&&r.godQ.k),title:"结局·"+(r.godQ?r.godQ.n:"成神"),type:"神",grade:3,text:`斗罗历 ${year()}，${r.name}过完九考，成为${r.godQ?r.godQ.n:"神"}。${r.flags.includes("godwar_win")?"随后一人战双神，把两位邪神打回了神界。":r.flags.includes("godwar_seal")?"随后燃尽神格，与两位邪神同归于尽。":r.flags.includes("godwar_lost")?"可惜在神战中被两位邪神打落神界。":""}${r.godQ&&r.godQ.rival?r.godQ.rival+"没能走完这条路。":"这是一道前所未有的新神位。"}${r.world.notes.length?"原著已经被你改得面目全非。":""}`,afterlife:[`${r.godQ?r.godQ.n:"新神"}的神殿在大陆上立了起来`,r.org?`你创立的「${r.org.name}」成了神的人间道场`:"你走过的地方，都有人记得你",`后世的魂师在祈祷时会念你的名字：${r.name}`]} }
+
+
+/* ================= 神战与万年之后 ================= */
+const EVIL_GODS=[{n:"毁灭之神",w:"毁灭神力",ult:"万物归墟",p:4300},{n:"罗刹神·比比东",w:"罗刹神力",ult:"罗刹魔镰·天地同灭",p:4100},{n:"邪魔神",w:"邪魔神力",ult:"万邪噬魂",p:4000}];
+function godAllies(){ const r=R(); const list=Object.entries(r.bonds).filter(([k,v])=>v>=50&&(npcLevel(k)||0)>=70).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([k])=>({n:k,p:Math.round(npcPower(npcLevel(k))*.3)}));
+  if(r.org) list.push({n:"「"+r.org.name+"」",p:Math.round(orgPow()*.15)}); return list }
+function godWarEvent(){ const r=R(); const pool=EVIL_GODS.filter(g=>!(r.godQ.k==="luocha"&&/罗刹/.test(g.n))&&!(/比比东/.test(g.n)&&r.godQ.rival==="比比东")); const [a,b]=pool.slice(0,2); const op=Math.round((a.p+b.p)*1.25); const al=godAllies(); const ap=al.reduce((x,y)=>x+y.p,0);
+  r.godWar={a:a.n,b:b.n,op,ap};
+  return {k:"godwar",id:"godwar",ev:{title:"神战：一人战双神",text:`你成神的那一刻，神界有两道目光落了下来。${a.n}与${b.n}不容许人间再多一位神，联手降临斗罗大陆。两神合击，力量远不止相加——战力约 ${op}。\n${al.length?`愿意站在你身边的：${al.map(x=>x.n).join("、")}，合力约 ${ap}。`:"没有人能帮你。"}你的战力 ${power()}，加上援手共 ${power()+ap}。`,
+    choices:[{t:"迎战双神",hint:"三局两胜。赢了，大陆得救；输了，你会被打落神界",godwar:1},{t:"燃尽神格，与双神同归于尽",hint:"必胜，但你会神陨",win:{text:"你点燃了刚刚得到的神格。三道神光在天穹上同时熄灭。",d:{flags:["godwar_seal"],world:{note:`你以神格为代价，与${a.n}、${b.n}同归于尽`}}},seal:1}]}} }
+function epiPick(arr,seed){ return arr[Math.abs(seed)%arr.length] }
+function epilogue(end){ const r=R(); if(r.epi) return r.epi; let sd=0; for(const ch of (r.name+year()+r.lv+(r.turns||0))) sd=(sd*31+ch.charCodeAt(0))|0; const rr=()=>{ sd=(sd*1103515245+12345)|0; return ((sd>>>8)%1000)/1000 };
+  const L=[]; const good=x=>rr()<x;
+  if(r.god){ if(r.flags.includes("godwar_seal")) L.push(`你以神格封印双神，神位空悬。一万年后，${r.godQ.n}的神殿只剩断柱，但每个魂师在觉醒仪式上都会听到你的故事。`);
+    else if(r.flags.includes("godwar_lost")) L.push(good(.5)?`你被打落神界，沉睡九千年后在极北的冰原里醒来，又一次从零修起。`:`你被打落神界后再也没有回来。${r.godQ.n}的神位在万年后由一个素不相识的少年继承。`);
+    else L.push(good(.65)?`${r.godQ.n}的神位稳固了一万年，大陆上每逢大劫，总有人看见你的身影。`:`神界在五千年后发生动荡，${r.godQ.n}的神位一度跌落，你在人间留下的信仰让你重新站了回去。`) }
+  else L.push(r.lv>=91?(good(.5)?`你的封号在万年后成了一个传说，后人只记得「${fenghao()}」四个字，不记得你的名字。`:`你的后人开枝散叶，万年后一个姓${r.name[0]}的家族仍以你的武魂为傲。`):(good(.5)?`万年之后，已经没有人记得你。只有一本发黄的魂师名录上，留着你的名字。`:`你教过的一个孩子成了封号斗罗，他的徒孙的徒孙，万年后还在讲你的故事。`));
+  if(r.org){ const st=r.org.terr.length*2+r.org.members.length; const p=Math.min(.85,.3+st*.05); L.push(good(p)?pick2([`「${r.org.name}」万年后成了大陆第一宗门，你立的山门石被供成了圣地。`,`「${r.org.name}」改成了学院的样子，一万年里出了四十七位封号斗罗。`],rr):pick2([`「${r.org.name}」在第三代掌门手里分裂成三支，最后一支在两千年后断了传承。`,`「${r.org.name}」在一千年后被新兴的帝国吞并，只剩下诺丁城外一片遗址。`],rr)) }
+  if(r.fac&&r.fac.id!=="zili"){ const f=myFac(); const p=.35+r.fac.rank*.12; L.push(good(p)?`${f.name}万年后依旧屹立，你的名字刻在${f.ranks[Math.min(4,r.fac.rank)]}的名录最前面。`:`${f.name}在几千年后衰落，你做${f.ranks[Math.min(4,r.fac.rank)]}的那些年，被后人称作最后的盛世。`) }
+  L.push(pick2(r.shift>=30?[`原著的世界线已经被你改得面目全非，万年后的魂师读到的历史里，唐三只是一个配角。`,`你改写的那些大事，在万年后的大陆上长成了完全不同的模样：没有日月帝国，也没有魂导器的时代。`]:[`万年后，魂导器取代了一半的魂技，日月帝国在大陆东方崛起，大陆又迎来了新的乱世。`,`万年后，史莱克学院成了大陆第一学院，海神阁的规矩一直沿用至今。`],rr));
+  r.epi=L; save(); return L }
+function pick2(a,rr){ return a[Math.floor(rr()*a.length)] }
 
 /* ================= 组织：自立门户 ================= */
 const TERR=[{id:"nuoding",n:"诺丁城",o:"天斗",def:700,inc:3000},{id:"suotuo",n:"索托城",o:"天斗",def:1000,inc:6000},{id:"luori",n:"落日森林外缘",o:"无主",def:900,inc:3000},{id:"gengxin",n:"庚辛城",o:"铁匠协会",def:1600,inc:20000},{id:"balake",n:"巴拉克王国",o:"天斗",def:1800,inc:12000},{id:"hagen",n:"哈根达斯王国",o:"天斗",def:2000,inc:15000},{id:"shalu",n:"杀戮之都",o:"无主",def:3000,inc:10000},{id:"jialing",n:"嘉陵关",o:"天斗",def:3200,inc:8000},{id:"haishen",n:"海神岛",o:"海神岛",def:4000,inc:30000},{id:"tiandou",n:"天斗城",o:"天斗",def:4500,inc:60000,cap:1},{id:"xingluo",n:"星罗城",o:"星罗",def:4600,inc:60000,cap:1},{id:"wuhun",n:"武魂城",o:"武魂殿",def:5200,inc:80000,cap:1}];
@@ -898,7 +953,7 @@ function foundModal(after){ const r=R(); const preset=[({wuhun:"冥月阁",landi
 function orgModal(){ const r=R(); if(!r.org) return foundModal(orgModal); const o=r.org; const op=orgPow();
   const own=new Set(o.terr); const inc=TERR.filter(t=>own.has(t.id)).reduce((a,t)=>a+t.inc,0);
   const m=el(`<div class="modal" role="dialog" aria-modal="true"><div class="box" style="max-width:680px"><div class="sec-t">「${esc(o.name)}」· 声势 ${op} · 成员 ${o.members.length} · 领地 ${o.terr.length} · 每季进账 ${fmtC(inc)}</div><h3>经营${esc(o.name)}</h3>
-   <div class="sec-t" style="margin-top:6px">攻城略地 · 每次 1 行动点 · 三阵两胜，用的是组织声势</div><div class="opts">${TERR.filter(t=>!own.has(t.id)).map(t=>{const [lb,cl]=oddsLabel(op,t.def); const can=op>=t.def*.6&&r.ap>0; return `<button class="opt ${t.cap?"alter":""}" data-t="${t.id}" ${can?"":"disabled"}><span class="t">${t.n} <span class="faint" style="font-weight:400">${t.o}</span></span><span class="m"><span class="chip ${can?cl:"red"}">守军约 ${t.def} · ${can?lb:"打不动"}</span><span class="chip">每季 +${fmtC(t.inc)}</span>${t.cap?'<span class="chip gold">都城</span>':""}</span></button>`}).join("")}</div>
+   <div class="sec-t" style="margin-top:6px">攻城略地 · 每次 1 行动点 · 三阵两胜，用的是组织声势</div><div class="opts">${TERR.filter(t=>!own.has(t.id)&&!idp().side.includes(t.o)).map(t=>{const [lb,cl]=oddsLabel(op,t.def); const can=op>=t.def*FIGHT_LO&&r.ap>0; return `<button class="opt ${t.cap?"alter":""}" data-t="${t.id}" ${can?"":"disabled"}><span class="t">${t.n} <span class="faint" style="font-weight:400">${t.o}</span></span><span class="m"><span class="chip ${can?cl:"red"}">守军约 ${t.def} · ${can?lb:"打不动"}</span><span class="chip">每季 +${fmtC(t.inc)}</span>${t.cap?'<span class="chip gold">都城</span>':""}</span></button>`}).join("")}</div>
    <div class="sec-t" style="margin-top:10px">招揽 · 每次 1 行动点</div><div class="opts">${RECRUITS.filter(x=>!o.members.some(m=>m.n===x.n)||!x.named).map((x,i)=>{const info=recruitInfo(x); return `<button class="opt" data-r="${RECRUITS.indexOf(x)}" ${info.ok&&r.ap>0?"":"disabled"}><span class="t">${esc(x.n)}${info.lv?` · ${info.lv}级`:""}</span><span class="m">${esc(x.d||(DUEL_DB[x.n]?DUEL_DB[x.n][0]:""))} · 声势 +${info.pow}</span><span class="m"><span class="chip ${info.ok?"jade":"red"}">${esc(info.why)}</span></span></button>`}).join("")}</div>
    ${o.members.length?`<div class="faint" style="font-size:12.5px;margin-top:8px">成员：${o.members.map(x=>esc(x.n)).join("、")}</div>`:""}
    <button class="btn" data-x>回去</button></div></div>`);
@@ -921,9 +976,9 @@ function shaluModal(){ const r=R(); const x=r.x; x.sl=x.sl||{wins:0,hell:false};
   <div class="tx" style="font-family:var(--f-serif);font-size:15px;line-height:1.8">城里永远是黄昏。进了这座城，魂技一概失效，只能靠魂力、肉身和杀气活下去。连赢一百场，才有资格走地狱路；走出地狱路的人，会得到杀神领域，也会被那位坐在王座上的老人注视。</div>
   ${step(x.sl.wins>=100,"地狱杀戮场 · 百场连胜",`${Math.min(100,x.sl.wins)}/100 胜`)}${step(x.sl.hell,"地狱路","血蝙蝠、十首烈阳蛇、心魔，走出来即得杀神领域")}${step(!!x.god,"神祇传承","70 级后：修罗神 / 罗刹神 / 杀戮之王，三选一")}
   <div class="opts">
-  ${x.sl.wins<100?`<button class="opt" data-i="0" ${pw>=winNeed*.6&&r.ap>0?"":"disabled"}><span class="t">进杀戮场厮杀一季</span><span class="m">魂技失效，底牌用不了。赢一季约 +34 胜场</span><span class="m">${choiceChips({t:"",need:{战力:winNeed}})}</span></button>`:""}
-  ${x.sl.wins>=100&&!x.sl.hell?`<button class="opt alter" data-i="1" ${pw>=hellNeed*.6&&r.ap>0?"":"disabled"}><span class="t">走地狱路</span><span class="m">走出来即得杀神领域：战力 +10%，决斗底牌「杀神领域」${y<=2649?" · 赶在唐三之前":""}</span><span class="m">${choiceChips({t:"",need:{战力:hellNeed}})}</span></button>`:""}
-  ${x.sl.hell&&!x.god?(r.lv<70?`<p class="dim" style="margin:0">杀戮之王的目光落在你身上，但他在等你到 70 级。</p>`:Object.entries(GODS).map(([k,g])=>`<button class="opt alter" data-i="g:${k}" ${pw>=godNeed*.6&&r.ap>0?"":"disabled"}><span class="t">${g.n}</span><span class="m">${g.desc}。战力 +${Math.round(g.pow*100)}%，决斗底牌「${g.card}」×${g.m}${k==="shura"?" · 唐三将失去修罗神传承":k==="luocha"?" · 比比东的罗刹神力随之衰退":""}</span><span class="m">${choiceChips({t:"",need:{战力:godNeed}})}</span></button>`).join("")):""}
+  ${x.sl.wins<100?`<button class="opt" data-i="0" ${pw>=winNeed*.85*FIGHT_LO&&r.ap>0?"":"disabled"}><span class="t">进杀戮场厮杀一季</span><span class="m">魂技失效，底牌用不了。赢一季约 +34 胜场</span><span class="m">${choiceChips({t:"",need:{战力:winNeed}})}</span></button>`:""}
+  ${x.sl.wins>=100&&!x.sl.hell?`<button class="opt alter" data-i="1" ${pw>=hellNeed*.85*FIGHT_LO&&r.ap>0?"":"disabled"}><span class="t">走地狱路</span><span class="m">走出来即得杀神领域：战力 +10%，决斗底牌「杀神领域」${y<=2649?" · 赶在唐三之前":""}</span><span class="m">${choiceChips({t:"",need:{战力:hellNeed}})}</span></button>`:""}
+  ${x.sl.hell&&!x.god?(r.lv<70?`<p class="dim" style="margin:0">杀戮之王的目光落在你身上，但他在等你到 70 级。</p>`:Object.entries(GODS).map(([k,g])=>`<button class="opt alter" data-i="g:${k}" ${pw>=godNeed*.85*FIGHT_LO&&r.ap>0?"":"disabled"}><span class="t">${g.n}</span><span class="m">${g.desc}。战力 +${Math.round(g.pow*100)}%，决斗底牌「${g.card}」×${g.m}${k==="shura"?" · 唐三将失去修罗神传承":k==="luocha"?" · 比比东的罗刹神力随之衰退":""}</span><span class="m">${choiceChips({t:"",need:{战力:godNeed}})}</span></button>`).join("")):""}
   ${x.god?`<p class="dim" style="margin:0">你已得「${GODS[x.god].n}」。杀戮之都对你再无秘密。</p>`:""}
   </div><button class="btn" data-x>离开</button></div></div>`);
   m.querySelector("[data-x]").onclick=()=>m.remove();
@@ -936,7 +991,7 @@ function shaluModal(){ const r=R(); const x=r.x; x.sl=x.sl||{wins:0,hell:false};
 function joinModal(){
   const r=R();
   const m=el(`<div class="modal" role="dialog" aria-modal="true"><div class="box"><div class="sec-t">投身势力 · 一局只能选一次</div><h3>你要投向哪里？</h3>
-  <div class="opts">${FACS.filter(f=>f.id!=="shaludu").map(f=>{const[ok]=needOK(f.join&&f.join.need);return `<button class="opt" data-f="${f.id}" ${ok?"":"disabled"}><span class="t">${esc(f.name)}</span><span class="m">${esc(f.desc||"")}</span><span class="m">${needChips(f.join&&f.join.need)}<span class="chip">${esc(f.ranks.join(" → "))}</span>${f.perk?`<span class="chip gold">${esc(f.perk.desc||"")}</span>`:""}</span>${f.join&&f.join.hint?`<span class="m">${esc(f.join.hint)}</span>`:""}</button>`}).join("")}</div>
+  <div class="opts">${FACS.filter(f=>f.id!=="shaludu").sort((a,b)=>idp().fac.indexOf(a.id)-idp().fac.indexOf(b.id)).map(f=>{const allow=idp().fac.includes(f.id); const[ok0]=needOK(f.join&&f.join.need); const ok=ok0&&allow; if(!allow) return `<button class="opt" disabled><span class="t">${esc(f.name)}</span><span class="m"><span class="chip red">与你的出身相冲</span></span></button>`; return `<button class="opt" data-f="${f.id}" ${ok?"":"disabled"}><span class="t">${esc(f.name)}</span><span class="m">${esc(f.desc||"")}</span><span class="m">${needChips(f.join&&f.join.need)}<span class="chip">${esc(f.ranks.join(" → "))}</span>${f.perk?`<span class="chip gold">${esc(f.perk.desc||"")}</span>`:""}</span>${f.join&&f.join.hint?`<span class="m">${esc(f.join.hint)}</span>`:""}</button>`}).join("")}</div>
   <button class="btn" data-x>再想想</button></div></div>`);
   m.querySelector("[data-x]").onclick=()=>m.remove();
   m.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{ m.remove(); const f=F_BY[b.dataset.f]; r.fac={id:f.id,rank:0,merit:0,y:year()}; r.facDone=[]; r.ap--; r.actLog.push({n:"投身势力",txt:`你成了${f.name}的${f.ranks[0]}。`,ds:[{t:`加入 ${f.name}`,up:true}]}); save(); if(f.id==="zili") return foundModal(); render() });
@@ -963,13 +1018,14 @@ function duelPool(lo,hi){const r=R(),y=year();
   const fh=WORLD.fenghao.filter(e=>(revealed(e.n,e.reveal)||r.met.includes(e.n))&&!(e.dead&&e.dead<y)&&DUEL_DB[e.n]).map(e=>npcInfo(e.n,Math.min(99,(lvAt(e,y)||0)+offsetOf(e.n,y)),e.h));
   const mid=NPC_MID.map(x=>npcInfo(x.n,x.lv)); const yg=NPC_YOUNG.map(x=>npcInfo(x.n,Math.min(88,Math.round(x.l+(y-2644)*x.g))));
   const seen=new Set(); return fh.concat(mid,yg).filter(x=>x.lv>=lo&&x.lv<=hi&&!seen.has(x.n)&&seen.add(x.n)).sort((a,b)=>a.lv-b.lv)}
-function oddsLabel(pw,op){const k=pw/op; return k>=1.5?["碾压","jade"]:k>=1.15?["占优","jade"]:k>=.9?["五五开","gold"]:k>=.7?["劣势","red"]:["悬殊","red"]}
+const FIGHT_LO=.66, FIGHT_HI=1.4;
+function oddsLabel(pw,op){const k=pw/op; return k>=FIGHT_HI?["碾压，直接拿下","jade"]:k>=1.15?["占优","jade"]:k>=.9?["五五开","gold"]:k>=FIGHT_LO?["劣势，要靠战术","red"]:["毫无胜算","red"]}
 function duelModal(){
   const r=R(); const pw=power(); r.beaten=r.beaten||[];
   const pool=duelPool(r.lv-20,r.lv+25).slice(-12);
   const m=el(`<div class="modal" role="dialog" aria-modal="true"><div class="box"><div class="sec-t">挑战强者 · 你的战力 ${pw}</div><h3>向谁下战书？</h3>
   <p class="dim" style="margin:0;font-size:13px">三局两胜。每一局你选战术：强攻克控制、控制克防守反击、防守反击克强攻；对手出绝招前会有征兆。万年以上魂骨、第二第三武魂、武魂真身都是一次性的底牌。</p>
-  <div class="opts">${pool.map((x,i)=>{const op=npcPower(x.lv);const done=r.beaten.includes(x.n);const [lb,cl]=oddsLabel(pw,op);const can=pw>=op*.55&&!done;return `<button class="opt" data-d="${i}" ${can?"":"disabled"}><span class="t">${esc(x.n)}${x.h?" · "+esc(x.h):""} · ${x.lv}级</span><span class="m">${esc(x.w)} · ${STYLE_N[x.st]||""} · 绝招「${esc(x.ult)}」</span><span class="m"><span class="chip">对方战力约 ${op}</span><span class="chip ${cl}">${lb}</span>${done?'<span class="chip">已击败</span>':""}${pw<op*.55?'<span class="chip red">差距太大，对方不接</span>':""}</span></button>`}).join("")||'<p class="dim">眼下没有值得你出手的人。</p>'}</div><button class="btn" data-x>算了</button></div></div>`);
+  <div class="opts">${pool.map((x,i)=>{const op=npcPower(x.lv);const done=r.beaten.includes(x.n);const [lb,cl]=oddsLabel(pw,op);const can=pw>=op*FIGHT_LO&&!done;return `<button class="opt" data-d="${i}" ${can?"":"disabled"}><span class="t">${esc(x.n)}${x.h?" · "+esc(x.h):""} · ${x.lv}级</span><span class="m">${esc(x.w)} · ${STYLE_N[x.st]||""} · 绝招「${esc(x.ult)}」</span><span class="m"><span class="chip">对方战力约 ${op}</span><span class="chip ${cl}">${lb}</span>${done?'<span class="chip">已击败</span>':""}${pw<op*FIGHT_LO?'<span class="chip red">差距太大，对方不接</span>':""}</span></button>`}).join("")||'<p class="dim">眼下没有值得你出手的人。</p>'}</div><button class="btn" data-x>算了</button></div></div>`);
   m.querySelector("[data-x]").onclick=()=>m.remove();
   m.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{ m.remove(); stakeModal(pool[+b.dataset.d]) });
   document.body.appendChild(m);
@@ -1027,10 +1083,13 @@ function duelFight(x,opt){
       text=`${x.n}收起武魂，${fh?"封号斗罗的金匾下，":""}向你拱了拱手。这一战很快传遍了大陆。` }
     else { ds=apply({伤势:18,名望:-2}); if(opt.stake){ const p=Math.min(r.coins,opt.stake.pay); r.coins-=p; ds.push({t:`输掉赌注：金魂币 -${fmtC(p)}`,up:false}) } text=`你输了。${x.n}没有下死手，只留下一句：「再练几年。」` }
     checkDeath(); save(); return {win,text,ds} };
+  const ratio=pw/op;
+  if(ratio<FIGHT_LO||ratio>=FIGHT_HI){ const win=ratio>=FIGHT_HI; st.over=true; st.me=win?2:0; st.them=win?0:2;
+    st.log.push({r:1,win,t:win?`你的战力 ${pw}，对方约 ${op}。没有悬念，${x.n}几招之内就败下阵来。`:`你的战力 ${pw}，对方约 ${op}，差得太远。不管怎么出手，都只是在拖时间。`}); st.res=settle(win); draw(); return }
   prep(); draw();
 }
 function challengerFor(r){ if(r.lv<45) return null; const ch=Math.min(.2,.05+r.fame/600); if(rnd()>=ch) return null; const pw=power();
-  const pool=duelPool(r.lv-10,r.lv+30).filter(x=>!(r.beaten||[]).includes(x.n)&&npcPower(x.lv)>=pw*.7&&npcPower(x.lv)<=pw*1.4); if(!pool.length) return null; const x=pool[Math.floor(rnd()*pool.length)];
+  const pool=duelPool(r.lv-10,r.lv+30).filter(x=>!idp().side.includes(sideOf(x.n))&&(r.bonds[x.n]||0)<30&&!(r.beaten||[]).includes(x.n)&&npcPower(x.lv)>=pw*.7&&npcPower(x.lv)<=pw*1.4); if(!pool.length) return null; const x=pool[Math.floor(rnd()*pool.length)];
   const t=[`${x.n}${x.h?"（"+x.h+"）":""}派人送来一封战书：「久闻大名。三日后，城外比武台，胜负自知。」`,
     `${x.n}堵在你的住处门口，${x.w}的气息毫不掩饰：「听说你最近风头很盛，让我看看是真是假。」`,
     `酒楼里有人放出话来：${x.n}要和你一战。拒绝，就是怯战。`,
@@ -1150,8 +1209,8 @@ function side(){const r=R(),p=P(); const bond=Object.entries(r.bonds).sort((a,b)
 function renderGame(){
   const r=R(); const pend=r.queue.filter(q=>!q.done).length;
   app.innerHTML=topbar()+`<div class="wrap"><div class="shell">${side()}<main class="main">
-   <div class="tabs" role="tablist">${[["season","本季"+(pend?'<span class="dot"></span>':"")],["fortune","机缘"+(treasNow().length?'<span class="dot"></span>':"")],["rings","魂环与魂骨"+((S.run.bag||[]).length?'<span class="dot"></span>':"")],["rank","榜单"],["world","大陆"],["log","手记"]].map(([k,n])=>`<button role="tab" data-tab="${k}" aria-selected="${TAB===k}">${n}</button>`).join("")}</div>
-   <div id="tabbody">${TAB==="season"?tabSeason():TAB==="fortune"?tabFortune():TAB==="rings"?tabRings():TAB==="rank"?tabRank():TAB==="world"?tabWorld():tabLog()}</div>
+   <div class="tabs" role="tablist">${[["season","本季"+(pend?'<span class="dot"></span>':"")],["fortune","机缘"+(treasNow().length?'<span class="dot"></span>':"")],["rings","武魂与魂环"],["items","物品"+(((S.run.bag||[]).length||(S.run.items||[]).length)?'<span class="dot"></span>':"")],["rank","榜单"],["world","大陆"],["log","手记"]].map(([k,n])=>`<button role="tab" data-tab="${k}" aria-selected="${TAB===k}">${n}</button>`).join("")}</div>
+   <div id="tabbody">${TAB==="season"?tabSeason():TAB==="fortune"?tabFortune():TAB==="rings"?tabRings():TAB==="items"?tabItems():TAB==="rank"?tabRank():TAB==="world"?tabWorld():tabLog()}</div>
   </main></div></div>`;
   app.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{TAB=b.dataset.tab;renderGame()});
   document.getElementById("tb-home").onclick=()=>{save();toast("已自动存档");home()};
@@ -1171,12 +1230,12 @@ function tabSeason(){
    ${(r.rumors||[]).map(x=>{const t=T_BY[x.id];return x.k==="heard"?`<div style="font-size:13.5px">听闻：${esc(t.rumor)}</div>`:`<div style="font-size:13.5px" class="dim">已错过：${esc(t.name)}，已归${esc(t.owner||"他人")}。</div>`}).join("")}</section>`;
   for(let i=0;i<r.queue.length;i++){const q=r.queue[i]; const e=evById(q); if(!e) continue; const node=q.k==="node"||q.k==="fnode";
     const canon=node&&e.canon&&CANON_BY[e.canon];
-    h+=`<section class="ev ${node?"node":""}"><div class="eh">${q.k==="godend"?`<span class="chip gold">成神</span>`:q.k==="unify"?`<span class="chip gold">霸业</span>`:q.k==="orgwar"?`<span class="chip red">战事</span>`:q.k==="ring"?`<span class="chip gold">魂环</span>`:q.k==="duel"?`<span class="chip red">战书</span>`:q.k==="fnode"?`<span class="chip gold">势力剧情 · ${esc(myFac().name)}</span>`:node?`<span class="chip gold">关键节点</span>`:`<span class="chip">事件</span>`}<h3>${esc(nm(e.title))}</h3>${canon?`<span class="chip">原著 ${esc(canon.id)}</span>`:""}</div>
+    h+=`<section class="ev ${node?"node":""}"><div class="eh">${q.k==="godwar"?`<span class="chip red">神战</span>`:q.k==="godend"?`<span class="chip gold">成神</span>`:q.k==="unify"?`<span class="chip gold">霸业</span>`:q.k==="orgwar"?`<span class="chip red">战事</span>`:q.k==="ring"?`<span class="chip gold">魂环</span>`:q.k==="duel"?`<span class="chip red">战书</span>`:q.k==="fnode"?`<span class="chip gold">势力剧情 · ${esc(myFac().name)}</span>`:node?`<span class="chip gold">关键节点</span>`:`<span class="chip">事件</span>`}<h3>${esc(nm(e.title))}</h3>${canon?`<span class="chip">原著 ${esc(canon.id)}</span>`:""}</div>
     ${node&&e.echo&&r.flags.includes(e.echo.flag)?`<div class="echo">${esc(nm(e.echo.text))}</div>`:""}
     <div class="tx">${esc(nm(e.text))}</div>
     ${node&&canon&&r.perk==="memory"?`<div class="echo" style="color:var(--dim);border-color:var(--line-2)">原著记忆：${esc(canon.event)} → ${esc(canon.result)}</div>`:""}
     ${q.done?`<div class="res"><div class="dim" style="font-size:12.5px">你选择了：${esc(nm(q.pick))}${q.chance?(q.ok?" · <b style='color:var(--jade)'>成</b>":" · <b style='color:var(--red)'>败</b>"):""}</div><div class="rt">${esc(nm(q.text||""))}</div><div class="deltas">${(q.ds||[]).map(d=>`<span class="delta ${d.up?"up":"dn"}">${esc(d.t)}</span>`).join("")}</div>${q.note?`<div class="note">${esc(q.note)}</div>`:""}</div>`
-    :`<div class="opts">${(e.choices||[]).map((c,j)=>{const[ok,why]=needOKc(c);const cost=0;const poor=cost>fateAvail();return `<button class="opt ${c.canonChange?"alter":""}" data-q="${i}" data-c="${j}" ${(!ok||poor)?"disabled":""}><span class="t">${esc(nm(c.t))}</span><span class="m">${c.hint?esc(nm(c.hint)):""}</span><span class="m">${choiceChips(c)}${cost?`<span class="chip gold">宿命 −${cost}</span>`:""}${c.canonChange?`<span class="chip red">改写原著</span>`:""}${c.win&&c.win.d&&c.win.d.death?`<span class="chip red">致命：选了会死</span>`:""}${c.chance!=null&&!(c.need&&Object.keys(c.need).length)?`<span class="chip">看运气</span>`:""}</span></button>`}).join("")}${(e.choices||[]).some(c=>needOKc(c)[0])?"":`<button class="opt" data-q="${i}" data-c="-1"><span class="t">量力而退</span><span class="m">眼下哪条路都走不通，先放一放</span></button>`}</div>`}
+    :`<div class="opts">${(e.choices||[]).map((c,j)=>{ if((q.k==="fnode"||(q.k==="ev"&&q.src!=="p"))&&!choiceAllowed(c,{text:e.text})) return ""; const[ok,why]=needOKc(c);const cost=0;const poor=cost>fateAvail();return `<button class="opt ${c.canonChange?"alter":""}" data-q="${i}" data-c="${j}" ${(!ok||poor)?"disabled":""}><span class="t">${esc(nm(c.t))}</span><span class="m">${c.hint?esc(nm(c.hint)):""}</span><span class="m">${choiceChips(c)}${cost?`<span class="chip gold">宿命 −${cost}</span>`:""}${c.canonChange?`<span class="chip red">改写原著</span>`:""}${c.win&&c.win.d&&c.win.d.death?`<span class="chip red">致命：选了会死</span>`:""}${c.chance!=null&&!(c.need&&Object.keys(c.need).length)?`<span class="chip">看运气</span>`:""}</span></button>`}).join("")}${(e.choices||[]).some(c=>needOKc(c)[0]&&((q.k!=="fnode"&&!(q.k==="ev"&&q.src!=="p"))||choiceAllowed(c,{text:e.text})))?"":`<button class="opt" data-q="${i}" data-c="-1"><span class="t">量力而退</span><span class="m">眼下哪条路都走不通，先放一放</span></button>`}</div>`}
     </section>`}
   const pend=r.queue.some(q=>!q.done);
   h+=`<section class="card"><div class="eh" style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px"><h3 style="font-family:var(--f-serif);font-weight:900;font-size:16px">本季行动</h3><span class="ap">行动点 ${[0,1,2].map(i=>`<i class="${i<r.ap?"on":""}"></i>`).join("")}</span></div>
@@ -1186,7 +1245,7 @@ function tabSeason(){
   return h;
 }
 function wireSeason(){
-  app.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{const r=R(); const q=r.queue[+b.dataset.q]; const e=evById(q); if(e&&e.canon&&/^M/.test(e.canon)) markCanon(e.canon,q.k==="node"?"p":q.k==="fnode"?"f":"e"); const c=+b.dataset.c<0?{t:"量力而退",win:{text:"你掂量了一下自己的斤两，没有贸然出手。",d:{}}}:e.choices[+b.dataset.c]; if(c.orgDef){ const a=c.orgDef; const o=r.org; duelFight({n:a.att+"大军",h:"",w:"大军",st:"攻",ult:"全军压上"},{plot:true,war:true,op:a.op,pw:orgPow(),title:"守城",done:res=>{ let ds; if(res.win) ds=apply({名望:5,merit:15}); else { o.terr=o.terr.filter(x=>x!==a.tid); ds=[{t:`失去${TERR.find(t=>t.id===a.tid).n}`,up:false}].concat(apply({伤势:20,名望:-4})) } Object.assign(q,{done:true,pick:c.t,text:res.win?"敌军退了。":"城丢了。",ds}); save(); renderGame() }}); return } if(c.drop&&r.org){ r.org.terr=r.org.terr.filter(x=>x!==c.drop) } if(c.absorb){ const a=c.absorb; const ds=[]; const x=Object.assign({},a.ring,{on:a.on,fit:a.fit,fitN:a.fitN}); gainRing(x,ds); let more=[]; if(x.years>a.capY*(a.fit>=1.3?1.3:1)) more=apply({伤势:12,精神:2}); if(a.fit<1) more=more.concat(apply({伤势:10})); checkEvo(ds); Object.assign(q,{done:true,pick:c.t,text:"魂环缓缓沉入体内，与武魂合为一体。",ds:ds.concat(more)}); checkDeath(); save(); renderGame(); return } if(isFight(c)){ fightThen(c,{title:e.title,text:e.text},win=>{ const res=resolveChoice(c,win); Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds,ok:res.ok,chance:res.chance,note:res.note}); checkDeath(); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame() }); return } if(c.duel){ duelFight(q.x,{stake:q.stake,done:res=>{ Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds}); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame() }}); return } const res=resolveChoice(c); Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds,ok:res.ok,chance:res.chance,note:res.note}); checkDeath(); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame()});
+  app.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{const r=R(); const q=r.queue[+b.dataset.q]; const e=evById(q); if(e&&e.canon&&/^M/.test(e.canon)) markCanon(e.canon,q.k==="node"?"p":q.k==="fnode"?"f":"e"); const c=+b.dataset.c<0?{t:"量力而退",win:{text:"你掂量了一下自己的斤两，没有贸然出手。",d:{}}}:e.choices[+b.dataset.c]; if(c.godwar){ const g=r.godWar; duelFight({n:g.a+"与"+g.b,h:"",w:"双神合击",st:"控",ult:"双神合击"},{plot:true,op:g.op,pw:power()+g.ap,title:"神战",done:res=>{ let ds; if(res.win){ ds=apply({名望:30,world:{note:`你一人战双神，击退了${g.a}与${g.b}`}}); r.flags.push("godwar_win") } else { ds=apply({伤势:60,world:{note:`你在神战中败给了${g.a}与${g.b}，被打落神界`}}); r.flags.push("godwar_lost"); r.god=false } Object.assign(q,{done:true,pick:c.t,text:res.win?"双神退回了神界。斗罗大陆的天空第一次这么安静。":"你从天穹坠落。",ds}); if(res.win) godEndEvent(); else r.pendingEnd={k:"end",id:"__god"}; save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame() }}); return } if(c.seal){ const res=resolveChoice(c); Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds}); r.pendingEnd={k:"end",id:"__god"}; save(); renderGame(); setTimeout(()=>finish(),1400); return } if(c.orgDef){ const a=c.orgDef; const o=r.org; duelFight({n:a.att+"大军",h:"",w:"大军",st:"攻",ult:"全军压上"},{plot:true,war:true,op:a.op,pw:orgPow(),title:"守城",done:res=>{ let ds; if(res.win) ds=apply({名望:5,merit:15}); else { o.terr=o.terr.filter(x=>x!==a.tid); ds=[{t:`失去${TERR.find(t=>t.id===a.tid).n}`,up:false}].concat(apply({伤势:20,名望:-4})) } Object.assign(q,{done:true,pick:c.t,text:res.win?"敌军退了。":"城丢了。",ds}); save(); renderGame() }}); return } if(c.drop&&r.org){ r.org.terr=r.org.terr.filter(x=>x!==c.drop) } if(c.absorb){ const a=c.absorb; const ds=[]; const x=Object.assign({},a.ring,{on:a.on,fit:a.fit,fitN:a.fitN}); gainRing(x,ds); let more=[]; if(x.years>a.capY*(a.fit>=1.3?1.3:1)) more=apply({伤势:12,精神:2}); if(a.fit<1) more=more.concat(apply({伤势:10})); checkEvo(ds); Object.assign(q,{done:true,pick:c.t,text:"魂环缓缓沉入体内，与武魂合为一体。",ds:ds.concat(more)}); checkDeath(); save(); renderGame(); return } if(isFight(c)){ fightThen(c,{title:e.title,text:e.text},win=>{ const res=resolveChoice(c,win); Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds,ok:res.ok,chance:res.chance,note:res.note}); checkDeath(); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame() }); return } if(c.duel){ duelFight(q.x,{stake:q.stake,done:res=>{ Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds}); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame() }}); return } const res=resolveChoice(c); Object.assign(q,{done:true,pick:c.t,text:res.text,ds:res.ds,ok:res.ok,chance:res.chance,note:res.note}); checkDeath(); save(); if(r.pendingEnd){ renderGame(); setTimeout(()=>finish(),1400) } else renderGame()});
   app.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>doAction(b.dataset.a));
   const e=document.getElementById("endturn"); if(e) e.onclick=endTurn;
   const au=document.getElementById("autoturn"); if(au) au.onclick=()=>{ const r=R(); let n=0; while(r.ap>0&&n++<3){ const bott=r.lv>=cap(r)-0.001&&mainRings(r).length<9&&r.lv<99; if(bott){ toast("卡在瓶颈，先去猎魂"); break } doAction("train") } };
@@ -1196,7 +1255,7 @@ function tabFortune(){const r=R(),y=year(),mem=r.perk==="memory";
   const st=t=>r.treasDone.includes(t.id)?'<span class="chip jade">已前往</span>':r.missed.includes(t.id)||t.yearMax<y?'<span class="chip faint">已错过</span>':t.yearMin>y?'<span class="chip">未到时机</span>':r.lv<tMin(t)?`<span class="chip red">需 ${tMin(t)} 级</span>`:'<span class="chip gold">正当时</span>';
   return `<div class="card"><div class="sec-t">先知机缘 · ${mem?"原著记忆：全部可见":"只显示听说过的，另有 "+(TREAS.length-rows.length)+" 处未知"}</div><div class="tbl-wrap"><table><thead><tr><th>品级</th><th>机缘</th><th>地点</th><th class="r">窗口</th><th class="r">等级</th><th>原主</th><th>状态</th></tr></thead><tbody>${rows.map(t=>`<tr><td><b style="color:${TIERC[t.tier]}">${esc(t.tier)}</b></td><td style="white-space:normal;min-width:10em">${esc(t.name)}${mem?`<div class="faint" style="font-size:12px">${esc(t.memory)}</div>`:""}</td><td>${esc(t.place)}</td><td class="r num">${t.yearMin}–${t.yearMax}</td><td class="r num">${tMin(t)}+</td><td>${esc(t.owner||"—")}</td><td>${st(t)}</td></tr>`).join("")}</tbody></table></div></div>
   ${r.world.notes.length?`<div class="card" style="margin-top:12px"><div class="sec-t">你改变了原著</div>${r.world.notes.map(n=>`<div style="font-size:13.5px"><span class="num faint">${n.y}</span> ${esc(n.t)}</div>`).join("")}</div>`:""}`}
-function bonePrice(b){return Math.round(BONE_T[boneTi(b)].val*(1+Object.values(b.attrs||{}).reduce((a,v)=>a+v,0)/60)/100)*100}
+function bonePrice(b){return Math.round(5000*Math.pow(Math.max(100,boneYears(b))/300,.9)*(1+Object.values(b.attrs||{}).reduce((a,v)=>a+v,0)/60)/100)*100}
 function boneValue(b){return Math.round(bonePrice(b)*.6/100)*100}
 function fmtC(v){return v>=1e4?(Math.round(v/1e3)/10)+"万":String(v)}
 function mkBone(ti,beast,slot){ const y=[300,3000,30000,150000,1000000][ti]; const kinds=["攻","控","防","敏"]; const k=kinds[Math.floor(rnd()*4)]; const main=(k==="攻"||k==="防")?"体魄":k==="敏"?"气运":"精神";
@@ -1224,9 +1283,18 @@ function tabRings(){const r=R(); const k=mainRings(r).length;
   return `${whCard()}<div class="card"><div class="sec-t">魂环 · 下一个吸收上限：${k<9?yLabel(CAPS[k]):"—"}</div>
   ${r.rings.length?`<div class="tbl-wrap"><table><thead><tr><th>#</th><th>魂兽</th><th class="r">年限</th><th>魂技</th><th>类型</th><th>附于</th></tr></thead><tbody>${r.rings.map((x,i)=>`<tr><td><span class="ring" style="border-color:${RC[ringColor(x.years)]}"></span></td><td>${esc(x.beast||"")}</td><td class="r num">${yLabel(x.years)}</td><td>${esc(x.skill)}<div class="faint" style="font-size:12px;white-space:normal">${esc(x.desc||"")}</div></td><td>${esc(x.kind||"")}</td><td class="faint">${x.on>1?WHN[x.on]:"主武魂"}</td></tr>`).join("")}</tbody></table></div>`:`<p class="dim">还没有魂环。到 10 级瓶颈后，用「猎魂」获取第一魂环。</p>`}
   </div>
-  <div class="card" style="margin-top:12px"><div class="sec-t">魂骨 · 战力合计 +${r.bones.reduce((a,b)=>a+bonePow(b),0)}</div>
+  <div class="card" style="margin-top:12px"><div class="sec-t">数值说明</div><div class="dim" style="font-size:12.5px;display:grid;gap:4px">
+  <div>修炼：Δ等级 = 0.13 × 武魂系数（${wuT()}）× 天才系数（${genius().toFixed(2)}，先天魂力/40）× (0.7 + 悟性/150) × 回合月数 × 衰减；70 级后变慢。</div>
+  <div>吸收上限：${CAPS.slice(0,8).map((c,i)=>`第${i+1}环 ${yLabel(c)}`).join("，")}，第九环可达十万年以上。</div>
+  <div>战力 = 等级×10 + 魂环（白5 黄15 紫40 黑100 红250）+ 体魄×0.8 + 精神×0.8 + 魂骨（百年20 千年60 万年200 十万年600 百万年1500，外附×1.5）。</div>
+  <div>猎魂：先选给哪个武魂加环，再选猎场。猎场不设等级门槛，但实力不够时深入凶地会撞上要命的魂兽（可以逃，打输了会死）。每个猎场每季刷出的魂兽不同；战力达标即可猎杀吸收，越限会受伤。</div><div>契合：魂兽属性与武魂相合、类型一致时契合度高（极佳 ×1.3 并多给三成年限余量，良好 ×1.12），属性相冲则排斥（×0.7 还会受伤）。剧情和机缘给的魂环会先问你吸不吸收、吸到哪个武魂上。</div><div>强弱参照：普通封号斗罗战力约 2800，十万年魂兽约 2800；七十级的超级天才配合战术和底牌，才有机会赢下九十级的封号斗罗。实力远超对手的剧情战斗会直接拿下，不再细打。</div><div>魂环进化：武魂进化到极品时全部魂环年限 ×1.2，进化到神级时全部再 ×1.25；部分机缘（泉眼、仙草、海神之光等）也能提升已吸收魂环的年限，颜色跟着变。</div><div>魂骨：十万年魂环必掉十万年魂骨；百万年魂环不掉魂骨，而是撑开一个空武魂位；万年约一成（五万年以上三成），千年 5%，百年 2%。魂骨按年限分五档，战力差距极大（百年 20 → 百万年 1500），价格从几千到几百万，先进物品袋，想融合再融合</div><div>第二、第三武魂：百万年魂环撑开空武魂位，空武魂不加战力；融合剧情（冰帝、雪帝等）或在猎魂时把十万年以上魂兽的魂灵封进去，它才会觉醒。觉醒后猎魂可以选择把魂环附在它身上，每个附环再加 1%–12% 战力。</div><div>属性上限：六维默认上限 100，没有封顶。满了以后再加，溢出部分一半抬高上限、三成转成气运；道具可以炼化、参悟、祭炼或珍藏，直接抬高上限并涨气运。</div><div>行动随境界变化：40 级起历练变成闯荡禁地，斗魂场变成高阶；60 级起开放「天下大势」与「挑战强者」；70 级起深入禁地、坐镇一方。</div><div>其他检定：有门槛的选项，达标即成功；只有不设门槛的冒险选项才看运气（气运越高越好），失手也不会致命。伤势满 100 会昏迷一季，不会死；伤势超过 50 修炼减半。</div></div></div>`}
+function tabItems(){const r=R(); return `<div class="card"><div class="sec-t">物品 · 怎么用</div><div class="dim" style="font-size:13px;display:grid;gap:4px">
+  <div><b>魂骨</b>：猎杀魂兽掉落、赌斗赢来、拍卖行买到的魂骨先进物品袋，点「融合」装到对应部位（头、躯干、四肢、外附）。每个部位只能装一块，换新的旧的会退回袋子。魂骨按年限算战力，年限越高差距越大。</div>
+  <div><b>道具</b>：剧情和机缘给的天材地宝、兵器、典籍、信物，都能用掉：炼化、参悟、祭炼或珍藏，直接抬高属性上限、涨气运或加战力。属性上限没有封顶。</div>
+  <div><b>拍卖行</b>：每年换一批魂骨，十万年魂骨极少出现。不要的魂骨可以按六成价卖掉。</div></div></div>
+  <div class="card" style="margin-top:12px"><div class="sec-t">已装魂骨 · 战力合计 +${r.bones.reduce((a,b)=>a+bonePow(b),0)}</div>
   <div class="bonemap">${["","头","外附","左臂","躯干","右臂","左腿","","右腿"].map(sl=>{ if(!sl) return "<div></div>"; const b=r.bones.find(x=>x.slot===sl); if(!b) return `<div class="bs"><span class="faint">${sl}</span><span class="faint" style="font-size:11px">空</span></div>`; const t=BONE_T[boneTi(b)]; return `<div class="bs on" style="border-color:${t.c}"><span class="faint">${sl}</span>${boneChip(b)}<span style="font-size:11px">+${bonePow(b)}</span></div>`}).join("")}</div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0 4px">${BONE_T.map((t,i)=>`<span class="bt t${i}" style="${i<4&&i!==2?"color:"+t.c:""}">${t.n} 战力+${t.pow}</span>`).join("")}<span class="faint" style="font-size:11.5px">外附 ×1.5 · 万年以上魂骨在决斗里各算一张底牌</span></div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0 4px">${[300,3000,30000,100000,200000,1000000].map(y=>{const b={years:y}; return `${boneChip(b)}<span class="faint" style="font-size:11.5px">战力+${bonePow(b)}</span>`}).join(" ")}<span class="faint" style="font-size:11.5px">外附 ×1.5 · 年限越高越强，十万年和二十万年也差一截</span></div>
   ${r.bones.map(b=>`<div style="margin-top:4px">${boneChip(b)} <b>${esc(b.slot)} · ${esc(b.name)}</b> <span class="dim">${esc(b.desc||"")}</span> <span class="faint" style="font-size:12px">战力+${bonePow(b)}${b.attrs?" "+Object.entries(b.attrs).map(([k,v])=>k+"+"+v).join(" "):""}</span></div>`).join("")||`<p class="dim" style="margin:0;text-align:center">还没有融合魂骨。百年、千年、万年、十万年、百万年魂骨差距极大：十万年魂骨的战力抵得上二十块百年魂骨。</p>`}</div>
 
   <div class="card" style="margin-top:12px"><div class="sec-t">物品袋</div>
@@ -1234,11 +1302,7 @@ function tabRings(){const r=R(); const k=mainRings(r).length;
   <div style="margin-top:12px"><div class="sec-t">拍卖行 · 斗罗历 ${year()} · 每年换一批 · 你有 ${fmtC(r.coins)} 金魂币</div><div class="opts">${aucLots().map((b,i)=>`<div class="opt" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span style="min-width:0">${boneChip(b)} <b>${esc(b.slot)} · ${esc(b.name)}</b><br><span class="faint" style="font-size:12px">战力 +${bonePow(b)} · ${Object.entries(b.attrs).map(([k,v])=>k+"+"+v).join(" ")}</span></span><button class="btn ${r.coins>=b.price?"pri":""}" data-buy="${i}" ${r.coins>=b.price?"":"disabled"}>${fmtC(b.price)} 金</button></div>`).join("")||'<p class="dim" style="margin:0">今年的拍品已经被你买空了。</p>'}</div><div class="faint" style="font-size:12px;margin-top:4px">魂骨是硬通货：百年几千，千年几万，万年二三十万。十万年魂骨极少流入市面——每块都意味着一头十万年魂兽已经死了，活着的魂兽王者身上的骨头不可能出现在这里。卖出按六成收。</div></div>
   ${r.items.length?`<div style="margin-top:12px"><div class="sec-t">道具 · ${r.items.length} 件 · 用掉它们来抬高属性上限、涨气运</div><div class="opts">${r.items.map((n,i)=>{const f=itemFx(n); return `<div class="opt" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span style="min-width:0"><b>${esc(n)}</b><br><span class="faint" style="font-size:12px">${f?esc(f.v+"："+fxText(f)):"已赠出的信物"}</span></span>${f?`<button class="btn pri" data-use="${i}">${f.v}</button>`:""}</div>`}).join("")}</div></div>`:""}
   ${(r.itemsUsed||[]).length?`<div class="faint" style="font-size:12px;margin-top:8px">已用掉：${r.itemsUsed.map(esc).join("、")}</div>`:""}</div>
-  <div class="card" style="margin-top:12px"><div class="sec-t">数值说明</div><div class="dim" style="font-size:12.5px;display:grid;gap:4px">
-  <div>修炼：Δ等级 = 0.13 × 武魂系数（${wuT()}）× 天才系数（${genius().toFixed(2)}，先天魂力/40）× (0.7 + 悟性/150) × 回合月数 × 衰减；70 级后变慢。</div>
-  <div>吸收上限：${CAPS.slice(0,8).map((c,i)=>`第${i+1}环 ${yLabel(c)}`).join("，")}，第九环可达十万年以上。</div>
-  <div>战力 = 等级×10 + 魂环（白5 黄15 紫40 黑100 红250）+ 体魄×0.8 + 精神×0.8 + 魂骨（百年20 千年60 万年200 十万年600 百万年1500，外附×1.5）。</div>
-  <div>猎魂：先选给哪个武魂加环，再选猎场。猎场不设等级门槛，但实力不够时深入凶地会撞上要命的魂兽（可以逃，打输了会死）。每个猎场每季刷出的魂兽不同；战力达标即可猎杀吸收，越限会受伤。</div><div>契合：魂兽属性与武魂相合、类型一致时契合度高（极佳 ×1.3 并多给三成年限余量，良好 ×1.12），属性相冲则排斥（×0.7 还会受伤）。剧情和机缘给的魂环会先问你吸不吸收、吸到哪个武魂上。</div><div>强弱参照：普通封号斗罗战力约 2800，十万年魂兽约 2800；七十级的超级天才配合战术和底牌，才有机会赢下九十级的封号斗罗。实力远超对手的剧情战斗会直接拿下，不再细打。</div><div>魂环进化：武魂进化到极品时全部魂环年限 ×1.2，进化到神级时全部 +2 万年；部分机缘（泉眼、仙草、海神之光等）也能提升已吸收魂环的年限，颜色跟着变。</div><div>魂骨：十万年魂环必掉十万年魂骨；百万年魂环不掉魂骨，而是撑开一个空武魂位；万年约一成（五万年以上三成），千年 5%，百年 2%。魂骨按年限分五档，战力差距极大（百年 20 → 百万年 1500），价格从几千到几百万，先进物品袋，想融合再融合</div><div>第二、第三武魂：百万年魂环撑开空武魂位，空武魂不加战力；融合剧情（冰帝、雪帝等）或在猎魂时把十万年以上魂兽的魂灵封进去，它才会觉醒。觉醒后猎魂可以选择把魂环附在它身上，每个附环再加 1%–12% 战力。</div><div>属性上限：六维默认上限 100（最高 200）。满了以后再加，溢出部分一半抬高上限、三成转成气运；道具可以炼化、参悟、祭炼或珍藏，直接抬高上限并涨气运。</div><div>行动随境界变化：40 级起历练变成闯荡禁地，斗魂场变成高阶；60 级起开放「天下大势」与「挑战强者」；70 级起深入禁地、坐镇一方。</div><div>其他检定：有门槛的选项，达标即成功；只有不设门槛的冒险选项才看运气（气运越高越好），失手也不会致命。伤势满 100 会昏迷一季，不会死；伤势超过 50 修炼减半。</div></div></div>`}
+  `}
 function tabRank(){
   const data=SUB==="power"?rankPower():SUB==="beast"?rankBeast():rankWuhun();
   let t="";
@@ -1306,6 +1370,7 @@ function portrait(end){
     <div><div class="sec-t">${esc(end.title)}</div><p style="font-family:var(--f-serif);font-size:15.5px;line-height:1.9;margin:0">${esc(nm(end.text))}</p>${end.worldline?`<p class="dim" style="margin:8px 0 0;font-size:13px">世界线：${esc(nm(end.worldline))}</p>`:""}</div>
     ${r.world.notes.length||r.world.offset.length?`<div><div class="sec-t">你改变了原著</div><div class="afterlife">${r.world.notes.map(n=>`<div>${n.y}：${esc(n.t)}</div>`).join("")}${(()=>{const agg={};r.world.offset.forEach(o=>agg[o.n]=(agg[o.n]||0)+o.v);return Object.entries(agg).map(([k,v])=>`<div>${esc(k)}：原著等级 ${v>0?"+":""}${v}</div>`).join("")})()}</div></div>`:""}
     <div><div class="sec-t">身后事</div><div class="afterlife">${(end.afterlife&&end.afterlife.length?end.afterlife.map(nm):top.map(([k,v])=>`${k}：${v>=40?"多年后仍常提起你。":v<=-40?"听说你的死讯时，只冷笑了一声。":"偶尔会想起有你这么个人。"}`)).map(x=>`<div>${esc(x)}</div>`).join("")}</div></div>
+    <div><div class="sec-t">万年之后</div><div class="afterlife">${epilogue(end).map(x=>`<div>${esc(x)}</div>`).join("")}</div></div>
    </div>
    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn pri" id="again">再活一世</button><button class="btn" id="gohome">回到封面</button></div>
   </div></div>`;
@@ -1370,7 +1435,7 @@ function setup(p){
   document.getElementById("go").onclick=()=>{newRun(p,document.getElementById("nm").value.trim()||p.defaultName,perk);TAB="season";render()};
   window.scrollTo(0,0);
 }
-window.__dl={S:()=>S,R,P,power,year,home,render,huntModal,fuseBone,useItem,sealSoul,zoneHunt:z=>zoneHunt(HUNT_ZONES[z]),tm:id=>treasureModal(T_BY[id]||WEV.find(w=>w.id===id)),duelModal,startTurn,render,wev:()=>wevNow().map(w=>w.id),godModal,orgModal,joinModal2:()=>joinModal(),shalu:()=>shaluModal(),joinModal:()=>joinModal(),foes:()=>{const L=[]; const all=[...TREAS.map(t=>({t,ctx:{title:t.name,text:t.text,beast:/魂兽|魔蛛|蛇|鲸|虎|熊|蚁|蝎|龙|猿|牛蟒|狼|藤/.test(t.name)?t.name:null}})),...WEV.map(t=>({t,ctx:{title:t.name,text:t.text}})),...PACKS.flatMap(p=>p.nodes.map(t=>({t,ctx:{title:t.title,text:t.text}}))),...FACS.flatMap(f=>f.nodes.map(t=>({t,ctx:{title:t.title,text:t.text}})))]; for(const {t,ctx} of all) for(const c of t.choices||[]) if(isFight(c)){ const x=fightFoe(c,ctx); L.push((x.war?"[战]":"[斗]")+" "+(t.name||t.title)+" ｜ "+c.t+" → "+x.n) } return L}};
+window.__dl={S:()=>S,R,P,power,year,home,render,huntModal,fuseBone,useItem,sealSoul,zoneHunt:z=>zoneHunt(HUNT_ZONES[z]),tm:id=>treasureModal(T_BY[id]||WEV.find(w=>w.id===id)),duelModal,startTurn,render,wev:()=>wevNow().map(w=>w.id),godModal,orgModal,joinModal2:()=>joinModal(),audit:()=>{ const L=[]; const all=[...TREAS.map(t=>({t,k:"T",ctx:{text:t.text,beast:/魂兽|魔蛛|蛇|鲸|虎|熊|蚁|蝎|龙|猿|牛蟒|狼|藤/.test(t.name)?t.name:null}})),...WEV.map(t=>({t,k:"W",ctx:{text:t.text}})),...COMMON.map(t=>({t,k:"C",ctx:{text:t.text}})),...fortunes().map(t=>({t,k:"F",ctx:{text:t.text}}))]; for(const {t,k,ctx} of all) for(const c of t.choices||[]) if(!choiceAllowed(c,ctx)) L.push(k+" "+(t.name||t.title)+" ｜ "+c.t+" ｜ rep="+JSON.stringify((c.win&&c.win.d&&c.win.d.rep)||{})+" foe="+(isFight(c)?(FOE[c.t]?FOE[c.t][0]:fightFoe(c,{}).n):"")); return L},shalu:()=>shaluModal(),joinModal:()=>joinModal(),foes:()=>{const L=[]; const all=[...TREAS.map(t=>({t,ctx:{title:t.name,text:t.text,beast:/魂兽|魔蛛|蛇|鲸|虎|熊|蚁|蝎|龙|猿|牛蟒|狼|藤/.test(t.name)?t.name:null}})),...WEV.map(t=>({t,ctx:{title:t.name,text:t.text}})),...PACKS.flatMap(p=>p.nodes.map(t=>({t,ctx:{title:t.title,text:t.text}}))),...FACS.flatMap(f=>f.nodes.map(t=>({t,ctx:{title:t.title,text:t.text}})))]; for(const {t,ctx} of all) for(const c of t.choices||[]) if(isFight(c)){ const x=fightFoe(c,ctx); L.push((x.war?"[战]":"[斗]")+" "+(t.name||t.title)+" ｜ "+c.t+" → "+x.n) } return L}};
 if(S.run&&S.run.settled) S.run=null;
 if(S.run&&!S.run.x) S.run.x={evo:0,sword:0,devour:0,gear:0};
 if(S.run&&!S.run.bag) S.run.bag=[];
