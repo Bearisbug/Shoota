@@ -82,3 +82,4 @@ done
 | 2026-10-18 | 建仓与管线 | 拆成 `public/index.html` + `public/games/*.html`，F1 移到商店第一位；建 GitHub 仓库 Bearisbug/changju，push main 自动部署 |
 | 2026-10-18 | 回滚演练 | 手动 rollback 到 1a400272（单文件版）再恢复到 258e54c3，线上内容随之切换，恢复后 7 个文件与仓库一致 |
 | 2026-10-18 | 失败路径演练 | 07b2bb9 故意漏传 yike.html，run 39104526094 健康检查未过、自动回滚到 258e54c3；revert 为 bddcf06 后重新部署通过 |
+| 2026-10-19 | 域名切换 | 自定义域名从 changju.kaivia.ai 换成 shoota.ai 根域（run 39233228289），旧域名已解绑、解析已删；CI token 的 zone 权限同步从 kaivia.ai 换成 shoota.ai，收紧后手动部署 run 39233424468 通过。浏览器存档按域名隔离，玩家在旧域名上的进度不会带到 shoota.ai |
