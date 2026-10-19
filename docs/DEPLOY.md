@@ -7,9 +7,9 @@
 | 部署目标 | `paas` |
 | 平台 | Cloudflare Workers 静态资源 · Worker `changju` · 账号 ID `627a6218f132dffc9cb22dd50c2fe1a6`（Bearisbug 的 Cloudflare 账号） |
 | 发布策略 | 平台内建（paas）：新版本上传完再整体切换，切换无停机 |
-| 域名 | https://changju.kaivia.ai （Worker 自定义域名；workers.dev 与预览地址已关闭） |
-| DNS | Cloudflare，kaivia.ai zone；`changju` 这条记录由 Worker 自定义域名自动创建和维护，不要手改 |
-| 健康检查 | 请求 https://changju.kaivia.ai/ 。身份断言：首页含 `<title>长局游戏平台</title>`。版本断言：`public/` 下每个文件与本次提交逐字节一致。纯静态站没有健康端点，用内容比对代替 service/slot/version 三元组 |
+| 域名 | https://shoota.ai （根域，Worker 自定义域名；workers.dev 与预览地址已关闭） |
+| DNS | Cloudflare，shoota.ai zone；根域这条记录由 Worker 自定义域名自动创建和维护，不要手改。`www.shoota.ai` 不归本项目（目前是指向 Namecheap 停放页的 CNAME）。在 CI 里部署时，wrangler 会直接覆盖与配置域名冲突的 DNS 记录、不提示，往 `wrangler.jsonc` 加域名前先确认该主机名上没有在用的记录 |
+| 健康检查 | 请求 https://shoota.ai/ 。身份断言：首页含 `<title>长局游戏平台</title>`。版本断言：`public/` 下每个文件与本次提交逐字节一致。纯静态站没有健康端点，用内容比对代替 service/slot/version 三元组 |
 | CI | GitHub Actions `.github/workflows/deploy.yml`：`check`（质量门）→ `deploy`（部署、健康检查、失败回滚）；PR 只跑 `check` |
 | 服务器 / 应用目录 / 镜像 / 端口 / 反代 | N/A（没有自管服务器） |
 | Synco 编排 | 未挂接（paas 目标不走 Synco 部署方式） |
@@ -25,7 +25,7 @@ push 到 `main` 即自动发布：质量门 `node scripts/check.mjs` → 记下�
 - **部署日志**：Actions 里对应 run 的 `deploy` job。每一步失败的原因都写在日志里：质量门列出出错的文件和段落；健康检查列出不一致的文件路径。
 - **线上版本历史**：`npx wrangler@4.151.1 deployments list --name changju`，每个版本的 message 以 commit 短哈希开头。
 - **当前线上版本**：`npx wrangler@4.151.1 deployments status --name changju`。
-- **游戏打不开**：先看 `https://changju.kaivia.ai/games/<id>.html` 是否返回 200，再看 `CATALOG` 里的 `src` 是否和文件名一致。本地双击打开 `index.html` 时游戏一定打不开（`fetch` 不支持 file://），这不是线上问题。
+- **游戏打不开**：先看 `https://shoota.ai/games/<id>.html` 是否返回 200，再看 `CATALOG` 里的 `src` 是否和文件名一致。本地双击打开 `index.html` 时游戏一定打不开（`fetch` 不支持 file://），这不是线上问题。
 - **玩家说进度没了**：进度只存在玩家自己的浏览器里，换设备、换浏览器、清缓存都会丢。让玩家用站内「存档」页的存档码迁移；平台侧没有数据可以恢复。
 - 以上命令都要先设置 token：`export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)`。
 
@@ -47,7 +47,7 @@ CI 的自动回滚目标是「本次部署前的线上版本」。只要每次�
 
 | 层 | 键名 | 用途 |
 | --- | --- | --- |
-| GitHub Secrets | `CLOUDFLARE_API_TOKEN` | CI 部署与回滚。Cloudflare 账号级 token `changju-ci-deploy`，权限：账号的 Workers Scripts Write，kaivia.ai 的 Workers Routes Write 与 Zone Read。同值存在 Bitwarden 条目 `CHANGJU_CI_DEPLOY_TOKEN` |
+| GitHub Secrets | `CLOUDFLARE_API_TOKEN` | CI 部署与回滚。Cloudflare 账号级 token `changju-ci-deploy`，权限：账号的 Workers Scripts Write，shoota.ai 的 Workers Routes Write 与 Zone Read。同值存在 Bitwarden 条目 `CHANGJU_CI_DEPLOY_TOKEN` |
 | 运行时 | 无 | 纯静态站，没有运行时密钥 |
 
 账号 ID 不是密钥，直接写在 `wrangler.jsonc` 的 `account_id`。
@@ -65,10 +65,10 @@ export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)
 npx wrangler@4.151.1 deployments status --name changju          # ① 记下当前版本号，出问题时回滚用
 node scripts/check.mjs                                           # ② 质量门
 npx wrangler@4.151.1 deploy --message "$(git rev-parse --short HEAD) manual"   # ③ 部署
-curl -fsSL https://changju.kaivia.ai/ | grep -c '<title>长局游戏平台</title>'   # ④ 身份断言，应输出 1
+curl -fsSL https://shoota.ai/ | grep -c '<title>长局游戏平台</title>'   # ④ 身份断言，应输出 1
 for f in $(cd public && find . -type f | sed 's#^\./##'); do                    # ⑤ 逐文件比对，无输出即全部一致
   p=$f; [ "$f" = index.html ] && p=""
-  [ "$(shasum -a 256 < public/$f | cut -d' ' -f1)" = "$(curl -fsSL "https://changju.kaivia.ai/$p?v=$RANDOM" | shasum -a 256 | cut -d' ' -f1)" ] || echo "不一致：/$p"
+  [ "$(shasum -a 256 < public/$f | cut -d' ' -f1)" = "$(curl -fsSL "https://shoota.ai/$p?v=$RANDOM" | shasum -a 256 | cut -d' ' -f1)" ] || echo "不一致：/$p"
 done
 ```
 

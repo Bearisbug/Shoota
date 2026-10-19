@@ -29,7 +29,7 @@
 
 | 日期 | 事项 | 说明 |
 | --- | --- | --- |
-| 2026-10-18 | CI 认证用 GitHub Secret，没有用平台 Git 集成 | paas 目标默认让平台直连 GitHub、不在 GitHub 放密钥。这里改用 GitHub Actions 加专用 token：协作者能在 Actions 页看到完整的部署日志和失败原因，还能在 CI 里做健康检查和自动回滚。代价：仓库写权限能读到这个 token（可以写一个 workflow 把它打印出来）。缓解：token 只有账号级 Workers Scripts Write 和 kaivia.ai 的 Workers Routes Write / Zone Read，没有 DNS、Pages、R2、计费和其他 zone 的权限；账号里目前只有 `changju` 一个 Worker。协作者离开时按 DEPLOY.md 第 5 节轮换 |
+| 2026-10-18 | CI 认证用 GitHub Secret，没有用平台 Git 集成 | paas 目标默认让平台直连 GitHub、不在 GitHub 放密钥。这里改用 GitHub Actions 加专用 token：协作者能在 Actions 页看到完整的部署日志和失败原因，还能在 CI 里做健康检查和自动回滚。代价：仓库写权限能读到这个 token（可以写一个 workflow 把它打印出来）。缓解：token 只有账号级 Workers Scripts Write 和 shoota.ai 的 Workers Routes Write / Zone Read，没有 DNS、Pages、R2、计费和其他 zone 的权限；账号里目前只有 `changju` 一个 Worker。协作者离开时按 DEPLOY.md 第 5 节轮换 |
 | 2026-10-18 | 健康端点三元组改为内容比对 | 纯静态站没有能回显 service/slot/version 的端点；身份用首页 title 断言，版本用逐文件 sha256 与提交比对 |
 | 2026-10-18 | 自动回滚目标是部署前的线上版本 | 每次失败都回滚成功时，它就是最后一次健康的版本；回滚步骤本身失败时 run 报错，按 DEPLOY.md 第 4 节手动处理 |
 | 2026-10-18 | 测试文档缺失，以最小冒烟集替代，未经用户确认 | 冒烟集见 §5 |
@@ -39,7 +39,7 @@
 
 | 编号 | 步骤 | 预期 |
 | --- | --- | --- |
-| S1 | 打开 https://changju.kaivia.ai | 商店显示 6 款游戏，精选和「全部游戏」的第一款都是 F1 Team Principal 2026 |
+| S1 | 打开 https://shoota.ai | 商店显示 6 款游戏，精选和「全部游戏」的第一款都是 F1 Team Principal 2026 |
 | S2 | 点 F1 →「开始游戏」 | 游戏画面出现，顶栏显示「新存档」或「已读取存档」 |
 | S3 | 在游戏里产生存档后关掉浏览器，重新打开再进同一款游戏 | 顶栏显示「已读取存档」，游戏读到之前的进度 |
 | S4 | 「存档」页复制存档码，在另一个全新浏览器里粘贴并确认恢复 | 游戏库出现对应游戏，进游戏后进度一致 |

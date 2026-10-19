@@ -3,7 +3,7 @@
   "account_id": "627a6218f132dffc9cb22dd50c2fe1a6",
   "compatibility_date": "2026-10-12",
   "assets": { "directory": "./public" },
-  "routes": [{ "pattern": "changju.kaivia.ai", "custom_domain": true }],
+  "routes": [{ "pattern": "shoota.ai", "custom_domain": true }],
   "workers_dev": false,
   "preview_urls": false
 }
