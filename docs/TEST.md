@@ -14,6 +14,7 @@
 
 | 日期 | 改动 | 作者 |
 | --- | --- | --- |
+| 2026-10-20 | §3 工具注明线上请求接口用 curl 或浏览器 | Bearisbug |
 | 2026-10-20 | TC-005 三步补上观察窗口「2 秒内」，上报是异步写入 | Bearisbug |
 | 2026-10-20 | 初稿，TC-001~TC-016，覆盖匿名统计与看板 | Bearisbug |
 
@@ -56,7 +57,7 @@
   - 看板口径种子：`npx -y wrangler@4.151.1 d1 execute shoota-metrics --local --file scripts/seed-local.sql`，日期按执行当天的北京日期往前推，内容见文件注释
   - 查数据：`npx -y wrangler@4.151.1 d1 execute shoota-metrics --local --command "<SQL>"`
   - 锁定到期：把 `login_guards.locked_until` 改成 0，代替等 15 分钟
-- 工具：Edge 浏览器（Playwright 驱动，每条用例独立的配置目录）、curl、wrangler d1 execute。
+- 工具：Edge 浏览器（Playwright 驱动，每条用例独立的配置目录）、curl、wrangler d1 execute。线上直接请求接口时用 curl 或浏览器，Python 默认 User-Agent 会被 Cloudflare 浏览器完整性检查拦下，返回 403 与错误码 1010。
 - 证据目录：`docs/test-runs/`
 
 ## 4. 用例库
@@ -273,16 +274,23 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | RUN-001 | 2026-10-20 | 本地 | 7bb337f 加工作区未提交的统计与看板改动 | AI(Playwright + Edge 无头、curl) | 全量至 TC-016 | 通过 15/16 · 失败 1 |
 | RUN-002 | 2026-10-20 | 本地 | c6aae2b | AI(Playwright + Edge 无头、curl) | 全量至 TC-016 | 通过 16/16 |
+| RUN-003 | 2026-10-20 | 线上 | 2158234 | AI(Playwright + Edge 无头、Python urllib) | 线上冒烟(TC-008、TC-010、TC-016；未纳入(线上不可跑)：TC-001、TC-002、TC-006、TC-011) | 通过 2/3 · 失败 1 |
+| RUN-004 | 2026-10-20 | 线上 | 2158234 | AI(curl) | 线上冒烟(TC-010；未纳入(线上不可跑)：TC-001、TC-002、TC-006、TC-011) | 通过 1/1 |
 
 RUN-001 证据：本地 `wrangler dev` 端口 8791，数据直接读本地 D1 文件核对。TC-002 游玩 150 秒，服务端记 150 秒，与平台本地计时一致。TC-003 无头浏览器没有真实前后台，用脚本把页面可见状态置为隐藏并派发 visibilitychange 代替切标签页。本地取到的地区是代理出口 MY，线上按真实来源记录。截图 `docs/test-runs/RUN-001/login.png`、`docs/test-runs/RUN-001/kanban-error.png`。本轮之外另查手机 390 宽看板，发现页面被游戏排行表撑出横向滚动，已在 RUN-002 前修复。
 
 RUN-002 证据：RUN-001 之后改了三处：TC-005 补观察窗口，看板 main 与 section 的 grid 轨道改为 `minmax(0,1fr)` 修手机横向溢出，地区名改为国内通行短名并给留存格加 2px 间隔。手机 390 宽看板 `scrollWidth` 不超过视口，柱状图悬停显示数值与日期。截图 `docs/test-runs/RUN-002/kanban-desktop.png`、`docs/test-runs/RUN-002/kanban-mobile.png`、`docs/test-runs/RUN-002/login.png`、`docs/test-runs/RUN-002/kanban-error.png`。
+
+RUN-003 证据：TC-008 用 Bitwarden 里的看板密码登录线上看板，错误密码提示剩余 4 次，正确密码进入后五个分区齐全。TC-016 测试旅客编号 c729556d9e99748ba4524cd6a49e650c，前台游玩一克之差 130 秒后，看板今日活跃 1、时长 2 分钟；随后按编号删除它在三张表的 3 行，线上旅客表剩 0 行。线上手机 390 宽无横向溢出。截图 `docs/test-runs/RUN-003/login.png`、`docs/test-runs/RUN-003/kanban-desktop.png`、`docs/test-runs/RUN-003/kanban-mobile.png`。
+
+RUN-004 证据：同样三种请求改用 curl 发出，均返回 401 与 `/errors/not-logged-in`，正文没有统计数字，`instance` 带 cf-ray。
 
 明细(仅登非「通过」项)：
 
 | 轮次 | 用例 | 结果 | 现象 / 证据 | 跟进 |
 | --- | --- | --- | --- | --- |
 | RUN-001 | TC-005 | 失败 | 第 1 步预期备份次数 1，点击后 1.2 秒查得 0；随后测得请求在点击后 0.03 秒发出，本地 D1 写入 0.1 到 0.94 秒后才可读；证据 `docs/test-runs/RUN-001/TC-005-latency.txt` | 不是实现问题，用例补「2 秒内」观察窗口，RUN-002 复测通过 |
+| RUN-003 | TC-010 | 失败 | 第 1 到 3 步预期 401，实际 403 与 Cloudflare 错误码 1010，请求被边缘的浏览器完整性检查拦下；证据 `docs/test-runs/RUN-003/TC-010-403.txt` | 测试工具问题，§3 注明改用 curl，RUN-004 复测通过 |
 
 ## 7. 遗留问题
 

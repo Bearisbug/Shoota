@@ -1,0 +1,11 @@
+RUN-003 TC-010 失败的现象与复查（2026-10-20，线上 https://shoota.ai）
+
+现象：用 Python urllib（默认 User-Agent 为 Python-urllib/3.x）请求 /kanban/data，
+      不带 cookie、带改过签名的 cookie、带已过期的 cookie 三种情况都返回 403。
+复查：响应头 server: cloudflare，正文「error code: 1010」，是 Cloudflare 浏览器完整性检查
+      在边缘拦下了这个 User-Agent，请求没有到达 Worker。
+      同样三种请求改用 curl 或浏览器 User-Agent，均返回 401，正文
+      {"type":"/errors/not-logged-in","title":"看板会话不存在或已过期","status":401,"instance":"<cf-ray>"}。
+结论：测试工具被拦，不是实现问题。§3 工具注明线上用 curl 或浏览器请求接口，RUN-004 复测通过。
+      线上没有签名密钥，「已过期」一步用「过期时间 + 随意签名」的 cookie，
+      只能证明被拒，分不出是过期还是签名不对；过期分支在本地 RUN-002 单独验过。

@@ -7,8 +7,8 @@
 | 键名 | 配到哪 | 来源 | 配置动作（零回显） | 验证 | 状态 |
 | --- | --- | --- | --- | --- | --- |
 | `CLOUDFLARE_API_TOKEN` | GitHub Secrets（Bearisbug/changju） | 生成：Cloudflare 账号级 token `changju-ci-deploy`，2026-10-20 加了 D1 Write，已录入 Bitwarden 条目 `CHANGJU_CI_DEPLOY_TOKEN` | A：`bw get password CHANGJU_CI_DEPLOY_TOKEN \| gh secret set CLOUDFLARE_API_TOKEN -R Bearisbug/changju` | `gh secret list -R Bearisbug/changju` 见键名；首次 Actions 部署成功 | ☑ 2026-10-18：secret list 见 `CLOUDFLARE_API_TOKEN`；run 39104230080 部署成功 |
-| `KANBAN_PASSWORD` | Worker 加密变量 | Bitwarden 条目 `SHOOTA_KANBAN_PASSWORD`，值由老板指定 | A：`printf '%s' "$(bw get password SHOOTA_KANBAN_PASSWORD)" \| npx wrangler@4.151.1 secret put KANBAN_PASSWORD` | `npx wrangler@4.151.1 secret list` 见键名；线上 TC-008 用该密码能登录 | ☐ |
-| `KANBAN_SECRET` | Worker 加密变量 | 生成，不入 Bitwarden | A：`openssl rand -hex 32 \| tr -d '\n' \| npx wrangler@4.151.1 secret put KANBAN_SECRET` | `secret list` 见键名；线上 TC-010 改签名的 cookie 被拒 | ☐ |
+| `KANBAN_PASSWORD` | Worker 加密变量 | Bitwarden 条目 `SHOOTA_KANBAN_PASSWORD`，值由老板指定 | A：`printf '%s' "$(bw get password SHOOTA_KANBAN_PASSWORD)" \| npx wrangler@4.151.1 secret put KANBAN_PASSWORD` | `npx wrangler@4.151.1 secret list` 见键名；线上 TC-008 用该密码能登录 | ☑ 2026-10-20：secret list 见键名；RUN-003 TC-008 登录通过 |
+| `KANBAN_SECRET` | Worker 加密变量 | 生成，不入 Bitwarden | A：`openssl rand -hex 32 \| tr -d '\n' \| npx wrangler@4.151.1 secret put KANBAN_SECRET` | `secret list` 见键名；线上 TC-010 改签名的 cookie 被拒 | ☑ 2026-10-20：secret list 见键名；RUN-004 TC-010 改签名被拒 |
 
 ## 2. 部署步骤清单
 
