@@ -412,6 +412,14 @@ const blank = () => ({ session:null, users:{}, stats:{}, wish:{}, achDefs:{}, se
 let meta = (() => { try { const s = localStorage.getItem(META_KEY); if (s) return Object.assign(blank(), JSON.parse(s)); } catch (e) {} return blank(); })();
 function persist(){ try { localStorage.setItem(META_KEY, JSON.stringify(meta)); } catch (e) {} }
 
+/* ───────── 匿名统计：每个浏览器一个随机旅客编号，上报到 /api/e，口径见 docs/DESIGN.md ───────── */
+if (!meta.vid) { meta.vid = Array.from(crypto.getRandomValues(new Uint8Array(16)), b => b.toString(16).padStart(2, '0')).join(''); persist(); }
+function track(ev){
+  const body = JSON.stringify({ v:meta.vid, ev:[ev] });
+  if (navigator.sendBeacon && navigator.sendBeacon('/api/e', new Blob([body], { type:'application/json' }))) return;
+  fetch('/api/e', { method:'POST', body, keepalive:true, headers:{ 'content-type':'application/json' } }).catch(() => {});
+}
+
 const IDB = (() => {
   const mem = { games:new Map(), kv:new Map() };
   let p = null;
@@ -842,6 +850,7 @@ async function renderBackup(){
     e.preventDefault();
     if (pending) {
       const n = await applySaves(pending);
+      track({ t:'restore' });
       toast(`已恢复 ${n} 款游戏的进度`); go('library'); return;
     }
     if (!input.value.trim()) return fail('先粘贴存档码，或者点「选择存档文件」。');
@@ -906,7 +915,8 @@ async function openPlayer(id){
   const st = stat(id); st.last = now(); persist();
   navigator.storage?.persist?.();
   const key = u.email + '|' + id;
-  P = { gid:id, key, ls:{}, secs:0, timer:null, saveT:null, frame:null };
+  P = { gid:id, key, ls:{}, secs:0, unsent:0, timer:null, saveT:null, frame:null };
+  track({ t:'start', g:id });
   $('#pTitle').textContent = g.title; $('#pStatus').textContent = st.status || ''; $('#pTime').textContent = '本次 0 分钟';
   $('#pSaved').textContent = '读取存档…'; $('#pSaved').className = 'saved';
   $('#pStage').innerHTML = '<div class="loading">正在载入游戏…</div>';
@@ -926,6 +936,7 @@ async function openPlayer(id){
   P.timer = setInterval(() => {
     if (document.hidden || !P) return;
     P.secs += 5; const s = stat(P.gid); s.seconds = (s.seconds || 0) + 5; s.last = now();
+    P.unsent += 5; if (P.unsent >= 120) reportPlay();
     if (P.secs % 30 === 0) persist();
     $('#pTime').textContent = '本次 ' + Math.floor(P.secs / 60) + ' 分钟';
   }, 5000);
@@ -937,8 +948,11 @@ function saveLs(){
   const t = new Date(); $('#pSaved').textContent = `已存档 ${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}`; $('#pSaved').className = 'saved on';
 }
 function dirty(){ if (P && !P.saveT) P.saveT = setTimeout(saveLs, 700); }
+// 游玩时长攒在本地，满 2 分钟、切到后台、退出或关页面时上报
+function reportPlay(){ if (P && P.unsent) { track({ t:'play', g:P.gid, s:P.unsent }); P.unsent = 0; } }
 function closePlayer(){
   if (!P) { $('#player').hidden = true; document.body.style.overflow = ''; return; }
+  reportPlay();
   if (P.saveT) saveLs();
   clearInterval(P.timer); persist();
   if (P.frame) P.frame.srcdoc = '';
@@ -965,7 +979,8 @@ window.addEventListener('message', e => {
   }
   else if (m.type === 'exit') go('game-' + P.gid);
 });
-window.addEventListener('pagehide', () => { if (P) { saveLs(); persist(); } });
+window.addEventListener('pagehide', () => { if (P) { reportPlay(); saveLs(); persist(); } });
+document.addEventListener('visibilitychange', () => { if (document.hidden) reportPlay(); });
 $('#pExit').addEventListener('click', () => { const id = P?.gid; go(id ? 'game-' + id : 'store'); });
 $('#pFull').addEventListener('click', () => {
   const el = $('#player');
@@ -995,10 +1010,11 @@ document.addEventListener('click', e => {
     toast(i >= 0 ? '已移出愿望单' : '已加入愿望单'); renderGame(id);
   }
   else if (a === 'bk-copy') {
-    const out = $('#bkOut'), ok = () => toast('存档码已复制。发到微信「文件传输助手」或存进备忘录。');
+    const out = $('#bkOut'), ok = () => { track({ t:'backup' }); toast('存档码已复制。发到微信「文件传输助手」或存进备忘录。'); };
     (navigator.clipboard ? navigator.clipboard.writeText(out.value) : Promise.reject()).then(ok, () => { out.select(); document.execCommand('copy') ? ok() : toast('没能自动复制。长按上面的存档码，全选后复制。', 'bad'); });
   }
   else if (a === 'bk-file') {
+    track({ t:'backup' });
     const url = URL.createObjectURL(new Blob([$('#bkOut').value], { type:'text/plain' }));
     Object.assign(document.createElement('a'), { href:url, download:`shoota-存档-${new Date().toLocaleDateString('sv')}.txt` }).click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
@@ -1013,6 +1029,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && ui.menu) {
 
 /* ───────── 启动 ───────── */
 (async () => {
+  track({ t:'visit' });
   route();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => {});
 })();

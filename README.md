@@ -9,6 +9,9 @@
 | `public/index.html` | 平台：商店、游戏库、存档页。商店里的游戏列表是文件里的 `CATALOG`，顺序就是商店里的顺序 |
 | `public/games/<id>.html` | 每款游戏一个单文件 HTML |
 | `scripts/check.mjs` | 质量门：检查内嵌脚本语法，以及 `CATALOG` 登记的游戏文件都存在 |
+| `src/worker.js`、`src/kanban.html` | 匿名统计上报接口与 `/kanban` 看板，看板页面打包进 Worker，不放在 `public/` |
+| `migrations/` | 统计数据库 D1 的表结构，部署时 CI 自动执行 |
+| `docs/DESIGN.md`、`docs/TEST.md` | 统计与看板的设计文档和测试文档，指标口径以设计文档为准 |
 | `wrangler.jsonc` | Cloudflare Worker 配置 |
 | `docs/DEPLOY.md` | 部署、回滚、排障手册 |
 
@@ -20,7 +23,13 @@
 python3 -m http.server 8000 -d public
 ```
 
-然后打开 http://localhost:8000
+然后打开 http://localhost:8000 。这种方式只有静态页面，没有统计上报和看板，上报请求失败不影响游玩。
+
+要连统计和看板一起跑，用 wrangler，步骤见 `docs/TEST.md` 第 3 节：本地密码写进 `.dev.vars`（已在 `.gitignore`），执行本地迁移，再 `npx -y wrangler@4.151.1 dev --port 8791`，数据只进本地数据库。
+
+## 统计与看板
+
+平台按浏览器匿名统计访问、开局和游玩时长，不需要账号。看板在 https://shoota.ai/kanban ，凭密码登录，密码向管理员要。登录过看板的浏览器之后的游玩不计入统计，自己测试时注意这一点。指标怎么算见 `docs/DESIGN.md` 的术语表与看板说明。
 
 ## 改游戏、加游戏
 

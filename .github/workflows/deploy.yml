@@ -54,11 +54,14 @@ jobs:
           echo "当前线上版本：$v"
           echo "version=$v" >> "$GITHUB_OUTPUT"
 
+      - name: 数据库迁移（只新增表或列，回滚 Worker 时不回退）
+        run: npx -y $WRANGLER d1 migrations apply shoota-metrics --remote
+
       - name: 部署
         id: deploy
         run: npx -y $WRANGLER deploy --message "${GITHUB_SHA::7} $(git log -1 --format=%s | head -c 80)"
 
-      - name: 健康检查（身份断言 + 逐文件比对线上内容）
+      - name: 健康检查（身份断言 + 逐文件比对线上内容 + 看板与上报接口在线）
         id: health
         run: |
           for try in $(seq 1 12); do
@@ -73,7 +76,15 @@ jobs:
                 [ "$want" = "$got" ] || { bad="/$path 与本次提交的内容不一致"; break; }
               done
             fi
-            [ -z "$bad" ] && { echo "✓ 第 $try 次检查通过：首页是 shoota，$(find public -type f | wc -l) 个文件与 ${GITHUB_SHA::7} 一致"; exit 0; }
+            if [ -z "$bad" ]; then
+              kb=$(curl -fsS "$SITE/kanban") || kb=""
+              case "$kb" in *'<title>shoota 看板'*) ;; *) bad="/kanban 没有返回看板登录页" ;; esac
+            fi
+            if [ -z "$bad" ]; then
+              code=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' --data '{}' "$SITE/api/e")
+              [ "$code" = 400 ] || bad="上报接口对空上报返回 $code，应为 400"
+            fi
+            [ -z "$bad" ] && { echo "✓ 第 $try 次检查通过：首页是 shoota，$(find public -type f | wc -l) 个文件与 ${GITHUB_SHA::7} 一致，看板与上报接口在线"; exit 0; }
             echo "第 $try 次未通过：$bad"; sleep 10
           done
           exit 1

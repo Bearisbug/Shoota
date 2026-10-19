@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>shoota 看板</title>
+<style>
+/* 颜色沿用平台 public/index.html 的深色变量；--viz 是柱子与留存深浅的唯一数据色，已用 dataviz 校验脚本在 --panel 底上验过 */
+:root{
+  --bg:#10151c; --top:#0b0f14; --panel:#18202a; --raised:#222c38; --line:#2a3644;
+  --fg:#e4ebf2; --muted:#8c9aaa; --faint:#5d6b7b; --accent:#3ddc97; --accent-ink:#052618; --red:#e5636a;
+  --viz:#3987e5;
+  --radius:8px; --gap:16px;
+  --body:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg);scrollbar-gutter:stable}
+:root,.tbl{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+body{margin:0;color:var(--fg);font:14px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:calc(env(safe-area-inset-left,0px) + 16px);padding-right:calc(env(safe-area-inset-right,0px) + 16px)}
+header{background:var(--top);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-block:12px}
+header h1{margin:0;font-size:18px}
+header .meta{color:var(--muted);font-size:13px;flex:1;min-width:200px}
+.btn{border:1px solid var(--line);background:var(--raised);border-radius:6px;padding:7px 14px;cursor:pointer;min-height:36px}
+.btn:hover{border-color:var(--faint)}
+.btn[aria-disabled="true"]{opacity:.5;cursor:progress}
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding-block:24px 56px}
+section{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+h2{margin:0;font-size:15px}
+.note{margin:0;color:var(--muted);font-size:13px}
+.banner{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:rgba(229,99,106,.1);border:1px solid rgba(229,99,106,.35);border-radius:var(--radius);padding:10px 14px}
+.banner[hidden]{display:none}
+.panel{background:var(--panel);border-radius:var(--radius);padding:16px;min-width:0}
+.empty{color:var(--muted);padding:20px 0;text-align:center}
+.skel{height:140px;border-radius:var(--radius);background:linear-gradient(90deg,var(--panel) 0%,var(--raised) 50%,var(--panel) 100%);background-size:200% 100%;animation:shimmer 1.6s ease-in-out infinite}
+@keyframes shimmer{from{background-position:100% 0}to{background-position:-100% 0}}
+@media (prefers-reduced-motion:reduce){.skel{animation:none}}
+/* 概览 */
+.overview{display:grid;grid-template-columns:minmax(180px,240px) minmax(0,1fr);gap:var(--gap);align-items:stretch}
+.hero{display:grid;align-content:center;gap:4px}
+.hero .label{color:var(--muted);font-size:13px}
+.hero .value{font-size:52px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+@media (max-width:640px){.overview{grid-template-columns:minmax(0,1fr)}}
+/* 表格 */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:right;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap;font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:500}
+tr:last-child td{border-bottom:0}
+td.dim{color:var(--faint)}
+td.heat{border-radius:4px;box-shadow:inset 0 0 0 1px var(--panel)}
+/* 趋势 */
+.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--gap)}
+.chart{display:grid;gap:8px}
+.chart h3{margin:0;font-size:13px;font-weight:500;color:var(--muted)}
+.chart .now{font-size:20px;font-weight:600;color:var(--fg);font-variant-numeric:tabular-nums}
+.plot{position:relative}
+.plot svg{display:block;width:100%;height:150px;overflow:visible}
+.plot text{fill:var(--muted);font-size:11px;font-family:var(--body)}
+.bar{fill:var(--viz)}
+.bar.hot{fill:#6aa7ec}
+.axis{stroke:var(--line);stroke-width:1}
+details{font-size:13px;color:var(--muted)}
+details summary{cursor:pointer;min-height:24px}
+.tip{position:absolute;pointer-events:none;background:var(--top);border:1px solid var(--line);border-radius:6px;padding:6px 10px;font-size:12px;white-space:nowrap;transform:translate(-50%,-100%);box-shadow:0 8px 20px rgba(0,0,0,.45)}
+.tip b{display:block;font-size:14px;color:var(--fg)}
+.tip span{color:var(--muted)}
+.tip[hidden]{display:none}
+/* 来源 */
+.shares{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--gap)}
+.share .label{color:var(--muted);font-size:13px}
+.share .value{font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
+.hbars{display:grid;gap:6px}
+.hrow{display:grid;grid-template-columns:110px minmax(0,1fr) 56px;gap:10px;align-items:center;font-size:13px}
+.hrow .name{min-width:0;overflow-wrap:anywhere}
+.hrow .track{height:14px}
+.hrow .fill{height:14px;max-width:100%;background:var(--viz);border-radius:0 4px 4px 0}
+.hrow .n{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>shoota 看板</h1>
+  <span class="meta" id="meta">正在读取…</span>
+  <button class="btn" type="button" id="refresh">刷新数据</button>
+</div></header>
+<main class="wrap">
+  <div class="banner" id="err" role="alert" hidden><span id="errText"></span><button class="btn" type="button" id="retry">重试</button></div>
+  <p class="note">统计不含登录过看板的浏览器。一个浏览器算一个旅客，日期按北京时间。</p>
+
+  <section aria-labelledby="h-ov"><h2 id="h-ov">概览</h2><div id="ov"><div class="skel"></div></div></section>
+  <section aria-labelledby="h-tr"><h2 id="h-tr">每日趋势 · 近 30 天</h2><div id="tr"><div class="skel"></div></div></section>
+  <section aria-labelledby="h-rt"><h2 id="h-rt">留存 · 近 60 天首访的旅客</h2>
+    <p class="note">第 N 天留存 = 首访之后第 N 天又来了的比例；还没到那一天的格子显示「—」。</p>
+    <div id="rt"><div class="skel"></div></div></section>
+  <section aria-labelledby="h-gm"><h2 id="h-gm">游戏排行 · 近 30 天</h2>
+    <p class="note">次日回访率 = 第一次玩这款游戏的旅客里，第二天又玩这款的比例。</p>
+    <div id="gm"><div class="skel"></div></div></section>
+  <section aria-labelledby="h-src"><h2 id="h-src">来源与设备 · 近 30 天活跃旅客</h2><div id="src"><div class="skel"></div></div></section>
+</main>
+<script>
+(() => {
+'use strict';
+const $ = s => document.querySelector(s);
+const el = (tag, attrs = {}, text) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (text != null) e.textContent = text; return e; };
+const SVG = 'http://www.w3.org/2000/svg';
+const sv = (tag, attrs = {}) => { const e = document.createElementNS(SVG, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); return e; };
+const num = n => Number(n || 0).toLocaleString('zh-CN');
+const pct = (r, n) => n ? Math.round(r / n * 100) + '%' : '—';
+function dur(sec){
+  sec = Math.round(sec || 0);
+  if (sec < 60) return sec + ' 秒';
+  if (sec < 3600) return Math.round(sec / 60) + ' 分钟';
+  return (sec / 3600).toFixed(1) + ' 小时';
+}
+// 地区名按国内通行写法，其余用浏览器自带的中文短名
+const REGION = { XX:'未知', CN:'中国大陆', HK:'中国香港', MO:'中国澳门', TW:'中国台湾' };
+const regionName = (() => { let dn; try { dn = new Intl.DisplayNames(['zh-CN'], { type:'region', style:'short' }); } catch (e) {} return c => REGION[c] || (dn && dn.of(c)) || c; })();
+const md = day => day.slice(5).replace('-', '/');
+
+function table(head, rows){
+  const wrap = el('div', { class:'tbl' }), t = el('table'), tr = el('tr');
+  head.forEach(h => tr.appendChild(el('th', { scope:'col' }, h)));
+  t.appendChild(el('thead')).appendChild(tr);
+  const tb = t.appendChild(el('tbody'));
+  rows.forEach(r => { const row = tb.appendChild(el('tr')); r.forEach(c => row.appendChild(c instanceof Node ? c : el('td', {}, c))); });
+  wrap.appendChild(t);
+  return wrap;
+}
+const panel = (...kids) => { const p = el('div', { class:'panel' }); kids.forEach(k => p.appendChild(k)); return p; };
+const emptyBox = () => el('div', { class:'empty' }, '还没有数据');
+
+/* 概览：唯一的大号主数字是今日活跃，其余进对照表 */
+function renderOverview(d){
+  const o = d.overview, w = [o.today, o.d7, o.d30];
+  const hero = el('div', { class:'hero' });
+  hero.append(el('span', { class:'label' }, '今日活跃旅客'), el('span', { class:'value' }, num(o.today.active)));
+  const per = x => x.active ? dur(x.seconds / x.active) : '—';
+  const t = table(['', '今日', '近 7 天', '近 30 天'], [
+    ['活跃旅客', ...w.map(x => num(x.active))],
+    ['新旅客', ...w.map(x => num(x.new))],
+    ['游玩时长', ...w.map(x => dur(x.seconds))],
+    ['人均游玩时长', ...w.map(per)]
+  ]);
+  const box = el('div', { class:'overview' });
+  box.append(panel(hero), panel(t, el('p', { class:'note' }, `近 30 天复制存档码 ${num(o.backups30)} 次，恢复进度 ${num(o.restores30)} 次`)));
+  $('#ov').replaceChildren(box);
+}
+
+/* 趋势：三张小柱状图各用自己的刻度，不画双纵轴；柱宽 ≤ 24px、柱间 2px 底色缝、顶部 4px 圆角 */
+const tip = el('div', { class:'tip', hidden:'' });
+function columnChart(container, title, series, fmt){
+  const card = el('div', { class:'chart' });
+  const head = el('h3', {}, title + ' · 今天 ');
+  head.appendChild(el('span', { class:'now' }, fmt(series[series.length - 1].v)));
+  const plot = el('div', { class:'plot' });
+  const details = el('details');
+  details.appendChild(el('summary', {}, '查看每日数字'));
+  details.appendChild(table(['日期', title], series.slice().reverse().map(s => [s.day, fmt(s.v)])));
+  card.append(head, plot, details);
+  container.appendChild(panel(card));
+  const draw = () => {
+    const W = Math.max(plot.clientWidth, 240), H = 150, top = 18, bottom = 20, ch = H - top - bottom;
+    const max = Math.max(...series.map(s => s.v));
+    const band = W / series.length, bw = Math.min(24, band - 2);
+    const svg = sv('svg', { viewBox:`0 0 ${W} ${H}`, role:'img', 'aria-label':`${title}，近 30 天，最高 ${fmt(max)}` });
+    svg.appendChild(sv('line', { class:'axis', x1:0, x2:W, y1:top + ch + .5, y2:top + ch + .5 }));
+    let maxIdx = -1;
+    series.forEach((s, i) => {
+      if (max > 0 && s.v === max && maxIdx < 0) maxIdx = i;
+      const h = max > 0 ? Math.max(s.v > 0 ? 2 : 0, s.v / max * ch) : 0;
+      const x = i * band + (band - bw) / 2, y = top + ch - h, r = Math.min(4, h, bw / 2);
+      if (h > 0) svg.appendChild(sv('path', { class:'bar' + (i === series.length - 1 ? ' hot' : ''),
+        d:`M${x},${y + h}V${y + r}Q${x},${y} ${x + r},${y}H${x + bw - r}Q${x + bw},${y} ${x + bw},${y + r}V${y + h}Z` }));
+      const hit = sv('rect', { x:i * band, y:top, width:band, height:ch, fill:'transparent' });
+      hit.addEventListener('pointerenter', () => {
+        tip.replaceChildren(el('b', {}, fmt(s.v)), el('span', {}, s.day));
+        tip.style.left = (i * band + band / 2) + 'px'; tip.style.top = (y - 6) + 'px';
+        plot.appendChild(tip); tip.hidden = false;
+      });
+      hit.addEventListener('pointerleave', () => { tip.hidden = true; });
+      svg.appendChild(hit);
+    });
+    if (maxIdx >= 0) {
+      const t = sv('text', { x:Math.min(W - 4, Math.max(4, maxIdx * band + band / 2)), y:top + ch - (max / max * ch) - 5, 'text-anchor':'middle' });
+      t.textContent = '最高 ' + fmt(max); svg.appendChild(t);
+    }
+    const x0 = sv('text', { x:0, y:H - 4 }); x0.textContent = md(series[0].day); svg.appendChild(x0);
+    const x1 = sv('text', { x:W, y:H - 4, 'text-anchor':'end' }); x1.textContent = '今天'; svg.appendChild(x1);
+    plot.replaceChildren(svg);
+  };
+  draw();
+  new ResizeObserver(draw).observe(plot);
+}
+function renderTrend(d){
+  const box = el('div', { class:'charts' });
+  $('#tr').replaceChildren(box);
+  columnChart(box, '活跃旅客', d.trend.map(t => ({ day:t.day, v:t.active })), num);
+  columnChart(box, '新旅客', d.trend.map(t => ({ day:t.day, v:t.new })), num);
+  columnChart(box, '游玩时长', d.trend.map(t => ({ day:t.day, v:t.seconds })), dur);
+}
+
+/* 留存：单一蓝色按比例分 4 档透明度，字保持正文颜色 */
+const HEAT = [0, .12, .24, .36, .48];
+function heatCell(r, n){
+  if (r == null) return el('td', { class:'dim', 'aria-label':'还没到期' }, '—');
+  const p = n ? r / n : 0, td = el('td', { class:'heat' }, pct(r, n));
+  const a = HEAT[p >= .5 ? 4 : p >= .3 ? 3 : p >= .15 ? 2 : p > 0 ? 1 : 0];
+  if (a) td.style.background = `rgba(57,135,229,${a})`;
+  return td;
+}
+function renderRetention(d){
+  if (!d.retention.length) { $('#rt').replaceChildren(panel(emptyBox())); return; }
+  $('#rt').replaceChildren(panel(table(['首访日期', '新旅客', '次日', '7 日', '30 日'],
+    d.retention.map(r => [r.day, num(r.n), heatCell(r.r1, r.n), heatCell(r.r7, r.n), heatCell(r.r30, r.n)]))));
+}
+
+function renderGames(d){
+  if (!d.games.length) { $('#gm').replaceChildren(panel(emptyBox())); return; }
+  $('#gm').replaceChildren(panel(table(['游戏', '玩家', '开局', '总时长', '人均时长', '次日回访率'],
+    d.games.map(g => [g.title, num(g.players), num(g.starts), dur(g.seconds), g.players ? dur(g.seconds / g.players) : '—',
+      g.nextDay.n ? `${pct(g.nextDay.r, g.nextDay.n)}（${g.nextDay.r}/${g.nextDay.n}）` : '—']))));
+}
+
+function renderSources(d){
+  const s = d.sources;
+  if (!s.total) { $('#src').replaceChildren(panel(emptyBox())); return; }
+  const shares = el('div', { class:'shares' });
+  [['微信内打开', s.wechat], ['手机', s.mobile], ['电脑', s.desktop]].forEach(([label, n]) => {
+    const b = el('div', { class:'share' });
+    b.append(el('div', { class:'label' }, label), el('div', { class:'value' }, pct(n, s.total)), el('div', { class:'note' }, `${num(n)} / ${num(s.total)} 人`));
+    shares.appendChild(b);
+  });
+  const bars = el('div', { class:'hbars', role:'list', 'aria-label':'地区前 10' });
+  const top = s.countries[0] ? s.countries[0].n : 1;
+  s.countries.forEach(c => {
+    const row = el('div', { class:'hrow', role:'listitem' });
+    const track = el('div', { class:'track' }), fill = el('div', { class:'fill' });
+    fill.style.width = Math.max(2, c.n / top * 100) + '%';
+    track.appendChild(fill);
+    row.append(el('span', { class:'name' }, regionName(c.code)), track, el('span', { class:'n' }, num(c.n)));
+    bars.appendChild(row);
+  });
+  const h = el('h3', {}, '地区前 10'); h.style.cssText = 'margin:8px 0 0;font-size:13px;font-weight:500;color:var(--muted)';
+  $('#src').replaceChildren(panel(shares, h, bars));
+}
+
+/* 读取：失败时保留已有内容，只显示错误条与重试 */
+let loading = false;
+async function load(){
+  if (loading) return; loading = true;
+  for (const b of [$('#refresh'), $('#retry')]) b.setAttribute('aria-disabled', 'true');
+  const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 15000);
+  try {
+    const res = await fetch('/kanban/data', { credentials:'same-origin', signal:ctl.signal, cache:'no-store' });
+    if (res.status === 401) { location.reload(); return; }
+    if (!res.ok) throw new Error('服务器返回 ' + res.status);
+    const d = await res.json();
+    renderOverview(d); renderTrend(d); renderRetention(d); renderGames(d); renderSources(d);
+    const t = new Date(d.generatedAt + 8 * 3600000).toISOString();
+    $('#meta').textContent = `数据截至北京时间 ${t.slice(0, 10)} ${t.slice(11, 16)}`;
+    $('#err').hidden = true;
+  } catch (e) {
+    $('#errText').textContent = `读取失败：${e.name === 'AbortError' ? '15 秒内没有响应' : e.message === 'Failed to fetch' ? '网络断开' : e.message}。检查网络后点重试。`;
+    $('#err').hidden = false;
+  } finally {
+    clearTimeout(timer); loading = false;
+    for (const b of [$('#refresh'), $('#retry')]) b.removeAttribute('aria-disabled');
+  }
+}
+$('#refresh').addEventListener('click', load);
+$('#retry').addEventListener('click', load);
+load();
+})();
+</script>
+</body>
+</html>

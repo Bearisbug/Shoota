@@ -2,7 +2,16 @@
   "name": "changju",
   "account_id": "627a6218f132dffc9cb22dd50c2fe1a6",
   "compatibility_date": "2026-10-12",
-  "assets": { "directory": "./public" },
+  "main": "src/worker.js",
+  // 只有统计上报与看板走脚本，商店与游戏文件由静态资源直接返回，不计 Worker 调用次数
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/kanban", "/kanban/*"]
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "shoota-metrics", "database_id": "dc9aa2eb-ccac-4c5c-bd26-d470988216bc", "migrations_dir": "migrations" }
+  ],
   "routes": [{ "pattern": "shoota.ai", "custom_domain": true }],
   "workers_dev": false,
   "preview_urls": false

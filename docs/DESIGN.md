@@ -1,0 +1,547 @@
+# shoota 游戏平台 设计文档
+
+## 1. 元信息 / 变更记录
+
+| 字段 | 值 |
+| --- | --- |
+| 状态 | 评审中 |
+| 项目画像 | 生产产品 |
+| Owner | Bearisbug |
+| 评审人 | 老板、leizhang |
+| 最后更新 | 2026-10-20 |
+| 关联 | 仓库 https://github.com/Bearisbug/changju · 部署手册 `docs/DEPLOY.md` · 上线清单 `docs/LAUNCH.md` |
+
+变更记录：
+
+| 日期 | 版本 | 涉及 ID | 一句话 | 类型 |
+| --- | --- | --- | --- | --- |
+| 2026-10-20 | v0.1 | REQ-001、REQ-002、REQ-003、REQ-004、REQ-005、REQ-006、REQ-007、REQ-008、REQ-009、FLOW-COLLECT、FLOW-KANBAN-LOGIN、FLOW-KANBAN-VIEW | 新增匿名旅客统计和带密码的数据看板，初稿 | 功能 |
+
+## L1. 链路总览
+
+领域顺序：采集 → 看板
+
+### 角色：玩家
+
+| 链路 | 名称 | 领域 | 状态 | 涉及需求 |
+| --- | --- | --- | --- | --- |
+| FLOW-COLLECT | 匿名采集 | 采集 | 设计中 | REQ-001、REQ-002、REQ-003、REQ-009 |
+
+### 角色：看板查看人
+
+| 链路 | 名称 | 领域 | 状态 | 涉及需求 |
+| --- | --- | --- | --- | --- |
+| FLOW-KANBAN-LOGIN | 看板登录 | 看板 | 设计中 | REQ-004、REQ-009 |
+| FLOW-KANBAN-VIEW | 查看指标 | 看板 | 设计中 | REQ-005、REQ-006、REQ-007、REQ-008 |
+
+界面外壳：Web｜public/index.html、src/kanban.html
+
+## L2. 链路卡
+
+> 图例：现状待确认 = 实现已定、文档未写，等你确认是否定稿；无用例 = 这一行还没有测试用例；分支未与用户逐类核对 = 所列步骤的分支由 Agent 按文档与代码预填，还没和你逐类问过
+
+无。三条链路都不涉及钱、排他资源或不可逆写入，按入选标准不建卡，分支写在 §8、§11、§16。
+
+## L3. 业务规则
+
+无。
+
+## L4. 不变量
+
+| ID | 不变量 | 由什么保证 | 验证 |
+| --- | --- | --- | --- |
+| INV-001 | 一次时长上报最多计入 300 秒 | API-001；字段 visitor_days.seconds | TC-004 |
+| INV-002 | 带内部标记的浏览器发来的上报不写入任何统计表 | API-001；ADR-003 | TC-006 |
+| INV-003 | 每个旅客编号在旅客表里只有一行 | 字段 visitors.vid；竞态「同一旅客两个标签页同时首访」 | TC-001、TC-007 |
+| INV-004 | 未登录的请求拿不到任何统计数字 | API-004；API-002 | TC-010 |
+
+## 2. 背景 / 目标 / 非目标
+
+- 背景：平台没有账号，进度存在玩家浏览器里，运营方现在看不到有多少人在玩、玩多久、会不会回来。
+- 本文档目前只覆盖统计与看板功能，商店、游戏库、存档码等已有功能尚未建档。
+- 目标：按浏览器匿名统计访问、开局和游玩时长，在 shoota.ai/kanban 用密码查看活跃、留存、时长和各游戏排行。
+- 非目标：游戏内部事件统计，现有游戏没有上报接口，需要游戏作者配合，放到下一期。
+- 非目标：实时在线人数、导出 CSV、多账号或多密码、告警推送。
+- 非目标：站内隐私提示，产品决定不加，风险记在 §28。
+- 非目标：识别同一个人的多台设备，没有账号做不到。
+
+规模画像：
+
+| 维度 | 估算 | 依据 / 假设 |
+| --- | --- | --- |
+| 用户量 | 日活旅客 ≤ 500，同时在玩 ≤ 50 | 假设：站点刚公开、靠微信转发；日活超过 500 需重估 |
+| 请求量 | 采集上报峰值约 1 次/秒，看板读取每天 < 100 次 | 每人每 2 分钟 1 次上报，50 人同时在玩 |
+| 数据量 | 每天新增约 1,500 行，12 个月约 55 万行、约 60 MB | 每个活跃旅客每天约 1 行旅客日加 2 行游戏日 |
+| 分布与形态 | 单区，玩家主要在中国大陆 | Cloudflare 全球节点，国内访问速度未测 |
+
+## 3. 成功指标 / 验收阈值
+
+| 指标 | 定义 | 当前 | 目标 | 由哪些事件算 |
+| --- | --- | --- | --- | --- |
+| 日活旅客 | 北京日期当天有任意上报的旅客数 | 无数据 | 上线后 7 天内建立基线 | 见 `EVT:visit`、`EVT:play_time` |
+| 次日留存 | 首访次日又有上报的旅客占当天新旅客的比例 | 无数据 | 上线后 14 天内建立基线 | 见 `EVT:visit` |
+| 人均游玩时长 | 当天游玩秒数总和除以当天活跃旅客数 | 无数据 | 上线后 7 天内建立基线 | 见 `EVT:play_time` |
+| 时长上报完整率 | 服务端收到的秒数占玩家本地计时秒数的比例 | 无数据 | ≥ 95%，本地测试测得 | 见 `EVT:play_time` |
+
+## 4. 术语表 / 统一语言
+
+| 术语 | 定义 | 代码/字段标识 | 对应实体 |
+| --- | --- | --- | --- |
+| 旅客 | 一个浏览器，换设备、换浏览器或清缓存都算新旅客 | `vid` | `ENT-Visitor` |
+| 旅客编号 | 浏览器第一次打开平台时生成的 32 位随机十六进制串 | `vid` | `ENT-Visitor` |
+| 北京日期 | 按东八区计算的日期，所有按天统计都用它 | `day` | `ENT-VisitorDay` |
+| 活跃旅客 | 某个北京日期内有任意上报的旅客 | — | `ENT-VisitorDay` |
+| 新旅客 | 首访日期等于当天的旅客 | `first_day` | `ENT-Visitor` |
+| 开局 | 玩家在平台上打开一款游戏一次 | `starts` | `ENT-GameDay` |
+| 游玩时长 | 游戏页面在前台的秒数，平台每 5 秒计一次 | `seconds` | `ENT-VisitorDay` |
+| N 日留存 | 首访日期之后第 N 天又有上报的新旅客占比，N 取 1、7、30 | — | `ENT-VisitorDay` |
+| 留存表范围 | 近 60 天的首访日期，30 日留存要首访满 30 天才有值 | — | `ENT-Visitor` |
+| 内部浏览器 | 登录过看板的浏览器，它的上报一律不计入 | `sk_staff` | — |
+| 看板 | shoota.ai/kanban，凭密码查看统计 | — | — |
+
+## 5. 功能清单与需求 ID
+
+| ID | 功能 | 对应目标 | 优先级 |
+| --- | --- | --- | --- |
+| REQ-001 | 首次打开平台时生成旅客编号，每次打开记一次访问 | 匿名统计 | P0 |
+| REQ-002 | 打开游戏记一次开局，游戏在前台时累计并上报游玩时长 | 匿名统计 | P0 |
+| REQ-003 | 复制存档码与恢复进度成功时各记一次 | 匿名统计 | P1 |
+| REQ-004 | 看板凭一个密码登录，同一 IP 连错 5 次锁 15 分钟 | 密码看板 | P0 |
+| REQ-005 | 看板显示概览与近 30 天每日趋势 | 密码看板 | P0 |
+| REQ-006 | 看板显示近 60 天新旅客的次日、7 日、30 日留存表 | 密码看板 | P0 |
+| REQ-007 | 看板显示各游戏的玩家数、开局数、时长与次日回访率 | 密码看板 | P0 |
+| REQ-008 | 看板显示微信内打开占比、手机与电脑占比、地区前 10 | 密码看板 | P1 |
+| REQ-009 | 登录过看板的浏览器之后的上报不计入统计 | 数据干净 | P0 |
+
+REQ-001、REQ-002、REQ-003、REQ-009 都经同一个上报接口落库，见 §8 `API-001`。
+
+## 6. 总体架构
+
+```mermaid
+flowchart LR
+  subgraph 浏览器
+    P[玩家：平台页面]
+    G[游戏 iframe]
+    K[查看人：看板页面]
+  end
+  subgraph Cloudflare
+    A[静态资源]
+    W[Worker changju 脚本]
+    D[(D1 数据库 shoota-metrics)]
+  end
+  P -->|商店与游戏文件| A
+  G -->|计时消息| P
+  P -->|上报 API-001| W
+  K -->|登录与看板 API-002、API-003、API-004| W
+  W --> D
+```
+
+- 只有 `/api/*` 与 `/kanban` 开头的请求先进 Worker 脚本，其余请求直接由静态资源返回，不计入 Worker 调用次数。
+- 看板页面 `src/kanban.html` 打包进 Worker 脚本，不放在 `public/` 下，未登录拿不到。
+
+## 7. 数据模型 / 领域实体
+
+```mermaid
+erDiagram
+  VISITOR ||--o{ VISITOR_DAY : has
+  VISITOR ||--o{ GAME_DAY : has
+  VISITOR {
+    text vid PK
+    text first_day
+    text device
+    integer wechat
+    text country
+  }
+  VISITOR_DAY {
+    text vid PK
+    text day PK
+    integer visits
+    integer seconds
+    integer backups
+    integer restores
+  }
+  GAME_DAY {
+    text vid PK
+    text game PK
+    text day PK
+    integer starts
+    integer seconds
+  }
+  LOGIN_GUARD {
+    text ip_hash PK
+    integer fails
+    integer locked_until
+  }
+```
+
+- `ENT-Visitor`：表 `visitors`，一个旅客一行，首次上报时写入，之后不改。
+- `ENT-VisitorDay`：表 `visitor_days`，一个旅客一个北京日期一行，累加访问、时长、备份与恢复次数。
+- `ENT-GameDay`：表 `game_days`，一个旅客一款游戏一个北京日期一行，累加开局与时长。
+- `ENT-LoginGuard`：表 `login_guards`，一个 IP 摘要一行，记看板登录失败次数与锁定到期时间。
+
+## 8. 接口契约
+
+契约文件：无，接口只有 4 个，以本节为准。
+
+- **`API-001` collect** — 实现 `REQ-001`、`REQ-002`、`REQ-003`、`REQ-009`
+  - 方法/路径：`POST /api/e`
+  - 鉴权/权限：匿名，见 §10 `ROLE-Visitor`
+  - 请求：JSON，`v` 为旅客编号，`ev` 为事件数组，每项含类型 `t`，可带游戏 `g` 与秒数 `s`
+  - 请求限制：一次最多 20 个事件，正文不超过 8 KB
+  - 响应：204 无正文；带内部标记 `sk_staff` 时同样 204，但不写库
+  - 错误：400 `/errors/bad-event`
+  - 幂等：不幂等，同一批重发会重复累加，前端不自动重试
+  - 缓存与超时：不缓存，前端用 `fetch` 的 keepalive 或 `sendBeacon` 发送，失败丢弃
+- **`API-002` kanbanPage** — 实现 `REQ-004`、`REQ-005`、`REQ-006`、`REQ-007`、`REQ-008`
+  - 方法/路径：`GET /kanban`
+  - 鉴权/权限：会话 cookie `sk_session` 有效时返回看板页面，否则返回登录页
+  - 响应：200 HTML，两种页面都带 `Cache-Control: no-store`
+  - 错误：无，未登录返回登录页而不是错误
+- **`API-003` kanbanLogin** — 实现 `REQ-004`、`REQ-009`
+  - 方法/路径：`POST /kanban/login`
+  - 请求：表单字段 `password`
+  - 响应：密码正确时 303 跳回 `/kanban`，同时写会话 cookie 与内部标记 cookie
+  - 错误：401 `/errors/wrong-password`、429 `/errors/login-locked`
+  - 错误时返回登录页 HTML，页内显示提示与剩余次数或解锁时间
+- **`API-004` kanbanData** — 实现 `REQ-005`、`REQ-006`、`REQ-007`、`REQ-008`
+  - 方法/路径：`GET /kanban/data`
+  - 鉴权/权限：见 §10 `ROLE-Staff`
+  - 响应：200 JSON，含概览、每日趋势、留存、游戏排行、来源与设备五块
+  - 错误：401 `/errors/not-logged-in`
+  - 缓存与超时：不缓存，前端超时 15 秒，失败时显示重试按钮
+
+演进与弃用：
+
+- 版本方案：不分版本，平台页面与 Worker 同一次部署发布
+- 弃用期：N/A — 调用方只有本仓自己的页面，同次发布同时更新
+- 当前 deprecated 清单：无
+
+## 9. 数据字典
+
+| 字段 | API 名 | DB 名 | 类型 | 必填 | 枚举/约束 | 单位/精度 | PII |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 旅客编号 | `v` | `visitors.vid` | text | 是 | 32 位小写十六进制 | — | 化名 |
+| 事件类型 | `t` | — | text | 是 | visit、start、play、backup、restore，其他值整批拒绝 | — | 否 |
+| 游戏 | `g` | `game_days.game` | text | start 与 play 必填 | 小写字母、数字、连字符，1 到 32 位 | — | 否 |
+| 上报秒数 | `s` | — | integer | play 必填 | 1 到 300 | 秒 | 否 |
+| 首访日期 | — | `visitors.first_day` | text | 是 | YYYY-MM-DD，北京日期 | 日 | 否 |
+| 设备类型 | — | `visitors.device` | text | 是 | mobile、desktop，按首访请求的 UA 判断 | — | 否 |
+| 微信内打开 | — | `visitors.wechat` | integer | 是 | 0、1，UA 含 MicroMessenger 为 1 | — | 否 |
+| 国家或地区 | — | `visitors.country` | text | 是 | ISO 3166 两位代码，取不到写 XX | — | 否 |
+| 日期 | — | `visitor_days.day` | text | 是 | YYYY-MM-DD，北京日期 | 日 | 否 |
+| 访问次数 | — | `visitor_days.visits` | integer | 是 | ≥ 0 | 次 | 否 |
+| 旅客日游玩秒数 | — | `visitor_days.seconds` | integer | 是 | ≥ 0，单次累加不超过 300 | 秒 | 否 |
+| 备份次数 | — | `visitor_days.backups` | integer | 是 | ≥ 0 | 次 | 否 |
+| 恢复次数 | — | `visitor_days.restores` | integer | 是 | ≥ 0 | 次 | 否 |
+| 游戏日日期 | — | `game_days.day` | text | 是 | YYYY-MM-DD，北京日期 | 日 | 否 |
+| 开局次数 | — | `game_days.starts` | integer | 是 | ≥ 0 | 次 | 否 |
+| 游戏日游玩秒数 | — | `game_days.seconds` | integer | 是 | ≥ 0 | 秒 | 否 |
+| IP 摘要 | — | `login_guards.ip_hash` | text | 是 | 加盐 SHA-256 的前 32 位，不存原始 IP | — | 化名 |
+| 失败次数 | — | `login_guards.fails` | integer | 是 | 0 到 5 | 次 | 否 |
+| 锁定到期 | — | `login_guards.locked_until` | integer | 否 | Unix 毫秒，未锁定为空 | 毫秒 | 否 |
+| 会话 cookie | `sk_session` | — | text | — | 到期时间加 HMAC 签名，有效 7 天，HttpOnly | — | 否 |
+| 内部标记 cookie | `sk_staff` | — | text | — | 值为 1，有效 1 年，HttpOnly | — | 否 |
+
+## 10. 权限与角色
+
+| 角色 \ 操作 | API-001 上报 | API-002 看板页面 | API-003 登录 | API-004 看板数据 |
+| --- | --- | --- | --- | --- |
+| ROLE-Visitor | ✓ | 只看到登录页 | ✓ | ✗ |
+| ROLE-Staff | ✓，但不写库 | ✓ | ✓ | ✓ |
+
+- `ROLE-Visitor`：任何打开平台的人，匿名。
+- `ROLE-Staff`：浏览器持有有效会话 cookie 的看板查看人，只有一个共享密码。
+- 所有人可见的页面：`PAGE-STORE`、`PAGE-PLAYER`、`PAGE-BACKUP`、`PAGE-KANBAN-LOGIN`。
+- 仅 `ROLE-Staff` 可见的页面：`PAGE-KANBAN`。
+
+## 11. 状态机
+
+看板登录防护（`ENT-LoginGuard`）有正常与锁定两个状态，锁定由失败次数与锁定到期时间决定。
+
+```mermaid
+stateDiagram-v2
+  [*] --> normal : 首次输错密码
+  normal --> normal : 输错密码 [fails<4]
+  normal --> locked : 输错密码 [fails=4]
+  locked --> locked : 锁定期内尝试 [now<locked_until]
+  locked --> normal : 锁定期后再尝试 [now>=locked_until]
+  normal --> [*] : 密码正确
+```
+
+迁移表：
+
+| 源 → 目标 | 事件 | 守卫(纯布尔) | 动作(副作用) | 谁触发 | 接口/事件 |
+| --- | --- | --- | --- | --- | --- |
+| [*] → normal | 首次输错密码 | — | 建记录，失败次数为 1，返回 401 | 查看人 | `API-003` |
+| normal → normal | 输错密码 | fails < 4 | 失败次数加 1，返回 401 | 查看人 | `API-003` |
+| normal → locked | 输错密码 | fails = 4 | 失败次数为 5，锁定到期为 15 分钟后，返回 429 | 查看人 | `API-003` |
+| locked → locked | 锁定期内尝试 | now < locked_until | 不比对密码，返回 429 | 查看人 | `API-003` |
+| locked → normal | 锁定期后再尝试 | now >= locked_until | 失败次数清零，再按本次密码对错处理 | 查看人 | `API-003` |
+| normal → [*] | 密码正确 | — | 删除记录，写会话与内部标记 cookie | 查看人 | `API-003` |
+
+旅客、旅客日、游戏日三张表没有状态字段，只做累加，不建状态机。
+
+## 12. 关键流程时序
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant P as 平台页面
+  participant W as Worker
+  participant D as D1
+  participant K as 看板页面
+  P->>W: 打开平台，上报访问 (API-001)
+  W->>D: 旅客不存在则写入，旅客日访问加 1
+  W-->>P: 204
+  P->>W: 打开游戏，上报开局 (API-001)
+  W->>D: 游戏日开局加 1
+  loop 每 2 分钟，或切到后台、关闭页面时
+    P->>W: 上报累计秒数 (API-001)
+    W->>D: 旅客日与游戏日秒数各加 s
+  end
+  K->>W: 打开看板 (API-002)
+  W-->>K: 未登录，返回登录页
+  K->>W: 提交密码 (API-003)
+  alt 密码正确
+    W->>D: 删除该 IP 的失败记录
+    W-->>K: 303，写会话与内部标记 cookie
+    K->>W: 打开看板 (API-002)
+    W-->>K: 看板页面
+    K->>W: 读取统计 (API-004)
+    W->>D: 汇总查询
+    W-->>K: JSON
+  else 密码错误或已锁定
+    W->>D: 失败次数加 1 或保持锁定
+    W-->>K: 401 或 429 登录页
+  end
+```
+
+## 13. 页面与跳转地图
+
+```mermaid
+flowchart LR
+  PAGE_STORE[商店] -->|开局 API-001| PAGE_PLAYER[游戏]
+  PAGE_STORE -->|导航 存档| PAGE_BACKUP[备份与恢复]
+  PAGE_PLAYER -->|退出| PAGE_STORE
+  PAGE_KANBAN_LOGIN[看板登录] -->|密码正确 API-003| PAGE_KANBAN[看板]
+  PAGE_KANBAN -->|会话无效 API-002| PAGE_KANBAN_LOGIN
+```
+
+| 页面 | 路径 | 可见角色 | 调用接口 | 关键页态 |
+| --- | --- | --- | --- | --- |
+| `PAGE-STORE` | `/#store` | 所有人 | `API-001` | 已有页面，本期只加访问上报 |
+| `PAGE-PLAYER` | `/#play-<游戏>` | 所有人 | `API-001` | 已有页面，本期加开局与时长上报 |
+| `PAGE-BACKUP` | `/#backup` | 所有人 | `API-001` | 已有页面，本期加备份与恢复上报 |
+| `PAGE-KANBAN-LOGIN` | `/kanban` | 所有人 | `API-003` | 密码错误、已锁定两种提示 |
+| `PAGE-KANBAN` | `/kanban` | `ROLE-Staff` | `API-004` | 加载中、无数据、读取失败三种页态 |
+
+视觉来源：沿用 `public/index.html` 的深色样式变量，项目还没有 `brand/` 目录，见 §28 风险表。
+
+## 14. 错误处理与错误码
+
+| 错误码(type) | HTTP | 语义 | FE 处理 |
+| --- | --- | --- | --- |
+| `/errors/bad-event` | 400 | 上报格式不对，整批丢弃 | 平台页面不提示、不重试 |
+| `/errors/wrong-password` | 401 | 看板密码错误 | 登录页显示「密码不对，还能试 N 次」 |
+| `/errors/login-locked` | 429 | 同一 IP 连错 5 次，锁定中 | 登录页显示几点几分后再试 |
+| `/errors/not-logged-in` | 401 | 看板会话不存在或已过期 | 看板页面跳回登录页 |
+
+- 错误信封：JSON 接口返回 `application/problem+json`，含 `type`、`title`、`instance`。
+- 登录页的错误直接渲染进 HTML，不返回 JSON。
+- 排障关联：用 Cloudflare 自带的 `cf-ray` 请求头作关联 ID，写进错误信封的 `instance` 与 Worker 日志。
+
+## 15. 非功能需求
+
+| 维度 | 场景 | 目标 |
+| --- | --- | --- |
+| 延迟 | `API-001` 上报，Worker 内处理 | P99 < 300 ms，不阻塞游戏 |
+| 延迟 | `API-004` 读取 30 天统计 | P99 < 2 s，数据量按 §2 规模画像 |
+| 容量 | Worker 调用次数 | 每天 < 10 万次，即免费额度，约 3,300 小时游玩 |
+| 容量 | D1 写入行数 | 每天 < 10 万行，即免费额度，约 1,600 小时游玩 |
+| 限流 | `API-003` 按 IP | 连错 5 次锁 15 分钟，返回 429，见 §14 错误码表 |
+| 限流 | `API-001` 单次请求 | 最多 20 个事件、8 KB，超出返回 400 |
+| 数据增长 | 三张统计表 12 个月 | 约 55 万行、60 MB，免费额度 5 GB，无需清理 |
+| 数据增长 | 重估阈值 | 数据库超过 1 GB 或日活超过 500 时重估 |
+| 兼容性 | 浏览器 | 支持 `fetch` keepalive 或 `sendBeacon` 的浏览器，含微信内置浏览器 |
+
+## 16. 并发与一致性
+
+| 竞态场景 | 参与方 | 期望结果 | 依据(约束/守卫) |
+| --- | --- | --- | --- |
+| 同一旅客两个标签页同时首访 | `API-001` × 2 | 旅客表只有一行，访问次数各加 1 | `visitors.vid` 主键，插入用 INSERT OR IGNORE |
+| 同一旅客两个标签页同时上报时长 | `API-001` × 2 | 两份秒数都累加，两个标签页都在玩就都算 | 累加用 ON CONFLICT DO UPDATE |
+| 同一 IP 同时提交多次错误密码 | `API-003` × N | 失败次数逐次累加，第 5 次起锁定 | 单条 UPSERT 更新 `login_guards.fails` |
+
+一致性承诺：
+
+- read-after-write：上报写入后，看板下一次读取即可见，没有缓存。
+- 异步投递：上报最多一次，网络失败的批次直接丢弃，不重试，不会重复累加。
+
+## 17. 依赖与外部系统 / SLA
+
+| 依赖 | 用途 | SLA | 超时/重试 | 失败影响 | 降级 |
+| --- | --- | --- | --- | --- | --- |
+| Cloudflare Workers | 跑上报与看板脚本 | 免费版无 SLA | 单次请求 CPU 10 ms 上限 | 上报丢失，看板打不开 | 游戏照常可玩，统计缺这段数据 |
+| Cloudflare D1 | 存统计数据 | 免费版无 SLA | 单条查询失败不重试 | 这一批上报丢失 | 同上 |
+
+内部后台任务：无，统计在查询时现算，没有定时任务。
+
+## 18. ADR 决策记录
+
+- **`ADR-001` 只存按天汇总的表，不存原始事件** — Status: Proposed
+  - Context：免费额度每天 10 万行写入，看板只需要按天的数字。
+  - Decision：上报直接累加到旅客日与游戏日表，不留逐条事件。
+  - Alternatives：存原始事件，写入行数多几十倍，还要定期清理
+  - Alternatives：Workers Analytics Engine，要另配查询 token，数据只留 3 个月
+  - Consequences：以后想按小时或按单次游戏分析，只能从改版那天起积累。
+- **`ADR-002` 旅客按浏览器本地随机编号识别** — Status: Proposed
+  - Context：平台没有账号，产品要求不加账号。
+  - Decision：首次打开时生成随机编号存在浏览器本地，随每次上报发送。
+  - Alternatives：按 IP 加 UA 识别，同一 Wi-Fi 下的人会被并成一个，也更像个人信息。
+  - Consequences：清缓存、换浏览器会被算成新旅客，留存会偏低。
+- **`ADR-003` 登录过看板的浏览器靠 cookie 排除** — Status: Proposed
+  - Context：老板和协作者自己玩会抬高数字。
+  - Decision：登录成功时写一个有效 1 年的内部标记 cookie，带它的上报不写库。
+  - Alternatives：按 IP 排除，家里和公司换网络就失效。
+  - Consequences：登录看板之前的历史数据仍算在内，没登录过看板的内部人员也会被算进去。
+
+## 19. 验收 / 测试
+
+```gherkin
+场景: 首次打开平台记一次访问 (REQ-001)
+  Given 一个从没打开过平台的浏览器
+  When 打开 shoota.ai
+  Then 旅客表新增一行，当天旅客日的访问次数为 1
+
+场景: 开局并游玩 3 分钟 (REQ-002)
+  Given 一个已打开平台的旅客
+  When 打开一款游戏并保持在前台 3 分钟后退出
+  Then 该游戏当天开局数加 1，游玩秒数累计约 180
+
+场景: 单次上报超过 300 秒 (REQ-002)
+  Given 一个旅客
+  When 上报一次 play 事件，秒数为 900
+  Then 返回 400，统计表不变
+
+场景: 复制存档码和恢复进度 (REQ-003)
+  Given 一个有进度的旅客
+  When 复制存档码，再在另一个浏览器恢复成功
+  Then 前者当天备份次数加 1，后者当天恢复次数加 1
+
+场景: 连续输错密码被锁定 (REQ-004)
+  Given 同一 IP 已经输错 4 次
+  When 第 5 次输错，随后立刻输入正确密码
+  Then 第 5 次返回 429，正确密码也返回 429，15 分钟后才能登录
+
+场景: 未登录读取统计 (REQ-005)
+  Given 一个没有会话 cookie 的请求
+  When 请求看板数据
+  Then 返回 401 并且不含任何统计数字
+
+场景: 看板显示概览与趋势 (REQ-005)
+  Given 近 30 天有上报数据
+  When 登录后打开看板
+  Then 显示今日、近 7 天、近 30 天的活跃、新增、时长，以及每日趋势
+
+场景: 留存表 (REQ-006)
+  Given 某天有 10 个新旅客，其中 3 个次日又来
+  When 查看留存表
+  Then 该天次日留存为 30%，7 日与 30 日未到期的格显示为空
+
+场景: 游戏排行 (REQ-007)
+  Given 两款游戏都有人玩
+  When 查看游戏排行
+  Then 每款游戏显示玩家数、开局数、总时长、人均时长、次日回访率
+
+场景: 来源与设备 (REQ-008)
+  Given 有微信内和电脑浏览器两类旅客
+  When 查看来源与设备
+  Then 显示微信内打开占比、手机与电脑占比、地区前 10
+
+场景: 登录过看板的浏览器不计入 (REQ-009)
+  Given 一个登录过看板的浏览器
+  When 用它打开平台并玩一款游戏
+  Then 统计表没有任何新增或变化
+```
+
+测试策略：本地用 `wrangler dev` 加本地 D1 跑全部场景，上线后在线上跑冒烟，用例与执行记录见 `docs/TEST.md`。
+
+## 20. 埋点 / 分析事件
+
+| 事件(ID=事件名) | 触发时机 | 关键属性 | 对应指标 |
+| --- | --- | --- | --- |
+| `EVT:visit` | 平台页面每次加载 | vid | 日活旅客、次日留存 |
+| `EVT:game_start` | 打开一款游戏 | vid、game | 游戏排行 |
+| `EVT:play_time` | 每 2 分钟，或切到后台、关闭页面 | vid、game、seconds | 人均游玩时长、时长上报完整率 |
+| `EVT:backup_copy` | 复制存档码或下载存档文件 | vid | 看板概览 |
+| `EVT:restore_done` | 存档恢复成功 | vid | 看板概览 |
+
+事件在接口里的类型值依次是 visit、start、play、backup、restore，见 §9 事件类型。
+
+## 21. 可观测性
+
+| SLI | SLO | 告警阈值 | 对应 Runbook |
+| --- | --- | --- | --- |
+| 上报接口成功率 | 99% 返回 204 | 无自动告警，每周一看 Cloudflare 面板，错误率 > 5% 处理 | 见 `RB-001` |
+| D1 每日写入行数 | 低于免费额度 10 万行 | 每周一看，连续 3 天超过 7 万行处理 | 见 `RB-002` |
+| 看板登录锁定次数 | 无 | 看板无法登录时处理 | 见 `RB-003` |
+
+日志：Worker 日志带 `cf-ray`，只记错误，不记旅客编号。
+
+## 22. 运维 Runbook
+
+| ID | 告警 | owner | 影响 | 诊断 | 处置 | 回滚 | 升级 | 恢复验证 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `RB-001` | 上报错误率 > 5% | Bearisbug | 统计缺数据，游戏不受影响 | Cloudflare 面板看 Worker 错误日志 | 按日志修复后 push | 按 `docs/DEPLOY.md` 第 4 节回滚到上一版本 | 连续 2 天未修复，暂停统计 | 错误率回到 1% 以下 |
+| `RB-002` | D1 写入接近免费额度 | Bearisbug | 超额后当天写入失败 | 面板看每日写入行数 | 把上报间隔从 2 分钟改为 5 分钟，或升级 Workers 付费版 | N/A | 超额当天告知老板 | 次日写入行数回落 |
+| `RB-003` | 看板登录不上 | Bearisbug | 看不到数据 | 确认是否被锁，查 `login_guards` | 等 15 分钟，或删掉该 IP 的记录 | N/A | 忘记密码时换密码，见 `docs/DEPLOY.md` | 能正常登录 |
+
+## 23. 发布: Feature Flag / 灰度 / 回滚
+
+- Feature flag：不设开关，站点规模小，出问题时用 `wrangler rollback` 秒级回到上一版本。
+- 灰度：直接全量。
+- 应用层回滚：按 `docs/DEPLOY.md` 第 4 节回滚到上一版本。
+- 数据层回滚：用 D1 的时间点恢复回到迁移之前。
+
+| 环 | 放量 | 进入门槛(指标) | 回滚动作 |
+| --- | --- | --- | --- |
+| 全量 | 100% | 本地全部用例通过，线上冒烟通过 | `wrangler rollback` 到上一版本 |
+
+上线前检查单：
+
+| 检查项 | 状态(过 / N-A + 证据) |
+| --- | --- |
+| 验收用例全量通过 | 待执行，见 `docs/TEST.md` |
+| 告警 ↔ Runbook 双向就绪 | 待执行 |
+| 容量按 §15 验证 | 待执行 |
+| 回滚演练 | 待执行 |
+| 用户文档同步 | N-A，看板只给内部用，玩家侧界面无变化 |
+
+## 24. 契约同步与防漂移机制
+
+N/A — 前后端同仓、同次部署，接口只有 4 个，以 §8 为准。
+
+## 25. 迁移 / 数据回填
+
+- 迁移文件放在 `migrations/`，首个文件建四张表。
+- CI 在部署前执行 `wrangler d1 migrations apply`，迁移只新增表或列，不删不改。
+- 回滚：D1 时间点恢复到迁移前，免费版可回溯 7 天。
+- 数据回填：无，统计从上线那一刻开始。
+
+## 26. 里程碑
+
+N/A — 一次发布完成。
+
+## 27. 上线后度量与复盘
+
+N/A — 尚未上线，上线 14 天后按 §3 补实际值。
+
+## 28. 风险与开放问题
+
+| 类型 | 描述 | 负责人 | 何时需拍板 | 谁定 | 卡住 |
+| --- | --- | --- | --- | --- | --- |
+| 风险 | 上报接口匿名可调，有人伪造请求能刷高数字 | Bearisbug | — | — | — |
+| 风险 | 看板密码较弱，靠连错锁定挡暴力尝试 | Bearisbug | — | — | — |
+| 风险 | 有仓库写权限的人能改代码绕过密码 | Bearisbug | — | — | — |
+| 风险 | 站内不告知匿名统计，按个人信息相关法规有合规风险 | 老板 | — | — | — |
+| 风险 | 项目还没有 brand/ 品牌目录，看板沿用平台现有样式 | Bearisbug | — | — | — |

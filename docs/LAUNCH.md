@@ -6,7 +6,9 @@
 
 | 键名 | 配到哪 | 来源 | 配置动作（零回显） | 验证 | 状态 |
 | --- | --- | --- | --- | --- | --- |
-| `CLOUDFLARE_API_TOKEN` | GitHub Secrets（Bearisbug/changju） | 生成：Cloudflare 账号级 token `changju-ci-deploy`，已录入 Bitwarden 条目 `CHANGJU_CI_DEPLOY_TOKEN` | A：`bw get password CHANGJU_CI_DEPLOY_TOKEN \| gh secret set CLOUDFLARE_API_TOKEN -R Bearisbug/changju` | `gh secret list -R Bearisbug/changju` 见键名；首次 Actions 部署成功 | ☑ 2026-10-18：secret list 见 `CLOUDFLARE_API_TOKEN`；run 39104230080 部署成功 |
+| `CLOUDFLARE_API_TOKEN` | GitHub Secrets（Bearisbug/changju） | 生成：Cloudflare 账号级 token `changju-ci-deploy`，2026-10-20 加了 D1 Write，已录入 Bitwarden 条目 `CHANGJU_CI_DEPLOY_TOKEN` | A：`bw get password CHANGJU_CI_DEPLOY_TOKEN \| gh secret set CLOUDFLARE_API_TOKEN -R Bearisbug/changju` | `gh secret list -R Bearisbug/changju` 见键名；首次 Actions 部署成功 | ☑ 2026-10-18：secret list 见 `CLOUDFLARE_API_TOKEN`；run 39104230080 部署成功 |
+| `KANBAN_PASSWORD` | Worker 加密变量 | Bitwarden 条目 `SHOOTA_KANBAN_PASSWORD`，值由老板指定 | A：`printf '%s' "$(bw get password SHOOTA_KANBAN_PASSWORD)" \| npx wrangler@4.151.1 secret put KANBAN_PASSWORD` | `npx wrangler@4.151.1 secret list` 见键名；线上 TC-008 用该密码能登录 | ☐ |
+| `KANBAN_SECRET` | Worker 加密变量 | 生成，不入 Bitwarden | A：`openssl rand -hex 32 \| tr -d '\n' \| npx wrangler@4.151.1 secret put KANBAN_SECRET` | `secret list` 见键名；线上 TC-010 改签名的 cookie 被拒 | ☐ |
 
 ## 2. 部署步骤清单
 
@@ -34,6 +36,8 @@
 | 2026-10-18 | 自动回滚目标是部署前的线上版本 | 每次失败都回滚成功时，它就是最后一次健康的版本；回滚步骤本身失败时 run 报错，按 DEPLOY.md 第 4 节手动处理 |
 | 2026-10-18 | 测试文档缺失，以最小冒烟集替代，未经用户确认 | 冒烟集见 §5 |
 | 2026-10-18 | 协作者由用户在网页上邀请 | 用 stonesjjj@gmail.com 在 GitHub API 查不到用户，API 只能按用户名邀请；用户在 Settings → Collaborators 用邮箱邀请 |
+| 2026-10-20 | 统计与看板按用户「直接改完直接推」上线，设计文档未经逐项确认 | `docs/DESIGN.md` 保持「评审中」，三条 ADR 为 Proposed，等用户签字；实现完全按文档当前写法 |
+| 2026-10-20 | 统计与看板的用例改由 `docs/TEST.md` 管 | 本文件第 5 节只管平台已有功能的最小冒烟集 |
 
 ## 5. 最小冒烟集（线上可跑）
 

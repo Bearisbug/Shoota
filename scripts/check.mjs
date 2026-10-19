@@ -1,11 +1,11 @@
-// 质量门：每个页面的内嵌 <script> 能解析，商店目录里登记的游戏文件都存在。
+// 质量门：每个页面的内嵌 <script> 与 Worker 脚本能解析，商店目录里登记的游戏文件都存在。
 // 用法：node scripts/check.mjs（CI 每次 push / PR 都跑，失败就不部署）
 import { readFileSync, readdirSync, existsSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
-const pages = ['public/index.html', ...readdirSync('public/games').filter(f => f.endsWith('.html')).map(f => 'public/games/' + f)];
+const pages = ['public/index.html', 'src/kanban.html', ...readdirSync('public/games').filter(f => f.endsWith('.html')).map(f => 'public/games/' + f)];
 const tmp = mkdtempSync(join(tmpdir(), 'changju-check-'));
 let bad = 0, n = 0;
 try {
@@ -25,9 +25,13 @@ try {
       catch (e) { bad++; console.error(`✗ ${where} 语法错误：\n${String(e.stderr).replace(/\S*x\.m?js/, page)}`); }
     }
   }
+  const worker = join(tmp, 'worker.mjs');
+  writeFileSync(worker, readFileSync('src/worker.js', 'utf8'));
+  try { execFileSync(process.execPath, ['--check', worker], { stdio: 'pipe' }); }
+  catch (e) { bad++; console.error(`✗ src/worker.js 语法错误：\n${String(e.stderr).replace(/\S*worker\.mjs/, 'src/worker.js')}`); }
   for (const [, src] of readFileSync('public/index.html', 'utf8').matchAll(/src:'(games\/[^']+)'/g)) {
     if (!existsSync('public/' + src)) { bad++; console.error(`✗ 商店目录登记了 ${src}，但 public/${src} 不存在`); }
   }
 } finally { rmSync(tmp, { recursive: true, force: true }); }
 if (bad) { console.error(`\n${bad} 处问题，未部署。`); process.exit(1); }
-console.log(`✓ ${pages.length} 个页面、${n} 段内嵌脚本解析通过，目录里的游戏文件齐全`);
+console.log(`✓ ${pages.length} 个页面、${n} 段内嵌脚本与 Worker 脚本解析通过，目录里的游戏文件齐全`);
