@@ -85,9 +85,11 @@ h1{margin:0;position:absolute;left:50%;transform:translateX(-50%);font:400 30px/
 .bob small{font-size:9px;margin-left:1px}
 .bob.pop{animation:pop .45s ease}
 @keyframes pop{0%{filter:brightness(2)}40%{scale:1.25}100%{scale:1}}
-.slbl{position:absolute;top:216px;width:126px;text-align:center;font:700 13px/18px var(--f-serif);color:var(--mute);letter-spacing:1px;font-variant-numeric:tabular-nums}
+.slbl{position:absolute;top:212px;width:126px;text-align:center;font:700 13px/15px var(--f-serif);color:var(--mute);letter-spacing:1px;font-variant-numeric:tabular-nums}
 .slbl.near{color:var(--cinnabar);animation:throb .9s ease-in-out infinite}
 .slbl.even{color:var(--jade)}
+.slbl small{display:block;font:500 10.5px/13px var(--f-sans);color:var(--mute);letter-spacing:.5px}
+.slbl small.last{color:var(--brass-hi)}
 @keyframes throb{50%{opacity:.55}}
 .sdone{position:absolute;top:118px;width:54px;height:54px;border-radius:50%;border:3px solid var(--cinnabar);color:var(--cinnabar);font:400 30px/48px var(--f-brush);text-align:center;transform:rotate(-14deg) scale(.4);opacity:0;transition:all .35s cubic-bezier(.3,1.6,.5,1)}
 .sdone.on{opacity:.9;transform:rotate(-14deg) scale(1)}
@@ -121,8 +123,18 @@ h1{margin:0;position:absolute;left:50%;transform:translateX(-50%);font:400 30px/
 .tile .nm{position:absolute;left:0;right:0;top:1px;text-align:center;font-size:9px;line-height:11px;color:#fff6e2;letter-spacing:1px}
 .tile .w{position:absolute;left:0;right:0;top:13px;text-align:center;font:900 23px/31px var(--f-serif);font-variant-numeric:tabular-nums}
 .tile .w small{font-size:10px;font-weight:700;margin-left:1px}
-.tile.cov{filter:brightness(.4) saturate(.5);cursor:default}
-.tile.cov.peek{filter:brightness(.75) saturate(.7)}
+.tile.cov{filter:brightness(.3) saturate(.35);cursor:default}
+.tile.cov .nm,.tile.cov .w,.tile.cov .tag{visibility:hidden}
+.tile.cov .band{background:var(--kraft-lo)}
+.tile.cov.peek{filter:brightness(.72) saturate(.7)}
+.tile.cov.peek .nm,.tile.cov.peek .w,.tile.cov.peek .tag{visibility:visible}
+.tile.cov.peek .band{background:var(--hb)}
+.tile .tag{position:absolute;right:2px;bottom:2px;font:700 9px/1 var(--f-sans);padding:2px 3px;border-radius:3px;background:var(--ink);color:var(--kraft)}
+.tile.blind{background:#cdb184}
+.tile.blind .w{color:#5a4126}
+.drawer{position:absolute;top:500px;height:58px;border-radius:9px;background:rgba(0,0,0,.28);box-shadow:inset 0 2px 6px rgba(0,0,0,.4);z-index:1}
+.drlbl{position:absolute;top:562px;font-size:11px;color:var(--mute);letter-spacing:1px;z-index:1;font-variant-numeric:tabular-nums}
+.drlbl b{color:var(--paper);font-weight:500}
 .tile.inpan{pointer-events:none}
 .tile.gone{opacity:0;pointer-events:none}
 .tile.shake{animation:shake .3s}
@@ -181,7 +193,7 @@ h1{margin:0;position:absolute;left:50%;transform:translateX(-50%);font:400 30px/
     <div id="scales"></div>
     <div id="board"></div>
     <div id="tray"></div>
-    <span id="trayHint">翻盘的药包会落到这里，点它能再放回秤上</span>
+    <span id="trayHint">翻盘的药包落在这里，点它能再放回秤上</span>
     <span id="trayLbl"></span>
     <div id="props">
       <button class="prop" id="pUndo" type="button"><b>撤回</b><span>收回上一包</span><em>1</em></button>
@@ -198,30 +210,19 @@ h1{margin:0;position:absolute;left:50%;transform:translateX(-50%);font:400 30px/
 <script>
 /*GEN-START*/
 function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const PAN_MAX=3,LIGHT_MAX=6;
+const SEEDS={3:27999,4:36221,5:43837,6:51857,7:59675,8:68402,9:75513,10:83432,11:91553,12:99472,13:107795,14:115916};
 function cfgFor(lv){
-  if(lv===1) return {n:3,tmin:8,tmax:12,L:2,parity:false,deep:0,cap:6};
-  if(lv===2) return {n:14,tmin:11,tmax:23,L:7,parity:true,deep:.8,cap:6};
-  return {n:Math.min(14+(lv-2),22),tmin:11,tmax:25,L:Math.min(7+Math.floor((lv-2)/2),10),parity:true,deep:.7,cap:6};
-}
-function compose(total,k,lo,hi,R){
-  const p=Array(k).fill(lo);let rem=total-lo*k;
-  while(rem>0){const i=Math.floor(R()*k);if(p[i]<hi){p[i]++;rem--;}}
-  return p;
+  if(lv===1) return {n:3,wmin:2,wmax:9,k3:0,L:2,dr:[0,0],decoy:0,blind:0,cruel:0,cap:6,tmax:18};
+  if(lv===2) return {n:14,wmin:2,wmax:15,k3:.45,L:10,dr:[7,7],decoy:9,blind:.4,cruel:.4,cap:4,tmax:34,seed:108};
+  const e=Math.min(lv-3,8),h=Math.floor(e/2);
+  return {n:12+e,wmin:2,wmax:e>3?15:14,k3:.45,L:9+h,dr:[6+h,6+h],decoy:7+h,blind:.3+e*.015,cruel:.32+e*.01,cap:4,tmax:32,seed:SEEDS[lv]};
 }
 function pick(a,b,R){return a+Math.floor(R()*(b-a+1))}
-function splitTarget(T,par,R){
-  if(!par){const kmin=Math.max(2,Math.ceil(T/9)),kmax=Math.min(4,T);return compose(T,pick(kmin,kmax,R),1,9,R);}
-  if(T%2===0){const h=T/2,kmin=Math.max(2,Math.ceil(h/4)),kmax=Math.min(4,h);return compose(h,pick(kmin,kmax,R),1,4,R).map(x=>x*2);}
-  for(let i=0;i<80;i++){
-    const o=[1,3,5,7,9][Math.floor(R()*5)],r=T-o;if(r<2)continue;
-    const h=r/2,kmin=Math.max(1,Math.ceil(h/4)),kmax=Math.min(3,h);if(kmin>kmax)continue;
-    return [o,...compose(h,pick(kmin,kmax,R),1,4,R).map(x=>x*2)];
-  }
-  return [T];
-}
 function shuffle(a,R){for(let i=a.length-1;i>0;i--){const j=Math.floor(R()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+/* 主台面：gx 0..12，gy 1..9；同一层的格子间隔 2，奇偶层错开半格 */
 function layoutPositions(N,L,R){
-  const w=[];for(let l=0;l<L;l++)w.push(1.5-l/L*.8);
+  const w=[];for(let l=0;l<L;l++)w.push(1.25-l/L*.5);
   const sw=w.reduce((a,b)=>a+b);
   const counts=w.map(x=>Math.max(1,Math.round(N*x/sw)));
   let diff=N-counts.reduce((a,b)=>a+b),i=0;
@@ -229,59 +230,84 @@ function layoutPositions(N,L,R){
   const pos=[];
   for(let l=0;l<L;l++){
     const c=counts[l],ox=l%2,oy=(l>>1)%2;
-    let cols=ox?(c>8?6:c>3?4:2):(c>12?7:c>5?5:3);
-    let rows=Math.ceil(c/cols)+(R()<.5?1:0);
-    const maxRows=oy?6:7;
-    if(rows%2!==(oy?0:1))rows++;
-    while(rows>maxRows)rows-=2;
-    while(cols*rows<c){ if(cols<(ox?6:7))cols+=2; else rows=Math.min(maxRows,rows+2); }
+    const maxC=ox?6:7,maxR=oy?4:5;
+    let cols=Math.min(maxC,Math.max(ox?2:3,(ox?2:1)+2*Math.round((Math.sqrt(c*1.6)-(ox?2:1))/2)));
+    let rows=oy?2:3;
+    while(cols*rows<c){if(rows<maxR)rows+=2;else if(cols<maxC)cols+=2;else break}
     const cells=[];
-    for(let a=0;a<cols;a++)for(let b=0;b<rows;b++)cells.push({gx:6-(cols-1)+2*a,gy:6-(rows-1)+2*b,layer:l});
+    for(let a=0;a<cols;a++)for(let b=0;b<rows;b++)cells.push({gx:6-(cols-1)+2*a,gy:5-(rows-1)+2*b,layer:l});
     const pairs=[],singles=[];
     for(const ce of cells){
       if(ce.gx===6){singles.push([ce]);continue}
       if(ce.gx<6)pairs.push([ce,cells.find(o=>o.gx===12-ce.gx&&o.gy===ce.gy)]);
     }
     shuffle(pairs,R);shuffle(singles,R);
-    let need=c;const chosen=[];
+    let need=Math.min(c,cells.length);const chosen=[];
     for(const p of pairs){if(need>=2){chosen.push(...p);need-=2}}
     for(const s of singles){if(need>=1){chosen.push(...s);need--}}
-    if(need>0){for(const p of pairs){if(need>0&&!chosen.includes(p[0])){chosen.push(p[0]);need--}}}
-    pos.push(...chosen);
+    for(const p of pairs){if(need>0&&!chosen.includes(p[0])){chosen.push(p[0]);need--}}
+    pos.push(...chosen.map(p=>({...p,src:'b'})));
   }
   return pos;
 }
-function genLevel(lv){
-  const cfg=cfgFor(lv),R=mulberry32(1000+lv*7919);
-  const targets=[];for(let i=0;i<cfg.n;i++)targets.push(pick(cfg.tmin,cfg.tmax,R));
-  if(cfg.parity&&targets.slice(0,3).every(t=>t%2)){const j=targets.findIndex((t,k)=>k>2&&t%2===0);if(j>0)[targets[1],targets[j]]=[targets[j],targets[1]]}
-  let items=[];targets.forEach(T=>items.push(...splitTarget(T,cfg.parity,R)));
-  const pos=layoutPositions(items.length,cfg.L,R);
-  const assigned=[];
-  if(cfg.parity){
-    const odd=items.filter(w=>w%2),even=items.filter(w=>w%2===0);
-    const low=shuffle(pos.filter(p=>p.layer<cfg.L/2),R),rest=new Set(pos);
-    for(const w of odd){
-      let p=null;
-      if(R()<cfg.deep&&low.length){p=low.pop()}
-      else{const arr=[...rest];p=arr[Math.floor(R()*arr.length)];const k=low.indexOf(p);if(k>=0)low.splice(k,1)}
-      rest.delete(p);assigned.push({...p,w});
+/* 估算每个位置被翻出来的先后：上层越高越早，抽屉越靠上越早 */
+function depthOf(p,L,dr){
+  if(p.src==='b')return 1-p.layer/Math.max(1,L-1);
+  return 1.08-(p.k+.5)/dr[p.d];
+}
+function genLevel(lv,over){
+  const cfg=Object.assign(cfgFor(lv),over||{}),R=mulberry32(cfg.seed||4242+lv*7919);
+  const targets=[],groups=[];
+  for(let i=0;i<cfg.n;i++){
+    for(let tries=0;tries<60;tries++){
+      const k=R()<cfg.k3?3:2,g=[];
+      for(let j=0;j<k;j++)g.push(pick(cfg.wmin,cfg.wmax,R));
+      const T=g.reduce((a,b)=>a+b);
+      if(T>cfg.tmax||T<7)continue;
+      targets.push(T);groups.push(g);break;
     }
-    const left=shuffle([...rest],R);even.forEach((w,i)=>assigned.push({...left[i],w}));
-  }else{
-    shuffle(items,R);items.forEach((w,i)=>assigned.push({...pos[i],w}));
   }
-  return {targets,tiles:assigned,cap:cfg.cap};
+  const items=[];
+  groups.forEach((g,i)=>{const key=Math.floor(R()*g.length);g.forEach((w,j)=>items.push({w,ti:i,key:j===key}))});
+  for(let i=0;i<cfg.decoy;i++){
+    /* 干扰包：偏大的重量，单独放不进当前大多数方子 */
+    items.push({w:pick(Math.max(cfg.wmin,cfg.wmax-6),cfg.wmax,R),ti:-1,key:false,decoy:true});
+  }
+  const nD=cfg.dr[0]+cfg.dr[1];
+  const pos=layoutPositions(items.length-nD,cfg.L,R);
+  for(let d=0;d<2;d++)for(let k=0;k<cfg.dr[d];k++)pos.push({src:'d',d,k});
+  pos.forEach(p=>p.depth=depthOf(p,cfg.L,cfg.dr)+R()*.06);
+  const order=pos.slice().sort((a,b)=>b.depth-a.depth); /* 浅 -> 深 */
+  const used=new Set(),N=order.length;
+  const take=(idx)=>{idx=Math.max(0,Math.min(N-1,idx));for(let r=0;r<N;r++){for(const s of [1,-1]){const j=idx+s*r;if(j>=0&&j<N&&!used.has(j)){used.add(j);return order[j]}}}};
+  const out=[];
+  const keys=items.filter(x=>x.key),decs=items.filter(x=>x.decoy),rest=shuffle(items.filter(x=>!x.key&&!x.decoy),R);
+  for(const it of keys){const f=it.ti/cfg.n+cfg.cruel+R()*.12;out.push({...it,...take(Math.round(f*N))})}
+  for(const it of decs){out.push({...it,...take(Math.floor(R()*N*.3))})}
+  const free=[];for(let j=0;j<N;j++)if(!used.has(j))free.push(order[j]);
+  shuffle(free,R);rest.forEach((it,i)=>out.push({...it,...free[i]}));
+  for(const t of out){t.blind=lv>1&&t.depth<.97&&R()<cfg.blind;delete t.depth}
+  return {targets,tiles:out,cap:cfg.cap,dr:cfg.dr};
+}
+function coverOf(tiles){
+  /* tiles: 带 loc 字段；loc==='board' 才参与遮挡 */
+  const b=tiles.filter(t=>t.loc==='board');
+  const top=[-1,-1];
+  for(const t of b)if(t.src==='d'&&t.k>top[t.d])top[t.d]=t.k;
+  for(const t of b){
+    if(t.src==='d')t.cov=t.k!==top[t.d];
+    else t.cov=b.some(o=>o.src==='b'&&o.layer>t.layer&&Math.abs(o.gx-t.gx)<2&&Math.abs(o.gy-t.gy)<2);
+  }
 }
 /*GEN-END*/
 
-const W=390,H=760,HALF=23,BX=34,BY=252,PIV=114,ARM=40,HANG=44,SC_X=[65,195,325];
+const W=390,H=760,HALF=23,BX=34,BY=229,DY=506,PIV=114,ARM=40,HANG=44,SC_X=[65,195,325];
 const HERBS=[["当归","#9b3b2e"],["甘草","#a8781f"],["黄芪","#8f6d17"],["枸杞","#b8402e"],["陈皮","#b5601a"],["红枣","#86282a"],["茯苓","#6e604e"],["川芎","#56653a"],["白芍","#7c6283"],["党参","#68472c"],["桂枝","#743c21"],["薄荷","#36745a"],["山楂","#a8342e"],["菊花","#9c8418"],["百合","#6c7a5c"],["莲子","#4f7366"]];
 const $=s=>document.querySelector(s);
 const stage=$('#stage'),layer=$('#layer'),fx=$('#fx');
 
 /* 存档 */
-const SKEY='yikezhicha.v1';
+const SKEY='yikezhicha.v2';
 let save={level:1,attempts:{},best:{},sound:true,intro:false};
 try{const s=JSON.parse(localStorage.getItem(SKEY));if(s)save=Object.assign(save,s)}catch(e){}
 function persist(){try{localStorage.setItem(SKEY,JSON.stringify(save))}catch(e){}}
@@ -313,18 +339,15 @@ let G=null;
 function startLevel(lv){
   save.level=lv;save.attempts[lv]=(save.attempts[lv]||0)+1;persist();
   const L=genLevel(lv);
-  const tiles=L.tiles.map((t,i)=>({id:i,w:t.w,gx:t.gx,gy:t.gy,layer:t.layer,loc:'board',scale:-1,cov:false,herb:HERBS[(i*7+t.w*3)%HERBS.length]}));
+  const tiles=L.tiles.map((t,i)=>({id:i,w:t.w,src:t.src,gx:t.gx,gy:t.gy,layer:t.layer,d:t.d,k:t.k,blind:!!t.blind,seen:!t.blind,decoy:!!t.decoy,loc:'board',scale:-1,cov:false,herb:HERBS[(i*7+t.w*3)%HERBS.length]}));
   const queue=L.targets.slice();
   const scales=[0,1,2].map(()=>{const T=queue.shift();return {T:T??0,items:[],retired:T===undefined,pr:{x:0,y:0}}});
-  G={lv,tiles,scales,queue,hold:[],cap:L.cap,sel:0,props:{undo:1,peek:1,swap:1},revive:1,last:null,busy:false,total:L.targets.length,done:0,prevBest:save.best[lv]||0,over:false,peekUntil:0};
+  G={lv,tiles,scales,queue,dr:L.dr,maxL:Math.max(0,...tiles.filter(t=>t.src==='b').map(t=>t.layer)),hold:[],cap:L.cap,sel:0,props:{undo:1,peek:1,swap:1},revive:1,last:null,busy:false,total:L.targets.length,done:0,prevBest:save.best[lv]||0,over:false,peekUntil:0};
   buildScales();buildTiles();updateCovers();render();hideModal();
 }
 function sumOf(sc){return sc.items.reduce((a,id)=>a+G.tiles[id].w,0)}
 function angOf(sc){if(sc.retired)return 0;const d=sumOf(sc)-sc.T;if(d===0)return 0;const m=Math.min(13,2.6+(Math.abs(d)-1)*1.6);return d>0?m:-m}
-function updateCovers(){
-  const b=G.tiles.filter(t=>t.loc==='board');
-  for(const t of b)t.cov=b.some(o=>o.layer>t.layer&&Math.abs(o.gx-t.gx)<2&&Math.abs(o.gy-t.gy)<2);
-}
+function updateCovers(){coverOf(G.tiles)}
 
 /* 构建 DOM */
 function buildScales(){
@@ -345,8 +368,18 @@ function buildScales(){
     sc.el=el;sc.lastT=null;
   });
 }
+function drawerX(d,k){return d===0?34+k*7:310-k*7}
 function buildTiles(){
   layer.innerHTML='';
+  document.querySelectorAll('.drawer,.drlbl').forEach(e=>e.remove());
+  G.drl=[];
+  G.dr.forEach((n,d)=>{if(!n)return;
+    const x0=Math.min(drawerX(d,0),drawerX(d,n-1))-6,x1=Math.max(drawerX(d,0),drawerX(d,n-1))+52;
+    const bg=document.createElement('div');bg.className='drawer';bg.style.left=x0+'px';bg.style.width=(x1-x0)+'px';stage.appendChild(bg);
+    const lb=document.createElement('span');lb.className='drlbl';
+    if(d===0)lb.style.left=(x0+4)+'px';else lb.style.right=(W-x1+4)+'px';
+    stage.appendChild(lb);G.drl[d]=lb;
+  });
   for(const t of G.tiles){
     const e=document.createElement('button');e.type='button';e.className='tile';
     e.style.setProperty('--hb',t.herb[1]);
@@ -377,8 +410,8 @@ function render(){
     const sum=sumOf(sc),d=sc.T-sum;
     el.lbl.className='slbl';
     if(sc.retired)el.lbl.textContent='这方抓齐了';
-    else if(sum===0)el.lbl.textContent=`要称 ${sc.T}g`;
-    else if(d>0){el.lbl.textContent=`还差 ${d}g`;if(d<=2)el.lbl.classList.add('near')}
+    else if(sum===0)el.lbl.innerHTML=`要称 ${sc.T}g<small>最多放 ${PAN_MAX} 包</small>`;
+    else if(d>0){const left=PAN_MAX-sc.items.length;el.lbl.innerHTML=`还差 ${d}g<small${left===1?' class="last"':''}>${left===1?'只剩 1 包的位置':`还能放 ${left} 包`}</small>`;if(d<=2)el.lbl.classList.add('near')}
     else if(d===0){el.lbl.textContent='平了！';el.lbl.classList.add('even')}
     else {el.lbl.textContent=`超了 ${-d}g`;el.lbl.classList.add('near')}
   });
@@ -395,16 +428,23 @@ function render(){
   // 药包
   for(const t of G.tiles){
     const e=t.el;if(!e)continue;let x,y,s=1,z;
-    if(t.loc==='board'){x=BX+t.gx*HALF;y=BY+t.gy*HALF;z=10+t.layer}
+    if(t.loc==='board'&&t.src==='d'){x=drawerX(t.d,t.k);y=DY;z=40+t.k}
+    else if(t.loc==='board'){x=BX+t.gx*HALF;y=BY+t.gy*HALF+(G.maxL/2-t.layer)*2.5;z=10+t.layer}
     else if(t.loc==='pan'){const sc=G.scales[t.scale],j=sc.items.indexOf(t.id);x=sc.pr.x-21+(j%2)*22;y=sc.pr.y-21-(j>>1)*17;s=20/46;z=100+j}
     else if(t.loc==='hold'){const k=G.hold.indexOf(t.id);x=x0+k*step+3;y=594+(56-sz)/2;s=sz/46;z=60}
     else continue;
     e.style.transform=`translate(${x}px,${y}px) scale(${s})`;e.style.zIndex=z;
     const covered=t.loc==='board'&&t.cov;
     e.classList.toggle('cov',covered);e.classList.toggle('peek',covered&&peek);e.classList.toggle('inpan',t.loc==='pan');
-    e.querySelector('.w').innerHTML=(!covered||peek)?`${t.w}<small>g</small>`:'?';
-    e.setAttribute('aria-label',covered&&!peek?`${t.herb[0]}，被压住了`:`${t.herb[0]} ${t.w} 克`);
+    const hidden=!t.seen&&!peek;
+    e.classList.toggle('blind',hidden&&!covered);
+    e.querySelector('.w').innerHTML=hidden?'?':`${t.w}<small>g</small>`;
+    let tg=e.querySelector('.tag');
+    if(hidden){if(!tg){tg=document.createElement('span');tg.className='tag';e.appendChild(tg)}tg.textContent=t.w<=LIGHT_MAX?'轻':'重'}
+    else if(tg)tg.remove();
+    e.setAttribute('aria-label',covered&&!peek?'被压住的药包':hidden?`${t.herb[0]}，盲包，偏${t.w<=LIGHT_MAX?'轻':'重'}`:`${t.herb[0]} ${t.w} 克`);
   }
+  (G.drl||[]).forEach((lb,d)=>{if(!lb)return;const n=G.tiles.filter(t=>t.loc==='board'&&t.src==='d'&&t.d===d).length;lb.innerHTML=`${d?'右':'左'}抽屉 · 剩 <b>${n}</b> 包`});
   // 顶栏
   $('#lvChip').textContent=`第 ${G.lv} 关`;
   $('#sAtt').innerHTML=`第 <b>${save.attempts[G.lv]||1}</b> 次挑战`;
@@ -414,7 +454,7 @@ function render(){
   $('#bSound').innerHTML=save.sound?ICON_ON:ICON_OFF;
   // 道具
   setProp('#pUndo',G.props.undo,!!G.last&&lastValid());
-  setProp('#pPeek',G.props.peek,G.tiles.some(t=>t.loc==='board'&&t.cov));
+  setProp('#pPeek',G.props.peek,G.tiles.some(t=>t.loc==='board'&&(t.cov||!t.seen)));
   setProp('#pSwap',G.props.swap,G.queue.length>0&&!G.scales[G.sel].retired);
 }
 function setProp(sel,n,ok){const b=$(sel);b.querySelector('em').textContent=n;b.querySelector('em').hidden=n<=0;b.disabled=n<=0||!ok||G.busy||G.over}
@@ -430,14 +470,15 @@ function onTile(t){
   const sc=G.scales[si];
   const from=t.loc;
   if(from==='hold')G.hold.splice(G.hold.indexOf(t.id),1);
-  t.loc='pan';t.scale=si;sc.items.push(t.id);
+  t.loc='pan';t.scale=si;t.seen=true;sc.items.push(t.id);
   G.last={id:t.id,si,from};
   sfx.tap();buzz(8);updateCovers();render();resolve(si);
 }
 function resolve(si){
   const sc=G.scales[si],s=sumOf(sc);
   if(s===sc.T)balance(si);
-  else if(s>sc.T)overflow(si,s-sc.T);
+  else if(s>sc.T)overflow(si,`超了 ${s-sc.T}g，翻盘了！`,`+${s-sc.T}g`);
+  else if(sc.items.length>=PAN_MAX)overflow(si,`${PAN_MAX} 包放满还差 ${sc.T-s}g，翻盘了！`,`差${sc.T-s}g`);
   else{if(sc.T-s<=2)sfx.near();checkStuck()}
 }
 function balance(si){
@@ -454,9 +495,9 @@ function balance(si){
     if(G.scales.every(s=>s.retired))win();else checkStuck();
   },430);
 }
-function overflow(si,over){
+function overflow(si,msg,ft){
   const sc=G.scales[si];G.busy=true;render();
-  sfx.thud();buzz(60);toast(`超了 ${over}g，翻盘了！`);floatText(SC_X[si]+30,120,`+${over}g`,true);
+  sfx.thud();buzz(60);toast(msg);floatText(SC_X[si]+30,120,ft,true);
   setTimeout(()=>{
     for(const id of sc.items){const t=G.tiles[id];t.loc='hold';t.scale=-1;G.hold.push(id)}
     sc.items=[];G.last=null;G.busy=false;render();
@@ -486,10 +527,9 @@ function checkStuck(){
   if(G.over||G.busy)return;
   if(G.tiles.some(t=>t.loc==='board'))return;
   const act=G.scales.filter(s=>!s.retired);if(!act.length)return;
-  const ws=G.tiles.filter(t=>t.loc==='hold'||t.loc==='pan').map(t=>t.w);
-  const M=Math.max(...act.map(s=>s.T)),can=new Uint8Array(M+1);can[0]=1;
-  for(const w of ws)for(let v=M;v>=w;v--)if(can[v-w])can[v]=1;
-  if(!act.some(s=>can[s.T])&&!(G.props.swap>0&&G.queue.length))lose('stuck');
+  const ws=G.tiles.filter(t=>t.loc==='hold'||t.loc==='pan').map(t=>t.w),n=ws.length;
+  const ok=T=>{for(let a=0;a<n;a++){if(ws[a]===T)return true;for(let b=a+1;b<n;b++){if(ws[a]+ws[b]===T)return true;for(let c=b+1;c<n;c++)if(ws[a]+ws[b]+ws[c]===T)return true}}return false};
+  if(!act.some(s=>ok(s.T))&&!(G.props.swap>0&&G.queue.length))lose('stuck');
 }
 
 /* 结算 */
@@ -500,25 +540,25 @@ function nearMiss(){
 }
 function lose(kind){
   G.over=true;render();sfx.lose();buzz([30,60,30]);
-  const nm=nearMiss(),best=save.best[G.lv]||0,left=G.tiles.filter(t=>t.loc!=='gone').length;
+  const nm=nearMiss(),best=save.best[G.lv]||0,left=G.total-G.done;
   let line;
   if(nm&&nm.d<=3)line=`第 ${nm.i+1} 台秤只差 <em>${nm.d}g</em> 就平了`;
-  else line=`还剩 <em>${left}</em> 包药没称`;
+  else line=`还有 <em>${left}</em> 张方子没称`;
   let cmp='';
   if(G.done>G.prevBest&&G.prevBest>0)cmp=`新纪录，比上次多称了 ${G.done-G.prevBest} 方`;
   else if(G.done===G.prevBest&&G.done>0)cmp='追平了你的最好成绩';
   else if(G.done<best)cmp=`离你的最好成绩只差 ${best-G.done} 方`;
-  const canRevive=kind==='overflow'&&G.revive>0&&G.hold.length<=8;
+  const canRevive=kind==='overflow'&&G.revive>0&&G.hold.length<=G.cap+3;
   showModal(`
     <h2>${kind==='overflow'?'暂存台堆满了':'这几包凑不齐了'}</h2>
     <p class="big">${line}</p>
     <p class="sub">${cmp||'差一点点'}</p>
     <div class="stat"><div><b>${G.done}/${G.total}</b>已称方子</div><div><b>${save.attempts[G.lv]}</b>挑战次数</div></div>
     <div class="btns">
-      ${canRevive?'<button class="btn pri" id="mRevive" type="button">暂存台加 3 格，接着称</button>':''}
+      ${canRevive?'<button class="btn pri" id="mRevive" type="button">暂存台加 2 格，接着称</button>':''}
       <button class="btn ${canRevive?'sec':'pri'}" id="mRetry" type="button">再来一次</button>
     </div>`);
-  if(canRevive)$('#mRevive').onclick=()=>{G.revive--;G.cap=Math.max(G.cap+3,G.hold.length+1);G.over=false;hideModal();render();checkStuck()};
+  if(canRevive)$('#mRevive').onclick=()=>{G.revive--;G.cap=Math.max(G.cap+2,G.hold.length+1);G.over=false;hideModal();render();checkStuck()};
   $('#mRetry').onclick=()=>startLevel(G.lv);
 }
 function win(){
@@ -526,7 +566,7 @@ function win(){
   for(let k=0;k<5;k++)setTimeout(()=>burst(60+Math.random()*270,150+Math.random()*350,22),k*160);
   const lv=G.lv,att=save.attempts[lv];
   save.best[lv]=G.total;save.level=lv+1;persist();
-  const msg=lv===1?'热身结束。下一关才是真正的药方，压在最底下的那几包最要命。':lv===2?`第 ${att} 次挑战拿下了第二关。`:`第 ${att} 次挑战通关。`;
+  const msg=lv===1?'热身结束。下一关有盲包、抽屉和凑不上的干扰包，关键那一包总在最底下。':lv===2?`第 ${att} 次挑战拿下了第二关。`:`第 ${att} 次挑战通关。`;
   showModal(`
     <div class="stamp">齐</div>
     <h2>抓齐了</h2>
@@ -542,9 +582,9 @@ function intro(){
     <ol>
       <li>点亮着的药包，它会放上<b>选中的那台秤</b>。点秤可以换。</li>
       <li>右盘总重正好等于左边砝码，秤就平了，药包收走，换下一张方子。</li>
-      <li>超重会<b>翻盘</b>，整盘药包掉进暂存台。暂存台放不下就输。</li>
+      <li>每台秤<b>最多放 3 包</b>。超重，或者 3 包放满还没平，都会<b>翻盘</b>，整盘药包掉进暂存台。暂存台放不下就输。</li>
     </ol>
-    <p class="note">压在下面的药包看不到重量。秤盘上的药包放上去就拿不回来，除非用撤回。</p>
+    <p class="note">压住的药包什么都看不见，抽屉只看得到最上面一包。标着“轻”“重”的是盲包，放上秤才知道几克。</p>
     <div class="btns"><button class="btn pri" id="mGo" type="button">开始抓药</button></div>`);
   $('#mGo').onclick=()=>{save.intro=true;persist();ac();hideModal()};
 }

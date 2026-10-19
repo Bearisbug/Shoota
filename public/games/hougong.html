@@ -68,7 +68,7 @@ h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.2;text-wrap:
 
 /* 主局 */
 .game{display:grid;grid-template-columns:290px minmax(0,1fr);gap:24px;align-items:start}
-.dossier{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+.dossier{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);max-height:calc(100vh - 24px);overflow:auto}
 .dossier .portrait{border-bottom:1px solid var(--line)}
 .idblock{padding:12px 16px 4px}
 .idblock h3{font-size:1.65rem}
@@ -163,12 +163,24 @@ h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.2;text-wrap:
 footer{font-size:.76rem;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:12px}
 footer p{margin:0;max-width:56em}
 
+
+.echo{display:grid;gap:4px;margin:0 0 1em;max-width:42em}
+.echo p{margin:0;font-size:.82rem;color:var(--muted);display:flex;gap:10px;align-items:baseline}
+.echo b{flex:none;font-weight:400;font-family:var(--f-display);font-size:1rem;color:var(--seal)}
+.court{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 12px;font-size:.8rem;margin:0}
+.court dt{color:var(--muted)}
+.court dd{margin:0;text-align:right}
+.arcs{list-style:none;margin:0;padding:0;display:grid;gap:3px;font-size:.8rem}
+.arcs li{display:flex;justify-content:space-between;gap:8px}
+.arcs li span:last-child{color:var(--muted);font-variant-numeric:tabular-nums}
+.news{font-size:.86rem;background:var(--sunk);padding:8px 12px;margin:.4em 0 1em}
+.news b{font-family:var(--f-display);font-weight:400;color:var(--gold);margin-right:8px}
 @keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 @keyframes stamp{from{transform:rotate(-8deg) scale(1.9);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:.9}}
 
 @media (max-width:820px){
   .game{grid-template-columns:1fr}
-  .dossier{position:static;display:grid;grid-template-columns:120px minmax(0,1fr)}
+  .dossier{position:static;display:grid;grid-template-columns:120px minmax(0,1fr);max-height:none}
   .dossier .portrait{border-bottom:none;border-right:1px solid var(--line);grid-row:span 1}
   .dossier .idblock{align-self:center}
   .dossier .sect{grid-column:1/-1}
@@ -196,7 +208,7 @@ footer p{margin:0;max-width:56em}
     <nav><button id="navHome" type="button" hidden>卷首</button><button id="navBook" type="button">生死簿</button></nav>
   </header>
   <main id="app"></main>
-  <footer><p>以电视剧《后宫·甄嬛传》为背景的原创养成游戏。人物与情节依剧中设定，与正史有出入处以剧为准；位分、年例银、服色、选秀、建储等典制兼采《国朝宫史》等史实。你所扮演的秀女与启祥宫诸人为原创角色。</p></footer>
+  <footer><p>以电视剧《后宫·甄嬛传》为背景的原创养成游戏。人物与情节依剧中设定，与正史有出入处以剧为准；位分、年例银、服色、选秀、建储等典制兼采《国朝宫史》等史实。你所扮演的秀女、方氏、云苓等启祥宫诸人为原创角色。</p></footer>
 </div>
 
 <script>
@@ -208,7 +220,7 @@ const ROBE=['#93B5C3','#C9A2B6','#88AA95','#C6A266','#D8A42A','#D8A42A','#EEC21C
 const ROBE_NAME=['湖色','藕荷','松绿','香色','金黄','金黄','明黄'];
 const HAO=['宁','婉','恪','瑜','静','淑'];
 const SEASONS=['春','夏','秋','冬'];
-const MK='甲乙丙丁';
+const MK='甲乙丙丁戊己';
 const FINAL_T=50;
 const CN='〇一二三四五六七八九';
 function cnNum(n){n=Math.round(n);if(n<0)return'负'+cnNum(-n);if(n<10)return CN[n];if(n===10)return'十';if(n<20)return'十'+(n%10?CN[n%10]:'');if(n<100){const t=Math.floor(n/10),u=n%10;return CN[t]+'十'+(u?CN[u]:'');}return String(n);}
@@ -223,9 +235,9 @@ function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 
 const ORIGINS={
-  man:{name:'满洲大姓',sub:'镶黄旗',desc:'上三旗世家，初封贵人。家底厚，太后另眼相看，但骄矜易招中宫不快。',rank:2,st:{silver:160,pres:25,charm:40,wit:30},rel:{th:10,hh:-5}},
-  han:{name:'汉军旗官宦',sub:'正白旗汉军',desc:'父亲在朝为官，初封常在。才学出众，各项平稳。',rank:1,st:{silver:80,pres:12,charm:50,wit:42},rel:{}},
-  low:{name:'下五旗小吏之女',sub:'正蓝旗',desc:'父亲只是七品小吏，初封答应。家无余财，却生得好、心思细。',rank:0,st:{silver:30,pres:4,charm:56,wit:50},rel:{}}
+  man:{name:'满洲大姓',sub:'镶黄旗',desc:'上三旗世家，初封贵人。家底厚，太后另眼相看，但骄矜易招中宫不快。',rank:2,st:{silver:160,pres:25,charm:40,wit:30},rel:{th:10,hh:-5},home:40},
+  han:{name:'汉军旗官宦',sub:'正白旗汉军',desc:'父亲在朝为官，初封常在。才学出众，各项平稳。',rank:1,st:{silver:80,pres:12,charm:50,wit:42},rel:{},home:25},
+  low:{name:'下五旗小吏之女',sub:'正蓝旗',desc:'父亲只是七品小吏，初封答应。家无余财，却生得好、心思细。',rank:0,st:{silver:30,pres:4,charm:56,wit:50},rel:{},home:10}
 };
 const TRAITS={
   cai:{name:'才情',desc:'才貌 +15',d:{charm:15}},
@@ -234,44 +246,60 @@ const TRAITS={
   wan:{name:'温婉',desc:'皇后、太后 +10，宫人 +15',d:{hh:10,th:10,loyal:15}},
   yan:{name:'明艳',desc:'圣宠 +10、才貌 +8，华妃 −15',d:{fav:10,charm:8,hf:-15}}
 };
-const KEYS={fav:'圣宠',pres:'威望',wit:'心计',charm:'才貌',hp:'康健',sus:'君疑',loyal:'宫人',silver:'银两',hh:'皇后',hf:'华妃',th:'太后'};
-const STATK=['fav','pres','wit','charm','hp','sus','loyal'];
+const KEYS={fav:'圣宠',pres:'威望',wit:'心计',charm:'才貌',hp:'康健',sus:'君疑',loyal:'宫人',silver:'银两',hh:'皇后',hf:'华妃',th:'太后',fang:'方氏'};
 const RELK=['hh','hf','th'];
 
-let S=null, seen=load('hgssb2_seen',[]); if(!Array.isArray(seen))seen=[];
+let S=null, seen=load('hgssb3_seen',[]); if(!Array.isArray(seen))seen=[];
 const F=f=>!!S.flags[f];
 const hfActive=s=>!s.flags.hfGone&&s.t<11;
 const thAlive=s=>!s.flags.thDead;
+const ylAlive=s=>['trusted','watched','sworn','torn','coerced','stay'].includes(s.arc.yl);
+const live=s=>s.kids.filter(k=>!k.dead);
+const sonOf=s=>s.kids.find(k=>!k.dead&&k.sex==='子');
 function title(s=S){if(!s.flags.in)return'秀女'+s.name+'氏';return s.rank>=3?s.hao+RANKS[s.rank]:s.name+RANKS[s.rank];}
 function palace(s=S){return s.rank>=3?'启祥宫主位':'启祥宫偏殿';}
 function age(s=S){return 15+s.y;}
 function dateStr(s=S){return yearCN('雍正',s.y)+SEASONS[s.q];}
-function fill(t){return String(t).replaceAll('{X}',esc(S.name)).replaceAll('{T}',esc(title())).replaceAll('{P}',palace());}
+function fangTitle(s=S){return'方'+['答应','常在','贵人','嫔'][s.arc.fang.rank];}
+function fill(t){return String(t).replaceAll('{X}',esc(S.name)).replaceAll('{T}',esc(title())).replaceAll('{P}',palace()).replaceAll('{F}',fangTitle());}
 function paras(t){return fill(t).split('\n').map(p=>`<p>${p}</p>`).join('');}
 const tx=t=>typeof t==='function'?t(S):t;
 
 function newState(name,origin,trait){
   const o=ORIGINS[origin];
-  const s={v:2,name,origin,trait,y:1,q:0,t:0,rank:o.rank,hao:'',flags:{},
-    st:{fav:10,pres:0,wit:0,charm:0,hp:80,sus:0,loyal:45,silver:0},rel:{hh:0,hf:0,th:0},
+  const s={v:3,name,origin,trait,y:1,q:0,t:0,rank:o.rank,hao:'',flags:{},
+    st:{fav:8,pres:0,wit:0,charm:0,hp:75,sus:0,loyal:42,silver:0},rel:{hh:0,hf:0,th:0},
+    arc:{fang:{rel:0,side:null,rank:0,repaid:false,voice:false},yl:'new',hf:null,hh:null,fam:'ok',prince:null,qi:null},
     ap:3,nights:0,cold:0,lastPromo:-9,kids:[],preg:null,ban:0,bribe:false,intel:false,
-    queue:[],cd:{},done:{},pending:null,report:null,last:null,log:[]};
+    queue:[],forced:[],at:{},cd:{},done:{},memo:{},pending:null,report:null,last:null,log:[]};
   Object.assign(s.st,{silver:o.st.silver,pres:o.st.pres,charm:o.st.charm,wit:o.st.wit});
   for(const k in o.rel)s.rel[k]+=o.rel[k];
   const d=TRAITS[trait].d;
   for(const k in d){if(k in s.st)s.st[k]+=d[k];else s.rel[k]+=d[k];}
   return s;
 }
-/* 改数值，返回变化清单 */
+const HARD={fav:.8,pres:.85,sus:1.3,hpLoss:1.2,relUp:.85,relDown:1.15,chance:.8,intel:.1};
+function harden(k,v){
+  const isRel=RELK.includes(k)||k==='fang';
+  if(k==='fav'&&v>0)return Math.max(1,Math.round(v*HARD.fav));
+  if(k==='pres'&&v>0)return Math.max(1,Math.round(v*HARD.pres));
+  if(k==='sus'&&v>0)return Math.round(v*HARD.sus);
+  if(k==='hp'&&v<0)return Math.round(v*HARD.hpLoss);
+  if(isRel&&v>0)return Math.max(1,Math.round(v*HARD.relUp));
+  if(isRel&&v<0)return Math.round(v*HARD.relDown);
+  return v;
+}
 function apply(d){
   const out=[];if(!d)return out;
   for(const k in d){
-    let v=d[k];if(!v)continue;
+    let v=d[k];if(!v)continue;v=harden(k,v);
     if(k==='hf'&&!hfActive(S))continue;
     if(k==='th'&&!thAlive(S))continue;
+    if(k==='hh'&&S.flags.hhDown)continue;
+    if(k==='fang'){const f=S.arc.fang,o=f.rel;f.rel=clamp(o+v,-100,100);v=f.rel-o;if(v)out.push([k,v]);continue;}
     if(RELK.includes(k)){const o=S.rel[k];S.rel[k]=clamp(o+v,-100,100);v=S.rel[k]-o;}
     else if(k==='silver'){const o=S.st.silver;S.st.silver=Math.max(0,o+v);v=S.st.silver-o;}
-    else{const o=S.st[k];S.st[k]=clamp(o+v,0,100);v=S.st[k]-o;}
+    else{const o=S.st[k];const cap=(k==='loyal'&&S.arc.yl==='swapped')?50:100;S.st[k]=clamp(o+v,0,cap);v=S.st[k]-o;}
     if(v)out.push([k,v]);
   }
   return out;
@@ -279,10 +307,11 @@ function apply(d){
 function chipsHTML(list){
   if(!list||!list.length)return'';
   const m={};list.forEach(([k,v])=>{m[k]=(m[k]||0)+v;});
-  return`<div class="chips">${Object.entries(m).filter(([,v])=>v).map(([k,v])=>{const good=k==='sus'?v<0:v>0;return`<span class="chip ${good?'up':'down'}">${KEYS[k]} ${v>0?'+':'−'}${Math.abs(v)}${k==='silver'?'两':''}</span>`;}).join('')}</div>`;
+  const items=Object.entries(m).filter(([,v])=>v);if(!items.length)return'';
+  return`<div class="chips">${items.map(([k,v])=>{const good=k==='sus'?v<0:v>0;return`<span class="chip ${good?'up':'down'}">${KEYS[k]} ${v>0?'+':'−'}${Math.abs(v)}${k==='silver'?'两':''}</span>`;}).join('')}</div>`;
 }
-function log(text){S.log.unshift({d:dateStr(),text});if(S.log.length>80)S.log.length=80;}
-function oddsLabel(p){return'成算'+cnNum(clamp(Math.round(p*10),1,9))+'成';}
+function log(text){S.log.unshift({d:dateStr(),text});if(S.log.length>90)S.log.length=90;}
+function memo(k,t){S.memo[k]={d:dateStr(),t};}
 
 /* ───────── 画像 ───────── */
 function portrait(s,dead){
@@ -341,36 +370,51 @@ note:'新帝最忌朝臣结党、外戚坐大。殿选时自报与权臣的渊�
 d_seat:{name:'一丈红',kind:'death',src:'晨昏定省',
 text:`你坐下不到一盏茶的工夫，殿外通传：华妃娘娘到。\n华妃站在你面前，一句话也没说。颂芝替她开口：「哪里来的新人，敢坐娘娘的位子？」\n你被拖到殿外。一丈红——板子落在下身，要打到血染红一丈长的砖地才停。你没能撑到太医来。`,
 note:'「一丈红」是剧中华妃惩治宫嫔的酷刑。请安座次依位分排定，常在、答应无座可言；凤座旁那张椅子，从来不是给新人的。'},
-d_informer:{name:'递刀人',kind:'death',src:'翊坤宫赏赐',
+d_informer:{name:'递刀人',kind:'death',src:'华妃线',
 text:`皇后握着你的手，温言夸你懂事。\n三日后，华妃在请安时当众问你：「本宫的镯子，景仁宫戴着可还合适？」话是从景仁宫传出去的。\n那年冬天，你被罚在翊坤宫外的雪地里跪了两个时辰，高热七日，再没醒过来。`,
 note:'两强相争，替一方递刀的人最先被舍弃。皇后乐见华妃失德，而失德需要一个受害者。'},
 d_memorial:{name:'窥伺奏章',kind:'death',src:'初次侍寝',
 text:`你只看了一眼。上面写着西北军饷几何，你甚至没看懂。\n可皇帝并没有睡着。「谁教你的？」他问。\n你的父亲在朝为官，你身在后宫，看了不该看的东西。不论你答什么，都只能是「受人指使」。三日后，{P}传出{T}急病暴毙的消息。`,
 note:'窥看奏章是后宫大忌：后妃与前朝一旦有了消息往来，便是结党。帝王多疑，伏案而眠未必是真睡。'},
-d_prince:{name:'瓜田李下',kind:'death',src:'夜笛',
+d_prince:{name:'瓜田李下',kind:'death',src:'果郡王线',
 text:`他说那是江南的曲子，又问你可曾去过江南。你们说了不过一盏茶的话。\n第二天，「{T}夜会果郡王」的流言传遍六宫。没有人在乎你们说了什么。\n果郡王是皇帝的手足，皇帝不会动他。能动的只有你。一个月后，你以「失德」被赐了白绫。`,
 note:'后妃不得私见外男，亲王亦然。名节一旦有了瑕疵，真相便无人追问，代价总由位分最低的一方来偿。'},
-d_musk:{name:'麝香',kind:'death',src:'香囊',
-text:`孩子没能保住。\n太医在你常佩的香囊里验出了麝香——你日日戴着它，从未起过疑心。\n小产后血崩不止，你熬了三天。方答应来哭了一场，哭得比谁都伤心。`,
+d_letter:{name:'诗笺',kind:'death',src:'果郡王线',
+text:`那张诗笺是从你的妆奁最底层搜出来的。字迹清隽，落款只有一个字，可宫里认得那笔字的人不少。\n皇帝没有见你。他只让苏培盛问了一句：还有没有别的。\n果郡王第二日便奉旨出京。你没有等到他回来。`,
+note:'私相授受，在后宫是比巫蛊更说不清的罪。诗笺不烧，便是留给别人的刀。'},
+d_musk:{name:'麝香',kind:'death',src:'子嗣线',
+text:`孩子没能保住。\n太医在你常用的香里验出了麝香——你日日闻着它，从未起过疑心。\n小产后血崩不止，你熬了三天。`,
 note:'近身之物不验便用，是宫中最隐秘的死法。剧中华妃的欢宜香、甄嬛的舒痕胶，都是借麝香伤人于无形。'},
-d_cat:{name:'松子',kind:'death',src:'景仁宫家宴',
+d_cat:{name:'松子',kind:'death',src:'子嗣线',
 text:`宴到一半，皇后怀里的松子忽然尖叫一声，直扑你的面门。\n你向后一躲，椅子翻倒，重重摔在地上。那一夜，血水一盆盆从{P}端出去。孩子没保住，你也没有。\n松子被乱棍打死。皇后为此病了一场，人人都说她心善。`,
 note:'剧中富察贵人便是被松子扑倒而小产，一场安排好的「意外」。中宫召宴不能不去，但「不去」也有体面的法子：太医的脉案。'},
-d_kneel:{name:'罚跪',kind:'death',src:'翊坤宫罚跪',
+d_kneel:{name:'罚跪',kind:'death',src:'罚跪',
 text:`日头毒得很。跪到第二个时辰，你眼前一黑，栽倒在翊坤宫外的石砖上。\n抬回{P}时，你已经气息奄奄。太医来得太迟。\n华妃只说了一句：本宫让她跪，可没让她死。`,
 note:'剧中甄嬛有孕时被华妃罚跪而小产。高位罚跪本是常事，可身子虚弱时硬撑，便是拿命去抵。报信、求援、脉案，都能脱身。'},
-d_defy:{name:'以下犯上',kind:'death',src:'翊坤宫罚跪',
+d_defy:{name:'以下犯上',kind:'death',src:'罚跪',
 text:`「娘娘凭什么罚嫔妾？」\n话一出口，翊坤宫里静得能听见针落地。华妃笑了。\n「以下犯上，」她慢慢地说，「赏她一丈红。」`,
 note:'位分即是天。低位顶撞高位，不论有理无理，罪名都是现成的。'},
-d_poison:{name:'燕窝',kind:'death',src:'晚膳',
+d_poison:{name:'燕窝',kind:'death',src:'下毒',
 text:`你只喝了半盅，喉咙便像烧起来一样。\n太医赶到时，你已经说不出话。查到最后，送膳的小太监投了井，线索断了。`,
 note:'入口之物有异，便一口也不能动。宫中下毒，从来不会让人当场查到源头。'},
-d_poison2:{name:'银针',kind:'death',src:'晚膳',
+d_poison2:{name:'银针',kind:'death',src:'下毒',
 text:`银针探进去，拔出来仍是雪亮的。你放心地喝了。\n半个时辰后，你手脚发麻，心跳得像擂鼓。那里头是乌头，不是砒霜。`,
 note:'银针试毒，验的是古法所炼砒霜中夹杂的硫，银遇硫化物才会变黑。乌头、夹竹桃一类草木之毒，银针毫无反应。'},
 d_wugu:{name:'巫蛊',kind:'death',src:'搜宫',
-text:`你一认罪，便再也说不清了。\n巫蛊是宫中头一等的大罪，从汉武帝时起便是如此。三日后，白绫送到了{P}。\n后来那个小宫女被放出宫去，据说得了一大笔银子。`,
+text:`你一认罪，便再也说不清了。\n巫蛊是宫中头一等的大罪，从汉武帝时起便是如此。三日后，白绫送到了{P}。`,
 note:'被栽赃时认罪，是把刀柄递到别人手里。宫人不忠，最易被人买通栽赃；布偶的针脚、布料、经手之人，处处都是破绽。'},
+d_frame:{name:'谋害皇嗣',kind:'death',src:'抚养之争',
+text:`孩子去翊坤宫的第七夜染了风寒，高热不退。\n华妃比你更急，连夜彻查。那个小宫女挨了一顿板子，就把你供了出来。\n「为了争宠，连亲生骨肉都下得去手。」这是皇帝留给你的最后一句话。`,
+note:'以皇嗣为棋子，无论初衷如何，事发即是死罪。被收买的人，从来守不住秘密。'},
+d_birth:{name:'难产',kind:'death',src:'子嗣线',
+text:`你疼了一天一夜。收生姥姥进进出出，血水一盆接一盆。\n孩子落地时哭得很响。你只来得及看了一眼。`,
+note:'古时生产如过鬼门关。康健不足时临盆，凶险倍增；收生姥姥是谁安排的，同样要紧。'},
+d_voice:{name:'倒嗓',kind:'death',src:'方氏线',
+text:`药是你让人下在{F}的茶里的。她只喝了一口，便觉出不对，当场吐了出来。\n那包药粉的纸，是{P}小厨房的。\n谋害宫嫔，证据确凿。皇帝看都没看你，只说了句「按宫规办」。`,
+note:'对同宫姐妹下手，失手一回就是死罪。何况她身后站着景仁宫，景仁宫正等着你犯错。'},
+d_liuben:{name:'刘畚',kind:'death',src:'华妃线',
+text:`刘畚在慎刑司熬了三天，把什么都招了：是谁让惠贵人用他的方子，是谁在惠贵人跟前说了那几句好话。\n惠贵人复宠后，头一件事就是去寿康宫哭了一场。\n华妃已经倒了，没有人替你说话。`,
+note:'替主子办过的脏事，主子倒了，账就落在你一个人身上。剧中惠贵人假孕案，正是华妃借太医刘畚之手所为。'},
 d_party:{name:'年党',kind:'death',src:'年氏之祸',
 text:`年羹尧获罪的旨意下来不过半月，内务府便到{P}清点。\n「翊坤宫的人」——这几个字跟了你两年，如今成了罪名。有人供出你曾替华妃往养心殿递过话。\n你被褫夺位分，迁往冷宫。那年冬天格外冷，冷宫里没有炭。`,
 note:'依附权势，便要与权势同沉。年羹尧倒台后，凡与翊坤宫过从甚密者，皆受牵连。'},
@@ -383,54 +427,74 @@ note:'剧中甄嬛即因误穿纯元皇后故衣而失宠。皇帝对纯元的�
 d_blood:{name:'心虚',kind:'death',src:'滴血验亲',
 text:`你越哭，皇帝的脸色越冷。在他眼里，清白的人不怕验；不肯验的，就是心虚。\n李太医当夜被下了慎刑司。他受不住刑，招了些什么，谁也不知道。\n孩子被送去了寿康宫。你的白绫，是苏培盛亲自送来的。`,
 note:'被人构陷时，哭闹与拒绝最能坐实罪名。精心设下的局，不能躲，只能当众拆穿。'},
-d_evidence:{name:'构陷中宫',kind:'death',src:'旧事',
-text:`皇帝听完，沉默了很久。\n第二日，太后召皇帝去寿康宫说了半日话。出来时，皇帝只说了一句：「此事不必再提。」\n三日后，那个老宫女投了井。又过半月，你以「构陷中宫」之罪被赐死。皇后亲自来送了你一程。`,
+d_scapegoat:{name:'弃子',kind:'death',src:'皇后线',
+text:`你跪在养心殿里，一遍遍说是皇后让你送的。\n皇后坐在一旁，眼圈红红的：「本宫待她如亲妹妹，她竟要这样攀咬本宫。」\n你拿不出一样东西证明自己的话。补品是以你的名义送去的，签收的宫女也只认得{P}的人。`,
+note:'替人递刀，就要想好刀落下时谁来担。没有留下凭据的人，在中宫面前连喊冤的资格都没有。'},
+d_evidence:{name:'构陷中宫',kind:'death',src:'皇后线',
+text:`皇帝听完，沉默了很久。\n第二日，太后召皇帝去寿康宫说了半日话。出来时，皇帝只说了一句：「此事不必再提。」\n三日后，那个证人投了井。又过半月，你以「构陷中宫」之罪被赐死。皇后亲自来送了你一程。`,
 note:'剧中太后始终护着皇后，临终还叮嘱皇帝不可废后。太后在一日，中宫便动不得一日。时机比证据更要紧。'},
-d_silenced:{name:'投诚',kind:'death',src:'旧事',
-text:`皇后听你说完，亲手扶你起来，说你是个明白人。\n那个老宫女第二天就不见了。\n一个月后，你在御花园散步，假山上的一块石头忽然松了。皇后为你哭了一场，说{T}最是知礼懂事。`,
+d_silenced:{name:'投诚',kind:'death',src:'皇后线',
+text:`皇后听你说完，亲手扶你起来，说你是个明白人。\n那个证人第二天就不见了。\n一个月后，你在御花园散步，假山上的一块石头忽然松了。皇后为你哭了一场，说{T}最是知礼懂事。`,
 note:'向握着秘密的人表忠心，等于告诉她：还有一个人知道。灭口，从来不会只灭一个。'},
 d_jingren:{name:'侍疾',kind:'death',src:'国丧',
 text:`你在景仁宫侍疾的第四日，太医在皇后的药渣里验出了附子。煎药的，是你带去的宫女。\n皇后虚弱地靠在枕上，说她不信{T}会害她。她越是不信，皇帝越是信了。\n谋害中宫，赐自尽。`,
 note:'病榻前的药碗与饭食，经了谁的手，便是谁的罪。去对手宫中侍疾，等于把性命交到对手手里。'},
-d_frame:{name:'谋害皇嗣',kind:'death',src:'抚养之争',
-text:`孩子去翊坤宫的第七夜染了风寒，高热不退。\n华妃比你更急，连夜彻查。那个小宫女挨了一顿板子，就把你供了出来。\n「为了争宠，连亲生骨肉都下得去手。」这是皇帝留给你的最后一句话。`,
-note:'以皇嗣为棋子，无论初衷如何，事发即是死罪。被收买的人，从来守不住秘密。'},
-d_birth:{name:'难产',kind:'death',src:'临盆',
-text:`你疼了一天一夜。收生姥姥进进出出，血水一盆接一盆。\n孩子落地时哭得很响。你只来得及看了一眼。`,
-note:'古时生产如过鬼门关。康健不足时临盆，凶险倍增；收生姥姥是谁安排的，同样要紧。'},
 d_succession:{name:'窥伺储位',kind:'death',src:'大渐',
 text:`你的兄弟在宫外托了三层关系，问到一个乾清宫侍卫头上。侍卫当夜便报了上去。\n病榻上的皇帝听完，只问了一句：「是谁要知道？」\n内廷勾连外臣，窥伺储位，够你娘家满门获罪。你被赐了一杯酒，死在皇帝前头。`,
 note:'雍正元年，皇帝亲定秘密建储之制，将储君之名藏于乾清宫「正大光明」匾后，为的就是杜绝争储。打听储君，便是谋逆的开端。'},
 d_bet:{name:'押宝',kind:'death',src:'大渐',when:()=>({era:'雍正',y:13,season:'冬'}),
 text:`熹贵妃收下了你的礼，客客气气地送你出门。\n当晚，这件事就传到了圆明园的病榻前。皇帝咳了半宿，召苏培盛进去说了几句话。\n第二日，你被送回紫禁城「静养」。皇帝驾崩的消息传来时，你已经病了半个月，没有人来看你。你没能熬过那个冬天。`,
 note:'秘密建储，正是要让人无从押宝。皇帝一息尚存，急着另找靠山，便是盼他早死。'},
-x_sus:{name:'君疑',kind:'death',src:'君疑满盈',
+x_sus:{name:'君疑',kind:'death',src:'数值',
 text:`皇帝对你的疑心，终于攒够了。\n没有审问，也没有罪名。苏培盛带着一盘白绫来到{P}，说皇上念你伺候一场，给你留个全尸。`,
 note:'君心难测。干政、流言、僭越，每一桩都在皇帝心里记了一笔。攒满的那一日，不需要任何理由。'},
-x_ill:{name:'病殁',kind:'death',src:'康健耗尽',
+x_ill:{name:'病殁',kind:'death',src:'数值',
 text:`你的身子一日不如一日。最后那几个月，连起身请安都难。\n{T}病殁的消息报到敬事房，撤了绿头牌。内务府按例拨了丧仪银子，比年例还少。`,
 note:'康健耗尽，便是死期。罚跪、小产、中毒、风寒，每一次损耗都要靠调养补回来，而调养要花银子。'},
-x_cold:{name:'长门寂寂',kind:'death',src:'久不承宠',
+x_cold:{name:'长门寂寂',kind:'death',src:'数值',
 text:`你的绿头牌已经很久没被翻过了。\n内务府看人下菜碟，炭是湿的，饭是冷的。又一个冬天，你染了风寒，太医院推说人手不够，迟迟不来。\n你死在{P}时，皇帝已经不记得你的模样。`,
 note:'宫中最常见的死法不是毒药与刑罚，而是被遗忘。无宠的嫔妃，份例常遭克扣，病了也请不动太医。'},
 e_xunzang:{name:'殉葬之请',kind:'out',seal:'寂',src:'大渐',when:()=>({era:'乾隆',y:30,season:'冬'}),status:a=>`殁于寿康宫偏殿，年${cnNum(a)}`,
 text:`皇帝睁开眼，看了你很久，说了这辈子对你的最后一句话：「本朝不兴这个。」\n新帝即位，只当你沽名钓誉。先帝妃嫔循例晋封，名单上没有你。\n你被安置在寿康宫最偏的一间屋子里，又活了三十年。`,
 note:'清初尚有殉葬之俗，康熙年间已明令禁止。在病榻前求殉，不是情深，而是给新君出难题。'},
 e_good:{name:'善终',kind:'good',seal:'寿',src:'大渐',when:()=>({era:'乾隆',y:33,season:'春'}),
-text:s=>{const son=s.kids.filter(k=>k.sex==='子').length, girl=s.kids.length-son;
-  let t=`雍正十三年八月二十三日，皇帝崩于圆明园。新帝即位，循例为先帝妃嫔晋封，尊你为${taifei(s)}。`;
-  if(son)t+=`\n你的儿子成年后封了亲王，奏请接你出宫奉养，新帝恩准。王府的院子不大，冬天有地龙，夏天有葡萄架。`;
-  else if(girl)t+=`\n公主后来下嫁蒙古，每年秋天都托人从草原捎回一包奶疙瘩。`;
-  else t+=`\n你膝下无子无女，在寿康宫与几位太妃作伴，抄经、养花、看雪。`;
-  t+=`\n乾隆三十三年春，你无疾而终。内务府的档册上，你的一生只有寥寥数行。在这座宫里，这已是最好的结局。`;return t;},
+text:s=>`雍正十三年八月二十三日，皇帝崩于圆明园。新帝即位，循例为先帝妃嫔晋封，尊你为${taifei(s)}。\n乾隆三十三年春，你无疾而终。内务府的档册上，你的一生只有寥寥数行。在这座宫里，这已是最好的结局。`,
 note:'清代新帝即位，常为先帝妃嫔晋位一级，尊为「皇考某妃」，移居寿康宫等处颐养；有子封王者，可奏请出宫奉养。'}
 };
-const ORDER=['d_shiyi','d_climb','d_seat','d_informer','d_memorial','d_prince','d_musk','d_kneel','d_defy','d_cat','d_poison','d_poison2','d_wugu','d_frame','d_birth','d_party','d_huanyi','d_robe','d_blood','d_evidence','d_silenced','d_jingren','d_succession','d_bet','x_sus','x_ill','x_cold','e_xunzang','e_good'];
+const ORDER=['d_shiyi','d_climb','d_seat','d_informer','d_memorial','d_prince','d_letter','d_musk','d_cat','d_kneel','d_defy','d_birth','d_poison','d_poison2','d_wugu','d_frame','d_voice','d_liuben','d_party','d_huanyi','d_robe','d_blood','d_scapegoat','d_evidence','d_silenced','d_jingren','d_succession','d_bet','x_sus','x_ill','x_cold','e_xunzang','e_good'];
 function taifei(s){const nr=Math.min(6,s.rank+1);return'皇考'+(nr>=3?(s.hao||'宁'):s.name)+RANKS[nr];}
+function epilogue(s){
+  const L=[];
+  for(const k of s.kids){
+    if(k.dead){L.push(`你没能留住的那个${k.sex==='子'?'阿哥':'公主'}，每年忌日你都亲手抄一卷经。`);continue;}
+    if(k.sex==='女'){L.push('公主后来下嫁蒙古，每年秋天都托人从草原捎回一包奶疙瘩。');continue;}
+    if(k.adopted)L.push('阿哥记在皇后名下，以嫡子身份封了亲王。他很少来寿康宫看你，来了也只叫你一声「娘娘」。');
+    else if(k.style==='low')L.push('阿哥封了贝勒，一生不出挑，也不惹事，儿孙满堂。');
+    else if(k.style==='ally')L.push('阿哥自小与四阿哥一处读书，新帝即位后封他为和硕亲王，奏请接你出宫奉养，新帝恩准。');
+    else if(k.style==='bright')L.push(s.st.sus>=50?'阿哥封了亲王，才干出众，却在乾隆朝被猜忌，圈禁在府中。你到死都觉得，是当年太出挑了。':'阿哥封了亲王，受乾隆倚重，管着户部的差事。');
+    else L.push('阿哥封了贝勒，奏请接你出宫奉养。');
+  }
+  const f=s.arc.fang;
+  if(f.side==='you')L.push(`${['方答应','方常在','方贵人','方嫔'][f.rank]}与你一同移居寿康宫，两个老太妃常在廊下晒太阳，说起当年启祥宫那盏打翻的茶。`);
+  else if(['double','cold','dead'].includes(f.side))L.push('方氏殁后，你托人把她的骨灰送回了正蓝旗老家。');
+  const yl={out:'云苓出宫后嫁了个开绸缎铺的，每年正月都进宫给你磕头，后来带着她的孩子来。',stay:'云苓一辈子没出宫，你移居寿康宫时，她跟着去了。',dead:'每年清明，你都给云苓烧些纸钱。她替你死的那年，才二十出头。'}[s.arc.yl];
+  if(yl)L.push(yl);
+  const fam={rising:'父兄在乾隆朝仍居官，家中光景一年好过一年。',fallen:'父亲死在宁古塔，你终究没能再见他一面。',resigned:'父亲致仕回乡，活到了八十岁。'}[s.arc.fam];
+  if(fam)L.push(fam);
+  if(s.flags.hhDown)L.push('景仁宫的门，到皇后死都没有再开过。');
+  if(s.flags.broDead)L.push('兄长战死在和通泊，尸骨没有找回来。');
+  return L;
+}
 
 /* ───────── 事件 ───────── */
+const did=id=>S.at[id]!=null;
+const since=(s,id)=>s.at[id]==null?99:s.t-s.at[id];
 function miscarry(s){s.preg=null;s.flags.lostPreg=(s.flags.lostPreg||0)+1;}
+const hhSide=s=>s.t<11&&!s.flags.hfGone?'华妃':'皇后';
+const hhTruce=s=>s.flags.hhTruce&&thAlive(s);
+
 const EV={
+/* ══ 固定大事 ══ */
 xuanxiu:{title:'殿选',place:'紫禁城',
 text:`雍正元年，新帝登基后头一回选秀。你随众秀女在殿外的青砖地上跪候了大半日，终于听见太监唱名：「{X}氏，年十六——」\n你垂首入殿。御座上的人隔着几步远，问了一句：「平日读些什么书？」\n满殿寂静。皇后端坐一侧，华妃斜倚着椅背，正慢慢拨弄护甲。`,
 choices:[
@@ -452,86 +516,130 @@ choices:[
 hfgift:{title:'翊坤宫的赏赐',place:'启祥宫',
 text:`翊坤宫的人上了门。颂芝捧着一只锦匣，里头是一对赤金累丝镯子：「华妃娘娘说，{T}模样周正，看着就喜欢。得空常去翊坤宫坐坐。」\n满宫都知道，华妃的兄长年羹尧正在西北领兵，圣眷无人能及。`,
 choices:[
-{t:'当即随颂芝去翊坤宫叩谢，表明往后唯娘娘马首是瞻。',run:s=>{s.flags.party=1;return{text:`华妃很满意，当场赏了你一盏茶。\n宫里人人都说，{T}是翊坤宫的人了。`,d:{hf:30,hh:-15,fav:8,pres:5},note:'投靠强者看似捷径。但在宫里，「谁的人」这三个字，会跟着你一辈子。'};}},
-{t:'收下镯子。次日先去景仁宫请安，再去翊坤宫谢恩，礼数周全，不多停留。',run:()=>({text:`华妃受了你的礼，没说什么。皇后那边也挑不出错处。`,d:{hf:5,hh:3,pres:2},note:'高位赏赐不可推辞；谢恩须先中宫、后诸妃，这是正经礼法。收礼，不等于站队。'})},
-{t:'推辞：「嫔妾位卑，不敢受此厚赐。」',run:()=>({text:`颂芝的笑僵在脸上。当晚华妃侍驾，随口提了一句：新人里有不识抬举的。`,d:{hf:-25,fav:-5},note:'主位赏赐，不收就是不给脸面。拒绝的话说得再谦卑，听的人只会记住「拒绝」二字。'})},
+{t:'当即随颂芝去翊坤宫叩谢，表明往后唯娘娘马首是瞻。',run:s=>{s.arc.hf='party';memo('hf_party','你随颂芝去翊坤宫叩谢，认了华妃作主子');return{text:`华妃很满意，当场赏了你一盏茶。\n宫里人人都说，{T}是翊坤宫的人了。`,d:{hf:30,hh:-15,fav:8,pres:5},note:'投靠强者看似捷径。但在宫里，「谁的人」这三个字，会跟着你一辈子。'};}},
+{t:'收下镯子。次日先去景仁宫请安，再去翊坤宫谢恩，礼数周全，不多停留。',run:s=>{s.arc.hf='neutral';return{text:`华妃受了你的礼，没说什么。皇后那边也挑不出错处。`,d:{hf:5,hh:3,pres:2},note:'高位赏赐不可推辞；谢恩须先中宫、后诸妃，这是正经礼法。收礼，不等于站队。'};}},
+{t:'推辞：「嫔妾位卑，不敢受此厚赐。」',run:s=>{s.arc.hf='enemy';memo('hf_enemy','你推辞了华妃的镯子');return{text:`颂芝的笑僵在脸上。当晚华妃侍驾，随口提了一句：新人里有不识抬举的。`,d:{hf:-25,fav:-5},note:'主位赏赐，不收就是不给脸面。拒绝的话说得再谦卑，听的人只会记住「拒绝」二字。'};}},
 {t:'把镯子原样送到景仁宫，禀告皇后：华妃有意拉拢新人。',run:()=>({death:'d_informer'})}
 ]},
 
-firstnight:{title:'侍寝',place:'养心殿',
-text:`敬事房翻了你的绿头牌。\n嬷嬷替你卸尽钗环，连耳坠也摘了去，验过周身，才扶你上了凤鸾春恩车。\n到了养心殿，皇帝还在批折子。你候了许久，再抬眼时，他已伏在御案上睡着了。朱笔搁在一份摊开的奏折旁，烛火将尽。`,
+fam_letter:{title:'家书',place:'{P}',
+text:`父亲托内务府一个相熟的管事捎进一封家书。前头是些家常，信末却写：朝中风向不明，年大将军一门如日中天，为父难以自处——皇上近来待翊坤宫如何？\n云苓把信递给你时，特意把门掩上了。`,
 choices:[
-{t:'轻手轻脚替皇上收拾御案，把奏折合好摆齐。',run:()=>({text:`你刚碰到奏折，皇帝便醒了。他第一眼看的是御案，第二眼才看你。\n「放着吧。」那一夜再没有别的话。`,d:{fav:-15,sus:15},note:'御案上的东西，后妃连碰都不能碰。收拾和翻看，在皇帝眼里只隔一念。'})},
-{t:'不碰御案。取一条薄毯为皇上披上，换一支新烛，在一旁静坐候着。',run:()=>({text:`约莫半个时辰，皇帝醒了。他看看身上的毯子，又看看纹丝未动的御案，什么也没问，只握了握你的手。`,d:{fav:12},note:'帝王多疑，伏案而眠未必是真睡。御案、奏折、朱笔，后宫之人一概不沾。'})},
-{t:'轻声唤醒皇上，劝他保重龙体，早些安歇。',run:()=>({text:`皇帝睁眼看了你一会儿，倒也没恼，只说了声「是有些乏了」。`,d:{fav:4},note:'劝谏保重龙体是本分话，不出错，也不出彩。'})},
-{t:'趁皇上睡着，悄悄看一眼那份奏折写的什么。',run:()=>({death:'d_memorial'})}
+{t:'回信，把宫中所见一五一十写给父亲。',run:s=>{s.flags.famLeak=1;memo('fam_leak','你在家书里把宫中所见写给了父亲');if(roll(.3))return{text:`信出宫不到三日，就被截在了神武门。\n皇帝没有召你，只让苏培盛来{P}传了一句话：「宫里的事，不必往外头说。」`,d:{sus:35},note:'后妃与前朝通消息，在清宫叫「内外交通」，是大忌。家书出入都要经内务府的手。'};s.flags.famWarned=1;return{text:`信平安送出去了。父亲回信只有八个字：已知，慎之，勿再写。`,d:{},note:'这封信没被截下，是运气。它还在父亲的书房里，这一点你要记着。'};}},
+{t:'回信只说家常平安，宫里的事一字不提。',run:()=>({text:`你写了满满三页，说吃得好睡得好，问母亲的咳疾。最后一句是：宫中诸事，女儿不敢妄言。`,d:{},note:'报平安，是家书唯一稳妥的写法。'})},
+{t:'把信烧了，一字不回。',run:s=>{s.flags.homeHalf=1;return{text:`信纸在炭盆里蜷成一团灰。\n过年时，家里捎进来的东西比往年少了一半。母亲托人带话，说父亲气得几天没吃下饭。`,d:{sus:-5},note:'断得干净，皇帝挑不出错；只是家里的心，也凉了。'};}},
+{t:'把信原样呈给皇上，以示无私。',run:s=>{s.arc.fam='resigned';memo('fam_present','你把父亲的家书呈给了皇上');return{text:`皇帝看完信，看了你很久：「你倒是个明白人。」\n第二年春天，你父亲以「年老」为由致仕回乡。家里再没有信来。`,d:{fav:5,sus:-10},note:'大义灭亲，在帝王面前是忠；在家人那里，是另一回事。'};}}
 ]},
 
 flute:{title:'夜笛',place:'御花园 · 浮碧亭',
 text:`中元节前夜，你从寿康宫抄经回来，抄近路穿过御花园。\n浮碧亭边有人吹笛。走近了才看清，是一位年轻的王爷，月白常服，独自倚着亭柱。\n他放下笛子，含笑拱手：「深夜惊扰，不知是哪宫的小主？」\n四下无人。你的宫女落在后头，还没跟上来。`,
 choices:[
 {t:'报了自己的位分，与他聊了几句笛曲。',run:()=>({death:'d_prince'})},
-{t:'一言不发，转身便走，与宫女会合后从原路回宫。',run:()=>({text:`你走出很远，笛声又响了起来。后来你才知道，那是果郡王。`,d:{},note:'后宫女子与外男私下交谈，哪怕光明正大，传出去也只剩一个「私」字。'})},
-{t:'立即回避。次日请安后，主动向皇后禀明：昨夜迷了路，偶遇一位王爷，当即避开了。',run:()=>({text:`皇后点点头，说你谨慎。三日后，果然有人在请安时提起「御花园夜里有人私会」。皇后淡淡一句「{T}早已禀过本宫」，便把话堵了回去。`,d:{hh:6,pres:4},note:'自己先说出来的事，别人就没法拿去编故事。宫中流言，先开口的人占理。'})}
+{t:'一言不发，转身便走，与宫女会合后从原路回宫。',run:s=>{s.arc.prince='cool';return{text:`你走出很远，笛声又响了起来。后来你才知道，那是果郡王。`,d:{},note:'后宫女子与外男私下交谈，哪怕光明正大，传出去也只剩一个「私」字。'};}},
+{t:'立即回避。次日请安后，主动向皇后禀明：昨夜迷了路，偶遇一位王爷，当即避开了。',run:s=>{s.arc.prince='proper';memo('pr_proper','你把夜遇果郡王的事禀明了皇后');return{text:`皇后点点头，说你谨慎。三日后，果然有人在请安时提起「御花园夜里有人私会」。皇后淡淡一句「{T}早已禀过本宫」，便把话堵了回去。`,d:{hh:6,pres:4},note:'自己先说出来的事，别人就没法拿去编故事。宫中流言，先开口的人占理。'};}}
 ]},
 
-nianfall:{title:'年氏之祸',place:'翊坤宫外',
-text:s=>`十二月，消息从宫外传进来：年羹尧被赐自尽。\n翊坤宫一夜之间门可罗雀。华妃被降了位分，往日跟着她的人，有的撵去了浣衣局，有的病得蹊跷。${s.flags.party?'\n你是翊坤宫的人。内务府的人已经在{P}门口转过两回了。':'\n请安时有人压低声音说：皇上这些年赏给翊坤宫的欢宜香，里头加了东西——华妃这么多年没有孩子，是有缘故的。'}`,
-post:s=>{s.flags.hfGone=1;if(s.flags.childAt==='hf'){s.flags.childAt=null;}},
+pr_water:{title:'落水',place:'御花园 · 浮碧亭',cond:s=>['cool','proper'].includes(s.arc.prince),echo:()=>['pr_proper'],
+text:`中秋赏灯，六宫都在御花园。你走到浮碧亭的石桥上，身后有人撞了你一下，你脚下一空，跌进了池子里。\n秋水冰凉，裙子吸了水直往下坠。有人跳了下来，把你托上了岸——是果郡王。\n灯笼一下子围了过来。几十双眼睛看着你们两个湿淋淋的人。`,
 choices:[
-{show:s=>s.flags.party,t:'去寿康宫跪求太后庇护。',need:s=>thAlive(s)&&s.rel.th>=40,needText:'太后好感 40',run:s=>{s.flags.party=0;return{text:`太后看了你很久，只说了一句：「年轻不懂事，罚一罚就是了。」\n你被罚俸半年，禁足一季，命保住了。`,d:{pres:-15,th:-10,fav:-10},after:s=>{s.ban=1;},note:'太后素来忌惮年氏坐大，却也不愿后宫血流成河。有她一句话，皇帝便不会深究。'};}},
-{show:s=>s.flags.party,t:'求见皇帝，自陈当初是受华妃胁迫。',chance:s=>.15+s.st.wit/140+s.st.fav/300,run:(s,ok)=>{if(!ok)return{ok,death:'d_party'};s.flags.party=0;return{ok,text:`你说得声泪俱下。皇帝听完，淡淡一句「知道了」。\n你没有被牵连，可皇帝看你的眼神，从此多了一层冷。`,d:{sus:25,fav:-15,pres:-10},note:'自陈受胁迫，等于承认自己骑墙。保住了命，也坐实了「靠不住」。'};}},
-{show:s=>s.flags.party,t:'闭门待罪，听天由命。',run:()=>({death:'d_party'})},
-{show:s=>!s.flags.party,t:'随众人去翊坤宫「探望」，冷言冷语，出一出往日的气。',run:()=>({text:`华妃一句话也没回。当晚皇帝就听说了，那一个月没来{P}。`,d:{fav:-12,pres:-3},note:'华妃是皇帝亲手捧起、又亲手摔下的人。落井下石，等于告诉皇帝：你看错了人。'})},
-{show:s=>!s.flags.party,t:'闭门不出，照常请安，翊坤宫的事一句不问。',run:()=>({text:`一个冬天过去，宫里换了好几轮风向。{P}始终没被卷进去。`,d:{pres:4},note:'风口浪尖上，不说话就是最好的话。'})},
-{show:s=>!s.flags.party,t:'在皇帝面前进言：欢宜香一事应当彻查，还华妃一个公道。',run:()=>({death:'d_huanyi'})},
-{show:s=>!s.flags.party,t:'悄悄打点翊坤宫的旧人，给落难的华妃送些炭火。',cost:20,run:()=>({text:`华妃收下了，没有道谢。后来她死在冷宫，撞墙而亡，临死前托人带给你一句：「你心太软，在这宫里活不长。」\n皇帝知道了送炭的事，看你的眼神多了几分说不清的东西。`,d:{fav:4,pres:3},note:'雪中送炭不是罪过，皇帝对华妃并非全无旧情。只是心软的人，往后要多留个心眼。'})}
+{t:'当众向王爷谢恩，请皇后做个见证，回宫后请皇上赏赐王爷。',run:s=>{s.arc.prince='proper';memo('pr_proper','落水被救，你当众谢恩，请皇后作证');return{text:`皇后当着众人的面说：「王爷救人要紧，{T}受惊了。」第二日，皇帝赏了果郡王一柄玉如意。\n这件事，就这样光明正大地过去了。`,d:{fav:3,hh:3},note:'众目睽睽之下的事，越是坦荡，越没有人能拿来做文章。'};}},
+{t:'回宫后悄悄派人往王府送一份谢礼。',run:s=>{s.arc.prince='secret';memo('pr_secret','你私下往果郡王府送了谢礼');return{text:`谢礼送出去了，王府收下了。没有人看见——你是这样以为的。`,d:{sus:8},note:'私相授受，哪怕只是一份谢礼，也是把把柄递了出去。'};}},
+{t:'闭口不提，只当没有这回事。',run:s=>{s.arc.prince='cool';return{text:`你不提，别人替你提。不出三日，宫里便传开了：{T}和果郡王在水里抱作一团。`,d:{sus:15,pres:-4},note:'众人都看见的事，你不说清楚，别人就会替你说。'};}},
+{t:'当众谢恩之后，追查是谁撞了你。',chance:s=>.25+s.st.wit/110,run:(s,ok)=>{s.arc.prince='proper';if(ok)return{ok,text:`你记得撞你的人袖口是石青色的。连夜查下去，是${hhSide(s)==='华妃'?'翊坤宫':'景仁宫'}一个粗使宫女。\n人交给了慎刑司，她咬死说是自己脚滑。可六宫都知道了，{T}不好惹。`,d:{pres:6,[hhSide(s)==='华妃'?'hf':'hh']:-8},note:'查不到主使，能查到手，也够立威了。'};return{ok,text:`那么多人挤在桥上，谁也说不清是谁撞的。你只好作罢。`,d:{},note:null};}}
+]},
+
+nianfall:{title:'年氏之祸',place:'翊坤宫外',echo:()=>['hf_party','hf_enemy'],
+text:s=>`十二月，消息从宫外传进来：年羹尧被赐自尽。\n翊坤宫一夜之间门可罗雀。华妃被降了位分，往日跟着她的人，有的撵去了浣衣局，有的病得蹊跷。${s.arc.hf==='party'?'\n你是翊坤宫的人。内务府的人已经在{P}门口转过两回了。':'\n请安时有人压低声音说：皇上这些年赏给翊坤宫的欢宜香，里头加了东西——华妃这么多年没有孩子，是有缘故的。'}`,
+post:s=>{s.flags.hfGone=1;if(s.flags.childAt==='hf')s.flags.childAt=null;if(s.flags.famWarned&&s.arc.fam==='ok'){s.arc.fam='rising';memo('fam_rise','年氏倒台，你父亲因早有防备，反参年党有功');}},
+choices:[
+{show:s=>s.arc.hf==='party',t:'去寿康宫跪求太后庇护。',need:s=>thAlive(s)&&s.rel.th>=40,needText:'太后 40',run:s=>{s.arc.hf='neutral';return{text:`太后看了你很久，只说了一句：「年轻不懂事，罚一罚就是了。」\n你被罚俸半年，禁足一季，命保住了。`,d:{pres:-15,th:-10,fav:-10},after:s=>{s.ban=1;},note:'太后素来忌惮年氏坐大，却也不愿后宫血流成河。有她一句话，皇帝便不会深究。'};}},
+{show:s=>s.arc.hf==='party',t:'求见皇帝，自陈当初是受华妃胁迫。',chance:s=>.15+s.st.wit/140+s.st.fav/300,run:(s,ok)=>{if(!ok)return{ok,death:'d_party'};s.arc.hf='neutral';return{ok,text:`你说得声泪俱下。皇帝听完，淡淡一句「知道了」。\n你没有被牵连，可皇帝看你的眼神，从此多了一层冷。`,d:{sus:25,fav:-15,pres:-10},note:'自陈受胁迫，等于承认自己骑墙。保住了命，也坐实了「靠不住」。'};}},
+{show:s=>s.arc.hf==='party',t:'闭门待罪，听天由命。',run:()=>({death:'d_party'})},
+{show:s=>s.arc.hf!=='party',t:'随众人去翊坤宫「探望」，冷言冷语，出一出往日的气。',run:()=>({text:`华妃一句话也没回。当晚皇帝就听说了，那一个月没来{P}。`,d:{fav:-12,pres:-3},note:'华妃是皇帝亲手捧起、又亲手摔下的人。落井下石，等于告诉皇帝：你看错了人。'})},
+{show:s=>s.arc.hf!=='party',t:'闭门不出，照常请安，翊坤宫的事一句不问。',run:()=>({text:`一个冬天过去，宫里换了好几轮风向。{P}始终没被卷进去。`,d:{pres:4},note:'风口浪尖上，不说话就是最好的话。'})},
+{show:s=>s.arc.hf!=='party',t:'在皇帝面前进言：欢宜香一事应当彻查，还华妃一个公道。',run:()=>({death:'d_huanyi'})},
+{show:s=>s.arc.hf!=='party',t:'悄悄打点翊坤宫的旧人，给落难的华妃送些炭火。',cost:20,run:s=>{s.flags.hfKind=1;return{text:`华妃收下了，没有道谢。\n皇帝知道了送炭的事，看你的眼神多了几分说不清的东西。`,d:{fav:4,pres:3},note:'雪中送炭不是罪过，皇帝对华妃并非全无旧情。'};}}
+]},
+
+newgirls:{title:'新人',place:'景仁宫',
+text:`又一届秀女入宫。新晋的祺贵人瓜尔佳氏，父亲是鄂敏，生得明艳，头一个月便侍寝了五回。\n请安时，她坐在你下首，规规矩矩，眼角却总往凤座那边瞟。景仁宫的人说，她进宫前就去给皇后磕过头。`,
+pre:()=>({fav:-6}),
+choices:[
+{t:'备一份厚礼送去，以姐姐的身份提点她宫中规矩。',cost:30,run:s=>{s.arc.qi='peace';return{text:`她收了礼，甜甜地叫你姐姐。往后请安，她总是第一个起身给你让路——至少当着人的时候是这样。`,d:{pres:6},note:'拉拢新人是高位妃嫔的本分，也是给自己添一双眼睛。'};}},
+{t:'寻个由头，在请安时罚她一回，杀杀她的威风。',need:s=>s.rank>=3,needText:'嫔位以上',run:s=>{s.arc.qi='feud';memo('qi_feud','你在请安时罚了祺贵人');return{text:`她当众跪了半个时辰，眼圈红红的。当晚皇帝去看了她。\n第二日，皇帝在养心殿说了句：宫里有人容不下人。`,d:{pres:3,fav:-8,hh:4},note:'皇帝最厌善妒。罚新人可以立威，却要拿圣宠来换。'};}},
+{t:'不理会，照旧过自己的日子。',run:s=>{s.arc.qi=s.st.fav>=50?'feud':'peace';if(s.arc.qi==='feud')memo('qi_feud','祺贵人入宫时，你正得宠');return{text:`新人来来去去，宫里从不缺年轻的面孔。${s.arc.qi==='feud'?'\n只是你的圣宠太盛，挡了她的路。她看你的眼神，你记住了。':''}`,d:{fav:-3},note:'不争是稳妥。可挡没挡别人的路，由不得你。'};}},
+{t:'加倍用心，新学了一支曲子。',run:s=>{s.arc.qi='feud';memo('qi_feud','祺贵人入宫时，你新学了曲子与她争宠');return{text:`你练了一个月的琵琶，指尖磨出了茧。皇帝来听过两回。\n祺贵人在请安时笑着说：姐姐的琵琶真好，妹妹也想学呢。`,d:{charm:6,fav:3,hp:-3},note:'以才争宠，争的不只是皇帝的心，还有别人的记恨。'};}}
 ]},
 
 robe:{title:'旧衣',place:'{P}',intel:'云苓听说，景仁宫前几日从库房领出一只旧樟木箱，里头是多年前的衣料。',cond:s=>s.rank>=3||s.st.fav>=45,
 text:`中秋家宴前一日，内务府送来一套吉服：月白缎子，袖口绣折枝海棠，样式素雅，与宫中时兴的都不一样。\n送衣裳的公公说，是皇后娘娘特意吩咐给{T}做的。`,
 choices:[
 {t:'皇后一片心意，穿上它去赴宴。',run:()=>({death:'d_robe'})},
-{t:'让云苓去找宫里的老嬷嬷，问问这缎子的来历。',need:s=>s.st.loyal>=40,needText:'宫人 40',run:s=>{s.flags.hhWary=1;return{text:`老嬷嬷只看了一眼就跪下了：这是先头纯元皇后在世时最爱的样式，那缎子是二十年前江宁织造的贡品。\n你穿着自己的旧吉服赴了宴，那套衣裳原样包好，悄悄送回了内务府。`,d:{fav:5,pres:4},note:'纯元皇后是皇帝心中碰不得的人。剧中甄嬛误穿纯元故衣，触怒天颜，从此失宠离宫。宫里没有凭空而来的好意。'};}},
+{t:'找宫里的老嬷嬷来，问问这缎子的来历。',need:s=>s.st.loyal>=40,needText:'宫人 40',run:s=>({text:`老嬷嬷只看了一眼就跪下了：这是先头纯元皇后在世时最爱的样式，那缎子是二十年前江宁织造的贡品。\n你穿着自己的旧吉服赴了宴，那套衣裳原样包好，悄悄送回了内务府。`,d:{fav:5,pres:4},note:'纯元皇后是皇帝心中碰不得的人。剧中甄嬛误穿纯元故衣，触怒天颜，从此失宠离宫。'})},
 {t:'自己细细端详这缎子。',chance:s=>.1+s.st.wit/105,run:(s,ok)=>ok?{ok,text:`缎子的织法是老的，海棠的绣样也是老的，连熏的香都不是今年的。你把衣裳收进柜子，穿着自己的旧吉服去了。`,d:{wit:3,pres:2},note:'识破了，就不必说破。'}:{ok,death:'d_robe'}},
 {t:'不穿，当面把衣裳退回景仁宫，说不合身。',run:()=>({text:`剪秋接过衣裳，脸上笑着，眼里没有笑。你避开了这一劫，也让皇后知道，你看穿了她。`,d:{hh:-22},note:'把衣裳退到皇后面前，等于告诉她：我知道是你。'})}
 ]},
 
-blood:{title:'滴血验亲',place:'景仁宫',intel:'祺贵人身边的宫女昨夜去过内务府，领了一包白矾。',cond:s=>s.kids.length>0,
-text:s=>`${s.kids[0].sex==='子'?'阿哥':'公主'}一天天长大，眉眼越来越像你。\n这日请安，祺贵人忽然跪下，说有宫人亲眼看见，{T}有孕前常召李太医单独请脉，一待就是半个时辰。\n皇帝的脸色变了。皇后叹了口气，说事关皇家血脉，不如滴血验亲。\n一碗清水已经端了上来。`,
+fam_case:{title:'查嗣庭案',place:'{P}',cond:s=>s.arc.fam!=='fallen',echo:()=>['fam_leak','fam_rise','pr_proper'],
+text:s=>`礼部侍郎查嗣庭以江西乡试试题与日记获罪下狱，案子越牵越广。\n你父亲与查嗣庭有过诗文往来，被刑部传去问话，至今没有放回来。${s.flags.famLeak?'\n更要紧的是，刑部从你父亲书房里，抄出了你当年写的那封家书。':''}\n母亲托人带进来一句话：「救救你父亲。」`,
+pre:s=>s.flags.famLeak?{sus:20}:null,
+choices:[
+{t:'去养心殿，求皇上开恩。',need:s=>s.st.fav>=60,needText:'圣宠 60',chance:s=>.2+s.st.fav/150-s.st.sus/200,run:(s,ok)=>{if(ok){s.arc.fam='resigned';memo('fam_case','查嗣庭案，你求皇上保下了父亲');return{ok,text:`皇帝沉默了很久：「看在你的面上，革职回籍。」\n你磕头谢恩。出了养心殿，苏培盛低声说：小主，这样的话，往后不能再说了。`,d:{sus:25},note:'后宫为外家求情，求成一回，皇帝便多记一笔。'};}s.arc.fam='fallen';memo('fam_case','查嗣庭案，你求情未成，父亲流放');return{ok,text:`「后宫不得干预朝政，你不知道么？」\n你父亲被判流放宁古塔。`,d:{sus:40,fav:-10},note:'求情不成，罪上加罪。'};}},
+{t:'写信让父亲上折请罪，自请致仕。',run:s=>{s.arc.fam='resigned';return{text:`父亲的折子递上去，皇帝批了「准」字。他保住了命，回了老家。\n家里的银子，从此少了许多。`,d:{sus:-5},note:'退一步，是保全全家的法子。'};}},
+{t:'托果郡王在皇上面前递一句话。',need:s=>s.arc.prince==='proper',needText:'果郡王守礼',run:s=>{memo('pr_help','查嗣庭案，果郡王替你父亲说了话');return{text:`果郡王在一次陪皇帝下棋时提了一句：查嗣庭的门生故旧遍天下，若一个个都办，朝中怕是要空了。\n你父亲只罚了一年俸。`,d:{sus:5},note:'守礼的人，才托得了人。若你们之间有半分不清白，这句话他不敢说，你也不敢求。'};}},
+{t:'去寿康宫求太后。',need:s=>thAlive(s)&&s.rel.th>=50,needText:'太后 50',run:()=>({text:`太后在皇帝请安时说了一句：查嗣庭的事，莫要牵连太广，伤了读书人的心。\n你父亲被放了回来，官复原职。`,d:{th:-15},note:'太后的话，皇帝要听，但太后的情分也是有数的。'})},
+{t:'在请安时当众撇清：家父之事，嫔妾不敢过问。',run:s=>{s.arc.fam='fallen';memo('fam_case','查嗣庭案，你当众撇清，父亲流放宁古塔');return{text:`你的话很快传到了养心殿。皇帝说你识大体。\n你父亲流放宁古塔。母亲托人带来的最后一句话是：就当没生过这个女儿。`,d:{fav:3,pres:-8,hp:-5},note:'撇得干净，保住了自己。只是宫里的人都看着，谁也不想跟一个凉薄的人走得太近。'};}}
+]},
+
+blood:{title:'滴血验亲',place:'景仁宫',valid:s=>live(s).length>0,intel:'祺贵人身边的宫女昨夜去过内务府，领了一包白矾。',cond:s=>live(s).length>0,echo:()=>['qi_feud','qi_watch','fang_repaid'],
+text:s=>`${live(s)[0].sex==='子'?'阿哥':'公主'}一天天长大，眉眼越来越像你。\n这日请安，祺贵人忽然跪下，说有宫人亲眼看见，{T}有孕前常召李太医单独请脉，一待就是半个时辰。\n皇帝的脸色变了。皇后叹了口气，说事关皇家血脉，不如滴血验亲。\n一碗清水已经端了上来。`,
 choices:[
 {t:'扑到皇帝脚边痛哭：「千金之躯，怎能受这种折辱？」死活不肯验。',run:()=>({death:'d_blood'})},
+{show:s=>s.flags.qiWatch,t:'当众问祺贵人：你的宫女昨夜去内务府领的那包白矾，用在哪里了？',run:s=>{s.flags.qiDown=1;return{text:`祺贵人的脸一下子白了。内务府的人被传来，领用的簿子上白纸黑字。\n她被降为答应，迁去了最偏的一处院子。`,d:{fav:6,pres:12,sus:-10},note:'早一步盯住对手，局还没开，你已经知道答案。'};}},
 {t:'坦然请验，只求先当众取两个毫不相干的小太监的血，滴进这碗水里试试。',need:s=>s.st.wit>=45,needText:'心计 45',run:()=>({text:`两个小太监的血，在水里慢慢融成了一团。\n满殿哗然。苏培盛端起碗闻了闻，低声禀道：水里有白矾。\n祺贵人瘫在地上。那碗水是谁吩咐备的，到最后也没查出来。`,d:{fav:8,pres:10,sus:-10},note:'滴血验亲本无凭据：水中掺白矾，任何人的血都能相融；掺清油，亲父子的血也不相融。'})},
-{t:'请皇上换一碗新水，由苏公公亲自去打来再验。',run:()=>({text:`新水里，血融在了一起。皇帝面色稍霁。那碗旧水早被人顺手泼了，祺贵人只罚了俸。\n你的清白保住了，只是有些话，从此留在了皇帝心里。`,d:{sus:12},note:'换水能自保，却放走了设局的人。验过一回的疑心，比没验过更难消。'})},
-{t:'请太后出面主持。',need:s=>thAlive(s)&&s.rel.th>=40,needText:'太后好感 40',run:()=>({text:`太后看都没看那碗水，只说：「哀家看着这孩子长大的，像不像，哀家心里有数。」\n此事就此作罢，祺贵人被罚去抄经。`,d:{th:-5,sus:4,pres:3},note:'太后一言九鼎。只是这一句话，用掉的是太后的情分。'})}
+{show:s=>s.arc.fang.side==='you'&&s.arc.fang.repaid,t:'看向{F}。',run:()=>({text:`{F}站了出来，说那几回请脉她都在，李太医连帘子都没进过。\n她说得平平静静，一句一句，没有人挑得出错。皇帝叫人把水端了下去。`,d:{sus:-5,pres:4,fang:10},note:'当年你扶起的那个人，今天替你站了出来。'})},
+{show:s=>s.arc.yl==='sworn',t:'云苓跪下了：「是奴婢替小主传的李太医，小主从未单独见过他。要验，验奴婢的命。」',run:s=>{s.arc.yl='dead';s.st.loyal=40;memo('yl_dead','滴血验亲，云苓替你顶下了所有的事');return{text:`云苓被带走了。她在慎刑司里一口咬定，所有的事都是她一个人张罗的。\n水没有验。三日后，有人告诉你，云苓没熬过去。`,d:{hp:-8,sus:-5},note:'死忠的人，会在你最需要的时候，把命递给你。'};}},
+{t:'请太后出面主持。',need:s=>thAlive(s)&&s.rel.th>=40,needText:'太后 40',run:()=>({text:`太后看都没看那碗水，只说：「哀家看着这孩子长大的，像不像，哀家心里有数。」\n此事就此作罢。`,d:{th:-5,sus:4,pres:3},note:'太后一言九鼎。只是这一句话，用掉的是太后的情分。'})},
+{t:'请皇上换一碗新水，由苏公公亲自去打来再验。',run:()=>({text:`新水里，血融在了一起。皇帝面色稍霁。那碗旧水早被人顺手泼了，祺贵人只罚了俸。\n你的清白保住了，只是有些话，从此留在了皇帝心里。`,d:{sus:12},note:'换水能自保，却放走了设局的人。验过一回的疑心，比没验过更难消。'})}
 ]},
 
-secret:{title:'旧事',place:'{P}',
-text:`云苓带来一个人：景仁宫从前的老宫女，如今在辛者库做粗活。她跪在地上，说出一桩二十年前的旧事——纯元皇后难产那夜，当今皇后亲手动过她的饮食。\n「奴婢这条命不值钱。小主若要，奴婢愿去御前作证。」\n此时太后尚在，皇后依旧是六宫之主。`,
+pox:{title:'痘疫',place:'紫禁城',
+pre:s=>{s.poxSick=[];s.kids.forEach((k,i)=>{if(!k.dead&&!k.vac&&roll(.5))s.poxSick.push(i);});return null;},
+text:s=>{const un=live(s).filter(k=>!k.vac);if(!live(s).length)return`宫中出痘了。先是阿哥所两个小太监发热，接着是延禧宫一个宫女脸上起了疹子。\n内务府下令各宫封门，宫人不得随意走动。`;if(!un.length)return`宫中出痘了，阿哥所接连病倒了好几个孩子。\n你的孩子早种过痘，安然无恙。各宫的人路过{P}，都要多看两眼。`;if(!s.poxSick.length)return`宫中出痘了。你的孩子没有种过痘，你守了他整整一个月，夜里不敢合眼。\n万幸，没有染上。`;return`宫中出痘了。你的孩子没有种过痘。\n头一天发热，第三天起了疹子，太医摇着头说：是天花。`;},
+choices:[
+{show:s=>!live(s).length,t:'封了宫门，让宫人轮班守着，每日用醋熏屋子。',run:()=>({text:`{P}上下没有一个人染上。皇后在请安时夸了你一句。`,d:{pres:3},note:'清宫防痘，封宫、熏醋、隔离出痘之人，是常例。'})},
+{show:s=>live(s).length&&(!live(s).some(k=>!k.vac)),t:'谢天谢地。',run:()=>({text:`疫过之后，好几位小主来{P}打听，痘医是哪一位。`,d:{pres:5},note:'人痘接种自康熙朝推行于宫中，种过痘的孩子便不再染天花。'})},
+{show:s=>live(s).some(k=>!k.vac)&&!s.poxSick.length,t:'谢天谢地。往后得让孩子种痘了。',run:()=>({text:`你瘦了一圈。`,d:{hp:-5},note:'这一回是侥幸。'})},
+{show:s=>s.poxSick.length>0,t:'拿出体己，请痘医日夜守着。',cost:30,run:s=>poxOut(s,.7)},
+{show:s=>s.poxSick.length>0,t:'按例送去避痘所，由专人照看。',run:s=>poxOut(s,.6)},
+{show:s=>s.poxSick.length>0,t:'去宝华殿烧香，求菩萨保佑。',run:s=>poxOut(s,.5)}
+]},
+
+secret:{title:'旧事',place:'{P}',cond:s=>ylAlive(s)||s.flags.fangProof||s.flags.hintHH||s.flags.hhProof,echo:()=>['yl_sworn','fang_double','hf_cold','hh_proof'],
+text:s=>{let src='';if(s.flags.fangProof)src=`方氏交给你的那张字条上，有几句话一直没想明白。如今有人替你补上了。`;else if(s.flags.hintHH)src=`华妃在冷宫里说过的那句话——「你去问问景仁宫，纯元皇后是怎么死的」——你一直没忘。`;else if(s.flags.hhProof)src=`你手里那包补品还在。它让你开始留意景仁宫的旧事。`;else src=`云苓在辛者库有个同乡，前些日子病了，托人捎话要见你一面。`;
+return`${src}\n来的是一个辛者库的老宫女，从前在景仁宫当差。她跪在地上，说出一桩二十年前的旧事：纯元皇后难产那夜，当今皇后亲手动过她的饮食。\n「奴婢这条命不值钱。小主若要，奴婢愿去御前作证。」\n此时太后尚在，皇后依旧是六宫之主。`;},
 choices:[
 {t:'当夜便带她去养心殿，面见皇上。',run:()=>({death:'d_evidence'})},
-{t:'让云苓把她悄悄送出宫，安置在你娘家的庄子上，静候时机。',cost:30,run:s=>{s.flags.evidence=1;return{text:`老宫女走的那天下着雪。你没去送，只叫云苓多塞了两件棉衣。\n这件事，你对谁也没提过。`,d:{},note:'证据握在手里，比递出去更有用。时机未到便出手，只会把证人和自己一起送死。'};}},
+{t:'把她悄悄送出宫，安置在你娘家的庄子上，静候时机。',cost:30,run:s=>{s.flags.evidence=1;memo('evidence','你把纯元旧事的人证藏到了娘家庄子上');return{text:`老宫女走的那天下着雪。你没去送，只叫人多塞了两件棉衣。\n这件事，你对谁也没提过。`,d:{},note:'证据握在手里，比递出去更有用。时机未到便出手，只会把证人和自己一起送死。'};}},
 {t:'把此事透给皇后，换她日后的庇护。',run:()=>({death:'d_silenced'})},
-{t:'此事太大，叫云苓把人打发回辛者库，就当没听过。',run:()=>({text:`老宫女磕了个头，回去了。开春时听说，她冻死在辛者库的井边。你不知道那是不是意外。`,d:{},note:'不碰也是一种选择。只是知情的人没了，这件事便永远翻不过来。'})}
+{t:'此事太大，把人打发回辛者库，就当没听过。',run:()=>({text:`老宫女磕了个头，回去了。开春时听说，她冻死在辛者库的井边。你不知道那是不是意外。`,d:{},note:'不碰也是一种选择。只是知情的人没了，这件事便永远翻不过来。'})}
 ]},
 
-thdie:{title:'国丧',place:'寿康宫',
+thdie:{title:'国丧',place:'寿康宫',echo:()=>['evidence'],
 text:s=>`太后薨逝。${s.rel.th>=40?'\n临终前，太后召你去说了一会儿话，把腕上那串用了几十年的佛珠褪给了你。':''}\n国丧百日，六宫缟素。丧仪过后，皇帝瘦了一圈，夜里常一个人在养心殿坐到天亮。\n皇后的头风又犯了，已有半月没有召见六宫。`,
 pre:s=>{const g=s.rel.th>=40;s.flags.thDead=1;return g?{pres:8}:null;},
 choices:[
-{show:s=>s.flags.evidence,t:'派人接回那位老宫女，请皇上屏退左右，听她说一桩旧事。',run:s=>{s.flags.xieli=1;return{text:`这一回，没有人再拦着皇帝。\n景仁宫的宫门关上了。皇帝没有废后——他答应过太后——但从此再没有踏进景仁宫一步。\n入冬，皇帝命你协理六宫。`,d:{pres:15,fav:6,hh:-60},promote:1,note:'同样的证据，太后在时是催命符，太后去后是登天梯。'};}},
+{show:s=>s.flags.evidence&&!s.flags.hhDown,t:'派人接回那位老宫女，请皇上屏退左右，听她说一桩旧事。',run:s=>{s.flags.xieli=1;s.flags.hhDown=1;memo('hh_down','国丧之后，你呈上纯元旧事，皇后被禁足景仁宫');return{text:`这一回，没有人再拦着皇帝。\n景仁宫的宫门关上了。皇帝没有废后——他答应过太后——但从此再没有踏进景仁宫一步。\n入冬，皇帝命你协理六宫。`,d:{pres:15,fav:6},promote:1,note:'同样的证据，太后在时是催命符，太后去后是登天梯。'};}},
 {t:'安心陪伴皇上，旧事一概不提。',run:()=>({text:`你每晚去养心殿坐一会儿，不说话，只替他换茶。`,d:{fav:8},note:'不争，有时也是一种争。'})},
-{t:'趁皇后病着，去景仁宫侍疾，看看能不能抓到些把柄。',run:()=>({death:'d_jingren'})}
+{show:s=>!s.flags.hhDown,t:'趁皇后病着，去景仁宫侍疾，看看能不能抓到些把柄。',run:()=>({death:'d_jingren'})}
 ]},
 
-newgirls:{title:'新人',place:'景仁宫',
-text:`又一届秀女入宫。新晋的瓜尔佳氏生得明艳，头一个月便侍寝了五回。\n请安时，她坐在你下首，规规矩矩，眼角却总往凤座那边瞟。\n敬事房那边说，皇上近来翻的，多半是新人的牌子。`,
-pre:()=>({fav:-6}),
+hetong:{title:'战报',place:'{P}',cond:s=>s.flags.broWar,echo:()=>['bro_war'],
+pre:s=>{s.flags.broFate=roll(.5)?'dead':'merit';return null;},
+text:s=>s.flags.broFate==='dead'?`六月，北路军在和通泊中了准噶尔的埋伏，全军大溃。\n阵亡的名单送进京来，你兄长的名字在第三页。`:`六月，北路军在和通泊大败的消息传进宫来，满朝震动。\n过了半个月，又有消息：你兄长率残部突围，护着主帅的大纛退回了科布多。皇帝在折子上批了「可嘉」二字。`,
 choices:[
-{t:'备一份厚礼送去，以姐姐的身份提点她宫中规矩。',cost:30,run:()=>({text:`她收了礼，甜甜地叫你姐姐。往后请安，她总是第一个起身给你让路。`,d:{pres:6},note:'拉拢新人是高位妃嫔的本分，也是给自己添一双眼睛。'})},
-{t:'寻个由头，在请安时罚她一回，杀杀她的威风。',need:s=>s.rank>=3,needText:'嫔位以上',run:()=>({text:`她当众跪了半个时辰，眼圈红红的。当晚皇帝去看了她。\n第二日，皇帝在养心殿说了句：宫里有人容不下人。`,d:{pres:3,fav:-8,hh:4},note:'皇帝最厌善妒。罚新人可以立威，却要拿圣宠来换。'})},
-{t:'不理会，照旧过自己的日子。',run:()=>({text:`新人来来去去，宫里从不缺年轻的面孔。`,d:{fav:-3},note:'不争是稳妥，但圣宠是会被分走的。'})},
-{t:'加倍用心，新学了一支曲子。',run:()=>({text:`你练了一个月的琵琶，指尖磨出了茧。`,d:{charm:6,hp:-3},note:'宫中以色事人者，色衰而爱弛；以才事人者，尚可长久。'})}
+{show:s=>s.flags.broFate==='dead',t:'……',run:s=>{s.flags.broDead=1;return{text:`你在佛前跪了一夜。皇帝来{P}坐了坐，说你兄长是忠臣，赐了抚恤。`,d:{hp:-10,fav:4},note:'雍正九年六月，靖边大将军傅尔丹于和通泊中伏，清军大败，是雍正朝最惨烈的一战。'};}},
+{show:s=>s.flags.broFate!=='dead',t:'谢恩。',run:s=>{s.arc.fam='rising';return{text:`兄长擢了参领。家里来信，字里行间都是喜气。`,d:{pres:8},note:'外戚凭军功晋身，是最干净的一条路。'};}}
 ]},
 
 finale:{title:'大渐',place:'圆明园',
@@ -543,68 +651,301 @@ choices:[
 {t:'备一份厚礼，先去给四阿哥的额娘熹贵妃请安，早作打算。',run:()=>({death:'d_bet'})}
 ]},
 
-/* ── 触发 ── */
+/* ══ 方氏线 ══ */
+fa_hanmen:{title:'寒门',place:'景仁宫',when:s=>s.t>=1&&s.t<=3,pri:5,
+text:`请安散了，众人在廊下等轿。富察贵人看着方答应身上那件洗得发白的旗装，笑出了声：「哟，内务府这是把哪年的料子翻出来了？」\n她的宫女「不小心」一碰，方答应手里的茶盏翻了，茶水泼了一地。\n方答应跪下去，拿袖子擦地上的水。她和你同住启祥宫，你知道她父亲只是个笔帖式，家里供不起她打点。`,
+choices:[
+{t:'上前扶起她：「方妹妹的衣裳是皇后娘娘赏的料子，富察姐姐慎言。」',run:s=>{memo('fang_help','富察贵人羞辱方答应时，你当众扶起了她');return{text:`富察贵人哼了一声，扭头走了。\n回宫的路上，方答应一直攥着你的袖子，什么也没说。`,d:{fang:25,pres:2},note:'当众替人出头，得罪一个，交下一个。'};}},
+{t:'当时不作声，晚上悄悄送她一件新衣裳和两包碎银子。',cost:15,run:s=>{memo('fang_help','你悄悄送了方答应新衣和银子');return{text:`第二日请安，方答应穿着你送的衣裳，站在你身后，腰挺得笔直。`,d:{fang:20},note:'雪中送炭不必当众。'};}},
+{t:'当作没看见，上轿走了。',run:()=>({text:`你从轿帘缝里看见她还跪在那里擦地。`,d:{},note:null})},
+{t:'跟着众人笑了两声。',run:s=>{memo('fang_mock','富察贵人羞辱方答应时，你跟着笑了');return{text:`方答应抬起头，看了你一眼。只一眼。`,d:{fang:-30,pres:1},note:'拜高踩低是宫里的常事。被踩的人，记性往往最好。'};}}
+]},
+fa_father:{title:'家变',place:'{P}',when:s=>s.t>=4&&s.t<=8&&since(s,'fa_hanmen')>=2,pri:6,echo:()=>['fang_help','fang_mock'],
+text:s=>s.arc.fang.rel<-20?`方答应的父亲因经手钱粮亏空，被拿问下狱。\n你听说她在{P}偏殿哭了一夜。第二天一早，她去的不是你的正殿，而是景仁宫。`:`方答应的父亲因经手钱粮亏空，被拿问下狱。\n她半夜来敲你的门，进门就跪下了：「姐姐，我爹要是定了罪，我们全家都完了。宫里我只认得你……」`,
+choices:[
+{show:s=>s.arc.fang.rel<-20,t:'……',run:s=>{s.arc.fang.side='hh';memo('fang_hh','方氏父亲下狱，她没有来求你，去了景仁宫');return{text:`皇后出面替方家说了话。方答应从此常去景仁宫，见了你，礼数周全，一个字都不多说。`,d:{},note:'她没有来求你。因为她记得那一天。'};}},
+{show:s=>s.arc.fang.rel>=-20,t:'去养心殿，替她父亲求个情。',need:s=>s.st.fav>=45,needText:'圣宠 45',run:s=>{s.arc.fang.side='you';memo('fang_saved','方氏父亲下狱，你去养心殿替她求了情');if(s.st.fav>=60)return{text:`皇帝看了你一会儿：「交部从宽吧。」\n方答应的父亲革了职，保住了命。她来谢你时，额头磕得通红：「姐姐的恩，妹妹这辈子都记着。」`,d:{fang:40,sus:12},note:'用圣宠替人求情，换来的是一个人的一辈子；代价是皇帝记了你一笔。'};return{text:`「后宫的手伸得太长了。」皇帝驳了。\n方答应的父亲流放宁古塔。可她知道你去求过，抱着你哭了半宿。`,d:{fang:15,sus:20},note:'求情没成，人情还在。'};}},
+{show:s=>s.arc.fang.rel>=-20,t:'拿出六十两体己，托人去刑部打点。',cost:60,run:s=>{s.arc.fang.side='you';memo('fang_saved','方氏父亲下狱，你拿体己银子替她打点了刑部');return{text:`银子送到了，人保住了。挨了四十板子，革职回籍。\n方答应把你给的银票包好，说等她有了月例，一两一两还你。`,d:{fang:30},note:'银子能办的事，就不要动圣宠。'};}},
+{show:s=>s.arc.fang.rel>=-20,t:'劝她：「此事只有皇后娘娘能说上话。」',run:s=>{s.arc.fang.side='hh';memo('fang_hh','方氏父亲下狱，你劝她去求了皇后');return{text:`皇后出面了，方家保住了。方答应从此常去景仁宫。\n她对你还是客气的，只是那份客气里，多了一层你看不透的东西。`,d:{fang:5},note:'你把她推到了皇后面前。欠皇后的情，是要还的。'};}},
+{show:s=>s.arc.fang.rel>=-20,t:'婉拒：「妹妹，此事我实在无能为力。」',run:s=>{s.arc.fang.side='hh';memo('fang_refused','方氏父亲下狱求你相救，你婉拒了');return{text:`她父亲流放宁古塔。\n半个月后，景仁宫赏了方答应一对玉镯。她戴着镯子来给你请安，笑得很好看。`,d:{fang:-15},note:'你袖手旁观的时候，有人正等着接手。'};}}
+]},
+sachet:{title:'香囊',place:'{P}',when:s=>s.t>=6&&s.t<=14&&s.arc.fang.side&&s.arc.fang.side!=='dead'&&since(s,'fa_father')>=1,pri:5,intel:'云苓说，方答应前些日子悄悄去过一趟景仁宫，回来时手里多了个纸包。',echo:()=>['fang_saved','fang_hh','fang_refused'],
+pre:s=>{s.flags.sachetMusk=s.arc.fang.side!=='you'?1:0;return null;},
+text:`方答应送来一只亲手绣的香囊，针脚细密，香气甜而不腻。\n「姐姐近来睡得不好，这香是我家乡的方子，安神最好。」`,
+choices:[
+{t:'欢喜收下，当即系在腰间。',run:s=>{if(s.flags.sachetMusk){s.flags.musk=1;memo('musk','你日日佩着方氏送的香囊');return{text:`那香确实好闻，夜里睡得格外沉。`,d:{},note:null};}return{text:`那香确实好闻，夜里睡得格外沉。`,d:{hp:3,fang:5},note:null};}},
+{t:'道谢收下，夜里让云苓拆开看看里头是什么。',need:s=>ylAlive(s)&&s.st.loyal>=40,needText:'宫人 40',run:s=>s.flags.sachetMusk?{text:`云苓捻着香料闻了许久，脸色变了：「小主，这里头掺了麝香。」\n你让她原样缝好，锁进箱底。第二日见了方答应，仍旧一口一个妹妹。`,d:{wit:3},note:'近身之物须先验过。麝香活血通经，孕妇最忌。'}:{text:`云苓拆开细细看过：合欢花、柏子仁、一点沉香，都是安神的寻常东西。\n你把香囊系上了。`,d:{hp:3},note:'验过了，便可以安心。验，不是不信她，是宫里的规矩。'}},
+{t:'自己凑近细闻。',chance:s=>.1+s.st.wit/100,run:(s,ok)=>{if(!s.flags.sachetMusk)return{ok:undefined,text:`甜香里有合欢花和柏子仁的味道，没什么不对。你把它系上了。`,d:{hp:3},note:null};if(ok)return{ok,text:`甜香底下压着一股极淡的腥气。你把香囊收进了妆奁最底层。`,d:{wit:3},note:'麝香气味霸道，掺在花香里极难分辨。'};s.flags.musk=1;memo('musk','你日日佩着方氏送的香囊');return{ok,text:`你闻不出什么异样，便系在了腰间。`,d:{},note:null};}},
+{t:'收下后径直拿去景仁宫，求皇后做主。',run:s=>{if(s.flags.sachetMusk){s.arc.fang.side='hh';return{text:`皇后命人查验，果然有麝香。方答应被禁足一季，一路喊冤。\n你后来才想到：方答应一个答应，从哪里弄来的麝香？`,d:{hh:5,pres:3,fang:-40},note:'揪出了递刀的手，却没看见握刀的人。'};}s.arc.fang.side='hh';memo('fang_wronged','你把方氏送的香囊拿去景仁宫，冤枉了她');return{text:`太医验了半日，只验出合欢花和柏子仁。\n皇后笑着说你多心了。方答应站在一旁，眼泪一颗一颗往下掉，一句话也没说。`,d:{fang:-50,pres:-4},note:'疑人之心不可无。可疑错了一回，就再也收不回来。'};}}
+]},
+fa_song:{title:'清歌',place:'御花园',when:s=>s.t>=8&&s.t<=19&&['you','hh'].includes(s.arc.fang.side)&&since(s,'sachet')>=2,pri:4,echo:()=>['fang_saved','fang_hh','fang_wronged'],
+pre:s=>{s.arc.fang.rank=1;return null;},
+text:s=>s.arc.fang.side==='you'?`皇帝在御花园散步，隔着假山听见有人唱江南小调，嗓子清得像水。那是方答应。\n当晚她就侍了寝，第二日晋了常在。\n她来{P}时，眼睛红红的：「姐姐，我不是有意的……我不想抢姐姐的恩宠。」`:`皇帝在御花园散步，隔着假山听见有人唱江南小调，嗓子清得像水。那是方答应。\n当晚她就侍了寝，第二日晋了常在。\n请安时，她坐得离皇后很近，看你的时候，嘴角带着一点笑：「皇后娘娘说，宫里不缺会唱曲的，缺的是知道感恩的人。」`,
+choices:[
+{show:s=>s.arc.fang.side==='you',t:'拉着她的手道喜，又细细教她御前的规矩：什么话不能说，什么东西不能吃。',run:s=>{s.arc.fang.repaid=true;memo('fang_repaid','方氏得宠时，你真心替她高兴，教她规矩');return{text:`她一条条记下了，临走时说：「姐姐若有难处，我拼了这条命也替你说话。」`,d:{fang:15,fav:-3},note:'宫里的姐妹，多半在一方得宠时散了。你们没有。'};}},
+{show:s=>s.arc.fang.side==='you',t:'笑着道喜，心里却记下了这件事。',run:()=>({text:`她走后，你在窗前坐了很久。`,d:{},note:null})},
+{show:s=>s.arc.fang.side==='you',t:'劝她：「妹妹还是少出些风头为好。」',run:()=>({text:`她愣了一下，低下头说「知道了」。那以后，她来{P}来得少了。`,d:{fang:-15},note:'好意说得不是时候，就成了嫉妒。'})},
+{show:s=>s.arc.fang.side==='hh',t:'过几日，也去御花园献一曲。',chance:s=>.15+s.st.charm/110,run:(s,ok)=>ok?{ok,text:`皇帝驻足听完了你的琵琶，当晚翻了你的牌子。\n方常在在请安时，看你的眼神冷了几分。`,d:{fav:10,fang:-10},note:'以才争宠，争的是一时。'}:{ok,text:`你弹到一半，皇帝便走了。第二日宫里都在传，{T}学人家在御花园邀宠。`,d:{pres:-5,fav:-3},note:'跟在别人后面做同样的事，赢了不光彩，输了更难看。'}},
+{show:s=>s.arc.fang.side==='hh',t:'让人在她的茶里加点东西，叫她唱不了。',chance:s=>.2+s.st.wit/110+s.st.loyal/400,run:(s,ok)=>{if(!ok)return{ok,death:'d_voice'};s.arc.fang.voice=true;memo('fang_voice','你让人坏了方氏的嗓子');const found=roll(.5);return{ok,text:`方常在病了一场，嗓子哑了，再也唱不了高音。皇帝去看过她一回，就没再去。${found?'\n她不知从哪里听说了什么。请安时，她看你的那一眼，像是要把你剜下一块肉来。':''}`,d:{fang:found?-60:0,fav:3},note:'你得手了。宫里的事，得手和事发之间，往往只隔一个人的嘴。'};}},
+{show:s=>s.arc.fang.side==='hh',t:'不理会。',run:s=>{s.flags.fangSplit=1;memo('fang_split','方氏得宠，你没有理会');return{text:`方常在的圣宠一日盛过一日，敬事房翻你牌子的次数，少了。`,d:{},note:'从此每季圣宠额外 −2，直到她失宠。'};}}
+]},
+fa_turn:{title:'眼线',place:'{P}',valid:s=>s.arc.fang.side==='hh',when:s=>s.t>=16&&s.t<=30&&s.arc.fang.side==='hh'&&(since(s,'fa_song')>=2||(!did('fa_song')&&since(s,'sachet')>=3)),pri:7,intel:'云苓说，方常在宫里的小太监，前几日向{P}的粗使宫女打听你的生辰八字。',echo:()=>['fang_refused','fang_wronged','fang_voice'],
+text:s=>`${ylAlive(s)?'云苓':'守门的小太监'}夜里关宫门时，看见方氏从景仁宫的方向回来，鬼鬼祟祟。\n又过了几日，有人看见她在{P}门外徘徊，跟你宫里一个粗使宫女说了好一会儿话。\n她是皇后的人。你一直知道。只是你没想到，皇后会把她用在你身上。`,
+choices:[
+{t:'先发制人，把她夜会景仁宫、收买你宫人的事告到皇上那里。',run:s=>{s.arc.fang.side='cold';memo('fang_cold','你告发了方氏，她被打入冷宫');return{text:`皇帝派人一查，那个粗使宫女当场就招了。\n皇后说她毫不知情。方氏被褫夺位分，打入冷宫。她被拖走时，一直回头看着景仁宫的方向。`,d:{hh:-20,pres:5},note:'皇后断尾求生。方氏到最后才明白，她不过是一枚棋子。'};}},
+{t:'找她来，屏退左右，把话说开：她替皇后卖命，皇后又何曾把她当人看。',need:s=>s.st.wit>=50,needText:'心计 50',chance:s=>.15+s.st.wit/150+(s.arc.fang.rel+100)/400,run:(s,ok)=>{if(ok){s.arc.fang.side='double';s.flags.fangProof=1;memo('fang_double','你策反了方氏，她交出了皇后的一张字条');return{ok,text:`她坐了很久，最后从袖子里掏出一张折得很小的字条：「这是剪秋给我的。上面的字，是皇后的。」\n从那天起，景仁宫要她做什么，她都先来告诉你。`,d:{wit:3,fang:30},note:'策反的不是她的忠心，是她的怕。她怕的是有一天，皇后也会这样扔掉她。'};}return{ok,text:`她听完，笑了：「姐姐说得真好听。」\n当晚，她去了景仁宫。`,d:{hh:-25,fang:-20},note:'你高估了她的怕，低估了她的恨。'};}},
+{t:'将计就计：故意让她看见一封假的家书，让皇后误判。',chance:s=>.25+s.st.wit/120,run:(s,ok)=>{if(ok){s.flags.hhFooled=1;return{ok,text:`那封信写得半真半假。三日后，景仁宫的人果然往错的方向使了劲。\n皇后下一回要对你下的手，扑了个空。`,d:{wit:3},note:'知道谁是眼线，眼线就成了你的传声筒。'};}s.forced.push('wugu');s.flags.wuguBy='fang';return{ok,text:`方氏把信拿走了，可皇后没有上当。\n你隐隐觉得，有什么事要来了。`,d:{},note:'下一季，她会动手。'};}},
+{t:'装作不知道。',run:s=>{s.forced.push('wugu');s.flags.wuguBy='fang';return{text:`日子照常过。方氏照常来请安，照常笑。`,d:{},note:'下一季，她会动手。'};}}
+]},
+fa_end:{valid:s=>['you','double','cold'].includes(s.arc.fang.side),title:s=>({you:'旧谊',double:'杏仁',cold:'冷宫来信'})[s.arc.fang.side],place:'{P}',when:s=>s.t>=28&&s.t<=44&&['you','double','cold'].includes(s.arc.fang.side)&&(since(s,'fa_turn')>=3||since(s,'fa_song')>=6),pri:4,echo:()=>['fang_repaid','fang_double','fang_cold'],
+text:s=>({you:`方氏晋了贵人，迁去了长春宫的偏殿。她来辞行，带了一匣亲手做的点心。\n「姐姐，当年廊下那盏茶，我一辈子都记得。」`,
+double:`景仁宫终于察觉了。剪秋来过方氏宫里一趟，什么都没说，只留下一碟苦杏仁。\n那天夜里，方氏托人给你带了一句话：她想再见你一面。`,
+cold:`冷宫里的方氏病得快不行了。一个老太监偷偷给你带出来一封信，字写得歪歪扭扭。\n信里写的，是这些年景仁宫让她做过的每一件事。最后一行是：纯元皇后的事，去问辛者库姓刘的老宫女。`})[s.arc.fang.side],
+choices:[
+{show:s=>s.arc.fang.side==='you',t:'替她向皇上请封，求一个嫔位。',run:s=>{s.arc.fang.rank=3;return{text:`皇帝笑你：「旁人都替自己求，你倒替别人求。」\n方贵人晋了方嫔。她来谢恩那日，你们在廊下坐到天黑。`,d:{fav:-5,fang:10,pres:3},note:'肯替别人求的人，宫里不多。'};}},
+{show:s=>s.arc.fang.side==='you',t:'收下点心，送她出门。',run:s=>{s.arc.fang.rank=2;return{text:`她走出很远，又回头朝你福了福身。`,d:{},note:null};}},
+{show:s=>s.arc.fang.side==='double',t:'去见她最后一面。',run:s=>{s.arc.fang.side='dead';s.flags.fangProof=1;return{text:`她已经吃下去了。拉着你的手，断断续续地说：「那张字条……你收好……」\n天亮之前，她走了。宫里报的是「急病」。`,d:{hp:-5},note:'剧中安陵容便是吞苦杏仁而死。两边传话的人，最后总是两边都容不下。'};}},
+{show:s=>s.arc.fang.side==='double',t:'不去。去了，景仁宫就知道你们是一路的。',run:s=>{s.arc.fang.side='dead';return{text:`第二天，宫里报方贵人急病而殁。你没有去吊唁。`,d:{hp:-3},note:'活下来的人，有时要比死去的人更狠。'};}},
+{show:s=>s.arc.fang.side==='cold',t:'去冷宫见她。',run:s=>{s.arc.fang.side='dead';s.flags.fangProof=1;return{text:`她已经认不出你了，嘴里一直念着「爹」。\n你在她枕头底下找到了半张字条，上面的字迹是景仁宫的。`,d:{sus:8},note:'去冷宫是犯忌讳的事。可有些东西，只有去了才拿得到。'};}},
+{show:s=>s.arc.fang.side==='cold',t:'把信烧了。',run:s=>{s.arc.fang.side='dead';return{text:`信在炭盆里烧成了灰。三日后，冷宫报方氏病殁。`,d:{},note:'烧掉的是证据，也是一个人最后的话。'};}},
+{show:s=>s.arc.fang.side==='cold',t:'把信呈给皇上。',run:s=>{s.arc.fang.side='dead';if(thAlive(s))return{death:'d_evidence'};if(s.flags.hhDown)return{text:`皇帝看完信，扔进了炭盆：「景仁宫已经关上了，不必再提。」`,d:{},note:null};s.flags.hhDown=1;s.flags.xieli=1;memo('hh_down','你呈上方氏的遗书，皇后被禁足景仁宫');return{text:`太后已经不在了，没有人再替皇后说话。\n景仁宫的门关上了。皇帝命你协理六宫。`,d:{pres:12},promote:1,note:'太后去后，景仁宫再无倚仗。'};}}
+]},
+
+/* ══ 云苓线 ══ */
+yl_arrive:{title:'掌事宫女',place:'启祥宫',
+text:`内务府送来一个掌事宫女，名叫云苓，二十岁上下，眉眼利落。\n管事太监说：这丫头在景仁宫当过三年差，规矩是顶好的。\n云苓跪在地上，一直没抬头。`,
+choices:[
+{t:'叫她起来，赏一对银镯子：「往后我们主仆，以心换心。」',cost:10,run:s=>{s.arc.yl='trusted';return{text:`云苓接镯子的时候，手抖了一下。`,d:{loyal:15},note:'宫人的心是可以换的，但要先给。'};}},
+{t:'留下她，但吩咐下去：入口的东西，不经她的手。',run:s=>{s.arc.yl='watched';return{text:`云苓应了一声「是」，什么也没问。`,d:{loyal:-5,wit:2},note:'景仁宫出来的人，防一防总没错。只是被防着的人，心里是知道的。'};}},
+{t:'退回内务府，另换一个。',run:s=>{s.arc.yl='swapped';s.st.loyal=Math.min(s.st.loyal,45);memo('yl_swap','你退回了云苓，换来一个叫秋纹的宫女');return{text:`第二天送来的是个叫秋纹的宫女，嘴甜手快。\n你不知道的是，秋纹的姑母在翊坤宫当差。`,d:{},note:'换掉的是一个人，换不掉的是内务府。从此宫人忠诚上限 50。'};}}
+]},
+yl_brother:{title:'心事',place:'{P}',when:s=>s.t>=5&&s.t<=9&&['trusted','watched'].includes(s.arc.yl),pri:6,
+text:`云苓这几日魂不守舍，端茶打碎了一只盏，夜里也不睡，坐在廊下发呆。\n昨天你看见她偷偷抹眼泪。`,
+choices:[
+{t:'屏退旁人，问她出了什么事；听说是弟弟欠了赌债被人扣下，拿出四十两替她赎人。',cost:40,run:s=>{s.arc.yl='sworn';s.st.loyal=Math.max(s.st.loyal,90);memo('yl_sworn','你拿四十两替云苓赎回了弟弟');return{text:`云苓跪在地上，磕了三个头，额头都青了。\n她说：扣她弟弟的人，让她「办一件事」换人。是什么事，她还没来得及问。`,d:{},note:'有人想买她，你先把她赎了。'};}},
+{t:'问明缘由，拿出二十两：「先拿去应急。」',cost:20,run:s=>{s.arc.yl='torn';s.flags.tornTurn=roll(.5);memo('yl_torn','云苓的弟弟被扣，你只给了她二十两');return{text:`云苓谢了恩，拿着银子走了。二十两，不够。\n她没有再提这件事。`,d:{loyal:5},note:'帮了一半，等于把另一半留给了别人。'};}},
+{t:'不闻不问。',run:s=>{s.arc.yl='coerced';return{text:`过了半个月，云苓又像往常一样利落了。你以为事情过去了。`,d:{},note:null};}},
+{t:'罚她跪一个时辰：「当差这样不上心，成何体统。」',run:s=>{s.arc.yl='coerced';return{text:`云苓跪了一个时辰，起来时一句话也没说。`,d:{loyal:-15},note:'被你罚过的人，再被别人收买，就不需要犹豫了。'};}}
+]},
+yl_night:{title:'夜半',place:'{P}',valid:s=>['coerced','torn'].includes(s.arc.yl),when:s=>s.t>=10&&s.t<=28&&(s.arc.yl==='coerced'||(s.arc.yl==='torn'&&s.flags.tornTurn))&&since(s,'yl_brother')>=2,pri:8,echo:()=>['yl_torn'],
+text:`你夜里醒来，屋里没点灯。床边有人，蹲着，窸窸窣窣。\n借着窗外的月光，你认出那是云苓。她把一个什么东西塞进了你的床底，站起来，在床边站了很久。`,
+choices:[
+{t:'当场喝住她，叫人进来拿下。',run:s=>{s.arc.yl='dead';s.st.loyal=40;const who=hhSide(s);memo('yl_dead','你半夜拿下了往床下塞布偶的云苓');return{text:`床底下是一个扎满银针的布偶。\n云苓没有挣扎，跪在地上全招了：她弟弟在${who==='华妃'?'翊坤宫':'景仁宫'}的人手里。\n她被送去慎刑司，再没回来。`,d:{pres:5,[who==='华妃'?'hf':'hh']:-10},note:'拿下了，就再也问不出更多。你保住了自己，也失去了身边最近的人。'};}},
+{t:'装作没醒。等她走后取出那东西，第二天再找她单独说话。',run:s=>{if(s.st.loyal>=40){s.arc.yl='sworn';s.flags.trapSet=1;memo('yl_sworn','云苓半夜栽赃被你看破，你没有声张，她转而对你死心塌地');return{text:`第二天，你把布偶放在她面前，只问了一句：「你弟弟还好么？」\n云苓哭着跪下了。她说了一切，说完就要撞柱子。你拉住了她：「往后，他们让你做什么，你先来告诉我。」`,d:{loyal:20},note:'不声张，给她留了条活路。一个被你救过两回的人，会把命交给你。'};}s.arc.yl='dead';s.forced.unshift('wugu');s.flags.wuguBy='yl';return{text:`第二天一早，你还没来得及找她，慎刑司的人就到了门口。\n云苓不见了。`,d:{},note:'她不够信你，先一步跑了。'};}},
+{t:'装睡。',run:s=>{s.forced.push('wugu');s.flags.wuguBy='yl';s.flags.noIntel=1;return{text:`你闭着眼，听见她轻轻带上了门。`,d:{},note:'下一季，会有人来搜宫。'};}}
+]},
+yl_report:{title:'报信',place:'{P}',valid:s=>s.arc.yl==='sworn',when:s=>s.t>=10&&s.t<=28&&s.arc.yl==='sworn'&&since(s,'yl_brother')>=3&&!s.flags.trapSet,pri:6,echo:()=>['yl_sworn'],
+text:s=>`云苓关上门，跪在你面前：「小主，${hhSide(s)==='华妃'?'翊坤宫':'景仁宫'}的一个太监找过奴婢，给了五十两，让奴婢往小主床下放一样东西。」\n她把银票摊在桌上。`,
+choices:[
+{t:'让她假意答应，东西拿到手就交给你，人赃并获。',need:s=>s.st.wit>=45,needText:'心计 45',run:s=>{s.flags.trapSet=1;const who=hhSide(s);memo('yl_trap','云苓报信，你人赃并获，拿住了来收买她的太监');return{text:`三日后，那个太监来取「回音」时，被侍卫按在了{P}的门口。他怀里揣着一个扎满银针的布偶。\n${who}说她毫不知情，当天就把那太监打发去了慎刑司。`,d:{pres:12,[who==='华妃'?'hf':'hh']:-15},note:'让对手的刀落在对手自己身上。往后再有人想买{P}的人，要先掂量掂量。'};}},
+{t:'让她回绝，银子退回去。',run:()=>({text:`云苓把银票退了回去。那太监再没来过。`,d:{loyal:3},note:'不惹事，事也就过去了。'})},
+{t:'直接去养心殿，告诉皇上。',run:()=>({text:`皇帝听了，皱眉说了句「后宫的事，让皇后去查」。\n皇后查了半个月，查出一个「手脚不干净的小太监」。`,d:{fav:-3,pres:3},note:'后宫的事拿到皇帝面前，皇帝只会嫌烦。'})}
+]},
+yl_out:{title:'放出',place:'{P}',when:s=>s.t>=36&&s.t<=39&&['trusted','watched','sworn','torn','coerced'].includes(s.arc.yl),pri:3,echo:()=>['yl_sworn','yl_trap'],
+text:`内务府来人问：云苓今年满二十五了，按例该放出宫去。{T}的意思是？\n云苓站在你身后。你回头看她，她低着头，看不出在想什么。`,
+choices:[
+{t:'放她出宫，备五十两嫁妆。',cost:50,run:s=>{s.arc.yl='out';memo('yl_out','你放云苓出宫，备了一份嫁妆');return{text:`云苓走那天，在{P}门口磕了三个头。\n她说，等她有了孩子，要带进来给小主看。`,d:{loyal:-15},note:'清制，宫女年满二十五岁放出宫，由家人领回婚配。'};}},
+{t:'去求皇后恩准，留她做姑姑。',run:s=>{if(s.arc.yl==='sworn'){s.arc.yl='stay';return{text:`云苓听说了，跪着哭了好半天：「奴婢本就不想走。」`,d:{loyal:5},note:'有的人，宫里就是家。'};}s.arc.yl='stay';return{text:`皇后准了。云苓谢了恩，脸上看不出高兴，也看不出不高兴。`,d:{loyal:-5},note:'留下她，问过她的意思么？'};}},
+{t:'不问她的意思，直接留下。',run:s=>{s.arc.yl='stay';return{text:`云苓跪着谢恩，起身时，眼睛红了。`,d:{loyal:-20},note:'主子的「恩典」，有时是宫女一辈子的牢笼。'};}}
+]},
+
+/* ══ 华妃线 ══ */
+hf_task:{title:'投名状',place:'翊坤宫',when:s=>s.t>=4&&s.t<=8&&s.arc.hf==='party'&&hfActive(s),pri:7,echo:()=>['hf_party'],
+text:`华妃把你叫到翊坤宫，屏退了左右。\n「惠贵人近来得意得很。本宫听说她想要个孩子——太医院的刘畚，方子开得最好。」她慢慢转着护甲：「你去她跟前，替刘太医说几句好话。」\n颂芝在一旁给你斟了一盏茶。`,
+choices:[
+{t:'照办。',run:s=>{s.flags.liuben=1;memo('liuben','你替华妃把刘畚荐给了惠贵人');return{text:`惠贵人用了刘畚的方子，月事迟了两个月，满宫都以为她有了身孕。\n后来太医院会诊，说是假孕。惠贵人以欺君之罪被禁足咸福宫。\n华妃赏了你一支点翠步摇。`,d:{hf:20,fav:5},note:'剧中惠贵人假孕案，正是华妃借太医刘畚之手所为。你在这桩事里，留了名。'};}},
+{t:'话照说，却找机会悄悄提醒惠贵人：刘太医的方子，慎用。',chance:s=>.2+s.st.wit/110,run:(s,ok)=>{if(ok){s.flags.shenFriend=1;memo('shen_friend','你暗中提醒惠贵人，刘畚的方子不可用');return{ok,text:`惠贵人没有用那方子。华妃等了两个月不见动静，以为是惠贵人自己谨慎，没有疑到你身上。\n惠贵人在寿康宫陪太后时，提过一句{T}心善。`,d:{hf:-5,th:10},note:'惠贵人是太后跟前得脸的人。你保了她，太后记住了。'};}s.arc.hf='enemy';s.forced.push('kneel');return{ok,text:`你的话被颂芝的人听见了。\n华妃当晚就知道了。「好，好得很。」`,d:{hf:-40},note:'阳奉阴违，没做干净，比直接拒绝更招恨。下一季，罚跪会找上你。'};}},
+{t:'推说身子不适，拖着不办。',run:()=>({text:`你拖了一个多月。华妃再没提这件事，只是翊坤宫的赏赐，停了。`,d:{hf:-15},note:'拖，是最软的拒绝，也是最先被看穿的拒绝。'})},
+{t:'转头去景仁宫，把华妃的打算告诉皇后。',run:s=>{s.arc.hf='enemy';s.arc.hh='party';s.forced.push('kneel');memo('hh_party','你把华妃的打算告诉了皇后，从此算是景仁宫的人');return{text:`皇后握着你的手：「你是个明白人。」\n惠贵人没有中计。但华妃很快就知道了，是谁坏了她的事。`,d:{hh:15,hf:-40},note:'从翊坤宫投到景仁宫，皇后会护你，也会用你。下一季，华妃会让你跪。'};}}
+]},
+hf_huanyi:{title:'欢宜香',place:'翊坤宫',when:s=>s.t>=6&&s.t<=10&&s.arc.hf==='party'&&hfActive(s)&&since(s,'hf_task')>=1,pri:5,
+text:`华妃心情好，叫颂芝取来一只小匣子：「这是皇上独赐本宫的欢宜香，满宫里只有翊坤宫有。分你一点，算是赏你的。」\n香气浓郁，经久不散。你记得，华妃入宫这么多年，一直没有孩子。`,
+choices:[
+{t:'谢恩，回去日日焚着。',run:s=>{s.flags.musk=1;memo('musk','你日日焚着华妃赏的欢宜香');return{text:`{P}里整日香气缭绕。皇帝来时说了句：倒像翊坤宫。`,d:{hf:5},note:null};}},
+{t:'谢恩，收进柜子里，一回也不用。',run:()=>({text:`那匣香一直放在柜子最底层，直到落了灰。`,d:{},note:'主子的赏，收着就是了，不必非用不可。'})},
+{t:'悄悄请太医来验验这香。',cost:10,chance:s=>.3+s.st.wit/120,run:(s,ok)=>{if(ok){s.flags.knowHuanyi=1;memo('know_huanyi','你验出欢宜香里有麝香');return{ok,text:`太医闻了半日，脸色发白，跪下了：「小主……这香里，有麝香。分量不轻。」\n他又补了一句：「这是皇上赐的香。微臣什么都没说过。」`,d:{sus:10,wit:4},note:'剧中欢宜香所含麝香，正是皇帝为防年氏有子。你知道了一件不该知道的事。'};}return{ok,text:`太医闻了闻，说是上好的香料，没什么不妥。`,d:{},note:'太医有时说的不是实话，是保命的话。'};}},
+{t:'谢恩，转手送给了别的小主。',run:()=>({text:`没过几天，华妃就知道了：内务府的账上，那匣香是从{P}出去的。\n「本宫的东西，你也敢转送？」`,d:{hf:-20},note:'御赐之物转送，是失礼；转送主子的赏，是不敬。'})}
+]},
+hf_fan:{title:'翻案',place:'咸福宫',when:s=>s.t>=12&&s.t<=13&&s.flags.liuben,pri:9,echo:()=>['liuben'],
+text:`华妃倒了，刘畚被拿进了慎刑司。惠贵人复了宠，头一件事就是要查清当年的假孕案。\n刘畚招了。供词里有你的名字。\n惠贵人派人来请你去咸福宫「坐坐」。`,
+choices:[
+{t:'去咸福宫，跪下向惠贵人请罪。',chance:s=>.35+s.st.pres/200+(s.flags.shenFriend?.3:0),run:(s,ok)=>{if(!ok)return{ok,death:'d_liuben'};s.flags.liuben=0;return{ok,text:`惠贵人看了你很久，叹了口气：「你那时候也是身不由己。」\n她把刘畚的供词烧了。可这件事，皇帝已经知道了。`,d:{sus:10,pres:-5},note:'惠贵人宽厚，肯给人留条路。换一个人，你就没有这一天了。'};}},
+{t:'抵死不认。',run:()=>({death:'d_liuben'})},
+{t:'去寿康宫求太后。',need:s=>thAlive(s)&&s.rel.th>=50,needText:'太后 50',run:s=>{s.flags.liuben=0;return{text:`太后把惠贵人叫去说了半日话。出来时，惠贵人眼睛红红的，再没提这件事。`,d:{th:-20},note:'太后保下了你，用的是她最疼的惠贵人的委屈。'};}}
+]},
+hf_cold:{title:'冷宫',place:'冷宫',when:s=>s.t>=12&&s.t<=15&&s.flags.hfGone&&!s.flags.hfDead,pri:4,echo:()=>['hf_party','hf_enemy'],
+text:s=>`冷宫里的华妃托一个老太监带话：${s.arc.hf==='party'?'「你欠本宫一个人情。」':'「本宫有话要告诉你。」'}\n冷宫在紫禁城最偏的西北角。去那里，是犯忌讳的。`,
+post:s=>{s.flags.hfDead=1;},
+choices:[
+{t:'去见她。',run:s=>{s.flags.hintHH=1;memo('hf_cold','华妃在冷宫告诉你：去问问景仁宫，纯元皇后是怎么死的');return{text:`华妃坐在一张破椅子上，头发梳得一丝不乱。\n「欢宜香里有麝香，是皇上让人加的。本宫是到了这里才想明白。」她笑了：「可本宫那个没保住的孩子，背后推了一把的，是景仁宫。你去问问景仁宫，纯元皇后是怎么死的。」\n半个月后，华妃在冷宫撞墙而死。`,d:{sus:8},note:'冷宫里的人，没有什么不敢说的。她给你的，是一条线头。'};}},
+{t:'托人送些炭火吃食去。',cost:20,run:()=>({text:`东西送到了，没有回话。\n半个月后，华妃在冷宫撞墙而死。`,d:{pres:2},note:'人走茶凉的地方，一点炭火也是人情。'})},
+{t:'不去。',run:()=>({text:`半个月后，华妃在冷宫撞墙而死。`,d:{},note:null})},
+{t:'告诉皇上：华妃想见他一面。',run:()=>({text:`皇帝没有去。他只说了一句：「你倒是多事。」\n半个月后，华妃在冷宫撞墙而死。`,d:{fav:-5},note:'皇帝不去，是因为他不敢去。你替他提起这件事，他不会谢你。'})}
+]},
+
+/* ══ 皇后线 ══ */
+hh_recruit:{title:'凤座',place:'景仁宫',when:s=>s.t>=5&&s.t<=13&&!s.arc.hh&&(s.rank>=2||s.st.fav>=40)&&!s.flags.hhDown,pri:6,echo:()=>['hf_party'],
+text:s=>`请安散后，剪秋把你留了下来。皇后亲手给你斟了一盏茶。\n「你是个聪明的。」皇后说，「本宫身边，缺一个贴心的人。」${s.arc.hf==='party'?'\n她顿了顿：「本宫知道你常去翊坤宫。人总要往长远了看。」':''}`,
+choices:[
+{t:'跪下谢恩：「嫔妾往后唯娘娘之命是从。」',run:s=>{s.arc.hh='party';if(s.arc.hf==='party')s.arc.hf='neutral';memo('hh_party','你在景仁宫跪下，认了皇后作主子');return{text:`皇后扶你起来，笑得很温和。\n从那以后，内务府送到{P}的东西，再没少过一样。`,d:{hh:30,hf:s.arc.hf==='party'?-20:0},note:'皇后的庇护是真的，皇后的差事也会是真的。'};}},
+{t:'谢恩，只说：「嫔妾自当恪守本分，侍奉娘娘。」',run:s=>{s.arc.hh='refused';return{text:`皇后笑容不变：「好，好。」\n剪秋送你出门时，没有说话。`,d:{hh:-5},note:'不接话，便是拒绝。皇后不会当面说什么，她记在心里。'};}},
+{t:'满口应承，心里另有打算。',need:s=>s.st.wit>=50,needText:'心计 50',run:s=>{s.arc.hh='double';memo('hh_double','你假意投靠了皇后');return{text:`你说得情真意切。皇后很满意。\n回宫的路上，你一直在想：她要你做的第一件事，会是什么。`,d:{hh:15},note:'假意投靠，要演一辈子。'};}}
+]},
+hh_task:{title:'借刀',place:'景仁宫',when:s=>s.t>=9&&s.t<=20&&['party','double'].includes(s.arc.hh)&&(since(s,'hh_recruit')>=2||since(s,'hf_task')>=2)&&!s.flags.hhDown,pri:8,echo:()=>['hh_party','hh_double'],
+text:`富察贵人有孕了。\n皇后把一只描金漆盒交给你：「本宫和富察贵人素来不睦，本宫送的东西她不敢吃。你以{P}的名义送去，就说是你的心意。」\n盒子里是几样补品，看着都是好东西。`,
+choices:[
+{t:'照办。',run:s=>{s.flags.hhBlood=1;memo('hh_blood','你以自己的名义，把皇后的补品送去了富察贵人那里');return{text:`富察贵人收下了，还让人回了礼。\n两个月后，她小产了。宫里人说，是被景仁宫的猫惊着了。`,d:{hh:15},note:'补品与猫，哪一样是真凶，已经不重要了。送东西的是你。'};}},
+{t:'照办，但临走前偷偷留下了一包。',run:s=>{s.flags.hhBlood=1;s.flags.hhProof=1;memo('hh_proof','你把皇后的补品送了出去，又偷偷留下一包作证');return{text:`你把那包东西用油纸裹了三层，缝进了一只旧枕头里。\n两个月后，富察贵人小产了。`,d:{hh:15,wit:3},note:'替人递刀，就要给自己留一张字据。'};}},
+{t:'半路把补品换成自己备的。',chance:s=>.2+s.st.wit/120+(s.arc.hh==='double'?.2:0),run:(s,ok)=>{if(ok)return{ok,text:`你送去的是真补品。富察贵人吃得很好。\n皇后等了两个月不见动静，以为是富察贵人福大。`,d:{wit:3},note:'对皇后阳奉阴违，这一次没被看破。'};s.arc.hh='enemy';memo('hh_enemy','你调换皇后的补品，被她察觉了');return{ok,text:`你换下来的那盒东西，被剪秋在{P}的后院找到了。\n皇后什么都没说。可从那天起，你在景仁宫请安，再没有人给你上茶。`,d:{hh:-40},note:'皇后知道你不是她的人了。'};}},
+{t:'推辞：「嫔妾与富察贵人素来不睦，怕她起疑。」',run:s=>{s.arc.hh='refused';return{text:`皇后看了你一会儿，把盒子收了回去。`,d:{hh:-10},note:'第一次拒绝主子，就不会再有第二次差事了。'};}}
+]},
+hh_scape:{title:'弃子',place:'养心殿',when:s=>s.t>=19&&s.t<=26&&s.flags.hhBlood&&since(s,'hh_task')>=3,pri:9,echo:()=>['hh_blood','hh_proof'],
+text:`富察贵人小产后，人就疯了，见了猫就尖叫。\n皇帝下旨彻查。查到最后，那盒补品是以{P}的名义送去的，签收的宫女认得你宫里的人。\n你跪在养心殿里。皇后坐在一旁，一言不发。`,
+choices:[
+{t:'喊冤：「那盒东西是皇后娘娘让嫔妾送的！」',run:s=>{if(!s.flags.hhProof)return{death:'d_scapegoat'};s.arc.hh='enemy';s.flags.hhBlood=0;memo('hh_enemy','弃子之局，你当众拿出了皇后的补品');return{text:`你让人从旧枕头里取出那包东西，当着皇帝的面拆开。\n皇后的脸色第一次变了。\n皇帝看了很久，最后说：「此事到此为止。」——太后还在，他动不了皇后。`,d:{sus:30,hh:-60},note:'把柄救了你一命，也让皇后从此把你当成了死敌。'};}},
+{t:'私下求见皇后：「娘娘若保不住嫔妾，那包东西会出现在养心殿。」',need:s=>s.flags.hhProof,needText:'握有把柄',run:s=>{s.arc.hh='leverage';s.flags.hhTruce=1;s.flags.hhBlood=0;memo('hh_truce','弃子之局，你拿把柄要挟皇后，两人互相牵制');return{text:`皇后笑了，笑得很慢：「本宫小看你了。」\n第二天，一个景仁宫的小宫女认了罪，说是她自作主张在补品里加了东西。`,d:{hh:-30},note:'从此你与皇后互相牵制。太后在一日，她便不会再动你。'};}},
+{t:'一力承担：「是嫔妾一时糊涂。」',run:s=>{if(s.st.fav<70)return{death:'d_scapegoat'};s.rank=Math.max(0,s.rank-2);s.ban=2;s.flags.hhBlood=0;return{text:`皇帝看了你很久：「念你伺候多年，降为${RANKS[s.rank]}，禁足两季。」\n皇后在一旁轻声说：皇上仁慈。`,d:{fav:-25,pres:-20},note:'圣宠救了你的命，却救不了你的位分。'};}},
+{t:'求太后做主。',need:s=>thAlive(s)&&s.rel.th>=50,needText:'太后 50',run:s=>{s.flags.hhBlood=0;return{text:`太后把皇帝叫去说了半日话。此事以「宫人疏忽」了结。\n太后护的不只是你，也是景仁宫。`,d:{sus:15,th:-15},note:'太后压下这件事，是为了后宫安稳。你只是顺带。'};}}
+]},
+hh_dizi:{title:'嫡子',place:'景仁宫',valid:s=>!!sonOf(s)&&!sonOf(s).adopted&&!s.flags.hhDown,when:s=>s.t>=33&&s.t<=46&&!s.flags.hhDown&&!!sonOf(s)&&!sonOf(s).adopted,pri:5,
+text:`皇后向皇帝请旨，要把你的阿哥记在她名下抚养。\n「本宫膝下空虚，三阿哥又不成器。{T}的阿哥聪慧，若记作嫡子，将来前程也好些。」\n皇帝没有立刻答应，让人来问你的意思。`,
+choices:[
+{t:'应允。',run:s=>{sonOf(s).adopted=true;return{text:`阿哥被抱去了景仁宫。头几个月，他每天都哭着要额娘；后来，他不哭了。`,d:{hh:40,fav:5},note:'嫡子的前程，是用母子情分换的。'};}},
+{t:'抱着阿哥去养心殿，让他自己跟皇阿玛说。',chance:s=>.15+s.st.fav/120,run:(s,ok)=>{if(ok)return{ok,text:`阿哥扑进皇帝怀里，说他只要额娘。皇帝笑了：「罢了，孩子离不得亲娘。」`,d:{hh:-15,fav:3},note:'孩子的一句话，有时比大人十句管用。'};sonOf(s).adopted=true;return{ok,text:`皇帝皱了眉：「谁教他说这些的？」\n阿哥还是被记在了皇后名下。`,d:{fav:-10},note:'教孩子说话，被看穿了，就成了心机。'};}},
+{t:'让相熟的太医在皇帝面前说：皇后头风沉重，不宜劳神抚养。',chance:s=>.2+s.st.wit/120,run:(s,ok)=>ok?{ok,text:`太医的话说得恰到好处。皇帝体恤皇后，此事作罢。`,d:{hh:-20},note:'借太医的口说话，说得巧，是体恤；说得拙，是构陷。'}:{ok,text:`太医的话说得太明显了。皇帝冷冷地问：是谁让你这样说的？`,d:{sus:25,hh:-20},note:'借太医的口说话，说得拙，就是构陷。'}}
+]},
+
+/* ══ 家族线 ══ */
+fam_bro:{title:'兄长',place:'{P}',when:s=>s.t>=24&&s.t<=28&&s.arc.fam!=='fallen',pri:3,
+text:`西北对准噶尔用兵，京中旗下子弟纷纷请缨。\n家里来信，说你兄长在家闲了几年，想谋个出身。信里没明说，可意思是：能不能在皇上面前提一提。`,
+choices:[
+{t:'回信：「让哥哥投军西北，凭军功挣前程。」',run:s=>{s.flags.broWar=1;memo('bro_war','你让兄长投军西北');return{text:`兄长随傅尔丹的北路军出征了。临走前，他托人给你带了一包家乡的糖。`,d:{},note:'雍正七年，清廷分西、北两路出兵准噶尔，北路由靖边大将军傅尔丹统领。'};}},
+{t:'在皇上面前替兄长求个京官。',run:()=>({text:`皇帝听完，淡淡地说：吏部自有章程。\n过了些日子，你兄长补了个闲差。可皇帝在{P}坐的时候，少了。`,d:{sus:25,fav:-5},note:'外戚请托，是帝王大忌。'})},
+{t:'劝兄长安分守己，在家读书。',run:()=>({text:`兄长回信说知道了。字里行间，你看得出他的失望。`,d:{},note:'安分，是外戚最好的本分。'})}
+]},
+
+/* ══ 果郡王线 ══ */
+pr_letter:{title:'诗笺',place:'{P}',when:s=>s.t>=12&&s.t<=18&&s.arc.prince==='secret',pri:7,echo:()=>['pr_secret'],
+text:`王府回了一份礼：一盒南边的蜜饯。\n云苓拆开盒子时，从夹层里掉出一张诗笺。字迹清隽，写的是两句旧诗，没有落款。\n你认得那笔字。`,
+choices:[
+{t:'当即烧了。',run:s=>{s.arc.prince='cool';return{text:`诗笺在烛火上卷起来，化成了灰。那盒蜜饯，你也赏了宫人。`,d:{},note:'烧得干净，便什么都没发生过。'};}},
+{t:'收进妆奁最底层。',run:s=>{s.flags.letterKept=1;memo('letter','你把果郡王的诗笺收进了妆奁');return{text:`你把它压在一叠旧帕子下面。没有人知道它在那里。`,d:{},note:'它在那里一天，就是一把悬着的刀。若被搜宫，便是死罪。（平安的季节，可在行动里把它烧掉。）'};}},
+{t:'回一首诗。',run:s=>{s.forced.push('pr_exposed');return{text:`你斟酌了一夜，写了四句，托送蜜饯的人带了回去。`,d:{},note:null};}},
+{t:'把诗笺交给皇上。',run:s=>{s.arc.prince='cut';return{text:`皇帝看完，脸色很难看。半个月后，果郡王奉旨出京，去了西南。\n皇帝对你说：你做得对。`,d:{fav:5,sus:-5},note:'交出去，是自保。只是此后那个人，你再也见不到了。'};}}
+]},
+pr_exposed:{title:'诗笺',place:'{P}',
+text:`你的回诗没有到王府。\n它在半路上被人截下，抄了一份，送进了景仁宫。`,
+choices:[{t:'……',run:()=>({death:'d_letter'})}]},
+
+/* ══ 祺贵人线 ══ */
+qi_wine:{title:'泼酒',place:'景仁宫',when:s=>s.t>=13&&s.t<=20&&s.arc.qi==='feud',pri:5,echo:()=>['qi_feud'],
+text:`皇后设宴赏菊。祺贵人端着酒杯来给你敬酒，手一歪，半杯酒泼在了你的衣襟上。\n「哎呀，姐姐恕罪。」她掩着嘴笑，「不过姐姐这件衣裳，料子也不大好，泼了也不可惜。」\n席上有人笑出了声。`,
+choices:[
+{t:'一笑置之：「妹妹年轻，手不稳也是有的。」',run:()=>({text:`你换了衣裳回来，照常说笑。皇后夸你大度。`,d:{pres:3},note:'不接招，便没有输赢。'})},
+{t:'当场回敬一句，让她下不来台。',chance:s=>.1+(s.st.charm+s.st.wit)/220,run:(s,ok)=>ok?{ok,text:`你说：「妹妹的手若是不稳，侍寝时也得当心，别打翻了皇上的茶。」\n满席哄笑。祺贵人的脸红到了耳根。`,d:{pres:5},note:'机锋要快，要准，要让旁人笑。'}:{ok,text:`你的话说得太冲，皇后皱了眉：「都少说两句。」\n祺贵人委委屈屈地掉了眼泪。`,d:{pres:-5},note:'回敬不成，就成了你仗势欺人。'}},
+{t:'回宫后让云苓找人盯着她宫里的动静。',need:s=>ylAlive(s),needText:'云苓在身边',run:s=>{s.flags.qiWatch=1;memo('qi_watch','你让云苓盯住了祺贵人宫里的动静');return{text:`云苓在祺贵人宫里认了个小同乡。\n不久，小同乡说：祺贵人的宫女前几日去内务府领了一包白矾，说是要洗衣裳。`,d:{wit:2},note:'先盯住，再出手。'};}}
+]},
+qi_emin:{title:'鄂敏',place:'{P}',when:s=>s.t>=27&&s.t<=44&&s.arc.qi==='feud'&&!s.flags.qiDown,pri:3,echo:()=>['qi_feud'],
+text:`家里来信，信里夹着一句闲话：祺贵人的父亲鄂敏在外任上，贪墨了不少河工银子，地方上怨声载道。\n这是能让祺贵人再也翻不了身的东西。`,
+choices:[
+{t:'找机会把这件事告诉皇上。',run:()=>({text:`皇帝听完，看着你：「这是你该知道的事么？」\n鄂敏后来还是被参了，可皇帝没有忘记，是谁先提的。`,d:{sus:25},note:'前朝的事从后宫的嘴里说出来，就是干政。'})},
+{t:'让娘家托一位相熟的御史，上折参他。',need:s=>['ok','rising'].includes(s.arc.fam),needText:'家族平安',run:s=>{s.flags.qiDown=1;const caught=roll(.2);return{text:`御史的折子递上去，鄂敏被革职查办。祺贵人在宫里哭了三天，从此失了宠。${caught?'\n只是这御史和你家的交情，不知怎的被人翻了出来。':''}`,d:{pres:8,sus:caught?15:0},note:'借前朝的手办后宫的事，干净，但要小心那只手上留下的印子。'};}},
+{t:'不动。',run:()=>({text:`你把信烧了。祺贵人照旧得宠，照旧在请安时对你笑。`,d:{},note:null})}
+]},
+
+/* ══ 子嗣线 ══ */
 preg:{title:'喜脉',place:'{P}',
 text:`太医请平安脉，搭了许久，忽然跪下给你道喜：已有两个多月的身孕。\n云苓在一旁捂住了嘴。按规矩，有孕须报敬事房记档，太医院的脉案也是要呈上去的。`,
 choices:[
-{t:'即刻禀报皇上与皇后。',run:s=>({text:`赏赐流水般送进{P}。皇帝当晚就来了，坐了很久。\n各宫的贺礼也到了，你让云苓一样样收进库房，一样也没用。`,d:{fav:10,pres:5,hh:-5,hf:-10},note:'有孕是喜事，也是靶子。各宫贺礼，入口近身之物一律不用，是保胎的头一条。'})},
+{t:'即刻禀报皇上与皇后。',run:()=>({text:`赏赐流水般送进{P}。皇帝当晚就来了，坐了很久。\n各宫的贺礼也到了，你让人一样样收进库房，一样也没用。`,d:{fav:10,pres:5,hh:-5,hf:-10},note:'有孕是喜事，也是靶子。各宫贺礼，入口近身之物一律不用，是保胎的头一条。'})},
 {t:'让太医暂缓呈报，等满三个月胎稳了再说。',chance:s=>.2+s.st.wit/120+s.st.loyal/300,run:(s,ok)=>{if(ok){s.preg.hidden=1;return{ok,text:`太医收了你的银子，脉案上只写了「气血两虚」。三个月后胎象已稳，你才禀报上去，皇帝只当是喜上加喜。`,d:{fav:8},note:'头三月最易出事，瞒得住便少一分险。只是瞒报皇嗣，一旦败露便是欺君。'};}return{ok,text:`没过半月，景仁宫就知道了。皇后在请安时笑着说：「{T}好福气，怎么也不告诉本宫一声？」\n当晚，皇帝问你为何隐瞒。`,d:{sus:20,fav:-5,hh:-8},note:'瞒报皇嗣，往小了说是不懂规矩，往大了说是欺君。'};}},
-{t:'禀报之后，再去寿康宫求太后照拂。',need:s=>thAlive(s)&&s.rel.th>=30,needText:'太后好感 30',run:s=>{s.preg.guard=(s.preg.guard||0)+1;return{text:`太后拨了身边的一位老嬷嬷来{P}照看饮食。有她在，送进来的东西都要过她的眼。`,d:{fav:10,th:3,hh:-5,hf:-8},note:'太后的人在你宫里，旁人下手便要掂量掂量。'};}}
+{t:'禀报之后，再去寿康宫求太后照拂。',need:s=>thAlive(s)&&s.rel.th>=30,needText:'太后 30',run:s=>{s.preg.guard=(s.preg.guard||0)+1;return{text:`太后拨了身边的一位老嬷嬷来{P}照看饮食。有她在，送进来的东西都要过她的眼。`,d:{fav:10,th:3,hh:-5,hf:-8},note:'太后的人在你宫里，旁人下手便要掂量掂量。'};}}
 ]},
-muskloss:{title:'小产',place:'{P}',valid:s=>!!s.preg,
+muskloss:{title:'小产',place:'{P}',valid:s=>!!s.preg,echo:()=>['musk'],
 text:`怀胎刚满四月，一天夜里你腹痛如绞。\n太医来时，被褥已经红了一片。`,
-choices:[{t:'……',run:s=>{miscarry(s);const d=apply({hp:-55});if(S.st.hp<=0)return{death:'d_musk'};s.flags.musk=0;return{text:`孩子没保住。太医在你腰间的香囊里验出了麝香。\n你在床上躺了一个多月才能下地。方答应来哭过一场，你看着她，什么也没说。`,chg:d,d:{fav:-5},note:'近身之物不验便用，是宫中最隐秘的死法。你命大，身子底子撑住了这一回。'};}}]},
+choices:[{t:'……',run:s=>{miscarry(s);const d=apply({hp:-55});if(S.st.hp<=0)return{death:'d_musk'};s.flags.musk=0;return{text:`孩子没保住。太医在你常用的香里验出了麝香。\n你在床上躺了一个多月才能下地。`,chg:d,d:{fav:-5},note:'近身之物不验便用，是宫中最隐秘的死法。你命大，身子底子撑住了这一回。'};}}]},
 birth:{title:'临盆',place:'{P}',valid:s=>!!s.preg,
 text:s=>`十月怀胎，到了临盆的时候。\n内务府按例派来两位收生姥姥，都是在宫里接生多年的。皇后也遣剪秋来问，可要景仁宫帮着张罗。\n你的身子${s.st.hp>=60?'还算结实':s.st.hp>=40?'有些虚':'很虚，太医脸色不大好看'}。`,
 choices:[
 {t:'请太医院院判守在外间，再多备参汤。',cost:25,run:s=>bornOutcome(s,.55)},
-{t:'让云苓寸步不离，盯着收生姥姥的一举一动。',need:s=>s.st.loyal>=50,needText:'宫人 50',run:s=>bornOutcome(s,.5)},
+{t:'让云苓寸步不离，盯着收生姥姥的一举一动。',need:s=>ylAlive(s)&&s.st.loyal>=50,needText:'宫人 50',run:s=>bornOutcome(s,.5)},
 {t:'谢过皇后，一切听景仁宫安排。',run:s=>bornOutcome(s,s.rel.hh<0?2.2:.9)}
 ]},
 raise:{title:'抚养之争',place:'{P}',valid:s=>hfActive(s),
-text:s=>`孩子满了百日。这日华妃在养心殿陪皇帝用膳，提了一句：{T}年轻，头一回养孩子难免手忙脚乱，不如抱去翊坤宫，由她代为抚养。\n华妃膝下无子，是六宫皆知的心病。皇帝没有立刻答应，也没有回绝。`,
+text:`孩子满了百日。这日华妃在养心殿陪皇帝用膳，提了一句：{T}年轻，头一回养孩子难免手忙脚乱，不如抱去翊坤宫，由她代为抚养。\n华妃膝下无子，是六宫皆知的心病。皇帝没有立刻答应，也没有回绝。`,
 choices:[
 {t:'不哭不闹，听凭皇上做主。',run:s=>{s.flags.childAt='hf';return{text:`旨意下来，孩子被抱去了翊坤宫。皇帝私下对你说了句「委屈你了」。\n你每日去翊坤宫请安，隔着帘子听孩子哭。`,d:{fav:6,hf:15},note:'顺从能保命。骨肉分离的账，皇帝会记在心里，也只会记在心里。'};}},
-{t:'抱着孩子去寿康宫请安，只说孩子夜里离不得生母，别的一字不提。',need:s=>thAlive(s)&&s.rel.th>=20,needText:'太后好感 20',run:()=>({text:`太后逗了孩子半晌。晚膳时，她对皇帝说：孩子还小，离了亲娘怕是养不活。\n华妃的事，就此没有了下文。`,d:{th:5,hf:-10},note:'后宫之中，能让皇帝改口的只有太后。你不必开口求，她自会出手。'})},
+{t:'抱着孩子去寿康宫请安，只说孩子夜里离不得生母，别的一字不提。',need:s=>thAlive(s)&&s.rel.th>=20,needText:'太后 20',run:()=>({text:`太后逗了孩子半晌。晚膳时，她对皇帝说：孩子还小，离了亲娘怕是养不活。\n华妃的事，就此没有了下文。`,d:{th:5,hf:-10},note:'后宫之中，能让皇帝改口的只有太后。'})},
 {t:'去养心殿外跪着，求皇上收回成命。',run:s=>{s.flags.childAt='hf';s.ban=1;return{text:`你跪了一个时辰，皇帝没有见你。苏培盛出来传话：「皇上问，这是要挟朕么？」\n你被禁足一季。孩子还是被抱走了。`,d:{fav:-15,hp:-8},note:'跪求就是逼君。帝王最恨被人逼。'};}},
 {t:'暗中买通翊坤宫的小宫女，等孩子过去后夜里照看不周，让华妃落个抚育不力的罪名。',run:()=>({death:'d_frame'})}
 ]},
+kid_vac:{title:'种痘',place:'{P}',valid:s=>!!vacKid(s),when:s=>!!vacKid(s),pri:4,
+text:s=>`${vacKid(s).sex==='子'?'阿哥':'公主'}满两岁了。太医院的痘医来请脉，说孩子身子骨结实，可以种痘了。\n人痘是取出过痘的人身上的痘痂，研成粉，吹进孩子鼻孔里。种了，会发一场轻痘，从此终身不染天花。只是十个孩子里，偶尔也有熬不过去的。`,
+choices:[
+{t:'种。',cost:20,run:s=>{const k=vacKid(s);k.vacAsked=1;if(roll(.03)){k.dead=true;return{text:`孩子发了三天高热，第四天夜里，没了声息。`,d:{hp:-20,fav:5},note:'人痘之险，十中偶有一二。你选了对的事，却撞上了最坏的命。'};}k.vac=1;return{text:`孩子发了几天热，出了几颗痘，就好了。痘医说：从今往后，不怕了。`,d:{},note:'人痘接种自康熙朝起在宫中推行，皇子皇女多要种痘。'};}},
+{t:'不种。孩子还小，舍不得。',run:s=>{vacKid(s).vacAsked=1;return{text:`痘医叹了口气，退下了。`,d:{},note:'不种，是怕眼前的险；可宫里出痘的年份，从来不少。'};}}
+]},
+kid_school:{title:'上书房',place:'{P}',valid:s=>!!schoolKid(s),when:s=>!!schoolKid(s),pri:4,
+text:`阿哥满六岁了，按祖制该进上书房读书。\n师傅是翰林院的老学士，规矩极严：寅时入学，满文、汉文、骑射，一样不能落下。\n皇子们都在一处读书。你得想好，要怎么教他。`,
+choices:[
+{t:'严加督促，事事都要争个头名。',run:s=>{const k=schoolKid(s);k.style='bright';k.schoolT=s.t;return{text:`阿哥每天回来都在灯下温书到深夜。半年后，师傅在皇帝面前夸他「颖悟」。`,d:{fav:3},note:'出挑的皇子，是母亲的脸面，也是母亲的心病。'};}},
+{t:'教他藏拙：功课过得去就好，别抢兄弟们的风头。',run:s=>{const k=schoolKid(s);k.style='low';k.schoolT=s.t;return{text:`阿哥不大明白，但还是照做了。师傅说他「中平」。`,d:{},note:'雍正朝储位之争的阴影还在。藏拙，是最稳妥的护身符。'};}},
+{t:'让他多跟四阿哥在一处，四阿哥读什么，他也读什么。',run:s=>{const k=schoolKid(s);k.style='ally';k.schoolT=s.t;return{text:`阿哥和四阿哥一处骑射、一处读书，很快就形影不离了。`,d:{},note:'亲近哪位兄长，往往比读多少书更要紧。'};}}
+]},
+kid_bright:{title:'出挑',place:'养心殿',valid:s=>s.kids.some(k=>!k.dead&&k.style==='bright'&&!k.brightDone),when:s=>s.kids.some(k=>!k.dead&&k.style==='bright'&&!k.brightDone&&s.t-k.schoolT>=2),pri:4,
+text:`皇帝考校皇子们的功课。你的阿哥背完了整篇《出师表》，又用满文讲了一遍大意。\n皇帝很高兴，当着众人说了句：「颇肖朕躬。」\n殿里一下子安静了。皇后的笑容，停了一停。`,
+choices:[
+{t:'跪下谢恩。',run:s=>{s.kids.find(k=>k.style==='bright'&&!k.brightDone).brightDone=1;return{text:`皇帝赏了阿哥一方御砚。那天晚上，景仁宫的灯亮到很晚。`,d:{fav:8,hh:-30},note:'「颇肖朕躬」四个字，是恩宠，也是靶子。'};}},
+{t:'回去罚阿哥抄十遍《孝经》，让他往后收敛些。',run:s=>{const k=s.kids.find(k=>k.style==='bright'&&!k.brightDone);k.brightDone=1;k.style='low';return{text:`阿哥抄书抄到半夜，委屈地问你他做错了什么。你没有回答。`,d:{},note:'从此他学会了藏拙。也学会了，额娘不喜欢他出挑。'};}},
+{t:'让阿哥把功课抄一份，送去景仁宫请皇后指点。',run:s=>{s.kids.find(k=>k.style==='bright'&&!k.brightDone).brightDone=1;return{text:`皇后收下了，夸了阿哥几句，还赏了一套湖笔。`,d:{hh:10,pres:3},note:'把孩子的光，分一点给嫡母。'};}}
+]},
 
-/* ── 随机 ── */
-sachet:{title:'香囊',place:'{P}',once:1,intel:'云苓说，方答应前些日子悄悄去过一趟景仁宫。',
-w:s=>s.t>=3&&s.t<=14?4:0,
-text:`同住启祥宫的方答应与你同年入宫，常来串门。这日她送来一只亲手绣的香囊，针脚细密，香气甜而不腻。\n「姐姐待我好，妹妹没什么好送的。这香是我家乡的方子，安神最好。」`,
+/* ══ 宫务线 ══ */
+gw_account:{title:'账目',place:'{P}',when:s=>s.t>=16&&s.rank>=4&&!did('gw_account'),pri:3,
+text:`内务府送来{P}这一年的账。你翻了翻，炭、烛、绸缎的数目都对不上，少说亏了七八十两。\n经手的管事，是景仁宫剪秋的同乡。`,
 choices:[
-{t:'欢喜收下，当即系在腰间。',run:s=>{s.flags.musk=1;return{text:`那香确实好闻，夜里睡得格外沉。你很感激她。`,d:{},note:null};}},
-{t:'道谢收下，夜里让云苓拆开看看里头是什么。',need:s=>s.st.loyal>=40,needText:'宫人 40',run:()=>({text:`云苓捻着香料闻了许久，脸色变了：「小主，这里头掺了麝香。」\n你让她原样缝好，锁进箱底。第二日见了方答应，仍旧一口一个妹妹。`,d:{wit:3},note:'近身之物须先验过。麝香活血通经，孕妇最忌。查出来也不必声张——你还不知道她背后站着谁。'})},
-{t:'自己凑近细闻。',chance:s=>.1+s.st.wit/100,run:(s,ok)=>{if(ok)return{ok,text:`甜香底下压着一股极淡的腥气。你把香囊收进了妆奁最底层。`,d:{wit:3},note:'麝香气味霸道，掺在花香里极难分辨。'};s.flags.musk=1;return{ok,text:`你闻不出什么异样，便系在了腰间。`,d:{},note:null};}},
-{t:'收下后径直拿去景仁宫，求皇后做主。',run:()=>({text:`皇后命人查验，果然有麝香。方答应被褫夺位分，迁去冷宫，一路喊冤。\n你后来才想到：方答应一个答应，从哪里弄来的麝香？`,d:{hh:5,pres:4},note:'揪出了递刀的手，却没看见握刀的人。'})}
+{t:'严查到底。',run:()=>({text:`那管事被撵出了内务府，亏空的银子追回来一半。\n各宫都知道了：{P}的账，糊弄不得。`,d:{pres:8,hh:-10,silver:40},note:'查账是立威最体面的法子。'})},
+{t:'私下把管事叫来敲打一番，让他把银子吐出来。',run:()=>({text:`管事磕头如捣蒜，第二天就把银子送了回来，还多送了二十两。`,d:{silver:60,pres:2},note:'不声张，银子回来了，人情也留下了。'})},
+{t:'睁一只眼闭一只眼。',run:()=>({text:`账就这样过去了。第二年，亏得更多。`,d:{pres:-3},note:'内务府的人最会看脸色。'})}
 ]},
-doctor:{title:'平安脉',place:'{P}',cd:4,w:s=>s.flags.musk?3:0,
-text:`太医请平安脉，搭了许久，眉头越皱越紧。\n「小主脉象沉涩，似有寒凝之症……不碍事，微臣开几副温补的方子。」`,
+gw_fire:{title:'走水',place:'{P}',when:s=>s.t>=20&&s.rank>=3&&!did('gw_fire'),pri:2,
+text:s=>`半夜，后殿走水了。火是从堆杂物的耳房烧起来的，借着风，很快蹿上了屋檐。\n宫人们乱成一团。${live(s).length?'孩子还在后殿睡着。':''}正殿里供着御赐的玉如意和太后赏的佛像。`,
 choices:[
-{t:'追问：「寒凝从何而来？你只管照实说。」',chance:s=>.2+s.st.wit/120+s.st.loyal/250,cost:10,run:(s,ok)=>{if(ok){s.flags.musk=0;return{ok,text:`太医犹豫半晌，要了你身边常用的物件一一闻过，最后停在那只香囊上。「麝香。」\n你把香囊扔进了炭盆。`,d:{wit:3,hp:5},note:'太医话说一半，往往是不敢说全。银子与威势，能撬开他的嘴。'};}return{ok,text:`太医只说是体质偏寒，开了方子便告退了。`,d:{hp:2},note:null};}},
-{t:'谢过太医，照方服药。',run:()=>({text:`药喝了半月，不见什么起色。`,d:{hp:2},note:null})}
+{t:'先救人。',run:s=>({text:`你${live(s).length?'抱着孩子':'带着宫人'}冲出来时，耳房的梁塌了。所幸没有人伤着。`,d:{pres:5,loyal:8},note:'人命比器物要紧，宫人们看在眼里。'})},
+{t:'先叫人把御赐之物抢出来。',run:s=>({text:`玉如意和佛像都抢出来了。一个小太监被烧伤了胳膊。\n皇帝听说后，说你「知道轻重」。宫人们不说话。`,d:{fav:3,loyal:-10},note:'御赐之物损毁是大不敬，可宫人的心，也是会被烧伤的。'})},
+{t:'一边指挥救火，一边封锁宫门，不许任何人出入。',chance:s=>.25+s.st.wit/120,run:(s,ok)=>ok?{ok,text:`火扑灭了。天亮时，你在耳房后墙根找到了一截没烧完的火折子。\n守门的太监说，起火前有个别宫的小太监来送过东西。`,d:{pres:8},note:'走水多是人为。封住门，纵火的人就跑不了。'}:{ok,text:`火扑灭了，可什么也没查到。`,d:{pres:2},note:null}}
 ]},
+
+/* ══ 触发 ══ */
+firstnight:{title:'侍寝',place:'养心殿',
+text:`敬事房翻了你的绿头牌。\n嬷嬷替你卸尽钗环，连耳坠也摘了去，验过周身，才扶你上了凤鸾春恩车。\n到了养心殿，皇帝还在批折子。你候了许久，再抬眼时，他已伏在御案上睡着了。朱笔搁在一份摊开的奏折旁，烛火将尽。`,
+choices:[
+{t:'轻手轻脚替皇上收拾御案，把奏折合好摆齐。',run:()=>({text:`你刚碰到奏折，皇帝便醒了。他第一眼看的是御案，第二眼才看你。\n「放着吧。」那一夜再没有别的话。`,d:{fav:-15,sus:15},note:'御案上的东西，后妃连碰都不能碰。收拾和翻看，在皇帝眼里只隔一念。'})},
+{t:'不碰御案。取一条薄毯为皇上披上，换一支新烛，在一旁静坐候着。',run:()=>({text:`约莫半个时辰，皇帝醒了。他看看身上的毯子，又看看纹丝未动的御案，什么也没问，只握了握你的手。`,d:{fav:12},note:'帝王多疑，伏案而眠未必是真睡。御案、奏折、朱笔，后宫之人一概不沾。'})},
+{t:'轻声唤醒皇上，劝他保重龙体，早些安歇。',run:()=>({text:`皇帝睁眼看了你一会儿，倒也没恼，只说了声「是有些乏了」。`,d:{fav:4},note:'劝谏保重龙体是本分话，不出错，也不出彩。'})},
+{t:'趁皇上睡着，悄悄看一眼那份奏折写的什么。',run:()=>({death:'d_memorial'})}
+]},
+
+/* ══ 随机遭遇 ══ */
 cat:{title:'景仁宫家宴',place:'景仁宫',once:1,valid:s=>!!s.preg,intel:'景仁宫的人说，这几日松子格外躁，见了穿新衣裳的人就扑。',
-w:s=>s.preg&&!s.preg.guard?(s.rel.hh<30?6:2):0,
+w:s=>s.preg&&!s.preg.guard&&!hhTruce(s)&&!s.flags.hhDown?(s.rel.hh<30?6:2):0,
 text:`皇后在景仁宫设家宴，遍请六宫，特意让剪秋来传话：「娘娘说，{T}有孕是大喜事，务必来沾沾喜气。」\n你记得，景仁宫养着一只叫松子的猫。`,
 choices:[
 {t:'欣然赴宴，坐在皇后身侧陪她说话。',run:()=>({death:'d_cat'})},
-{t:'请太医开具「胎象不稳，宜静卧」的脉案，遣云苓捧着脉案去景仁宫告罪。',cost:10,run:()=>({text:`皇后看了脉案，笑着说身子要紧，又赏了一盒阿胶。\n宴上松子不知怎的发了狂，扑翻了一桌点心。你在{P}躺着，什么都没看见。`,d:{hh:-3},note:'中宫相召不能不去，唯一体面的推辞是太医的脉案——那是皇嗣的事，皇后也驳不得。'})},
-{t:'赴宴，但只站在殿门口通风处，借口更衣，半途离席。',chance:s=>.45+s.st.wit/200,run:(s,ok)=>{if(ok)return{ok,text:`你走得匆忙。回宫后听说，宴上松子扑了人。你若再晚走一刻……`,d:{fav:-3,hh:-3},note:'赴了宴再找由头离开，是险中求稳。中途离席失了礼数，这一回算你运气好。'};miscarry(s);const c=apply({hp:-35});if(S.st.hp<=0)return{ok,death:'d_cat'};return{ok,text:`你刚起身，松子就从皇后怀里蹿了出来。你躲过了猫爪，却在门槛上绊了一跤。\n孩子没保住。`,chg:c,d:{fav:-5},note:'中宫的宴，进得去，未必出得来。'};}}
+{t:'请太医开具「胎象不稳，宜静卧」的脉案，遣人捧着脉案去景仁宫告罪。',cost:10,run:()=>({text:`皇后看了脉案，笑着说身子要紧，又赏了一盒阿胶。\n宴上松子不知怎的发了狂，扑翻了一桌点心。你在{P}躺着，什么都没看见。`,d:{hh:-3},note:'中宫相召不能不去，唯一体面的推辞是太医的脉案——那是皇嗣的事，皇后也驳不得。'})},
+{t:'赴宴，但只站在殿门口通风处，借口更衣，半途离席。',chance:s=>.45+s.st.wit/200,run:(s,ok)=>{if(ok)return{ok,text:`你走得匆忙。回宫后听说，宴上松子扑了人。你若再晚走一刻……`,d:{fav:-3,hh:-3},note:'赴了宴再找由头离开，是险中求稳。'};miscarry(s);const c=apply({hp:-35});if(S.st.hp<=0)return{ok,death:'d_cat'};return{ok,text:`你刚起身，松子就从皇后怀里蹿了出来。你躲过了猫爪，却在门槛上绊了一跤。\n孩子没保住。`,chg:c,d:{fav:-5},note:'中宫的宴，进得去，未必出得来。'};}}
 ]},
-kneel:{title:'罚跪',place:'翊坤宫',intel:'颂芝在打听你明日请安的时辰。',cd:3,
-w:s=>hfActive(s)&&s.rel.hf<-15&&s.t>=2?(3+(s.preg?3:0)):0,
+kneel:{title:'罚跪',place:'翊坤宫',valid:s=>hfActive(s),intel:'颂芝在打听你明日请安的时辰。',cd:3,echo:()=>['hf_enemy'],
+w:s=>hfActive(s)&&s.rel.hf<-10&&s.t>=2?(3+(s.preg?3:0)+(s.arc.yl==='swapped'?2:0)):0,
 text:`请安时你晚到了半刻——路上被一个泼了水的宫女挡了道。\n华妃端着茶盏，眼皮也不抬：「{T}好大的架子。去外头跪着，跪到本宫说起来为止。」\n正午的日头底下，翊坤宫外的石砖晒得发白。`,
 choices:[
 {t:'谢恩，去外头跪着。',run:s=>{const hadPreg=!!s.preg;let c=apply({hp:-25});if(hadPreg){miscarry(s);c=c.concat(apply({hp:-20}));}if(S.st.hp<=0)return{death:'d_kneel'};return{text:`你跪了两个时辰，被抬回{P}。${hadPreg?'\n当夜见了红。孩子没保住。':''}`,chg:c,d:{pres:-3},note:'高位罚跪是常事。身子撑得住，便是一场苦头；撑不住，便是一条命。'};}},
 {t:'跪下前，让宫女悄悄去养心殿报信。',need:s=>s.st.fav>=50,needText:'圣宠 50',run:()=>({text:`跪了不到一炷香，苏培盛来了：「皇上请{T}过去说话。」\n华妃的脸色难看极了。`,d:{hf:-20,fav:4,pres:3},note:'圣宠在手，便是护身符。只是这一回，你和华妃的梁子结死了。'})},
-{t:'跪下前，让宫女去景仁宫求皇后解围。',chance:s=>.2+Math.max(0,s.rel.hh)/110+s.st.pres/250,run:(s,ok)=>{if(ok)return{ok,text:`剪秋来了，说皇后头风犯了，请诸位小主去景仁宫侍疾。华妃冷笑一声，放你走了。`,d:{hf:-10,hh:3},note:'皇后乐得卖你一个人情，也乐得给华妃添一回堵。'};const hadPreg=!!s.preg;let c=apply({hp:-15});if(hadPreg&&roll(.6)){miscarry(s);c=c.concat(apply({hp:-15}));}if(S.st.hp<=0)return{ok,death:'d_kneel'};return{ok,text:`景仁宫回话说皇后正在礼佛，不便打扰。你跪满了一个时辰。${hadPreg&&!s.preg?'\n回去后见了红，孩子没保住。':''}`,chg:c,d:{},note:'皇后不愿此时与华妃正面相争，你不是值得她出手的人。'};}},
+{t:'跪下前，让宫女去景仁宫求皇后解围。',chance:s=>.2+Math.max(0,s.rel.hh)/110+s.st.pres/250+(s.arc.hh==='party'?.3:0),run:(s,ok)=>{if(ok)return{ok,text:`剪秋来了，说皇后头风犯了，请诸位小主去景仁宫侍疾。华妃冷笑一声，放你走了。`,d:{hf:-10,hh:3},note:'皇后乐得卖你一个人情，也乐得给华妃添一回堵。'};const hadPreg=!!s.preg;let c=apply({hp:-15});if(hadPreg&&roll(.6)){miscarry(s);c=c.concat(apply({hp:-15}));}if(S.st.hp<=0)return{ok,death:'d_kneel'};return{ok,text:`景仁宫回话说皇后正在礼佛，不便打扰。你跪满了一个时辰。${hadPreg&&!s.preg?'\n回去后见了红，孩子没保住。':''}`,chg:c,d:{},note:'皇后不愿此时与华妃正面相争。'};}},
 {t:'当场顶回去：「嫔妾并非有意迟到，娘娘何必苦苦相逼？」',run:()=>({death:'d_defy'})}
 ]},
-poison:{title:'晚膳',place:'{P}',intel:'小厨房新来的小太监，是从别宫调来的。',cd:5,
-w:s=>s.t>=4&&(s.rel.hh<-25||(hfActive(s)&&s.rel.hf<-30))?(2+(s.st.fav>60?2:0)):0,
+poison:{title:'晚膳',place:'{P}',intel:'小厨房新来的小太监，是从别宫调来的。',cd:4,
+w:s=>s.t>=4&&!hhTruce(s)&&((s.rel.hh<-20&&!s.flags.hhDown)||(hfActive(s)&&s.rel.hf<-25))?(3+(s.st.fav>55?2:0)):0,
 text:`晚膳时，小厨房送来一盅燕窝。\n你端起来，觉得颜色比往日略深一些，气味倒没什么不同。\n送膳的是个面生的小太监，放下就退出去了。`,
 choices:[
 {t:'许是火候不同，照常用了。',run:()=>{const c=apply({hp:-60});if(S.st.hp<=0)return{death:'d_poison'};return{text:`你只喝了两口就觉得不对，吐了半宿。太医说幸亏喝得少。\n你在床上躺了半个月。`,chg:c,d:{},note:'入口之物有异，便一口也不能动。'};}},
@@ -612,23 +953,25 @@ choices:[
 {t:'命身边的小太监先尝一口。',need:s=>s.st.loyal>=50,needText:'宫人 50',run:()=>({text:`小太监尝了一口，不多时便捂着肚子倒在地上。\n你连夜请了太医，保住了他的命，又赏了他二十两银子。`,d:{loyal:-6,pres:3,silver:-20},note:'让下人试毒是宫中常例。可人心是肉长的，用一回，便要还一回。'})},
 {t:'原样封存，悄悄请太医来验。',cost:10,chance:s=>.35+s.st.wit/150,run:(s,ok)=>ok?{ok,text:`太医验出了乌头。顺藤摸瓜，查到那个小太监曾在别宫当差。\n你没有声张，只把这笔账记下了。`,d:{wit:3,pres:3},note:'不吃，是保命；查，是立威。'}:{ok,text:`太医说燕窝无毒，只是火候过了。你到底一口也没碰。`,d:{},note:'宁可错疑，不可错吃。'}}
 ]},
-wugu:{title:'搜宫',place:'{P}',intel:'云苓夜里看见偏殿的小宫女往你床下塞了什么东西，没看清。',cd:8,
-w:s=>s.t>=6&&(s.st.loyal<35||s.rel.hh<-30||(hfActive(s)&&s.rel.hf<-40))?(3+(s.st.loyal<25?3:0)):0,
-text:`慎刑司的人闯进{P}，说是奉皇后之命搜宫。\n不多时，有人从你床下摸出一个布偶，身上扎满银针，背后写着一个生辰八字。\n满屋子的人都看着你。`,
+wugu:{title:'搜宫',place:'{P}',intel:'云苓夜里看见偏殿的小宫女往你床下塞了什么东西，没看清。',cd:6,echo:()=>['letter'],
+w:s=>s.t>=6&&!s.flags.trapSet&&!hhTruce(s)&&(s.st.loyal<40||(s.rel.hh<-25&&!s.flags.hhDown)||(hfActive(s)&&s.rel.hf<-35))?(3+(s.st.loyal<25?3:0)):0,
+text:s=>`慎刑司的人闯进{P}，说是奉皇后之命搜宫。\n不多时，有人从你床下摸出一个布偶，身上扎满银针，背后写着一个生辰八字。${s.flags.letterKept?'\n另一个太监从你的妆奁底层，抽出了一张折好的诗笺。':''}\n满屋子的人都看着你。`,
+post:s=>{s.flags.wuguBy=null;s.flags.noIntel=0;},
 choices:[
-{t:'跪地认罪，求皇后开恩。',run:()=>({death:'d_wugu'})},
-{t:'大声喊冤，说这是有人栽赃。',run:()=>({text:`你喊冤喊到嗓子哑了。布偶的来历终究没查清，此事以「宫人作祟」草草了结。\n可皇帝那里，已经记下了一笔。`,d:{sus:45,pres:-10},note:'只喊冤不举证，等于什么都没说。'})},
-{t:'请慎刑司查验布偶的料子和针脚，看看出自谁手。',need:s=>s.st.wit>=55,needText:'心计 55',run:s=>{s.st.loyal=Math.max(s.st.loyal,60);return{text:`布偶的料子是去年内务府发给宫女的粗布，针脚是偏殿一个小宫女的手艺。\n小宫女当场瘫了，供出有人许她出宫后五十两银子。你撵走了她，又从内务府挑了新人。`,d:{pres:10,sus:-5},note:'被栽赃时，最好的辩白是证据。布料、针脚、经手之人，处处都是破绽。'};}},
-{t:'求太后做主。',need:s=>thAlive(s)&&s.rel.th>=40,needText:'太后好感 40',run:()=>({text:`太后把布偶扔进了炭盆：「宫里不许提这种腌臜东西。」\n此事就此压下。只是太后看你的眼神，淡了几分。`,d:{th:-12,sus:12},note:'巫蛊之事，越查越乱。太后一句话压下，保全的是体面，不是真相。'})}
+{t:'跪地认罪，求皇后开恩。',run:s=>({death:s.flags.letterKept?'d_letter':'d_wugu'})},
+{t:'大声喊冤，说这是有人栽赃。',run:s=>s.flags.letterKept?{death:'d_letter'}:{text:`你喊冤喊到嗓子哑了。布偶的来历终究没查清，此事以「宫人作祟」草草了结。\n可皇帝那里，已经记下了一笔。`,d:{sus:45,pres:-10},note:'只喊冤不举证，等于什么都没说。'}},
+{t:'请慎刑司查验布偶的料子和针脚，看看出自谁手。',need:s=>s.st.wit>=55,needText:'心计 55',run:s=>{if(s.flags.letterKept)return{death:'d_letter'};s.st.loyal=Math.max(s.st.loyal,s.arc.yl==='swapped'?45:60);const by=s.flags.wuguBy;let who='偏殿一个小宫女';if(by==='fang'){s.arc.fang.side='dead';who='方氏宫里的人，针脚是方氏的手艺';}if(by==='yl'){s.arc.yl='dead';who='云苓';}return{text:`布偶的料子是去年内务府发给宫女的粗布，针脚是${who}。\n${by==='fang'?'方氏被赐了自尽。':by==='yl'?'云苓被拖走时，一直没敢看你。':'小宫女当场瘫了，供出有人许她出宫后五十两银子。'}`,d:{pres:10,sus:-5},note:'被栽赃时，最好的辩白是证据。布料、针脚、经手之人，处处都是破绽。'};}},
+{show:s=>s.arc.yl==='sworn',t:'云苓跪下了：「那东西是奴婢放的。奴婢恨小主罚过我，一时糊涂。」',run:s=>{s.arc.yl='dead';s.st.loyal=40;s.flags.letterKept=0;memo('yl_dead','搜宫那日，云苓替你认下了布偶');return{text:`慎刑司把云苓带走了。她一口咬定是自己所为，什么都没有牵连到你。\n诗笺、布偶，连同她，一起没了。三日后，有人告诉你，云苓没熬过去。`,d:{hp:-8},note:'死忠的人，会在你最需要的时候，把命递给你。'};}},
+{t:'求太后做主。',need:s=>thAlive(s)&&s.rel.th>=40,needText:'太后 40',run:s=>s.flags.letterKept?{death:'d_letter'}:{text:`太后把布偶扔进了炭盆：「宫里不许提这种腌臜东西。」\n此事就此压下。只是太后看你的眼神，淡了几分。`,d:{th:-12,sus:12},note:'巫蛊之事，越查越乱。太后一句话压下，保全的是体面，不是真相。'}}
 ]},
 rumor:{title:'流言',place:'六宫',cd:5,
-w:s=>s.t>=3&&s.st.fav>40&&s.st.pres<50?2:0,
+w:s=>s.t>=3&&s.st.fav>35&&s.st.pres<55?(2+(s.arc.qi==='feud'?2:0)):0,
 text:`宫里起了流言，说{T}与太医院的李太医来往过密，每回请脉都屏退宫人。\n流言传得很快，连敬事房的小太监都在背后指指点点。`,
 choices:[
 {t:'清者自清，置之不理。',run:()=>({text:`流言越传越难听。皇帝什么都没问，只是这个月没翻你的牌子。`,d:{sus:18,fav:-6},note:'宫中流言，不辩便是默认。'})},
 {t:'从此请脉，必有掌事宫女在侧，脉案誊抄一份送敬事房。',run:()=>({text:`你把规矩立下来，又让人不经意地传了出去。流言渐渐没了下文。`,d:{sus:-4,pres:4},note:'堵住流言最好的法子，是让流言没有可编的缝隙。'})},
-{t:'花银子顺藤摸瓜，揪出造谣的人。',cost:20,chance:s=>.3+s.st.wit/120,run:(s,ok)=>ok?{ok,text:`查到最后，是一个嫔位身边的太监。你把人证交给了皇后，皇后不得不处置。`,d:{pres:10,sus:-10},note:'揪出造谣者，流言便不攻自破，还能立一回威。'}:{ok,text:`银子花了，线断在一个已经被撵出宫的小太监身上。反倒有人说你心虚。`,d:{sus:10,pres:-5},note:'查不出来，比不查更坏。'}},
-{t:'去养心殿哭诉，求皇上做主。',run:()=>({text:`皇帝听你哭完，说了句「朕知道了」。第二天，他问苏培盛，李太医去{P}去得勤不勤。`,d:{sus:14,fav:-5},note:'主动去皇帝面前提这件事，等于把疑心亲手递过去。'})}
+{show:s=>s.arc.hh==='party',t:'去景仁宫，请皇后弹压。',run:()=>({text:`皇后在请安时说了一句：「宫里的人嘴碎，本宫不想再听见。」流言第二天就没了。`,d:{sus:-6,hh:-3},note:'皇后的人，皇后护着。'})},
+{t:'花银子顺藤摸瓜，揪出造谣的人。',cost:20,chance:s=>.3+s.st.wit/120,run:(s,ok)=>ok?{ok,text:`查到最后，是${s.arc.qi==='feud'?'祺贵人身边':'一个嫔位身边'}的太监。你把人证交给了皇后，皇后不得不处置。`,d:{pres:10,sus:-10},note:'揪出造谣者，流言便不攻自破。'}:{ok,text:`银子花了，线断在一个已经被撵出宫的小太监身上。反倒有人说你心虚。`,d:{sus:10,pres:-5},note:'查不出来，比不查更坏。'}}
 ]},
 politics:{title:'夜话',place:'养心殿',cd:6,
 w:s=>s.st.fav>=45?2:0,
@@ -649,12 +992,12 @@ choices:[
 ]},
 theft:{title:'失窃',place:'{P}',cd:6,
 w:()=>1.5,
-text:`你的一支点翠簪子不见了。云苓带人一搜，在一个小宫女的包袱里找到了。\n小宫女跪在地上直哭，说家里老娘病了，等着银子抓药。`,
+text:`你的一支点翠簪子不见了。一搜，在一个小宫女的包袱里找到了。\n小宫女跪在地上直哭，说家里老娘病了，等着银子抓药。`,
 choices:[
 {t:'送去慎刑司，按宫规处置。',run:()=>({text:`小宫女被带走了，再没回来。偏殿的宫人做事比从前小心了许多，也沉默了许多。`,d:{pres:5,loyal:-6},note:'宫规是立威的刀，也是寒心的刀。'})},
 {t:'私下打二十板子，撵去浣衣局。',run:()=>({text:`小宫女被抬出去时一声不吭。你听见有人在背后说，{T}的心比石头还硬。`,d:{pres:3,loyal:-10},note:'私刑最易落人口实。'})},
 {t:'既往不咎，还赏她十两银子给老娘抓药。',cost:10,run:()=>({text:`小宫女磕头磕得额头都青了。此后她做事比谁都上心。\n只是请安时，有人笑你御下不严。`,d:{loyal:12,pres:-4},note:'宽仁能换人心，但宫里的人会把宽仁看作软弱。'})},
-{t:'交给云苓处置。',need:s=>s.st.loyal>=60,needText:'宫人 60',run:()=>({text:`云苓罚她跪了一夜，第二天又塞给她几两碎银。\n小宫女从此对你死心塌地，偏殿上下也都服气。`,d:{loyal:6,pres:4},note:'恩威并施，要有一个靠得住的人替你执行。'})}
+{t:'交给云苓处置。',need:s=>ylAlive(s)&&s.st.loyal>=60,needText:'宫人 60',run:()=>({text:`云苓罚她跪了一夜，第二天又塞给她几两碎银。\n小宫女从此对你死心塌地，偏殿上下也都服气。`,d:{loyal:6,pres:4},note:'恩威并施，要有一个靠得住的人替你执行。'})}
 ]},
 kouke:{title:'份例',place:'{P}',cd:3,
 w:s=>s.st.fav<25?3:0,
@@ -662,7 +1005,7 @@ text:`内务府送来的炭是湿的，烧起来满屋子烟。份例里的料�
 choices:[
 {t:'忍了，熬过这个冬天再说。',run:()=>{const c=apply({hp:-10});if(S.st.hp<=0)return{death:'x_cold'};return{text:`你和宫人挤在一个屋里取暖，冻得手脚生疮。`,chg:c,d:{loyal:-4},note:'无宠的嫔妃，份例被克扣是常事。'};}},
 {t:'塞给小太监一包银子，请他「多费心」。',cost:20,run:()=>({text:`第二天，干炭和新茶都送来了，小太监还多说了几句吉祥话。`,d:{},note:'内务府看人下菜碟，银子是最好的筷子。'})},
-{t:'去景仁宫向皇后陈情。',chance:s=>.25+Math.max(0,s.rel.hh)/140+s.st.pres/200,run:(s,ok)=>ok?{ok,text:`皇后当着众人的面申饬了内务府总管。份例补齐了，还多了一筐银丝炭。`,d:{pres:4,hh:2,silver:10},note:'皇后执掌六宫，替低位做主，也是她立威的机会。'}:{ok,text:`皇后说内务府自有章程，让你体谅。回去的路上，你听见有人在笑。`,d:{pres:-5},note:'没有分量的陈情，只会让人看清你的分量。'}}
+{t:'去景仁宫向皇后陈情。',chance:s=>.25+Math.max(0,s.rel.hh)/140+s.st.pres/200+(s.arc.hh==='party'?.4:0),run:(s,ok)=>ok?{ok,text:`皇后当着众人的面申饬了内务府总管。份例补齐了，还多了一筐银丝炭。`,d:{pres:4,hh:2,silver:10},note:'皇后执掌六宫，替低位做主，也是她立威的机会。'}:{ok,text:`皇后说内务府自有章程，让你体谅。回去的路上，你听见有人在笑。`,d:{pres:-5},note:'没有分量的陈情，只会让人看清你的分量。'}}
 ]},
 banquet:{title:'除夕家宴',place:'乾清宫',cd:3,
 w:s=>s.q===3?6:0,
@@ -670,7 +1013,7 @@ text:`除夕家宴，帝后同坐，六宫皆至。酒过三巡，皇后笑着�
 choices:[
 {t:'献舞一曲。',chance:s=>.1+s.st.charm/105,run:(s,ok)=>ok?{ok,text:`一曲终了，满殿寂静，皇帝第一个抚掌。他当场把手边的一柄玉如意赏给了你。`,d:{fav:14,hf:-8,hh:-4},note:'才貌是邀宠最直接的本钱，也是招妒最直接的由头。'}:{ok,text:`旋身时你踩到了裙角，险些摔倒。有人掩着嘴笑。`,d:{fav:-5,pres:-6},note:'没有十分把握，就别在御前献艺。'}},
 {t:'即席赋诗一首。',chance:s=>.1+(s.st.charm+s.st.wit)/200,run:(s,ok)=>ok?{ok,text:`你的诗不长，用典稳妥。皇帝让苏培盛抄了下来。`,d:{fav:9,pres:5},note:'诗以言志，宫宴上的诗，要的是吉祥、稳妥、不出格。'}:{ok,text:`诗里一个典用错了，皇后温声替你圆了过去。你脸上火辣辣的。`,d:{pres:-5,hh:3},note:'御前作诗，错一个字都会被记很久。'}},
-{t:'安坐席上，只为皇上皇后斟酒布菜。',run:()=>({text:`你安安静静地坐到散席。回宫路上，皇后身边的剪秋特意送了一碟饺子来。`,d:{pres:2,hh:3},note:'不出头，便不出错。'})}
+{t:'安坐席上，只为皇上皇后斟酒布菜。',run:()=>({text:`你安安静静地坐到散席。回宫路上，剪秋特意送了一碟饺子来。`,d:{pres:2,hh:3},note:'不出头，便不出错。'})}
 ]},
 chaojing:{title:'抄经',place:'寿康宫',cd:4,
 w:s=>thAlive(s)&&s.rel.th>15&&s.rank>=2?2:0,
@@ -682,25 +1025,32 @@ choices:[
 ]},
 minghuang:{title:'御赐缎料',place:'{P}',once:1,
 w:s=>s.st.fav>=60&&s.rank<6?2:0,
-text:`皇帝高兴，赏了你一匹明黄云缎，说是给你「看着玩」。\n缎子在烛光下流光溢彩。云苓捧着它，手都在抖。`,
+text:`皇帝高兴，赏了你一匹明黄云缎，说是给你「看着玩」。\n缎子在烛光下流光溢彩。宫人捧着它，手都在抖。`,
 choices:[
-{t:'裁成一件衣裳，穿去谢恩。',run:()=>({text:`你穿着明黄走进养心殿时，皇帝的笑容僵在了脸上。\n第二天，皇后、太后都知道了。「明黄是什么颜色，{T}不知道么？」`,d:{sus:30,hh:-30,th:-20,pres:-10},note:'清制，明黄唯帝、后、太后与皇贵妃可用；贵妃、妃用金黄，嫔用香色。御赐不等于可穿。'})},
+{t:'裁成一件衣裳，穿去谢恩。',run:()=>({text:`你穿着明黄走进养心殿时，皇帝的笑容僵在了脸上。\n第二天，六宫都知道了。「明黄是什么颜色，{T}不知道么？」`,d:{sus:30,hh:-30,th:-20,pres:-10},note:'清制，明黄唯帝、后、太后与皇贵妃可用；贵妃、妃用金黄，嫔用香色。御赐不等于可穿。'})},
 {t:'供在佛龛前，日日焚香，一寸也不动。',run:()=>({text:`皇帝来时看见了，笑你小家子气，眼里却是满意的。`,d:{fav:4,pres:2},note:'御赐之物，越逾矩的越要供着。'})},
-{t:'转献给皇后。',run:()=>({text:`皇后收下了，夸你懂事。只是皇帝知道后，有好几天没提起你。`,d:{hh:12,pres:4,fav:-4},note:'明黄本是中宫之色，转献是知礼；可皇帝的心意被你转了手。'})},
+{show:s=>!s.flags.hhDown,t:'转献给皇后。',run:()=>({text:`皇后收下了，夸你懂事。只是皇帝知道后，有好几天没提起你。`,d:{hh:12,pres:4,fav:-4},note:'明黄本是中宫之色，转献是知礼；可皇帝的心意被你转了手。'})},
 {show:s=>thAlive(s),t:'转献给太后，做一件佛诞日的袈裟供奉。',run:()=>({text:`太后很高兴，在佛诞日那天特意提了一句是{T}的心意。`,d:{th:12,pres:6},note:'借花献佛，献到了太后跟前，皇帝也挑不出错来。'})}
 ]},
-qin:{title:'御赐古琴',place:'{P}',cd:8,
-w:s=>s.st.fav>=40&&s.st.charm>=60?1.5:0,
-text:`苏培盛亲自送来一张古琴，说是前朝的旧物，皇上记得你会弹。`,
+doctor:{title:'平安脉',place:'{P}',cd:4,w:s=>s.flags.musk?3:0,echo:()=>['musk'],
+text:`太医请平安脉，搭了许久，眉头越皱越紧。\n「小主脉象沉涩，似有寒凝之症……不碍事，微臣开几副温补的方子。」`,
 choices:[
-{t:'当夜便弹一曲，请苏公公带话谢恩。',run:()=>({text:`琴声传得很远。第二天，翊坤宫那边打碎了一套茶具。`,d:{fav:6,charm:3,hf:-5},note:null})},
-{t:'收下，先去景仁宫给皇后谢恩，再去养心殿。',run:()=>({text:`皇后笑着说皇上偏心。礼数周全，谁也挑不出错。`,d:{fav:3,hh:3,pres:2},note:'凡御赐，先谢中宫，这是规矩。'})}
+{t:'追问：「寒凝从何而来？你只管照实说。」',chance:s=>.2+s.st.wit/120+s.st.loyal/250,cost:10,run:(s,ok)=>{if(ok){s.flags.musk=0;return{ok,text:`太医犹豫半晌，要了你身边常用的物件一一闻过，最后停在一样东西上。「麝香。」\n你把它扔进了炭盆。`,d:{wit:3,hp:5},note:'太医话说一半，往往是不敢说全。银子与威势，能撬开他的嘴。'};}return{ok,text:`太医只说是体质偏寒，开了方子便告退了。`,d:{hp:2},note:null};}},
+{t:'谢过太医，照方服药。',run:()=>({text:`药喝了半月，不见什么起色。`,d:{hp:2},note:null})}
 ]}
 };
+function vacKid(s){return s.kids.find(k=>!k.dead&&!k.vac&&!k.vacAsked&&s.t-k.t>=8);}
+function schoolKid(s){return s.kids.find(k=>!k.dead&&k.sex==='子'&&!k.style&&s.t-k.t>=24);}
+function poxOut(s,p){
+  const lines=[],chg=[];
+  for(const i of s.poxSick){const k=s.kids[i];if(roll(p)){k.vac=1;lines.push(`${k.sex==='子'?'阿哥':'公主'}熬过来了，脸上留了几个浅浅的麻点。`);}else{k.dead=true;lines.push(`${k.sex==='子'?'阿哥':'公主'}没有熬过去。`);chg.push(...apply({hp:-20,fav:5}));}}
+  s.poxSick=[];
+  return{text:lines.join('\n'),chg,d:{},note:'天花是清宫头号的死神，顺治帝即死于此。种过痘的孩子，才算过了这一关。'};
+}
 function bornOutcome(s,mul){
-  let risk=(s.st.hp<35?.32:s.st.hp<55?.12:s.st.hp<75?.05:.02)*mul;
+  let risk=(s.st.hp<35?.4:s.st.hp<55?.16:s.st.hp<75?.07:.03)*mul;
   if(roll(clamp(risk,0,.9)))return{death:'d_birth'};
-  const son=roll(.42);s.kids.push({sex:son?'子':'女',y:s.y});s.preg=null;s.postpartum=s.t+4;
+  const son=roll(.42);s.kids.push({sex:son?'子':'女',y:s.y,t:s.t});s.preg=null;s.postpartum=s.t+4;
   const c=apply({hp:-20});
   const lines=[`${son?'是位阿哥':'是位公主'}。孩子哭声响亮，皇帝在外间听见，连说了三个「好」。`];
   const pr=s.rank<4?promote(1):'';if(pr)lines.push(pr);
@@ -708,25 +1058,40 @@ function bornOutcome(s,mul){
   else if(hfActive(s)&&s.rel.hf<30)s.queue.splice(1,0,'raise');
   return{text:lines.join('\n'),chg:c,d:{fav:10,pres:10,hh:son?-15:-3,hf:son?-20:-5},note:'清宫生产，由内务府派收生姥姥接生，太医在外间候着。'};
 }
-const SCRIPT={0:'xuanxiu',1:'seat',2:'hfgift',5:'flute',11:'nianfall',12:'newgirls',14:'robe',16:'blood',24:'newgirls',27:'secret',32:'thdie',50:'finale'};
-const RANDOM=['sachet','doctor','cat','kneel','poison','wugu','rumor','politics','illness','theft','kouke','banquet','chaojing','minghuang','qin'];
+const SCRIPT={0:['xuanxiu','yl_arrive'],1:['seat'],2:['hfgift'],3:['fam_letter'],5:['flute'],10:['pr_water'],11:['nianfall'],12:['newgirls'],14:['robe'],15:['fam_case'],16:['blood'],24:['pox'],27:['secret'],32:['thdie'],33:['hetong'],50:['finale']};
+const ARCEV=['fa_hanmen','fa_father','sachet','fa_song','fa_turn','fa_end','yl_brother','yl_night','yl_report','yl_out','hf_task','hf_huanyi','hf_fan','hf_cold','hh_recruit','hh_task','hh_scape','hh_dizi','fam_bro','pr_letter','qi_wine','qi_emin','kid_vac','kid_school','kid_bright','gw_account','gw_fire'];
+const RANDOM=['doctor','cat','kneel','poison','wugu','rumor','politics','illness','theft','kouke','banquet','chaojing','minghuang'];
+const REPEAT=new Set(['kid_vac','kid_school','kid_bright']);
+const NEWS={5:'惠贵人沈氏圣眷正浓，六宫侧目。',15:'华妃年氏殁于冷宫。',20:'莞嫔甄氏自请出宫，往甘露寺带发修行。',25:'西北对准噶尔用兵，傅尔丹领北路、岳钟琪领西路出征。',29:'甄氏回宫，册为熹妃，四阿哥记在她名下。',33:'北路军于和通泊中伏大败。',44:'熹妃晋为熹贵妃。',48:'皇帝近来常住圆明园，龙体时有不豫。'};
+const ARCS=[
+ {name:'方氏',ids:['fa_hanmen','fa_father','sachet','fa_song','fa_turn','fa_end']},
+ {name:'云苓',ids:['yl_arrive','yl_brother','yl_night','yl_report','yl_out']},
+ {name:'华妃',ids:['hfgift','hf_task','hf_huanyi','nianfall','hf_fan','hf_cold']},
+ {name:'皇后',ids:['hh_recruit','hh_task','hh_scape','secret','thdie','hh_dizi']},
+ {name:'家族',ids:['fam_letter','fam_case','fam_bro','hetong']},
+ {name:'果郡王',ids:['flute','pr_water','pr_letter']},
+ {name:'祺贵人',ids:['newgirls','qi_wine','blood','qi_emin']},
+ {name:'子嗣',ids:['preg','birth','kid_vac','pox','kid_school','kid_bright']}
+];
 
 /* ───────── 行动 ───────── */
 const ACTS=[
-{id:'hh',name:'景仁宫侍奉',desc:'请安后多留半个时辰，替皇后奉茶捶腿。',hint:'皇后↑ 威望↑',run:()=>{const n=ri(6,9);return{text:'你在景仁宫陪皇后说了半日家常。皇后赏了你一碟点心。',d:{hh:n,pres:2}};}},
+{id:'hh',name:'景仁宫侍奉',desc:'请安后多留半个时辰，替皇后奉茶捶腿。',hint:'皇后↑ 威望↑',show:s=>!s.flags.hhDown,run:()=>({text:'你在景仁宫陪皇后说了半日家常。皇后赏了你一碟点心。',d:{hh:ri(6,9),pres:2}})},
 {id:'hf',name:'翊坤宫走动',desc:'陪华妃说笑解闷，听她数落旁人。',hint:'华妃↑ 皇后↓',show:s=>hfActive(s),run:()=>({text:'华妃心情好，留你看了一出新排的戏。回来时，你看见剪秋站在长街拐角。',d:{hf:ri(8,12),hh:-4}})},
 {id:'th',name:'寿康宫侍奉',desc:'陪太后礼佛、读经。',hint:'太后↑ 威望↑',need:s=>s.rank>=2,needText:'贵人以上',show:s=>thAlive(s),run:()=>({text:'太后礼佛时，你在一旁静静地捻着佛珠。太后临走时说了句「是个安静孩子」。',d:{th:ri(7,10),pres:3}})},
-{id:'art',name:'习艺',desc:'抚琴、习字、学舞、刺绣。',hint:'才貌↑',ban:1,run:()=>{const a=['你抚了一个月的琴','你临了一个月的帖','你跟着教习嬷嬷学了一支新舞','你绣完了一幅花鸟屏风'][ri(0,3)];return{text:a+'，手上的功夫又精进了。',d:{charm:ri(4,7)}};}},
+{id:'fang',name:'探望方氏',desc:'去偏殿坐坐，说说家常。',hint:'方氏↑',show:s=>['you','hh',null].includes(s.arc.fang.side),run:s=>{const f=s.arc.fang;if(f.side==='hh')return{text:'{F}客客气气地给你上了茶，话说得滴水不漏。',d:{fang:ri(2,4)}};return{text:'你们说了半日话。{F}给你看她新绣的帕子，上面是两只并蒂的海棠。',d:{fang:ri(6,9),hp:1}};}},
+{id:'art',name:'习艺',desc:'抚琴、习字、学舞、刺绣。',hint:'才貌↑',ban:1,run:()=>{const a=['你抚了一季的琴','你临了一季的帖','你跟着教习嬷嬷学了一支新舞','你绣完了一幅花鸟屏风'][ri(0,3)];return{text:a+'，手上的功夫又精进了。',d:{charm:ri(4,7)}};}},
 {id:'read',name:'读书',desc:'读《女训》，也读史书杂记。',hint:'心计↑',ban:1,run:()=>({text:'你读到前朝某位贵妃的旧事，掩卷想了很久。',d:{wit:ri(4,6)}})},
-{id:'bribe',name:'打点敬事房',desc:'给敬事房总管塞些银子，让绿头牌摆在显眼处。',hint:'本季侍寝机会↑',cost:25,need:s=>!s.bribe,needText:'本季已打点',run:s=>{s.bribe=true;if(roll(.12))return{text:'银子送出去了。只是不知怎的，这事传到了景仁宫。',d:{hh:-6,pres:-3}};return{text:'敬事房总管笑眯眯地收下了：「小主放心。」',d:{}};}},
-{id:'meet',name:'御花园偶遇',desc:'算准皇上散步的时辰，在花间等候。',hint:'看才貌圣宠',chance:s=>.2+s.st.charm/150+s.st.fav/400,run:(s,ok)=>ok?{ok,text:'皇帝远远看见你，驻足看了一会儿，让苏培盛请你过去说话。',d:{fav:Math.round(ri(7,11)*(1-s.st.fav/140)),hf:-4,hh:-2}}:{ok,text:'你等了一个时辰，皇帝从另一条路走了。有宫女看见你，回去说给了各宫听。',d:{fav:-2,pres:-3}}},
-{id:'soup',name:'养心殿送羹',desc:'亲手炖一盅羹汤送去养心殿。',hint:'看圣宠',need:s=>s.st.fav>=15,needText:'圣宠 15',chance:s=>.35+s.st.fav/140,run:(s,ok)=>ok?{ok,text:'苏培盛把你请了进去。皇帝放下朱笔，喝了半盅。',d:{fav:Math.round(ri(4,7)*(1-s.st.fav/140))}}:{ok,text:'苏培盛在门口拦住了你：「皇上正和大人们议事。」羹汤送进去了，人没进去。',d:{pres:-1}}},
-{id:'intel',name:'打探消息',desc:'让心腹去各宫的宫人那里走动。',hint:'下一桩暗算得到风声',cost:10,need:s=>!s.intel,needText:'已有风声',ban:1,run:s=>{s.intel=true;return{text:'云苓带回来不少闲话，你一一记下。下回若有人算计你，多半能提前知道。',d:{wit:1}};}},
-{id:'reward',name:'赏赐宫人',desc:'拿出体己银子赏给身边的人。',hint:'宫人忠诚↑',cost:15,ban:1,run:()=>({text:'宫人们得了赏，做事格外勤快。',d:{loyal:ri(10,14)}})},
-{id:'heal',name:'请太医调养',desc:'请太医开些温补的方子。',hint:'康健↑',cost:12,ban:1,run:s=>{const d={hp:ri(10,15)};let t='喝了一季的药，气色好了许多。';if(s.preg){s.preg.guard=(s.preg.guard||0)+1;t+='太医还开了安胎的方子，嘱咐你少出门。';}return{text:t,d};}},
+{id:'bribe',name:'打点敬事房',desc:'给敬事房总管塞些银子，让绿头牌摆在显眼处。',hint:'本季侍寝机会↑',cost:30,need:s=>!s.bribe,needText:'本季已打点',run:s=>{s.bribe=true;if(roll(.12))return{text:'银子送出去了。只是不知怎的，这事传到了景仁宫。',d:{hh:-6,pres:-3}};return{text:'敬事房总管笑眯眯地收下了：「小主放心。」',d:{}};}},
+{id:'meet',name:'御花园偶遇',desc:'算准皇上散步的时辰，在花间等候。',hint:'圣宠↑',chance:s=>.2+s.st.charm/150+s.st.fav/400,run:(s,ok)=>ok?{ok,text:'皇帝远远看见你，驻足看了一会儿，让苏培盛请你过去说话。',d:{fav:Math.round(ri(7,11)*(1-s.st.fav/140)),hf:-4,hh:-2}}:{ok,text:'你等了一个时辰，皇帝从另一条路走了。有宫女看见你，回去说给了各宫听。',d:{fav:-2,pres:-3}}},
+{id:'soup',name:'养心殿送羹',desc:'亲手炖一盅羹汤送去养心殿。',hint:'圣宠↑',need:s=>s.st.fav>=15,needText:'圣宠 15',chance:s=>.35+s.st.fav/140,run:(s,ok)=>ok?{ok,text:'苏培盛把你请了进去。皇帝放下朱笔，喝了半盅。',d:{fav:Math.round(ri(4,7)*(1-s.st.fav/140))}}:{ok,text:'苏培盛在门口拦住了你：「皇上正和大人们议事。」羹汤送进去了，人没进去。',d:{pres:-1}}},
+{id:'intel',name:'打探消息',desc:'让心腹去各宫的宫人那里走动。',hint:'下一桩暗算得到风声',cost:15,need:s=>!s.intel,needText:'已有风声',ban:1,run:s=>{s.intel=true;return{text:'各宫的闲话带回来不少，你一一记下。下回若有人算计你，多半能提前知道。',d:{wit:1}};}},
+{id:'reward',name:'赏赐宫人',desc:'拿出体己银子赏给身边的人。',hint:'宫人↑',cost:20,ban:1,run:()=>({text:'宫人们得了赏，做事格外勤快。',d:{loyal:ri(10,14)}})},
+{id:'heal',name:'请太医调养',desc:'请太医开些温补的方子。',hint:'康健↑',cost:18,ban:1,run:s=>{const d={hp:ri(10,15)};let t='喝了一季的药，气色好了许多。';if(s.preg){s.preg.guard=(s.preg.guard||0)+1;t+='太医还开了安胎的方子，嘱咐你少出门。';}return{text:t,d};}},
+{id:'burn',name:'清理妆奁',desc:'趁夜里没人，把那张诗笺烧了。',hint:'了结后患',show:s=>s.flags.letterKept,ban:1,run:s=>{s.flags.letterKept=0;return{text:'诗笺在烛火上卷起来，化成了一小撮灰。你把灰倒进了花盆里。',d:{}};}},
 {id:'manage',name:'整饬宫务',desc:'立规矩、查账目、调教宫人。',hint:'威望↑ 宫人↑',need:s=>s.rank>=3,needText:'嫔位以上',ban:1,run:()=>({text:'你把{P}上下的规矩重新立了一遍，查出两个手脚不干净的，撵了出去。',d:{pres:ri(4,6),loyal:4}})},
-{id:'shien',name:'施恩六宫',desc:'给各宫低位小主送些节礼、炭火。',hint:'威望↑',cost:50,need:s=>s.rank>=4,needText:'妃位以上',run:()=>({text:'各宫的小主们收了东西，请安时待你格外恭敬。皇后笑着说你会做人。',d:{pres:ri(5,7),hh:-2}})},
-{id:'xieli',name:'协理六宫',desc:'替皇上分担后宫事务。',hint:'威望↑↑ 银两↑',show:s=>s.flags.xieli,run:()=>({text:'六宫的账目、人事、节礼，样样都要过你的手。',d:{pres:5,silver:15,hp:-3}})}
+{id:'shien',name:'施恩六宫',desc:'给各宫低位小主送些节礼、炭火。',hint:'威望↑',cost:50,need:s=>s.rank>=4,needText:'妃位以上',run:()=>({text:'各宫的小主们收了东西，请安时待你格外恭敬。',d:{pres:ri(5,7),hh:-2}})},
+{id:'xieli',name:'协理六宫',desc:'替皇上分担后宫事务。',hint:'威望↑ 银两↑',show:s=>s.flags.xieli,run:()=>({text:'六宫的账目、人事、节礼，样样都要过你的手。',d:{pres:5,silver:15,hp:-3}})}
 ];
 
 /* ───────── 引擎 ───────── */
@@ -734,11 +1099,11 @@ const app=document.getElementById('app');
 const navHome=document.getElementById('navHome');
 const navBook=document.getElementById('navBook');
 let view='start';
-function save(){store('hgssb2_save',S&&!S.dead?S:null);}
+function save(){store('hgssb3_save',S&&!S.dead?S:null);}
 
 function promote(n){
   if(S.rank>=6)return'';
-  const old=S.rank;S.rank=Math.min(6,S.rank+n);S.lastPromo=S.t;
+  S.rank=Math.min(6,S.rank+n);S.lastPromo=S.t;
   let line=`晋为${RANKS[S.rank]}`;
   if(S.rank>=3&&!S.hao){S.hao=HAO[ri(0,HAO.length-1)];line+=`，赐封号「${S.hao}」，迁为启祥宫主位`;}
   line+=`。年例银 ${ALLOW[S.rank]} 两。`;
@@ -747,61 +1112,71 @@ function promote(n){
   return line;
 }
 const PROMO=[null,
-  s=>s.nights>=1&&s.st.fav>=25,
-  s=>s.nights>=3&&s.st.fav>=35&&s.st.pres>=15,
-  s=>s.nights>=8&&s.st.fav>=55&&s.st.pres>=35,
-  s=>s.st.fav>=55&&s.st.pres>=55&&(s.rel.th>=20||s.kids.length>0),
-  s=>s.st.fav>=60&&s.st.pres>=75&&s.kids.length>0,
+  s=>s.nights>=2&&s.st.fav>=30,
+  s=>s.nights>=4&&s.st.fav>=40&&s.st.pres>=20,
+  s=>s.nights>=10&&s.st.fav>=55&&s.st.pres>=40,
+  s=>s.st.fav>=60&&s.st.pres>=60&&(s.rel.th>=30||live(s).length>0),
+  s=>s.st.fav>=65&&s.st.pres>=80&&live(s).length>0,
   ()=>false];
 
 function checkVitals(){
   if(S.st.hp<=0)return'x_ill';
   if(S.st.sus>=100)return'x_sus';
-  if(S.cold>=8)return'x_cold';
+  if(S.cold>=6)return'x_cold';
   return null;
 }
 
 function endSeason(){
   const lines=[],chg=[];
-  // 侍寝
-  let p=clamp(.06+S.st.fav/110+S.st.charm/500+(S.bribe?.18:0),0,.9);
+  let p=clamp(.04+S.st.fav/130+S.st.charm/600+(S.bribe?.15:0),0,.8);
   if(S.preg||S.ban)p=0;
   let n=0;for(let i=0;i<3;i++)if(roll(p))n++;
   const first=S.nights===0&&n>0;
   if(n){S.nights+=n;S.cold=0;chg.push(...apply({fav:(S.st.fav>50?1:2)*n}));lines.push(`敬事房翻了你的牌子 ${n} 回。`);}
   else{if(!S.preg&&!S.ban)S.cold++;lines.push(S.preg?'有孕在身，按例不侍寝。':S.ban?'禁足之中，绿头牌撤了下来。':'这一季，你的绿头牌一次也没被翻过。');}
   if(first)S.queue.push('firstnight');
-  if(n&&!S.preg&&(S.postpartum||0)<=S.t){let cp=.045*n*(S.trait==='kang'?1.5:1)*(S.st.hp<40?.5:1);if(S.flags.musk)cp*=.5;if(roll(clamp(cp,0,.5))){S.preg={s:0,guard:0};S.queue.push('preg');}}
-  // 孕期
+  if(n&&!S.preg&&(S.postpartum||0)<=S.t){let cp=.04*n*(S.trait==='kang'?1.5:1)*(S.st.hp<40?.5:1);if(S.flags.musk)cp*=.5;if(roll(clamp(cp,0,.5))){S.preg={s:0,guard:0};S.queue.push('preg');}}
   if(S.preg&&!S.queue.includes('preg')){
     S.preg.s++;
     if(S.flags.musk&&S.preg.s===1)S.queue.push('muskloss');
     else if(S.preg.s>=3)S.queue.push('birth');
   }
-  // 份例
   let inc=Math.round(ALLOW[S.rank]/4);
-  if(S.st.fav<15&&S.st.pres<25&&roll(.6)){inc=Math.round(inc/2);lines.push('内务府克扣，份例只发了一半。');}
-  if(S.flags.party&&hfActive(S))inc+=10;
-  if(S.rank>=3){const up=Math.round(inc*.6);inc-=up;lines.push(`宫中用度、人情打点，去了 ${up} 两。`);}
+  if(S.st.fav<15&&S.st.pres<25&&S.arc.hh!=='party'&&roll(.6)){inc=Math.round(inc/2);lines.push('内务府克扣，份例只发了一半。');}
+  if(S.arc.hf==='party'&&hfActive(S))inc+=10;
+  if(S.rank>=3){const up=Math.round(inc*.65);inc-=up;lines.push(`宫中用度、人情打点，去了 ${up} 两。`);}
   chg.push(...apply({silver:inc}));
-  // 自然变化
-  const dec={fav:S.st.fav>0?-(3+Math.floor(S.st.fav/15)):0,sus:-4,loyal:-2,pres:S.st.pres>50?-Math.floor((S.st.pres-40)/10):0};
-  if(S.st.hp<90&&!S.preg)dec.hp=4;
+  if(S.q===3){
+    const base=ORIGINS[S.origin].home*(S.flags.homeHalf?.5:1);
+    const amt=Math.round(base*({rising:2,ok:1,resigned:.5,fallen:0})[S.arc.fam]);
+    if(amt){chg.push(...apply({silver:amt}));lines.push(`年下，家里捎进来 ${amt} 两银子。`);}
+    else if(S.arc.fam==='fallen'&&!S.flags.fallenNoted){S.flags.fallenNoted=1;chg.push(...apply({pres:-5}));lines.push('家中获罪，年下没有人捎东西进来。各宫的人，也来得少了。');}
+  }
+  const dec={fav:S.st.fav>0?-(4+Math.floor(S.st.fav/12)):0,sus:-2,loyal:-3,pres:S.st.pres>50?-Math.floor((S.st.pres-40)/10):0};
+  if(S.st.hp<70&&!S.preg)dec.hp=2;
   chg.push(...apply(dec));
+  if(S.flags.fangSplit&&S.arc.fang.side==='hh'&&!S.arc.fang.voice){chg.push(...apply({fav:-2}));lines.push(`${fangTitle()}分去了一些恩宠。`);}
   if(S.st.fav>55){chg.push(...apply({hh:-3,hf:-5}));lines.push('你圣眷正浓，各宫看{P}的眼神都变了。');}
   if(S.ban){S.ban--;if(!S.ban)lines.push('禁足期满。');}
-  // 晋位
   const nx=S.rank+1;
-  if(PROMO[nx]&&S.t-S.lastPromo>=3&&PROMO[nx](S)){const l=promote(1);lines.push(l);}
-  S.report={date:dateStr(),lines,chg};
+  if(PROMO[nx]&&S.t-S.lastPromo>=4&&PROMO[nx](S)){lines.push(promote(1));}
   log(lines.join(''));
-  // 推进
   S.t++;S.q++;if(S.q>3){S.q=0;S.y++;}
   S.ap=3;S.bribe=false;S.last=null;
-  if(S.t>=FINAL_T){S.queue=['finale'];return;}
-  const sc=SCRIPT[S.t];
-  if(sc&&(!EV[sc].cond||EV[sc].cond(S)))S.queue.push(sc);
-  if(roll(sc?.3:.8)){const r=pickRandom();if(r)S.queue.push(r);}
+  const news=NEWS[S.t]&&!(S.t===15&&S.flags.hfDead)?NEWS[S.t]:'';
+  if(news)log('宫中动静：'+news);
+  S.report={date:yearCN('雍正',S.q===0?S.y-1:S.y)+SEASONS[(S.q+3)%4],lines,chg,news};
+  if(S.t>=FINAL_T){S.queue=['finale'];S.forced=[];return;}
+  schedule();
+}
+function schedule(){
+  for(const id of S.forced)if(!S.queue.includes(id))S.queue.push(id);
+  S.forced=[];
+  let story=0;
+  for(const id of (SCRIPT[S.t]||[])){const e=EV[id];if(!e.cond||e.cond(S)){S.queue.push(id);story++;}}
+  const cands=ARCEV.filter(id=>(REPEAT.has(id)||S.at[id]==null)&&!S.queue.includes(id)&&EV[id].when(S)).sort((a,b)=>(EV[b].pri||0)-(EV[a].pri||0));
+  for(const id of cands.slice(0,Math.max(0,2-story)))S.queue.push(id);
+  if(S.queue.length<3&&roll(S.queue.length?.55:.95)){const r=pickRandom();if(r)S.queue.push(r);}
 }
 function pickRandom(){
   const c=[];let tot=0;
@@ -814,37 +1189,55 @@ function pickRandom(){
 /* ───────── 渲染 ───────── */
 function relWord(v){return v>=50?'倚重':v>=15?'和睦':v>-15?'平常':v>-50?'嫌隙':'敌视';}
 function statRow(k,danger){const v=S.st[k];return`<div class="stat${danger?' danger':''}"><span>${KEYS[k]}</span><span class="sb"><i style="width:${v}%"></i></span><span class="sv">${v}</span></div>`;}
-function relRow(k,gone){
-  const nm={hh:'皇后',hf:'华妃',th:'太后'}[k];
+function relRow(nm,v,gone){
   if(gone)return`<div class="rel gone"><span>${nm}</span><span class="rs">${gone}</span></div>`;
-  const v=S.rel[k];
   return`<div class="rel"><span>${nm}</span><span class="rb"><i class="${v<0?'neg':'pos'}" style="width:${Math.abs(v)/2}%"></i></span><span class="sv">${v>0?'+':''}${v}</span><span class="rw">${relWord(v)}</span></div>`;
 }
+function courtHTML(){
+  const a=S.arc,rows=[];
+  const hhL={party:'你是她的人',double:'假意投靠',refused:'未入其门',enemy:'敌对',leverage:'互相牵制'}[a.hh];
+  rows.push(['皇后',S.flags.hhDown?'禁足景仁宫':(hhL||'——')]);
+  rows.push(['华妃',hfActive(S)?({party:'你是她的人',neutral:'中立',enemy:'结怨'}[a.hf]||'——'):(S.flags.hfDead||S.t>=15?'殁于冷宫':'冷宫')]);
+  const fs={null:'同住偏殿',you:'与你交好',hh:'已投景仁宫',double:'两边传话',cold:'冷宫',dead:'已殁'}[a.fang.side];
+  rows.push(['方氏',(['cold','dead'].includes(a.fang.side)?'':fangTitle()+' · ')+fs]);
+  if(S.t>=12)rows.push(['祺贵人',S.flags.qiDown?'失势':({feud:'结仇',peace:'面和'}[a.qi]||'——')]);
+  rows.push(['云苓',{new:'初到',trusted:'信任',watched:'提防',sworn:'死忠',torn:'心事重重',coerced:'如常',swapped:'已换作秋纹',dead:'已故',out:'已出宫',stay:'留宫做姑姑'}[a.yl]]);
+  rows.push(['家中',{ok:'平安',rising:'得势',resigned:'致仕回乡',fallen:'获罪流放'}[a.fam]+(S.flags.broDead?' · 兄长战殁':'')]);
+  if(a.prince)rows.push(['果郡王',{proper:'守礼',cool:'疏远',secret:'私交',cut:'已出京'}[a.prince]]);
+  return`<dl class="court">${rows.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`;
+}
+function arcsHTML(){
+  const items=ARCS.map(a=>{const d=a.ids.filter(id=>S.at[id]!=null).length;return d?`<li><span>${a.name}</span><span>${cnNum(d)} / ${cnNum(a.ids.length)}</span></li>`:'';}).join('');
+  return items?`<ul class="arcs">${items}</ul>`:'<p class="muted" style="margin:0;font-size:.8rem">尚未展开</p>';
+}
 function dossier(dead){
-  const kids=S.kids.length?S.kids.map(k=>k.sex==='子'?'阿哥':'公主').join('、'):'无';
+  const kids=S.kids.length?S.kids.map(k=>(k.sex==='子'?'阿哥':'公主')+(k.dead?'（殇）':'')).join('、'):'无';
   const o=ORIGINS[S.origin];
+  const f=S.arc.fang;
   return`<aside class="dossier">
     <div class="portrait${dead?' dead':''}">${portrait(S,dead)}</div>
     <div class="idblock"><h3>${esc(title())}</h3><p>${palace()} · 年${cnNum(age())}<br>${o.sub}${o.name.includes('旗')?'':o.name} · 性情${TRAITS[S.trait].name}</p></div>
     <div class="stats-wrap">
-      <div class="sect"><h4>指标</h4>${statRow('fav')}${statRow('pres')}${statRow('charm')}${statRow('wit')}${statRow('hp',S.st.hp<30)}${statRow('loyal')}${statRow('sus',true)}</div>
-      <div class="sect"><h4>人情</h4>${relRow('hh')}${relRow('hf',hfActive(S)?null:'已失势')}${relRow('th',thAlive(S)?null:'已薨')}
-        <dl class="kv" style="margin-top:6px"><dt>银两</dt><dd>${S.st.silver} 两</dd><dt>年例</dt><dd>${ALLOW[S.rank]} 两</dd><dt>侍寝</dt><dd>${S.nights} 回</dd><dt>子嗣</dt><dd>${kids}${S.preg?' · 有孕':''}</dd>${S.ban?'<dt>禁足</dt><dd>'+S.ban+' 季</dd>':''}</dl>
-      </div>
+      <div class="sect"><h4>指标</h4>${statRow('fav')}${statRow('pres')}${statRow('charm')}${statRow('wit')}${statRow('hp',S.st.hp<30)}${statRow('loyal')}${statRow('sus',true)}
+        <dl class="kv" style="margin-top:6px"><dt>银两</dt><dd>${S.st.silver} 两</dd><dt>年例</dt><dd>${ALLOW[S.rank]} 两</dd><dt>侍寝</dt><dd>${S.nights} 回</dd><dt>子嗣</dt><dd>${kids}${S.preg?' · 有孕':''}</dd>${S.ban?'<dt>禁足</dt><dd>'+S.ban+' 季</dd>':''}</dl></div>
+      <div class="sect"><h4>人情</h4>${relRow('皇后',S.rel.hh,S.flags.hhDown?'禁足景仁宫':null)}${relRow('华妃',S.rel.hf,hfActive(S)?null:'已失势')}${relRow('太后',S.rel.th,thAlive(S)?null:'已薨')}${relRow('方氏',f.rel,['dead','cold'].includes(f.side)?(f.side==='dead'?'已殁':'冷宫'):null)}</div>
     </div>
+    <div class="sect"><h4>六宫</h4>${courtHTML()}</div>
+    <div class="sect"><h4>剧情线</h4>${arcsHTML()}</div>
   </aside>`;
 }
 function logHTML(){return`<section class="log"><h4>起居注</h4><ol>${S.log.slice(0,40).map(l=>`<li><span>${l.d}</span>${fill(l.text)}</li>`).join('')||'<li><span></span>尚无记载。</li>'}</ol></section>`;}
 function seasonHead(){
   const dots=[0,1,2].map(i=>`<i class="${i<S.ap?'on':''}"></i>`).join('');
-  return`<div class="season"><h2>${dateStr()}</h2><span class="sub">第${cnNum(S.t+1)}季 / 共五十一季</span>${(!S.queue.length&&!S.report&&!S.pending)?`<span class="ap">行动 ${dots}</span>`:''}</div>`;
+  const busy=S.queue.length||S.report||S.pending;
+  return`<div class="season"><h2>${dateStr()}</h2><span class="sub">第${cnNum(S.t+1)}季 / 共五十一季${S.queue.length&&!S.pending&&!S.report?` · 本季尚有 ${cnNum(S.queue.length)} 件事`:''}</span>${!busy?`<span class="ap">行动 ${dots}</span>`:''}</div>`;
 }
 
 function render(){
   if(!S){renderStart();return;}
   view='game';navHome.hidden=false;
   while(!S.pending&&!S.report&&S.queue.length){const e=EV[S.queue[0]];if(e.valid&&!e.valid(S)){S.queue.shift();continue;}break;}
-  if(!S.pending&&!S.report&&S.queue.length){const e=EV[S.queue[0]],key=S.queue[0]+':'+S.t;if(e.pre&&S._preKey!==key){S._preKey=key;const pd=e.pre(S);S._prechg=pd?apply(pd):[];save();}}
+  if(!S.pending&&!S.report&&S.queue.length){const e=EV[S.queue[0]],key=S.queue[0]+':'+S.t;if(S._preKey!==key){S._preKey=key;S._prechg=[];if(e.pre){const pd=e.pre(S);S._prechg=pd?apply(pd):[];}save();}}
   let body='';
   if(S.pending)body=outcomeHTML();
   else if(S.report)body=reportHTML();
@@ -853,19 +1246,26 @@ function render(){
   app.innerHTML=`<div class="game">${dossier(false)}<section class="main">${seasonHead()}${body}${logHTML()}</section></div>`;
   bind();
 }
+function echoHTML(e){
+  if(!e.echo)return'';
+  const ks=e.echo(S).filter(k=>S.memo[k]);
+  if(!ks.length)return'';
+  return`<div class="echo">${ks.map(k=>`<p><b>前因</b><span>${S.memo[k].d}：${fill(S.memo[k].t)}</span></p>`).join('')}</div>`;
+}
 function eventHTML(){
   const id=S.queue[0],e=EV[id];
-  const showIntel=S.intel&&e.intel;
+  const showIntel=S.intel&&e.intel&&!S.flags.noIntel;
   const vis=e.choices.filter(c=>!c.show||c.show(S));
-  return`<article class="card"><div class="meta"><span>${fill(e.place)}</span>${SCRIPT[S.t]===id?'<span>大事</span>':''}</div><h3>${e.title}</h3>
+  const tag=(SCRIPT[S.t]||[]).includes(id)?'大事':ARCEV.includes(id)?(ARCS.find(a=>a.ids.includes(id))||{name:''}).name+'线':'';
+  return`<article class="card"><div class="meta"><span>${fill(e.place)}</span>${tag?`<span>${tag}</span>`:''}</div><h3>${tx(e.title)}</h3>
+  ${echoHTML(e)}
   ${showIntel?`<p class="intel"><b>风声</b><span>${fill(e.intel)}</span></p>`:''}
-  <div class="text">${paras(tx(e.text))}</div>${e.pre&&S._preKey===id+':'+S.t?chipsHTML(S._prechg):''}
+  <div class="text">${paras(tx(e.text))}</div>${chipsHTML(S._prechg)}
   <ol class="choices">${vis.map((c,i)=>{
     const okNeed=!c.need||c.need(S), okCost=!c.cost||S.st.silver>=c.cost;
     const tags=[];
     if(c.need)tags.push(`<span class="tg${okNeed?'':' no'}">需${c.needText}</span>`);
     if(c.cost)tags.push(`<span class="tg${okCost?'':' no'}">耗银 ${c.cost} 两</span>`);
-    if(c.chance)tags.push(`<span class="tg odds">${oddsLabel(c.chance(S)+(showIntel?.15:0))}</span>`);
     return`<li><button class="ch" type="button" data-c="${i}" ${okNeed&&okCost?'':'disabled'}><span class="mk">${MK[i]||'·'}</span><span>${fill(c.t)}</span>${tags.length?`<span class="tags">${tags.join('')}</span>`:''}</button></li>`;}).join('')}</ol></article>`;
 }
 function outcomeHTML(){
@@ -880,6 +1280,7 @@ function reportHTML(){
   const r=S.report;
   return`<article class="card outcome"><div class="meta"><span>季终 · ${r.date}</span></div><h3>季终</h3>
   <div class="text">${r.lines.map(l=>`<p>${fill(l)}</p>`).join('')}</div>${chipsHTML(r.chg)}
+  ${r.news?`<p class="news"><b>宫中动静</b>${r.news}</p>`:''}
   <button class="primary" id="bNext" type="button">进入${dateStr()}</button></article>`;
 }
 function actionsHTML(){
@@ -893,9 +1294,8 @@ function actionsHTML(){
     if(a.cost)tags.push(`<span class="tg${okCost?'':' no'}">${a.cost} 两</span>`);
     if(a.need&&!okNeed)tags.push(`<span class="tg no">需${a.needText}</span>`);
     if(!okBan)tags.push('<span class="tg no">禁足</span>');
-    if(a.chance)tags.push(`<span class="tg odds">${oddsLabel(a.chance(S))}</span>`);
-    return`<button class="act" type="button" data-a="${a.id}" ${can?'':'disabled'}><b>${a.name}</b><small>${a.desc}</small><span class="tags">${tags.join('')}</span></button>`;}).join('')}</div>
-  <div class="endbar"><span>季末结算：侍寝、份例、圣宠消退${S.preg?'、胎象':''}。</span><button class="primary" id="bEnd" type="button">结束本季</button></div></article>`;
+    return`<button class="act" type="button" data-a="${a.id}" ${can?'':'disabled'}><b>${a.name}</b><small>${fill(a.desc)}</small><span class="tags">${tags.join('')}</span></button>`;}).join('')}</div>
+  <div class="endbar"><span>季末结算：侍寝、份例、圣宠消退${S.preg?'、胎象':''}${S.q===3?'、家中捎银':''}。</span><button class="primary" id="bEnd" type="button">结束本季</button></div></article>`;
 }
 function bind(){
   app.querySelectorAll('.ch').forEach(b=>b.onclick=()=>choose(+b.dataset.c));
@@ -904,7 +1304,7 @@ function bind(){
   const n=document.getElementById('bNext');if(n)n.onclick=()=>{S.report=null;save();render();toTop();};
   const e=document.getElementById('bEnd');if(e)e.onclick=()=>{endSeason();save();render();toTop();};
 }
-function toTop(){window.scrollTo({top:0,behavior:'auto'});}
+function toTop(){try{window.scrollTo({top:0,behavior:'auto'});}catch(e){}}
 
 function choose(i){
   const id=S.queue[0],e=EV[id];
@@ -914,9 +1314,11 @@ function choose(i){
   if(c.cost&&S.st.silver<c.cost)return;
   const chg=[];
   if(c.cost)chg.push(...apply({silver:-c.cost}));
-  const bonus=S.intel&&e.intel?.15:0;
-  if(S.intel&&e.intel)S.intel=false;
-  const ok=c.chance?roll(clamp(c.chance(S)+bonus,.05,.95)):undefined;
+  const useIntel=S.intel&&e.intel&&!S.flags.noIntel;
+  const bonus=useIntel?HARD.intel:0;
+  if(useIntel)S.intel=false;
+  const ok=c.chance?roll(clamp(c.chance(S)*HARD.chance+bonus,.05,.88)):undefined;
+  S.at[id]=S.t;
   const r=c.run(S,ok)||{};
   if(r.death){die(r.death);return;}
   if(r.chg)chg.push(...r.chg);
@@ -925,22 +1327,22 @@ function choose(i){
   if(r.promote){const l=promote(r.promote);if(l)text+='\n'+l;}
   if(r.after)r.after(S);
   if(e.post)e.post(S);
-  S.pending={title:e.title,place:e.place,text,ok:r.ok,chg,note:r.note};
-  log(`${e.title}：${stripText(r.text||'')}`);
+  S.pending={title:tx(e.title),place:e.place,text,ok:r.ok,chg,note:r.note};
+  log(`${tx(e.title)}：${stripText(text)}`);
   save();render();toTop();
 }
 function stripText(t){const s=String(t).split('\n')[0];return s.length>46?s.slice(0,46)+'…':s;}
 function cont(){
-  S.pending=null;S.queue.shift();
+  S.pending=null;S.queue.shift();S._prechg=[];
   const d=checkVitals();if(d){die(d);return;}
   save();render();toTop();
 }
 function doAct(id){
   const a=ACTS.find(x=>x.id===id);if(!a||S.ap<=0)return;
-  if(a.need&&!a.need(S))return;if(a.cost&&S.st.silver<a.cost)return;if(S.ban&&!a.ban)return;
+  if(a.need&&!a.need(S))return;if(a.cost&&S.st.silver<a.cost)return;if(S.ban&&!a.ban)return;if(a.show&&!a.show(S))return;
   S.ap--;
   const chg=[];if(a.cost)chg.push(...apply({silver:-a.cost}));
-  const ok=a.chance?roll(clamp(a.chance(S),.05,.95)):undefined;
+  const ok=a.chance?roll(clamp(a.chance(S)*HARD.chance,.05,.88)):undefined;
   const r=a.run(S,ok);
   chg.push(...apply(r.d));
   S.last={name:a.name,text:r.text,chg,ok};
@@ -951,22 +1353,26 @@ function doAct(id){
 
 function die(id){
   const d=ENDS[id];
-  if(!seen.includes(id)){seen.push(id);store('hgssb2_seen',seen);}
-  S.dead=true;store('hgssb2_save',null);
+  if(!seen.includes(id)){seen.push(id);store('hgssb3_seen',seen);}
+  S.dead=true;store('hgssb3_save',null);
   const w=d.when?d.when(S):{era:'雍正',y:S.y,season:SEASONS[S.q]};
   const ag=w.era==='雍正'?15+w.y:28+w.y;
   const who=d.kind==='good'?`${taifei(S)}　${S.name}氏`:(S.flags.in&&S.rank>=3?`${title()}　${S.name}氏`:title());
   const status=d.status?(typeof d.status==='function'?d.status(ag):d.status):(d.kind==='good'?`无疾而终，年${cnNum(ag)}`:`殁，年${cnNum(ag)}`);
-  let grade='';
-  if(d.kind==='good'){const sc=S.rank*12+S.kids.length*10+S.st.pres/4+S.st.fav/8+(S.kids.some(k=>k.sex==='子')?10:0);grade=sc>=95?'甲上':sc>=75?'甲':sc>=55?'乙':'丙';}
+  let grade='',epi='';
+  if(d.kind==='good'){
+    const lk=live(S);const sc=S.rank*12+lk.length*10+S.st.pres/4+S.st.fav/8+(lk.some(k=>k.sex==='子')?10:0)+(S.flags.hhDown?8:0);
+    grade=sc>=95?'甲上':sc>=75?'甲':sc>=55?'乙':'丙';
+    const L=epilogue(S);if(L.length)epi=`<h4 style="margin:1.2em 0 .4em;font-size:.8rem;letter-spacing:.3em;color:var(--muted);font-weight:400">身后事</h4><div class="text">${L.map(l=>`<p>${fill(l)}</p>`).join('')}</div>`;
+  }
   view='dead';navHome.hidden=false;
   app.innerHTML=`<div class="game">${dossier(d.kind!=='good')}<section class="main"><article class="archive ${d.kind}">
     <div class="seal" aria-hidden="true">${d.seal||'殁'}</div>
     <p class="arc-head">内务府 · 敬事房档册</p>
     <h3>${d.name}</h3>
     <p class="arc-line">${yearCN(w.era,w.y)}${w.season}　${esc(who)}　${status}</p>
-    ${grade?`<p>一生评定：<span class="grade">${grade}</span>　侍寝 ${S.nights} 回 · 子嗣 ${S.kids.length} · 威望 ${S.st.pres}</p>`:''}
-    <div class="text">${paras(tx(d.text))}</div>
+    ${grade?`<p>一生评定：<span class="grade">${grade}</span>　侍寝 ${S.nights} 回 · 子嗣 ${live(S).length} · 威望 ${S.st.pres}</p>`:''}
+    <div class="text">${paras(tx(d.text))}</div>${epi}
     <p class="note"><span class="an">按</span><span>${fill(d.note)}</span></p>
     <p class="muted" style="font-size:.84rem;margin:0">生死簿已录 ${seen.length} / ${ORDER.length} 种结局</p>
     <div class="btns"><button class="primary" id="bAgain" type="button">重新入宫</button><button id="bBook" type="button">翻看生死簿</button></div>
@@ -980,18 +1386,17 @@ function renderBook(){
   navHome.hidden=false;const back=view==='game'&&S&&!S.dead;view='book';
   const kd={death:['死','kd-death'],out:['出宫',''],good:['善终','kd-good']};
   app.innerHTML=`<section><p class="eyebrow">共 ${ORDER.length} 种结局 · 已录 ${seen.length} 种</p><h2 style="font-size:2.4rem;margin:.1em 0 .2em">生死簿</h2>
-  <p class="muted" style="max-width:40em;margin:0">有的死法藏在大事里，有的要等数值跌到谷底，有的要你先种下一个因。</p>
+  <p class="muted" style="max-width:40em;margin:0">有的死法藏在大事里，有的藏在一条剧情线的第四段，要你在第一段先种下因。</p>
   <ul class="book-list">${ORDER.map(id=>{const d=ENDS[id],got=seen.includes(id),k=kd[d.kind];return`<li class="${got?'got':''}"><span class="src"><span>${d.src}</span><span class="${k[1]}">${got?k[0]:''}</span></span><span class="nm">${got?d.name:'？？？'}</span></li>`;}).join('')}</ul>
   <div class="btns"><button class="primary" id="bBack" type="button">${back?'回到宫中':'回到卷首'}</button></div></section>`;
   document.getElementById('bBack').onclick=()=>back?render():renderStart();
   toTop();
 }
 
-/* 建档 */
 function renderStart(){
   view='start';navHome.hidden=true;
-  const sv=load('hgssb2_save',null);
-  const canResume=sv&&sv.v===2&&!sv.dead&&sv.name;
+  const sv=load('hgssb3_save',null);
+  const canResume=sv&&sv.v===3&&!sv.dead&&sv.name;
   let pick={name:canResume?sv.name:'陆',origin:'han',trait:'cai'};
   const preview=()=>{const tmp=newState(pick.name||'某',pick.origin,pick.trait);tmp.flags.in=1;return portrait(tmp,false);};
   app.innerHTML=`<section class="create">
@@ -999,7 +1404,8 @@ function renderStart(){
       <p class="eyebrow">雍正元年 · 选秀</p>
       <h1>后宫生死簿</h1>
       <p>新帝登基，广选秀女。你年方十六，今日便要入殿候选。</p>
-      <p>自雍正元年至十三年，共五十一季。每季可做三件事，季末敬事房翻牌、内务府发份例，圣宠会一点点消退。数值决定你能选什么、成算几何；有些选择，无论数值多高都是死路。</p>
+      <p>自雍正元年至十三年，共五十一季。同住的方氏、身边的云苓、翊坤宫、景仁宫、你的家人、一位不该多看的王爷、一个后来入宫的新人，还有你将来的孩子——八条剧情线各自往前走，你今天怎么待一个人，三年后她就怎么待你。</p>
+      <p>每季可做三件事，季末敬事房翻牌、内务府发份例。数值决定你能选什么，也暗中决定成败——没有人会告诉你胜算几何。有些选择，无论数值多高都是死路。</p>
       <div class="step"><label for="nameIn">姓氏</label><div class="namerow"><input id="nameIn" maxlength="2" value="${esc(pick.name)}" autocomplete="off"><span>氏</span></div><p class="err" id="nameErr" hidden>请填一到两个汉字。</p></div>
       <div class="step"><span class="lbl">出身</span><div class="pick" id="pOrigin">${Object.entries(ORIGINS).map(([k,o])=>`<button type="button" data-k="${k}" aria-pressed="${k===pick.origin}"><b>${o.name}</b><small>${o.sub} · 初封${RANKS[o.rank]}<br>${o.desc}</small></button>`).join('')}</div>
         <p class="rule">清制，选秀只选八旗之女，汉人民女不在其列；包衣三旗之女另由内务府选为宫女。</p></div>
@@ -1015,7 +1421,7 @@ function renderStart(){
   const bindPick=(id,key)=>document.querySelectorAll(`#${id} button`).forEach(b=>b.onclick=()=>{pick[key]=b.dataset.k;document.querySelectorAll(`#${id} button`).forEach(x=>x.setAttribute('aria-pressed',x===b));pv.innerHTML=preview();});
   bindPick('pOrigin','origin');bindPick('pTrait','trait');
   function start(){const v=inp.value.trim();if(!/^[一-鿿]{1,2}$/.test(v)){document.getElementById('nameErr').hidden=false;inp.focus();return;}
-    S=newState(v,pick.origin,pick.trait);S.queue=['xuanxiu'];log(`${v}氏，${ORIGINS[pick.origin].sub}，年十六，应选入宫。`);save();render();toTop();}
+    S=newState(v,pick.origin,pick.trait);S.queue=['xuanxiu','yl_arrive'];log(`${v}氏，${ORIGINS[pick.origin].sub}，年十六，应选入宫。`);save();render();toTop();}
   document.getElementById('btnStart').onclick=start;
   if(canResume)document.getElementById('btnResume').onclick=()=>{S=sv;render();toTop();};
   toTop();
