@@ -103,6 +103,9 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .cv[data-c="lol"] .cv-t{color:#d9f6ff}
 .cv[data-c="yike"] .cv-t{color:#efd58e}
 .cv[data-c="auto"] .cv-t{color:#fff}
+.cv[data-c="f1-driver"] .cv-t{color:#fff;font-size:clamp(15px,7.2cqw,56px);font-style:italic}
+.cv[data-c="wealth-reborn"] .cv-t{color:#ffe4a3;font-size:clamp(15px,7.6cqw,60px)}
+.cv[data-c="basketball-star"] .cv-t{color:#fff0d9}
 
 /* store */
 .page{padding-block:28px 64px;display:grid;gap:40px}
@@ -301,7 +304,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const now = () => Date.now();
 
-/* ───────── 游戏目录（桌面上的 6 款，随平台一起发布在 games/ 下） ───────── */
+/* ───────── 游戏目录（单文件游戏与专属封面随平台一起发布） ───────── */
 const CATALOG = [
   { id:'f1', title:'F1 Team Principal 2026', sub:'车队领队', genre:'赛车经理', tags:['赛车经理','体育','策略','实时比赛'],
     src:'games/f1.html', size:494022, status:'ok', session:'一场比赛周末约 10 分钟', saves:'自动存档',
@@ -403,7 +406,40 @@ const CATALOG = [
       '超重会翻盘，整盘药包掉进暂存台；暂存台放不下就输。压在下面的药包看不到重量，秤盘上的药包放上去就拿不回来。',
       '撤回、透视、换方子三种道具帮你翻身。第一关是热身，往后压在最底下的那几包最要命。'
     ],
-    loop:['点亮着的药包，它会放上选中的那台秤；点秤可以换','右盘正好等于砝码，秤就平了','超重翻盘，药包掉进暂存台；暂存台满了就输','用撤回、透视、换方子渡过难关'] }
+    loop:['点亮着的药包，它会放上选中的那台秤；点秤可以换','右盘正好等于砝码，秤就平了','超重翻盘，药包掉进暂存台；暂存台满了就输','用撤回、透视、换方子渡过难关'] },
+
+  { id:'f1-driver', title:'F1-车手版', sub:'坐进驾驶舱 · 书写冠军生涯', genre:'体育生涯', tags:['赛车','车手生涯','策略','实时比赛'],
+    src:'games/f1-driver.html', cover:'covers/f1-driver.jpg', size:617963, status:'ok', session:'按比赛周末推进', saves:'自动存档、3 个手动存档位',
+    tagline:'从争取一张车手席位开始，在排位、进站与每一圈的攻防中，跑出属于你的冠军之路。',
+    about:[
+      '创建自己的车手，刷新能力与天赋，比较十二支车队的合同、成长环境和商业回报。争取正式席位，或从替补试训中证明自己。',
+      '比赛前安排训练、处理车队事件，再进入排位与正赛。比赛持续播放，你决定驾驶节奏、进站计划和轮胎策略，在雨势、安全车与车队指令到来时回应无线电。',
+      '每一场比赛都影响能力、声望、人气与车队关系。完成赛后采访，积累积分与里程碑，在赛季末谈下一份合同，走过一段由你选择的职业生涯。'
+    ],
+    loop:['创建车手，比较车队并签约','完成比赛周末准备和排位，选择发车轮胎','观看逐圈比赛，调整节奏、进站并回应无线电','查看成绩和成长，完成采访，继续下一站或赛季转会'],
+    notes:['车队、人物与赛历用于游戏模拟；本作以车手身份游玩，独立于平台原有的 F1 车队经理游戏。'] },
+
+  { id:'wealth-reborn', title:'我要当首富', sub:'从三千元起步 · 经营你的商业人生', genre:'模拟经营', tags:['模拟经营','商业','人生模拟','投资'],
+    src:'games/wealth-reborn.html', cover:'covers/wealth-reborn.jpg', size:1828134, status:'ok', session:'每次经营推进一周', saves:'玩家独立档案、自动与手动存档',
+    tagline:'回到 2004 年，带着 3,000 元从街头起步。开店、招人、扩张，把小生意做成你的商业版图。',
+    about:[
+      '18 岁、3,000 元、没有公司，你的商业人生从这里开始。先靠接单或摆摊积累本金，再把摊位升级成门店，逐步进入新的街区和城市。',
+      '零售、电商、物流、科技、地产与产业投资都能布局。招募店长与区域经理，分配资金和推广预算，与同行争夺市场，让旗下各处生意每周一起运转。',
+      '抓住机会，也要承担现金周转、贷款、竞争和突发事件的后果。查看每周经营账单与资产变化，用自己的选择走过 2004 至 2025 年。'
+    ],
+    loop:['建立玩家档案，用接单或摆摊积累第一笔资金','升级门店、扩展街区，安排产品与经营预算','雇用管理团队、布局多个行业，处理合作与竞争','经营一周，核对现金、利润和市场份额，再决定下一步'],
+    notes:['投资价格、企业估值与交易机会均为游戏模型；经营结果随策略变化，不保证盈利或成为首富。'] },
+
+  { id:'basketball-star', title:'篮球巨星', sub:'从 CBA 新秀 · 到世界舞台', genre:'体育生涯', tags:['篮球','球员生涯','养成','比赛直播'],
+    src:'games/basketball-star.html', cover:'covers/basketball-star.jpg', size:510720, status:'ok', session:'按赛季周次推进', saves:'自动存档、3 个手动存档位',
+    tagline:'17 岁加入 CBA 成年队，用训练和每一次上场争取位置，走向国家队与 NBA 的聚光灯。',
+    about:[
+      '选择姓名、位置、身高与风格，查看十八项能力和潜力，再从二十支 CBA 球队中选择起点。进入成年队，从培养球员做起，争取稳定的上场时间。',
+      '每周安排训练与恢复，平衡成长、疲劳和伤病。比赛中观看逐回合文字直播或只看自己上场的时段，查看得分、篮板、助攻和双方技术统计。',
+      '和经纪人规划合同与转会，积累教练信任、荣誉与国家队机会。满足资格后参加试训和选秀，争取 NBA 合同，让每一季的表现写进自己的生涯档案。'
+    ],
+    loop:['创建球员，比较球队的定位与预计出场时间','安排训练、恢复和比赛职责','推进一周，观看比赛，复盘技术统计与成长','处理合同、国家队与选秀机会，迈向下一个赛季'],
+    notes:['名单、能力、赛程与合同采用游戏模拟规则；本作控制自己的球员，独立于原有 CBA 和 NBA 经理游戏。'] }
 ];
 
 /* ───────── 本机存储：localStorage 放账号与统计，IndexedDB 放各游戏存档 ───────── */
@@ -485,6 +521,7 @@ function fmtWhen(ts){
 const coverCache = new Map();
 function rng(seed){ let a = 0; for (const c of seed) a = (a * 31 + c.codePointAt(0)) | 0; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 function coverURL(g){
+  if (g.cover) return g.cover;
   const kind = ['douluo','hougong','f1','nba','lol','yike'].includes(g.id) ? g.id : 'auto';
   const key = kind + '|' + g.id;
   if (coverCache.has(key)) return coverCache.get(key);
@@ -587,7 +624,7 @@ function coverURL(g){
   return url;
 }
 function cover(g, opts = {}){
-  const kind = ['douluo','hougong','f1','nba','lol','yike'].includes(g.id) ? g.id : 'auto';
+  const kind = ['douluo','hougong','f1','nba','lol','yike','f1-driver','wealth-reborn','basketball-star'].includes(g.id) ? g.id : 'auto';
   const url = coverURL(g);
   return `<div class="cv" data-c="${kind}">${url ? `<img src="${url}" alt="">` : ''}${opts.noTitle ? '' : `<div class="cv-t">${esc(g.title)}${opts.sub && g.sub ? `<span class="cv-s">${esc(g.sub)}</span>` : ''}</div>`}</div>`;
 }

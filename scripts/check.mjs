@@ -1,9 +1,10 @@
 // 质量门：每个页面的内嵌 <script> 与 Worker 脚本能解析，商店目录里登记的游戏文件都存在。
 // 用法：node scripts/check.mjs（CI 每次 push / PR 都跑，失败就不部署）
-import { readFileSync, readdirSync, existsSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, statSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { runInNewContext } from 'node:vm';
 
 const pages = ['public/index.html', 'src/kanban.html', ...readdirSync('public/games').filter(f => f.endsWith('.html')).map(f => 'public/games/' + f)];
 const tmp = mkdtempSync(join(tmpdir(), 'changju-check-'));
@@ -32,6 +33,22 @@ try {
   for (const [, src] of readFileSync('public/index.html', 'utf8').matchAll(/src:'(games\/[^']+)'/g)) {
     if (!existsSync('public/' + src)) { bad++; console.error(`✗ 商店目录登记了 ${src}，但 public/${src} 不存在`); }
   }
+  const catalogSource = readFileSync('public/index.html', 'utf8').match(/const CATALOG = (\[[\s\S]*?\n\]);/);
+  if (!catalogSource) { bad++; console.error('✗ 无法读取商店目录'); }
+  else {
+    const catalog = runInNewContext(catalogSource[1], Object.create(null), { timeout: 1000 });
+    const ids = new Set();
+    for (const game of catalog) {
+      if (ids.has(game.id)) { bad++; console.error(`✗ 重复的游戏标识：${game.id}`); }
+      ids.add(game.id);
+      if (game.cover && (!/^covers\/[\w-]+\.jpg$/.test(game.cover) || !existsSync('public/' + game.cover))) {
+        bad++; console.error(`✗ ${game.id} 的封面缺失或路径不合法`);
+      }
+      if (game.cover && existsSync('public/' + game.src) && statSync('public/' + game.src).size !== game.size) {
+        bad++; console.error(`✗ ${game.id} 的登记大小与游戏文件不一致`);
+      }
+    }
+  }
 } finally { rmSync(tmp, { recursive: true, force: true }); }
 if (bad) { console.error(`\n${bad} 处问题，未部署。`); process.exit(1); }
-console.log(`✓ ${pages.length} 个页面、${n} 段内嵌脚本与 Worker 脚本解析通过，目录里的游戏文件齐全`);
+console.log(`✓ ${pages.length} 个页面、${n} 段内嵌脚本与 Worker 脚本解析通过，游戏标识唯一，游戏与封面文件齐全`);
