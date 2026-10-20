@@ -36,7 +36,7 @@ python3 -m http.server 8000 -d public
 
 - **改游戏**：直接改 `public/games/<id>.html`。
 - **加游戏**：把文件放进 `public/games/`，再在 `public/index.html` 的 `CATALOG` 里照现有条目加一项，`src` 写 `'games/<id>.html'`。封面按 id 用 canvas 画，新 id 会用通用封面。
-- **专属封面**：可在目录条目设置 `cover:'covers/<id>.jpg'`，使用本地图片替代通用封面；标题由页面叠加，建议图片为 46:21 横版并在左侧预留文字空间。三款新游戏是 `f1-driver`（F1-车手版）、`wealth-reborn`（我要当首富）、`basketball-star`（篮球巨星），与原经理类游戏的标识和存档独立。
+- **专属封面**：可在目录条目设置 `cover:'covers/<id>.jpg'`，使用本地图片替代通用封面；标题由页面叠加，建议图片为 46:21 横版并在左侧预留文字空间。三款新游戏是 `f1-driver`（F1-Driver）、`wealth-reborn`（我要当首富）、`basketball-star`（篮球巨星），与原经理类游戏的标识和存档独立。
 - **存档**：游戏里照常用 `localStorage`，平台会接管它，每款游戏的存档单独保存在玩家的浏览器里。沙箱里没有 IndexedDB，用到它的游戏要退回 `localStorage`。
 - **改存档格式要兼容旧存档**：玩家的进度只存在他们自己的浏览器里，平台没法替他们迁移。
 
