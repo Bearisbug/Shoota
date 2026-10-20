@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>shoota 视觉系统</title>
+<link rel="icon" href="assets/logo/app-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="state-layer.css">
+<style>
+/* Specimen for brand/: every value is a token from tokens.css; the page itself is the consumption example. */
+*{box-sizing:border-box}
+html{background:var(--semantic-color-surface-background);color-scheme:dark;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:var(--semantic-color-border-strong) transparent}
+html[data-theme="light"]{color-scheme:light}
+body{margin:0;background:var(--semantic-color-surface-background);color:var(--semantic-color-text-primary);font-family:var(--semantic-typography-body-font-family);font-size:var(--semantic-typography-body-font-size);font-weight:var(--semantic-typography-body-font-weight);line-height:var(--semantic-typography-body-line-height);letter-spacing:var(--semantic-typography-body-letter-spacing);-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--semantic-layout-content);margin:0 auto;padding:0 var(--primitive-dimension-space-5)}
+header{position:sticky;top:0;z-index:var(--semantic-layout-z-index-sticky);background:var(--semantic-color-surface-background);border-bottom:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle)}
+header .wrap{display:flex;align-items:center;gap:var(--primitive-dimension-space-4);min-height:var(--primitive-dimension-space-16)}
+header img{height:var(--primitive-dimension-space-8);width:auto}
+.grow{flex:1}
+h1,h2,h3{margin:0}
+.t-h1{font-family:var(--semantic-typography-heading1-font-family);font-size:var(--semantic-typography-heading1-font-size);font-weight:var(--semantic-typography-heading1-font-weight);line-height:var(--semantic-typography-heading1-line-height);letter-spacing:var(--semantic-typography-heading1-letter-spacing)}
+.t-h2{font-family:var(--semantic-typography-heading2-font-family);font-size:var(--semantic-typography-heading2-font-size);font-weight:var(--semantic-typography-heading2-font-weight);line-height:var(--semantic-typography-heading2-line-height);letter-spacing:var(--semantic-typography-heading2-letter-spacing)}
+.t-h3{font-family:var(--semantic-typography-heading3-font-family);font-size:var(--semantic-typography-heading3-font-size);font-weight:var(--semantic-typography-heading3-font-weight);line-height:var(--semantic-typography-heading3-line-height);letter-spacing:var(--semantic-typography-heading3-letter-spacing)}
+.t-label{font-family:var(--semantic-typography-label-font-family);font-size:var(--semantic-typography-label-font-size);font-weight:var(--semantic-typography-label-font-weight);line-height:var(--semantic-typography-label-line-height);letter-spacing:var(--semantic-typography-label-letter-spacing)}
+.t-caption{font-family:var(--semantic-typography-caption-font-family);font-size:var(--semantic-typography-caption-font-size);font-weight:var(--semantic-typography-caption-font-weight);line-height:var(--semantic-typography-caption-line-height);letter-spacing:var(--semantic-typography-caption-letter-spacing)}
+.t-code{font-family:var(--semantic-typography-code-font-family);font-size:var(--semantic-typography-code-font-size);font-weight:var(--semantic-typography-code-font-weight);line-height:var(--semantic-typography-code-line-height);letter-spacing:var(--semantic-typography-code-letter-spacing)}
+.muted{color:var(--semantic-color-text-secondary)}
+.weak{color:var(--semantic-color-text-tertiary)}
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--semantic-space-section);padding-block:var(--primitive-dimension-space-10) var(--primitive-dimension-space-16)}
+section{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--semantic-space-between-groups)}
+.sec-h{display:grid;gap:var(--primitive-dimension-space-1);padding-bottom:var(--primitive-dimension-space-3);border-bottom:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle)}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--semantic-space-within-group)}
+.panel{background:var(--semantic-color-surface-raised);border:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle);border-radius:var(--semantic-radius-lg);padding:var(--primitive-dimension-space-5);display:grid;align-content:start;gap:var(--primitive-dimension-space-4);min-width:0}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:var(--primitive-dimension-space-4)}
+
+/* logo */
+.ground{border:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle);border-radius:var(--semantic-radius-lg);padding:var(--primitive-dimension-space-10) var(--primitive-dimension-space-8);display:grid;gap:var(--primitive-dimension-space-6);justify-items:start}
+.ground.on-dark{background:var(--primitive-color-neutral-900);color:var(--primitive-color-brand-cream)}
+.ground.on-light{background:var(--primitive-color-neutral-50);color:var(--primitive-color-neutral-900)}
+.ground .lockup{height:var(--primitive-dimension-space-16);width:auto;max-width:100%}
+.sizes{display:flex;align-items:end;gap:var(--primitive-dimension-space-5);flex-wrap:wrap}
+.sizes figure{margin:0;display:grid;justify-items:center;gap:var(--primitive-dimension-space-2)}
+.clear{position:relative;display:inline-block;padding:calc(var(--primitive-dimension-space-16) * .25);outline:var(--semantic-layout-hairline) dashed var(--semantic-color-border-strong);outline-offset:0}
+.clear img{display:block;height:var(--primitive-dimension-space-16)}
+.dont{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:var(--primitive-dimension-space-3)}
+.dont figure{margin:0;display:grid;gap:var(--primitive-dimension-space-2);background:var(--semantic-color-surface-sunken);border-radius:var(--semantic-radius-md);padding:var(--primitive-dimension-space-4);justify-items:center}
+.dont img{height:var(--primitive-dimension-space-12);width:auto}
+.dont .stretch{width:calc(var(--primitive-dimension-space-12) * 2);height:var(--primitive-dimension-space-8)}
+.dont .recolor{filter:hue-rotate(160deg)}
+.dont .tilt{transform:rotate(-12deg)}
+.dont figcaption{color:var(--semantic-color-feedback-error)}
+.dont figure.on-dark{background:var(--primitive-color-neutral-900)}
+.dont figure.on-dark figcaption{color:var(--primitive-color-brand-cream)}
+
+/* color */
+.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:var(--primitive-dimension-space-3)}
+.sw{display:grid;gap:var(--primitive-dimension-space-1);min-width:0}
+.sw i{display:block;height:var(--primitive-dimension-space-12);border-radius:var(--semantic-radius-md);border:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle)}
+.sw code{overflow-wrap:anywhere}
+.ramp{display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--primitive-dimension-space-12),1fr));gap:var(--primitive-dimension-space-1)}
+.ramp i{display:block;height:var(--primitive-dimension-space-10);border-radius:var(--semantic-radius-sm)}
+
+/* type */
+.type-row{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:var(--primitive-dimension-space-4);align-items:baseline;padding-block:var(--primitive-dimension-space-3);border-bottom:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle)}
+@media (max-width:760px){.type-row{grid-template-columns:minmax(0,1fr)}}
+
+/* scale */
+.space i{display:block;height:var(--primitive-dimension-space-3);background:var(--semantic-color-action-primary);border-radius:var(--primitive-dimension-radius-xs)}
+.space div{display:grid;grid-template-columns:minmax(0,120px) minmax(0,1fr);gap:var(--primitive-dimension-space-3);align-items:center}
+.radius{display:flex;flex-wrap:wrap;gap:var(--primitive-dimension-space-3)}
+.radius i{display:grid;place-items:center;width:calc(var(--primitive-dimension-space-10) * 2);height:var(--primitive-dimension-space-16);background:var(--semantic-color-surface-overlay);border:var(--semantic-layout-hairline) solid var(--semantic-color-border-strong)}
+.elev{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:var(--primitive-dimension-space-4)}
+.elev div{padding:var(--primitive-dimension-space-5);border-radius:var(--semantic-radius-lg);min-height:calc(var(--primitive-dimension-space-10) * 2)}
+
+/* components */
+.btn{display:inline-flex;align-items:center;gap:var(--semantic-space-within-group);padding:var(--primitive-dimension-space-2) var(--primitive-dimension-space-4);min-height:var(--primitive-dimension-space-10);border-radius:var(--semantic-radius-md);border:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle);background:transparent;color:var(--semantic-color-text-primary);font:inherit;font-family:var(--semantic-typography-label-font-family);font-size:var(--semantic-typography-label-font-size);font-weight:var(--semantic-typography-body-strong-font-weight);cursor:pointer;text-decoration:none}
+.btn-primary{background:var(--semantic-color-action-primary);border-color:var(--semantic-color-action-primary);color:var(--semantic-color-text-on-action)}
+.btn-quiet{border-color:transparent}
+.btn:active{transform:scale(.97)}
+.chip{display:inline-flex;align-items:center;gap:var(--primitive-dimension-space-1);padding:var(--primitive-dimension-space-1) var(--primitive-dimension-space-3);min-height:var(--primitive-dimension-space-8);border-radius:var(--semantic-radius-pill);border:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle);background:transparent;color:var(--semantic-color-text-primary);font:inherit;font-size:var(--semantic-typography-label-font-size);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--semantic-color-surface-selected);border-color:var(--semantic-color-action-primary);color:var(--semantic-color-action-primary)}
+.nav{display:flex;gap:var(--primitive-dimension-space-1)}
+.nav a{padding:var(--primitive-dimension-space-2) var(--primitive-dimension-space-4);border-radius:var(--semantic-radius-pill);text-decoration:none;color:var(--semantic-color-text-secondary);font-size:var(--semantic-typography-label-font-size);font-weight:var(--semantic-typography-body-strong-font-weight)}
+.nav a[aria-current]{background:var(--semantic-color-surface-selected);color:var(--semantic-color-action-primary)}
+.field{display:flex;align-items:center;gap:var(--semantic-space-within-group);border:var(--semantic-layout-hairline) solid var(--semantic-color-border-strong);border-radius:var(--semantic-radius-pill);padding:0 var(--primitive-dimension-space-4);min-height:var(--primitive-dimension-space-10);background:var(--semantic-color-surface-sunken);color:var(--semantic-color-text-secondary);max-width:360px}
+.field input{flex:1;min-width:0;border:0;background:transparent;color:var(--semantic-color-text-primary);font:inherit;outline:none}
+.field:focus-within{outline:var(--focus-ring-width) solid var(--focus-ring-color);outline-offset:var(--focus-ring-offset)}
+.tag{display:inline-flex;align-items:center;gap:var(--primitive-dimension-space-1);padding:0 var(--primitive-dimension-space-2);border-radius:var(--semantic-radius-pill);background:var(--semantic-color-surface-sunken);font-size:var(--semantic-typography-caption-font-size);line-height:var(--semantic-typography-caption-line-height)}
+.tag.ok{color:var(--semantic-color-feedback-success)}
+.tag.warn{color:var(--semantic-color-feedback-warning)}
+.tag.err{color:var(--semantic-color-feedback-error)}
+.toast{display:inline-flex;align-items:center;gap:var(--semantic-space-within-group);padding:var(--primitive-dimension-space-3) var(--primitive-dimension-space-4);background:var(--semantic-color-surface-overlay);border-radius:var(--semantic-radius-md);box-shadow:var(--semantic-elevation-overlay)}
+.note{border-left:var(--primitive-dimension-space-1) solid var(--semantic-color-feedback-warning);background:var(--semantic-color-surface-raised);border-radius:var(--semantic-radius-md);padding:var(--primitive-dimension-space-3) var(--primitive-dimension-space-4)}
+.state-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr));gap:var(--primitive-dimension-space-3);align-items:center}
+.state-grid figure{margin:0;display:grid;gap:var(--primitive-dimension-space-2);justify-items:start}
+
+/* icons */
+.ico{display:inline-block;flex:none;width:var(--semantic-icon-size-sm);height:var(--semantic-icon-size-sm);background:currentColor;-webkit-mask:var(--ico) center/contain no-repeat;mask:var(--ico) center/contain no-repeat}
+.ico.md{width:var(--semantic-icon-size-md);height:var(--semantic-icon-size-md)}
+.ico.lg{width:var(--semantic-icon-size-lg);height:var(--semantic-icon-size-lg)}
+.ico-search{--ico:url(assets/icons/search.svg)}.ico-back{--ico:url(assets/icons/arrow-left.svg)}.ico-full{--ico:url(assets/icons/maximize.svg)}
+.ico-copy{--ico:url(assets/icons/copy.svg)}.ico-down{--ico:url(assets/icons/download.svg)}.ico-file{--ico:url(assets/icons/file-up.svg)}.ico-check{--ico:url(assets/icons/check.svg)}
+.icon-line{display:flex;align-items:center;gap:var(--semantic-space-within-group)}
+.icon-line.md{font-size:var(--semantic-typography-heading3-font-size)}
+.icon-line.lg{font-size:var(--semantic-typography-heading2-font-size)}
+
+/* motion + data viz */
+.motion{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:var(--primitive-dimension-space-3)}
+.track{height:var(--primitive-dimension-space-2);background:var(--semantic-color-surface-sunken);border-radius:var(--semantic-radius-pill);position:relative;overflow:hidden}
+.track i{position:absolute;inset:0 auto 0 0;width:var(--primitive-dimension-space-8);background:var(--semantic-color-action-primary);border-radius:var(--semantic-radius-pill)}
+@media (hover:hover) and (pointer:fine){.motion .panel:hover .track i{transform:translateX(calc(var(--primitive-dimension-space-10) * 4))}}
+.bars{display:flex;align-items:end;gap:var(--primitive-dimension-space-2);height:calc(var(--primitive-dimension-space-12) * 2)}
+.bars i{flex:1;border-radius:var(--primitive-dimension-radius-xs) var(--primitive-dimension-radius-xs) 0 0}
+ul.plain{margin:0;padding-left:var(--primitive-dimension-space-5);display:grid;gap:var(--primitive-dimension-space-2)}
+@media (forced-colors:active){
+  .ico{forced-color-adjust:none;background:CanvasText}
+  .nav a[aria-current],.chip[aria-pressed="true"]{outline:var(--focus-ring-width) solid Highlight}
+}
+@media (prefers-reduced-motion:reduce){.track i{transition:none!important}.btn:active{transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <img id="hdrLogo" src="assets/logo/lockup-on-dark.svg" alt="shoota" width="114" height="32">
+  <span class="t-label muted">视觉系统 · 开发交接样例</span>
+  <span class="grow"></span>
+  <div class="row" role="group" aria-label="模式">
+    <button class="state-layer focus-ring chip" type="button" data-mode="dark" aria-pressed="true">暗色</button>
+    <button class="state-layer focus-ring chip" type="button" data-mode="light" aria-pressed="false">亮色</button>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <section aria-labelledby="s-logo">
+    <div class="sec-h"><h2 class="t-h1" id="s-logo">标志</h2><p class="muted" style="margin:0">黄色圆角方块里一座黑色城堡，右边是圆体小写字标。方块和城堡的颜色在两种底色上都不变，字标在深底用米白、浅底用墨色。</p></div>
+    <div class="cols">
+      <div class="ground on-dark"><img class="lockup" src="assets/logo/lockup-on-dark.svg" alt="shoota 深底组合标" width="457" height="128"><span class="t-caption">深底 #13100D · 字标 #F4EFE4</span></div>
+      <div class="ground on-light"><img class="lockup" src="assets/logo/lockup-on-light.svg" alt="shoota 浅底组合标" width="457" height="128"><span class="t-caption">浅底 #F7F5F0 · 字标 #13100D</span></div>
+    </div>
+    <div class="cols">
+      <div class="panel">
+        <h3 class="t-h3">应用图标与最小尺寸</h3>
+        <div class="sizes">
+          <figure><img src="assets/logo/app-icon.svg" width="128" height="128" alt="128 像素"><figcaption class="t-caption weak">128</figcaption></figure>
+          <figure><img src="assets/logo/app-icon.svg" width="64" height="64" alt="64 像素"><figcaption class="t-caption weak">64</figcaption></figure>
+          <figure><img src="assets/logo/app-icon.svg" width="32" height="32" alt="32 像素"><figcaption class="t-caption weak">32</figcaption></figure>
+          <figure><img src="assets/logo/app-icon.svg" width="16" height="16" alt="16 像素"><figcaption class="t-caption weak">16</figcaption></figure>
+        </div>
+        <p class="muted" style="margin:0">图标最小 16 像素（浏览器标签页），字标最小高度 16 像素，组合标最小高度 24 像素，再小只用图标。</p>
+      </div>
+      <div class="panel">
+        <h3 class="t-h3">安全区</h3>
+        <span class="clear"><img class="js-lockup" src="assets/logo/lockup-on-dark.svg" alt="组合标安全区示意" width="228" height="64"></span>
+        <p class="muted" style="margin:0">四周至少留出方块高度的四分之一，虚线内不放其他文字和图形。</p>
+      </div>
+    </div>
+    <div class="dont">
+      <figure><img class="recolor" src="assets/logo/app-icon.svg" alt="改色示例" width="48" height="48"><figcaption class="t-caption">不改方块颜色</figcaption></figure>
+      <figure><img class="stretch" src="assets/logo/app-icon.svg" alt="拉伸示例"><figcaption class="t-caption">不拉伸、不压扁</figcaption></figure>
+      <figure><img class="tilt" src="assets/logo/app-icon.svg" alt="旋转示例" width="48" height="48"><figcaption class="t-caption">不旋转</figcaption></figure>
+      <figure class="on-dark"><img src="assets/logo/wordmark-ink.svg" alt="浅字标放深底示例" width="102" height="24"><figcaption class="t-caption">深底不用墨色字标</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-color">
+    <div class="sec-h"><h2 class="t-h1" id="s-color">颜色</h2><p class="muted" style="margin:0">平台固定用暗色；亮色已定义，供以后的浅色页面使用。切换右上角可以对比两套。</p></div>
+    <h3 class="t-h3">文字与表面</h3><div class="sw-grid" id="swBase"></div>
+    <h3 class="t-h3">强调、反馈与焦点</h3><div class="sw-grid" id="swAccent"></div>
+    <h3 class="t-h3">图表</h3>
+    <div class="panel">
+      <span class="t-label muted">分类色 1–6（相邻两色在色盲模拟下仍可分）</span><div class="bars" id="bars" role="img" aria-label="六个分类色的示例柱状图"></div>
+      <span class="t-label muted">顺序色</span><div class="ramp" id="seq"></div>
+      <span class="t-label muted">发散色</span><div class="ramp" id="div"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-type">
+    <div class="sec-h"><h2 class="t-h1" id="s-type">字体与字阶</h2><p class="muted" style="margin:0">标题用 Fredoka（拉丁字母）加苹方，正文用系统字体。字标也是 Fredoka SemiBold。</p></div>
+    <div id="typeRows"></div>
+  </section>
+
+  <section aria-labelledby="s-scale">
+    <div class="sec-h"><h2 class="t-h1" id="s-scale">间距、圆角与层级</h2></div>
+    <div class="cols">
+      <div class="panel space" id="space"><h3 class="t-h3">间距（4 像素网格）</h3></div>
+      <div class="panel"><h3 class="t-h3">圆角</h3><div class="radius" id="radius"></div></div>
+    </div>
+    <div class="elev">
+      <div style="background:var(--semantic-color-surface-sunken)"><b class="t-label">下沉</b><p class="t-caption muted" style="margin:0">输入框、标签底</p></div>
+      <div style="background:var(--semantic-color-surface-background);border:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle)"><b class="t-label">页面</b><p class="t-caption muted" style="margin:0">页面底色</p></div>
+      <div style="background:var(--semantic-color-surface-raised);box-shadow:var(--semantic-elevation-raised)"><b class="t-label">抬升</b><p class="t-caption muted" style="margin:0">面板、卡片</p></div>
+      <div style="background:var(--semantic-color-surface-overlay);box-shadow:var(--semantic-elevation-overlay)"><b class="t-label">浮层</b><p class="t-caption muted" style="margin:0">菜单、提示</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-state">
+    <div class="sec-h"><h2 class="t-h1" id="s-state">组件与状态</h2><p class="muted" style="margin:0">悬停、聚焦、按下都是在元素上叠一层当前文字色，只改透明度；禁用降低整体透明度；键盘聚焦显示焦点环。下面每排的后几个是强制显示的状态。</p></div>
+    <div class="panel">
+      <h3 class="t-h3">按钮</h3>
+      <div class="state-grid" id="btnStates"></div>
+    </div>
+    <div class="cols">
+      <div class="panel">
+        <h3 class="t-h3">导航与筛选</h3>
+        <nav class="nav" aria-label="示例导航"><a class="state-layer focus-ring" href="#s-state" aria-current="page">商店</a><a class="state-layer focus-ring" href="#s-state">游戏库</a><a class="state-layer focus-ring" href="#s-state">存档</a></nav>
+        <div class="row"><button class="state-layer focus-ring chip" type="button" aria-pressed="true">全部 <span class="weak">11</span></button><button class="state-layer focus-ring chip" type="button" aria-pressed="false">模拟经营 <span class="weak">2</span></button><button class="state-layer focus-ring chip" type="button" aria-pressed="false">体育经理 <span class="weak">2</span></button></div>
+      </div>
+      <div class="panel">
+        <h3 class="t-h3">输入框</h3>
+        <label class="field"><span class="ico ico-search" aria-hidden="true"></span><input type="search" placeholder="搜索游戏、类型" aria-label="搜索示例"></label>
+        <p class="t-caption muted" style="margin:0">输入框聚焦只显示焦点环，不叠状态层。</p>
+      </div>
+      <div class="panel">
+        <h3 class="t-h3">状态标签与提示</h3>
+        <div class="row"><span class="tag ok">● 可玩</span><span class="tag warn">● 开发中</span><span class="tag err">● 无法加载</span></div>
+        <span class="toast"><span class="ico ico-check" aria-hidden="true"></span>存档码已复制</span>
+        <div class="note t-caption"><b>上线前</b><br>涉及真实球队与商标，公开上线前需要处理授权。</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-icon">
+    <div class="sec-h"><h2 class="t-h1" id="s-icon">图标</h2><p class="muted" style="margin:0">Lucide 线性图标，描边 2，颜色跟随文字。三档尺寸与同排文字等高、垂直居中。</p></div>
+    <div class="panel">
+      <div class="icon-line"><span class="ico ico-back"></span><span class="ico ico-search"></span><span class="ico ico-full"></span><span class="ico ico-copy"></span><span class="ico ico-down"></span><span class="ico ico-file"></span><span class="ico ico-check"></span>16 像素 · 正文与按钮</div>
+      <div class="icon-line md"><span class="ico md ico-back"></span><span class="ico md ico-search"></span><span class="ico md ico-full"></span><span class="ico md ico-copy"></span><span class="ico md ico-down"></span><span class="ico md ico-file"></span><span class="ico md ico-check"></span>20 像素 · 小标题</div>
+      <div class="icon-line lg"><span class="ico lg ico-back"></span><span class="ico lg ico-search"></span><span class="ico lg ico-full"></span><span class="ico lg ico-copy"></span><span class="ico lg ico-down"></span><span class="ico lg ico-file"></span><span class="ico lg ico-check"></span>24 像素 · 大标题</div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-motion">
+    <div class="sec-h"><h2 class="t-h1" id="s-motion">动效</h2><p class="muted" style="margin:0">鼠标移到卡片上看位移。系统设置为减少动效时，位移取消，只保留透明度变化。</p></div>
+    <div class="motion" id="motion"></div>
+  </section>
+
+  <section aria-labelledby="s-not">
+    <div class="sec-h"><h2 class="t-h1" id="s-not">不用的手法</h2></div>
+    <ul class="plain muted">
+      <li>界面表面不用渐变；游戏封面是画布插画，不受这条限制。</li>
+      <li>不用文字阴影和发光。</li>
+      <li>不用毛玻璃，所有层都不透明。</li>
+      <li>平台界面不用衬线展示字体。</li>
+      <li>面板最多一层，不在卡片里再套卡片。</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const swatch = (n, label, use) => `<div class="sw"><i style="background:var(${n})"></i><b class="t-label">${label}</b><span class="t-caption muted">${use}</span><code class="t-code weak" data-v="${n}"></code></div>`;
+const BASE = [
+  ['--semantic-color-text-primary','主文字','标题、正文'],['--semantic-color-text-secondary','次文字','说明、简介'],['--semantic-color-text-tertiary','弱文字','元信息、计数'],
+  ['--semantic-color-surface-sunken','下沉表面','输入框'],['--semantic-color-surface-background','页面','页面底色'],['--semantic-color-surface-raised','抬升表面','面板、卡片'],
+  ['--semantic-color-surface-overlay','浮层','菜单、提示'],['--semantic-color-surface-selected','选中','当前导航、选中筛选'],['--semantic-color-border-subtle','分隔线','描边、分割'],['--semantic-color-border-strong','强描边','输入框边框']];
+const ACCENT = [
+  ['--semantic-color-action-primary','强调','主按钮、选中、链接'],['--semantic-color-text-on-action','强调上的文字','主按钮文字'],['--semantic-color-brand-mark','品牌黄','只用于标志'],
+  ['--semantic-color-feedback-success','成功','可玩、已保存'],['--semantic-color-feedback-warning','警告','上线前提示'],['--semantic-color-feedback-error','错误','加载失败、表单错误'],['--semantic-state-focus-ring','焦点环','键盘聚焦']];
+$('#swBase').innerHTML = BASE.map(a => swatch(...a)).join('');
+$('#swAccent').innerHTML = ACCENT.map(a => swatch(...a)).join('');
+$('#bars').innerHTML = [6, 9, 5, 8, 4, 7].map((h, i) => `<i style="height:${h * 10}%;background:var(--semantic-color-data-viz-series-${i + 1})" title="系列 ${i + 1}"></i>`).join('');
+$('#seq').innerHTML = [1,2,3,4,5].map(i => `<i style="background:var(--semantic-color-data-viz-sequential-${i})"></i>`).join('');
+$('#div').innerHTML = [1,2,3,4,5].map(i => `<i style="background:var(--semantic-color-data-viz-diverging-${i})"></i>`).join('');
+
+const LEVELS = [
+  ['display-hero','展示 · 主视觉','shoota 长局游戏'],['display-headline','展示 · 标题','从一个小摊，做到一整条街'],
+  ['heading1','一级标题','F1 Team Principal 2026'],['heading2','二级标题','全部游戏'],['heading3','三级标题','关于这款游戏'],
+  ['metric','数字','3,000 元'],['body-strong','正文加粗','开始游戏'],['body','正文','不用注册，存档自动保存在这个浏览器里。换手机前先复制一份存档码。'],
+  ['label','标签','赛车经理 · 体育 · 策略'],['caption','注释','11 款游戏 · 本次 2 分钟'],['eyebrow','眉标','精选与推荐'],['code','代码','CJ1H4sIAAAAAAAAE1WOQQ6CQAxF7']];
+$('#typeRows').innerHTML = LEVELS.map(([k, name, text]) => {
+  const v = p => `var(--semantic-typography-${k}-${p})`;
+  return `<div class="type-row"><div><b class="t-label">${name}</b><br><code class="t-code weak" data-type="${k}"></code></div>
+    <div style="font-family:${v('font-family')};font-size:${v('font-size')};font-weight:${v('font-weight')};line-height:${v('line-height')};letter-spacing:${v('letter-spacing')};min-width:0;overflow-wrap:anywhere">${text}</div></div>`;
+}).join('');
+
+$('#space').insertAdjacentHTML('beforeend', [1,2,3,4,5,6,8,10,12,16].map(n => `<div><code class="t-code weak">space-${n} · ${n * 4}</code><i style="width:var(--primitive-dimension-space-${n})"></i></div>`).join(''));
+$('#radius').innerHTML = ['xs','sm','md','lg','xl','pill'].map(r => `<i class="t-caption" style="border-radius:var(--${r === 'xs' ? 'primitive-dimension-radius-xs' : 'semantic-radius-' + r})">${r}</i>`).join('');
+
+const btn = (cls, label, state, extra = '') => `<figure><button class="state-layer focus-ring btn ${cls} ${state ? 'is-' + state : ''}" type="button" ${extra}>${label}</button><figcaption class="t-caption weak">${state || (extra ? '禁用' : '默认')}</figcaption></figure>`;
+$('#btnStates').innerHTML = [['btn-primary','开始游戏'],['','查看详情'],['btn-quiet','商店页面']].map(([c, l]) =>
+  btn(c, l, '') + btn(c, l, 'hover') + btn(c, l, 'focus') + btn(c, l, 'pressed') + btn(c, l, '', 'disabled')).join('');
+
+const MOTION = [['fast','--semantic-motion-duration-fast','--semantic-motion-easing-standard','状态层淡入淡出'],['base','--semantic-motion-duration-base','--semantic-motion-easing-standard','卡片封面上移、展开'],['slow','--semantic-motion-duration-slow','--semantic-motion-easing-emphasized','游戏页进入'],['exit','--semantic-motion-duration-base','--semantic-motion-easing-exit','关闭、退出']];
+$('#motion').innerHTML = MOTION.map(([k, d, e, use]) => `<div class="panel"><b class="t-label">${k}</b><span class="t-caption muted">${use}</span><code class="t-code weak" data-m="${d}|${e}"></code><div class="track"><i style="transition:transform var(${d}) var(${e})"></i></div></div>`).join('');
+
+function fill(){
+  document.querySelectorAll('[data-v]').forEach(el => el.textContent = css(el.dataset.v).toUpperCase());
+  document.querySelectorAll('[data-type]').forEach(el => { const k = el.dataset.type; el.textContent = `${css(`--semantic-typography-${k}-font-size`)} / ${css(`--semantic-typography-${k}-line-height`)} · ${css(`--semantic-typography-${k}-font-weight`)}`; });
+  document.querySelectorAll('[data-m]').forEach(el => { const [d, e] = el.dataset.m.split('|'); el.textContent = `${css(d)} · ${css(e)}`; });
+}
+function setMode(m){
+  document.documentElement.dataset.theme = m;
+  document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+  document.querySelectorAll('#hdrLogo, .js-lockup').forEach(img => img.src = `assets/logo/lockup-on-${m}.svg`);
+  fill();
+}
+document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+const q = new URLSearchParams(location.search).get('mode');
+setMode(q === 'light' ? 'light' : 'dark');
+</script>
+</body>
+</html>

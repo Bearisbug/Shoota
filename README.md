@@ -9,7 +9,9 @@
 | `public/index.html` | 平台：商店、游戏库、存档页。商店里的游戏列表是文件里的 `CATALOG`，顺序就是商店里的顺序 |
 | `public/games/<id>.html` | 每款游戏一个单文件 HTML |
 | `public/covers/*.jpg` | 三款新游戏的专属封面，商店、详情和游戏库共用 |
-| `scripts/check.mjs` | 质量门：检查内嵌脚本语法，以及 `CATALOG` 登记的游戏文件都存在 |
+| `brand/` | 视觉系统：颜色、字体、间距等参数，标志、图标和样例页 `brand/index.html`，规范见 `brand/DESIGN.md` |
+| `public/brand/` | `brand/` 里平台用到的文件的发布副本，内容必须与 `brand/` 逐字节一致 |
+| `scripts/check.mjs` | 质量门：检查内嵌脚本语法、`CATALOG` 登记的游戏与封面文件都存在，以及 `public/brand/` 与 `brand/` 一致 |
 | `src/worker.js`、`src/kanban.html` | 匿名统计上报接口与 `/kanban` 看板，看板页面打包进 Worker，不放在 `public/` |
 | `migrations/` | 统计数据库 D1 的表结构，部署时 CI 自动执行 |
 | `docs/DESIGN.md`、`docs/TEST.md` | 统计与看板的设计文档和测试文档，指标口径以设计文档为准 |
@@ -39,6 +41,10 @@ python3 -m http.server 8000 -d public
 - **专属封面**：可在目录条目设置 `cover:'covers/<id>.jpg'`，使用本地图片替代通用封面；标题由页面叠加，建议图片为 46:21 横版并在左侧预留文字空间。三款新游戏是 `f1-driver`（F1-Driver）、`wealth-reborn`（我要当首富）、`basketball-star`（篮球巨星），与原经理类游戏的标识和存档独立。
 - **存档**：游戏里照常用 `localStorage`，平台会接管它，每款游戏的存档单独保存在玩家的浏览器里。沙箱里没有 IndexedDB，用到它的游戏要退回 `localStorage`。
 - **改存档格式要兼容旧存档**：玩家的进度只存在他们自己的浏览器里，平台没法替他们迁移。
+
+## 改平台样式
+
+平台页面的颜色、字号、间距、圆角、动效只引用 `brand/tokens.css` 的变量，不写色值；悬停、聚焦、按下统一用 `state-layer` 与 `focus-ring` 两个类。要改参数，先改 `brand/tokens.json` 再重新生成，命令见 `brand/DESIGN.md`；改完把变了的文件复制到 `public/brand/` 的同一路径，`node scripts/check.mjs` 会核对两边一致。看 `brand/index.html` 时要起本地服务（如 `python3 -m http.server 8000 -d brand`），直接双击打开时图标显示不出来：Chromium 系浏览器把本地文件当跨域，拦掉了图标用的 SVG 遮罩。
 
 ### 可选：平台 SDK
 

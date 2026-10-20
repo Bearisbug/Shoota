@@ -1,0 +1,55 @@
+{
+  "$comment": "light delta: re-points semantic color roles only. Brand yellow stays the logo fill; interactive amber replaces it as the accent because yellow on the light ground is 1.8:1.",
+  "$coverage": { "confirmedSame": ["semantic.elevation.raised", "semantic.elevation.overlay", "semantic.color.border.strong", "semantic.color.brand.mark"] },
+  "semantic": {
+    "color": {
+      "text": {
+        "primary": { "$value": "{primitive.color.neutral.900}" },
+        "secondary": { "$value": "{primitive.color.neutral.700}" },
+        "tertiary": { "$value": "{primitive.color.neutral.600}" },
+        "onAction": { "$value": "{primitive.color.neutral.0}" }
+      },
+      "surface": {
+        "sunken": { "$value": "{primitive.color.neutral.100}" },
+        "background": { "$value": "{primitive.color.neutral.50}" },
+        "raised": { "$value": "{primitive.color.neutral.0}" },
+        "overlay": { "$value": "{primitive.color.neutral.0}" },
+        "selected": { "$value": "{primitive.color.brand.amberTint}" }
+      },
+      "border": { "subtle": { "$value": "{primitive.color.neutral.200}" } },
+      "action": { "primary": { "$value": "{primitive.color.brand.amber}" } },
+      "feedback": {
+        "success": { "$value": "{primitive.color.feedback.success}" },
+        "warning": { "$value": "{primitive.color.feedback.warning}" },
+        "error": { "$value": "{primitive.color.feedback.error}" }
+      },
+      "dataViz": {
+        "series": {
+          "1": { "$value": "{primitive.color.dataViz.series.1}" },
+          "2": { "$value": "{primitive.color.dataViz.series.2}" },
+          "3": { "$value": "{primitive.color.dataViz.series.3}" },
+          "4": { "$value": "{primitive.color.dataViz.series.4}" },
+          "5": { "$value": "{primitive.color.dataViz.series.5}" },
+          "6": { "$value": "{primitive.color.dataViz.series.6}" }
+        },
+        "sequential": {
+          "1": { "$value": "{primitive.color.dataViz.sequential.1}" },
+          "2": { "$value": "{primitive.color.dataViz.sequential.2}" },
+          "3": { "$value": "{primitive.color.dataViz.sequential.3}" },
+          "4": { "$value": "{primitive.color.dataViz.sequential.4}" },
+          "5": { "$value": "{primitive.color.dataViz.sequential.5}" }
+        },
+        "diverging": {
+          "1": { "$value": "{primitive.color.dataViz.diverging.1}" },
+          "2": { "$value": "{primitive.color.dataViz.diverging.2}" },
+          "3": { "$value": "{primitive.color.neutral.200}" },
+          "4": { "$value": "{primitive.color.dataViz.diverging.4}" },
+          "5": { "$value": "{primitive.color.dataViz.diverging.5}" }
+        }
+      }
+    },
+    "state": {
+      "focus": { "ring": { "$value": "{primitive.color.brand.amber}" } }
+    }
+  }
+}

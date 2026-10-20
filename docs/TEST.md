@@ -277,6 +277,7 @@
 | RUN-002 | 2026-10-20 | 本地 | c6aae2b | AI(Playwright + Edge 无头、curl) | 全量至 TC-016 | 通过 16/16 |
 | RUN-003 | 2026-10-20 | 线上 | 2158234 | AI(Playwright + Edge 无头、Python urllib) | 线上冒烟(TC-008、TC-010、TC-016；未纳入(线上不可跑)：TC-001、TC-002、TC-006、TC-011) | 通过 2/3 · 失败 1 |
 | RUN-004 | 2026-10-20 | 线上 | 2158234 | AI(curl) | 线上冒烟(TC-010；未纳入(线上不可跑)：TC-001、TC-002、TC-006、TC-011) | 通过 1/1 |
+| RUN-008 | 2026-10-21 | 本地 | bde347e 加工作区未提交的品牌视觉改动 | AI(Playwright + Edge 无头、curl) | 局部(TC-003、TC-005、TC-018 + 冒烟级至 TC-019) | 通过 10/10 |
 
 RUN-001 证据：本地 `wrangler dev` 端口 8791，数据直接读本地 D1 文件核对。TC-002 游玩 150 秒，服务端记 150 秒，与平台本地计时一致。TC-003 无头浏览器没有真实前后台，用脚本把页面可见状态置为隐藏并派发 visibilitychange 代替切标签页。本地取到的地区是代理出口 MY，线上按真实来源记录。截图 `docs/test-runs/RUN-001/login.png`、`docs/test-runs/RUN-001/kanban-error.png`。本轮之外另查手机 390 宽看板，发现页面被游戏排行表撑出横向滚动，已在 RUN-002 前修复。
 
@@ -285,6 +286,15 @@ RUN-002 证据：RUN-001 之后改了三处：TC-005 补观察窗口，看板 ma
 RUN-003 证据：TC-008 用 Bitwarden 里的看板密码登录线上看板，错误密码提示剩余 4 次，正确密码进入后五个分区齐全。TC-016 测试旅客编号 c729556d9e99748ba4524cd6a49e650c，前台游玩一克之差 130 秒后，看板今日活跃 1、时长 2 分钟；随后按编号删除它在三张表的 3 行，线上旅客表剩 0 行。线上手机 390 宽无横向溢出。截图 `docs/test-runs/RUN-003/login.png`、`docs/test-runs/RUN-003/kanban-desktop.png`、`docs/test-runs/RUN-003/kanban-mobile.png`。
 
 RUN-004 证据：同样三种请求改用 curl 发出，均返回 401 与 `/errors/not-logged-in`，正文没有统计数字，`instance` 带 cf-ray。
+
+RUN-008 证据：本轮验平台页面换成 `brand/` 品牌视觉之后的版本。平台脚本相对 bde347e 只改了类名与标记，存档、上报、计时的逻辑没动，受影响用例取经过存档页与游戏页的 TC-003、TC-005，再加全部冒烟级。TC-018 写在第 8 节、不是用例库格式，检查脚本展开「冒烟级」时数不到它，所以范围里单列。环境是本地 `wrangler dev` 端口 8791，数据直接读本地 D1 文件核对。
+
+- TC-002 前台 150 秒，服务端记 150 秒，与平台本地计时一致。
+- TC-003 照 RUN-001 的做法，用脚本把页面置为隐藏代替切标签页；上报后 0.11 秒可读到 30 秒。
+- TC-005 第一次执行时，脚本没等存档码解码完就判断按钮文字，没点到「确认恢复」。TC-011 第一次读了折叠表格的 innerText，得到空值。两处都是测试脚本的读法问题，改脚本后整条用例重跑通过，产品代码未改。
+- TC-010 第 3 步用本地签名密钥签出一分钟前过期的会话。作为对照，同一密钥签出的未过期会话返回 200。
+- TC-018 补上 RUN-006 没做成的手机项：实测视口 390 宽，商店、三款新游戏详情与游戏库都没有横向溢出。三款新游戏分别走到 F1 第 1 站林远、篮球「上线球员 · 上海久事」常规赛第 1 周、首富第 2 周现金 3,315 元；原八款在 iframe 内无运行错误。这条用带 `sk_staff` 的浏览器跑，不写统计。
+- 截图在 `docs/test-runs/RUN-008/`：`store-desktop.png`、`m390-store.png`、`m390-game-wealth-reborn.png`、`m390-library.png`、`backup-desktop.png`、`player-desktop.png`、`kanban-seed.png`、`play-f1-driver.png`、`play-basketball-star.png`、`play-wealth-reborn.png`。
 
 明细(仅登非「通过」项)：
 

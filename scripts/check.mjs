@@ -1,4 +1,5 @@
-// 质量门：每个页面的内嵌 <script> 与 Worker 脚本能解析，商店目录里登记的游戏文件都存在。
+// 质量门：每个页面的内嵌 <script> 与 Worker 脚本能解析，商店目录里登记的游戏文件都存在，
+// public/brand/ 下的文件与 brand/ 里的同名源文件逐字节一致（brand/ 是唯一来源，public/brand/ 只是给静态站发布的副本）。
 // 用法：node scripts/check.mjs（CI 每次 push / PR 都跑，失败就不部署）
 import { readFileSync, readdirSync, existsSync, statSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -49,6 +50,15 @@ try {
       }
     }
   }
+  const index = readFileSync('public/index.html', 'utf8');
+  for (const [, ref] of index.matchAll(/(?:src|href)="(brand\/[^"]+)"|url\((brand\/[^)]+)\)/g).map(m => [m[0], m[1] || m[2]])) {
+    if (!existsSync('public/' + ref)) { bad++; console.error(`✗ public/index.html 引用了 ${ref}，但 public/${ref} 不存在`); }
+  }
+  for (const file of readdirSync('public/brand', { recursive: true, withFileTypes: true }).filter(d => d.isFile()).map(d => join(d.parentPath, d.name))) {
+    const src = file.replace(/^public\//, '');
+    if (!existsSync(src)) { bad++; console.error(`✗ ${file} 在 brand/ 里没有对应的源文件`); }
+    else if (!readFileSync(src).equals(readFileSync(file))) { bad++; console.error(`✗ ${file} 与 ${src} 不一致：改 brand/ 后重新复制，cp ${src} ${file}`); }
+  }
 } finally { rmSync(tmp, { recursive: true, force: true }); }
 if (bad) { console.error(`\n${bad} 处问题，未部署。`); process.exit(1); }
-console.log(`✓ ${pages.length} 个页面、${n} 段内嵌脚本与 Worker 脚本解析通过，游戏标识唯一，游戏与封面文件齐全`);
+console.log(`✓ ${pages.length} 个页面、${n} 段内嵌脚本与 Worker 脚本解析通过，游戏标识唯一，游戏与封面文件齐全，public/brand/ 与 brand/ 一致`);

@@ -1,0 +1,10 @@
+/* Fredoka 2.001 (OFL-1.1, see OFL.txt): wdth pinned at 100, wght 400-700, Latin subset.
+   unicode-range leaves out the punctuation Chinese text shares (“”‘’…—·) so it keeps CJK widths. */
+@font-face {
+  font-family: "Fredoka";
+  src: url("fredoka-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007E, U+00A0-00B6, U+00B8-00FF, U+2013, U+20AC, U+2122;
+}
