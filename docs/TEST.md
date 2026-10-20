@@ -278,6 +278,7 @@
 | RUN-003 | 2026-10-20 | 线上 | 2158234 | AI(Playwright + Edge 无头、Python urllib) | 线上冒烟(TC-008、TC-010、TC-016；未纳入(线上不可跑)：TC-001、TC-002、TC-006、TC-011) | 通过 2/3 · 失败 1 |
 | RUN-004 | 2026-10-20 | 线上 | 2158234 | AI(curl) | 线上冒烟(TC-010；未纳入(线上不可跑)：TC-001、TC-002、TC-006、TC-011) | 通过 1/1 |
 | RUN-008 | 2026-10-21 | 本地 | bde347e 加工作区未提交的品牌视觉改动 | AI(Playwright + Edge 无头、curl) | 局部(TC-003、TC-005、TC-018 + 冒烟级至 TC-019) | 通过 10/10 |
+| RUN-009 | 2026-10-21 | 线上 | 1afcf4b | AI(Playwright + Edge 无头、curl) | 线上冒烟(TC-008、TC-010、TC-016；未纳入(线上不可跑)：TC-001、TC-002、TC-006、TC-011、TC-018) | 通过 3/3 |
 
 RUN-001 证据：本地 `wrangler dev` 端口 8791，数据直接读本地 D1 文件核对。TC-002 游玩 150 秒，服务端记 150 秒，与平台本地计时一致。TC-003 无头浏览器没有真实前后台，用脚本把页面可见状态置为隐藏并派发 visibilitychange 代替切标签页。本地取到的地区是代理出口 MY，线上按真实来源记录。截图 `docs/test-runs/RUN-001/login.png`、`docs/test-runs/RUN-001/kanban-error.png`。本轮之外另查手机 390 宽看板，发现页面被游戏排行表撑出横向滚动，已在 RUN-002 前修复。
 
@@ -295,6 +296,14 @@ RUN-008 证据：本轮验平台页面换成 `brand/` 品牌视觉之后的版�
 - TC-010 第 3 步用本地签名密钥签出一分钟前过期的会话。作为对照，同一密钥签出的未过期会话返回 200。
 - TC-018 补上 RUN-006 没做成的手机项：实测视口 390 宽，商店、三款新游戏详情与游戏库都没有横向溢出。三款新游戏分别走到 F1 第 1 站林远、篮球「上线球员 · 上海久事」常规赛第 1 周、首富第 2 周现金 3,315 元；原八款在 iframe 内无运行错误。这条用带 `sk_staff` 的浏览器跑，不写统计。
 - 截图在 `docs/test-runs/RUN-008/`：`store-desktop.png`、`m390-store.png`、`m390-game-wealth-reborn.png`、`m390-library.png`、`backup-desktop.png`、`player-desktop.png`、`kanban-seed.png`、`play-f1-driver.png`、`play-basketball-star.png`、`play-wealth-reborn.png`。
+
+RUN-009 证据：1afcf4b 由 GitHub Actions run 39492247120 部署，健康检查逐文件比对通过后执行本轮。
+
+- TC-008 用 Bitwarden 里的看板密码登录，错误密码提示剩余 4 次，正确密码进入后五个分区齐全，重开标签页不用再登录。
+- TC-010 用 curl 发出。第 2 步取一个真实会话，把签名末位改掉；第 3 步沿用真实签名，把有效期改成一分钟前。三步都返回 401 与 `/errors/not-logged-in`，原样带真实会话返回 200。
+- TC-016 测试旅客编号 bab056ff043cd1e718a4f99b124eea63，前台游玩一克之差 133 秒，顶栏显示本次 2 分钟；看板今日活跃 8、时长 1.4 小时。
+- 本轮的平台冒烟浏览器都带 `sk_staff`，不计入统计。只有一个排查用的浏览器在重开时漏带，产生了旅客 edf70339d6e43dce831f4ce7c2943887。它是今天唯一一个出口地区为 MY 的电脑端旅客，只开过我要当首富。随后按这两个编号删除三张表各 2 行，删后两个编号都查不到，线上旅客表剩 63 行。
+- 截图在 `docs/test-runs/RUN-009/`：`store-1280.png`、`store-390.png`、`backup-1280.png`、`player-douluo-1280.png`、`player-yike-1280.png`。
 
 明细(仅登非「通过」项)：
 
