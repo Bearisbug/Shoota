@@ -1,0 +1,31 @@
+{
+ "TC-022": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": {
+     "链接": "https://nbpa.com/cba"
+    }
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": {
+     "新标签页首个请求": "https://nbpa.com/cba",
+     "当前地址": "https://nbpa.com/cba",
+     "标签页数": 2
+    }
+   },
+   {
+    "step": 3,
+    "pass": true,
+    "actual": {
+     "仍在规则页": true,
+     "球员在": true
+    }
+   }
+  ]
+ }
+}

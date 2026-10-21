@@ -38,7 +38,7 @@ type:
 
 # shoota 视觉系统 · 开发交接
 
-shoota 游戏平台（`public/index.html`）的视觉以本目录为唯一来源。颜色、字号、间距、圆角、动效全部从 `tokens.json` 生成，页面只引用生成的 CSS 变量，不手写色值。样例页 `index.html` 把全部角色、字阶和组件状态并排列出，改值后先看它。
+shoota 游戏平台（`public/index.html`）与看板（`src/kanban.html`、`src/worker.js` 的登录页）的视觉以本目录为唯一来源。颜色、字号、间距、圆角、动效全部从 `tokens.json` 生成，页面只引用生成的 CSS 变量，不手写色值。样例页 `index.html` 把全部角色、字阶和组件状态并排列出，改值后先看它。
 
 ## 来源
 
@@ -46,7 +46,7 @@ shoota 游戏平台（`public/index.html`）的视觉以本目录为唯一来源
 | --- | --- |
 | 标志 | 用户 2026-10-21 提供的 logo 图：黄色圆角方块、黑色城堡、圆体小写字标 shoota；深底配米白字标，浅底配墨色字标。没有 release 版本，也没有矢量源文件 |
 | 城堡图形 | leizhang 提交 cc89c0c 的 `public/logo.svg`，路径原样搬到 `assets/logo/symbol.svg` |
-| 字标 | 按图重建：Fredoka SemiBold（wght 600）、字距 +0.02 em，宽高比 4.25，与原图约 4.2 对齐。原图的字标源文件若存在，拿到后替换 `assets/logo/` 下的字标与组合标 |
+| 字标 | 按图重建：Fredoka SemiBold（wght 600）、字距 +0.02 em，宽高比 4.25，与原图约 4.2 对齐。原图没有源文件，用户 2026-10-21 确认这版为正式字标 |
 | 品牌色 | 方块黄 `#F2B53C` 从原图取色；墨色 `#13100D`、米白 `#F4EFE4`、浅底 `#F7F5F0` 同样取自原图 |
 
 交付深度为完整：`meta.categories` 的 14 类里 13 类为 present，`material` 标 notApplicable（所有层都不透明）。
@@ -75,7 +75,7 @@ shoota 游戏平台（`public/index.html`）的视觉以本目录为唯一来源
 
 ```bash
 uv run --quiet python <visual-system 技能目录>/vendor/theme-extract/scripts/build_tokens.py brand --emit all
-node <visual-system 技能目录>/scripts/check-tokens.mjs brand --lint public/index.html brand/index.html --out brand/qa/check-tokens.json
+node <visual-system 技能目录>/scripts/check-tokens.mjs brand --lint public/index.html brand/index.html src/kanban.html --out brand/qa/check-tokens.json
 ```
 
 生成器来自 visual-system 技能的 vendor 目录，上游 https://github.com/Bearisbug/theme-extract 提交 `b811279a3a957e0f0377d935e8669d302d7abaea`（见该目录的 `SOURCE.json`）。
@@ -108,10 +108,10 @@ node <visual-system 技能目录>/scripts/check-tokens.mjs brand --lint public/i
 | 强描边 | `--semantic-color-border-strong` | `#7F7973` | 搜索框边框、滚动条 |
 | 强调 | `--semantic-color-action-primary` | `#F2B53C` | 主按钮、选中文字、链接 |
 | 强调上的文字 | `--semantic-color-text-on-action` | `#13100D` | 主按钮文字 |
-| 成功 / 警告 / 错误 | `--semantic-color-feedback-*` | `#6FD087` / `#FA9B82` / `#EB596E` | 「可玩」标签、上线前提示、错误信息 |
+| 成功 / 警告 / 错误 | `--semantic-color-feedback-*` | `#6FD087` / `#FA9B82` / `#EB596E` | 「可玩」标签、详情页说明、错误信息 |
 | 焦点环 | `--semantic-state-focus-ring` | `#F2B53C` | 键盘聚焦 |
 
-亮色取值见 `tokens.resolved.light.json`。图表色有分类 6 色、顺序 5 档、发散 5 档，亮暗各一套，平台目前没有图表，看板接入本系统时直接用。
+亮色取值见 `tokens.resolved.light.json`。图表色有分类 6 色、顺序 5 档、发散 5 档，亮暗各一套。看板只用顺序色：趋势柱用第 3 档、今天那根用第 5 档，留存热力格按比例取第 1–4 档（第 1、2 档上用米白字，第 3、4 档上用墨色字，最低 4.52:1），地区条用第 4 档。
 
 ## 字体与字阶
 
@@ -170,12 +170,10 @@ Lucide 1.60.0 线性图标，描边 2，尺寸 16、20、24 三档（`--semantic
 
 2026-10-21，见 `qa/`：
 
-- `check-tokens`：PASS，0 错误 0 警告。158 组对比度全部达标，最紧的是暗色错误色在浮层上 4.65:1。图表分类色相邻两色色盲模拟 ΔE 暗色 17.7、亮色 15.2，与反馈色最近 ΔE 16.1、16.2。状态层悬停与按下的 ΔE00 最小 3.81（亮色强调文字），暗色主按钮 4.18。notUsed 扫描了 `public/index.html` 与 `index.html`，无命中。
-- 浏览器（Edge 无头）：平台在 1280、390、320 宽下商店、详情、游戏库、存档页无横向溢出，Fredoka 已加载，11 款游戏在平台内都能打开、控制台无报错；样例页 1440 与 390 宽、亮暗两种模式、强制颜色与高对比度设置下截图。
+- `check-tokens`：PASS，0 错误 0 警告。158 组对比度全部达标，最紧的是暗色错误色在浮层上 4.65:1。图表分类色相邻两色色盲模拟 ΔE 暗色 17.7、亮色 15.2，与反馈色最近 ΔE 16.1、16.2。状态层悬停与按下的 ΔE00 最小 3.81（亮色强调文字），暗色主按钮 4.18。notUsed 扫描了 `public/index.html`、`index.html` 与 `src/kanban.html`，无命中。
+- 浏览器（Edge 无头）：平台在 1280、390、320 宽下商店、详情、游戏库、存档页无横向溢出，Fredoka 已加载，11 款游戏在平台内都能打开、控制台无报错；样例页 1440 与 390 宽、亮暗两种模式、强制颜色与高对比度设置下截图。看板与登录页在 1280、390 宽下无横向溢出，Fredoka 已加载，表格在窄屏内横向滚动（`kanban-*.png`）。
 
 ## 缺口
 
-- 看板 `src/kanban.html` 还没接本系统，仍是旧深色样式。
-- 字标是按图重建的，不是原始源文件。
-- 样例页覆盖了样例页规格 v1.2 的字阶、颜色、间距、圆角与层级、焦点与状态层、图标、按钮、输入框、导航、反馈、动效、图表色、本系统不用；正文行内元素、列表与表格、对话框与叠层、压力测试四节没做，平台目前没有这些组件。
+- 样例页覆盖了样例页规格 v1.2 的字阶、颜色、间距、圆角与层级、焦点与状态层、图标、按钮、输入框、导航、反馈、动效、图表色、本系统不用；正文行内元素、列表与表格、对话框与叠层、压力测试四节没做；看板用了表格，样式写在 `src/kanban.html`，没有收进样例页。
 - 亮色模式没有页面在用，只验了对比度和样例页截图。

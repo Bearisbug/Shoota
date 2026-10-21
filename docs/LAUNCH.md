@@ -38,6 +38,7 @@
 | 2026-10-18 | 协作者由用户在网页上邀请 | 用 stonesjjj@gmail.com 在 GitHub API 查不到用户，API 只能按用户名邀请；用户在 Settings → Collaborators 用邮箱邀请 |
 | 2026-10-20 | 统计与看板按用户「直接改完直接推」上线，设计文档未经逐项确认 | `docs/DESIGN.md` 保持「评审中」，三条 ADR 为 Proposed，等用户签字；实现完全按文档当前写法 |
 | 2026-10-20 | 统计与看板的用例改由 `docs/TEST.md` 管 | 本文件第 5 节只管平台已有功能的最小冒烟集 |
+| 2026-10-21 | shoota.ai 开启 Always Use HTTPS，http 请求一律 301 到 https | 浏览器把 http 与 https 当成两个站点，存档各存一份；开启后只剩 https 一份。代价：开启前只用 http 打开过平台的玩家，进度留在 http 那份里，之后看不到。没有加 HSTS，要撤回时在 zone 的 SSL/TLS → Edge Certificates 关掉即可 |
 
 ## 5. 最小冒烟集（线上可跑）
 

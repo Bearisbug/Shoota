@@ -8,7 +8,7 @@
 | 平台 | Cloudflare Workers 静态资源 · Worker `changju` · 账号 ID `627a6218f132dffc9cb22dd50c2fe1a6`（Bearisbug 的 Cloudflare 账号） |
 | 发布策略 | 平台内建（paas）：新版本上传完再整体切换，切换无停机 |
 | 域名 | https://shoota.ai （根域，Worker 自定义域名；workers.dev 与预览地址已关闭） |
-| DNS | Cloudflare，shoota.ai zone；根域这条记录由 Worker 自定义域名自动创建和维护，不要手改。`www.shoota.ai` 由 zone 的 Redirect Rule 301 跳到 `https://shoota.ai`，路径和参数原样保留，浏览器会带上 `#` 后面的部分；它的 DNS 记录是橙云的 `AAAA 100::` 占位、没有源站。这两项不在 `wrangler.jsonc` 里，在 Cloudflare 面板 shoota.ai → Rules → Redirect Rules 管理。www 不能改成直接显示网站：存档按域名隔离，www 和根域会成两份互不相通的进度。在 CI 里部署时，wrangler 会直接覆盖与配置域名冲突的 DNS 记录、不提示，往 `wrangler.jsonc` 加域名前先确认该主机名上没有在用的记录 |
+| DNS | Cloudflare，shoota.ai zone；根域这条记录由 Worker 自定义域名自动创建和维护，不要手改。`www.shoota.ai` 由 zone 的 Redirect Rule 301 跳到 `https://shoota.ai`，路径和参数原样保留，浏览器会带上 `#` 后面的部分；它的 DNS 记录是橙云的 `AAAA 100::` 占位、没有源站。这两项不在 `wrangler.jsonc` 里，在 Cloudflare 面板 shoota.ai → Rules → Redirect Rules 管理。www 不能改成直接显示网站：存档按域名隔离，www 和根域会成两份互不相通的进度。同理 zone 开着 Always Use HTTPS（SSL/TLS → Edge Certificates），http 一律 301 到 https，不要关。在 CI 里部署时，wrangler 会直接覆盖与配置域名冲突的 DNS 记录、不提示，往 `wrangler.jsonc` 加域名前先确认该主机名上没有在用的记录 |
 | 健康检查 | 请求 https://shoota.ai/ 。身份断言：首页含 `<title>shoota 游戏平台</title>`。版本断言：`public/` 下每个文件与本次提交逐字节一致。另外断言 `/kanban` 返回看板登录页、`POST /api/e` 对空上报返回 400，证明 Worker 脚本在线且不写数据。没有回显三元组的健康端点，用内容比对代替 |
 | CI | GitHub Actions `.github/workflows/deploy.yml`：`check`（质量门）→ `deploy`（数据库迁移、部署、健康检查、失败回滚）；PR 只跑 `check` |
 | 数据库 | Cloudflare D1 `shoota-metrics`（亚太），Worker 里的绑定名 `DB`，表结构在 `migrations/` |
@@ -104,3 +104,4 @@ done
 | 2026-10-19 | 域名切换 | 自定义域名从 changju.kaivia.ai 换成 shoota.ai 根域（run 39233228289），旧域名已解绑、解析已删；CI token 的 zone 权限同步从 kaivia.ai 换成 shoota.ai，收紧后手动部署 run 39233424468 通过。浏览器存档按域名隔离，玩家在旧域名上的进度不会带到 shoota.ai |
 | 2026-10-19 | www 跳转 | `www.shoota.ai` 的 Namecheap 停放页 CNAME 改为橙云 `AAAA 100::`，加 Redirect Rule 301 到 `https://shoota.ai`（保留路径与参数）；固定连 Cloudflare 节点实测 https/http、带路径、带参数 4 种访问都正确跳转，Edge 打开 `https://www.shoota.ai/#game-f1` 落在 `https://shoota.ai/#game-f1` |
 | 2026-10-20 | 数据库恢复演练 | 临时库 `shoota-metrics-drill`：写入 A → 记书签 → 写入 B → 按书签恢复后只剩 A；导出 SQL 文件成功；演练后删除临时库 |
+| 2026-10-21 | 强制 https | shoota.ai 开启 Always Use HTTPS；实测 `http://shoota.ai/`、`http://shoota.ai/kanban`、`http://www.shoota.ai/` 都 301 到对应的 https 地址，https 首页 200。没有加 HSTS |

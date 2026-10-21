@@ -41,10 +41,14 @@ python3 -m http.server 8000 -d public
 - **专属封面**：可在目录条目设置 `cover:'covers/<id>.jpg'`，使用本地图片替代通用封面；标题由页面叠加，建议图片为 46:21 横版并在左侧预留文字空间。三款新游戏是 `f1-driver`（F1-Driver）、`wealth-reborn`（我要当首富）、`basketball-star`（篮球巨星），与原经理类游戏的标识和存档独立。
 - **存档**：游戏里照常用 `localStorage`，平台会接管它，每款游戏的存档单独保存在玩家的浏览器里。沙箱里没有 IndexedDB，用到它的游戏要退回 `localStorage`。
 - **改存档格式要兼容旧存档**：玩家的进度只存在他们自己的浏览器里，平台没法替他们迁移。
+- **外部字体**：引用 Google Fonts 写成 `<link rel="stylesheet" href="…" media="print" onload="this.media='all'">`，不用 `@import` 或普通 `<link>`。连不上 fonts.googleapis.com 时，阻塞写法会让游戏一直白屏到请求超时；`node scripts/check.mjs` 会拦下这两种写法。
+- **外部链接**：写 `target="_blank"`，平台会在浏览器新标签页打开。
 
 ## 改平台样式
 
 平台页面的颜色、字号、间距、圆角、动效只引用 `brand/tokens.css` 的变量，不写色值；悬停、聚焦、按下统一用 `state-layer` 与 `focus-ring` 两个类。要改参数，先改 `brand/tokens.json` 再重新生成，命令见 `brand/DESIGN.md`；改完把变了的文件复制到 `public/brand/` 的同一路径，`node scripts/check.mjs` 会核对两边一致。看 `brand/index.html` 时要起本地服务（如 `python3 -m http.server 8000 -d brand`），直接双击打开时图标显示不出来：Chromium 系浏览器把本地文件当跨域，拦掉了图标用的 SVG 遮罩。
+
+看板 `src/kanban.html` 和登录页（`src/worker.js` 的 `loginPage`）用同一套变量，引用写绝对路径 `/brand/...`，`node scripts/check.mjs` 会核对引用的文件在 `public/` 里存在。
 
 ### 可选：平台 SDK
 

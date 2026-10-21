@@ -1,5 +1,6 @@
 // 质量门：每个页面的内嵌 <script> 与 Worker 脚本能解析，商店目录里登记的游戏文件都存在，
-// public/brand/ 下的文件与 brand/ 里的同名源文件逐字节一致（brand/ 是唯一来源，public/brand/ 只是给静态站发布的副本）。
+// public/brand/ 下的文件与 brand/ 里的同名源文件逐字节一致（brand/ 是唯一来源，public/brand/ 只是给静态站发布的副本），
+// 游戏引用的 Google Fonts 样式表异步加载（国内连不上时，阻塞写法会让游戏长时间空白）。
 // 用法：node scripts/check.mjs（CI 每次 push / PR 都跑，失败就不部署）
 import { readFileSync, readdirSync, existsSync, statSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -45,14 +46,26 @@ try {
       if (game.cover && (!/^covers\/[\w-]+\.jpg$/.test(game.cover) || !existsSync('public/' + game.cover))) {
         bad++; console.error(`✗ ${game.id} 的封面缺失或路径不合法`);
       }
-      if (game.cover && existsSync('public/' + game.src) && statSync('public/' + game.src).size !== game.size) {
+      if (existsSync('public/' + game.src) && statSync('public/' + game.src).size !== game.size) {
         bad++; console.error(`✗ ${game.id} 的登记大小与游戏文件不一致`);
       }
+    }
+  }
+  for (const page of pages.filter(p => p.startsWith('public/games/'))) {
+    const html = readFileSync(page, 'utf8');
+    if (/@import\s+url\(\s*['"]?https:\/\/fonts\.googleapis\.com/.test(html)) { bad++; console.error(`✗ ${page} 用 @import 引 Google Fonts，会阻塞显示：改成 <link rel="stylesheet" href="…" media="print" onload="this.media='all'">`); }
+    for (const [link] of html.matchAll(/<link\b[^>]*href="https:\/\/fonts\.googleapis\.com\/css[^>]*>/g)) {
+      if (!/media="print"/.test(link) || !/onload=/.test(link)) { bad++; console.error(`✗ ${page} 的 Google Fonts 样式表会阻塞显示：给 <link> 加 media="print" onload="this.media='all'"`); }
     }
   }
   const index = readFileSync('public/index.html', 'utf8');
   for (const [, ref] of index.matchAll(/(?:src|href)="(brand\/[^"]+)"|url\((brand\/[^)]+)\)/g).map(m => [m[0], m[1] || m[2]])) {
     if (!existsSync('public/' + ref)) { bad++; console.error(`✗ public/index.html 引用了 ${ref}，但 public/${ref} 不存在`); }
+  }
+  for (const page of ['src/kanban.html', 'src/worker.js']) {
+    for (const [, ref] of readFileSync(page, 'utf8').matchAll(/(?:src|href)="\/(brand\/[^"]+)"/g)) {
+      if (!existsSync('public/' + ref)) { bad++; console.error(`✗ ${page} 引用了 /${ref}，但 public/${ref} 不存在`); }
+    }
   }
   for (const file of readdirSync('public/brand', { recursive: true, withFileTypes: true }).filter(d => d.isFile()).map(d => join(d.parentPath, d.name))) {
     const src = file.replace(/^public\//, '');
@@ -61,4 +74,4 @@ try {
   }
 } finally { rmSync(tmp, { recursive: true, force: true }); }
 if (bad) { console.error(`\n${bad} 处问题，未部署。`); process.exit(1); }
-console.log(`✓ ${pages.length} 个页面、${n} 段内嵌脚本与 Worker 脚本解析通过，游戏标识唯一，游戏与封面文件齐全，public/brand/ 与 brand/ 一致`);
+console.log(`✓ ${pages.length} 个页面、${n} 段内嵌脚本与 Worker 脚本解析通过，游戏标识唯一，游戏与封面文件齐全，登记大小与文件一致，外部字体不阻塞，public/brand/ 与 brand/ 一致`);

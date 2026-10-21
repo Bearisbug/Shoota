@@ -114,29 +114,32 @@ async function sessionOk(req, env) {
 
 function loginPage(status, message) {
   const html = `<!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="zh-CN" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>shoota 看板 · 登录</title>
+<link rel="icon" href="/brand/assets/logo/app-icon.svg" type="image/svg+xml"><meta name="theme-color" content="#13100D">
+<link rel="stylesheet" href="/brand/fonts/fonts.css"><link rel="stylesheet" href="/brand/tokens.css"><link rel="stylesheet" href="/brand/state-layer.css">
 <style>
-:root{--bg:#10151c;--panel:#18202a;--line:#2a3644;--fg:#e4ebf2;--muted:#8c9aaa;--accent:#3ddc97;--accent-ink:#052618;--red:#e5636a;color-scheme:dark}
-*{box-sizing:border-box}html{scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
-body{margin:0;min-height:100svh;display:grid;place-items:center;background:var(--bg);color:var(--fg);font:15px/1.6 "PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;padding:24px}
-form{width:min(100%,380px);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:28px;display:grid;gap:14px}
-h1{margin:0;font-size:22px}p{margin:0;color:var(--muted);font-size:14px}
-label{font-size:13px;color:var(--muted)}
-input{width:100%;font:inherit;font-size:16px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
-input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-input[aria-invalid="true"]{border-color:var(--red)}
-.err{color:var(--red);min-height:1.6em}
-button{font:inherit;font-weight:700;border:0;border-radius:6px;padding:11px;background:var(--accent);color:var(--accent-ink);cursor:pointer}
-button:hover{filter:brightness(1.08)}
+*{box-sizing:border-box}html{color-scheme:dark;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:var(--semantic-color-border-strong) transparent}
+body{margin:0;min-height:100svh;display:grid;place-items:center;background:var(--semantic-color-surface-background);color:var(--semantic-color-text-primary);font-family:var(--semantic-typography-body-font-family);font-size:var(--semantic-typography-body-font-size);line-height:var(--semantic-typography-body-line-height);padding:var(--primitive-dimension-space-6)}
+form{width:min(100%,380px);background:var(--semantic-color-surface-raised);border:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle);border-radius:var(--semantic-radius-lg);padding:var(--primitive-dimension-space-8) var(--primitive-dimension-space-6);display:grid;gap:var(--primitive-dimension-space-3)}
+img{width:var(--primitive-dimension-space-10);height:var(--primitive-dimension-space-10);display:block}
+h1{margin:0;font-family:var(--semantic-typography-heading2-font-family);font-size:var(--semantic-typography-heading2-font-size);font-weight:var(--semantic-typography-heading2-font-weight);line-height:var(--semantic-typography-heading2-line-height)}
+p{margin:0;color:var(--semantic-color-text-secondary);font-size:var(--semantic-typography-label-font-size)}
+label{font-size:var(--semantic-typography-label-font-size);font-weight:var(--semantic-typography-label-font-weight);color:var(--semantic-color-text-secondary)}
+.field{background:var(--semantic-color-surface-sunken);border:var(--semantic-layout-hairline) solid var(--semantic-color-border-strong);border-radius:var(--semantic-radius-md)}
+.field:has([aria-invalid="true"]){border-color:var(--semantic-color-feedback-error)}
+input{width:100%;font:inherit;font-size:16px;color:var(--semantic-color-text-primary);background:none;border:0;border-radius:inherit;padding:var(--primitive-dimension-space-3);outline:none}
+.err{color:var(--semantic-color-feedback-error);min-height:1.55em}
+button{font:inherit;font-weight:var(--semantic-typography-body-strong-font-weight);border:0;border-radius:var(--semantic-radius-md);padding:var(--primitive-dimension-space-3);background:var(--semantic-color-action-primary);color:var(--semantic-color-text-on-action);cursor:pointer}
 </style></head><body>
 <form method="post" action="/kanban/login">
+  <img src="/brand/assets/logo/app-icon.svg" alt="" width="40" height="40">
   <h1>shoota 看板</h1>
   <p>输入看板密码。登录后这个浏览器之后的游玩不计入统计。</p>
   <label for="pw">密码</label>
-  <input id="pw" name="password" type="password" autocomplete="current-password" required autofocus aria-describedby="err"${message ? ' aria-invalid="true"' : ''}>
+  <div class="field state-layer focus-ring is-field"><input id="pw" name="password" type="password" autocomplete="current-password" required autofocus aria-describedby="err"${message ? ' aria-invalid="true"' : ''}></div>
   <p class="err" id="err" role="alert">${message || ''}</p>
-  <button type="submit">进入看板</button>
+  <button class="state-layer focus-ring" type="submit">进入看板</button>
 </form></body></html>`;
   return new Response(html, { status, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });
 }
