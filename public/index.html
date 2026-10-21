@@ -3,6 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+/* 存档搬到 https（docs/DESIGN.md FLOW-SAVE-MOVE S1，保留到 2026-11-21）：这台浏览器还没查过 http 下的旧数据时，去 http 的搬家页取一次。
+   标记先记第几次去查再跳，带回后记 done；搬家页打不开时下次打开再试，最多 3 次；本地存储写不了时不跳。 */
+(function moveCheck(){
+  try {
+    const st = localStorage.getItem('changju.moved');
+    if (location.protocol !== 'https:' || location.hash.startsWith('#move=') || st === 'done' || Number(st) >= 3) return;
+    localStorage.setItem('changju.moved', String(Number(st) + 1));
+    window.__cjMoving = true;
+    location.replace('http://' + location.host + '/move#r=' + encodeURIComponent(location.hash.slice(1)));
+  } catch (e) {}
+})();
+</script>
 <title>shoota 游戏平台</title>
 <link rel="icon" href="brand/assets/logo/app-icon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#13100D">
@@ -290,6 +303,7 @@ h1,h2,h3{text-wrap:balance;margin:0}
 <script>
 (() => {
 'use strict';
+if (window.__cjMoving) return; // 正在去搬家页，平台不启动
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const now = () => Date.now();
@@ -429,13 +443,20 @@ const CATALOG = [
 /* ───────── 本机存储：localStorage 放账号与统计，IndexedDB 放各游戏存档 ───────── */
 const META_KEY = 'changju.meta.v1';
 const blank = () => ({ session:null, users:{}, stats:{}, wish:{}, achDefs:{}, sendLog:{} });
-let meta = (() => { try { const s = localStorage.getItem(META_KEY); if (s) return Object.assign(blank(), JSON.parse(s)); } catch (e) {} return blank(); })();
+let hadMeta = false; // 打开页面前本机已有平台数据
+let meta = (() => { try { const s = localStorage.getItem(META_KEY); if (s) { hadMeta = true; return Object.assign(blank(), JSON.parse(s)); } } catch (e) {} return blank(); })();
 function persist(){ try { localStorage.setItem(META_KEY, JSON.stringify(meta)); } catch (e) {} }
 
 /* ───────── 匿名统计：每个浏览器一个随机旅客编号，上报到 /api/e，口径见 docs/DESIGN.md ───────── */
-if (!meta.vid) { meta.vid = Array.from(crypto.getRandomValues(new Uint8Array(16)), b => b.toString(16).padStart(2, '0')).join(''); persist(); }
+// 编号在搬家之后再领（FLOW-SAVE-MOVE S4）；领编号时本机已有平台数据的是统计上线前就玩过的老玩家，上报带 o
+function ensureVid(prior){
+  if (meta.vid) return;
+  meta.vid = Array.from(crypto.getRandomValues(new Uint8Array(16)), b => b.toString(16).padStart(2, '0')).join('');
+  if (prior) meta.old = 1;
+  persist();
+}
 function track(ev){
-  const body = JSON.stringify({ v:meta.vid, ev:[ev] });
+  const body = JSON.stringify(meta.old ? { v:meta.vid, o:1, ev:[ev] } : { v:meta.vid, ev:[ev] });
   if (navigator.sendBeacon && navigator.sendBeacon('/api/e', new Blob([body], { type:'application/json' }))) return;
   fetch('/api/e', { method:'POST', body, keepalive:true, headers:{ 'content-type':'application/json' } }).catch(() => {});
 }
@@ -829,6 +850,35 @@ async function applySaves(d){
   persist();
   return ids.length;
 }
+// 存档搬到 https（FLOW-SAVE-MOVE S3、S4）：搬家页把 http 下的数据打包成存档码，带在 #move= 后面回来；返回 http 下是否有平台数据
+async function moveIn(){
+  const h = location.hash.slice(6), i = h.indexOf('&r='), code = i < 0 ? h : h.slice(0, i);
+  let st = null, back = '';
+  try { st = localStorage.getItem('changju.moved'); back = i < 0 ? '' : decodeURIComponent(h.slice(i + 3)); } catch (e) {}
+  history.replaceState(null, '', location.pathname + location.search + (back ? '#' + back : ''));
+  if (!st || st === 'done') return false; // 本机没有发起搬家，地址里的数据不认
+  try {
+    if (!code) return false;
+    const d = await decodeSaves(code), u = me();
+    meta.stats[u.email] ??= {};
+    for (const id of new Set([...Object.keys(d.saves), ...Object.keys(d.stats || {})])) {
+      if (!findGame(id)) continue;
+      const key = u.email + '|' + id, mine = peek(id), theirs = d.stats?.[id];
+      if ((mine || await IDB.get('kv', key)) && (theirs?.seconds || 0) <= (mine?.seconds || 0)) continue; // 留累计时长更长的那份
+      if (d.saves[id]) await IDB.put('kv', d.saves[id], key);
+      if (theirs) meta.stats[u.email][id] = theirs;
+      if (d.achDefs?.[id]) meta.achDefs[id] ??= d.achDefs[id];
+    }
+    meta.wish[u.email] = [...new Set([...(meta.wish[u.email] || []), ...(d.wish || []).filter(id => findGame(id))])];
+    if (/^[0-9a-f]{32}$/.test(d.vid || '') && d.vid !== meta.vid) {
+      if (meta.vid) fetch('/api/merge', { method:'POST', body:JSON.stringify({ v:d.vid, from:meta.vid }), keepalive:true, headers:{ 'content-type':'application/json' } }).catch(() => {});
+      meta.vid = d.vid;
+    }
+    persist();
+    return Boolean(d.had);
+  } catch (e) { return false; }
+  finally { try { localStorage.setItem('changju.moved', 'done'); } catch (e) {} }
+}
 const titles = ids => ids.map(id => '《' + esc(findGame(id).title) + '》').join('');
 async function renderBackup(){
   const d = await packSaves(), have = Object.keys(d.saves);
@@ -1055,6 +1105,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && ui.menu) {
 
 /* ───────── 启动 ───────── */
 (async () => {
+  const had = location.hash.startsWith('#move=') && await moveIn();
+  ensureVid(hadMeta || had);
   track({ t:'visit' });
   route();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => {});

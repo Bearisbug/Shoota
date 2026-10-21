@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<title>shoota 游戏平台</title>
+<script>
+/* 搬家页 PAGE-MOVE（docs/DESIGN.md FLOW-SAVE-MOVE S2，ADR-004，保留到 2026-11-21）：只在 http 下打开。
+   读出这台浏览器 http 下的平台数据与存档，打包成和「备份 / 恢复进度」相同格式的存档码，放在地址的 # 后面跳回 https，数据不经过服务器。 */
+(async function pack(){
+  const back = location.hash.startsWith('#r=') ? location.hash.slice(3) : '';
+  const go = code => location.replace('https://' + location.host + '/#move=' + code + '&r=' + back);
+  if (location.protocol === 'https:') return go(''); // 被浏览器升级成 https：这里读不到 http 的数据
+  try {
+    const meta = JSON.parse(localStorage.getItem('changju.meta.v1') || 'null'), email = meta?.session?.email || 'local';
+    const saves = await new Promise(res => {
+      const out = {}, r = indexedDB.open('changju', 1), t = setTimeout(() => res(out), 5000); // 有的浏览器打开库时一直不回调：5 秒后不带存档
+      r.onupgradeneeded = () => r.transaction.abort(); // http 下从没存过游戏：不留一个空库
+      r.onerror = r.onblocked = () => res(out);
+      r.onsuccess = () => {
+        clearTimeout(t);
+        try {
+          const c = r.result.transaction('kv').objectStore('kv').openCursor();
+          c.onerror = () => res(out);
+          c.onsuccess = () => {
+            const k = c.result;
+            if (!k) return res(out);
+            if (String(k.key).startsWith(email + '|')) out[String(k.key).slice(email.length + 1)] = k.value;
+            k.continue();
+          };
+        } catch (e) { res(out); }
+      };
+    });
+    if (!meta && !Object.keys(saves).length) return go('');
+    const d = { v:1, at:Date.now(), saves, stats:meta?.stats?.[email] || {}, wish:meta?.wish?.[email] || [], achDefs:meta?.achDefs || {}, vid:meta?.vid, had:Boolean(meta) || Object.keys(saves).length > 0 };
+    let code = await encode(d);
+    if (code.length > 1900000) code = await encode({ v:1, at:d.at, saves:{}, vid:d.vid, had:d.had }); // 地址装不下：只带编号
+    go(code);
+  } catch (e) { go(''); }
+})();
+// 与 public/index.html 的 encodeSaves 相同：'CJ1' + base64(gzip(JSON))，浏览器不支持压缩时 'CJ0' + base64(JSON)
+async function encode(d){
+  let bytes = new TextEncoder().encode(JSON.stringify(d)), tag = 'CJ0';
+  if (window.CompressionStream) { bytes = new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer()); tag = 'CJ1'; }
+  let bin = ''; for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  return tag + btoa(bin);
+}
+</script>
+</head>
+<body></body>
+</html>

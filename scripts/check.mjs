@@ -8,7 +8,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { runInNewContext } from 'node:vm';
 
-const pages = ['public/index.html', 'src/kanban.html', ...readdirSync('public/games').filter(f => f.endsWith('.html')).map(f => 'public/games/' + f)];
+const pages = ['public/index.html', 'public/move.html', 'src/kanban.html', ...readdirSync('public/games').filter(f => f.endsWith('.html')).map(f => 'public/games/' + f)];
 const tmp = mkdtempSync(join(tmpdir(), 'changju-check-'));
 let bad = 0, n = 0;
 try {

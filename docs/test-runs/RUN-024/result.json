@@ -1,0 +1,50 @@
+{
+ "TC-027": {
+  "pass": false,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": {
+     "顶栏已存档": true,
+     "游戏库": [
+      "一克之差 还没玩过"
+     ],
+     "旅客表": [
+      {
+       "vid": "ae393ab5bc44bb7fefd64d19bd6e10ec"
+      }
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "pass": false,
+    "actual": {
+     "经过搬家页次数": 0,
+     "停在": "https://shoota.ai/",
+     "导航": [
+      "https://shoota.ai/",
+      "https://shoota.ai/#library"
+     ],
+     "游戏库": []
+    }
+   },
+   {
+    "step": 3,
+    "pass": false,
+    "actual": {
+     "第 1 步编号": "ae393ab5bc44bb7fefd64d19bd6e10ec",
+     "旅客表": [
+      {
+       "vid": "ae393ab5bc44bb7fefd64d19bd6e10ec"
+      },
+      {
+       "vid": "e585e814b638977cd844ed31a678d491"
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

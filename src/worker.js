@@ -1,4 +1,4 @@
-// shoota Worker：匿名统计上报（/api/e）与密码看板（/kanban）。
+// shoota Worker：匿名统计上报（/api/e、/api/merge）与密码看板（/kanban）。
 // 只有 wrangler.jsonc 里 run_worker_first 列出的路径会进这里，其余请求由静态资源直接返回。
 // 接口、口径与错误码见 docs/DESIGN.md §8、§9、§14。
 import DASHBOARD_HTML from './kanban.html';
@@ -7,6 +7,8 @@ const DAY_MS = 86400000;
 const EVENT_TYPES = new Set(['visit', 'start', 'play', 'backup', 'restore']);
 const MAX_EVENTS = 20, MAX_BODY_BYTES = 8192, MAX_SECONDS = 300;
 const SESSION_DAYS = 7, STAFF_DAYS = 365, MAX_FAILS = 5, LOCK_MS = 15 * 60000;
+const STATS_START = '2026-10-20'; // 统计首日
+const PRIOR_SINCE = '2026-10-21'; // 老玩家识别上线当天；统计首日到这天首访的新旅客含没被认出的老玩家
 
 const bjDay = (ms = Date.now()) => new Date(ms + 8 * 3600000).toISOString().slice(0, 10);
 const bjTime = ms => new Date(ms + 8 * 3600000).toISOString().slice(11, 16);
@@ -17,6 +19,7 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url);
     if (url.pathname === '/api/e' && req.method === 'POST') return collect(req, env);
+    if (url.pathname === '/api/merge' && req.method === 'POST') return merge(req, env);
     if (url.pathname === '/kanban' && req.method === 'GET') return kanbanPage(req, env);
     if (url.pathname === '/kanban/login' && req.method === 'POST') return login(req, env);
     if (url.pathname === '/kanban/data' && req.method === 'GET') return kanbanData(req, env);
@@ -69,7 +72,7 @@ function parseBatch(b) {
     else day.restores++;
   }
   if (day.seconds > MAX_SECONDS) return null;
-  return { vid: b.v, day, games };
+  return { vid: b.v, prior: b.o === 1 ? 1 : 0, day, games };
 }
 
 async function collect(req, env) {
@@ -88,8 +91,8 @@ async function collect(req, env) {
   const country = typeof cc === 'string' && /^[A-Z]{2}$/.test(cc) ? cc : 'XX';
   const d = p.day;
   const stmts = [
-    env.DB.prepare('INSERT OR IGNORE INTO visitors (vid, first_day, device, wechat, country) VALUES (?, ?, ?, ?, ?)')
-      .bind(p.vid, today, device, wechat, country),
+    env.DB.prepare('INSERT OR IGNORE INTO visitors (vid, first_day, device, wechat, country, prior) VALUES (?, ?, ?, ?, ?, ?)')
+      .bind(p.vid, today, device, wechat, country, p.prior),
     env.DB.prepare(`INSERT INTO visitor_days (vid, day, visits, seconds, backups, restores) VALUES (?, ?, ?, ?, ?, ?)
       ON CONFLICT (vid, day) DO UPDATE SET visits = visits + excluded.visits, seconds = seconds + excluded.seconds,
         backups = backups + excluded.backups, restores = restores + excluded.restores`)
@@ -101,6 +104,36 @@ async function collect(req, env) {
       .bind(p.vid, game, today, g.starts, g.seconds));
   }
   await env.DB.batch(stmts);
+  return new Response(null, { status: 204 });
+}
+
+/* ───────── API-005 合并旅客编号：存档搬到 https 后，https 下新领的编号并进 http 下的旧编号 ───────── */
+// 在一个批处理里完成，重发或两个标签页同时合并时 from 已经没有行，什么都不改（INV-005）
+async function merge(req, env) {
+  const bad = () => problem(req, 400, '/errors/bad-merge', '合并请求的编号格式不对');
+  const raw = await req.arrayBuffer();
+  if (raw.byteLength > MAX_BODY_BYTES) return bad();
+  let b;
+  try { b = JSON.parse(new TextDecoder().decode(raw)); } catch { return bad(); }
+  const id = v => typeof v === 'string' && /^[0-9a-f]{32}$/.test(v);
+  if (!b || !id(b.v) || !id(b.from) || b.v === b.from) return bad();
+  if (cookies(req).sk_staff === '1') return new Response(null, { status: 204 }); // 内部浏览器不计入（INV-002）
+
+  const q = (sql, ...args) => env.DB.prepare(sql).bind(...args);
+  await env.DB.batch([
+    q(`INSERT OR IGNORE INTO visitors (vid, first_day, device, wechat, country, prior)
+      SELECT ?1, first_day, device, wechat, country, prior FROM visitors WHERE vid = ?2`, b.v, b.from),
+    q(`INSERT INTO visitor_days (vid, day, visits, seconds, backups, restores)
+      SELECT ?1, day, visits, seconds, backups, restores FROM visitor_days WHERE vid = ?2
+      ON CONFLICT (vid, day) DO UPDATE SET visits = visits + excluded.visits, seconds = seconds + excluded.seconds,
+        backups = backups + excluded.backups, restores = restores + excluded.restores`, b.v, b.from),
+    q(`INSERT INTO game_days (vid, game, day, starts, seconds)
+      SELECT ?1, game, day, starts, seconds FROM game_days WHERE vid = ?2
+      ON CONFLICT (vid, game, day) DO UPDATE SET starts = starts + excluded.starts, seconds = seconds + excluded.seconds`, b.v, b.from),
+    q('DELETE FROM visitors WHERE vid = ?', b.from),
+    q('DELETE FROM visitor_days WHERE vid = ?', b.from),
+    q('DELETE FROM game_days WHERE vid = ?', b.from)
+  ]);
   return new Response(null, { status: 204 });
 }
 
@@ -188,14 +221,14 @@ async function kanbanData(req, env) {
         COALESCE(SUM(CASE WHEN day = ?1 THEN seconds END), 0) s1, COALESCE(SUM(CASE WHEN day >= ?2 THEN seconds END), 0) s7, COALESCE(SUM(seconds), 0) s30,
         COALESCE(SUM(backups), 0) b30, COALESCE(SUM(restores), 0) r30
       FROM visitor_days WHERE day >= ?3`, today, d7, d30),
-    q(`SELECT COALESCE(SUM(first_day = ?1), 0) n1, COALESCE(SUM(first_day >= ?2), 0) n7, COUNT(*) n30 FROM visitors WHERE first_day >= ?3`, today, d7, d30),
+    q(`SELECT COALESCE(SUM(first_day = ?1), 0) n1, COALESCE(SUM(first_day >= ?2), 0) n7, COUNT(*) n30 FROM visitors WHERE first_day >= ?3 AND prior = 0`, today, d7, d30),
     q('SELECT day, COUNT(*) active, SUM(seconds) seconds FROM visitor_days WHERE day >= ? GROUP BY day', d30),
-    q('SELECT first_day day, COUNT(*) n FROM visitors WHERE first_day >= ? GROUP BY first_day', d30),
+    q('SELECT first_day day, COUNT(*) n FROM visitors WHERE first_day >= ? AND prior = 0 GROUP BY first_day', d30),
     q(`SELECT v.first_day day, COUNT(*) n,
         SUM(EXISTS (SELECT 1 FROM visitor_days d WHERE d.vid = v.vid AND d.day = date(v.first_day, '+1 day'))) r1,
         SUM(EXISTS (SELECT 1 FROM visitor_days d WHERE d.vid = v.vid AND d.day = date(v.first_day, '+7 day'))) r7,
         SUM(EXISTS (SELECT 1 FROM visitor_days d WHERE d.vid = v.vid AND d.day = date(v.first_day, '+30 day'))) r30
-      FROM visitors v WHERE v.first_day >= ? GROUP BY v.first_day ORDER BY v.first_day DESC`, d60),
+      FROM visitors v WHERE v.first_day >= ? AND v.prior = 0 GROUP BY v.first_day ORDER BY v.first_day DESC`, d60),
     q('SELECT game, COUNT(DISTINCT vid) players, SUM(starts) starts, SUM(seconds) seconds FROM game_days WHERE day >= ? GROUP BY game ORDER BY seconds DESC, players DESC', d30),
     q(`WITH f AS (SELECT vid, game, MIN(day) fd FROM game_days GROUP BY vid, game)
       SELECT f.game, COUNT(*) n, SUM(EXISTS (SELECT 1 FROM game_days g WHERE g.vid = f.vid AND g.game = f.game AND g.day = date(f.fd, '+1 day'))) r
@@ -225,7 +258,7 @@ async function kanbanData(req, env) {
   sources.countries = Object.entries(sources.countries).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([code, count]) => ({ code, n: count }));
 
   return new Response(JSON.stringify({
-    today, generatedAt: Date.now(),
+    today, statsStart: STATS_START, priorSince: PRIOR_SINCE, generatedAt: Date.now(),
     overview: {
       today: { active: o.a1, new: n.n1, seconds: o.s1 },
       d7: { active: o.a7, new: n.n7, seconds: o.s7 },

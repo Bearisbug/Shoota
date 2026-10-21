@@ -222,8 +222,10 @@ function heatCell(r, n){
 }
 function renderRetention(d){
   if (!d.retention.length) { $('#rt').replaceChildren(panel(emptyBox())); return; }
-  $('#rt').replaceChildren(panel(table(['首访日期', '新旅客', '次日', '7 日', '30 日'],
-    d.retention.map(r => [r.day, num(r.n), heatCell(r.r1, r.n), heatCell(r.r7, r.n), heatCell(r.r30, r.n)]))));
+  const t = table(['首访日期', '新旅客', '次日', '7 日', '30 日'],
+    d.retention.map(r => [r.day, num(r.n), heatCell(r.r1, r.n), heatCell(r.r7, r.n), heatCell(r.r30, r.n)]));
+  $('#rt').replaceChildren(d.retention.some(r => r.day >= d.statsStart && r.day <= d.priorSince)
+    ? panel(t, el('p', { class:'note' }, `${d.statsStart} 是统计首日；${d.statsStart} 到 ${d.priorSince} 首访的新旅客含统计上线前就玩过的人。`)) : panel(t));
 }
 
 function renderGames(d){
