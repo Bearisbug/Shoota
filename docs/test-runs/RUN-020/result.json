@@ -1,0 +1,526 @@
+{
+ "TC-024": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": {
+     "图": [
+      {
+       "图": "活跃旅客 · 今天 2",
+       "标注": "最高 11",
+       "左越出px": -218,
+       "右越出px": -116
+      },
+      {
+       "图": "新旅客 · 今天 2",
+       "标注": "最高 10",
+       "左越出px": -217,
+       "右越出px": -115
+      },
+      {
+       "图": "游玩时长 · 今天 83.3 小时",
+       "标注": "最高 83.3 小时",
+       "左越出px": -275,
+       "右越出px": -16
+      }
+     ],
+     "横向溢出px": -11
+    }
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": {
+     "图": [
+      {
+       "图": "活跃旅客 · 今天 2",
+       "标注": "最高 11",
+       "左越出px": -202,
+       "右越出px": -107
+      },
+      {
+       "图": "新旅客 · 今天 2",
+       "标注": "最高 10",
+       "左越出px": -201,
+       "右越出px": -106
+      },
+      {
+       "图": "游玩时长 · 今天 83.3 小时",
+       "标注": "最高 83.3 小时",
+       "左越出px": -250,
+       "右越出px": -16
+      }
+     ],
+     "横向溢出px": -11
+    }
+   }
+  ]
+ },
+ "TC-001": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": "旅客编号 210bd063ba82c0534210f2eaf53d8018"
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": [
+     {
+      "vid": "210bd063ba82c0534210f2eaf53d8018",
+      "first_day": "2026-10-21",
+      "device": "desktop",
+      "wechat": 0,
+      "country": "MY"
+     }
+    ]
+   },
+   {
+    "step": 3,
+    "pass": true,
+    "actual": {
+     "vid": "210bd063ba82c0534210f2eaf53d8018",
+     "day": "2026-10-21",
+     "visits": 1,
+     "seconds": 0,
+     "backups": 0,
+     "restores": 0
+    }
+   },
+   {
+    "step": 4,
+    "pass": true,
+    "actual": {
+     "visitors": 1,
+     "visitor_days": {
+      "vid": "210bd063ba82c0534210f2eaf53d8018",
+      "day": "2026-10-21",
+      "visits": 2,
+      "seconds": 0,
+      "backups": 0,
+      "restores": 0
+     }
+    }
+   }
+  ]
+ },
+ "TC-002": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": {
+     "vid": "62e17d0fba3c1636f665b2b498acd3d5",
+     "game": "yike",
+     "day": "2026-10-21",
+     "starts": 1,
+     "seconds": 0
+    }
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": {
+     "game_days.seconds": 120,
+     "visitor_days.seconds": 120
+    }
+   },
+   {
+    "step": 3,
+    "pass": true,
+    "actual": {
+     "服务端秒数": 150,
+     "平台本地计时秒数": 150,
+     "顶栏": "本次 2 分钟",
+     "前台墙钟秒数": 150
+    }
+   }
+  ]
+ },
+ "TC-006": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": {
+     "title": "shoota 看板",
+     "cookies": [
+      "sk_session",
+      "sk_staff"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": {
+     "visitors": 0,
+     "visitor_days": 0,
+     "game_days": 0
+    }
+   }
+  ]
+ },
+ "TC-008": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": "shoota 看板 · 登录"
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": "密码不对，还能试 4 次。"
+   },
+   {
+    "step": 3,
+    "pass": true,
+    "actual": [
+     "概览",
+     "每日趋势 · 近 30 天",
+     "留存 · 近 60 天首访的旅客",
+     "游戏排行 · 近 30 天",
+     "来源与设备 · 近 30 天活跃旅客"
+    ]
+   },
+   {
+    "step": 4,
+    "pass": true,
+    "actual": "重新打开直接显示概览"
+   }
+  ]
+ },
+ "TC-010": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": {
+     "status": 401,
+     "body": {
+      "type": "/errors/not-logged-in",
+      "title": "看板会话不存在或已过期",
+      "status": 401,
+      "instance": ""
+     }
+    }
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": {
+     "status": 401,
+     "body": {
+      "type": "/errors/not-logged-in",
+      "title": "看板会话不存在或已过期",
+      "status": 401,
+      "instance": ""
+     }
+    }
+   },
+   {
+    "step": 3,
+    "pass": true,
+    "actual": {
+     "status": 401,
+     "body": {
+      "type": "/errors/not-logged-in",
+      "title": "看板会话不存在或已过期",
+      "status": 401,
+      "instance": ""
+     }
+    }
+   }
+  ]
+ },
+ "TC-011": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": [
+     [
+      "活跃旅客",
+      "2",
+      "3",
+      "13"
+     ],
+     [
+      "新旅客",
+      "2",
+      "2",
+      "12"
+     ],
+     [
+      "游玩时长",
+      "20 分钟",
+      "25 分钟",
+      "1.2 小时"
+     ],
+     [
+      "人均游玩时长",
+      "10 分钟",
+      "8 分钟",
+      "6 分钟"
+     ]
+    ]
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": {
+     "活跃旅客 · 今天 2": "30 天，首行 ['2026-10-21', '2']",
+     "新旅客 · 今天 2": "30 天，首行 ['2026-10-21', '2']",
+     "游玩时长 · 今天 20 分钟": "30 天，首行 ['2026-10-21', '20 分钟']",
+     "0 值格数": 80,
+     "0 值示例": [
+      [
+       "2026-10-20",
+       "0"
+      ],
+      [
+       "2026-10-19",
+       "0"
+      ]
+     ]
+    }
+   }
+  ]
+ },
+ "TC-016": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": {
+     "旅客": "779125a9ff80522fc2e4358e7380013b",
+     "顶栏": "本次 2 分钟"
+    }
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": {
+     "今日活跃": "1",
+     "今日游玩时长": "2 分钟"
+    }
+   }
+  ]
+ },
+ "TC-018": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": {
+     "精选": [
+      "F1-Driver",
+      "F1-principle",
+      "篮球巨星",
+      "我要当首富",
+      "斗罗·万相",
+      "重生之我是夜宵摊摊主",
+      "后宫生死簿",
+      "NBA Basketball Manager 2026",
+      "CBA 篮球经理 2026-27",
+      "峡谷经理 2027",
+      "一克之差"
+     ],
+     "全部游戏": [
+      "F1-Driver",
+      "F1-principle",
+      "篮球巨星",
+      "我要当首富",
+      "斗罗·万相",
+      "重生之我是夜宵摊摊主",
+      "后宫生死簿",
+      "NBA Basketball Manager 2026",
+      "CBA 篮球经理 2026-27",
+      "峡谷经理 2027",
+      "一克之差"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": {
+     "f1-driver": [
+      "F1-Driver",
+      "#play-f1-driver"
+     ],
+     "f1": [
+      "F1-principle",
+      "#play-f1"
+     ]
+    }
+   },
+   {
+    "step": 3,
+    "pass": true,
+    "actual": {
+     "F1-Driver": [
+      [
+       "#game-f1-driver",
+       "F1-Driver"
+      ]
+     ],
+     "篮球巨星": [
+      [
+       "#game-basketball-star",
+       "篮球巨星"
+      ]
+     ],
+     "我要当首富": [
+      [
+       "#game-wealth-reborn",
+       "我要当首富"
+      ]
+     ]
+    }
+   },
+   {
+    "step": 4,
+    "pass": true,
+    "actual": {
+     "详情": {
+      "f1-driver": {
+       "详情": "covers/f1-driver.jpg",
+       "封面文字": "F1-Driver坐进驾驶舱 · 书写冠军生涯"
+      },
+      "basketball-star": {
+       "详情": "covers/basketball-star.jpg",
+       "封面文字": "篮球巨星从 CBA 新秀 · 到世界舞台"
+      },
+      "wealth-reborn": {
+       "详情": "covers/wealth-reborn.jpg",
+       "封面文字": "我要当首富从三千元起步 · 经营你的商业人生"
+      }
+     },
+     "游戏库": {
+      "f1-driver": {
+       "游戏库": "covers/f1-driver.jpg",
+       "名称": "F1-Driver",
+       "封面文字": "F1-Driver坐进驾驶舱 · 书写冠军生涯"
+      },
+      "basketball-star": {
+       "游戏库": "covers/basketball-star.jpg",
+       "名称": "篮球巨星",
+       "封面文字": "篮球巨星从 CBA 新秀 · 到世界舞台"
+      },
+      "wealth-reborn": {
+       "游戏库": "covers/wealth-reborn.jpg",
+       "名称": "我要当首富",
+       "封面文字": "我要当首富从三千元起步 · 经营你的商业人生"
+      }
+     }
+    }
+   },
+   {
+    "step": 5,
+    "pass": true,
+    "actual": {
+     "store": {
+      "innerWidth": 390,
+      "横向溢出px": -11
+     },
+     "game-f1-driver": {
+      "innerWidth": 390,
+      "横向溢出px": -11
+     },
+     "game-basketball-star": {
+      "innerWidth": 390,
+      "横向溢出px": -11
+     },
+     "game-wealth-reborn": {
+      "innerWidth": 390,
+      "横向溢出px": -11
+     },
+     "library": {
+      "innerWidth": 390,
+      "横向溢出px": -11
+     }
+    }
+   },
+   {
+    "step": 6,
+    "pass": true,
+    "actual": {
+     "进度": " Racing Bulls · 林远 #66 2026 · R1/22"
+    }
+   },
+   {
+    "step": 7,
+    "pass": true,
+    "actual": {
+     "周次": 2
+    }
+   },
+   {
+    "step": 8,
+    "pass": true,
+    "actual": {
+     "进度": "CBA → NBA PLAYER CAREER 2026 PG 上线球员 · 上海久事 17岁 · 控球后卫 · CBA · 培养球员 · 总评 57 常规赛 第 1 / 40 周"
+    }
+   },
+   {
+    "step": 9,
+    "pass": true,
+    "actual": {
+     "原八款": {
+      "f1": {
+       "正文字数": 1519,
+       "iframe 错误": []
+      },
+      "douluo": {
+       "正文字数": 709,
+       "iframe 错误": []
+      },
+      "yexiao": {
+       "正文字数": 820,
+       "iframe 错误": []
+      },
+      "hougong": {
+       "正文字数": 669,
+       "iframe 错误": []
+      },
+      "nba": {
+       "正文字数": 1765,
+       "iframe 错误": []
+      },
+      "cba": {
+       "正文字数": 1742,
+       "iframe 错误": []
+      },
+      "lol": {
+       "正文字数": 1170,
+       "iframe 错误": []
+      },
+      "yike": {
+       "正文字数": 399,
+       "iframe 错误": []
+      }
+     },
+     "平台 pageerror": []
+    }
+   },
+   {
+    "step": 10,
+    "pass": true,
+    "actual": "✓ 13 个页面、22 段内嵌脚本与 Worker 脚本解析通过，游戏标识唯一，游戏与封面文件齐全，登记大小与文件一致，外部字体不阻塞，public/brand/ 与 brand/ 一致"
+   }
+  ]
+ }
+}

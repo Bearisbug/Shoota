@@ -1,0 +1,75 @@
+{
+ "TC-008#1": {
+  "pass": true,
+  "actual": {
+   "title": "shoota 看板 · 登录",
+   "品牌图标宽": 150
+  }
+ },
+ "TC-008#2": {
+  "pass": true,
+  "actual": "密码不对，还能试 4 次。"
+ },
+ "TC-008#3": {
+  "pass": true,
+  "actual": [
+   "概览",
+   "每日趋势 · 近 30 天",
+   "留存 · 近 60 天首访的旅客",
+   "游戏排行 · 近 30 天",
+   "来源与设备 · 近 30 天活跃旅客"
+  ]
+ },
+ "TC-008#4": {
+  "pass": true,
+  "actual": "重新打开直接显示概览"
+ },
+ "TC-010#1": {
+  "pass": true,
+  "actual": {
+   "status": 401,
+   "type": "/errors/not-logged-in",
+   "含统计": false
+  }
+ },
+ "TC-010#2": {
+  "pass": true,
+  "actual": {
+   "status": 401,
+   "type": "/errors/not-logged-in",
+   "含统计": false
+  }
+ },
+ "TC-010#3": {
+  "pass": true,
+  "actual": {
+   "status": 401,
+   "type": "/errors/not-logged-in",
+   "含统计": false
+  }
+ },
+ "LINK": {
+  "pass": true,
+  "actual": {
+   "新标签页首个请求": [
+    "https://nbpa.com/cba"
+   ],
+   "游戏页仍在规则页": true
+  }
+ },
+ "TC-016#1": {
+  "pass": true,
+  "actual": {
+   "旅客": "09780a2e871846e477b8fea27f203345",
+   "顶栏": "本次 2 分钟",
+   "前台秒": 133
+  }
+ },
+ "TC-016#2": {
+  "pass": true,
+  "actual": {
+   "今日活跃": "28",
+   "今日游玩时长": "5.8 小时"
+  }
+ }
+}
