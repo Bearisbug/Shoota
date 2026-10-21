@@ -1,0 +1,13 @@
+{
+  "source": "../平行星途.html",
+  "sourceSHA256": "146f9815ff2bf0a35e2fb60cd98d93a8ab6b816f9bdfef13df6102d6420ee5b9",
+  "publishedSHA256": "5566d871355d051bc9c032c0e8dad8602b99a932718a877f967668830d071beb",
+  "size": 629099,
+  "titleReplacements": 5,
+  "sourceModules": [
+    "studio-engine.js",
+    "studio-ui.js",
+    "studio.css"
+  ],
+  "saveCompatibility": "parallel-starlight-save-v1 retained; additive studioFlow and post opinion snapshots"
+}
