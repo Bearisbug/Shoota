@@ -1,0 +1,165 @@
+{
+  "checks": 224,
+  "results": [
+    {
+      "origin": "music",
+      "actions": 110,
+      "kinds": [
+        "make",
+        "battle",
+        "pulse",
+        "case",
+        "commission",
+        "contest",
+        "rest",
+        "live",
+        "export"
+      ],
+      "works": 28,
+      "skills": {
+        "music": 100,
+        "book": 32,
+        "screen": 25,
+        "tv": 30,
+        "show": 25,
+        "vocal": 100,
+        "lyrics": 100,
+        "composition": 100
+      },
+      "stage": "走向世界",
+      "days": 1016,
+      "case": "cleared",
+      "collaborations": 8,
+      "contests": [
+        {
+          "id": "newcomer",
+          "status": "won",
+          "round": 1
+        },
+        {
+          "id": "campus",
+          "status": "won",
+          "round": 1
+        },
+        {
+          "id": "national",
+          "status": "won",
+          "round": 2
+        },
+        {
+          "id": "asia",
+          "status": "won",
+          "round": 2
+        },
+        {
+          "id": "worldQualifier",
+          "status": "won",
+          "round": 2
+        }
+      ],
+      "errors": []
+    },
+    {
+      "origin": "book",
+      "actions": 55,
+      "kinds": [
+        "make",
+        "contest",
+        "case",
+        "commission",
+        "battle",
+        "live",
+        "rest",
+        "pulse",
+        "export"
+      ],
+      "works": 14,
+      "skills": {
+        "music": 63,
+        "book": 48,
+        "screen": 25,
+        "tv": 30,
+        "show": 25,
+        "vocal": 100,
+        "lyrics": 66,
+        "composition": 80
+      },
+      "stage": "走向世界",
+      "days": 576,
+      "case": "cleared",
+      "collaborations": 7,
+      "contests": [
+        {
+          "id": "newcomer",
+          "status": "won",
+          "round": 1
+        },
+        {
+          "id": "campus",
+          "status": "won",
+          "round": 1
+        },
+        {
+          "id": "national",
+          "status": "won",
+          "round": 2
+        }
+      ],
+      "errors": []
+    },
+    {
+      "origin": "screen",
+      "actions": 55,
+      "kinds": [
+        "gig",
+        "make",
+        "contest",
+        "rest",
+        "case",
+        "commission",
+        "battle",
+        "pulse",
+        "live",
+        "export"
+      ],
+      "works": 10,
+      "skills": {
+        "music": 55,
+        "book": 32,
+        "screen": 42,
+        "tv": 30,
+        "show": 25,
+        "vocal": 100,
+        "lyrics": 54,
+        "composition": 64
+      },
+      "stage": "走向世界",
+      "days": 674,
+      "case": "cleared",
+      "collaborations": 7,
+      "contests": [
+        {
+          "id": "newcomer",
+          "status": "won",
+          "round": 1
+        },
+        {
+          "id": "national",
+          "status": "won",
+          "round": 2
+        },
+        {
+          "id": "campus",
+          "status": "won",
+          "round": 1
+        },
+        {
+          "id": "asia",
+          "status": "active",
+          "round": 2
+        }
+      ],
+      "errors": []
+    }
+  ]
+}
