@@ -343,7 +343,7 @@ const CATALOG = [
     notes:['名单、能力、赛程与合同采用游戏模拟规则；本作控制自己的球员，独立于原有 CBA 和 NBA 经理游戏。'] },
 
   { id:'wealth-reborn', title:'我要当首富', sub:'从三千元起步 · 经营你的商业人生', genre:'模拟经营', tags:['模拟经营','商业','人生模拟','投资'],
-    src:'games/wealth-reborn.html', cover:'covers/wealth-reborn.jpg', size:1849685, status:'ok', session:'每次经营推进一周', saves:'玩家独立档案、自动与手动存档',
+    src:'games/wealth-reborn.html', cover:'covers/wealth-reborn.jpg', size:2022377, status:'ok', session:'每次经营推进一周', saves:'玩家独立档案、自动与手动存档',
     tagline:'回到 2004 年，带着 3,000 元从街头起步。开店、招人、扩张，把小生意做成你的商业版图。',
     about:[
       '18 岁、3,000 元、没有公司，你的商业人生从这里开始。先靠接单或摆摊积累本金，再把摊位升级成门店，逐步进入新的街区和城市。',
@@ -354,7 +354,7 @@ const CATALOG = [
     notes:['投资价格、企业估值与交易机会均为游戏模型；经营结果随策略变化，不保证盈利或成为首富。'] },
 
   { id:'douluo', title:'斗罗·万相', sub:'十个出身 · 一条世界线', genre:'人生模拟', tags:['人生模拟','角色扮演','Roguelite','多结局'],
-    src:'games/douluo.html', cover:'covers/douluo.jpg', size:1382922, status:'ok', version:'v5', session:'一局 15–25 分钟', saves:'自动存档，跨周目保留宿命点',
+    src:'games/douluo.html', cover:'covers/douluo.jpg', size:1439461, status:'ok', version:'v5', session:'一局 15–25 分钟', saves:'自动存档，跨周目保留宿命点',
     tagline:'选一个出身进入斗罗大陆，从六岁觉醒武魂过完一生。拜入史莱克、自立门户，或者走上成神之路。',
     about:[
       '选一个出身进入斗罗大陆，从六岁觉醒武魂开始过完一生。10 个原创身份共享同一条世界线：猎魂之夜，苏夜在进攻方，玉衡在被灭的宗门里，林照守在七宝城堡。',
@@ -437,7 +437,18 @@ const CATALOG = [
       '超重会翻盘，整盘药包掉进暂存台；暂存台放不下就输。压在下面的药包看不到重量，秤盘上的药包放上去就拿不回来。',
       '撤回、透视、换方子三种道具帮你翻身。第一关是热身，往后压在最底下的那几包最要命。'
     ],
-    loop:['点亮着的药包，它会放上选中的那台秤；点秤可以换','右盘正好等于砝码，秤就平了','超重翻盘，药包掉进暂存台；暂存台满了就输','用撤回、透视、换方子渡过难关'] }
+    loop:['点亮着的药包，它会放上选中的那台秤；点秤可以换','右盘正好等于砝码，秤就平了','超重翻盘，药包掉进暂存台；暂存台满了就输','用撤回、透视、换方子渡过难关'] },
+
+  { id:'entertainment-career', title:'杀穿娱乐圈', sub:'作品开路 · 从新人到文娱主场', genre:'演艺经营', tags:['模拟经营','演艺生涯','剧情','策略'],
+    src:'games/entertainment-career.html', cover:'covers/entertainment-career.jpg', size:430406, status:'ok', session:'按周推进，每周分配行动', saves:'自动存档，支持导入与导出',
+    tagline:'带着地球的文娱记忆穿越平行世界，从第一部作品起步。制作、发行、比赛与舆论，每一步都由你决定。',
+    about:[
+      '选择音乐、文学或影视作为起点，在陌生的平行世界重新开始。熟悉的灵感只是起点：挑选作品、适应当地文化、训练能力，把记忆打磨成真正能够发行的作品。',
+      '每周分配有限的行动、资金和精力，决定制作方式、发行渠道与宣传节奏。积累作品成绩和人脉，组建工作室，在新机会与合约条件之间做出取舍。',
+      '经营社交平台、回应舆论、参加演唱比赛，逐步探索影视、综艺与海外市场。关注粉丝、口碑和作品收益，让每一次选择写进你的演艺生涯。'
+    ],
+    loop:['选择创作起点，了解资源、能力与本周机会','挑选作品，安排制作、本土化与发行渠道','分配每周行动，兼顾收入、训练、人脉与宣传','查看作品成绩、处理剧情和舆论，拓展工作室与海外舞台'] }
+
 ];
 
 /* ───────── 本机存储：localStorage 放账号与统计，IndexedDB 放各游戏存档 ───────── */
@@ -525,7 +536,7 @@ function fmtWhen(ts){
 /* ───────── 封面：按题材用 canvas 画，没有任何商标 ───────── */
 const coverCache = new Map();
 const CANVAS_KINDS = ['douluo','hougong','f1','nba','lol','yike'];
-const COVER_KINDS = [...CANVAS_KINDS, 'f1-driver', 'wealth-reborn', 'basketball-star'];
+const COVER_KINDS = [...CANVAS_KINDS, 'f1-driver', 'wealth-reborn', 'basketball-star', 'entertainment-career'];
 function rng(seed){ let a = 0; for (const c of seed) a = (a * 31 + c.codePointAt(0)) | 0; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 function coverURL(g){
   if (g.cover) return g.cover;

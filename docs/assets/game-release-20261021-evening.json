@@ -1,0 +1,32 @@
+[
+  {
+    "source": "斗罗·万相-优化版.html",
+    "target": "public/games/douluo.html",
+    "sourceSHA256": "3f376d23ef3e0688f55a36e2d82908c3e4c477d420e216fafe1c2ecd42b75ae1",
+    "publishedSHA256": "1e4ec0375573f3da8a6fa49982067ac2706112a344c018748c1bebd7e4862edf",
+    "size": 1439461,
+    "changes": [
+      "1 async Google Fonts link"
+    ]
+  },
+  {
+    "source": "财源滚滚.html",
+    "target": "public/games/wealth-reborn.html",
+    "sourceSHA256": "7a1ac3ee55dad621583601867a1afe2637b8aff66905a7140e3c4f1aa5147210",
+    "publishedSHA256": "d14c04430363eee7f45a35f7c45877d7847699c081625ba518d16483ef3cee06",
+    "size": 2022377,
+    "changes": [
+      "5 title replacements"
+    ]
+  },
+  {
+    "source": "平行星途.html",
+    "target": "public/games/entertainment-career.html",
+    "sourceSHA256": "ea3cd3a176263b6fca9ae93974b8dabf9b4a563850d5d43e1e8264ca1b226d1b",
+    "publishedSHA256": "6eab630383f1f5234b3248758f653a73acd1387db6c826e4388d527a85aaa346",
+    "size": 430406,
+    "changes": [
+      "4 title replacements and decorative spaced title"
+    ]
+  }
+]

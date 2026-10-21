@@ -1,0 +1,50 @@
+✔ all ten origins start and all main tabs render (1363.564917ms)
+✔ an entire year consists of four seasons at every growth stage (296.877667ms)
+✔ a physically mature second spirit can take a hundred-thousand-year first ring (134.55925ms)
+✔ late game has distinct stories instead of a blank annual jump (84.481459ms)
+✔ late game ends voluntarily and final achievements replace letter grades (103.785041ms)
+✔ swapping soul bones cannot farm permanent stats or luck (630.345083ms)
+✔ pending story blocks action rewards and action points stay bounded (13.066833ms)
+✔ a dead rare individual remains dead after save and reload (226.990959ms)
+✔ snow fusion grants four orange rings only to the Ice Empress spirit (37.110167ms)
+✔ sealed ordinary rings still respect physical capacity (15.451083ms)
+Cross-state audit {"mainChapters":102,"factionChapters":66,"scenarios":99240,"choices":293871,"levels":[35,60,78,95,100],"affiliations":12,"resources":["none","garden","spider","orca"],"stances":["neutral","ally","dead","ruler"],"limits":"State-derived scene and rule checks; not exhaustive sequences of all choices."}
+✔ same-year choice determines the next branch; skipped alternative never replays (80.183625ms)
+✔ same-year canonical chronology runs reunion before sacrifice and divine war (174.861834ms)
+✔ unmet prerequisites are deferred, not silently consumed (61.651625ms)
+✔ current allegiance replaces birth restrictions and mutually exclusive route flags (89.923916ms)
+✔ unresolved views and choice conditions follow live state; settled views remain immutable (35.293083ms)
+✔ claimed resources match alternate names, and dead owners cannot falsely recover levels (12.618792ms)
+✔ titled showdown is an actual combat gate and rank does not become a junior errand (176.74075ms)
+✔ saved master and protected Xiaowu are not declared dead or reduced to remains (138.956042ms)
+✔ all origins and faction chapters crossed with level, affiliation, opportunity and stance (13937.635667ms)
+✔ legacy pending branches migrate without replaying already completed history (15.682708ms)
+✔ Tangmen and Shrek share a faction; slain leaders cannot revive through diplomatic fallback (11.946292ms)
+✔ junior faction members cannot sign continent-wide orders in changed storylines (10.780458ms)
+Divine worldline combinations: 327680
+✔ exhaustive finite divine roster matrix: paths, lives, divinity, faction, bonds, seats and era (4872.485541ms)
+✔ canonical pair selection, double-seat Tang San and stolen seats remain coherent (20.338959ms)
+✔ support uses living allies, current resources and capped contributions; never the enemy twice (120.80725ms)
+✔ preparations charge once, require available allies/resources, and the battle uses displayed powers (206.863709ms)
+✔ unprepared players cannot use disruption or free sacrificial victory; fallen gods cannot reascend directly (182.166083ms)
+✔ fusion failure records combat victory separately and enforces two-season recovery without spending another action (151.9925ms)
+✔ resolved divine battle keeps its roster after world changes and reload (50.267958ms)
+✔ sacrificial ending requires high power, seals actual seats, and does not kill allied characters (100.198417ms)
+Actual nine-trial runs 50
+✔ final equipment requires each regular bone slot, all equipped bones of myriad quality, and three rare rings (36.033042ms)
+✔ every awakened spirit needs nine attached rings, while sealed rings and vessels do not count (56.537042ms)
+✔ all combat previews match actual enhanced enemies, including divine and deceased rivals (16.894375ms)
+✔ kill challenge requires full enhanced power; thunder requires both stats without consuming actions (173.160416ms)
+✔ old unfinished trials restart at strengthened combat, completed gods retain their status (41.641583ms)
+✔ all origins and five paths can actually complete nine trials using an exceptional build (11047.406042ms)
+✔ ascension rechecks equipment and cannot skip enhanced combat evidence (17.851208ms)
+✔ rare location is marked before entry, stays stable on reopen/reload, clears after death or season change (69.166541ms)
+✔ cached living sightings mark only their own zone and defeated trophies do not mark red (11.67775ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14938.037959
