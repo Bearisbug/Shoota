@@ -1,0 +1,30 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-10-21",
+  "outputs": [
+    {
+      "id": "yexiao",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide photographic game cover for shoota platform. Generate one single landscape photograph in 2.2:1 aspect ratio, realistic editorial photography with tactile materials, soft restrained natural/practical lighting, muted colors, low specular highlights, deep but detailed shadows, no bloom, no lens flare, no neon excess, no illustration, no 3D-render look. Main storytelling subject in right 55%; left 40% quiet dark low-detail negative space for website title overlay. No text, no logos, no watermarks. Scene: a lived-in Chinese neighborhood late-night street food stall. On the right a cook in a simple apron tends a seasoned wok at a modest stainless counter, vegetables and skewers, a faint thread of steam, seated patrons softly out of focus further down the lane. Left side shaded stall awning and empty dark foreground. Warm small practical lamps balanced by cool dusk, dry matte paving, realistic documentary street photography, welcoming modest business rather than glamorous restaurant.",
+      "output": "public/covers/yexiao.jpg",
+      "original": "/Users/leizhang/.codex/generated_images/01a15a65-268e-7803-8682-77ad5cf6f06c/exec-035e895f-c187-4f0c-9d7f-ac8d05ecd8fa.png"
+    },
+    {
+      "id": "hougong",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide photographic game cover for shoota platform. Generate one single landscape photograph in 2.2:1 aspect ratio, realistic editorial photography with tactile materials, soft restrained natural/practical lighting, muted colors, low specular highlights, deep but detailed shadows, no bloom, no lens flare, no neon excess, no illustration, no 3D-render look. Main storytelling subject in right 55%; left 40% quiet dark low-detail negative space for website title overlay. No text, no logos, no watermarks. Scene: a believable Qing-era imperial palace corridor, photographed like a restrained historical film still. On the right an adult court woman seen from behind in refined muted burgundy embroidered period dress and modest traditional hair ornaments, pauses beside a carved red wooden doorway looking into a quiet inner court. A second distant figure in the courtyard subtly suggests court intrigue. Left side shadowed wooden columns and dim silk screen. Overcast daylight, aged red lacquer, subdued gold details, natural silk texture, no magical glow, no modern objects, no lavish overexposed gold.",
+      "output": "public/covers/hougong.jpg",
+      "original": "/Users/leizhang/.codex/generated_images/01a15a65-268e-7803-8682-77ad5cf6f06c/exec-789629c0-59fd-47e9-8198-9f6156ecac76.png"
+    },
+    {
+      "id": "lol",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide photographic game cover for shoota platform. Generate one single landscape photograph in 2.2:1 aspect ratio, realistic editorial photography with tactile materials, soft restrained natural/practical lighting, muted colors, low specular highlights, deep but detailed shadows, no bloom, no lens flare, no neon excess, no illustration, no 3D-render look. Main storytelling subject in right 55%; left 40% quiet dark low-detail negative space for website title overlay. No text, no logos, no watermarks. Scene: professional League of Legends esports team preparation room, grounded documentary photograph. Right side a coach in dark casual teamwear viewed from behind standing beside two seated adult players in headsets reviewing a desktop screen in a row of training PCs. Screen content only subtle abstract blurred top-down multiplayer arena colors, no legible writing. Left side a dark quiet doorway and low-lit desk edge. Soft daylight from high windows, restrained blue monitor fill, matte black equipment, human strategic focus, no RGB light show, no stage lasers, no logos.",
+      "output": "public/covers/lol.jpg",
+      "original": "/Users/leizhang/.codex/generated_images/01a15a65-268e-7803-8682-77ad5cf6f06c/exec-5af83a81-b051-48c8-92cb-ff4ab482f4ba.png"
+    },
+    {
+      "id": "yike",
+      "prompt": "Use case: photorealistic-natural. Asset type: wide photographic game cover for shoota platform. Generate one single landscape photograph in 2.2:1 aspect ratio, realistic editorial photography with tactile materials, soft restrained natural/practical lighting, muted colors, low specular highlights, deep but detailed shadows, no bloom, no lens flare, no neon excess, no illustration, no 3D-render look. Main storytelling subject in right 55%; left 40% quiet dark low-detail negative space for website title overlay. No text, no logos, no watermarks. Scene: close editorial photograph inside an old Chinese herbal apothecary. On the right an accurate traditional small handheld Chinese steelyard scale (dengzi): a slender horizontal graduated beam, one small suspended brass pan holding a few dried herb slices, a sliding counterweight; an apothecary's adult hand gently holds the suspension cord while weighing. Kraft paper with herbs on weathered dark wood counter, rows of wooden medicine drawers softly blurred behind. Left side quiet shadowed counter area for title. Soft window light reveals brass patina and dry herb textures without shiny highlights; careful precise calm mood. No modern digital scale, no symmetrical two-pan balance.",
+      "output": "public/covers/yike.jpg",
+      "original": "/Users/leizhang/.codex/generated_images/01a15a65-268e-7803-8682-77ad5cf6f06c/exec-2705dc30-b844-4775-a911-007a3f2ad026.png"
+    }
+  ]
+}
