@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-21",
+  "generator": "Built-in image_gen",
+  "styleReference": "public/covers/f1-driver.jpg",
+  "assets": [
+    {
+      "id": "f1",
+      "output": "public/covers/f1-manager.jpg",
+      "originalGeneratedFile": "exec-1d0e7600-7733-4b79-a86c-f37ca5dfa38d.png",
+      "prompt": "Use case: photorealistic-natural. Create one new wide 2.19:1 game-store cover. Use the supplied F1 Driver image ONLY as a reference for restrained documentary photography, matte surfaces, natural color, soft diffuse light, low highlights and believable scale. Do not copy its subject. One coherent photograph, no montage, no illustration or CGI, no glossy HDR, no glow, no lens flare, no bright spotlights. Keep shadows detailed and mids readable, whites softly rolled off. Compose the specific subject on the right 60 percent and naturally darker quiet negative space on the lower left 45 percent for HTML title text. No text, no numbers, no logos, no watermark. Authentic human anatomy and realistic equipment. Scene: a professional open-wheel racing pit wall, eye-level documentary shot from inside the shaded pit stand looking toward a dry overcast circuit. On the right a team principal in a plain charcoal team shirt and communication headset, three-quarter back view, leaning slightly toward two realistic small timing monitors while watching an unbranded deep red single-seater in the pit lane beyond. Dark shaded work console on left, blurred garage and pit lane background. Real carbon and aluminum, understated red accents, tactical focus and team management, physically plausible monitors, ordinary adult proportions. The principal is the central subject, the car a secondary element."
+    },
+    {
+      "id": "nba",
+      "output": "public/covers/nba-manager.jpg",
+      "originalGeneratedFile": "exec-08a57258-30c2-433a-898d-2b8383a1b0b3.png",
+      "prompt": "Use case: photorealistic-natural. Create one new wide 2.19:1 game-store cover. Use the supplied F1 Driver image ONLY as a reference for restrained documentary photography, matte surfaces, natural color, soft diffuse light, low highlights and believable scale. Do not copy its subject. One coherent photograph, no montage, no illustration or CGI, no glossy HDR, no glow, no lens flare, no bright spotlights. Keep shadows detailed and mids readable, whites softly rolled off. Compose the specific subject on the right 60 percent and naturally darker quiet negative space on the lower left 45 percent for HTML title text. No text, no numbers, no logos, no watermark. Authentic human anatomy and realistic equipment. Scene: a large American professional basketball arena during a quiet pregame session, photographed from the bench at natural eye level. On the right a middle-aged coach in a dark charcoal suit, three-quarter back view, holding a small realistic tactics clipboard while observing a few distant adult players in plain navy practice uniforms on the hardwood. An orange basketball rests on an adjacent bench seat, arena tiers recede naturally in the background, regulation basket in mid-distance. Left foreground is an out-of-focus dark bench and scorer table, not a flat solid fill. Muted navy, warm wood, restrained amber accents. Focus on roster planning and courtside decisions, no superstar portrait, no spectacular dunk, no dramatic shiny floor."
+    },
+    {
+      "id": "cba",
+      "output": "public/covers/cba-manager.jpg",
+      "originalGeneratedFile": "exec-1b0c32e9-3e0d-4497-8b31-d7aebb789f9a.png",
+      "prompt": "Use case: photorealistic-natural. Create one new wide 2.19:1 game-store cover. Use the supplied F1 Driver image ONLY as a reference for restrained documentary photography, matte surfaces, natural color, soft diffuse light, low highlights and believable scale. Do not copy its subject. One coherent photograph, no montage, no illustration or CGI, no glossy HDR, no glow, no lens flare, no bright spotlights. Keep shadows detailed and mids readable, whites softly rolled off. Compose the specific subject on the right 60 percent and naturally darker quiet negative space on the lower left 45 percent for HTML title text. No text, no numbers, no logos, no watermark. Authentic human anatomy and realistic equipment. Scene: an authentic modern Chinese professional indoor basketball arena before practice, photographed courtside at natural eye level. On the right a middle-aged East Asian head coach wearing a plain deep red training jacket, in three-quarter side/back view, discussing a small tactics clipboard with one adult assistant in charcoal sportswear; normal hands and limbs. A few distant adult players warming up on the court, regulation basket and empty dark red seating in background. Left foreground is quiet dark bench seating and softly blurred courtside equipment for title placement. Neutral skin tones, restrained red accents, muted warm maple wood, realistic quiet gym lighting. Focus on team building and coaching decisions, no national flags or propaganda, no prominent league or team logos, no giant foreground basketball, no glossy floor or strong overhead glare."
+    }
+  ]
+}

@@ -8,7 +8,7 @@
 | --- | --- |
 | `public/index.html` | 平台：商店、游戏库、存档页。商店里的游戏列表是文件里的 `CATALOG`，顺序就是商店里的顺序 |
 | `public/games/<id>.html` | 每款游戏一个单文件 HTML |
-| `public/covers/*.jpg` | 三款新游戏的专属封面，商店、详情和游戏库共用 |
+| `public/covers/*.jpg` | 本地摄影风格封面，商店、详情和游戏库共用 |
 | `brand/` | 视觉系统：颜色、字体、间距等参数，标志、图标和样例页 `brand/index.html`，规范见 `brand/DESIGN.md` |
 | `public/brand/` | `brand/` 里平台用到的文件的发布副本，内容必须与 `brand/` 逐字节一致 |
 | `scripts/check.mjs` | 质量门：检查内嵌脚本语法、`CATALOG` 登记的游戏与封面文件都存在，以及 `public/brand/` 与 `brand/` 一致 |
