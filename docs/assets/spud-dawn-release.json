@@ -1,0 +1,9 @@
+{
+  "source": "spud-dawn-standalone.zip/index.html",
+  "zipSHA256": "cd79dd491f289783c96e490999bf08306daca87ea5f30e8f0aa975adf52f2688",
+  "sourceAndPublishedSHA256": "497631f4e272baeac2e21d94fe50b77b3a9cee52c98e799e3dd75e2c4064777b",
+  "size": 3080669,
+  "adaptations": [],
+  "cover": "public/covers/spud-dawn.jpg",
+  "coverTool": "built-in image_gen"
+}
