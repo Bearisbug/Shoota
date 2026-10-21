@@ -1,0 +1,131 @@
+{
+ "TC-008": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": "shoota 看板 · 登录"
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": "密码不对，还能试 4 次。"
+   },
+   {
+    "step": 3,
+    "pass": true,
+    "actual": [
+     "概览",
+     "每日趋势 · 近 30 天",
+     "留存 · 近 60 天首访的旅客",
+     "游戏排行 · 近 30 天",
+     "来源与设备 · 近 30 天活跃旅客"
+    ]
+   },
+   {
+    "step": 4,
+    "pass": true,
+    "actual": "重新打开直接显示概览"
+   }
+  ]
+ },
+ "TC-010": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": {
+     "status": 401,
+     "body": {
+      "type": "/errors/not-logged-in",
+      "title": "看板会话不存在或已过期",
+      "status": 401,
+      "instance": "a4df8887be3d20e9"
+     }
+    }
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": {
+     "status": 401,
+     "body": {
+      "type": "/errors/not-logged-in",
+      "title": "看板会话不存在或已过期",
+      "status": 401,
+      "instance": "a4df888d9e650ec0"
+     }
+    }
+   },
+   {
+    "step": 3,
+    "pass": true,
+    "actual": {
+     "status": 401,
+     "body": {
+      "type": "/errors/not-logged-in",
+      "title": "看板会话不存在或已过期",
+      "status": 401,
+      "instance": "a4df8898fe62f91e"
+     }
+    }
+   }
+  ]
+ },
+ "TC-016": {
+  "pass": true,
+  "steps": [
+   {
+    "step": 1,
+    "pass": true,
+    "actual": {
+     "旅客": "7bb1841a32073061aea3f93ddb3e8469",
+     "顶栏": "本次 2 分钟",
+     "首次打开的导航": [
+      "https://shoota.ai/",
+      "http://shoota.ai/move#r=",
+      "https://shoota.ai/#move=&r=",
+      "https://shoota.ai/"
+     ]
+    }
+   },
+   {
+    "step": 2,
+    "pass": true,
+    "actual": {
+     "今日活跃": "≥ 1（线上真实数值不入库）",
+     "今日游玩时长": "≥ 2 分钟（线上真实数值不入库）"
+    }
+   }
+  ]
+ },
+ "搬家旁证": {
+  "关升级": {
+   "首次导航": [
+    "https://shoota.ai/#backup",
+    "http://shoota.ai/move#r=backup",
+    "https://shoota.ai/#move=&r=backup",
+    "https://shoota.ai/#backup"
+   ],
+   "停在": "https://shoota.ai/#backup",
+   "标题": "备份 / 恢复进度",
+   "刷新导航": [
+    "https://shoota.ai/#backup"
+   ],
+   "标记": "done"
+  },
+  "开升级": {
+   "首次导航": [
+    "https://shoota.ai/#backup",
+    "https://shoota.ai/move#r=backup",
+    "https://shoota.ai/#move=&r=backup",
+    "https://shoota.ai/#backup"
+   ],
+   "停在": "https://shoota.ai/#backup",
+   "标题": "备份 / 恢复进度",
+   "标记": "done"
+  }
+ }
+}

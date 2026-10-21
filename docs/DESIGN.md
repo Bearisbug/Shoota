@@ -283,7 +283,7 @@ erDiagram
 
 - `ENT-Visitor`：表 `visitors`，一个旅客一行，首次上报时写入，之后不改。
 - `ENT-Visitor` 被合并掉时整行删除，见 `API-005`。
-- 待签字：`visitors.prior` 列，2026-10-21 提出，签字前不在线上执行迁移。
+- 已签字：`visitors.prior` 列，用户 2026-10-21 签字，同日上线。
 - `ENT-VisitorDay`：表 `visitor_days`，一个旅客一个北京日期一行，累加访问、时长、备份与恢复次数。
 - `ENT-GameDay`：表 `game_days`，一个旅客一款游戏一个北京日期一行，累加开局与时长。
 - `ENT-LoginGuard`：表 `login_guards`，一个 IP 摘要一行，记看板登录失败次数与锁定到期时间。
@@ -328,7 +328,7 @@ erDiagram
   - 响应：204 无正文；带内部标记 `sk_staff` 时同样 204，但不写库
   - 错误：400 `/errors/bad-merge`
   - 幂等：幂等，重发时 `from` 已经没有行，什么都不改
-  - 待签字：2026-10-21 提出，签字前不上线
+  - 已签字：用户 2026-10-21 签字，同日上线
 
 演进与弃用：
 
@@ -753,7 +753,7 @@ flowchart LR
 | 容量按 §15 验证 | 未压测：按 §15 免费额度估算，上线后按 §21 每周看用量 |
 | 回滚演练 | 过：Worker 回滚与数据库恢复都演练过，见 `docs/DEPLOY.md` 第 10 节 |
 | 用户文档同步 | N-A，看板只给内部用，玩家侧界面无变化 |
-| 强制 https 换成放行搬家页的跳转规则 | 待执行：签字后先改 Cloudflare 规则，确认 `http://shoota.ai/move` 不再跳 https 后推送，步骤记进 DEPLOY.md |
+| 强制 https 换成放行搬家页的跳转规则 | 过：2026-10-21 先改规则，确认 `/move` 不再跳 https 后推送 2a1ea03，见 DEPLOY.md 第 10 节 |
 
 ## 24. 契约同步与防漂移机制
 
