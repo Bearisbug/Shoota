@@ -1,0 +1,11 @@
+{
+  "bytes": 2254949,
+  "sha256": "dce0754f3783d8d034863d621ced4a38d828988470b6eedde2b897e2e71676c0",
+  "onlyDifference": {
+    "line": 4445,
+    "before": "space + newline",
+    "after": "newline"
+  },
+  "semanticsChanged": false,
+  "trialMatchesDist": true
+}

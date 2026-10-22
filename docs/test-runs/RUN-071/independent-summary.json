@@ -1,0 +1,33 @@
+{
+  "sha256": "85f45aa0a093692244a1ac55fc55234f0a8cae6af61e34c993852cab30e4f308",
+  "bytes": 2254950,
+  "modalStates": 380,
+  "modalIssues": 0,
+  "criticalScenarios": 10,
+  "criticalControlChecks": 160,
+  "criticalStartHash": "85f45aa0a093692244a1ac55fc55234f0a8cae6af61e34c993852cab30e4f308",
+  "criticalEndHash": "85f45aa0a093692244a1ac55fc55234f0a8cae6af61e34c993852cab30e4f308",
+  "pageErrors": 0,
+  "sizes": [
+    [
+      375,
+      560
+    ],
+    [
+      390,
+      650
+    ],
+    [
+      320,
+      560
+    ],
+    [
+      768,
+      850
+    ],
+    [
+      1440,
+      800
+    ]
+  ]
+}

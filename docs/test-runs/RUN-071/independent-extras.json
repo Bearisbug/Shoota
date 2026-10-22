@@ -1,0 +1,4207 @@
+[
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-auto",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"staffing\"]",
+        "action": "hr-desk",
+        "text": "一键补岗"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "人事托管"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"history\"]",
+        "action": "hr-desk",
+        "text": "执行记录"
+      },
+      {
+        "selector": "[data-action=\"hr-recruit\"]",
+        "action": "hr-recruit",
+        "text": "聘请人事经理"
+      },
+      {
+        "selector": "[data-action=\"command-center\"]",
+        "action": "command-center",
+        "text": "返回人员名单 / 手动调店"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-history",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"history\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"staffing\"]",
+        "action": "hr-desk",
+        "text": "一键补岗"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "人事托管"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"history\"]",
+        "action": "hr-desk",
+        "text": "执行记录"
+      },
+      {
+        "selector": "[data-action=\"command-center\"]",
+        "action": "command-center",
+        "text": "返回人员名单 / 手动调店"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "trade-buy",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"companies\"]",
+      "[data-action=\"company-mode\"][data-mode=\"investment\"]",
+      "[data-action=\"trade\"][data-type=\"buy\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "取消"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "ranking-notes",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"nav\"][data-tab=\"rankings\"]",
+      "[data-action=\"ranking-notes\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "回到榜单"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "global-rivals",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-rivals\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "global-ledger",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-ledger\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "global-expand-form",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-expand-form\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "global-exit-confirm",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-exit-confirm\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"global-exit\"]",
+        "action": "global-exit",
+        "text": "确认撤出"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "delete-save",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"save-menu\"]",
+      "[data-action=\"profile-manual-save\"]",
+      "[data-action=\"profile-delete\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"slots\"]",
+        "action": "profile-mode",
+        "text": "保留"
+      },
+      {
+        "selector": "[data-action=\"profile-delete-confirm\"]",
+        "action": "profile-delete-confirm",
+        "text": "删除这份存档"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-auto-hr-recruit-9",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"hr-recruit\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "返回人事托管"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-auto-command-center-10",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "delete-save-profile-mode-11",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"save-menu\"]",
+      "[data-action=\"profile-manual-save\"]",
+      "[data-action=\"profile-delete\"]",
+      "[data-action=\"profile-mode\"][data-mode=\"slots\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"profiles\"]",
+        "action": "profile-mode",
+        "text": "玩家档案"
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"slots\"]",
+        "action": "profile-mode",
+        "text": "存档槽 · 2"
+      },
+      {
+        "selector": "[data-action=\"profile-new\"]",
+        "action": "profile-new",
+        "text": "+ 新玩家"
+      },
+      {
+        "selector": "[data-action=\"profile-load\"]",
+        "action": "profile-load",
+        "text": "读取并继续"
+      },
+      {
+        "selector": "[data-action=\"profile-load\"]",
+        "action": "profile-load",
+        "text": "读取并继续"
+      },
+      {
+        "selector": "[data-action=\"profile-delete\"]",
+        "action": "profile-delete",
+        "text": "删除"
+      },
+      {
+        "selector": "[data-action=\"profile-manual-save\"]",
+        "action": "profile-manual-save",
+        "text": "手动保存一份"
+      },
+      {
+        "selector": "[data-action=\"export\"]",
+        "action": "export",
+        "text": "导出JSON"
+      },
+      {
+        "selector": "[data-action=\"new\"]",
+        "action": "new",
+        "text": "重开本玩家"
+      },
+      {
+        "selector": "[data-action=\"import\"]",
+        "action": "import",
+        "text": "导入JSON"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-auto-command-center-10-command-center-12",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"team\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-auto-command-center-10-command-center-13",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"budget\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"manager-policy\"]",
+        "action": "manager-policy",
+        "text": "设置店长预算"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-auto-command-center-10-command-center-14",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"report\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-auto-command-center-10-command-center-15",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"world\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-auto-command-center-10-staff-edit-16",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"staff-edit\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"staff-promote\"]",
+        "action": "staff-promote",
+        "text": "培养晋升 · 690元"
+      },
+      {
+        "selector": "[data-action=\"staff-dismiss\"]",
+        "action": "staff-dismiss",
+        "text": "离职结算 · 138元"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-auto-command-center-10-manager-performance-17",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"manager-performance\"][data-mode=\"person\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"store\"]",
+        "action": "manager-performance",
+        "text": "门店近8周"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "店长任职业绩"
+      },
+      {
+        "selector": "[data-action=\"manager-policy\"]",
+        "action": "manager-policy",
+        "text": "调整预算"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"][data-page=\"1\"]",
+        "action": "manager-performance",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 560,
+    "name": "hr-auto-command-center-10-command-page-18",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-page\"][data-step=\"1\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"-1\"]",
+        "action": "command-page",
+        "text": "上一页"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-auto",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"staffing\"]",
+        "action": "hr-desk",
+        "text": "一键补岗"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "人事托管"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"history\"]",
+        "action": "hr-desk",
+        "text": "执行记录"
+      },
+      {
+        "selector": "[data-action=\"hr-recruit\"]",
+        "action": "hr-recruit",
+        "text": "聘请人事经理"
+      },
+      {
+        "selector": "[data-action=\"command-center\"]",
+        "action": "command-center",
+        "text": "返回人员名单 / 手动调店"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-history",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"history\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"staffing\"]",
+        "action": "hr-desk",
+        "text": "一键补岗"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "人事托管"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"history\"]",
+        "action": "hr-desk",
+        "text": "执行记录"
+      },
+      {
+        "selector": "[data-action=\"command-center\"]",
+        "action": "command-center",
+        "text": "返回人员名单 / 手动调店"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "trade-buy",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"companies\"]",
+      "[data-action=\"company-mode\"][data-mode=\"investment\"]",
+      "[data-action=\"trade\"][data-type=\"buy\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "取消"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "ranking-notes",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"nav\"][data-tab=\"rankings\"]",
+      "[data-action=\"ranking-notes\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "回到榜单"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "global-rivals",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-rivals\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "global-ledger",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-ledger\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "global-expand-form",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-expand-form\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "global-exit-confirm",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-exit-confirm\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"global-exit\"]",
+        "action": "global-exit",
+        "text": "确认撤出"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "delete-save",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"save-menu\"]",
+      "[data-action=\"profile-manual-save\"]",
+      "[data-action=\"profile-delete\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"slots\"]",
+        "action": "profile-mode",
+        "text": "保留"
+      },
+      {
+        "selector": "[data-action=\"profile-delete-confirm\"]",
+        "action": "profile-delete-confirm",
+        "text": "删除这份存档"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-auto-hr-recruit-9",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"hr-recruit\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "返回人事托管"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-auto-command-center-10",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "delete-save-profile-mode-11",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"save-menu\"]",
+      "[data-action=\"profile-manual-save\"]",
+      "[data-action=\"profile-delete\"]",
+      "[data-action=\"profile-mode\"][data-mode=\"slots\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"profiles\"]",
+        "action": "profile-mode",
+        "text": "玩家档案"
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"slots\"]",
+        "action": "profile-mode",
+        "text": "存档槽 · 2"
+      },
+      {
+        "selector": "[data-action=\"profile-new\"]",
+        "action": "profile-new",
+        "text": "+ 新玩家"
+      },
+      {
+        "selector": "[data-action=\"profile-load\"]",
+        "action": "profile-load",
+        "text": "读取并继续"
+      },
+      {
+        "selector": "[data-action=\"profile-load\"]",
+        "action": "profile-load",
+        "text": "读取并继续"
+      },
+      {
+        "selector": "[data-action=\"profile-delete\"]",
+        "action": "profile-delete",
+        "text": "删除"
+      },
+      {
+        "selector": "[data-action=\"profile-manual-save\"]",
+        "action": "profile-manual-save",
+        "text": "手动保存一份"
+      },
+      {
+        "selector": "[data-action=\"export\"]",
+        "action": "export",
+        "text": "导出JSON"
+      },
+      {
+        "selector": "[data-action=\"new\"]",
+        "action": "new",
+        "text": "重开本玩家"
+      },
+      {
+        "selector": "[data-action=\"import\"]",
+        "action": "import",
+        "text": "导入JSON"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-auto-command-center-10-command-center-12",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"team\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-auto-command-center-10-command-center-13",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"budget\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"manager-policy\"]",
+        "action": "manager-policy",
+        "text": "设置店长预算"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-auto-command-center-10-command-center-14",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"report\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-auto-command-center-10-command-center-15",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"world\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-auto-command-center-10-staff-edit-16",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"staff-edit\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"staff-promote\"]",
+        "action": "staff-promote",
+        "text": "培养晋升 · 690元"
+      },
+      {
+        "selector": "[data-action=\"staff-dismiss\"]",
+        "action": "staff-dismiss",
+        "text": "离职结算 · 138元"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-auto-command-center-10-manager-performance-17",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"manager-performance\"][data-mode=\"person\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"store\"]",
+        "action": "manager-performance",
+        "text": "门店近8周"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "店长任职业绩"
+      },
+      {
+        "selector": "[data-action=\"manager-policy\"]",
+        "action": "manager-policy",
+        "text": "调整预算"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"][data-page=\"1\"]",
+        "action": "manager-performance",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "name": "hr-auto-command-center-10-command-page-18",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-page\"][data-step=\"1\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"-1\"]",
+        "action": "command-page",
+        "text": "上一页"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-auto",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"staffing\"]",
+        "action": "hr-desk",
+        "text": "一键补岗"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "人事托管"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"history\"]",
+        "action": "hr-desk",
+        "text": "执行记录"
+      },
+      {
+        "selector": "[data-action=\"hr-recruit\"]",
+        "action": "hr-recruit",
+        "text": "聘请人事经理"
+      },
+      {
+        "selector": "[data-action=\"command-center\"]",
+        "action": "command-center",
+        "text": "返回人员名单 / 手动调店"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-history",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"history\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"staffing\"]",
+        "action": "hr-desk",
+        "text": "一键补岗"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "人事托管"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"history\"]",
+        "action": "hr-desk",
+        "text": "执行记录"
+      },
+      {
+        "selector": "[data-action=\"command-center\"]",
+        "action": "command-center",
+        "text": "返回人员名单 / 手动调店"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "trade-buy",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"companies\"]",
+      "[data-action=\"company-mode\"][data-mode=\"investment\"]",
+      "[data-action=\"trade\"][data-type=\"buy\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "取消"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "ranking-notes",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"nav\"][data-tab=\"rankings\"]",
+      "[data-action=\"ranking-notes\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "回到榜单"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "global-rivals",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-rivals\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "global-ledger",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-ledger\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "global-expand-form",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-expand-form\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "global-exit-confirm",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-exit-confirm\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"global-exit\"]",
+        "action": "global-exit",
+        "text": "确认撤出"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "delete-save",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"save-menu\"]",
+      "[data-action=\"profile-manual-save\"]",
+      "[data-action=\"profile-delete\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"slots\"]",
+        "action": "profile-mode",
+        "text": "保留"
+      },
+      {
+        "selector": "[data-action=\"profile-delete-confirm\"]",
+        "action": "profile-delete-confirm",
+        "text": "删除这份存档"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-auto-hr-recruit-9",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"hr-recruit\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "返回人事托管"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-auto-command-center-10",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "delete-save-profile-mode-11",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"save-menu\"]",
+      "[data-action=\"profile-manual-save\"]",
+      "[data-action=\"profile-delete\"]",
+      "[data-action=\"profile-mode\"][data-mode=\"slots\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"profiles\"]",
+        "action": "profile-mode",
+        "text": "玩家档案"
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"slots\"]",
+        "action": "profile-mode",
+        "text": "存档槽 · 2"
+      },
+      {
+        "selector": "[data-action=\"profile-new\"]",
+        "action": "profile-new",
+        "text": "+ 新玩家"
+      },
+      {
+        "selector": "[data-action=\"profile-load\"]",
+        "action": "profile-load",
+        "text": "读取并继续"
+      },
+      {
+        "selector": "[data-action=\"profile-load\"]",
+        "action": "profile-load",
+        "text": "读取并继续"
+      },
+      {
+        "selector": "[data-action=\"profile-delete\"]",
+        "action": "profile-delete",
+        "text": "删除"
+      },
+      {
+        "selector": "[data-action=\"profile-manual-save\"]",
+        "action": "profile-manual-save",
+        "text": "手动保存一份"
+      },
+      {
+        "selector": "[data-action=\"export\"]",
+        "action": "export",
+        "text": "导出JSON"
+      },
+      {
+        "selector": "[data-action=\"new\"]",
+        "action": "new",
+        "text": "重开本玩家"
+      },
+      {
+        "selector": "[data-action=\"import\"]",
+        "action": "import",
+        "text": "导入JSON"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-auto-command-center-10-command-center-12",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"team\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-auto-command-center-10-command-center-13",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"budget\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"manager-policy\"]",
+        "action": "manager-policy",
+        "text": "设置店长预算"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-auto-command-center-10-command-center-14",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"report\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-auto-command-center-10-command-center-15",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"world\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-auto-command-center-10-staff-edit-16",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"staff-edit\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"staff-promote\"]",
+        "action": "staff-promote",
+        "text": "培养晋升 · 690元"
+      },
+      {
+        "selector": "[data-action=\"staff-dismiss\"]",
+        "action": "staff-dismiss",
+        "text": "离职结算 · 138元"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-auto-command-center-10-manager-performance-17",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"manager-performance\"][data-mode=\"person\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"store\"]",
+        "action": "manager-performance",
+        "text": "门店近8周"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "店长任职业绩"
+      },
+      {
+        "selector": "[data-action=\"manager-policy\"]",
+        "action": "manager-policy",
+        "text": "调整预算"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"][data-page=\"1\"]",
+        "action": "manager-performance",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 560,
+    "name": "hr-auto-command-center-10-command-page-18",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-page\"][data-step=\"1\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"-1\"]",
+        "action": "command-page",
+        "text": "上一页"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-auto",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"staffing\"]",
+        "action": "hr-desk",
+        "text": "一键补岗"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "人事托管"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"history\"]",
+        "action": "hr-desk",
+        "text": "执行记录"
+      },
+      {
+        "selector": "[data-action=\"hr-recruit\"]",
+        "action": "hr-recruit",
+        "text": "聘请人事经理"
+      },
+      {
+        "selector": "[data-action=\"command-center\"]",
+        "action": "command-center",
+        "text": "返回人员名单 / 手动调店"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-history",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"history\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"staffing\"]",
+        "action": "hr-desk",
+        "text": "一键补岗"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "人事托管"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"history\"]",
+        "action": "hr-desk",
+        "text": "执行记录"
+      },
+      {
+        "selector": "[data-action=\"command-center\"]",
+        "action": "command-center",
+        "text": "返回人员名单 / 手动调店"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "trade-buy",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"companies\"]",
+      "[data-action=\"company-mode\"][data-mode=\"investment\"]",
+      "[data-action=\"trade\"][data-type=\"buy\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "取消"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "ranking-notes",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"nav\"][data-tab=\"rankings\"]",
+      "[data-action=\"ranking-notes\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "回到榜单"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "global-rivals",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-rivals\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "global-ledger",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-ledger\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "global-expand-form",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-expand-form\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "global-exit-confirm",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-exit-confirm\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"global-exit\"]",
+        "action": "global-exit",
+        "text": "确认撤出"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "delete-save",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"save-menu\"]",
+      "[data-action=\"profile-manual-save\"]",
+      "[data-action=\"profile-delete\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"slots\"]",
+        "action": "profile-mode",
+        "text": "保留"
+      },
+      {
+        "selector": "[data-action=\"profile-delete-confirm\"]",
+        "action": "profile-delete-confirm",
+        "text": "删除这份存档"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-auto-hr-recruit-9",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"hr-recruit\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "返回人事托管"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-auto-command-center-10",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "delete-save-profile-mode-11",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"save-menu\"]",
+      "[data-action=\"profile-manual-save\"]",
+      "[data-action=\"profile-delete\"]",
+      "[data-action=\"profile-mode\"][data-mode=\"slots\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"profiles\"]",
+        "action": "profile-mode",
+        "text": "玩家档案"
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"slots\"]",
+        "action": "profile-mode",
+        "text": "存档槽 · 2"
+      },
+      {
+        "selector": "[data-action=\"profile-new\"]",
+        "action": "profile-new",
+        "text": "+ 新玩家"
+      },
+      {
+        "selector": "[data-action=\"profile-load\"]",
+        "action": "profile-load",
+        "text": "读取并继续"
+      },
+      {
+        "selector": "[data-action=\"profile-load\"]",
+        "action": "profile-load",
+        "text": "读取并继续"
+      },
+      {
+        "selector": "[data-action=\"profile-delete\"]",
+        "action": "profile-delete",
+        "text": "删除"
+      },
+      {
+        "selector": "[data-action=\"profile-manual-save\"]",
+        "action": "profile-manual-save",
+        "text": "手动保存一份"
+      },
+      {
+        "selector": "[data-action=\"export\"]",
+        "action": "export",
+        "text": "导出JSON"
+      },
+      {
+        "selector": "[data-action=\"new\"]",
+        "action": "new",
+        "text": "重开本玩家"
+      },
+      {
+        "selector": "[data-action=\"import\"]",
+        "action": "import",
+        "text": "导入JSON"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-auto-command-center-10-command-center-12",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"team\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-auto-command-center-10-command-center-13",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"budget\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"manager-policy\"]",
+        "action": "manager-policy",
+        "text": "设置店长预算"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-auto-command-center-10-command-center-14",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"report\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-auto-command-center-10-command-center-15",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"world\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-auto-command-center-10-staff-edit-16",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"staff-edit\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"staff-promote\"]",
+        "action": "staff-promote",
+        "text": "培养晋升 · 690元"
+      },
+      {
+        "selector": "[data-action=\"staff-dismiss\"]",
+        "action": "staff-dismiss",
+        "text": "离职结算 · 138元"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-auto-command-center-10-manager-performance-17",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"manager-performance\"][data-mode=\"person\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"store\"]",
+        "action": "manager-performance",
+        "text": "门店近8周"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "店长任职业绩"
+      },
+      {
+        "selector": "[data-action=\"manager-policy\"]",
+        "action": "manager-policy",
+        "text": "调整预算"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"][data-page=\"1\"]",
+        "action": "manager-performance",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 850,
+    "name": "hr-auto-command-center-10-command-page-18",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-page\"][data-step=\"1\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"-1\"]",
+        "action": "command-page",
+        "text": "上一页"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-auto",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"staffing\"]",
+        "action": "hr-desk",
+        "text": "一键补岗"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "人事托管"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"history\"]",
+        "action": "hr-desk",
+        "text": "执行记录"
+      },
+      {
+        "selector": "[data-action=\"hr-recruit\"]",
+        "action": "hr-recruit",
+        "text": "聘请人事经理"
+      },
+      {
+        "selector": "[data-action=\"command-center\"]",
+        "action": "command-center",
+        "text": "返回人员名单 / 手动调店"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-history",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"history\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"staffing\"]",
+        "action": "hr-desk",
+        "text": "一键补岗"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "人事托管"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"history\"]",
+        "action": "hr-desk",
+        "text": "执行记录"
+      },
+      {
+        "selector": "[data-action=\"command-center\"]",
+        "action": "command-center",
+        "text": "返回人员名单 / 手动调店"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "trade-buy",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"companies\"]",
+      "[data-action=\"company-mode\"][data-mode=\"investment\"]",
+      "[data-action=\"trade\"][data-type=\"buy\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "取消"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "ranking-notes",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"nav\"][data-tab=\"rankings\"]",
+      "[data-action=\"ranking-notes\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "回到榜单"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "global-rivals",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-rivals\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "global-ledger",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-ledger\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "global-expand-form",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-expand-form\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "global-exit-confirm",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"stores\"]",
+      "[data-action=\"nav\"][data-tab=\"global\"]",
+      "[data-action=\"global-enter\"]",
+      "[data-action=\"global-exit-confirm\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"global-exit\"]",
+        "action": "global-exit",
+        "text": "确认撤出"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "delete-save",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"save-menu\"]",
+      "[data-action=\"profile-manual-save\"]",
+      "[data-action=\"profile-delete\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"slots\"]",
+        "action": "profile-mode",
+        "text": "保留"
+      },
+      {
+        "selector": "[data-action=\"profile-delete-confirm\"]",
+        "action": "profile-delete-confirm",
+        "text": "删除这份存档"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-auto-hr-recruit-9",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"hr-recruit\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+        "action": "hr-desk",
+        "text": "返回人事托管"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-auto-command-center-10",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "delete-save-profile-mode-11",
+    "path": [
+      "[data-action=\"me-menu\"]",
+      "[data-action=\"save-menu\"]",
+      "[data-action=\"profile-manual-save\"]",
+      "[data-action=\"profile-delete\"]",
+      "[data-action=\"profile-mode\"][data-mode=\"slots\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": ""
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"profiles\"]",
+        "action": "profile-mode",
+        "text": "玩家档案"
+      },
+      {
+        "selector": "[data-action=\"profile-mode\"][data-mode=\"slots\"]",
+        "action": "profile-mode",
+        "text": "存档槽 · 2"
+      },
+      {
+        "selector": "[data-action=\"profile-new\"]",
+        "action": "profile-new",
+        "text": "+ 新玩家"
+      },
+      {
+        "selector": "[data-action=\"profile-load\"]",
+        "action": "profile-load",
+        "text": "读取并继续"
+      },
+      {
+        "selector": "[data-action=\"profile-load\"]",
+        "action": "profile-load",
+        "text": "读取并继续"
+      },
+      {
+        "selector": "[data-action=\"profile-delete\"]",
+        "action": "profile-delete",
+        "text": "删除"
+      },
+      {
+        "selector": "[data-action=\"profile-manual-save\"]",
+        "action": "profile-manual-save",
+        "text": "手动保存一份"
+      },
+      {
+        "selector": "[data-action=\"export\"]",
+        "action": "export",
+        "text": "导出JSON"
+      },
+      {
+        "selector": "[data-action=\"new\"]",
+        "action": "new",
+        "text": "重开本玩家"
+      },
+      {
+        "selector": "[data-action=\"import\"]",
+        "action": "import",
+        "text": "导入JSON"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-auto-command-center-10-command-center-12",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"team\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-auto-command-center-10-command-center-13",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"budget\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"manager-policy\"]",
+        "action": "manager-policy",
+        "text": "设置店长预算"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-auto-command-center-10-command-center-14",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"report\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-auto-command-center-10-command-center-15",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-center\"][data-mode=\"world\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-auto-command-center-10-staff-edit-16",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"staff-edit\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"staff-promote\"]",
+        "action": "staff-promote",
+        "text": "培养晋升 · 690元"
+      },
+      {
+        "selector": "[data-action=\"staff-dismiss\"]",
+        "action": "staff-dismiss",
+        "text": "离职结算 · 138元"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-auto-command-center-10-manager-performance-17",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"manager-performance\"][data-mode=\"person\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"store\"]",
+        "action": "manager-performance",
+        "text": "门店近8周"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "店长任职业绩"
+      },
+      {
+        "selector": "[data-action=\"manager-policy\"]",
+        "action": "manager-policy",
+        "text": "调整预算"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"][data-page=\"1\"]",
+        "action": "manager-performance",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 800,
+    "name": "hr-auto-command-center-10-command-page-18",
+    "path": [
+      "[data-action=\"nav\"][data-tab=\"team\"]",
+      "[data-action=\"hr-desk\"]",
+      "[data-action=\"hr-desk\"][data-mode=\"auto\"]",
+      "[data-action=\"command-center\"]",
+      "[data-action=\"command-page\"][data-step=\"1\"]"
+    ],
+    "hits": [],
+    "clips": [],
+    "overlaps": [],
+    "text": [],
+    "inventory": [
+      {
+        "selector": "[data-action=\"close\"]",
+        "action": "close",
+        "text": "‹ 返回"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"team\"]",
+        "action": "command-center",
+        "text": "招聘 / 分店负责人"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"budget\"]",
+        "action": "command-center",
+        "text": "资金部署"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"report\"]",
+        "action": "command-center",
+        "text": "全域周报"
+      },
+      {
+        "selector": "[data-action=\"command-center\"][data-mode=\"world\"]",
+        "action": "command-center",
+        "text": "市场动态"
+      },
+      {
+        "selector": "[data-action=\"quarter-kpi\"]",
+        "action": "quarter-kpi",
+        "text": "季度 KPI"
+      },
+      {
+        "selector": "[data-action=\"hr-desk\"]",
+        "action": "hr-desk",
+        "text": "一键管理 / HR托管"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"staff-edit\"]",
+        "action": "staff-edit",
+        "text": "调店 / 晋升"
+      },
+      {
+        "selector": "[data-action=\"manager-performance\"][data-mode=\"person\"]",
+        "action": "manager-performance",
+        "text": "任职业绩"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"-1\"]",
+        "action": "command-page",
+        "text": "上一页"
+      },
+      {
+        "selector": "[data-action=\"command-page\"][data-step=\"1\"]",
+        "action": "command-page",
+        "text": "下一页"
+      }
+    ],
+    "errors": []
+  }
+]

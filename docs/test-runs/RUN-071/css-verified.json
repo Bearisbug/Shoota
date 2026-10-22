@@ -1,0 +1,3920 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "home",
+    "title": "经营总览\n个人身家 · 千万身家\n1323万元\n↗ +27.5万/周\n个人现金\n137\n公司现金\n737万\n本周利润\n+27.5万\n全国份额\n19.2%\n18 家门店\n待办 3\n!\n第一次扩张 · 余",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 57,
+      "width": 320,
+      "height": 412.15625,
+      "top": 57,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 6,
+    "last": {
+      "scrollTop": 341,
+      "scrollHeight": 753,
+      "clientHeight": 412,
+      "lastText": "史2009 · 中国发放 3G 牌照工业和信息化部于 1 月 7 日发放 3G 牌照，中国移动、中国联通和中国电信分别获得相应制式许可。›",
+      "last": {
+        "x": 19,
+        "y": 392.984375,
+        "width": 282,
+        "height": 55.140625,
+        "top": 392.984375,
+        "right": 301,
+        "bottom": 448.125,
+        "left": 19
+      },
+      "hit": true,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "stores",
+    "title": "门店\n街区\n企业\n国际\n我的门店 18\n上周合计 周利 +27.5万\n全部\n东平\n江北\n华东\n全国\n门店 ▼\t份额\t变化\t周利\t店长\t营收\t预算\t打法\n东平·社区\t26.1\t+0.14\t+734\t你亲",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 320,
+      "height": 367.15625,
+      "top": 102,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 15,
+    "last": {
+      "scrollTop": 465,
+      "scrollHeight": 832,
+      "clientHeight": 367,
+      "lastText": "预算",
+      "last": {
+        "x": 359.3125,
+        "y": -227,
+        "width": 20.8125,
+        "height": 36,
+        "top": -227,
+        "right": 380.125,
+        "bottom": -191,
+        "left": 359.3125
+      },
+      "hit": false,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "map",
+    "title": "门店\n街区\n企业\n国际\n经营与商战\n东平社区便利店\n来信 · 0\n东平\n29.5\n% 区域市占\n周利 +4,569元\n江北\n26.6\n% 区域市占\n周利 +3.37 万元\n华东\n18.1\n% 区域市占",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 320,
+      "height": 367.15625,
+      "top": 102,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".desk-streets",
+        "b": ".desk-table-foot",
+        "gap": 0,
+        "ra": {
+          "x": 11,
+          "y": 459.328125,
+          "width": 298,
+          "height": 192.375,
+          "top": 459.328125,
+          "right": 309,
+          "bottom": 651.703125,
+          "left": 11
+        },
+        "rb": {
+          "x": 11,
+          "y": 651.703125,
+          "width": 298,
+          "height": 88,
+          "top": 651.703125,
+          "right": 309,
+          "bottom": 739.703125,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 28,
+    "last": {
+      "scrollTop": 351,
+      "scrollHeight": 718,
+      "clientHeight": 367,
+      "lastText": "全域经营一周 ",
+      "last": {
+        "x": 182,
+        "y": 416.203125,
+        "width": 128,
+        "height": 36,
+        "top": 416.203125,
+        "right": 310,
+        "bottom": 452.203125,
+        "left": 182
+      },
+      "hit": true,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "companies",
+    "title": "门店\n街区\n企业\n国际\n旗下企业 · 1 家\n个人证券投资\n个人创办新公司\n连锁零售 · 未上市 · 18 处门店\n东平社区便利店\n我的持股\n100.0%\n公司可用现金\n736.86 万元\n个人可用现",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 320,
+      "height": 367.15625,
+      "top": 102,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".company-layout",
+        "b": ".company-screen>.pager",
+        "gap": 6,
+        "ra": {
+          "x": 11,
+          "y": 218.1875,
+          "width": 298,
+          "height": 284.828125,
+          "top": 218.1875,
+          "right": 309,
+          "bottom": 503.015625,
+          "left": 11
+        },
+        "rb": {
+          "x": 11,
+          "y": 509.015625,
+          "width": 298,
+          "height": 36,
+          "top": 509.015625,
+          "right": 309,
+          "bottom": 545.015625,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 89,
+      "scrollHeight": 456,
+      "clientHeight": 367,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 197.5,
+        "y": 420.015625,
+        "width": 71,
+        "height": 36,
+        "top": 420.015625,
+        "right": 268.5,
+        "bottom": 456.015625,
+        "left": 197.5
+      },
+      "hit": true,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "market",
+    "title": "地区商业战局\n经营详报\n地区\n东平\n江北\n华东\n全国\n领域\n连锁零售\n电子商务\n仓储物流\n互联网科技\n商业地产\n产业投资\n季度需求 3.21 亿 元\n全国 · 连锁零售\n谁拿走了这个市场？\n我的市场份",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 320,
+      "height": 367.15625,
+      "top": 102,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".market-row:last-of-type",
+        "b": ".market-player-row",
+        "gap": 0,
+        "ra": {
+          "x": 20,
+          "y": 425.8125,
+          "width": 280,
+          "height": 66.390625,
+          "top": 425.8125,
+          "right": 300,
+          "bottom": 492.203125,
+          "left": 20
+        },
+        "rb": {
+          "x": 20,
+          "y": 492.203125,
+          "width": 280,
+          "height": 109.59375,
+          "top": 492.203125,
+          "right": 300,
+          "bottom": 601.796875,
+          "left": 20
+        }
+      },
+      {
+        "a": ".market-player-row",
+        "b": ".market-bottom",
+        "gap": 18,
+        "ra": {
+          "x": 20,
+          "y": 492.203125,
+          "width": 280,
+          "height": 109.59375,
+          "top": 492.203125,
+          "right": 300,
+          "bottom": 601.796875,
+          "left": 20
+        },
+        "rb": {
+          "x": 11,
+          "y": 619.796875,
+          "width": 298,
+          "height": 36,
+          "top": 619.796875,
+          "right": 309,
+          "bottom": 655.796875,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 6,
+    "last": {
+      "scrollTop": 200,
+      "scrollHeight": 567,
+      "clientHeight": 367,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 238,
+        "y": 419.796875,
+        "width": 71,
+        "height": 36,
+        "top": 419.796875,
+        "right": 309,
+        "bottom": 455.796875,
+        "left": 238
+      },
+      "hit": true,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "team",
+    "title": "团队 9\n周薪合计 4,525\n招聘与托管\n季度 KPI\n姓名\t地区\t负责\t级\t能力\t士气\t周薪\t近周利润\n郑文清\t东平\t地区\t1\t77\t100\t69\t+900\n沈航\t东平\t地区\t1\t75\t100\t6",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 320,
+      "height": 367.15625,
+      "top": 102,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 69,
+      "scrollHeight": 436,
+      "clientHeight": 367,
+      "lastText": "季度 KPI",
+      "last": {
+        "x": 106,
+        "y": 77,
+        "width": 77.515625,
+        "height": 36,
+        "top": 77,
+        "right": 183.515625,
+        "bottom": 113,
+        "left": 106
+      },
+      "hit": false,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "inbox",
+    "title": "收件箱\n上次行动明细 ›\n周报\n来信\n时代来信 · 3\n人物\n指令\n押注\n2009Q2W1 周报\n净利\n+27.5万\n现金 714万 → 737万\n营收\n179万\n进货 130万\n工资 4,525\n租",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 320,
+      "height": 367.15625,
+      "top": 102,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 295,
+      "scrollHeight": 662,
+      "clientHeight": 367,
+      "lastText": "押注",
+      "last": {
+        "x": 322.203125,
+        "y": -141,
+        "width": 50,
+        "height": 36,
+        "top": -141,
+        "right": 372.203125,
+        "bottom": -105,
+        "left": 322.203125
+      },
+      "hit": false,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "assets",
+    "title": "我的钱柜\n资产\n曲线\n账本\n证券投资\n个人净资产\n1323 万元\n\n13,230,868.62 元\n\n◆\n百万\n◆\n千万\n◆\n亿级\n◆\n十亿\n◆\n百亿\n◆\n千亿\n下一站 · 亿万身家\n3.6%\n\n还差",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 320,
+      "height": 367.15625,
+      "top": 102,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 4,
+    "last": {
+      "scrollTop": 108,
+      "scrollHeight": 475,
+      "clientHeight": 367,
+      "lastText": "证券投资",
+      "last": {
+        "x": 246,
+        "y": 5.5,
+        "width": 62,
+        "height": 36,
+        "top": 5.5,
+        "right": 308,
+        "bottom": 41.5,
+        "left": 246
+      },
+      "hit": false,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "rankings",
+    "title": "天下财富榜\n随游戏年份\n2004 年快照\n2008 年快照\n2014 年快照\n2020 年快照\n2025 年快照\n中国富豪\n世界富豪\n中国公司\n世界公司\n2008 · 2008-10-07\n2008 ",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 320,
+      "height": 367.15625,
+      "top": 102,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 153,
+      "scrollHeight": 520,
+      "clientHeight": 367,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 238,
+        "y": 420.09375,
+        "width": 71,
+        "height": 36,
+        "top": 420.09375,
+        "right": 309,
+        "bottom": 456.09375,
+        "left": 238
+      },
+      "hit": true,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "global",
+    "title": "门店\n街区\n企业\n国际\n国际商战\n出资公司\n东平社区便利店\n待处理剧情\n海外与科技\n牵线与并购\n战略持仓\n时代与政策\n业务方向\n搜索与云服务\n游戏与社交\n跨境电商\n智能终端\n新能源汽车\n芯片设计与供应",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 320,
+      "height": 367.15625,
+      "top": 102,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 240,
+      "scrollHeight": 607,
+      "clientHeight": 367,
+      "lastText": "经营一周 →",
+      "last": {
+        "x": 220.578125,
+        "y": 420.265625,
+        "width": 88.421875,
+        "height": 36,
+        "top": 420.265625,
+        "right": 309,
+        "bottom": 456.265625,
+        "left": 220.578125
+      },
+      "hit": true,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "tab": "memory",
+    "title": "时代情报\n2004 年\n2005 年\n2007 年\n2008 年\n2009 年\n2010 年\n2011 年\n2013 年\n2014 年\n2015 年\n2017 年\n2018 年\n2019 年\n2020",
+    "doc": 320,
+    "sw": 320,
+    "cw": 320,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 320,
+      "height": 367.15625,
+      "top": 102,
+      "right": 320,
+      "bottom": 469.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 469.15625,
+      "width": 320,
+      "height": 53,
+      "top": 469.15625,
+      "right": 320,
+      "bottom": 522.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 367,
+      "clientHeight": 367,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 238,
+        "y": 411.671875,
+        "width": 71,
+        "height": 36,
+        "top": 411.671875,
+        "right": 309,
+        "bottom": 447.671875,
+        "left": 238
+      },
+      "hit": true,
+      "stageBottom": 469.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "home",
+    "title": "经营总览\n个人身家 · 千万身家\n1323万元\n↗ +27.5万/周\n个人现金\n137\n公司现金\n737万\n本周利润\n+27.5万\n全国份额\n19.2%\n18 家门店\n待办 3\n!\n第一次扩张 · 余",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 57,
+      "width": 375,
+      "height": 444.15625,
+      "top": 57,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 6,
+    "last": {
+      "scrollTop": 309,
+      "scrollHeight": 753,
+      "clientHeight": 444,
+      "lastText": "史2009 · 中国发放 3G 牌照工业和信息化部于 1 月 7 日发放 3G 牌照，中国移动、中国联通和中国电信分别获得相应制式许可。›",
+      "last": {
+        "x": 19,
+        "y": 424.984375,
+        "width": 337,
+        "height": 55.140625,
+        "top": 424.984375,
+        "right": 356,
+        "bottom": 480.125,
+        "left": 19
+      },
+      "hit": true,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "stores",
+    "title": "门店\n街区\n企业\n国际\n我的门店 18\n上周合计 周利 +27.5万\n全部\n东平\n江北\n华东\n全国\n门店 ▼\t份额\t变化\t周利\t店长\t营收\t预算\t打法\n东平·社区\t26.1\t+0.14\t+734\t你亲",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 375,
+      "height": 399.15625,
+      "top": 102,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 15,
+    "last": {
+      "scrollTop": 433,
+      "scrollHeight": 832,
+      "clientHeight": 399,
+      "lastText": "预算",
+      "last": {
+        "x": 359.3125,
+        "y": -195,
+        "width": 20.8125,
+        "height": 36,
+        "top": -195,
+        "right": 380.125,
+        "bottom": -159,
+        "left": 359.3125
+      },
+      "hit": false,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "map",
+    "title": "门店\n街区\n企业\n国际\n经营与商战\n东平社区便利店\n来信 · 0\n东平\n29.5\n% 区域市占\n周利 +4,569元\n江北\n26.6\n% 区域市占\n周利 +3.37 万元\n华东\n18.1\n% 区域市占",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 375,
+      "height": 399.15625,
+      "top": 102,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".desk-streets",
+        "b": ".desk-table-foot",
+        "gap": 0,
+        "ra": {
+          "x": 11,
+          "y": 436.640625,
+          "width": 353,
+          "height": 192.375,
+          "top": 436.640625,
+          "right": 364,
+          "bottom": 629.015625,
+          "left": 11
+        },
+        "rb": {
+          "x": 11,
+          "y": 629.015625,
+          "width": 353,
+          "height": 50,
+          "top": 629.015625,
+          "right": 364,
+          "bottom": 679.015625,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 28,
+    "last": {
+      "scrollTop": 259,
+      "scrollHeight": 658,
+      "clientHeight": 399,
+      "lastText": "全域经营一周 ",
+      "last": {
+        "x": 182,
+        "y": 447.515625,
+        "width": 183,
+        "height": 36,
+        "top": 447.515625,
+        "right": 365,
+        "bottom": 483.515625,
+        "left": 182
+      },
+      "hit": true,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "companies",
+    "title": "门店\n街区\n企业\n国际\n旗下企业 · 1 家\n个人证券投资\n个人创办新公司\n连锁零售 · 未上市 · 18 处门店\n东平社区便利店\n我的持股\n100.0%\n公司可用现金\n736.86 万元\n个人可用现",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 375,
+      "height": 399.15625,
+      "top": 102,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".company-layout",
+        "b": ".company-screen>.pager",
+        "gap": 6,
+        "ra": {
+          "x": 11,
+          "y": 198,
+          "width": 353,
+          "height": 284.828125,
+          "top": 198,
+          "right": 364,
+          "bottom": 482.828125,
+          "left": 11
+        },
+        "rb": {
+          "x": 11,
+          "y": 488.828125,
+          "width": 353,
+          "height": 36,
+          "top": 488.828125,
+          "right": 364,
+          "bottom": 524.828125,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 37,
+      "scrollHeight": 436,
+      "clientHeight": 399,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 225,
+        "y": 451.828125,
+        "width": 71,
+        "height": 36,
+        "top": 451.828125,
+        "right": 296,
+        "bottom": 487.828125,
+        "left": 225
+      },
+      "hit": true,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "market",
+    "title": "地区商业战局\n经营详报\n地区\n东平\n江北\n华东\n全国\n领域\n连锁零售\n电子商务\n仓储物流\n互联网科技\n商业地产\n产业投资\n季度需求 3.21 亿 元\n全国 · 连锁零售\n谁拿走了这个市场？\n我的市场份",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 375,
+      "height": 399.15625,
+      "top": 102,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".market-row:last-of-type",
+        "b": ".market-player-row",
+        "gap": 0,
+        "ra": {
+          "x": 20,
+          "y": 425.8125,
+          "width": 335,
+          "height": 66.390625,
+          "top": 425.8125,
+          "right": 355,
+          "bottom": 492.203125,
+          "left": 20
+        },
+        "rb": {
+          "x": 20,
+          "y": 492.203125,
+          "width": 335,
+          "height": 109.59375,
+          "top": 492.203125,
+          "right": 355,
+          "bottom": 601.796875,
+          "left": 20
+        }
+      },
+      {
+        "a": ".market-player-row",
+        "b": ".market-bottom",
+        "gap": 18,
+        "ra": {
+          "x": 20,
+          "y": 492.203125,
+          "width": 335,
+          "height": 109.59375,
+          "top": 492.203125,
+          "right": 355,
+          "bottom": 601.796875,
+          "left": 20
+        },
+        "rb": {
+          "x": 11,
+          "y": 619.796875,
+          "width": 353,
+          "height": 36,
+          "top": 619.796875,
+          "right": 364,
+          "bottom": 655.796875,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 6,
+    "last": {
+      "scrollTop": 168,
+      "scrollHeight": 567,
+      "clientHeight": 399,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 293,
+        "y": 451.796875,
+        "width": 71,
+        "height": 36,
+        "top": 451.796875,
+        "right": 364,
+        "bottom": 487.796875,
+        "left": 293
+      },
+      "hit": true,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "team",
+    "title": "团队 9\n周薪合计 4,525\n招聘与托管\n季度 KPI\n姓名\t地区\t负责\t级\t能力\t士气\t周薪\t近周利润\n郑文清\t东平\t地区\t1\t77\t100\t69\t+900\n沈航\t东平\t地区\t1\t75\t100\t6",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 375,
+      "height": 399.15625,
+      "top": 102,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 37,
+      "scrollHeight": 436,
+      "clientHeight": 399,
+      "lastText": "季度 KPI",
+      "last": {
+        "x": 106,
+        "y": 109,
+        "width": 77.515625,
+        "height": 36,
+        "top": 109,
+        "right": 183.515625,
+        "bottom": 145,
+        "left": 106
+      },
+      "hit": true,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "inbox",
+    "title": "收件箱\n上次行动明细 ›\n周报\n来信\n时代来信 · 3\n人物\n指令\n押注\n2009Q2W1 周报\n净利\n+27.5万\n现金 714万 → 737万\n营收\n179万\n进货 130万\n工资 4,525\n租",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 375,
+      "height": 399.15625,
+      "top": 102,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 244,
+      "scrollHeight": 643,
+      "clientHeight": 399,
+      "lastText": "押注",
+      "last": {
+        "x": 322.203125,
+        "y": -90,
+        "width": 50,
+        "height": 36,
+        "top": -90,
+        "right": 372.203125,
+        "bottom": -54,
+        "left": 322.203125
+      },
+      "hit": false,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "assets",
+    "title": "我的钱柜\n资产\n曲线\n账本\n证券投资\n个人净资产\n1323 万元\n\n13,230,868.62 元\n\n◆\n百万\n◆\n千万\n◆\n亿级\n◆\n十亿\n◆\n百亿\n◆\n千亿\n下一站 · 亿万身家\n3.6%\n\n还差",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 375,
+      "height": 399.15625,
+      "top": 102,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 4,
+    "last": {
+      "scrollTop": 76,
+      "scrollHeight": 475,
+      "clientHeight": 399,
+      "lastText": "证券投资",
+      "last": {
+        "x": 301,
+        "y": 37.5,
+        "width": 62,
+        "height": 36,
+        "top": 37.5,
+        "right": 363,
+        "bottom": 73.5,
+        "left": 301
+      },
+      "hit": false,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "rankings",
+    "title": "天下财富榜\n随游戏年份\n2004 年快照\n2008 年快照\n2014 年快照\n2020 年快照\n2025 年快照\n中国富豪\n世界富豪\n中国公司\n世界公司\n2008 · 2008-10-07\n2008 ",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 375,
+      "height": 399.15625,
+      "top": 102,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 121,
+      "scrollHeight": 520,
+      "clientHeight": 399,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 293,
+        "y": 452.09375,
+        "width": 71,
+        "height": 36,
+        "top": 452.09375,
+        "right": 364,
+        "bottom": 488.09375,
+        "left": 293
+      },
+      "hit": true,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "global",
+    "title": "门店\n街区\n企业\n国际\n国际商战\n出资公司\n东平社区便利店\n待处理剧情\n海外与科技\n牵线与并购\n战略持仓\n时代与政策\n业务方向\n搜索与云服务\n游戏与社交\n跨境电商\n智能终端\n新能源汽车\n芯片设计与供应",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 375,
+      "height": 399.15625,
+      "top": 102,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 133,
+      "scrollHeight": 532,
+      "clientHeight": 399,
+      "lastText": "经营一周 →",
+      "last": {
+        "x": 275.578125,
+        "y": 452.421875,
+        "width": 88.421875,
+        "height": 36,
+        "top": 452.421875,
+        "right": 364,
+        "bottom": 488.421875,
+        "left": 275.578125
+      },
+      "hit": true,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "tab": "memory",
+    "title": "时代情报\n2004 年\n2005 年\n2007 年\n2008 年\n2009 年\n2010 年\n2011 年\n2013 年\n2014 年\n2015 年\n2017 年\n2018 年\n2019 年\n2020",
+    "doc": 375,
+    "sw": 375,
+    "cw": 375,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 375,
+      "height": 399.15625,
+      "top": 102,
+      "right": 375,
+      "bottom": 501.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 501.15625,
+      "width": 375,
+      "height": 53,
+      "top": 501.15625,
+      "right": 375,
+      "bottom": 554.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 399,
+      "clientHeight": 399,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 293,
+        "y": 411.671875,
+        "width": 71,
+        "height": 36,
+        "top": 411.671875,
+        "right": 364,
+        "bottom": 447.671875,
+        "left": 293
+      },
+      "hit": true,
+      "stageBottom": 501.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "home",
+    "title": "经营总览\n个人身家 · 千万身家\n1323万元\n↗ +27.5万/周\n个人现金\n137\n公司现金\n737万\n本周利润\n+27.5万\n全国份额\n19.2%\n18 家门店\n待办 3\n!\n第一次扩张 · 余",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 57,
+      "width": 390,
+      "height": 494.15625,
+      "top": 57,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 6,
+    "last": {
+      "scrollTop": 261,
+      "scrollHeight": 755,
+      "clientHeight": 494,
+      "lastText": "史2009 · 中国发放 3G 牌照工业和信息化部于 1 月 7 日发放 3G 牌照，中国移动、中国联通和中国电信分别获得相应制式许可。›",
+      "last": {
+        "x": 19,
+        "y": 475.171875,
+        "width": 352,
+        "height": 55.140625,
+        "top": 475.171875,
+        "right": 371,
+        "bottom": 530.3125,
+        "left": 19
+      },
+      "hit": true,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "stores",
+    "title": "门店\n街区\n企业\n国际\n我的门店 18\n上周合计 周利 +27.5万\n全部\n东平\n江北\n华东\n全国\n门店 ▼\t份额\t变化\t周利\t店长\t营收\t预算\t打法\n东平·社区\t26.1\t+0.14\t+734\t你亲",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 390,
+      "height": 449.15625,
+      "top": 102,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 15,
+    "last": {
+      "scrollTop": 383,
+      "scrollHeight": 832,
+      "clientHeight": 449,
+      "lastText": "预算",
+      "last": {
+        "x": 359.3125,
+        "y": -145,
+        "width": 20.8125,
+        "height": 36,
+        "top": -145,
+        "right": 380.125,
+        "bottom": -109,
+        "left": 359.3125
+      },
+      "hit": false,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "map",
+    "title": "门店\n街区\n企业\n国际\n经营与商战\n东平社区便利店\n来信 · 0\n东平\n29.5\n% 区域市占\n周利 +4,569元\n江北\n26.6\n% 区域市占\n周利 +3.37 万元\n华东\n18.1\n% 区域市占",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 390,
+      "height": 449.15625,
+      "top": 102,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".desk-streets",
+        "b": ".desk-table-foot",
+        "gap": 0,
+        "ra": {
+          "x": 11,
+          "y": 423.140625,
+          "width": 368,
+          "height": 192.375,
+          "top": 423.140625,
+          "right": 379,
+          "bottom": 615.515625,
+          "left": 11
+        },
+        "rb": {
+          "x": 11,
+          "y": 615.515625,
+          "width": 368,
+          "height": 50,
+          "top": 615.515625,
+          "right": 379,
+          "bottom": 665.515625,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 28,
+    "last": {
+      "scrollTop": 195,
+      "scrollHeight": 644,
+      "clientHeight": 449,
+      "lastText": "全域经营一周 ",
+      "last": {
+        "x": 182,
+        "y": 498.015625,
+        "width": 198,
+        "height": 36,
+        "top": 498.015625,
+        "right": 380,
+        "bottom": 534.015625,
+        "left": 182
+      },
+      "hit": true,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "companies",
+    "title": "门店\n街区\n企业\n国际\n旗下企业 · 1 家\n个人证券投资\n个人创办新公司\n连锁零售 · 未上市 · 18 处门店\n东平社区便利店\n我的持股\n100.0%\n公司可用现金\n736.86 万元\n个人可用现",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 390,
+      "height": 449.15625,
+      "top": 102,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".company-layout",
+        "b": ".company-screen>.pager",
+        "gap": 6,
+        "ra": {
+          "x": 11,
+          "y": 198,
+          "width": 368,
+          "height": 284.828125,
+          "top": 198,
+          "right": 379,
+          "bottom": 482.828125,
+          "left": 11
+        },
+        "rb": {
+          "x": 11,
+          "y": 488.828125,
+          "width": 368,
+          "height": 36,
+          "top": 488.828125,
+          "right": 379,
+          "bottom": 524.828125,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 449,
+      "clientHeight": 449,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 232.5,
+        "y": 488.828125,
+        "width": 71,
+        "height": 36,
+        "top": 488.828125,
+        "right": 303.5,
+        "bottom": 524.828125,
+        "left": 232.5
+      },
+      "hit": true,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "market",
+    "title": "地区商业战局\n经营详报\n地区\n东平\n江北\n华东\n全国\n领域\n连锁零售\n电子商务\n仓储物流\n互联网科技\n商业地产\n产业投资\n季度需求 3.21 亿 元\n全国 · 连锁零售\n谁拿走了这个市场？\n我的市场份",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 390,
+      "height": 449.15625,
+      "top": 102,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".market-row:last-of-type",
+        "b": ".market-player-row",
+        "gap": 0,
+        "ra": {
+          "x": 20,
+          "y": 399.625,
+          "width": 350,
+          "height": 66.390625,
+          "top": 399.625,
+          "right": 370,
+          "bottom": 466.015625,
+          "left": 20
+        },
+        "rb": {
+          "x": 20,
+          "y": 466.015625,
+          "width": 350,
+          "height": 109.59375,
+          "top": 466.015625,
+          "right": 370,
+          "bottom": 575.609375,
+          "left": 20
+        }
+      },
+      {
+        "a": ".market-player-row",
+        "b": ".market-bottom",
+        "gap": 18,
+        "ra": {
+          "x": 20,
+          "y": 466.015625,
+          "width": 350,
+          "height": 109.59375,
+          "top": 466.015625,
+          "right": 370,
+          "bottom": 575.609375,
+          "left": 20
+        },
+        "rb": {
+          "x": 11,
+          "y": 593.609375,
+          "width": 368,
+          "height": 36,
+          "top": 593.609375,
+          "right": 379,
+          "bottom": 629.609375,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 6,
+    "last": {
+      "scrollTop": 92,
+      "scrollHeight": 541,
+      "clientHeight": 449,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 308,
+        "y": 501.609375,
+        "width": 71,
+        "height": 36,
+        "top": 501.609375,
+        "right": 379,
+        "bottom": 537.609375,
+        "left": 308
+      },
+      "hit": true,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "team",
+    "title": "团队 9\n周薪合计 4,525\n招聘与托管\n季度 KPI\n姓名\t地区\t负责\t级\t能力\t士气\t周薪\t近周利润\n郑文清\t东平\t地区\t1\t77\t100\t69\t+900\n沈航\t东平\t地区\t1\t75\t100\t6",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 390,
+      "height": 449.15625,
+      "top": 102,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 449,
+      "clientHeight": 449,
+      "lastText": "季度 KPI",
+      "last": {
+        "x": 106,
+        "y": 146,
+        "width": 77.515625,
+        "height": 36,
+        "top": 146,
+        "right": 183.515625,
+        "bottom": 182,
+        "left": 106
+      },
+      "hit": true,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "inbox",
+    "title": "收件箱\n上次行动明细 ›\n周报\n来信\n时代来信 · 3\n人物\n指令\n押注\n2009Q2W1 周报\n净利\n+27.5万\n现金 714万 → 737万\n营收\n179万\n进货 130万\n工资 4,525\n租",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 390,
+      "height": 449.15625,
+      "top": 102,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 180,
+      "scrollHeight": 629,
+      "clientHeight": 449,
+      "lastText": "押注",
+      "last": {
+        "x": 322.203125,
+        "y": -26,
+        "width": 50,
+        "height": 36,
+        "top": -26,
+        "right": 372.203125,
+        "bottom": 10,
+        "left": 322.203125
+      },
+      "hit": false,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "assets",
+    "title": "我的钱柜\n资产\n曲线\n账本\n证券投资\n个人净资产\n1323 万元\n\n13,230,868.62 元\n\n◆\n百万\n◆\n千万\n◆\n亿级\n◆\n十亿\n◆\n百亿\n◆\n千亿\n下一站 · 亿万身家\n3.6%\n\n还差",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 390,
+      "height": 449.15625,
+      "top": 102,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 4,
+    "last": {
+      "scrollTop": 26,
+      "scrollHeight": 475,
+      "clientHeight": 449,
+      "lastText": "证券投资",
+      "last": {
+        "x": 316,
+        "y": 87.5,
+        "width": 62,
+        "height": 36,
+        "top": 87.5,
+        "right": 378,
+        "bottom": 123.5,
+        "left": 316
+      },
+      "hit": true,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "rankings",
+    "title": "天下财富榜\n随游戏年份\n2004 年快照\n2008 年快照\n2014 年快照\n2020 年快照\n2025 年快照\n中国富豪\n世界富豪\n中国公司\n世界公司\n2008 · 2008-10-07\n2008 ",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 390,
+      "height": 449.15625,
+      "top": 102,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 71,
+      "scrollHeight": 520,
+      "clientHeight": 449,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 308,
+        "y": 502.09375,
+        "width": 71,
+        "height": 36,
+        "top": 502.09375,
+        "right": 379,
+        "bottom": 538.09375,
+        "left": 308
+      },
+      "hit": true,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "global",
+    "title": "门店\n街区\n企业\n国际\n国际商战\n出资公司\n东平社区便利店\n待处理剧情\n海外与科技\n牵线与并购\n战略持仓\n时代与政策\n业务方向\n搜索与云服务\n游戏与社交\n跨境电商\n智能终端\n新能源汽车\n芯片设计与供应",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 390,
+      "height": 449.15625,
+      "top": 102,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 83,
+      "scrollHeight": 532,
+      "clientHeight": 449,
+      "lastText": "经营一周 →",
+      "last": {
+        "x": 290.578125,
+        "y": 502.421875,
+        "width": 88.421875,
+        "height": 36,
+        "top": 502.421875,
+        "right": 379,
+        "bottom": 538.421875,
+        "left": 290.578125
+      },
+      "hit": true,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "tab": "memory",
+    "title": "时代情报\n2004 年\n2005 年\n2007 年\n2008 年\n2009 年\n2010 年\n2011 年\n2013 年\n2014 年\n2015 年\n2017 年\n2018 年\n2019 年\n2020",
+    "doc": 390,
+    "sw": 390,
+    "cw": 390,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 390,
+      "height": 449.15625,
+      "top": 102,
+      "right": 390,
+      "bottom": 551.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 551.15625,
+      "width": 390,
+      "height": 53,
+      "top": 551.15625,
+      "right": 390,
+      "bottom": 604.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 449,
+      "clientHeight": 449,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 308,
+        "y": 411.671875,
+        "width": 71,
+        "height": 36,
+        "top": 411.671875,
+        "right": 379,
+        "bottom": 447.671875,
+        "left": 308
+      },
+      "hit": true,
+      "stageBottom": 551.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "home",
+    "title": "经营总览\n个人身家 · 千万身家\n1323万元\n↗ +27.5万/周\n个人现金\n137\n公司现金\n737万\n本周利润\n+27.5万\n全国份额\n19.2%\n18 家门店\n待办 3\n!\n第一次扩张 · 余",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 57,
+      "width": 430,
+      "height": 584.15625,
+      "top": 57,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 6,
+    "last": {
+      "scrollTop": 171,
+      "scrollHeight": 755,
+      "clientHeight": 584,
+      "lastText": "史2009 · 中国发放 3G 牌照工业和信息化部于 1 月 7 日发放 3G 牌照，中国移动、中国联通和中国电信分别获得相应制式许可。›",
+      "last": {
+        "x": 19,
+        "y": 565.171875,
+        "width": 392,
+        "height": 55.140625,
+        "top": 565.171875,
+        "right": 411,
+        "bottom": 620.3125,
+        "left": 19
+      },
+      "hit": true,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "stores",
+    "title": "门店\n街区\n企业\n国际\n我的门店 18\n上周合计 周利 +27.5万\n全部\n东平\n江北\n华东\n全国\n门店 ▼\t份额\t变化\t周利\t店长\t营收\t预算\t打法\n东平·社区\t26.1\t+0.14\t+734\t你亲",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 430,
+      "height": 539.15625,
+      "top": 102,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 15,
+    "last": {
+      "scrollTop": 293,
+      "scrollHeight": 832,
+      "clientHeight": 539,
+      "lastText": "预算",
+      "last": {
+        "x": 359.3125,
+        "y": -55,
+        "width": 20.8125,
+        "height": 36,
+        "top": -55,
+        "right": 380.125,
+        "bottom": -19,
+        "left": 359.3125
+      },
+      "hit": false,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "map",
+    "title": "门店\n街区\n企业\n国际\n经营与商战\n东平社区便利店\n来信 · 0\n东平\n29.5\n% 区域市占\n周利 +4,569元\n江北\n26.6\n% 区域市占\n周利 +3.37 万元\n华东\n18.1\n% 区域市占",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 430,
+      "height": 539.15625,
+      "top": 102,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".desk-streets",
+        "b": ".desk-table-foot",
+        "gap": 0,
+        "ra": {
+          "x": 11,
+          "y": 408.296875,
+          "width": 408,
+          "height": 192.375,
+          "top": 408.296875,
+          "right": 419,
+          "bottom": 600.671875,
+          "left": 11
+        },
+        "rb": {
+          "x": 11,
+          "y": 600.671875,
+          "width": 408,
+          "height": 50,
+          "top": 600.671875,
+          "right": 419,
+          "bottom": 650.671875,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 28,
+    "last": {
+      "scrollTop": 90,
+      "scrollHeight": 629,
+      "clientHeight": 539,
+      "lastText": "全域经营一周 ",
+      "last": {
+        "x": 182,
+        "y": 588.171875,
+        "width": 238,
+        "height": 36,
+        "top": 588.171875,
+        "right": 420,
+        "bottom": 624.171875,
+        "left": 182
+      },
+      "hit": true,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "companies",
+    "title": "门店\n街区\n企业\n国际\n旗下企业 · 1 家\n个人证券投资\n个人创办新公司\n连锁零售 · 未上市 · 18 处门店\n东平社区便利店\n我的持股\n100.0%\n公司可用现金\n736.86 万元\n个人可用现",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 430,
+      "height": 539.15625,
+      "top": 102,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".company-layout",
+        "b": ".company-screen>.pager",
+        "gap": 6,
+        "ra": {
+          "x": 11,
+          "y": 198,
+          "width": 408,
+          "height": 284.828125,
+          "top": 198,
+          "right": 419,
+          "bottom": 482.828125,
+          "left": 11
+        },
+        "rb": {
+          "x": 11,
+          "y": 488.828125,
+          "width": 408,
+          "height": 36,
+          "top": 488.828125,
+          "right": 419,
+          "bottom": 524.828125,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 539,
+      "clientHeight": 539,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 252.5,
+        "y": 488.828125,
+        "width": 71,
+        "height": 36,
+        "top": 488.828125,
+        "right": 323.5,
+        "bottom": 524.828125,
+        "left": 252.5
+      },
+      "hit": true,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "market",
+    "title": "地区商业战局\n经营详报\n地区\n东平\n江北\n华东\n全国\n领域\n连锁零售\n电子商务\n仓储物流\n互联网科技\n商业地产\n产业投资\n季度需求 3.21 亿 元\n全国 · 连锁零售\n谁拿走了这个市场？\n我的市场份",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 430,
+      "height": 539.15625,
+      "top": 102,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [
+      {
+        "a": ".market-row:last-of-type",
+        "b": ".market-player-row",
+        "gap": 0,
+        "ra": {
+          "x": 20,
+          "y": 385.328125,
+          "width": 390,
+          "height": 52.09375,
+          "top": 385.328125,
+          "right": 410,
+          "bottom": 437.421875,
+          "left": 20
+        },
+        "rb": {
+          "x": 20,
+          "y": 437.421875,
+          "width": 390,
+          "height": 109.59375,
+          "top": 437.421875,
+          "right": 410,
+          "bottom": 547.015625,
+          "left": 20
+        }
+      },
+      {
+        "a": ".market-player-row",
+        "b": ".market-bottom",
+        "gap": 18,
+        "ra": {
+          "x": 20,
+          "y": 437.421875,
+          "width": 390,
+          "height": 109.59375,
+          "top": 437.421875,
+          "right": 410,
+          "bottom": 547.015625,
+          "left": 20
+        },
+        "rb": {
+          "x": 11,
+          "y": 565.015625,
+          "width": 408,
+          "height": 36,
+          "top": 565.015625,
+          "right": 419,
+          "bottom": 601.015625,
+          "left": 11
+        }
+      }
+    ],
+    "buttons": 6,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 539,
+      "clientHeight": 539,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 348,
+        "y": 565.015625,
+        "width": 71,
+        "height": 36,
+        "top": 565.015625,
+        "right": 419,
+        "bottom": 601.015625,
+        "left": 348
+      },
+      "hit": true,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "team",
+    "title": "团队 9\n周薪合计 4,525\n招聘与托管\n季度 KPI\n姓名\t地区\t负责\t级\t能力\t士气\t周薪\t近周利润\n郑文清\t东平\t地区\t1\t77\t100\t69\t+900\n沈航\t东平\t地区\t1\t75\t100\t6",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 430,
+      "height": 539.15625,
+      "top": 102,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 539,
+      "clientHeight": 539,
+      "lastText": "季度 KPI",
+      "last": {
+        "x": 106,
+        "y": 146,
+        "width": 77.515625,
+        "height": 36,
+        "top": 146,
+        "right": 183.515625,
+        "bottom": 182,
+        "left": 106
+      },
+      "hit": true,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "inbox",
+    "title": "收件箱\n上次行动明细 ›\n周报\n来信\n时代来信 · 3\n人物\n指令\n押注\n2009Q2W1 周报\n净利\n+27.5万\n现金 714万 → 737万\n营收\n179万\n进货 130万\n工资 4,525\n租",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 430,
+      "height": 539.15625,
+      "top": 102,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 76,
+      "scrollHeight": 615,
+      "clientHeight": 539,
+      "lastText": "押注",
+      "last": {
+        "x": 322.203125,
+        "y": 78,
+        "width": 50,
+        "height": 36,
+        "top": 78,
+        "right": 372.203125,
+        "bottom": 114,
+        "left": 322.203125
+      },
+      "hit": false,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "assets",
+    "title": "我的钱柜\n资产\n曲线\n账本\n证券投资\n个人净资产\n1323 万元\n\n13,230,868.62 元\n\n◆\n百万\n◆\n千万\n◆\n亿级\n◆\n十亿\n◆\n百亿\n◆\n千亿\n下一站 · 亿万身家\n3.6%\n\n还差",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 430,
+      "height": 539.15625,
+      "top": 102,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 4,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 539,
+      "clientHeight": 539,
+      "lastText": "证券投资",
+      "last": {
+        "x": 356,
+        "y": 113.5,
+        "width": 62,
+        "height": 36,
+        "top": 113.5,
+        "right": 418,
+        "bottom": 149.5,
+        "left": 356
+      },
+      "hit": true,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "rankings",
+    "title": "天下财富榜\n随游戏年份\n2004 年快照\n2008 年快照\n2014 年快照\n2020 年快照\n2025 年快照\n中国富豪\n世界富豪\n中国公司\n世界公司\n2008 · 2008-10-07\n2008 ",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 430,
+      "height": 539.15625,
+      "top": 102,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 539,
+      "clientHeight": 539,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 348,
+        "y": 573.09375,
+        "width": 71,
+        "height": 36,
+        "top": 573.09375,
+        "right": 419,
+        "bottom": 609.09375,
+        "left": 348
+      },
+      "hit": true,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "global",
+    "title": "门店\n街区\n企业\n国际\n国际商战\n出资公司\n东平社区便利店\n待处理剧情\n海外与科技\n牵线与并购\n战略持仓\n时代与政策\n业务方向\n搜索与云服务\n游戏与社交\n跨境电商\n智能终端\n新能源汽车\n芯片设计与供应",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 430,
+      "height": 539.15625,
+      "top": 102,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 539,
+      "clientHeight": 539,
+      "lastText": "经营一周 →",
+      "last": {
+        "x": 330.578125,
+        "y": 568.421875,
+        "width": 88.421875,
+        "height": 36,
+        "top": 568.421875,
+        "right": 419,
+        "bottom": 604.421875,
+        "left": 330.578125
+      },
+      "hit": true,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "tab": "memory",
+    "title": "时代情报\n2004 年\n2005 年\n2007 年\n2008 年\n2009 年\n2010 年\n2011 年\n2013 年\n2014 年\n2015 年\n2017 年\n2018 年\n2019 年\n2020",
+    "doc": 430,
+    "sw": 430,
+    "cw": 430,
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "width": 430,
+      "height": 539.15625,
+      "top": 102,
+      "right": 430,
+      "bottom": 641.15625,
+      "left": 0
+    },
+    "bottom": {
+      "x": 0,
+      "y": 641.15625,
+      "width": 430,
+      "height": 53,
+      "top": 641.15625,
+      "right": 430,
+      "bottom": 694.15625,
+      "left": 0
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 539,
+      "clientHeight": 539,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 348,
+        "y": 390.078125,
+        "width": 71,
+        "height": 36,
+        "top": 390.078125,
+        "right": 419,
+        "bottom": 426.078125,
+        "left": 348
+      },
+      "hit": true,
+      "stageBottom": 641.15625
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "home",
+    "title": "经营总览\n个人身家 · 千万身家\n1323万元\n↗ +27.5万/周\n个人现金\n137\n公司现金\n737万\n本周利润\n+27.5万\n全国份额\n19.2%\n18 家门店\n待办 3\n!\n第一次扩张 · 余",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 61,
+      "width": 680,
+      "height": 686,
+      "top": 61,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 6,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 686,
+      "clientHeight": 686,
+      "lastText": "史2009 · 中国发放 3G 牌照工业和信息化部于 1 月 7 日发放 3G 牌照，中国移动、中国联通和中国电信分别获得相应制式许可。›",
+      "last": {
+        "x": 113,
+        "y": 585.03125,
+        "width": 337.546875,
+        "height": 56.234375,
+        "top": 585.03125,
+        "right": 450.546875,
+        "bottom": 641.265625,
+        "left": 113
+      },
+      "hit": true,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "stores",
+    "title": "门店\n街区\n企业\n国际\n我的门店 18\n上周合计 周利 +27.5万\n全部\n东平\n江北\n华东\n全国\n门店 ▼\t份额\t变化\t周利\t店长\t营收\t预算\t打法\n东平·社区\t26.1\t+0.14\t+734\t你亲",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 680,
+      "height": 626.5,
+      "top": 120.5,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 15,
+    "last": {
+      "scrollTop": 201,
+      "scrollHeight": 828,
+      "clientHeight": 627,
+      "lastText": "预算",
+      "last": {
+        "x": 615.578125,
+        "y": 55.5,
+        "width": 20.8125,
+        "height": 28,
+        "top": 55.5,
+        "right": 636.390625,
+        "bottom": 83.5,
+        "left": 615.578125
+      },
+      "hit": false,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "map",
+    "title": "门店\n街区\n企业\n国际\n经营与商战\n东平社区便利店\n来信 · 0\n东平\n6处经营\n29.5% 区域市占\n周利 +4,569元\n江北\n6处经营\n26.6% 区域市占\n周利 +3.37 万元\n华东\n5处经",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 680,
+      "height": 626.5,
+      "top": 120.5,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [
+      {
+        "a": ".desk-streets",
+        "b": ".desk-table-foot",
+        "gap": 0,
+        "ra": {
+          "x": 105,
+          "y": 412.125,
+          "width": 389,
+          "height": 255.578125,
+          "top": 412.125,
+          "right": 494,
+          "bottom": 667.703125,
+          "left": 105
+        },
+        "rb": {
+          "x": 105,
+          "y": 667.703125,
+          "width": 389,
+          "height": 39.5,
+          "top": 667.703125,
+          "right": 494,
+          "bottom": 707.203125,
+          "left": 105
+        }
+      }
+    ],
+    "buttons": 29,
+    "last": {
+      "scrollTop": 23,
+      "scrollHeight": 650,
+      "clientHeight": 627,
+      "lastText": "全域经营一周 ",
+      "last": {
+        "x": 629,
+        "y": 694.203125,
+        "width": 123,
+        "height": 35,
+        "top": 694.203125,
+        "right": 752,
+        "bottom": 729.203125,
+        "left": 629
+      },
+      "hit": true,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "companies",
+    "title": "门店\n街区\n企业\n国际\n旗下企业 · 1 家\n个人证券投资\n个人创办新公司\n连锁零售 · 未上市 · 18 处门店\n东平社区便利店\n我的持股\n100.0%\n公司可用现金\n736.86 万元\n个人可用现",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 680,
+      "height": 626.5,
+      "top": 120.5,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [
+      {
+        "a": ".company-layout",
+        "b": ".company-screen>.pager",
+        "gap": 10,
+        "ra": {
+          "x": 105,
+          "y": 224.6875,
+          "width": 646,
+          "height": 347.359375,
+          "top": 224.6875,
+          "right": 751,
+          "bottom": 572.046875,
+          "left": 105
+        },
+        "rb": {
+          "x": 105,
+          "y": 582.046875,
+          "width": 646,
+          "height": 32,
+          "top": 582.046875,
+          "right": 751,
+          "bottom": 614.046875,
+          "left": 105
+        }
+      }
+    ],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 627,
+      "clientHeight": 627,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 461.5,
+        "y": 582.546875,
+        "width": 79,
+        "height": 31,
+        "top": 582.546875,
+        "right": 540.5,
+        "bottom": 613.546875,
+        "left": 461.5
+      },
+      "hit": true,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "market",
+    "title": "地区商业战局\n经营详报\n地区\n东平\n江北\n华东\n全国\n领域\n连锁零售\n电子商务\n仓储物流\n互联网科技\n商业地产\n产业投资\n季度需求 3.21 亿 元\n全国 · 连锁零售\n谁拿走了这个市场？\n我的市场份",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 680,
+      "height": 626.5,
+      "top": 120.5,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [
+      {
+        "a": ".market-row:last-of-type",
+        "b": ".market-player-row",
+        "gap": 0,
+        "ra": {
+          "x": 128,
+          "y": 489.640625,
+          "width": 600,
+          "height": 56.578125,
+          "top": 489.640625,
+          "right": 728,
+          "bottom": 546.21875,
+          "left": 128
+        },
+        "rb": {
+          "x": 128,
+          "y": 546.21875,
+          "width": 600,
+          "height": 67.046875,
+          "top": 546.21875,
+          "right": 728,
+          "bottom": 613.265625,
+          "left": 128
+        }
+      },
+      {
+        "a": ".market-player-row",
+        "b": ".market-bottom",
+        "gap": 30,
+        "ra": {
+          "x": 128,
+          "y": 546.21875,
+          "width": 600,
+          "height": 67.046875,
+          "top": 546.21875,
+          "right": 728,
+          "bottom": 613.265625,
+          "left": 128
+        },
+        "rb": {
+          "x": 105,
+          "y": 643.265625,
+          "width": 646,
+          "height": 32,
+          "top": 643.265625,
+          "right": 751,
+          "bottom": 675.265625,
+          "left": 105
+        }
+      }
+    ],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 627,
+      "clientHeight": 627,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 251,
+        "y": 643.765625,
+        "width": 79,
+        "height": 31,
+        "top": 643.765625,
+        "right": 330,
+        "bottom": 674.765625,
+        "left": 251
+      },
+      "hit": true,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "team",
+    "title": "团队 9\n周薪合计 4,525\n招聘与托管\n季度 KPI\n姓名\t地区\t负责\t级\t能力\t士气\t周薪\t近周利润\n郑文清\t东平\t地区\t1\t77\t100\t69\t+900\n沈航\t东平\t地区\t1\t75\t100\t6",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 680,
+      "height": 626.5,
+      "top": 120.5,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 627,
+      "clientHeight": 627,
+      "lastText": "季度 KPI",
+      "last": {
+        "x": 205,
+        "y": 168.5,
+        "width": 81.171875,
+        "height": 40,
+        "top": 168.5,
+        "right": 286.171875,
+        "bottom": 208.5,
+        "left": 205
+      },
+      "hit": true,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "inbox",
+    "title": "收件箱\n上次行动明细 ›\n周报\n来信\n时代来信 · 3\n人物\n指令\n押注\n2009Q2W1 周报\n净利\n+27.5万\n现金 714万 → 737万\n营收\n179万\n进货 130万\n工资 4,525\n租",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 680,
+      "height": 626.5,
+      "top": 120.5,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 627,
+      "clientHeight": 627,
+      "lastText": "押注",
+      "last": {
+        "x": 416.203125,
+        "y": 172.5,
+        "width": 50,
+        "height": 32,
+        "top": 172.5,
+        "right": 466.203125,
+        "bottom": 204.5,
+        "left": 416.203125
+      },
+      "hit": true,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "assets",
+    "title": "我的钱柜\n资产\n曲线\n账本\n证券投资\n个人净资产\n1323 万元\n\n13,230,868.62 元\n\n◆\n百万\n◆\n千万\n◆\n亿级\n◆\n十亿\n◆\n百亿\n◆\n千亿\n下一站 · 亿万身家\n3.6%\n\n还差",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 680,
+      "height": 626.5,
+      "top": 120.5,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 4,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 627,
+      "clientHeight": 627,
+      "lastText": "证券投资",
+      "last": {
+        "x": 679,
+        "y": 133.5,
+        "width": 70,
+        "height": 34.84375,
+        "top": 133.5,
+        "right": 749,
+        "bottom": 168.34375,
+        "left": 679
+      },
+      "hit": true,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "rankings",
+    "title": "天下财富榜\n随游戏年份\n2004 年快照\n2008 年快照\n2014 年快照\n2020 年快照\n2025 年快照\n中国富豪\n世界富豪\n中国公司\n世界公司\n2008 · 2008-10-07\n2008 ",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 680,
+      "height": 626.5,
+      "top": 120.5,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 627,
+      "clientHeight": 627,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 672,
+        "y": 603.265625,
+        "width": 79,
+        "height": 31,
+        "top": 603.265625,
+        "right": 751,
+        "bottom": 634.265625,
+        "left": 672
+      },
+      "hit": true,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "global",
+    "title": "门店\n街区\n企业\n国际\n国际商战\n出资公司\n东平社区便利店\n待处理剧情\n海外与科技\n牵线与并购\n战略持仓\n时代与政策\n业务方向\n搜索与云服务\n游戏与社交\n跨境电商\n智能终端\n新能源汽车\n芯片设计与供应",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 680,
+      "height": 626.5,
+      "top": 120.5,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 627,
+      "clientHeight": 627,
+      "lastText": "经营一周 →",
+      "last": {
+        "x": 657.53125,
+        "y": 632.921875,
+        "width": 93.46875,
+        "height": 32.1875,
+        "top": 632.921875,
+        "right": 751,
+        "bottom": 665.109375,
+        "left": 657.53125
+      },
+      "hit": true,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "tab": "memory",
+    "title": "时代情报\n2004 年\n2005 年\n2007 年\n2008 年\n2009 年\n2010 年\n2011 年\n2013 年\n2014 年\n2015 年\n2017 年\n2018 年\n2019 年\n2020",
+    "doc": 768,
+    "sw": 680,
+    "cw": 680,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 680,
+      "height": 626.5,
+      "top": 120.5,
+      "right": 768,
+      "bottom": 747,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 747,
+      "width": 680,
+      "height": 53,
+      "top": 747,
+      "right": 768,
+      "bottom": 800,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 627,
+      "clientHeight": 627,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 672,
+        "y": 440.421875,
+        "width": 79,
+        "height": 31,
+        "top": 440.421875,
+        "right": 751,
+        "bottom": 471.421875,
+        "left": 672
+      },
+      "hit": true,
+      "stageBottom": 747
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "home",
+    "title": "经营总览\n个人身家 · 千万身家\n1323万元\n↗ +27.5万/周\n个人现金\n137\n公司现金\n737万\n本周利润\n+27.5万\n全国份额\n19.2%\n18 家门店\n待办 3\n!\n第一次扩张 · 余",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 61,
+      "width": 1352,
+      "height": 786,
+      "top": 61,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 6,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 786,
+      "clientHeight": 786,
+      "lastText": "史2009 · 中国发放 3G 牌照工业和信息化部于 1 月 7 日发放 3G 牌照，中国移动、中国联通和中国电信分别获得相应制式许可。›",
+      "last": {
+        "x": 133,
+        "y": 585.03125,
+        "width": 688.65625,
+        "height": 41.390625,
+        "top": 585.03125,
+        "right": 821.65625,
+        "bottom": 626.421875,
+        "left": 133
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "stores",
+    "title": "门店\n街区\n企业\n国际\n我的门店 18\n上周合计 周利 +27.5万\n全部\n东平\n江北\n华东\n全国\n门店 ▼\t份额\t变化\t周利\t店长\t营收\t预算\t打法\n东平·社区\t26.1\t+0.14\t+734\t你亲",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 1352,
+      "height": 726.5,
+      "top": 120.5,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 15,
+    "last": {
+      "scrollTop": 101,
+      "scrollHeight": 828,
+      "clientHeight": 727,
+      "lastText": "预算",
+      "last": {
+        "x": 1162.0625,
+        "y": 155.5,
+        "width": 20.8125,
+        "height": 28,
+        "top": 155.5,
+        "right": 1182.875,
+        "bottom": 183.5,
+        "left": 1162.0625
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "map",
+    "title": "门店\n街区\n企业\n国际\n经营与商战\n东平社区便利店\n来信 · 0\n东平\n6处经营\n29.5% 区域市占\n周利 +4,569元\n江北\n6处经营\n26.6% 区域市占\n周利 +3.37 万元\n华东\n5处经",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 1352,
+      "height": 726.5,
+      "top": 120.5,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [
+      {
+        "a": ".desk-streets",
+        "b": ".desk-table-foot",
+        "gap": 0,
+        "ra": {
+          "x": 105,
+          "y": 440.34375,
+          "width": 1021,
+          "height": 360,
+          "top": 440.34375,
+          "right": 1126,
+          "bottom": 800.34375,
+          "left": 105
+        },
+        "rb": {
+          "x": 105,
+          "y": 800.34375,
+          "width": 1021,
+          "height": 34,
+          "top": 800.34375,
+          "right": 1126,
+          "bottom": 834.34375,
+          "left": 105
+        }
+      }
+    ],
+    "buttons": 30,
+    "last": {
+      "scrollTop": 66,
+      "scrollHeight": 793,
+      "clientHeight": 727,
+      "lastText": "全域经营一周 ",
+      "last": {
+        "x": 1293,
+        "y": 787.546875,
+        "width": 131,
+        "height": 39,
+        "top": 787.546875,
+        "right": 1424,
+        "bottom": 826.546875,
+        "left": 1293
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "companies",
+    "title": "门店\n街区\n企业\n国际\n旗下企业 · 1 家\n个人证券投资\n个人创办新公司\n连锁零售 · 未上市 · 18 处门店\n东平社区便利店\n我的持股\n100.0%\n公司可用现金\n736.86 万元\n个人可用现",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 1352,
+      "height": 726.5,
+      "top": 120.5,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [
+      {
+        "a": ".company-layout",
+        "b": ".company-screen>.pager",
+        "gap": 10,
+        "ra": {
+          "x": 105,
+          "y": 224.6875,
+          "width": 1318,
+          "height": 426.265625,
+          "top": 224.6875,
+          "right": 1423,
+          "bottom": 650.953125,
+          "left": 105
+        },
+        "rb": {
+          "x": 105,
+          "y": 660.953125,
+          "width": 1318,
+          "height": 32,
+          "top": 660.953125,
+          "right": 1423,
+          "bottom": 692.953125,
+          "left": 105
+        }
+      }
+    ],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 727,
+      "clientHeight": 727,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 797.5,
+        "y": 661.453125,
+        "width": 79,
+        "height": 31,
+        "top": 661.453125,
+        "right": 876.5,
+        "bottom": 692.453125,
+        "left": 797.5
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "market",
+    "title": "地区商业战局\n经营详报\n地区\n东平\n江北\n华东\n全国\n领域\n连锁零售\n电子商务\n仓储物流\n互联网科技\n商业地产\n产业投资\n季度需求 3.21 亿 元\n全国 · 连锁零售\n谁拿走了这个市场？\n我的市场份",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 1352,
+      "height": 726.5,
+      "top": 120.5,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [
+      {
+        "a": ".market-row:last-of-type",
+        "b": ".market-player-row",
+        "gap": 0,
+        "ra": {
+          "x": 130,
+          "y": 539.25,
+          "width": 1268,
+          "height": 67.984375,
+          "top": 539.25,
+          "right": 1398,
+          "bottom": 607.234375,
+          "left": 130
+        },
+        "rb": {
+          "x": 130,
+          "y": 607.234375,
+          "width": 1268,
+          "height": 67.046875,
+          "top": 607.234375,
+          "right": 1398,
+          "bottom": 674.28125,
+          "left": 130
+        }
+      },
+      {
+        "a": ".market-player-row",
+        "b": ".market-bottom",
+        "gap": 35,
+        "ra": {
+          "x": 130,
+          "y": 607.234375,
+          "width": 1268,
+          "height": 67.046875,
+          "top": 607.234375,
+          "right": 1398,
+          "bottom": 674.28125,
+          "left": 130
+        },
+        "rb": {
+          "x": 105,
+          "y": 709.28125,
+          "width": 1318,
+          "height": 32,
+          "top": 709.28125,
+          "right": 1423,
+          "bottom": 741.28125,
+          "left": 105
+        }
+      }
+    ],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 727,
+      "clientHeight": 727,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 251,
+        "y": 709.78125,
+        "width": 79,
+        "height": 31,
+        "top": 709.78125,
+        "right": 330,
+        "bottom": 740.78125,
+        "left": 251
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "team",
+    "title": "团队 9\n周薪合计 4,525\n招聘与托管\n季度 KPI\n姓名\t地区\t负责\t级\t能力\t士气\t周薪\t近周利润\n郑文清\t东平\t地区\t1\t77\t100\t69\t+900\n沈航\t东平\t地区\t1\t75\t100\t6",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 1352,
+      "height": 726.5,
+      "top": 120.5,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 727,
+      "clientHeight": 727,
+      "lastText": "季度 KPI",
+      "last": {
+        "x": 225,
+        "y": 168.5,
+        "width": 81.171875,
+        "height": 40,
+        "top": 168.5,
+        "right": 306.171875,
+        "bottom": 208.5,
+        "left": 225
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "inbox",
+    "title": "收件箱\n上次行动明细 ›\n周报\n来信\n时代来信 · 3\n人物\n指令\n押注\n2009Q2W1 周报\n净利\n+27.5万\n现金 714万 → 737万\n营收\n179万\n进货 130万\n工资 4,525\n租",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 1352,
+      "height": 726.5,
+      "top": 120.5,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 727,
+      "clientHeight": 727,
+      "lastText": "押注",
+      "last": {
+        "x": 436.203125,
+        "y": 172.5,
+        "width": 50,
+        "height": 32,
+        "top": 172.5,
+        "right": 486.203125,
+        "bottom": 204.5,
+        "left": 436.203125
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "assets",
+    "title": "我的钱柜\n资产\n曲线\n账本\n证券投资\n个人净资产\n1323 万元\n\n13,230,868.62 元\n\n◆\n百万\n◆\n千万\n◆\n亿级\n◆\n十亿\n◆\n百亿\n◆\n千亿\n下一站 · 亿万身家\n3.6%\n\n还差",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 1352,
+      "height": 726.5,
+      "top": 120.5,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 4,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 727,
+      "clientHeight": 727,
+      "lastText": "证券投资",
+      "last": {
+        "x": 1351,
+        "y": 133.5,
+        "width": 70,
+        "height": 34.84375,
+        "top": 133.5,
+        "right": 1421,
+        "bottom": 168.34375,
+        "left": 1351
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "rankings",
+    "title": "天下财富榜\n随游戏年份\n2004 年快照\n2008 年快照\n2014 年快照\n2020 年快照\n2025 年快照\n中国富豪\n世界富豪\n中国公司\n世界公司\n2008 · 2008-10-07\n2008 ",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 1352,
+      "height": 726.5,
+      "top": 120.5,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 7,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 727,
+      "clientHeight": 727,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 1344,
+        "y": 681.375,
+        "width": 79,
+        "height": 31,
+        "top": 681.375,
+        "right": 1423,
+        "bottom": 712.375,
+        "left": 1344
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "global",
+    "title": "门店\n街区\n企业\n国际\n资本、技术与世界市场\n国际商战\n出资公司\n东平社区便利店\n待处理剧情\n海外与科技\n牵线与并购\n战略持仓\n时代与政策\n业务方向\n搜索与云服务\n游戏与社交\n跨境电商\n智能终端\n新能",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 1352,
+      "height": 726.5,
+      "top": 120.5,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 17,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 727,
+      "clientHeight": 727,
+      "lastText": "经营一周 →",
+      "last": {
+        "x": 1323.53125,
+        "y": 764.3125,
+        "width": 99.46875,
+        "height": 36.1875,
+        "top": 764.3125,
+        "right": 1423,
+        "bottom": 800.5,
+        "left": 1323.53125
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "tab": "memory",
+    "title": "时代情报\n2004 年\n2005 年\n2007 年\n2008 年\n2009 年\n2010 年\n2011 年\n2013 年\n2014 年\n2015 年\n2017 年\n2018 年\n2019 年\n2020",
+    "doc": 1440,
+    "sw": 1352,
+    "cw": 1352,
+    "stage": {
+      "x": 88,
+      "y": 120.5,
+      "width": 1352,
+      "height": 726.5,
+      "top": 120.5,
+      "right": 1440,
+      "bottom": 847,
+      "left": 88
+    },
+    "bottom": {
+      "x": 88,
+      "y": 847,
+      "width": 1352,
+      "height": 53,
+      "top": 847,
+      "right": 1440,
+      "bottom": 900,
+      "left": 88
+    },
+    "pairs": [],
+    "buttons": 2,
+    "last": {
+      "scrollTop": 0,
+      "scrollHeight": 727,
+      "clientHeight": 727,
+      "lastText": "下一页 ",
+      "last": {
+        "x": 1344,
+        "y": 425.828125,
+        "width": 79,
+        "height": 31,
+        "top": 425.828125,
+        "right": 1423,
+        "bottom": 456.828125,
+        "left": 1344
+      },
+      "hit": true,
+      "stageBottom": 847
+    },
+    "errors": []
+  }
+]

@@ -1,0 +1,928 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "scrollLeft": 153,
+    "maxLeft": 153,
+    "stageTop": 465,
+    "maxTop": 465,
+    "last": {
+      "x": 235.125,
+      "y": 387.5,
+      "width": 76,
+      "height": 34,
+      "top": 387.5,
+      "right": 311.125,
+      "bottom": 421.5,
+      "left": 235.125
+    },
+    "hit": true,
+    "nav": [
+      {
+        "text": "总览",
+        "rect": {
+          "x": 0,
+          "y": 523.15625,
+          "width": 64,
+          "height": 44.84375,
+          "top": 523.15625,
+          "right": 64,
+          "bottom": 568,
+          "left": 0
+        },
+        "textRects": [
+          {
+            "x": 21,
+            "y": 549.15625,
+            "width": 22,
+            "height": 13,
+            "top": 549.15625,
+            "right": 43,
+            "bottom": 562.15625,
+            "left": 21
+          }
+        ]
+      },
+      {
+        "text": "经营",
+        "rect": {
+          "x": 64,
+          "y": 523.15625,
+          "width": 64,
+          "height": 44.84375,
+          "top": 523.15625,
+          "right": 128,
+          "bottom": 568,
+          "left": 64
+        },
+        "textRects": [
+          {
+            "x": 85,
+            "y": 549.15625,
+            "width": 22,
+            "height": 13,
+            "top": 549.15625,
+            "right": 107,
+            "bottom": 562.15625,
+            "left": 85
+          }
+        ]
+      },
+      {
+        "text": "市场",
+        "rect": {
+          "x": 128,
+          "y": 523.15625,
+          "width": 64,
+          "height": 44.84375,
+          "top": 523.15625,
+          "right": 192,
+          "bottom": 568,
+          "left": 128
+        },
+        "textRects": [
+          {
+            "x": 149,
+            "y": 549.15625,
+            "width": 22,
+            "height": 13,
+            "top": 549.15625,
+            "right": 171,
+            "bottom": 562.15625,
+            "left": 149
+          }
+        ]
+      },
+      {
+        "text": "团队",
+        "rect": {
+          "x": 192,
+          "y": 523.15625,
+          "width": 64,
+          "height": 44.84375,
+          "top": 523.15625,
+          "right": 256,
+          "bottom": 568,
+          "left": 192
+        },
+        "textRects": [
+          {
+            "x": 213,
+            "y": 549.15625,
+            "width": 22,
+            "height": 13,
+            "top": 549.15625,
+            "right": 235,
+            "bottom": 562.15625,
+            "left": 213
+          }
+        ]
+      },
+      {
+        "text": "收件箱3",
+        "rect": {
+          "x": 256,
+          "y": 523.15625,
+          "width": 64,
+          "height": 44.84375,
+          "top": 523.15625,
+          "right": 320,
+          "bottom": 568,
+          "left": 256
+        },
+        "textRects": [
+          {
+            "x": 271.5,
+            "y": 549.15625,
+            "width": 33,
+            "height": 13,
+            "top": 549.15625,
+            "right": 304.5,
+            "bottom": 562.15625,
+            "left": 271.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 600,
+    "scrollLeft": 98,
+    "maxLeft": 98,
+    "stageTop": 433,
+    "maxTop": 433,
+    "last": {
+      "x": 290.125,
+      "y": 419.5,
+      "width": 76,
+      "height": 34,
+      "top": 419.5,
+      "right": 366.125,
+      "bottom": 453.5,
+      "left": 290.125
+    },
+    "hit": true,
+    "nav": [
+      {
+        "text": "总览",
+        "rect": {
+          "x": 0,
+          "y": 555.15625,
+          "width": 75,
+          "height": 44.84375,
+          "top": 555.15625,
+          "right": 75,
+          "bottom": 600,
+          "left": 0
+        },
+        "textRects": [
+          {
+            "x": 26.5,
+            "y": 581.15625,
+            "width": 22,
+            "height": 13,
+            "top": 581.15625,
+            "right": 48.5,
+            "bottom": 594.15625,
+            "left": 26.5
+          }
+        ]
+      },
+      {
+        "text": "经营",
+        "rect": {
+          "x": 75,
+          "y": 555.15625,
+          "width": 75,
+          "height": 44.84375,
+          "top": 555.15625,
+          "right": 150,
+          "bottom": 600,
+          "left": 75
+        },
+        "textRects": [
+          {
+            "x": 101.5,
+            "y": 581.15625,
+            "width": 22,
+            "height": 13,
+            "top": 581.15625,
+            "right": 123.5,
+            "bottom": 594.15625,
+            "left": 101.5
+          }
+        ]
+      },
+      {
+        "text": "市场",
+        "rect": {
+          "x": 150,
+          "y": 555.15625,
+          "width": 75,
+          "height": 44.84375,
+          "top": 555.15625,
+          "right": 225,
+          "bottom": 600,
+          "left": 150
+        },
+        "textRects": [
+          {
+            "x": 176.5,
+            "y": 581.15625,
+            "width": 22,
+            "height": 13,
+            "top": 581.15625,
+            "right": 198.5,
+            "bottom": 594.15625,
+            "left": 176.5
+          }
+        ]
+      },
+      {
+        "text": "团队",
+        "rect": {
+          "x": 225,
+          "y": 555.15625,
+          "width": 75,
+          "height": 44.84375,
+          "top": 555.15625,
+          "right": 300,
+          "bottom": 600,
+          "left": 225
+        },
+        "textRects": [
+          {
+            "x": 251.5,
+            "y": 581.15625,
+            "width": 22,
+            "height": 13,
+            "top": 581.15625,
+            "right": 273.5,
+            "bottom": 594.15625,
+            "left": 251.5
+          }
+        ]
+      },
+      {
+        "text": "收件箱3",
+        "rect": {
+          "x": 300,
+          "y": 555.15625,
+          "width": 75,
+          "height": 44.84375,
+          "top": 555.15625,
+          "right": 375,
+          "bottom": 600,
+          "left": 300
+        },
+        "textRects": [
+          {
+            "x": 321,
+            "y": 581.15625,
+            "width": 33,
+            "height": 13,
+            "top": 581.15625,
+            "right": 354,
+            "bottom": 594.15625,
+            "left": 321
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 650,
+    "scrollLeft": 83,
+    "maxLeft": 83,
+    "stageTop": 383,
+    "maxTop": 383,
+    "last": {
+      "x": 305.125,
+      "y": 469.5,
+      "width": 76,
+      "height": 34,
+      "top": 469.5,
+      "right": 381.125,
+      "bottom": 503.5,
+      "left": 305.125
+    },
+    "hit": true,
+    "nav": [
+      {
+        "text": "总览",
+        "rect": {
+          "x": 0,
+          "y": 605.15625,
+          "width": 78,
+          "height": 44.84375,
+          "top": 605.15625,
+          "right": 78,
+          "bottom": 650,
+          "left": 0
+        },
+        "textRects": [
+          {
+            "x": 28,
+            "y": 631.15625,
+            "width": 22,
+            "height": 13,
+            "top": 631.15625,
+            "right": 50,
+            "bottom": 644.15625,
+            "left": 28
+          }
+        ]
+      },
+      {
+        "text": "经营",
+        "rect": {
+          "x": 78,
+          "y": 605.15625,
+          "width": 78,
+          "height": 44.84375,
+          "top": 605.15625,
+          "right": 156,
+          "bottom": 650,
+          "left": 78
+        },
+        "textRects": [
+          {
+            "x": 106,
+            "y": 631.15625,
+            "width": 22,
+            "height": 13,
+            "top": 631.15625,
+            "right": 128,
+            "bottom": 644.15625,
+            "left": 106
+          }
+        ]
+      },
+      {
+        "text": "市场",
+        "rect": {
+          "x": 156,
+          "y": 605.15625,
+          "width": 78,
+          "height": 44.84375,
+          "top": 605.15625,
+          "right": 234,
+          "bottom": 650,
+          "left": 156
+        },
+        "textRects": [
+          {
+            "x": 184,
+            "y": 631.15625,
+            "width": 22,
+            "height": 13,
+            "top": 631.15625,
+            "right": 206,
+            "bottom": 644.15625,
+            "left": 184
+          }
+        ]
+      },
+      {
+        "text": "团队",
+        "rect": {
+          "x": 234,
+          "y": 605.15625,
+          "width": 78,
+          "height": 44.84375,
+          "top": 605.15625,
+          "right": 312,
+          "bottom": 650,
+          "left": 234
+        },
+        "textRects": [
+          {
+            "x": 262,
+            "y": 631.15625,
+            "width": 22,
+            "height": 13,
+            "top": 631.15625,
+            "right": 284,
+            "bottom": 644.15625,
+            "left": 262
+          }
+        ]
+      },
+      {
+        "text": "收件箱3",
+        "rect": {
+          "x": 312,
+          "y": 605.15625,
+          "width": 78,
+          "height": 44.84375,
+          "top": 605.15625,
+          "right": 390,
+          "bottom": 650,
+          "left": 312
+        },
+        "textRects": [
+          {
+            "x": 334.5,
+            "y": 631.15625,
+            "width": 33,
+            "height": 13,
+            "top": 631.15625,
+            "right": 367.5,
+            "bottom": 644.15625,
+            "left": 334.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "height": 740,
+    "scrollLeft": 43,
+    "maxLeft": 43,
+    "stageTop": 293,
+    "maxTop": 293,
+    "last": {
+      "x": 345.125,
+      "y": 559.5,
+      "width": 76,
+      "height": 34,
+      "top": 559.5,
+      "right": 421.125,
+      "bottom": 593.5,
+      "left": 345.125
+    },
+    "hit": true,
+    "nav": [
+      {
+        "text": "总览",
+        "rect": {
+          "x": 0,
+          "y": 695.15625,
+          "width": 86,
+          "height": 44.84375,
+          "top": 695.15625,
+          "right": 86,
+          "bottom": 740,
+          "left": 0
+        },
+        "textRects": [
+          {
+            "x": 32,
+            "y": 721.15625,
+            "width": 22,
+            "height": 13,
+            "top": 721.15625,
+            "right": 54,
+            "bottom": 734.15625,
+            "left": 32
+          }
+        ]
+      },
+      {
+        "text": "经营",
+        "rect": {
+          "x": 86,
+          "y": 695.15625,
+          "width": 86,
+          "height": 44.84375,
+          "top": 695.15625,
+          "right": 172,
+          "bottom": 740,
+          "left": 86
+        },
+        "textRects": [
+          {
+            "x": 118,
+            "y": 721.15625,
+            "width": 22,
+            "height": 13,
+            "top": 721.15625,
+            "right": 140,
+            "bottom": 734.15625,
+            "left": 118
+          }
+        ]
+      },
+      {
+        "text": "市场",
+        "rect": {
+          "x": 172,
+          "y": 695.15625,
+          "width": 86,
+          "height": 44.84375,
+          "top": 695.15625,
+          "right": 258,
+          "bottom": 740,
+          "left": 172
+        },
+        "textRects": [
+          {
+            "x": 204,
+            "y": 721.15625,
+            "width": 22,
+            "height": 13,
+            "top": 721.15625,
+            "right": 226,
+            "bottom": 734.15625,
+            "left": 204
+          }
+        ]
+      },
+      {
+        "text": "团队",
+        "rect": {
+          "x": 258,
+          "y": 695.15625,
+          "width": 86,
+          "height": 44.84375,
+          "top": 695.15625,
+          "right": 344,
+          "bottom": 740,
+          "left": 258
+        },
+        "textRects": [
+          {
+            "x": 290,
+            "y": 721.15625,
+            "width": 22,
+            "height": 13,
+            "top": 721.15625,
+            "right": 312,
+            "bottom": 734.15625,
+            "left": 290
+          }
+        ]
+      },
+      {
+        "text": "收件箱3",
+        "rect": {
+          "x": 344,
+          "y": 695.15625,
+          "width": 86,
+          "height": 44.84375,
+          "top": 695.15625,
+          "right": 430,
+          "bottom": 740,
+          "left": 344
+        },
+        "textRects": [
+          {
+            "x": 370.5,
+            "y": 721.15625,
+            "width": 33,
+            "height": 13,
+            "top": 721.15625,
+            "right": 403.5,
+            "bottom": 734.15625,
+            "left": 370.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "height": 800,
+    "scrollLeft": 0,
+    "maxLeft": 0,
+    "stageTop": 201,
+    "maxTop": 201,
+    "last": {
+      "x": 644.390625,
+      "y": 662,
+      "width": 108.609375,
+      "height": 34,
+      "top": 662,
+      "right": 753,
+      "bottom": 696,
+      "left": 644.390625
+    },
+    "hit": true,
+    "nav": [
+      {
+        "text": "总览",
+        "rect": {
+          "x": 6,
+          "y": 12,
+          "width": 75,
+          "height": 64,
+          "top": 12,
+          "right": 81,
+          "bottom": 76,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 31.5,
+            "y": 46.90625,
+            "width": 24,
+            "height": 15,
+            "top": 46.90625,
+            "right": 55.5,
+            "bottom": 61.90625,
+            "left": 31.5
+          }
+        ]
+      },
+      {
+        "text": "经营",
+        "rect": {
+          "x": 6,
+          "y": 80,
+          "width": 75,
+          "height": 64,
+          "top": 80,
+          "right": 81,
+          "bottom": 144,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 31.5,
+            "y": 114.90625,
+            "width": 24,
+            "height": 15,
+            "top": 114.90625,
+            "right": 55.5,
+            "bottom": 129.90625,
+            "left": 31.5
+          }
+        ]
+      },
+      {
+        "text": "市场",
+        "rect": {
+          "x": 6,
+          "y": 148,
+          "width": 75,
+          "height": 64,
+          "top": 148,
+          "right": 81,
+          "bottom": 212,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 31.5,
+            "y": 182.90625,
+            "width": 24,
+            "height": 15,
+            "top": 182.90625,
+            "right": 55.5,
+            "bottom": 197.90625,
+            "left": 31.5
+          }
+        ]
+      },
+      {
+        "text": "团队",
+        "rect": {
+          "x": 6,
+          "y": 216,
+          "width": 75,
+          "height": 64,
+          "top": 216,
+          "right": 81,
+          "bottom": 280,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 31.5,
+            "y": 250.90625,
+            "width": 24,
+            "height": 15,
+            "top": 250.90625,
+            "right": 55.5,
+            "bottom": 265.90625,
+            "left": 31.5
+          }
+        ]
+      },
+      {
+        "text": "收件箱3",
+        "rect": {
+          "x": 6,
+          "y": 284,
+          "width": 75,
+          "height": 64,
+          "top": 284,
+          "right": 81,
+          "bottom": 348,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 25.5,
+            "y": 318.90625,
+            "width": 36,
+            "height": 15,
+            "top": 318.90625,
+            "right": 61.5,
+            "bottom": 333.90625,
+            "left": 25.5
+          }
+        ]
+      },
+      {
+        "text": "指南",
+        "rect": {
+          "x": 6,
+          "y": 364,
+          "width": 75,
+          "height": 52,
+          "top": 364,
+          "right": 81,
+          "bottom": 416,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 31.5,
+            "y": 392.90625,
+            "width": 24,
+            "height": 15,
+            "top": 392.90625,
+            "right": 55.5,
+            "bottom": 407.90625,
+            "left": 31.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "scrollLeft": 0,
+    "maxLeft": 0,
+    "stageTop": 101,
+    "maxTop": 101,
+    "last": {
+      "x": 1190.875,
+      "y": 762,
+      "width": 214.125,
+      "height": 34,
+      "top": 762,
+      "right": 1405,
+      "bottom": 796,
+      "left": 1190.875
+    },
+    "hit": true,
+    "nav": [
+      {
+        "text": "总览",
+        "rect": {
+          "x": 6,
+          "y": 12,
+          "width": 75,
+          "height": 64,
+          "top": 12,
+          "right": 81,
+          "bottom": 76,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 31.5,
+            "y": 46.90625,
+            "width": 24,
+            "height": 15,
+            "top": 46.90625,
+            "right": 55.5,
+            "bottom": 61.90625,
+            "left": 31.5
+          }
+        ]
+      },
+      {
+        "text": "经营",
+        "rect": {
+          "x": 6,
+          "y": 80,
+          "width": 75,
+          "height": 64,
+          "top": 80,
+          "right": 81,
+          "bottom": 144,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 31.5,
+            "y": 114.90625,
+            "width": 24,
+            "height": 15,
+            "top": 114.90625,
+            "right": 55.5,
+            "bottom": 129.90625,
+            "left": 31.5
+          }
+        ]
+      },
+      {
+        "text": "市场",
+        "rect": {
+          "x": 6,
+          "y": 148,
+          "width": 75,
+          "height": 64,
+          "top": 148,
+          "right": 81,
+          "bottom": 212,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 31.5,
+            "y": 182.90625,
+            "width": 24,
+            "height": 15,
+            "top": 182.90625,
+            "right": 55.5,
+            "bottom": 197.90625,
+            "left": 31.5
+          }
+        ]
+      },
+      {
+        "text": "团队",
+        "rect": {
+          "x": 6,
+          "y": 216,
+          "width": 75,
+          "height": 64,
+          "top": 216,
+          "right": 81,
+          "bottom": 280,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 31.5,
+            "y": 250.90625,
+            "width": 24,
+            "height": 15,
+            "top": 250.90625,
+            "right": 55.5,
+            "bottom": 265.90625,
+            "left": 31.5
+          }
+        ]
+      },
+      {
+        "text": "收件箱3",
+        "rect": {
+          "x": 6,
+          "y": 284,
+          "width": 75,
+          "height": 64,
+          "top": 284,
+          "right": 81,
+          "bottom": 348,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 25.5,
+            "y": 318.90625,
+            "width": 36,
+            "height": 15,
+            "top": 318.90625,
+            "right": 61.5,
+            "bottom": 333.90625,
+            "left": 25.5
+          }
+        ]
+      },
+      {
+        "text": "指南",
+        "rect": {
+          "x": 6,
+          "y": 364,
+          "width": 75,
+          "height": 52,
+          "top": 364,
+          "right": 81,
+          "bottom": 416,
+          "left": 6
+        },
+        "textRects": [
+          {
+            "x": 31.5,
+            "y": 392.90625,
+            "width": 24,
+            "height": 15,
+            "top": 392.90625,
+            "right": 55.5,
+            "bottom": 407.90625,
+            "left": 31.5
+          }
+        ]
+      }
+    ]
+  }
+]

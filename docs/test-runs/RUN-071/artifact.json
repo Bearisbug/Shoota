@@ -1,0 +1,17 @@
+{
+  "sha256": "dce0754f3783d8d034863d621ced4a38d828988470b6eedde2b897e2e71676c0",
+  "bytes": 2254949,
+  "games": [
+    "wealth-reborn"
+  ],
+  "widths": [
+    320,
+    375,
+    390,
+    430,
+    768,
+    1440
+  ],
+  "testedSha256": "85f45aa0a093692244a1ac55fc55234f0a8cae6af61e34c993852cab30e4f308",
+  "releaseDifference": "Only removed one trailing space on line 4445; see whitespace-proof.json"
+}

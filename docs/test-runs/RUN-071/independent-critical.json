@@ -1,0 +1,1531 @@
+{
+  "startHash": "85f45aa0a093692244a1ac55fc55234f0a8cae6af61e34c993852cab30e4f308",
+  "endHash": "85f45aa0a093692244a1ac55fc55234f0a8cae6af61e34c993852cab30e4f308",
+  "reports": [
+    {
+      "width": 375,
+      "height": 560,
+      "fixture": "old",
+      "checks": [
+        {
+          "selector": "[data-action=\"manager-policy\"]",
+          "label": "店长预算",
+          "hit": true,
+          "x": 281.375,
+          "y": 425.640625,
+          "w": 76.625,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=\"manager-performance\"]",
+          "label": "实际业绩",
+          "hit": true,
+          "x": 281.375,
+          "y": 261.640625,
+          "w": 76.625,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"rescue-board\"]",
+          "label": "重组机会",
+          "hit": true,
+          "x": 19,
+          "y": 416.015625,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=\"synergy-board\"]",
+          "label": "集团协同",
+          "hit": true,
+          "x": 72.328125,
+          "y": 416.015625,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=desk-page][data-step=\"1\"]",
+          "label": "›",
+          "hit": true,
+          "x": 275.234375,
+          "y": 414.015625,
+          "w": 27.4375,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"branch\"]",
+          "label": "开新分店",
+          "hit": true,
+          "x": 20,
+          "y": 394.828125,
+          "w": 164,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"compete\"]",
+          "label": "竞争策略",
+          "hit": true,
+          "x": 191,
+          "y": 394.828125,
+          "w": 164,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"expand\"]",
+          "label": "扩建产能",
+          "hit": true,
+          "x": 20,
+          "y": 424.828125,
+          "w": 164,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"team\"]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 191,
+          "y": 424.828125,
+          "w": 164,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=team]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 191,
+          "y": 424.828125,
+          "w": 164,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 293,
+          "y": 411.796875,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=rival]",
+          "label": "全国邻里商行正常经营 · 会员防守17.4%72 / 1001506 万 元本周",
+          "hit": true,
+          "x": 20,
+          "y": 359.421875,
+          "w": 335,
+          "h": 66.390625
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 293,
+          "y": 411.796875,
+          "w": 71,
+          "h": 36
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 375,
+      "height": 560,
+      "fixture": "multi",
+      "checks": [
+        {
+          "selector": "[data-action=\"manager-policy\"]",
+          "label": "店长预算",
+          "hit": true,
+          "x": 281.375,
+          "y": 425.640625,
+          "w": 76.625,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=\"manager-performance\"]",
+          "label": "实际业绩",
+          "hit": true,
+          "x": 281.375,
+          "y": 261.640625,
+          "w": 76.625,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"rescue-board\"]",
+          "label": "重组机会",
+          "hit": true,
+          "x": 19,
+          "y": 416.015625,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=\"synergy-board\"]",
+          "label": "集团协同",
+          "hit": true,
+          "x": 72.328125,
+          "y": 416.015625,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=desk-page][data-step=\"1\"]",
+          "label": "›",
+          "hit": true,
+          "x": 275.234375,
+          "y": 414.015625,
+          "w": 27.4375,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"branch\"]",
+          "label": "开新分店",
+          "hit": true,
+          "x": 20,
+          "y": 394.828125,
+          "w": 164,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"compete\"]",
+          "label": "竞争策略",
+          "hit": true,
+          "x": 191,
+          "y": 394.828125,
+          "w": 164,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"expand\"]",
+          "label": "扩建产能",
+          "hit": true,
+          "x": 20,
+          "y": 424.828125,
+          "w": 164,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"team\"]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 191,
+          "y": 424.828125,
+          "w": 164,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 225,
+          "y": 411.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 225,
+          "y": 411.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 225,
+          "y": 411.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 225,
+          "y": 411.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 225,
+          "y": 411.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 225,
+          "y": 411.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=team]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 191,
+          "y": 424.828125,
+          "w": 164,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 293,
+          "y": 411.609375,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=rival]",
+          "label": "全国邻里商行正常经营 · 会员防守17.4%72 / 1001506 万 元本周",
+          "hit": true,
+          "x": 20,
+          "y": 379.234375,
+          "w": 335,
+          "h": 66.390625
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 293,
+          "y": 411.609375,
+          "w": 71,
+          "h": 36
+        }
+      ],
+      "errors": [],
+      "storeCount": 126
+    },
+    {
+      "width": 390,
+      "height": 650,
+      "fixture": "old",
+      "checks": [
+        {
+          "selector": "[data-action=\"manager-policy\"]",
+          "label": "店长预算",
+          "hit": true,
+          "x": 292.875,
+          "y": 429.140625,
+          "w": 80.125,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=\"manager-performance\"]",
+          "label": "实际业绩",
+          "hit": true,
+          "x": 292.875,
+          "y": 470.140625,
+          "w": 80.125,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"rescue-board\"]",
+          "label": "重组机会",
+          "hit": true,
+          "x": 19,
+          "y": 429.515625,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=\"synergy-board\"]",
+          "label": "集团协同",
+          "hit": true,
+          "x": 74.828125,
+          "y": 429.515625,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=desk-page][data-step=\"1\"]",
+          "label": "›",
+          "hit": true,
+          "x": 287.734375,
+          "y": 427.515625,
+          "w": 27.4375,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"branch\"]",
+          "label": "开新分店",
+          "hit": true,
+          "x": 20,
+          "y": 394.828125,
+          "w": 171.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"compete\"]",
+          "label": "竞争策略",
+          "hit": true,
+          "x": 198.5,
+          "y": 394.828125,
+          "w": 171.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"expand\"]",
+          "label": "扩建产能",
+          "hit": true,
+          "x": 20,
+          "y": 437.828125,
+          "w": 171.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"team\"]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 198.5,
+          "y": 437.828125,
+          "w": 171.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=team]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 198.5,
+          "y": 437.828125,
+          "w": 171.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 308,
+          "y": 501.609375,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=rival]",
+          "label": "全国邻里商行正常经营 · 会员防守17.4%72 / 1001506 万 元本周",
+          "hit": true,
+          "x": 20,
+          "y": 333.234375,
+          "w": 350,
+          "h": 52.09375
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 308,
+          "y": 502.3125,
+          "w": 71,
+          "h": 36
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 390,
+      "height": 650,
+      "fixture": "multi",
+      "checks": [
+        {
+          "selector": "[data-action=\"manager-policy\"]",
+          "label": "店长预算",
+          "hit": true,
+          "x": 292.875,
+          "y": 429.140625,
+          "w": 80.125,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=\"manager-performance\"]",
+          "label": "实际业绩",
+          "hit": true,
+          "x": 292.875,
+          "y": 470.140625,
+          "w": 80.125,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"rescue-board\"]",
+          "label": "重组机会",
+          "hit": true,
+          "x": 19,
+          "y": 429.515625,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=\"synergy-board\"]",
+          "label": "集团协同",
+          "hit": true,
+          "x": 74.828125,
+          "y": 429.515625,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=desk-page][data-step=\"1\"]",
+          "label": "›",
+          "hit": true,
+          "x": 287.734375,
+          "y": 427.515625,
+          "w": 27.4375,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"branch\"]",
+          "label": "开新分店",
+          "hit": true,
+          "x": 20,
+          "y": 394.828125,
+          "w": 171.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"compete\"]",
+          "label": "竞争策略",
+          "hit": true,
+          "x": 198.5,
+          "y": 394.828125,
+          "w": 171.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"expand\"]",
+          "label": "扩建产能",
+          "hit": true,
+          "x": 20,
+          "y": 437.828125,
+          "w": 171.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"team\"]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 198.5,
+          "y": 437.828125,
+          "w": 171.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 232.5,
+          "y": 488.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 232.5,
+          "y": 488.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 232.5,
+          "y": 488.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 232.5,
+          "y": 488.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 232.5,
+          "y": 488.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 232.5,
+          "y": 488.828125,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=team]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 198.5,
+          "y": 437.828125,
+          "w": 171.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 308,
+          "y": 501.609375,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=rival]",
+          "label": "全国邻里商行正常经营 · 会员防守17.4%72 / 1001506 万 元本周",
+          "hit": true,
+          "x": 20,
+          "y": 379.234375,
+          "w": 350,
+          "h": 52.09375
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 308,
+          "y": 502.3125,
+          "w": 71,
+          "h": 36
+        }
+      ],
+      "errors": [],
+      "storeCount": 126
+    },
+    {
+      "width": 320,
+      "height": 560,
+      "fixture": "old",
+      "checks": [
+        {
+          "selector": "[data-action=\"manager-policy\"]",
+          "label": "店长预算",
+          "hit": true,
+          "x": 230.984375,
+          "y": 263.328125,
+          "w": 72,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=\"manager-performance\"]",
+          "label": "实际业绩",
+          "hit": true,
+          "x": 230.984375,
+          "y": 304.328125,
+          "w": 72,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"rescue-board\"]",
+          "label": "重组机会",
+          "hit": true,
+          "x": 19,
+          "y": 428.703125,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=\"synergy-board\"]",
+          "label": "集团协同",
+          "hit": true,
+          "x": 72,
+          "y": 428.703125,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=desk-page][data-step=\"1\"]",
+          "label": "›",
+          "hit": true,
+          "x": 273.5625,
+          "y": 424.703125,
+          "w": 27.4375,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"branch\"]",
+          "label": "开新分店",
+          "hit": true,
+          "x": 20,
+          "y": 415.015625,
+          "w": 136.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"compete\"]",
+          "label": "竞争策略",
+          "hit": true,
+          "x": 163.5,
+          "y": 415.015625,
+          "w": 136.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"expand\"]",
+          "label": "扩建产能",
+          "hit": true,
+          "x": 20,
+          "y": 425.015625,
+          "w": 136.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"team\"]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 163.5,
+          "y": 425.015625,
+          "w": 136.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=team]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 163.5,
+          "y": 425.015625,
+          "w": 136.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 238,
+          "y": 411.796875,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=rival]",
+          "label": "全国邻里商行正常经营 · 会员防守17.4%72 / 1001506 万 元本周",
+          "hit": true,
+          "x": 20,
+          "y": 359.421875,
+          "w": 280,
+          "h": 66.390625
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 238,
+          "y": 411.796875,
+          "w": 71,
+          "h": 36
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 320,
+      "height": 560,
+      "fixture": "multi",
+      "checks": [
+        {
+          "selector": "[data-action=\"manager-policy\"]",
+          "label": "店长预算",
+          "hit": true,
+          "x": 230.984375,
+          "y": 263.328125,
+          "w": 72,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=\"manager-performance\"]",
+          "label": "实际业绩",
+          "hit": true,
+          "x": 230.984375,
+          "y": 304.328125,
+          "w": 72,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"rescue-board\"]",
+          "label": "重组机会",
+          "hit": true,
+          "x": 19,
+          "y": 428.703125,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=\"synergy-board\"]",
+          "label": "集团协同",
+          "hit": true,
+          "x": 72,
+          "y": 428.703125,
+          "w": 44,
+          "h": 32
+        },
+        {
+          "selector": "[data-action=desk-page][data-step=\"1\"]",
+          "label": "›",
+          "hit": true,
+          "x": 273.5625,
+          "y": 424.703125,
+          "w": 27.4375,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"branch\"]",
+          "label": "开新分店",
+          "hit": true,
+          "x": 20,
+          "y": 415.015625,
+          "w": 136.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"compete\"]",
+          "label": "竞争策略",
+          "hit": true,
+          "x": 163.5,
+          "y": 415.015625,
+          "w": 136.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"expand\"]",
+          "label": "扩建产能",
+          "hit": true,
+          "x": 20,
+          "y": 425.015625,
+          "w": 136.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"team\"]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 163.5,
+          "y": 425.015625,
+          "w": 136.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 197.5,
+          "y": 412.015625,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 197.5,
+          "y": 412.015625,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 197.5,
+          "y": 412.015625,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 197.5,
+          "y": 412.015625,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 197.5,
+          "y": 412.015625,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 197.5,
+          "y": 412.015625,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=company-action][data-type=team]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 163.5,
+          "y": 425.015625,
+          "w": 136.5,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 238,
+          "y": 411.609375,
+          "w": 71,
+          "h": 36
+        },
+        {
+          "selector": "[data-action=rival]",
+          "label": "全国邻里商行正常经营 · 会员防守17.4%72 / 1001506 万 元本周",
+          "hit": true,
+          "x": 20,
+          "y": 379.234375,
+          "w": 280,
+          "h": 66.390625
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 238,
+          "y": 411.609375,
+          "w": 71,
+          "h": 36
+        }
+      ],
+      "errors": [],
+      "storeCount": 126
+    },
+    {
+      "width": 768,
+      "height": 850,
+      "fixture": "old",
+      "checks": [
+        {
+          "selector": "[data-action=\"manager-policy\"]",
+          "label": "店长预算",
+          "hit": true,
+          "x": 416,
+          "y": 462.53125,
+          "w": 68,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"manager-performance\"]",
+          "label": "实际业绩",
+          "hit": true,
+          "x": 416,
+          "y": 504.53125,
+          "w": 68,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"rescue-board\"]",
+          "label": "重组机会",
+          "hit": true,
+          "x": 117,
+          "y": 728.109375,
+          "w": 40,
+          "h": 13.5
+        },
+        {
+          "selector": "[data-action=\"synergy-board\"]",
+          "label": "集团协同",
+          "hit": true,
+          "x": 163,
+          "y": 728.109375,
+          "w": 40,
+          "h": 13.5
+        },
+        {
+          "selector": "[data-action=desk-page][data-step=\"1\"]",
+          "label": "›",
+          "hit": true,
+          "x": 362.78125,
+          "y": 722.109375,
+          "w": 26.65625,
+          "h": 25.5
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"branch\"]",
+          "label": "开新分店",
+          "hit": true,
+          "x": 126,
+          "y": 500.046875,
+          "w": 154,
+          "h": 62
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"compete\"]",
+          "label": "竞争策略",
+          "hit": true,
+          "x": 290,
+          "y": 500.046875,
+          "w": 154,
+          "h": 62
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"expand\"]",
+          "label": "扩建产能",
+          "hit": true,
+          "x": 126,
+          "y": 572.046875,
+          "w": 154,
+          "h": 69.1875
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"team\"]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 290,
+          "y": 572.046875,
+          "w": 154,
+          "h": 69.1875
+        },
+        {
+          "selector": "[data-action=company-action][data-type=team]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 290,
+          "y": 572.046875,
+          "w": 154,
+          "h": 69.1875
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 251,
+          "y": 709.78125,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=rival]",
+          "label": "全国新邻2号正常经营 · 会员防守6.1%87 / 1003220 万 元本周盈",
+          "hit": true,
+          "x": 130,
+          "y": 403.28125,
+          "w": 596,
+          "h": 67.984375
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 251,
+          "y": 573.8125,
+          "w": 79,
+          "h": 31
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 768,
+      "height": 850,
+      "fixture": "multi",
+      "checks": [
+        {
+          "selector": "[data-action=\"manager-policy\"]",
+          "label": "店长预算",
+          "hit": true,
+          "x": 416,
+          "y": 462.53125,
+          "w": 68,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"manager-performance\"]",
+          "label": "实际业绩",
+          "hit": true,
+          "x": 416,
+          "y": 504.53125,
+          "w": 68,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"rescue-board\"]",
+          "label": "重组机会",
+          "hit": true,
+          "x": 117,
+          "y": 728.109375,
+          "w": 40,
+          "h": 13.5
+        },
+        {
+          "selector": "[data-action=\"synergy-board\"]",
+          "label": "集团协同",
+          "hit": true,
+          "x": 163,
+          "y": 728.109375,
+          "w": 40,
+          "h": 13.5
+        },
+        {
+          "selector": "[data-action=desk-page][data-step=\"1\"]",
+          "label": "›",
+          "hit": true,
+          "x": 362.78125,
+          "y": 722.109375,
+          "w": 26.65625,
+          "h": 25.5
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"branch\"]",
+          "label": "开新分店",
+          "hit": true,
+          "x": 126,
+          "y": 500.046875,
+          "w": 154,
+          "h": 62
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"compete\"]",
+          "label": "竞争策略",
+          "hit": true,
+          "x": 290,
+          "y": 500.046875,
+          "w": 154,
+          "h": 62
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"expand\"]",
+          "label": "扩建产能",
+          "hit": true,
+          "x": 126,
+          "y": 572.046875,
+          "w": 154,
+          "h": 69.1875
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"team\"]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 290,
+          "y": 572.046875,
+          "w": 154,
+          "h": 69.1875
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 461.5,
+          "y": 672.734375,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 461.5,
+          "y": 672.734375,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 461.5,
+          "y": 672.734375,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 461.5,
+          "y": 672.734375,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 461.5,
+          "y": 672.734375,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 461.5,
+          "y": 672.734375,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-action][data-type=team]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 290,
+          "y": 572.046875,
+          "w": 154,
+          "h": 69.1875
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 251,
+          "y": 735.5,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=rival]",
+          "label": "全国新邻2号正常经营 · 会员防守6.1%87 / 1003220 万 元本周盈",
+          "hit": true,
+          "x": 130,
+          "y": 429,
+          "w": 596,
+          "h": 67.984375
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 251,
+          "y": 599.53125,
+          "w": 79,
+          "h": 31
+        }
+      ],
+      "errors": [],
+      "storeCount": 126
+    },
+    {
+      "width": 1440,
+      "height": 800,
+      "fixture": "old",
+      "checks": [
+        {
+          "selector": "[data-action=\"manager-policy\"]",
+          "label": "店长预算",
+          "hit": true,
+          "x": 1034.984375,
+          "y": 401.9375,
+          "w": 82,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"manager-performance\"]",
+          "label": "实际业绩",
+          "hit": true,
+          "x": 1034.984375,
+          "y": 443.9375,
+          "w": 82,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"rescue-board\"]",
+          "label": "重组机会",
+          "hit": true,
+          "x": 115,
+          "y": 662.9375,
+          "w": 40,
+          "h": 13.5
+        },
+        {
+          "selector": "[data-action=\"synergy-board\"]",
+          "label": "集团协同",
+          "hit": true,
+          "x": 161,
+          "y": 662.9375,
+          "w": 40,
+          "h": 13.5
+        },
+        {
+          "selector": "[data-action=desk-page][data-step=\"1\"]",
+          "label": "›",
+          "hit": true,
+          "x": 360.78125,
+          "y": 656.9375,
+          "w": 26.65625,
+          "h": 25.5
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"branch\"]",
+          "label": "开新分店",
+          "hit": true,
+          "x": 120,
+          "y": 451.046875,
+          "w": 406.515625,
+          "h": 48
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"compete\"]",
+          "label": "竞争策略",
+          "hit": true,
+          "x": 536.515625,
+          "y": 451.046875,
+          "w": 406.515625,
+          "h": 48
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"expand\"]",
+          "label": "扩建产能",
+          "hit": true,
+          "x": 120,
+          "y": 509.046875,
+          "w": 406.515625,
+          "h": 48
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"team\"]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 536.515625,
+          "y": 509.046875,
+          "w": 406.515625,
+          "h": 48
+        },
+        {
+          "selector": "[data-action=company-action][data-type=team]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 536.515625,
+          "y": 509.046875,
+          "w": 406.515625,
+          "h": 48
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 251,
+          "y": 643.765625,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=rival]",
+          "label": "全国新邻2号正常经营 · 会员防守6.1%87 / 1003220 万 元本周盈",
+          "hit": true,
+          "x": 128,
+          "y": 376.484375,
+          "w": 1272,
+          "h": 56.578125
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 251,
+          "y": 530.609375,
+          "w": 79,
+          "h": 31
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "height": 800,
+      "fixture": "multi",
+      "checks": [
+        {
+          "selector": "[data-action=\"manager-policy\"]",
+          "label": "店长预算",
+          "hit": true,
+          "x": 1034.984375,
+          "y": 401.9375,
+          "w": 82,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"manager-performance\"]",
+          "label": "实际业绩",
+          "hit": true,
+          "x": 1034.984375,
+          "y": 443.9375,
+          "w": 82,
+          "h": 40
+        },
+        {
+          "selector": "[data-action=\"rescue-board\"]",
+          "label": "重组机会",
+          "hit": true,
+          "x": 115,
+          "y": 662.9375,
+          "w": 40,
+          "h": 13.5
+        },
+        {
+          "selector": "[data-action=\"synergy-board\"]",
+          "label": "集团协同",
+          "hit": true,
+          "x": 161,
+          "y": 662.9375,
+          "w": 40,
+          "h": 13.5
+        },
+        {
+          "selector": "[data-action=desk-page][data-step=\"1\"]",
+          "label": "›",
+          "hit": true,
+          "x": 360.78125,
+          "y": 656.9375,
+          "w": 26.65625,
+          "h": 25.5
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"branch\"]",
+          "label": "开新分店",
+          "hit": true,
+          "x": 120,
+          "y": 451.046875,
+          "w": 406.515625,
+          "h": 48
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"compete\"]",
+          "label": "竞争策略",
+          "hit": true,
+          "x": 536.515625,
+          "y": 451.046875,
+          "w": 406.515625,
+          "h": 48
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"expand\"]",
+          "label": "扩建产能",
+          "hit": true,
+          "x": 120,
+          "y": 509.046875,
+          "w": 406.515625,
+          "h": 48
+        },
+        {
+          "selector": "[data-action=company-action][data-type=\"team\"]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 536.515625,
+          "y": 509.046875,
+          "w": 406.515625,
+          "h": 48
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 797.5,
+          "y": 612.453125,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 797.5,
+          "y": 612.453125,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 797.5,
+          "y": 612.453125,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 797.5,
+          "y": 612.453125,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 797.5,
+          "y": 612.453125,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 797.5,
+          "y": 582.546875,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=company-action][data-type=team]",
+          "label": "招聘 / 分店负责人",
+          "hit": true,
+          "x": 536.515625,
+          "y": 509.046875,
+          "w": 406.515625,
+          "h": 48
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 251,
+          "y": 643.765625,
+          "w": 79,
+          "h": 31
+        },
+        {
+          "selector": "[data-action=rival]",
+          "label": "全国新邻2号正常经营 · 会员防守6.1%87 / 1003220 万 元本周盈",
+          "hit": true,
+          "x": 128,
+          "y": 376.484375,
+          "w": 1272,
+          "h": 56.578125
+        },
+        {
+          "selector": "[data-action=market-page][data-step=\"1\"]",
+          "label": "下一页",
+          "hit": true,
+          "x": 251,
+          "y": 530.609375,
+          "w": 79,
+          "h": 31
+        }
+      ],
+      "errors": [],
+      "storeCount": 126
+    }
+  ]
+}

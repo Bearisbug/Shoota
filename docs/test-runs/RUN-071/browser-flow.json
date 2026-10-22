@@ -1,0 +1,83 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "height": 667,
+      "trace": [
+        3000,
+        4000,
+        5000,
+        6000,
+        7000,
+        8000
+      ],
+      "color": "rgb(122, 36, 51)",
+      "opened": "东平社区便利店",
+      "week": 7,
+      "personal": 152.85,
+      "company": 3617.52,
+      "refreshExact": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "trace": [
+        3000,
+        4000,
+        5000,
+        6000,
+        7000,
+        8000
+      ],
+      "color": "rgb(122, 36, 51)",
+      "opened": "东平社区便利店",
+      "week": 7,
+      "personal": 156.62,
+      "company": 3632.62,
+      "refreshExact": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "trace": [
+        3000,
+        4000,
+        5000,
+        6000,
+        7000,
+        8000
+      ],
+      "color": "rgb(122, 36, 51)",
+      "opened": "东平社区便利店",
+      "week": 7,
+      "personal": 143.77,
+      "company": 3581.25,
+      "refreshExact": true
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "trace": [
+        3000,
+        4000,
+        5000,
+        6000,
+        7000,
+        8000
+      ],
+      "color": "rgb(122, 36, 51)",
+      "opened": "东平社区便利店",
+      "week": 7,
+      "personal": 156.44,
+      "company": 3631.92,
+      "refreshExact": true
+    },
+    {
+      "oldSave": true,
+      "cashPreserved": true,
+      "companyAccountsPreserved": true,
+      "weekAdvanced": 1
+    }
+  ],
+  "errors": []
+}
