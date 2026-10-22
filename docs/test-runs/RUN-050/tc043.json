@@ -1,0 +1,54 @@
+{
+  "tc": "TC-043",
+  "steps": [
+    {
+      "n": 1,
+      "ok": true,
+      "actual": {
+        "stage": "网络不稳定，游戏没下载下来 已经自动重试过一次。换个网络或稍等一会儿，再点「重试」。 重试 返回",
+        "buttons": [
+          "重试",
+          "返回"
+        ],
+        "iframe": false,
+        "heldRequests": 2
+      }
+    },
+    {
+      "n": 2,
+      "ok": true,
+      "actual": {
+        "stage": "",
+        "buttons": [],
+        "iframe": true,
+        "secs": 0.714
+      }
+    },
+    {
+      "n": 3,
+      "ok": true,
+      "actual": {
+        "stage": "存档暂时读不出来 本机存档库没有回应，进度没有丢。请刷新页面再试。 刷新页面 返回",
+        "buttons": [
+          "刷新页面",
+          "返回"
+        ],
+        "iframe": false
+      }
+    },
+    {
+      "n": 4,
+      "ok": true,
+      "actual": {
+        "stage": "存档暂时读不出来 本机存档库没有回应，进度没有丢。请刷新页面再试。 刷新页面 返回",
+        "buttons": [
+          "刷新页面",
+          "返回"
+        ],
+        "iframe": false,
+        "hashAfterBack": "#game-nba"
+      }
+    }
+  ],
+  "pass": true
+}

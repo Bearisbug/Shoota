@@ -1,0 +1,31 @@
+{
+  "tc": "TC-010",
+  "steps": [
+    {
+      "n": 1,
+      "status": 401,
+      "type": "/errors/not-logged-in",
+      "hasStats": false,
+      "ok": true
+    },
+    {
+      "n": 2,
+      "status": 401,
+      "type": "/errors/not-logged-in",
+      "hasStats": false,
+      "ok": true
+    },
+    {
+      "n": 3,
+      "status": 401,
+      "type": "/errors/not-logged-in",
+      "hasStats": false,
+      "ok": true
+    }
+  ],
+  "controls": {
+    "real": 200,
+    "sameMethodFuture": 200
+  },
+  "pass": true
+}

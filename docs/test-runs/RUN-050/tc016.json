@@ -1,0 +1,79 @@
+{
+  "tc": "TC-016",
+  "steps": [
+    {
+      "n": 1,
+      "elapsed": 130,
+      "pTime": "本次 2 分钟",
+      "hidden": false,
+      "pTimeAfterExit": "本次 2 分钟",
+      "ok": true
+    },
+    {
+      "n": 2,
+      "overviewTable": [
+        [
+          "",
+          "今日",
+          "近 7 天",
+          "近 30 天"
+        ],
+        [
+          "活跃旅客",
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "新旅客",
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "游玩时长",
+          "2 分钟",
+          "2 分钟",
+          "2 分钟"
+        ],
+        [
+          "人均游玩时长",
+          "2 分钟",
+          "2 分钟",
+          "2 分钟"
+        ]
+      ],
+      "dataToday": {
+        "active": 1,
+        "new": 1,
+        "seconds": 130
+      },
+      "ok": true
+    }
+  ],
+  "note": "开跑前按 §3 清空统计，使看板数字只来自本旅客",
+  "vid": "b56db827c3f7c322881e71b19f67643a",
+  "dbAfter": {
+    "visitor_days": [
+      {
+        "vid": "b56db827c3f7c322881e71b19f67643a",
+        "day": "2026-10-22",
+        "visits": 1,
+        "seconds": 130,
+        "backups": 0,
+        "restores": 0
+      }
+    ],
+    "game_days": [
+      {
+        "vid": "b56db827c3f7c322881e71b19f67643a",
+        "game": "yike",
+        "day": "2026-10-22",
+        "starts": 1,
+        "seconds": 130
+      }
+    ]
+  },
+  "pageErrors": [],
+  "pass": true
+}

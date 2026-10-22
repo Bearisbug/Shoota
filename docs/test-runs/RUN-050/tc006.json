@@ -1,0 +1,35 @@
+{
+  "tc": "TC-006",
+  "steps": [
+    {
+      "n": 1,
+      "url": "http://localhost:8791/kanban",
+      "title": "shoota 看板",
+      "sk_staff": true,
+      "ok": true
+    },
+    {
+      "n": 2,
+      "pTime": "本次 0 分钟",
+      "counts": {
+        "v": 0,
+        "vd": 0,
+        "gd": 0
+      },
+      "postResponses": [
+        "303 http://localhost:8791/kanban/login",
+        "204 http://localhost:8791/api/e",
+        "204 http://localhost:8791/api/e",
+        "204 http://localhost:8791/api/e"
+      ],
+      "ok": true
+    }
+  ],
+  "countsAfterClear": {
+    "v": 0,
+    "vd": 0,
+    "gd": 0
+  },
+  "pageErrors": [],
+  "pass": true
+}

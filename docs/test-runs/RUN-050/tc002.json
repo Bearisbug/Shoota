@@ -1,0 +1,97 @@
+{
+  "tc": "TC-002",
+  "steps": [
+    {
+      "n": 1,
+      "vid": "8c5f17f639518e916d19063a33c29768",
+      "game_days": [
+        {
+          "vid": "8c5f17f639518e916d19063a33c29768",
+          "game": "yike",
+          "day": "2026-10-22",
+          "starts": 1,
+          "seconds": 0
+        }
+      ],
+      "ok": true
+    },
+    {
+      "n": 2,
+      "elapsed": 130,
+      "pTime": "本次 2 分钟",
+      "hidden": false,
+      "gd": [
+        {
+          "vid": "8c5f17f639518e916d19063a33c29768",
+          "game": "yike",
+          "day": "2026-10-22",
+          "starts": 1,
+          "seconds": 120
+        }
+      ],
+      "vd": [
+        {
+          "vid": "8c5f17f639518e916d19063a33c29768",
+          "day": "2026-10-22",
+          "visits": 1,
+          "seconds": 120,
+          "backups": 0,
+          "restores": 0
+        }
+      ],
+      "queriedAt": 130,
+      "via": "sqlite3 直查本地 D1 文件（只执行 SELECT）",
+      "ok": true
+    },
+    {
+      "n": 3,
+      "before": {
+        "elapsed": 150,
+        "pTime": "本次 2 分钟",
+        "local": {
+          "local": {
+            "yike": {
+              "seconds": 150,
+              "last": 1792676245002,
+              "ach": {},
+              "status": ""
+            }
+          }
+        }
+      },
+      "localAfterExit": {
+        "local": {
+          "yike": {
+            "seconds": 150,
+            "last": 1792676245002,
+            "ach": {},
+            "status": ""
+          }
+        }
+      },
+      "game_days": [
+        {
+          "vid": "8c5f17f639518e916d19063a33c29768",
+          "game": "yike",
+          "day": "2026-10-22",
+          "starts": 1,
+          "seconds": 150
+        }
+      ],
+      "visitor_days": [
+        {
+          "vid": "8c5f17f639518e916d19063a33c29768",
+          "day": "2026-10-22",
+          "visits": 1,
+          "seconds": 150,
+          "backups": 0,
+          "restores": 0
+        }
+      ],
+      "note": "平台顶栏显示「本次 N 分钟」；本地计时见 local/localAfterExit",
+      "ok": true
+    }
+  ],
+  "pageErrors": [],
+  "pass": true
+}

@@ -1,0 +1,29 @@
+{
+  "run": "RUN-050",
+  "date": "2026-10-22",
+  "env": "本地 http://localhost:8791（wrangler dev，.dev.vars 已配看板密码）",
+  "version": "工作区内容在执行期间（20:48–21:40）与 3aab6af 的 public/ 与 src/ 一致：public/index.html 最后改动 20:27，3aab6af 在 21:28 提交了同一内容",
+  "executor": "AI(Playwright + Chrome 无头、Node fetch、wrangler d1 execute、sqlite3)",
+  "scope": ["TC-001","TC-002","TC-006","TC-008","TC-010","TC-011","TC-016","TC-045","TC-043","TC-044"],
+  "summary": "通过 10/10",
+  "results": {
+    "TC-001": { "result": "通过", "evidence": ["tc001.json","tc001-s1-store.png"], "note": "清空统计后首访一行，desktop、微信 0、首访 2026-10-22；刷新后访问次数 2" },
+    "TC-002": { "result": "通过", "evidence": ["tc002.json","tc002-s1-playing.png","tc002-s3-before-exit.png"], "note": "第 130 秒读数 yike 120 秒、旅客日 120 秒；退出后 150 秒，平台本地计时 150 秒（顶栏只显示「本次 2 分钟」）。第 2 步的读数用 sqlite3 直接 SELECT 本地 D1 文件，因为机器负载高时 wrangler d1 execute 一次要约 30 秒，赶不上第 130 秒这个时间点。整条用例跑了三次：第一次脚本截图超时（负载高），第二次 wrangler 读数拖到第 161 秒、sqlite 打开失败，两次都是测试工具问题；记录的结果是第三次完整重跑。" },
+    "TC-006": { "result": "通过", "evidence": ["tc006.json","tc006-s1-kanban.png"], "note": "本地服务重启后从前置开始重跑（第一次执行时，服务在 21:04 左右重启，正好落在执行窗口里）；有 sk_staff cookie，3 次 /api/e 返回 204，三张表都是 0 行" },
+    "TC-008": { "result": "通过", "evidence": ["tc008.json","tc008-s1-login.png","tc008-s2-wrong.png","tc008-s3-kanban.png"], "note": "开始前 login_guards 为空；错误密码 401，提示「密码不对，还能试 4 次」；五个分区都在；新标签页重新打开不用输密码" },
+    "TC-010": { "result": "通过", "evidence": ["tc010.json","tc010-responses.txt"], "note": "三步都返回 401 与 /errors/not-logged-in；对照：真实会话、同样方法签名但 1 小时后过期的会话都返回 200" },
+    "TC-011": { "result": "通过", "evidence": ["tc011.json","tc011-s1-overview.png","tc011-s2-trend.png"], "note": "概览三档数字和存档码次数 2/1 都与种子注释一致；三张趋势表各 30 天，没数据的日子为 0" },
+    "TC-016": { "result": "通过", "evidence": ["tc016.json","tc016-s1-topbar.png","tc016-s2-kanban.png"], "note": "顶栏「本次 2 分钟」；看板今日活跃 1、游玩时长 2 分钟（130 秒）；在本地执行，后置里删除线上数据那一步不适用" },
+    "TC-045": { "result": "通过", "evidence": ["tc045-a.json","tc045-s1-store.png","tc045-s4-library-wealth-reborn.png","tc045-s5-390-store.png","tc045-s6-f1-driver.png","tc045-s7-wealth-reborn.png","tc045-s8-basketball-star.png","tc045-s10-check.txt"], "note": "13 款游戏顺序与预期一致；F1 两个详情页的标题和开始入口正确；三次搜索各找到 1 款；详情页、游戏库列表和游戏库主图的封面一致；390 宽下 5 个页面没有横向溢出；F1-Driver 签约后进入 2026 · R1/22 澳大利亚大奖赛；我要当首富摆摊后弹出「可参与的商业机会」，点「暂不参与，继续经营」后再点「进货，经营一周」，进入 4月 · 第2周；篮球巨星选上海久事后进入生涯总览；另外八款都出现游戏画面，没有页面错误；check.mjs 输出 ✓。本用例与第 6–8 步的游戏操作用的上下文拦掉了 /api 上报，不写统计库" },
+    "TC-043": { "result": "通过", "evidence": ["tc043.json","tc043-s1-net-fail.png","tc043-s2-retry.png","tc043-s3-idb.png","tc043-s4-yike.png"], "note": "第 1 步扣住了 2 次请求（包括自动重试那次），40 秒内出现「网络不稳定，游戏没下载下来」，有重试和返回；第 2 步 0.7 秒出现游戏画面；第 3、4 步显示「存档暂时读不出来」，有刷新页面和返回，没有游戏画面。第一次执行时脚本的路由规则写成了 nba.html，没拦到不带后缀的请求，属于脚本问题；改正后整条用例重跑" },
+    "TC-044": { "result": "通过", "evidence": ["tc044.json","tc044-s1-progress.png","tc044-s2-cached.png","tc044-s3-refetch.png"], "note": "进度依次为 0.4→1.2→2.0→2.8 MB / 共 2.9 MB，之后出现画面；第 2 步发出 0 次请求，出现画面；第 3 步把大小改成 1 后发出 1 次请求，出现画面。注意：按 §3 用 CDP 限速到 200 KB/s，实际速率约 0.8 MB/s（6 秒下载完）。限速没有完全生效，但进度增长和画面出现这两项预期都观察到了。第 1 次执行（同样通过）路由规则写错，作废后重跑；第 2 次执行为了补拍进度截图又跑了一遍，结果相同" }
+  },
+  "environment_notes": [
+    "开跑前本地统计库里有上一轮留下的数据：visitors 5 行、visitor_days 5 行、game_days 15 行、login_guards 0 行。TC-001 前已按 §3 清空",
+    "本地服务 8791 在 21:04:13 左右重启（协调方通知，原因是后台时限），之后 TC-006 从前置开始重跑",
+    "机器负载很高（load average 约 50，其他进程如 bal.js、check-engine-audit.mjs 占用 CPU），wrangler d1 execute 一次约 30 秒，无头 Chrome 截图偶尔超过 30 秒",
+    "执行期间分支 platform-portrait 上新增了提交 3aab6af，内容与测试时磁盘上的工作区一致",
+    "结束时本地统计库只剩 TC-002 最后一次执行的旅客 8c5f17f639518e916d19063a33c29768 这 1 个",
+    "游戏行为（不在 TC-045 的预期范围内）：篮球巨星确认开局页显示综合能力 59、潜力 94、队内第 9；进入生涯后显示总评 55、潜力 92、队内第 12，可能是两处口径不同，没有深究"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "tc": "TC-044",
+  "steps": [
+    {
+      "n": 1,
+      "ok": true,
+      "actual": {
+        "seen": [
+          "已下载 0.4 MB / 共 2.9 MB",
+          "已下载 1.2 MB / 共 2.9 MB",
+          "已下载 2.0 MB / 共 2.9 MB",
+          "已下载 2.8 MB / 共 2.9 MB"
+        ],
+        "iframe": true,
+        "secsUntilIframe": 6,
+        "requests": 1
+      }
+    },
+    {
+      "n": 2,
+      "ok": true,
+      "actual": {
+        "iframe": true,
+        "requests": 0
+      }
+    },
+    {
+      "n": 3,
+      "ok": true,
+      "actual": {
+        "sizeBefore": 3080669,
+        "iframe": true,
+        "requests": 1
+      }
+    }
+  ],
+  "pass": true
+}

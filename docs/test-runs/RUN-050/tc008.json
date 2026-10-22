@@ -1,0 +1,60 @@
+{
+  "tc": "TC-008",
+  "steps": [
+    {
+      "n": 1,
+      "title": "shoota 看板 · 登录",
+      "h1": "shoota 看板",
+      "pw": true,
+      "btns": [
+        "进入看板"
+      ],
+      "ok": true
+    },
+    {
+      "n": 2,
+      "url": "http://localhost:8791/kanban/login",
+      "status": 401,
+      "pw": true,
+      "text": "shoota 看板 输入看板密码。登录后这个浏览器之后的游玩不计入统计。 密码 密码不对，还能试 4 次。连错 5 次会锁定 15 分钟。 进入看板",
+      "ok": true
+    },
+    {
+      "n": 3,
+      "url": "http://localhost:8791/kanban",
+      "title": "shoota 看板",
+      "headings": [
+        "shoota 看板",
+        "概览",
+        "每日趋势 · 近 30 天",
+        "活跃旅客 · 今天 0",
+        "新旅客 · 今天 0",
+        "游玩时长 · 今天 0 秒",
+        "留存 · 近 60 天首访的旅客",
+        "游戏排行 · 近 30 天",
+        "来源与设备 · 近 30 天活跃旅客"
+      ],
+      "ok": true
+    },
+    {
+      "n": 4,
+      "url": "http://localhost:8791/kanban",
+      "pw": false,
+      "headings": [
+        "shoota 看板",
+        "概览",
+        "每日趋势 · 近 30 天",
+        "活跃旅客 · 今天 0",
+        "新旅客 · 今天 0",
+        "游玩时长 · 今天 0 秒",
+        "留存 · 近 60 天首访的旅客",
+        "游戏排行 · 近 30 天",
+        "来源与设备 · 近 30 天活跃旅客"
+      ],
+      "ok": true
+    }
+  ],
+  "guardsBefore": [],
+  "pageErrors": [],
+  "pass": true
+}

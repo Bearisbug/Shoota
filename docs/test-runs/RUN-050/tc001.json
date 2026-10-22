@@ -1,0 +1,69 @@
+{
+  "tc": "TC-001",
+  "steps": [
+    {
+      "n": 1,
+      "vid": "d3c1add2058a033697f8e8d495c287fc",
+      "ok": true
+    },
+    {
+      "n": 2,
+      "today": "2026-10-22",
+      "visitors": [
+        {
+          "vid": "d3c1add2058a033697f8e8d495c287fc",
+          "first_day": "2026-10-22",
+          "device": "desktop",
+          "wechat": 0,
+          "country": "TW",
+          "prior": 0
+        }
+      ],
+      "ok": true
+    },
+    {
+      "n": 3,
+      "visitor_days": [
+        {
+          "vid": "d3c1add2058a033697f8e8d495c287fc",
+          "day": "2026-10-22",
+          "visits": 1,
+          "seconds": 0,
+          "backups": 0,
+          "restores": 0
+        }
+      ],
+      "ok": true
+    },
+    {
+      "n": 4,
+      "visitors": [
+        {
+          "vid": "d3c1add2058a033697f8e8d495c287fc",
+          "first_day": "2026-10-22",
+          "device": "desktop",
+          "wechat": 0,
+          "country": "TW",
+          "prior": 0
+        }
+      ],
+      "visitor_days": [
+        {
+          "vid": "d3c1add2058a033697f8e8d495c287fc",
+          "day": "2026-10-22",
+          "visits": 2,
+          "seconds": 0,
+          "backups": 0,
+          "restores": 0
+        }
+      ],
+      "ok": true
+    }
+  ],
+  "countsAfterClear": {
+    "v": 0,
+    "vd": 0,
+    "gd": 0
+  },
+  "pass": true
+}
