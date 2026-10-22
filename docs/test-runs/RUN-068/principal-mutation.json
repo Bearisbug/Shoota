@@ -1,0 +1,9 @@
+{
+  "mutation": "Removed two exact action guards in a temporary copy",
+  "red": [
+    "identityPreserved",
+    "noResultDuringLive"
+  ],
+  "stillGreen": [],
+  "passed": true
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "width": 375,
+    "kind": "sprint",
+    "lap": 1,
+    "errors": []
+  },
+  {
+    "width": 375,
+    "kind": "race",
+    "lap": 1,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "kind": "sprint",
+    "lap": 1,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "kind": "race",
+    "lap": 1,
+    "errors": []
+  },
+  {
+    "width": 430,
+    "kind": "sprint",
+    "lap": 1,
+    "errors": []
+  },
+  {
+    "width": 430,
+    "kind": "race",
+    "lap": 1,
+    "errors": []
+  }
+]

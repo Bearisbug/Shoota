@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0c0f">
 <meta name="description" content="坐进自己的 F1 驾驶舱。签约、比赛、进站，与车队一起走过一段由你决定的职业生涯。">
-<title>F1-Driver · 争冠之路 · 2026.10.22.2</title>
+<title>F1-Driver · 争冠之路 · 2026.10.22.3</title>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}
 
 /* Layout: pit-wall shell — sticky team bar, left rail, dense timing panels. Single dark theme by choice (pit-wall screens). Accent follows the player's team livery. */
@@ -1034,6 +1034,48 @@ html,body{height:100%;overflow:hidden}button,a,input,select{touch-action:manipul
   .save-slot .row { grid-column: 2; grid-row: 1 / span 2; margin: 0; display: flex; gap: 6px; }
   .modal-actions { margin-top: 10px; gap: 6px; }
   .modal-actions .btn { flex: 1 1 auto; }
+}
+
+/* One task per page; actions stay outside the independently scrollable reading area. */
+:root{--journey-gap:.75rem;--journey-pad:1rem;--journey-control:2.75rem}
+#app.journey-start{overflow:hidden}
+.journey-start .start{height:100%;max-width:58rem;display:flex;flex-direction:column;padding-block:var(--journey-pad);min-height:0}
+.journey-start .start-toolbar{flex:none;margin-bottom:var(--journey-gap)}
+.journey{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:var(--journey-gap);min-height:0;min-width:0;width:100%;max-width:58rem;margin-inline:auto;flex:1;overflow-wrap:anywhere}
+.journey-main{display:flex;flex-direction:column;padding-block:var(--journey-pad);overflow:hidden}
+.journey-main>.footer-note{display:none}
+.journey-head{border-bottom:1px solid var(--line);padding-bottom:var(--journey-gap)}
+.journey-head h1{font:700 1.5rem/1.2 var(--f-display);margin:0 0 .4rem}
+.journey-head p{margin:0;color:var(--muted)}
+.journey-body{min-height:0;overflow-y:auto;scrollbar-gutter:stable;padding-right:.25rem;scrollbar-width:thin;scrollbar-color:var(--line2) var(--bg)}
+.journey-body h2{font-size:1.15rem;line-height:1.4}
+.journey-body .choices{display:grid;gap:var(--journey-gap);margin-block:.75rem}
+.journey .choice{padding:.75rem;text-align:left;min-height:var(--journey-control)}
+.journey .choice b,.journey .choice small{display:block}
+.journey .choice small{margin-top:.25rem;font-size:.75rem;line-height:1.45}
+.journey-actions{display:flex;gap:.5rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:var(--journey-gap);background:var(--bg)}
+.journey-actions>.btn{flex:1;white-space:normal;min-width:0;min-height:var(--journey-control);line-height:1.3}
+.journey-pagination{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-block:.75rem;flex:1}
+.journey-pagination .btn{min-height:var(--journey-control);flex:1}
+.journey-pagination span{white-space:nowrap;color:var(--muted);font-variant-numeric:tabular-nums}
+.journey .form-row{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);margin-block:1rem}
+.journey input,.journey select{width:100%;min-width:0;min-height:var(--journey-control)}
+.journey .nationality-support p{margin-bottom:.4rem}
+.classification-row{display:grid;grid-template-columns:2.4rem minmax(0,1fr) minmax(5.4rem,.65fr);gap:.5rem;align-items:center;padding:.6rem .25rem;border-bottom:1px solid var(--line);min-width:0}
+.classification-row.mine{background:var(--accent-soft)}
+.classification-pos{font-size:1rem;font-variant-numeric:tabular-nums}
+.classification-row small{display:block;color:var(--muted);font-size:.7rem;line-height:1.35}
+.classification-time{text-align:right;font-size:.75rem;font-variant-numeric:tabular-nums}
+.journey .tyre-choices .choice{display:flex;align-items:center;gap:.75rem;padding:.5rem .75rem}
+@media(max-width:600px){
+ :root{--journey-gap:.5rem;--journey-pad:.5rem;--journey-control:2.5rem}
+ .journey-head h1{font-size:1.2rem}
+ .journey-start .start-toolbar{flex-wrap:wrap;gap:.4rem}
+ .journey-start .build-badge{margin-right:auto}
+ .journey-main{padding:var(--journey-pad)}
+ .journey .choice{padding:.6rem}
+ .journey .talent-preview{gap:.4rem}
+ .classification-row{padding-block:.45rem}
 }
 </style>
 </head>
@@ -3122,16 +3164,25 @@ globalThis.F1CAREER_RULES = {
   'use strict';
   const C=globalThis.Career,D=C.D;
   const KEY='shoota.f1.driver.v1';
-  const BUILD='2026.10.22.2';
+  const BUILD='2026.10.22.3';
   const RACE_SPEEDS=[.5,1,2,4,8,16],LAP_PLAYBACK_MS=2600;
   const $=s=>document.querySelector(s);
   const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let S=null,view='home',draft={name:'林远',number:66,nationality:'CHN',includeBYD:false,origin:'prodigy',roll:C.rollProfile('prodigy')},running=false,speed=1,pitTyre='H',toastTimer,modalFocus,modalContent=null,storageOK=true;
   let raceMotion=null,stagedRace=null,playMode='continuous',expandedMap=false,selectedDriver=null,planDraft=null,editResume=false,popupMinimized=false,raceAlerts=[],showFinishBoard=false,mineOnly=false,alertsEnabled=true;
   function read(key){try{return JSON.parse(localStorage.getItem(key));}catch{return null;}}
+  const DRAFT_KEY=KEY+'.opening';
+  let openingStep=0,teamPage=0,contractFlow=null;
+  const savedDraft=read(DRAFT_KEY);if(savedDraft?.draft&&C.origins[savedDraft.draft.origin]){draft={...draft,...savedDraft.draft};openingStep=Math.max(0,Math.min(4,Number(savedDraft.step)||0));}
+  function saveDraft(){try{localStorage.setItem(DRAFT_KEY,JSON.stringify({draft,step:openingStep}));}catch{}}
   let recoverySave=null;
   try{const raw=localStorage.getItem(KEY);if(raw){try{S=C.upgradeState(JSON.parse(raw));if(!S)recoverySave=raw;}catch{recoverySave=raw;}}}catch{storageOK=false;}
-  function save(){if(!S)return;capturePaceProgress();try{localStorage.setItem(KEY,JSON.stringify(S));storageOK=true;}catch{storageOK=false;}try{window.Platform?.setStatus?.(`${S.year} · ${S.team?C.team(S).name:'自由车手'} · ${S.career.starts} 场比赛`);}catch{}}
+  function restoreJourney(){
+    teamPage=0;contractFlow=null;
+    if(S&&!S.team&&S.openingJourney){teamPage=Math.max(0,Math.min(C.activeTeams(S).length-1,Number(S.openingJourney.teamPage)||0));const c=S.openingJourney.contractFlow;if(c&&C.teamEnabled(S,c.team)&&['race','reserve'].includes(c.path))contractFlow={team:c.team,path:c.path,step:Math.max(0,Math.min(2,Number(c.step)||0))};}
+    view=S?.team&&['prep','grid','post'].includes(S.phase)?'weekend':S&&!S.team?'contracts':'home';
+  }
+  function save(){if(!S)return;if(!S.team)S.openingJourney={teamPage,contractFlow};capturePaceProgress();try{localStorage.setItem(KEY,JSON.stringify(S));storageOK=true;}catch{storageOK=false;}try{window.Platform?.setStatus?.(`${S.year} · ${S.team?C.team(S).name:'自由车手'} · ${S.career.starts} 场比赛`);}catch{}}
   const iconPaths={home:'M3 10 12 3l9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z',wheel:'M12 8v4m-9 0h6m6 0h6m-9 3v6 M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',contract:'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M8 12h8 M8 16h6',people:'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M22 21v-2a4 4 0 0 0-3-3.87 M13 3.13a4 4 0 0 1 0 7.75 M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z',trophy:'M8 3h8v6a4 4 0 0 1-8 0z M8 5H4v3a4 4 0 0 0 4 4 M16 5h4v3a4 4 0 0 1-4 4 M12 13v6 M8 21h8 M9 19h6',calendar:'M8 2v4 M16 2v4 M3 10h18 M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z M7 14h2 M12 14h2 M7 18h2',journal:'M4 3h14a2 2 0 0 1 2 2v16H6a2 2 0 0 1-2-2z M4 17h16 M8 7h8 M8 11h5',save:'M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12l4 4v12a2 2 0 0 1-2 2Z M7 3v6h9V3 M7 21v-8h10v8',arrow:'M4 12h16 M14 6l6 6-6 6',help:'M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3 M12 17h.01 M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',bolt:'M13 2 3 14h8l-1 8 11-13h-8z',chat:'M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z',rest:'M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z',settings:'M4 7h16 M4 17h16 M8 4v6 M16 14v6',flag:'M4 22V3 M4 3c5-5 10 5 16 0v10c-6 5-11-5-16 0'};
   const icon=(n,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${iconPaths[n]||iconPaths.flag}"/></svg>`;
   const btn=(label,action,cls='',extra='')=>`<button type="button" class="btn ${cls}" data-action="${action}" ${extra}>${label}</button>`;
@@ -3159,22 +3210,80 @@ globalThis.F1CAREER_RULES = {
     document.documentElement.style.setProperty('--accent-soft',accent+'24');
     const rgb=accent.slice(1).match(/../g).map(x=>parseInt(x,16));
     document.documentElement.style.setProperty('--accent-ink',rgb[0]*.299+rgb[1]*.587+rgb[2]*.114>155?'#0a0c0f':'#ffffff');
-    const app=$('#app');app.className=!S?.team?'career-start':'';
-    if(!S?.team){app.innerHTML='<div class="start"><div class="start-toolbar"><span class="build-badge">原版布局 '+BUILD+'</span>'+btn('存档与设置','saves','ghost small')+btn('玩法说明','help','ghost small')+'</div>'+(recoverySave?'<div class="notice">自动存档未能读取，原始数据仍保留。'+btn('导出原始存档','recover-save','small')+'</div>':'')+(!S?intro():market())+'</div>';app.scrollTop=keep?scroll:0;return;}
+    const app=$('#app');app.className=!S?.team?'career-start journey-start':'';
+    if(!S?.team){app.innerHTML='<div class="start"><div class="start-toolbar"><span class="build-badge">原版布局 '+BUILD+'</span>'+btn('存档与设置','saves','ghost small')+btn('玩法说明','help','ghost small')+'</div>'+(recoverySave?'<div class="notice">自动存档未能读取，原始数据仍保留。'+btn('导出原始存档','recover-save','small')+'</div>':'')+(!S?intro():openingMarket())+'</div>';app.scrollTop=keep?scroll:0;return;}
     const tr=C.track(S),r=C.rel(S),rank=S.grid.you?.results.length?'P'+C.position(S):'—';
     const stage={reserve:'替补试训',prep:'赛前准备',grid:'发车区',race:'正赛',post:'赛后复盘',season:'赛季结束'}[S.phase];
     const groups=[['车手',['home','drivers','finance','relations','journal','career']],['赛季',['weekend','calendar','standings']],['围场',['contracts','teams','influence','records','hall']]];
     const nav=groups.map(([g,vs])=>'<div class="grp">'+g+'</div>'+vs.map(v=>{const n=navs.find(n=>n[0]===v);return '<button class="rail-link '+(view===v?'on':'')+'" data-view="'+v+'">'+n[2]+(v==='weekend'&&S.race?.pending?'<span class="badge">决策</span>':'')+'</button>';}).join('')).join('');
     app.innerHTML='<header class="top"><div class="brand">F1-<b>Driver</b></div><div class="club"><div class="livery" style="background:'+accent+';color:var(--accent-ink)"><span>'+C.team(S).id.toUpperCase()+'</span></div><div style="min-width:0"><div class="nm">'+escape(C.team(S).name)+' <span class="muted" style="font-size:13px">· '+escape(S.name)+' #'+S.number+'</span></div><div class="sub">'+S.year+' · '+(S.phase==='season'?'赛季结束':'R'+(S.round+1)+'/'+D.TRACKS.length+' · '+tr.gp+' · '+stage)+' · 原版布局 '+BUILD+'</div></div></div><div class="kpis"><div class="kpi"><small>车手积分</small><b>'+rank+'</b> <span class="muted">· '+(S.grid.you?.points||0)+' 分</span></div><div class="kpi"><small>个人资产</small><b>$'+money(S.money)+'M</b></div><div class="kpi"><small>人气</small><b>'+num(S.popularity)+'</b></div><div class="kpi"><small>领队信任</small><b class="'+(r.principal<35?'bad':r.principal>75?'good':'')+'">'+num(r.principal)+'</b></div></div><div class="go">'+topAction()+'</div></header><nav class="rail" aria-label="游戏导航">'+nav+'<div class="grp">&nbsp;</div><button class="rail-link" data-action="saves">存档与设置</button><button class="rail-link" data-action="help">玩法说明</button><div class="rail-status"><span class="dot"></span> '+(storageOK?'已自动保存':'请导出生涯存档')+'</div></nav><main id="main">'+getView()+'<div class="footer-note">F1-Driver · 原版布局 '+BUILD+' · 原模版架空世界设定 · 单文件 HTML / 本机存档</div></main>';
+    $('#main').classList.toggle('journey-main',!!$('#main .journey'));
     $('#main').scrollTop=keep?scroll:0;
     const navOn=$('nav.rail .rail-link.on'),rail=navOn?.parentElement;if(rail&&rail.scrollWidth>rail.clientWidth)rail.scrollLeft+=navOn.getBoundingClientRect().left-rail.getBoundingClientRect().left-(rail.clientWidth-navOn.offsetWidth)/2;
     syncRaceMotion();
   }
   function head(k,title,sub='',extra=''){return `<div class="page-head"><div><h1 class="h1">${title}</h1>${sub?`<p>${sub}</p>`:''}</div>${extra?`<div class="page-extra">${extra}</div>`:''}</div>`;}
   function nationalityPreview(){const support=CareerWorld.nationalitySupport(draft.nationality);return '<div id="nationality-support" class="note nationality-support" aria-live="polite"><b>'+escape(support.home)+' · 本土支持最强</b><p>周边支持：'+support.nearby.map(m=>escape(m.name)).join('、')+'。距离越近，国籍带来的额外支持越明显。</p><small>国籍会影响全球车迷地图的地域分布；成绩、人气和车队曝光决定后续生涯发展。</small></div>';}
-  function intro(){return '<div class="hero"><div><div class="kick">2026 · 车手生涯 · '+(draft.includeBYD?12:11)+' 支车队 · 22 站</div><h1>F1-<b>Driver</b><br>2026</h1></div><p>成为一名 F1 车手，亲自选择车队与合同、完成训练和排位，在无线电里和策略组决定换胎。成绩、领队信任与队友关系会影响资源分配、车队指令和下一份合同。</p></div><div class="grid g2"><section class="card"><h3>创建车手<span class="sp"></span><span class="dim">新的职业生涯</span></h3><form class="bd" id="profile-form"><div class="form-row"><label>车手姓名<input type="text" name="name" value="'+escape(draft.name)+'" maxlength="16" required autocomplete="off"></label><label>赛车号码<input name="number" value="'+escape(draft.number)+'" type="number" min="2" max="99" required></label></div><div class="gap-sm"></div><label>车手国籍<select name="nationality" aria-describedby="nationality-support">'+Object.keys(CareerWorld.data.NATS).map(n=>'<option value="'+n+'" '+(draft.nationality===n?'selected':'')+'>'+escape(CareerWorld.natName(n))+'</option>').join('')+'</select></label>'+nationalityPreview()+'<div class="gap-sm"></div><label>比亚迪是否加入围场<select name="includeBYD" aria-describedby="paddock-setting"><option value="false" '+(!draft.includeBYD?'selected':'')+'>不加入 · 11 支车队 / 22 位车手</option><option value="true" '+(draft.includeBYD?'selected':'')+'>加入 · 12 支车队 / 24 位车手</option></select></label><p class="note" id="paddock-setting">决定整个生涯的参赛车队，不是决定你签约哪队。关闭后，比亚迪不会参与比赛、转会、榜单与全球人气；开局后本设置固定。</p><div class="gap-sm"></div><label>开局背景</label><div class="origin-options">'+Object.entries(C.origins).map(([id,o])=>'<button type="button" class="origin '+(draft.origin===id?'active':'')+'" data-origin="'+id+'" aria-pressed="'+(draft.origin===id)+'"><b>'+o.label+'</b><small>'+o.desc+'</small></button>').join('')+'</div><div class="gap-sm"></div><div class="note">比赛难度 <b>硬核</b> · 所有车手使用同一套场景技能规则。</div><div class="gap"></div><button type="submit" class="btn pri">创建车手，选择车队</button></form></section><div class="stack"><section class="card"><h3>开局能力<span class="sp"></span>'+btn('刷新能力与天赋','reroll','small')+'<span class="dim">'+C.origins[draft.origin].trait+'</span></h3><div class="bd">'+['单圈速度','赛道缠斗','稳定性','轮胎管理','雨战能力'].map((n,i)=>'<div class="attr"><span>'+n+'</span>'+meter(draft.roll.skills[i],'var(--accent)')+'<b>'+draft.roll.skills[i]+'</b></div>').join('')+draftTalentPreview()+'<div class="note" style="margin-top:12px">初始职业声望 <b>'+C.origins[draft.origin].rep+'</b>。背景决定能力起点，练习与比赛决定之后的成长。</div></div></section><section class="card"><h3>生涯流程</h3><div class="bd"><div class="row"><span class="chip acc">选择合同</span><span class="dim">→</span><span class="chip">赛前准备</span><span class="dim">→</span><span class="chip">排位赛</span><span class="dim">→</span><span class="chip">正赛</span><span class="dim">→</span><span class="chip">赛后与转会</span></div><p class="muted" style="margin-top:12px">自动保存进度，支持三个手动存档、导入导出与跨赛季继续。所有界面和游戏逻辑都在这一份 HTML 中。</p></div></section></div></div><p class="muted" style="margin-top:18px;font-size:12px">车队、车手能力与赛历沿用原 F1 模版的游戏设定。BYD 为架空车队，人物对话与队内剧情均为虚构。</p>';}
+  function flowPage(title,subtitle,body,actions,kind=''){
+    return `<section class="journey" data-flow="${kind}"><header class="journey-head"><h1>${title}</h1><p>${subtitle}</p></header><div class="journey-body">${body}</div><footer class="journey-actions">${actions}</footer></section>`;
+  }
+  function openingBack(){return btn('上一步','opening-back','ghost',openingStep?'':'disabled');}
+  function intro(){
+    const steps=['围场设定','车手身份','成长背景','起步能力','场景天赋'];let body='',actions='';
+    if(openingStep===0){body='<h2>让比亚迪加入这段生涯吗？</h2><p class="story">这决定参赛阵容。之后仍可自由选择签约车队。</p><div class="choices">'+[false,true].map(v=>'<button class="choice '+(draft.includeBYD===v?'recommended':'')+'" data-opening-byd="'+v+'" aria-pressed="'+(draft.includeBYD===v)+'"><b>'+ (v?'加入比亚迪':'保持 11 支车队')+'</b><small>'+(v?'12 支车队 · 24 位车手 · BYD 为架空厂队':'11 支车队 · 22 位车手')+'</small></button>').join('')+'</div>';actions=btn('确认阵容，下一步','opening-next','primary');}
+    if(openingStep===1){body='<form id="profile-form"><label>车手姓名<input name="name" value="'+escape(draft.name)+'" maxlength="16" required autocomplete="off"></label><div class="form-row"><label>赛车号码<input name="number" value="'+escape(draft.number)+'" type="number" min="2" max="99" required></label><label>车手国籍<select name="nationality">'+Object.keys(CareerWorld.data.NATS).map(n=>'<option value="'+n+'" '+(draft.nationality===n?'selected':'')+'>'+escape(CareerWorld.natName(n))+'</option>').join('')+'</select></label></div>'+nationalityPreview()+'</form>';actions=openingBack()+btn('保存身份，下一步','opening-next','primary');}
+    if(openingStep===2){body='<div class="choices">'+Object.entries(C.origins).map(([id,o])=>'<button class="choice '+(draft.origin===id?'recommended':'')+'" data-origin="'+id+'" aria-pressed="'+(draft.origin===id)+'"><b>'+o.label+'</b><small>'+o.desc+'</small></button>').join('')+'</div><p class="note">硬核难度 · 所有车手遵循相同场景技能规则。</p>';actions=openingBack()+btn('查看起步能力','opening-next','primary');}
+    if(openingStep===3){body='<h2>'+C.origins[draft.origin].trait+'</h2>'+['单圈速度','赛道缠斗','稳定性','轮胎管理','雨战能力'].map((n,i)=>'<div class="attr"><span>'+n+'</span>'+meter(draft.roll.skills[i],'var(--accent)')+'<b>'+draft.roll.skills[i]+'</b></div>').join('')+'<p>初始职业声望 '+C.origins[draft.origin].rep+'。训练与比赛会继续提升能力。</p>'+btn('刷新能力与天赋','reroll','ghost');actions=openingBack()+btn('查看场景天赋','opening-next','primary');}
+    if(openingStep===4){body=draftTalentPreview()+'<p class="note">'+escape(draft.name)+' #'+escape(draft.number)+' · '+(draft.includeBYD?'12 支车队 / BYD 加入':'11 支车队 / BYD 不加入')+'</p>';actions=openingBack()+btn('创建车手，选择车队','opening-create','primary');}
+    return flowPage(steps[openingStep],`开局 ${openingStep+1} / ${steps.length}`,body,actions,'opening');
+  }
+  function journeyState(){
+    const key=S.year+':'+S.round;if(!S.uiJourney||S.uiJourney.key!==key)S.uiJourney={key,prep:S.weekend?.eventDone?'training':'event',grid:'results',gridPage:0,resultPage:0,post:S.weekend?.pressDone?'receipt':'results',pressChoice:null,trainingPage:0};
+    return S.uiJourney;
+  }
+  function pageNav(page,total,action){return '<div class="journey-pagination">'+btn('上一页',action,'ghost small',`data-page="${page-1}" ${page===0?'disabled':''}`)+'<span>'+ (page+1)+' / '+total+'</span>'+btn('下一页',action,'ghost small',`data-page="${page+1}" ${page+1>=total?'disabled':''}`)+'</div>';}
+  function openingMarket(){
+    if(contractFlow)return openingContract();const teams=C.activeTeams(S);teamPage=Math.min(teamPage,teams.length-1);const t=teams[teamPage],o=C.offer(S,t.id),r=C.offer(S,t.id,'reserve'),q=o.seats;
+    return flowPage('选择车队与席位',`车队 ${teamPage+1} / ${teams.length} · 声望 ${num(S.reputation)}`,`<h2 style="color:${t.color}">${escape(t.name)}</h2><p>${C.teamIdentity(t.id).tier} · 赛车 ${o.power.toFixed(1)}</p><div class="seat-status"><b>${q.raceLabel}</b><span>${q.reserveLabel}</span></div><p>${escape(q.reason)}</p><p class="muted">现役：${escape(C.rawDriver(t.drivers[0])[1])} / ${escape(C.rawDriver(t.drivers[1])[1])}</p><p>${q.raceOpen?'正式年薪 $'+o.salary.toFixed(1)+'M':'替补每周补贴 $'+r.weeklyStipend.toFixed(3)+'M'}</p><div class="choices">${btn('查看正式合同','offer','primary',`data-team="${t.id}" data-path="race" ${!o.available?'disabled':''}`)}${btn('查看替补计划','offer','ghost',`data-team="${t.id}" data-path="reserve" ${!r.available?'disabled':''}`)}</div>`,pageNav(teamPage,teams.length,'opening-team'),'market');
+  }
+  function openingContract(){const {team:tid,path,step}=contractFlow,t=C.getTeam(tid),o=C.offer(S,tid,path),reserve=path==='reserve';
+    const summary=`<h2>${escape(t.name)} · ${reserve?'替补合同':'正式合同'}</h2><div class="kv"><span>${reserve?'每周补贴':'固定年薪'}</span><b>$${(reserve?o.weeklyStipend:o.salary).toFixed(3)}M</b></div><div class="kv"><span>${reserve?'剩余试训':'合同年限'}</span><b>${reserve?o.assessment.weeksRemaining+' 周':o.years+' 年'}</b></div><div class="kv"><span>席位地位</span><b>${reserve?'替补与试训':o.role==='equal'?'平等竞争':'新人支持席位'}</b></div><p>${reserve?'至少完成三轮，最近三轮均分达到 '+o.assessment.threshold+' 后争取正式席位；最多六周试训。':'正赛目标：前 '+o.target+'。'+(o.role==='support'?'队友默认资源优先，可在比赛中协商指令。':'车队不默认优先队友。')}</p>`;
+    let body=summary,actions='';if(step===0){body+=teamMultipliers(tid)+'<p class="note">'+escape(C.teamIdentity(tid).pressure)+'</p>';actions=btn('返回选队','opening-contract-back','ghost')+btn('商谈合同','opening-contract-next','primary');}
+    if(step===1){body='<h2>和经纪人商量条件</h2><p>提案 '+o.tries+' / 2 次</p><div class="choices">'+btn(reserve?'提高周补贴 25%':'提高年薪 25%','negotiate','ghost',`data-team="${tid}" data-path="${path}" data-ask="salary" ${o.tries>=2?'disabled':''}`)+(!reserve?btn('争取平等竞争','negotiate','ghost',`data-team="${tid}" data-path="${path}" data-ask="equal" ${o.tries>=2||o.role==='equal'?'disabled':''}`)+btn('争取两年保障','negotiate','ghost',`data-team="${tid}" data-path="${path}" data-ask="years" ${o.tries>=2||o.years===2?'disabled':''}`):'')+'</div><p class="note">'+escape(S.flags.negotiationReply||'可以直接保留当前条件。')+'</p>';actions=btn('合同概况','opening-contract-back','ghost')+btn('核对并签约','opening-contract-next','primary');}
+    if(step===2){body+='<p>签约后进入'+(reserve?'替补试训':'首站准备')+'。条件确认后立即生效。</p>';actions=btn('返回商谈','opening-contract-back','ghost')+btn(reserve?'签约替补，开始试训':'签下正式合同','sign','primary',`data-team="${tid}" data-path="${path}" ${!o.available?'disabled':''}`);}
+    return flowPage('签约流程',`合同 ${step+1} / 3`,body,actions,'contract');
+  }
+  function reserveFlow(){const j=journeyState(),r=S.reserve,a=C.reserveAssessment(S,S.team),w=S.weekend,stage=j.reserveStage||'prepare';let body='',actions='',title='替补试训';
+    if(stage==='prepare'){const page=Math.max(0,Math.min(1,j.trainingPage||0)),ids=['simulator','longrun','engineering','recovery'];body='<p>第 '+(r.tests.length+1)+' / '+r.maxTests+' 轮 · 剩余 '+w.actions+' 次准备</p><div class="choices">'+ids.slice(page*2,page*2+2).map(id=>'<button class="choice" data-prepare="'+id+'" '+(!w.actions||r.completed?'disabled':'')+'><b>'+C.prepActions[id].label+'</b><small>'+C.prepActions[id].desc+'</small><small>'+escape(C.trainingPreview(S,id).summary)+'</small></button>').join('')+'</div>'+pageNav(page,2,'reserve-page');actions=btn('查看本轮考核','reserve-assessment','primary');}
+    if(stage==='receipt'){title='试训准备已完成';body='<p>'+escape(w.lastTraining?.summary||'准备已记录')+'</p><p>精力 '+num(S.energy)+' · 剩余 '+w.actions+' 次准备</p>';actions=btn('继续准备','reserve-prepare','ghost')+btn('查看考核','reserve-assessment','primary');}
+    if(stage==='assessment'){title='综合考核';body='<p>车队 '+escape(C.team(S).name)+' · 转正门槛 '+a.threshold+'</p><h2>当前预估 '+a.expected.toFixed(2)+' ± 0.70</h2><p>三轮平均 '+(r.reviewAverage||0).toFixed(2)+' · 已获补贴 $'+(r.stipendPaid||0).toFixed(3)+'M</p><p>'+escape(r.ready?'已达到转正条件，可以签正式合同。':r.completed?'六周试训额度已用完，可以返回市场。':'完成本轮三次准备再考核，训练与工程反馈会改变结果。')+'</p>'+btn('结束替补计划，重新选队','leave-reserve','ghost full');actions=btn('返回准备','reserve-prepare','ghost')+(r.ready?btn('接受晋升','promote-reserve','primary'):r.completed?btn('返回市场','leave-reserve','primary'):btn('参加本轮试训','reserve-test','primary',w.actions>0?'disabled':''));}
+    if(stage==='result'){title='本轮试训成绩';const x=r.tests.at(-1);body=x?'<h2>'+x.score.toFixed(2)+' 分</h2><p>精力 '+num(x.energy)+' · 工程师信任 '+num(x.engineer)+'</p><p>最近三轮平均 '+(r.reviewAverage||0).toFixed(2)+' · 门槛 '+a.threshold+'</p>':'<p>本轮成绩已记录。</p>';actions=btn('继续','reserve-assessment','primary');}
+    return flowPage(title,escape(C.team(S).name)+' · 替补路径',body,actions,'reserve');
+  }
+  function preparationFlow(){const j=journeyState(),w=S.weekend,e=w.event;let body='',actions='',title='';
+    if(!w.eventDone&&!['event','event-choice'].includes(j.prep))j.prep='event';
+    if(j.prep==='event'){title='围场来信';body='<p class="muted">'+escape(e.from)+'</p><h2>'+escape(e.title)+'</h2><p>'+escape(e.body)+'</p>';actions=btn('回应来信','prep-choice','primary');}
+    if(j.prep==='event-choice'){title='你的回应';body='<h2>'+escape(e.title)+'</h2><div class="choices">'+e.choices.map(c=>'<button class="choice" data-event="'+c.id+'"><b>'+escape(c.label)+'</b><small>'+escape(c.desc)+'</small></button>').join('')+'</div>';actions=btn('返回来信','prep-event','ghost');}
+    if(j.prep==='event-receipt'){title='车库记住了你的选择';body='<h2>'+escape(w.choices[0]?.choice)+'</h2><p>'+escape(w.choices[0]?.result)+'</p>';actions=btn('开始赛前准备','prep-training','primary');}
+    if(j.prep==='training'){title='赛前准备';const list=Object.entries(C.prepActions),page=Math.min(j.trainingPage,2);body='<p>剩余 '+w.actions+' 次 · 精力 '+num(S.energy)+' · 士气 '+num(S.morale)+'</p><div class="choices">'+list.slice(page*2,page*2+2).map(([id,a])=>'<button class="choice" data-prepare="'+id+'" '+(!w.actions?'disabled':'')+'><b>'+a.label+'</b><small>'+a.desc+'</small></button>').join('')+'</div>'+pageNav(page,3,'training-page');actions=btn(w.actions?'准备好了，进入排位':'继续，进入排位','prep-quali','primary');}
+    if(j.prep==='training-receipt'){title='准备完成';body='<h2>'+escape(w.lastTraining?.label||'本次行动已完成')+'</h2><p>'+escape(w.lastTraining?.summary||'成长已记入车手档案。')+'</p><p>精力 '+num(S.energy)+' · 剩余 '+w.actions+' 次准备</p>';actions=btn('返回准备','prep-training','ghost')+btn('进入排位','prep-quali','primary');}
+    if(j.prep==='quali'){title='排位赛';body='<h2>怎样跑这一圈？</h2><p>精力、调校和训练都会影响单圈表现。</p><label>排位风格<select id="quali-approach">'+[['balanced','找到节奏 · 正常发挥'],['attack','极限冲刺 · 快 0.20 秒，16% 失误风险'],['safe','稳定完成 · 慢 0.12 秒']].map(([id,t])=>'<option value="'+id+'" '+(w.qualiApproach===id?'selected':'')+'>'+t+'</option>').join('')+'</select></label>';actions=btn('返回准备','prep-training','ghost')+btn('戴上头盔，进入排位','qualify','primary');}
+    return flowPage(title,escape(C.track(S).gp)+' · 比赛周末',body,actions,'prep');
+  }
+  function gridFlow(){const j=journeyState(),q=S.weekend.grid,page=Math.max(0,Math.min(j.gridPage,Math.ceil(q.length/5)-1)),p=q.findIndex(x=>x.id==='you')+1;
+    if(j.grid==='tyres')return flowPage('确认发车轮胎',`你的发车位 P${p}`,`<p>${S.weekend.raceWeather?.start===0?'起跑有雨，请考虑半雨胎或全雨胎。':'起跑预计干地。干地正赛需使用两种干胎。'}</p><div class="choices tyre-choices">${['S','M','H','I','W'].map(c=>`<button class="choice ${S.weekend.startTyre===c?'recommended':''}" data-start-tyre="${c}" aria-pressed="${S.weekend.startTyre===c}">${tyre(c)} <b>${D.COMP[c].cn}</b></button>`).join('')}</div>`,btn('返回排位成绩','grid-results','ghost')+btn('准备好了，开始正赛','start-race','primary'),'grid');
+    return flowPage('排位完整成绩',`P${p} 发车 · ${q.length} 位车手`,compactRows(q,page,'grid')+pageNav(page,Math.ceil(q.length/5),'grid-page'),btn('确认成绩，选择轮胎','grid-tyres','primary'),'grid');
+  }
+  function compactRows(rows,page,kind){return '<div class="classification" role="list">'+rows.slice(page*5,page*5+5).map((d,i)=>'<article role="listitem" class="classification-row '+(d.id==='you'?'mine':'')+'" data-result-id="'+d.id+'"><b class="classification-pos">'+(kind==='grid'?page*5+i+1:escape(d.pos))+'</b><div><b>'+driver(d.id)+'</b><small>'+escape(tname(d.team))+'</small></div><div class="classification-time"><b>'+ (d.dnf?escape(d.why||'DNF'):kind==='grid'?lapTime(d.time):page*5+i===0?lapTime(d.time):'+'+(d.time-rows[0].time).toFixed(2))+'</b><small>'+(kind==='grid'?'排位圈速':d.stops+' 停 · '+d.points+' 分'+(d.penalty?' · 罚 '+d.penalty+'s':''))+'</small></div></article>').join('')+'</div>';}
+  function postView(){const x=S.results.at(-1),j=journeyState();if(S.weekend.pressDone&&j.post==='interview')j.post='receipt';
+    if(j.post==='interview')return flowPage('赛后采访','你怎样评价今天的比赛？','<div class="choices">'+['team','honest','blame'].map(id=>'<button class="choice '+(j.pressChoice===id?'recommended':'')+'" data-interview-choice="'+id+'" aria-pressed="'+(j.pressChoice===id)+'"><b>'+C.pressPreview(S,id).label+'</b><small>'+pressEffects(id)+'</small></button>').join('')+'</div>',btn('返回成绩','post-results','ghost')+btn('确认回答','post-answer','primary',j.pressChoice?'':'disabled'),'interview');
+    if(j.post==='receipt')return flowPage('采访已完成','你的回答已经传回车库','<h2>'+escape(S.weekend.pressLabel||'这次回应已记入生涯')+'</h2><p>'+escape(S.weekend.pressReason||'团队会记住你的态度，下一个周末继续。')+'</p>',btn('回看成绩','post-results','ghost')+btn(S.round===D.TRACKS.length-1?'结束本赛季':'前往下一站','next-round','primary'),'receipt');
+    if(j.post==='impact'){const i=x.impact,page=Math.max(0,Math.min(2,j.impactPage||0)),r=C.rel(S);const pages=[['本站回顾',`<h2>${typeof x.pos==='string'?escape(x.pos):'P'+x.pos} · ${x.points} 分</h2><p>P${x.grid} 发车 · ${x.stops} 次进站</p><p>队友：${typeof x.matePos==='string'?escape(x.matePos):'P'+x.matePos}</p><p>本场到账 $${money(x.salary)}M</p>`],['人气、收入与成长',i?raceImpactPanel(x):'<p>这份旧档没有分项成长记录，比赛成绩与总收入保留。</p>'],['车库关系',`<div class="kv"><span>领队 · ${escape(C.team(S).tp)}</span><b>${num(r.principal)} / 100</b></div><div class="kv"><span>队友 · ${escape(C.mateName(S))}</span><b>${num(r.mate)} / 100</b></div><div class="kv"><span>工程师 · Alex Morgan</span><b>${num(r.engineer)} / 100</b></div><div class="kv"><span>队内竞争热度</span><b>${num(r.tension)}%</b></div><p>${r.tension>=65?'车库正在分裂，下一场可能触发队内危机。':r.tension>=40?'资源分配可能引发争执。':'彼此是队友，也是最近的对手。'}</p>`]];return flowPage(pages[page][0],`${page+1} / 3`,pages[page][1]+pageNav(page,3,'impact-page'),btn('返回完整成绩','post-results','primary'),'impact');}
+    if(j.post==='review'){const entries=x.choices||[],page=Math.min(j.reviewPage||0,Math.max(0,entries.length-1)),c=entries[page];return flowPage('比赛决策回顾',`${entries.length?page+1:0} / ${entries.length}`,c?'<h2>'+escape(c.title)+'</h2><p>'+escape(c.choice)+'</p><p>'+escape(c.result)+'</p>':'<p>本场没有额外决策记录。</p>',pageNav(page,Math.max(1,entries.length),'review-page')+btn('返回成绩','post-results','primary'),'review');}
+    const page=Math.max(0,Math.min(j.resultPage,Math.ceil(x.table.length/5)-1));return flowPage('正赛完整成绩',`${escape(x.gp)} · ${x.table.length} 位车手 · 你 ${typeof x.pos==='string'?x.pos:'P'+x.pos} / ${x.points} 分`,compactRows(x.table,page,'race')+pageNav(page,Math.ceil(x.table.length/5),'result-page')+'<p class="note">本场收入 $'+money(x.salary)+'M · 已结算</p>'+btn('本站回顾 · 成长与关系','post-impact','ghost full'),btn('决策回顾','post-review','ghost')+btn(S.weekend.pressDone?'查看采访回执':'确认成绩，进入采访','post-confirm','primary'),'results');
+  }
 
-  function getView(){if(S.phase==='reserve'&&['home','weekend'].includes(view))return reserveView();switch(view){case'teams':case'influence':case'records':case'hall':return CareerWorldUI.render(view,S);case'drivers':return driversView();case'contracts':return market();case'weekend':return weekend();case'relations':return relations();case'standings':return standingsView();case'calendar':return calendarView();case'finance':return financeView();case'career':return careerView();case'journal':return journalView();default:return home();}}
+  function getView(){if(S.phase==='reserve'&&['home','weekend'].includes(view))return reserveFlow();switch(view){case'teams':case'influence':case'records':case'hall':return CareerWorldUI.render(view,S);case'drivers':return driversView();case'contracts':return market();case'weekend':return weekend();case'relations':return relations();case'standings':return standingsView();case'calendar':return calendarView();case'finance':return financeView();case'career':return careerView();case'journal':return journalView();default:return home();}}
   function stats(){const rank=S.grid.you?.results.length?C.position(S):'—',pts=S.grid.you?.points||0;return `<div class="metrics"><div class="metric"><div class="metric-label">车手积分排名</div><div class="metric-value">${rank==='—'?'—':'P'+rank}<small>本赛季</small></div><div class="metric-foot">${S.grid.you?.results.length||0} / ${D.TRACKS.length} 场比赛</div></div><div class="metric"><div class="metric-label">赛季积分</div><div class="metric-value">${pts}<small>PTS</small></div><div class="metric-foot">生涯累计 ${S.career.points} 分</div></div><div class="metric"><div class="metric-label">车手人气</div><div class="metric-value">${num(S.popularity)}<small>/ 100</small></div><div class="metric-foot">车迷 ${fans(S.fans)} · 职业声望 ${num(S.reputation)}</div></div><div class="metric"><div class="metric-label">个人资产</div><div class="metric-value">$${money(S.money)}<small>M</small></div><div class="metric-foot">本赛季年薪 $${S.contract?.salary||0}M</div></div></div>`;}
   function hero(){const tr=C.track(S),stage={prep:'赛前准备',grid:'发车区',race:'正赛',post:'赛后复盘'}[S.phase];return '<section class="card"><h3>下一站<span class="sp"></span><span class="chip acc">'+stage+'</span></h3><div class="bd stack" style="gap:10px"><div class="nextrow"><div class="nextmap">'+circuit(tr)+'</div><div><div class="muted" style="font:700 12px var(--f-display);letter-spacing:.14em">ROUND '+(S.round+1)+' · '+S.year+'-'+tr.date+'</div><div class="big" style="margin-top:6px">'+escape(tr.gp)+'</div><div class="muted">'+escape(tr.cir)+' · '+escape(tr.city)+' · '+escape(tr.tag)+'</div></div></div><div class="row"><span class="chip">'+tr.laps+' 圈</span><span class="chip">'+tr.km.toFixed(3)+' km</span><span class="chip">降雨倾向 '+Math.round(tr.rain*100)+'%</span><span class="chip">正常进站约 '+(tr.pit+2.8).toFixed(1)+'s</span></div><div>'+btn(S.phase==='prep'?'进入比赛周末':S.phase==='race'?'回到比赛':'继续本周末','primary','primary')+'</div></div></section>';}
 
@@ -3199,7 +3308,8 @@ globalThis.F1CAREER_RULES = {
   }
   function reserveView(){const r=S.reserve,t=C.team(S),a=C.reserveAssessment(S,t.id);return head('RESERVE DRIVER PROGRAM',r.ready?'领队已发出正式席位邀请':r.completed?'本次试训已经结束':'先走进车库，争取下一张发车位',t.name+' · 季前替补计划')+`<div class="notice">替补试训不计正赛发车或积分。至少完成 ${r.minimumTests} 轮，最近 ${r.minimumTests} 轮均分达到 ${r.threshold} 后可转正。季前最多 6 周，已用 ${a.weeksUsed} 周，换队也不重置；每轮考核实付补贴 $${(S.contract.salary/52).toFixed(3)}M。</div><div class="cols"><div class="stack">${r.completed?'':training()}<section class="card"><div class="card-head"><h2>领队的试训评估</h2><span class="chip">${r.ready?'晋升获批':r.completed?'考核结束':'第 '+(r.tests.length+1)+' 轮'}</span></div><div class="card-body"><div class="contract-detail"><div class="contract-stat"><small>已完成试训</small><b>${r.tests.length} / ${r.minimumTests}</b></div><div class="contract-stat"><small>最近三轮均分</small><b>${r.reviewAverage?.toFixed(2)||'—'} / ${r.threshold}</b></div><div class="contract-stat"><small>本轮预估评分</small><b>${a.expected.toFixed(2)} ± 0.70</b></div><div class="contract-stat"><small>已到账补贴</small><b>$${(r.stipendPaid||0).toFixed(3)}M</b></div></div><p class="story">${r.ready?'你达到了转正门槛，训练项目已结束。由你决定是否接受正式席位。':r.completed?'季前试训额度已用完，本次未获得晋升。已获得的能力和补贴会保留；返回市场，仍可选择有正式空缺的车队。':'考核综合驾驶能力、精力、调校与工程反馈。先分配本轮三次准备，再参加考核；预估分数已计入当前准备，实际有 ±0.70 的发挥波动。'}</p>${r.ready?btn('接受晋升，签下正式席位','promote-reserve','primary full'):r.completed?'':btn('参加本轮综合试训','reserve-test','primary full',S.weekend.actions>0?'disabled':'')}<div class="gap-sm"></div>${btn(r.completed&&!r.ready?'返回市场，选择正式空缺':'结束替补计划，重新选队','leave-reserve','ghost full')}${r.tests.length?`<div class="divider"></div><div class="timeline">${r.tests.slice(-6).reverse().map(x=>`<div class="timeline-item"><span class="time">TEST ${x.number}</span><div><h3>${x.score.toFixed(2)} 分</h3><p>精力 ${num(x.energy)} · 工程师信任 ${num(x.engineer)}</p></div></div>`).join('')}</div>`:''}</div></section></div><div class="stack">${skillsCard()}${teamIdentityCard(t.id)}${relationshipPanel()}${latestNotes(4)}</div></div>`;}
 
-  function weekend(){if(S.phase==='post'&&showFinishBoard)return raceView();if(S.phase==='season')return seasonView();if(S.phase==='race')return raceView();if(S.phase==='post')return postView();if(S.phase==='grid')return gridView();return `${head('RACE WEEKEND / '+C.track(S).id.toUpperCase(),'比赛周末',`${escape(C.track(S).cir)} · ${escape(C.track(S).tag)} · ${C.track(S).laps} 圈正赛`)}${progress()}<div class="cols"><div class="stack">${eventCard()}${training()}</div><div class="stack">${skillsCard()}<section class="card"><div class="card-head"><h2>排位赛，怎样跑这一圈？</h2><span class="caption">QUALIFYING</span></div><div class="card-body"><p class="story no-margin">准备行动可以保留不用。先处理围场来信，再把这一周的努力带上赛道。</p><div class="gap-sm"></div><label>排位风格<select id="quali-approach"><option value="balanced" ${S.weekend.qualiApproach==='balanced'?'selected':''}>找到节奏 · 正常发挥</option><option value="attack" ${S.weekend.qualiApproach==='attack'?'selected':''}>极限冲刺 · 快 0.20 秒，16% 失误风险</option><option value="safe" ${S.weekend.qualiApproach==='safe'?'selected':''}>稳定完成 · 慢 0.12 秒</option></select></label><div class="gap"></div>${btn('戴上头盔，进入排位','qualify','primary full',S.weekend.eventDone?'':'disabled')}<p class="text-small text-muted" style="margin-top:12px">${S.weekend.eventDone?'精力、调校与练习都会影响单圈表现。':'先回应车库里的来信，排位才会开始。'}</p></div></section></div></div>`;}
+  function weekend(){if(S.phase==='season')return seasonView();if(S.phase==='race')return raceView();if(S.phase==='post')return postView();if(S.phase==='grid')return gridFlow();return preparationFlow();}
+
   function gridView(){const q=S.weekend.grid,p=q.findIndex(d=>d.id==='you')+1;return `${head('LIGHTS OUT IS NEXT','排位成绩与发车设置','排位成绩已确定。和策略组确认第一套轮胎，下一次就是发车。')}${progress()}<div class="result-hero"><div class="result-position">P${p}</div><div><div class="eyebrow">YOUR STARTING POSITION</div><h2>${escape(C.track(S).gp)} · 发车区</h2><p>${escape(C.mateName(S))} 将从 P${q.findIndex(d=>d.id===C.mateId(S))+1} 出发。你们从此刻开始互相比较。</p></div></div><div class="cols"><section class="card"><div class="card-head"><h2>正赛发车顺序</h2><span class="caption">STARTING GRID</span></div><div class="table-wrap"><table><thead><tr><th>POS</th><th>车手</th><th>车队</th><th>排位圈速</th></tr></thead><tbody>${q.map((d,i)=>`<tr class="${d.id==='you'?'mine':''}"><td class="pos-cell">${i+1}</td><td>${driver(d.id)}${d.id==='you'?' <span class="badge-num">YOU</span>':''}</td><td><i class="team-line" style="--tc:${C.getTeam(d.team).color}"></i>${tname(d.team)}</td><td class="mono">${lapTime(d.time)}</td></tr>`).join('')}</tbody></table></div></section><div class="stack"><section class="card"><div class="card-head"><h2>第一段比赛的选择</h2><span class="caption">STARTING COMPOUND</span></div><div class="card-body"><p class="story no-margin">${S.weekend.raceWeather?.start===0?'工程师：起跑时已在下雨，赛道湿度约 '+Math.round(S.weekend.raceWeather.intensity*80)+'%。建议'+(S.weekend.raceWeather.intensity*.8>.65?'全雨胎':'半雨胎')+'起步。':'工程师：起跑预计为干地。中性胎灵活、软胎快、硬胎跑得远；你来决定。'}</p><div class="choices">${['S','M','H','I','W'].map(c=>`<button class="choice ${S.weekend.startTyre===c?'recommended':''}" data-start-tyre="${c}"><div class="row">${tyre(c)}<b>${D.COMP[c].cn}${S.weekend.startTyre===c?' · 已选择':''}</b></div><small>${{S:'起步更快，但更早进入换胎窗口',M:'速度与寿命平衡，适合灵活应变',H:'暖胎较慢，用长距离等待机会',I:'湿滑赛道使用，干地会过热',W:'大雨和积水时使用，积水较少时偏慢'}[c]}</small></button>`).join('')}</div><div class="gap"></div>${btn('准备好了，开始正赛','start-race','primary full')}</div></section><div class="notice">干地正赛需使用至少两种干胎配方；未完成会按原模板取消成绩（DSQ）。实际使用过半雨胎或全雨胎的比赛可豁免。比赛会在关键无线电决策处自动停下。</div></div></div>`;}
   function lapTime(x){const m=Math.floor(x/60);return `${m}:${(x-m*60).toFixed(3).padStart(6,'0')}`;}
   function raceView(){
@@ -3216,7 +3326,7 @@ globalThis.F1CAREER_RULES = {
 
   function resultTable(result){return `<div class="table-wrap"><table><thead><tr><th>POS</th><th>车手</th><th>车队</th><th>用时 / 状态</th><th>进站</th><th>积分</th></tr></thead><tbody>${result.table.map((d,i)=>`<tr class="${d.id==='you'?'mine':''}"><td class="pos-cell">${d.pos}</td><td>${driver(d.id)}</td><td><i class="team-line" style="--tc:${C.getTeam(d.team).color}"></i>${tname(d.team)}</td><td class="mono">${d.dnf?escape(d.why):i===0?lapTime(d.time):'+'+(d.time-result.table[0].time).toFixed(2)}${d.penalty?` <span class="text-red">+${d.penalty}s 罚时</span>`:''}</td><td>${d.stops}</td><td class="mono">${d.points}</td></tr>`).join('')}</tbody></table></div>`;}
   function pressEffects(choice){const p=C.pressPreview(S,choice),labels={principal:'领队',mate:'队友',engineer:'工程师',reputation:'职业声望',morale:'士气',tension:'内斗热度'},parts=Object.entries(labels).filter(([key])=>Math.abs(p.effects[key]||0)>1e-8).map(([key,label])=>label+' '+signed(p.effects[key],1));if(Math.abs(p.popularityGain)>1e-8)parts.push('人气 '+signed(p.popularityGain,2));return escape(parts.join(' · ')||'当前数值已达边界，本次不再增加')+'<br>'+escape(p.reason);}
-  function postView(){const x=S.results.at(-1);return `${head('THE CHEQUERED FLAG','正赛成绩与赛后复盘',`${escape(x.gp)} · 第 ${x.round+1} 站`)}${progress()}${raceImpactPanel(x)}<div class="result-hero"><div class="result-position">${typeof x.pos==='string'?x.pos:'P'+x.pos}</div><div><div class="eyebrow">${escape(S.name.toUpperCase())} / RACE RESULT</div><h2>${x.pos===1?'大奖赛冠军':x.pos<=3?'领奖台完赛':x.points>0?'积分区完赛':x.pos==='DSQ'?'取消成绩':x.pos==='DNS'?'因伤缺席':x.pos==='DNF'?'未能完赛':'正赛完赛'}</h2><p>P${x.grid} 发车 · ${x.stops} 次进站 · 队友 ${typeof x.matePos==='string'?x.matePos:'P'+x.matePos}</p></div><div class="right"><b>+${x.points} PTS</b><span class="text-small text-muted">本场收入 $${money(x.salary)}M</span></div></div><div class="cols"><div class="stack"><section class="card"><div class="card-head"><h2>正赛最终成绩</h2><span class="caption">RACE CLASSIFICATION</span></div>${resultTable(x)}</section><section class="card"><div class="card-head"><h2>这场比赛，是怎样走到这里的</h2><span class="caption">YOUR DECISIONS</span></div><div class="timeline">${x.choices.map(c=>`<div class="timeline-item"><span class="time">CHOICE</span><div><h3>${escape(c.title)}</h3><p><span class="text-mint">${escape(c.choice)}</span> · ${escape(c.result)}</p></div></div>`).join('')||'<div class="empty">安静的一场比赛，也会留在生涯里。</div>'}</div></section></div><div class="stack"><section class="card"><div class="card-head"><h2>围访区的最后一个问题</h2><span class="caption">POST-RACE</span></div><div class="card-body"><h3 class="story-title">“你怎样评价今天的比赛？”</h3>${S.weekend.pressDone?'<div class="result-note">你的回答已经传回车库。下一个周末，他们会记得。</div>':`<div class="choices"><button class="choice" data-press="team"><b>感谢车队，我们一起做到了</b><small>${pressEffects('team')}</small></button><button class="choice" data-press="honest"><b>说说我的驾驶和需要改进的地方</b><small>${pressEffects('honest')}</small></button><button class="choice" data-press="blame"><b>今天的资源分配本可以更公平</b><small>${pressEffects('blame')}</small></button></div>`}<div class="gap"></div>${btn(S.round===D.TRACKS.length-1?'结束赛季，写下这一年':'前往下一站','next-round','primary full',S.weekend.pressDone?'':'disabled')}</div></section>${relationshipPanel()}</div></div>`;}
+
   function market(){
     const first=!S.team||S.phase==='reserve';
     return `${head('DRIVER MARKET',first?'选择车队与席位':'车手合同市场',first?'先看正式席位是否空缺，再决定直接参赛，还是从替补试训争取晋升。':'当前赛季继续履约，到期年可预约下一赛季的正式席位。',`<span class="tag mint">车手声望 ${num(S.reputation)}</span>`)}<div class="notice">${S.nextContract?`你已预约 ${escape(tname(S.nextContract.team))} 的 ${S.nextContract.startYear} 年席位。`:first?'以下是本局开局的招募设定。正式席位已满的车队不会让你直接顶替现役车手；替补计划提供最多六周的试训晋升路径。四大车队曝光高，也更可能要求新人支持队友。':`当前合同：${escape(tname(S.team))} · $${S.contract.salary}M / 年 · 至 ${S.contract.endYear} 年。${S.contract.endYear>S.year?'合同尚未到期，暂不能签约。':'现已进入到期年，可预约明年席位。'}`}</div><div class="team-grid">${C.activeTeams(S).map(t=>{const o=C.offer(S,t.id),rs=C.offer(S,t.id,'reserve'),q=o.seats;return `<article class="team-card ${S.nextContract?.team===t.id?'selected':''}" style="--tc:${t.color}"><div class="team-banner"><div class="team-wordmark">${t.name.toUpperCase()}</div><div class="team-sub">${t.fictional?'架空中国厂队':escape(t.base)}</div></div><div class="data"><div class="row spread"><span class="tag ${o.level===3?'mint':''}">${C.teamIdentity(t.id).tier}</span><span class="text-small text-muted">赛车 ${o.power.toFixed(1)}</span></div><div class="seat-status ${q.raceOpen?'open':'full'}"><b>${q.raceLabel}</b><span>${q.reserveLabel}</span></div><p class="text-small text-muted seat-reason">${escape(q.reason)}</p><div class="kv"><span>${q.raceOpen?'正式席位队友':'现役阵容'}</span><b>${escape(C.rawDriver(t.drivers[0])[1])}${q.raceOpen?'':' / '+escape(C.rawDriver(t.drivers[1])[1])}</b></div><div class="kv"><span>${q.raceOpen?'正式年薪':'试训每周补贴'}</span><b>$${(q.raceOpen?o.salary:rs.weeklyStipend).toFixed(q.raceOpen?1:3)}M</b></div><div class="kv"><span>正式席位地位</span><b>${o.role==='equal'?'平等竞争':'新人支持席位'}</b></div>${teamMultipliers(t.id)}</div><div class="foot seat-actions">${btn(q.raceOpen?'查看正式合同':'正式席位已满','offer',q.raceOpen?'primary full':'ghost full',`data-team="${t.id}" data-path="race" ${q.raceOpen?'':'disabled'}`)}${first?btn('查看替补计划','offer','ghost full',`data-team="${t.id}" data-path="reserve" ${!rs.available?'disabled':''}`):''}</div></article>`;}).join('')}</div>`;
@@ -3291,18 +3401,21 @@ globalThis.F1CAREER_RULES = {
   function actPrimary(){if(!S)return;if(!S.team){navigate('contracts');return;}navigate(S.phase==='season'?'home':'weekend');}
   function download(text,name,type){const url=URL.createObjectURL(new Blob([text],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
   function afterState(keep=true){save();render(keep);}
-  function updateDraft(){const f=$('#profile-form');if(f){draft.name=f.elements.name.value;draft.number=f.elements.number.value;draft.nationality=f.elements.nationality?.value||'CHN';draft.includeBYD=f.elements.includeBYD?.value==='true';}}
-  document.addEventListener('submit',e=>{if(e.target.id!=='profile-form')return;e.preventDefault();updateDraft();S=C.create(draft);recoverySave=null;view='contracts';save();render();});
+  function updateDraft(){const f=$('#profile-form');if(f){draft.name=f.elements.name.value;draft.number=f.elements.number.value;draft.nationality=f.elements.nationality?.value||draft.nationality;}saveDraft();}
+  document.addEventListener('input',e=>{if(e.target.closest?.('#profile-form'))updateDraft();});
+  document.addEventListener('submit',e=>{if(e.target.id!=='profile-form')return;e.preventDefault();updateDraft();if(e.target.reportValidity()){openingStep=2;saveDraft();render();}});
   document.addEventListener('click',e=>{
-    const el=e.target.closest('button,[data-overlay],[data-race-focus],[data-action="select-race-driver"],[data-world-market]');if(!el||el.disabled)return;
+    const el=e.target.closest('button,[data-overlay],[data-race-focus],[data-action="select-race-driver"],[data-world-market]');if(!el||el.disabled)return;if(e.detail>1&&el.closest?.('.journey'))return;
     if(el.dataset.overlay&&e.target===el){closeModal();return;}
     if(S&&(el.dataset.worldAction||el.dataset.worldMarket)){const next=CareerWorldUI.handle(el.dataset,S);if(next){view=next;render(true);}return;}
     if(el.dataset.view)return navigate(el.dataset.view);
     if(el.dataset.raceFocus){selectRaceDriver(el.dataset.raceFocus);return;}
     if(el.dataset.driver){showModal('车手能力与天赋',driverModal(el.dataset.driver),true);return;}
-    if(el.dataset.origin){updateDraft();draft.origin=el.dataset.origin;draft.roll=C.rollProfile(draft.origin);render(true);return;}
-    if(el.dataset.event){if(C.chooseEvent(S,el.dataset.event)){afterState();toast(S.flash.text);}return;}
-    if(el.dataset.prepare){if((S.phase==='reserve'?C.reservePrepare:C.prepare)(S,el.dataset.prepare)){afterState();toast(S.weekend.lastTraining?.summary||'准备已完成');}return;}
+    if(el.dataset.openingByd){draft.includeBYD=el.dataset.openingByd==='true';saveDraft();render();return;}
+    if(el.dataset.interviewChoice){if(S?.phase==='post'&&!S.weekend.pressDone){journeyState().pressChoice=el.dataset.interviewChoice;afterState(false);}return;}
+    if(el.dataset.origin){updateDraft();draft.origin=el.dataset.origin;draft.roll=C.rollProfile(draft.origin);saveDraft();render();return;}
+    if(el.dataset.event){if(C.chooseEvent(S,el.dataset.event)){journeyState().prep='event-receipt';afterState(false);}return;}
+    if(el.dataset.prepare){if((S.phase==='reserve'?C.reservePrepare:C.prepare)(S,el.dataset.prepare)){if(S.phase==='prep')journeyState().prep='training-receipt';else if(S.phase==='reserve')journeyState().reserveStage='receipt';afterState(false);}return;}
     if(el.dataset.startTyre){S.weekend.startTyre=el.dataset.startTyre;afterState();return;}
     if(el.dataset.mode){setImmediateMode(el.dataset.mode);return;}
     if(el.dataset.speed){if(!RACE_SPEEDS.includes(Number(el.dataset.speed)))return;speed=Number(el.dataset.speed);raceMotion?.setSpeed(speed);render(true);return;}
@@ -3313,6 +3426,32 @@ globalThis.F1CAREER_RULES = {
     const action=el.dataset.action;
     if(!action)return;
     switch(action){
+      case'opening-next':updateDraft();if(openingStep===1&&!$('#profile-form').reportValidity())break;openingStep=Math.min(4,openingStep+1);saveDraft();render();break;
+      case'opening-back':updateDraft();openingStep=Math.max(0,openingStep-1);saveDraft();render();break;
+      case'opening-create':if(!S){S=C.create(draft);try{localStorage.removeItem(DRAFT_KEY);}catch{}recoverySave=null;view='contracts';teamPage=0;save();render();}break;
+      case'opening-team':teamPage=Math.max(0,Math.min(C.activeTeams(S).length-1,Number(el.dataset.page)));afterState(false);break;
+      case'opening-contract-next':if(contractFlow){contractFlow.step=Math.min(2,contractFlow.step+1);afterState(false);}break;
+      case'opening-contract-back':if(contractFlow?.step)contractFlow.step--;else contractFlow=null;afterState(false);break;
+      case'reserve-page':journeyState().trainingPage=Math.max(0,Math.min(1,Number(el.dataset.page)));afterState(false);break;
+      case'reserve-prepare':journeyState().reserveStage='prepare';afterState(false);break;
+      case'reserve-assessment':journeyState().reserveStage='assessment';afterState(false);break;
+      case'prep-choice':journeyState().prep='event-choice';afterState(false);break;
+      case'prep-event':journeyState().prep='event';afterState(false);break;
+      case'prep-training':if(S.weekend.eventDone){journeyState().prep='training';afterState(false);}break;
+      case'prep-quali':if(S.weekend.eventDone){journeyState().prep='quali';afterState(false);}break;
+      case'training-page':journeyState().trainingPage=Math.max(0,Math.min(2,Number(el.dataset.page)));afterState(false);break;
+      case'grid-page':journeyState().gridPage=Math.max(0,Math.min(Math.ceil(S.weekend.grid.length/5)-1,Number(el.dataset.page)));afterState(false);break;
+      case'grid-tyres':journeyState().grid='tyres';afterState(false);break;
+      case'grid-results':journeyState().grid='results';afterState(false);break;
+      case'result-page':journeyState().resultPage=Math.max(0,Math.min(Math.ceil(S.results.at(-1).table.length/5)-1,Number(el.dataset.page)));afterState(false);break;
+      case'post-confirm':if(S.phase==='post'){const j=journeyState();j.resultsConfirmed=true;j.post=S.weekend.pressDone?'receipt':'interview';afterState(false);}break;
+      case'post-results':journeyState().post='results';afterState(false);break;
+      case'post-impact':journeyState().post='impact';afterState(false);break;
+      case'impact-page':journeyState().impactPage=Number(el.dataset.page);afterState(false);break;
+      case'post-review':journeyState().post='review';afterState(false);break;
+      case'review-page':journeyState().reviewPage=Number(el.dataset.page);afterState(false);break;
+      case'post-answer':if(S.phase==='post'&&journeyState().resultsConfirmed&&!S.weekend.pressDone){const choice=journeyState().pressChoice,preview=C.pressPreview(S,choice);if(preview&&C.press(S,choice)){S.weekend.pressLabel=preview.label;S.weekend.pressReason=preview.reason;journeyState().post='receipt';afterState(false);}}break;
+
       case'select-race-driver':selectRaceDriver(el.dataset.id);break;
       case'race-results':showFinishBoard=false;view='weekend';afterState(false);break;
       case'race-pop-min':popupMinimized=true;render(true);break;
@@ -3332,7 +3471,7 @@ globalThis.F1CAREER_RULES = {
       case'pit-cancel':if((S.race.pitRequest?.executeLap??S.race.lap+1)<nextCommandLap()){toast('本圈已经进入进站执行阶段，无法撤回。');}else if(C.cancelPit(S)){if(stagedRace?.phase==='race')C.cancelPit(stagedRace);afterState();}break;
       case'expand-map':expandedMap=!expandedMap;render(true);break;
       case'primary':actPrimary();break;
-      case'reroll':if(!S){updateDraft();draft.roll=C.rollProfile(draft.origin);render(true);toast('能力和场景技能已更新。');}break;
+      case'reroll':if(!S){updateDraft();draft.roll=C.rollProfile(draft.origin);saveDraft();render(true);toast('能力和场景技能已更新。');}break;
       case'refresh-abilities':afterState();toast('已同步训练成长、状态与当前场景效果。');break;
       case'weekend':navigate('weekend');break;
       case'relations':navigate('relations');break;
@@ -3340,10 +3479,10 @@ globalThis.F1CAREER_RULES = {
       case'market':navigate('contracts');break;
       case'help':showModal('玩法说明',helpModal());break;
       case'close':closeModal();break;
-      case'offer':delete S.flags.negotiationReply;showModal('车手合同',contractModal(el.dataset.team,el.dataset.path||'race'));break;
-      case'negotiate':{const r=C.negotiate(S,el.dataset.team,el.dataset.ask,el.dataset.path||'race');S.flags.negotiationReply=r.text;save();showModal('经纪人的合同桌',contractModal(el.dataset.team,el.dataset.path||'race'));break;}
-      case'sign':{const hadTeam=!!S.team&&S.phase!=='reserve';if(C.sign(S,el.dataset.team,el.dataset.path||'race')){closeModal();save();view=hadTeam?'contracts':'home';render();toast(hadTeam?'下一赛季的合同已签署。':'合同签好了。欢迎来到 '+tname(S.team)+'。');}break;}
-      case'reserve-test':if(C.reserveTest(S)){afterState();toast(S.reserve.ready?'领队已开放正式席位。':S.reserve.completed?'试训额度已用完，可返回市场选择正式空缺。':'本轮试训与补贴已记录，准备下一轮。');}break;
+      case'offer':delete S.flags.negotiationReply;if(!S.team){contractFlow={team:el.dataset.team,path:el.dataset.path||'race',step:0};afterState(false);break;}showModal('车手合同',contractModal(el.dataset.team,el.dataset.path||'race'));break;
+      case'negotiate':{const r=C.negotiate(S,el.dataset.team,el.dataset.ask,el.dataset.path||'race');S.flags.negotiationReply=r.text;save();if(contractFlow&&!S.team){render();break;}showModal('经纪人的合同桌',contractModal(el.dataset.team,el.dataset.path||'race'));break;}
+      case'sign':{const hadTeam=!!S.team&&S.phase!=='reserve';if(C.sign(S,el.dataset.team,el.dataset.path||'race')){closeModal();save();view=hadTeam?'contracts':'weekend';contractFlow=null;render();toast(hadTeam?'下一赛季的合同已签署。':'合同签好了。欢迎来到 '+tname(S.team)+'。');}break;}
+      case'reserve-test':if(C.reserveTest(S)){journeyState().reserveStage='result';afterState(false);toast(S.reserve.ready?'领队已开放正式席位。':S.reserve.completed?'试训额度已用完，可返回市场选择正式空缺。':'本轮试训与补贴已记录，准备下一轮。');}break;
       case'promote-reserve':if(C.promoteReserve(S)){view='home';afterState(false);toast('你获得了正式发车位。');}break;
       case'leave-reserve':if(C.leaveReserve(S)){view='contracts';afterState(false);}break;
       case'qualify':{const approach=$('#quali-approach')?.value||'balanced';if(C.qualify(S,approach)){save();render();}break;}
@@ -3352,19 +3491,19 @@ globalThis.F1CAREER_RULES = {
       case'step':playRace('one');break;
       case'fast-forward':speed=16;playRace('decision');break;
       case'pit':{if(stagedRace?.phase==='post'){toast('已进入最后一圈冲线，请等待成绩。');break;}const executeLap=S.race.lap+(stagedRace?2:1);if(C.requestPit(S,pitTyre,true,executeLap)){if(stagedRace?.phase==='race')C.requestPit(stagedRace,pitTyre,true,executeLap);afterState();toast('已通知车组，第 '+executeLap+' 圈入口执行进站。');}break;}
-      case'next-round':if(C.next(S)){running=false;view=S.phase==='season'?'home':'weekend';afterState(false);}break;
+      case'next-round':if(S?.phase==='post'&&S.weekend.pressDone&&C.next(S)){running=false;view=S.phase==='season'?'home':'weekend';afterState(false);}break;
       case'new-season':if(C.startSeason(S)){view=S.phase==='market'?'contracts':'home';afterState(false);}break;
       case'saves':showModal('存档与设置',savesModal(),true);break;
       case'save-slot':{try{localStorage.setItem(KEY+'.slot'+el.dataset.slot,JSON.stringify(S));showModal('保存这段人生',savesModal(),true);toast('已保存到手动存档 '+el.dataset.slot);}catch{toast('存储空间不足，请导出存档。');}break;}
       case'load-slot':{const v=read(KEY+'.slot'+el.dataset.slot);if(!C.validate(v))return toast('这份存档无法读取。');showModal('读取手动存档',`<p>将读取 ${escape(v.name)} 在 ${v.year} 年的进度。当前自动存档会被覆盖。</p><div class="modal-actions">${btn('取消','close','ghost')}${btn('读取这段生涯','confirm-load','primary',`data-slot="${el.dataset.slot}"`)}</div>`);break;}
-      case'confirm-load':{const v=read(KEY+'.slot'+el.dataset.slot);if(C.validate(v)){resetPlayback();S=C.upgradeState(v);running=false;closeModal();view='home';afterState(false);toast('已回到这段生涯。');}break;}
+      case'confirm-load':{const v=read(KEY+'.slot'+el.dataset.slot);if(C.validate(v)){resetPlayback();S=C.upgradeState(v);running=false;closeModal();restoreJourney();afterState(false);toast('已回到这段生涯。');}break;}
       case'export':download(JSON.stringify({format:'shoota-f1-driver',version:1,savedAt:new Date().toISOString(),state:S},null,2),`F1-Driver-${S.name}-${S.year}-R${S.round+1}.json`,'application/json');toast('生涯存档已导出。');break;
       case'import':$('#import-file').click();break;
-      case'confirm-import':{if(importCandidate){resetPlayback();S=C.upgradeState(importCandidate);importCandidate=null;running=false;closeModal();view='home';afterState(false);toast('生涯存档已导入。');}break;}
+      case'confirm-import':{if(importCandidate){resetPlayback();S=C.upgradeState(importCandidate);importCandidate=null;running=false;closeModal();restoreJourney();afterState(false);toast('生涯存档已导入。');}break;}
       case'download-game':{const html='<!doctype html>\n'+document.documentElement.outerHTML.replace(/<div\b(?=[^>]*\bid=["']app["'])[^>]*>[\s\S]*?(?=<script>)/,'<div id="app"></div><div id="modal-root"></div><div id="toast" role="status" aria-live="polite"></div>');download(html,'F1-Driver-'+BUILD+'.html','text/html');toast('单文件游戏已下载，可在本机打开或导入 Shoota。');break;}
       case'recover-save':if(recoverySave)download(recoverySave,'F1-Driver-原始存档备份.json','application/json');break;
       case'reset-ask':showModal('开始另一段人生',`<p>当前自动存档会被清除，手动存档保留。建议先导出当前生涯，留住你已经跑过的每一圈。</p><div class="modal-actions">${btn('继续当前生涯','close','ghost')}${btn('确认重新开始','reset','danger')}</div>`);break;
-      case'reset':{resetPlayback();S=null;try{localStorage.removeItem(KEY);}catch{}closeModal();view='home';render();break;}
+      case'reset':{resetPlayback();S=null;openingStep=0;contractFlow=null;teamPage=0;try{localStorage.removeItem(KEY);localStorage.removeItem(DRAFT_KEY);}catch{}closeModal();view='home';render();break;}
       case'history':{const r=S.results[Number(el.dataset.result)];if(r)showModal(`${r.year} · ${r.gp}`,`<p>${r.pos==='DNF'?'未能完赛':'P'+r.pos} · ${r.points} 积分 · ${r.stops} 次进站</p><div class="gap"></div>${resultTable(r)}<div class="gap"></div><h3>当时的决定</h3>${r.choices.map(c=>`<div class="result-note">${escape(c.title)}<br>${escape(c.choice)} · ${escape(c.result)}</div>`).join('')}`,true);break;}
     }
   });
@@ -3452,13 +3591,14 @@ globalThis.F1CAREER_RULES = {
     if(!stagedRace)return;S=stagedRace;stagedRace=null;
     raceAlerts=alertsEnabled?CareerNativeRaceUI.collectAlerts((S.race.alerts?.length?S.race.alerts:S.race.log.filter(e=>e.lap===S.race.lap))):[];
     if(playMode==='one'||S.phase!=='race'||S.race.pending||raceAlerts.length)running=false;
-    if(S.phase==='post'){showFinishBoard=true;raceAlerts=[];}
+    if(S.phase==='post'){showFinishBoard=false;raceAlerts=[];}
     popupMinimized=false;afterState();
     const upgrades=(S.race.growthEvents||[]).filter(e=>e.id==='you'&&e.lap===S.race.lap);if(upgrades.length)toast(upgrades.map(e=>e.type==='talent'?e.name+' 升至 Lv.'+e.to:e.name+' +'+e.gain.toFixed(2)).join(' · '));
     if(running)setTimeout(beginRaceLap,0);
   }
 
   try{window.Platform?.defineAchievements?.(Object.entries(achievements).map(([id,[,title,description]])=>({id,title,description})));}catch{}
+  restoreJourney();
   render();
 })();
 </script>

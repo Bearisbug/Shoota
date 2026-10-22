@@ -1,0 +1,2106 @@
+{
+  "file": "/Users/leizhang/Documents/shoota/games/F1-Team Principal（试玩）.html",
+  "results": [
+    {
+      "width": 320,
+      "height": 740,
+      "kind": "sprint",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 320,
+        "documentWidth": 320,
+        "group": {
+          "x": 142.0625,
+          "right": 310,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 142.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 223.234375,
+            "textLeft": 167.640625,
+            "textRight": 215.640625,
+            "iconLeft": 149.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 228.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 310,
+            "textLeft": 254.40625,
+            "textRight": 302.40625,
+            "iconLeft": 236.421875
+          }
+        ]
+      },
+      "live": {
+        "kind": "sprint",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 37
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 37,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "kind": "sprint",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 320,
+        "documentWidth": 320,
+        "group": {
+          "x": 142.0625,
+          "right": 310,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 142.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 223.234375,
+            "textLeft": 167.640625,
+            "textRight": 215.640625,
+            "iconLeft": 149.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 228.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 310,
+            "textLeft": 254.40625,
+            "textRight": 302.40625,
+            "iconLeft": 236.421875
+          }
+        ]
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 36
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 36,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "kind": "race",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 320,
+        "documentWidth": 320,
+        "group": {
+          "x": 142.0625,
+          "right": 310,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 142.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 223.234375,
+            "textLeft": 167.640625,
+            "textRight": 215.640625,
+            "iconLeft": 149.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 228.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 310,
+            "textLeft": 254.40625,
+            "textRight": 302.40625,
+            "iconLeft": 236.421875
+          }
+        ]
+      },
+      "live": {
+        "kind": "race",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 58
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 58,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "kind": "race",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 320,
+        "documentWidth": 320,
+        "group": {
+          "x": 142.0625,
+          "right": 310,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 142.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 223.234375,
+            "textLeft": 167.640625,
+            "textRight": 215.640625,
+            "iconLeft": 149.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 228.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 310,
+            "textLeft": 254.40625,
+            "textRight": 302.40625,
+            "iconLeft": 236.421875
+          }
+        ]
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 71
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 71,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "kind": "sprint",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 375,
+        "documentWidth": 375,
+        "group": {
+          "x": 197.0625,
+          "right": 365,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 197.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 278.234375,
+            "textLeft": 222.640625,
+            "textRight": 270.640625,
+            "iconLeft": 204.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 283.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 365,
+            "textLeft": 309.40625,
+            "textRight": 357.40625,
+            "iconLeft": 291.421875
+          }
+        ]
+      },
+      "live": {
+        "kind": "sprint",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 39
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 39,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "kind": "sprint",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 375,
+        "documentWidth": 375,
+        "group": {
+          "x": 197.0625,
+          "right": 365,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 197.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 278.234375,
+            "textLeft": 222.640625,
+            "textRight": 270.640625,
+            "iconLeft": 204.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 283.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 365,
+            "textLeft": 309.40625,
+            "textRight": 357.40625,
+            "iconLeft": 291.421875
+          }
+        ]
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 40
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 40,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "kind": "race",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 375,
+        "documentWidth": 375,
+        "group": {
+          "x": 197.0625,
+          "right": 365,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 197.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 278.234375,
+            "textLeft": 222.640625,
+            "textRight": 270.640625,
+            "iconLeft": 204.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 283.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 365,
+            "textLeft": 309.40625,
+            "textRight": 357.40625,
+            "iconLeft": 291.421875
+          }
+        ]
+      },
+      "live": {
+        "kind": "race",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 66
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 66,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "kind": "race",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 375,
+        "documentWidth": 375,
+        "group": {
+          "x": 197.0625,
+          "right": 365,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 197.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 278.234375,
+            "textLeft": 222.640625,
+            "textRight": 270.640625,
+            "iconLeft": 204.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 283.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 365,
+            "textLeft": 309.40625,
+            "textRight": 357.40625,
+            "iconLeft": 291.421875
+          }
+        ]
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 62
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 62,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "kind": "sprint",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 390,
+        "documentWidth": 390,
+        "group": {
+          "x": 212.0625,
+          "right": 380,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 212.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 293.234375,
+            "textLeft": 237.640625,
+            "textRight": 285.640625,
+            "iconLeft": 219.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 298.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 380,
+            "textLeft": 324.40625,
+            "textRight": 372.40625,
+            "iconLeft": 306.421875
+          }
+        ]
+      },
+      "live": {
+        "kind": "sprint",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "reloadDuringLive": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "result": false
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 38
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "kind": "sprint",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 390,
+        "documentWidth": 390,
+        "group": {
+          "x": 212.0625,
+          "right": 380,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 212.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 293.234375,
+            "textLeft": 237.640625,
+            "textRight": 285.640625,
+            "iconLeft": 219.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 298.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 380,
+            "textLeft": 324.40625,
+            "textRight": 372.40625,
+            "iconLeft": 306.421875
+          }
+        ]
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 36
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 36,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "kind": "race",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 390,
+        "documentWidth": 390,
+        "group": {
+          "x": 212.0625,
+          "right": 380,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 212.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 293.234375,
+            "textLeft": 237.640625,
+            "textRight": 285.640625,
+            "iconLeft": 219.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 298.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 380,
+            "textLeft": 324.40625,
+            "textRight": 372.40625,
+            "iconLeft": 306.421875
+          }
+        ]
+      },
+      "live": {
+        "kind": "race",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "reloadDuringLive": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "result": false
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 71
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 71,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "kind": "race",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 390,
+        "documentWidth": 390,
+        "group": {
+          "x": 212.0625,
+          "right": 380,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 212.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 293.234375,
+            "textLeft": 237.640625,
+            "textRight": 285.640625,
+            "iconLeft": 219.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 298.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 380,
+            "textLeft": 324.40625,
+            "textRight": 372.40625,
+            "iconLeft": 306.421875
+          }
+        ]
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 61
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 61,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "kind": "sprint",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 430,
+        "documentWidth": 430,
+        "group": {
+          "x": 252.0625,
+          "right": 420,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 252.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 333.234375,
+            "textLeft": 277.640625,
+            "textRight": 325.640625,
+            "iconLeft": 259.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 338.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 420,
+            "textLeft": 364.40625,
+            "textRight": 412.40625,
+            "iconLeft": 346.421875
+          }
+        ]
+      },
+      "live": {
+        "kind": "sprint",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 38
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "kind": "sprint",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 430,
+        "documentWidth": 430,
+        "group": {
+          "x": 252.0625,
+          "right": 420,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 252.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 333.234375,
+            "textLeft": 277.640625,
+            "textRight": 325.640625,
+            "iconLeft": 259.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 338.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 420,
+            "textLeft": 364.40625,
+            "textRight": 412.40625,
+            "iconLeft": 346.421875
+          }
+        ]
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 39
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 39,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "kind": "race",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 430,
+        "documentWidth": 430,
+        "group": {
+          "x": 252.0625,
+          "right": 420,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 252.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 333.234375,
+            "textLeft": 277.640625,
+            "textRight": 325.640625,
+            "iconLeft": 259.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 338.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 420,
+            "textLeft": 364.40625,
+            "textRight": 412.40625,
+            "iconLeft": 346.421875
+          }
+        ]
+      },
+      "live": {
+        "kind": "race",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 78
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 78,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "kind": "race",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 430,
+        "documentWidth": 430,
+        "group": {
+          "x": 252.0625,
+          "right": 420,
+          "w": 167.9375
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 252.0625,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 83,
+            "client": 79,
+            "right": 333.234375,
+            "textLeft": 277.640625,
+            "textRight": 325.640625,
+            "iconLeft": 259.65625
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 338.828125,
+            "y": 5,
+            "w": 81.171875,
+            "h": 40,
+            "scroll": 79,
+            "client": 79,
+            "right": 420,
+            "textLeft": 364.40625,
+            "textRight": 412.40625,
+            "iconLeft": 346.421875
+          }
+        ]
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 65
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 65,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "kind": "sprint",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 768,
+        "documentWidth": 768,
+        "group": {
+          "x": 449.921875,
+          "right": 638.640625,
+          "w": 188.71875
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 449.921875,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 92,
+            "client": 88,
+            "right": 540.28125,
+            "textLeft": 478.84375,
+            "textRight": 530.84375,
+            "iconLeft": 459.359375
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 548.28125,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 88,
+            "client": 88,
+            "right": 638.640625,
+            "textLeft": 577.203125,
+            "textRight": 629.203125,
+            "iconLeft": 557.71875
+          }
+        ]
+      },
+      "live": {
+        "kind": "sprint",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 36
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 36,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "kind": "sprint",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 768,
+        "documentWidth": 768,
+        "group": {
+          "x": 449.921875,
+          "right": 638.640625,
+          "w": 188.71875
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 449.921875,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 92,
+            "client": 88,
+            "right": 540.28125,
+            "textLeft": 478.84375,
+            "textRight": 530.84375,
+            "iconLeft": 459.359375
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 548.28125,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 88,
+            "client": 88,
+            "right": 638.640625,
+            "textLeft": 577.203125,
+            "textRight": 629.203125,
+            "iconLeft": 557.71875
+          }
+        ]
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 35
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 35,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "kind": "race",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 768,
+        "documentWidth": 768,
+        "group": {
+          "x": 437.921875,
+          "right": 626.640625,
+          "w": 188.71875
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 437.921875,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 92,
+            "client": 88,
+            "right": 528.28125,
+            "textLeft": 466.84375,
+            "textRight": 518.84375,
+            "iconLeft": 447.359375
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 536.28125,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 88,
+            "client": 88,
+            "right": 626.640625,
+            "textLeft": 565.203125,
+            "textRight": 617.203125,
+            "iconLeft": 545.71875
+          }
+        ]
+      },
+      "live": {
+        "kind": "race",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 78
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 78,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "kind": "race",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 768,
+        "documentWidth": 768,
+        "group": {
+          "x": 437.921875,
+          "right": 626.640625,
+          "w": 188.71875
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 437.921875,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 92,
+            "client": 88,
+            "right": 528.28125,
+            "textLeft": 466.84375,
+            "textRight": 518.84375,
+            "iconLeft": 447.359375
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 536.28125,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 88,
+            "client": 88,
+            "right": 626.640625,
+            "textLeft": 565.203125,
+            "textRight": 617.203125,
+            "iconLeft": 545.71875
+          }
+        ]
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 58
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 58,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "kind": "sprint",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 1440,
+        "documentWidth": 1440,
+        "group": {
+          "x": 1235.28125,
+          "right": 1424,
+          "w": 188.71875
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 1235.28125,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 92,
+            "client": 88,
+            "right": 1325.640625,
+            "textLeft": 1264.203125,
+            "textRight": 1316.203125,
+            "iconLeft": 1244.71875
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 1333.640625,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 88,
+            "client": 88,
+            "right": 1424,
+            "textLeft": 1362.5625,
+            "textRight": 1414.5625,
+            "iconLeft": 1343.078125
+          }
+        ]
+      },
+      "live": {
+        "kind": "sprint",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 35
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 35,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "kind": "sprint",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "sprint",
+        "live": false,
+        "points": 25,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 1440,
+        "documentWidth": 1440,
+        "group": {
+          "x": 1235.28125,
+          "right": 1424,
+          "w": 188.71875
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "sprint",
+            "x": 1235.28125,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 92,
+            "client": 88,
+            "right": 1325.640625,
+            "textLeft": 1264.203125,
+            "textRight": 1316.203125,
+            "iconLeft": 1244.71875
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "sprint",
+            "x": 1333.640625,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 88,
+            "client": 88,
+            "right": 1424,
+            "textLeft": 1362.5625,
+            "textRight": 1414.5625,
+            "iconLeft": 1343.078125
+          }
+        ]
+      },
+      "after": {
+        "stage": "q",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 38
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "q",
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "qualifyingUnchanged": true
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "kind": "race",
+      "path": "watch",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 1440,
+        "documentWidth": 1440,
+        "group": {
+          "x": 1235.28125,
+          "right": 1424,
+          "w": 188.71875
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 1235.28125,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 92,
+            "client": 88,
+            "right": 1325.640625,
+            "textLeft": 1264.203125,
+            "textRight": 1316.203125,
+            "iconLeft": 1244.71875
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 1333.640625,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 88,
+            "client": 88,
+            "right": 1424,
+            "textLeft": 1362.5625,
+            "textRight": 1414.5625,
+            "iconLeft": 1343.078125
+          }
+        ]
+      },
+      "live": {
+        "kind": "race",
+        "lap": 0,
+        "paused": true,
+        "result": false,
+        "lapAfterStart": 1
+      },
+      "reentry": {
+        "sameRace": true,
+        "samePoints": true,
+        "result": false,
+        "topDisabled": true
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 78
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 78,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "kind": "race",
+      "path": "quick",
+      "errors": [],
+      "before": {
+        "stage": "race",
+        "live": false,
+        "points": 38,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      },
+      "layout": {
+        "width": 1440,
+        "documentWidth": 1440,
+        "group": {
+          "x": 1235.28125,
+          "right": 1424,
+          "w": 188.71875
+        },
+        "buttons": [
+          {
+            "text": "观看直播",
+            "svg": true,
+            "act": "watch",
+            "kind": "race",
+            "x": 1235.28125,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 92,
+            "client": 88,
+            "right": 1325.640625,
+            "textLeft": 1264.203125,
+            "textRight": 1316.203125,
+            "iconLeft": 1244.71875
+          },
+          {
+            "text": "模拟结果",
+            "svg": true,
+            "act": "quick",
+            "kind": "race",
+            "x": 1333.640625,
+            "y": 6,
+            "w": 90.359375,
+            "h": 40,
+            "scroll": 88,
+            "client": 88,
+            "right": 1424,
+            "textLeft": 1362.5625,
+            "textRight": 1414.5625,
+            "iconLeft": 1343.078125
+          }
+        ]
+      },
+      "after": {
+        "stage": "post",
+        "live": false,
+        "result": true,
+        "rows": 22,
+        "view": "weekend",
+        "points": 56
+      },
+      "noRepeat": true,
+      "resumed": {
+        "stage": "post",
+        "points": 56,
+        "teams": 11,
+        "roster": [
+          "russell",
+          "antonelli"
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "kind": "sprint",
+      "path": "watch",
+      "location": "lower",
+      "state": {
+        "live": "sprint",
+        "result": false
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "kind": "sprint",
+      "path": "quick",
+      "location": "lower",
+      "state": {
+        "live": null,
+        "result": true
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "kind": "race",
+      "path": "watch",
+      "location": "lower",
+      "state": {
+        "live": "race",
+        "result": false
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "kind": "race",
+      "path": "quick",
+      "location": "lower",
+      "state": {
+        "live": null,
+        "result": true
+      },
+      "errors": []
+    },
+    {
+      "sprintQualifyingUnchanged": true,
+      "errors": []
+    }
+  ],
+  "passed": true
+}

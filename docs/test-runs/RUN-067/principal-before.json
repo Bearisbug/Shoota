@@ -1,0 +1,34 @@
+{
+  "baselineHash": "21c53a1ebb7f9e7437192f0eed48c61910622d7ea0afd472f94ffb9727255bbe",
+  "errors": [],
+  "cases": [
+    {
+      "kind": "sprint",
+      "before": "模拟冲刺赛",
+      "intended": {
+        "watch": 0,
+        "quick": 0
+      },
+      "defectReproduced": true,
+      "after": {
+        "stage": "q",
+        "hasLive": false,
+        "results": true
+      }
+    },
+    {
+      "kind": "race",
+      "before": "模拟正赛",
+      "intended": {
+        "watch": 0,
+        "quick": 0
+      },
+      "defectReproduced": true,
+      "after": {
+        "stage": "post",
+        "hasLive": false,
+        "results": true
+      }
+    }
+  ]
+}

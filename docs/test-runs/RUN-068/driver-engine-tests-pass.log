@@ -1,0 +1,18 @@
+PASS: real HTML grid/start, no unfinished-lap XP, visible live ability and talent upgrades, next-lap performance, exact reload continuation, delegated finish with growth and no duplicate rewards, final-lap commands.
+PASS: same-lap native decision sequence, merged repair/tyre call, persistent draft edit/reload/apply/discard and visible live player gaps.
+PASS: score-sensitive interview UI matches real net effects and VSC retains its own flag during live rendering.
+PASS: initial advice is visibly unconfirmed, an actual approaching pit window requests the driver decision, and accepting it activates the planned stop without advancing time.
+PASS: real HTML attack/defend choices and consequences, effective-lap VSC status, mid-animation expiry cancellation, same-value newer command, and exact saved-state replay.
+✔ tests/legacy-race-integration.test.mjs (18339.157125ms)
+PASS: optional paddock, 11/22 vs 12/24, disabled contracts, normalized fan markets, all pages, legacy saves, reserve promotion, map selection after load and a complete 22-race season (258 decisions) with reloads and following season.
+✔ tests/paddock.test.mjs (2063.162417ms)
+PASS: explicit opening vacancies, all 12 reserve contracts, test prerequisites and promotion, no fake race starts or points, 24 unique cars, recovery after failed trials, reserve exit, existing contracts and removed-driver save migration.
+✔ tests/seats.test.mjs (108.878125ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18342.438333

@@ -1,0 +1,170 @@
+[
+  {
+    "width": 375,
+    "height": 667,
+    "name": "results",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 659
+  },
+  {
+    "width": 375,
+    "height": 667,
+    "name": "interview",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 659
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "name": "results",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 836
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "name": "interview",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 836
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "name": "results",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 924
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "name": "interview",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 924
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "name": "results",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 884
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "name": "interview",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 884
+  },
+  {
+    "width": 320,
+    "height": 667,
+    "name": "results",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 659
+  },
+  {
+    "width": 320,
+    "height": 667,
+    "name": "interview",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 659
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "name": "results",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 1008
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "name": "interview",
+    "doc": true,
+    "containers": [
+      true,
+      true,
+      true
+    ],
+    "textOverflow": [],
+    "alignmentDelta": 0,
+    "footerBottom": 1008
+  }
+]

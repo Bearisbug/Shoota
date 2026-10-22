@@ -650,6 +650,12 @@ table.res tbody tr:nth-child(3) td:first-child { background: #c98a4f; color: #1a
   body:has(.rpop-mini) main { padding-bottom: 130px; }
   .feed { max-height: 260px; }
 }
+/* A shared pair keeps the header and strategy page on the same race actions. */
+.race-entry { display: flex; align-items: stretch; gap: .5rem; max-inline-size: 100%; }
+.race-entry .btn { display: inline-flex; align-items: center; justify-content: center; gap: .35em; white-space: nowrap; min-block-size: 40px; }
+.race-entry svg { inline-size: 1.15em; block-size: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
+.go .race-entry .btn { font: 700 13px/1.2 var(--f-body); letter-spacing: 0; padding-inline: .65em; }
+@media (max-width: 600px) { .go .race-entry { gap: .35rem; } .go .race-entry .btn { font-size: 12px; padding-inline: .55em; } }
 </style>
 <div id="app"></div>
 <div id="modal" hidden></div>
@@ -2729,7 +2735,7 @@ function render() {
   decor();
   return st;
 }
-function renderMain(keep) { const m = $('#main'); if (!m) return render(); const st = m.scrollTop; m.innerHTML = view(); if (LIVE && VIEW === 'weekend') mountLiveMap(); if (keep) m.scrollTop = st; const h = document.querySelector('.go .btn'); if (h) { h.textContent = contLabel(); h.disabled = !!(LIVE && !LIVE.RS.done && VIEW === 'weekend'); } decor(); }
+function renderMain(keep) { const m = $('#main'); if (!m) return render(); const st = m.scrollTop; m.innerHTML = view(); if (LIVE && VIEW === 'weekend') mountLiveMap(); if (keep) m.scrollTop = st; const h = document.querySelector('.go'); if (h) h.innerHTML = headerActions(); decor(); }
 /* ---------- view-only decoration (no game state is read-written here beyond display values) ---------- */
 const RM = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 let PREVK = null, PREVPOS = null, PREVLAP = null;
@@ -2787,6 +2793,15 @@ function contLabel() {
   if (LIVE && LIVE.RS.done) return '查看成绩';
   return { fp: '进行练习赛', sq: '冲刺排位赛', sprint: '模拟冲刺赛', q: '进行排位赛', race: '模拟正赛', post: '前往下一站' }[S.wk.stage];
 }
+function raceEntryButtons(kind, compact = false) {
+  const label = kind === 'sprint' ? '冲刺赛' : '正赛';
+  const icon = path => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${path}"/></svg>`;
+  return `<div class="race-entry${compact ? ' compact' : ''}" role="group" aria-label="${label}比赛方式"><button class="btn pri${compact ? '' : ' big'}" data-act="watch" data-k="${kind}" aria-label="${label}：观看直播">${icon('M4 5h12v14H4z M16 10l5-3v10l-5-3')}<span>观看直播</span></button><button class="btn${compact ? '' : ' big'}" data-act="quick" data-k="${kind}" aria-label="${label}：模拟结果">${icon('M3 6l8 6-8 6z M12 6l8 6-8 6z')}<span>模拟结果</span></button></div>`;
+}
+function headerActions() {
+  if (!S.fired && S.phase !== 'season' && !LIVE && ['sprint', 'race'].includes(S.wk.stage)) return raceEntryButtons(S.wk.stage, true);
+  return `<button class="btn pri" data-act="cont" ${LIVE && !LIVE.RS.done && VIEW === 'weekend' ? 'disabled' : ''}>${contLabel()}</button>`;
+}
 function header() {
   const me = ME(), tr = trk(), cap = me.capSpent;
   return `<header class="top">
@@ -2799,7 +2814,7 @@ function header() {
       <div class="kpi"><small>成本上限</small><b class="${cap > CAP ? 'bad' : cap > CAP * .92 ? 'warn' : ''}">${Math.round(cap)}</b><span class="muted">/${CAP}</span></div>
       <div class="kpi"><small>董事会</small><b class="${S.board.sat < 30 ? 'bad' : S.board.sat > 70 ? 'good' : ''}">${Math.round(S.board.sat)}</b></div>
     </div>
-    <div class="go"><button class="btn pri" data-act="cont" ${LIVE && !LIVE.RS.done && VIEW === 'weekend' ? 'disabled' : ''}>${contLabel()}</button></div>
+    <div class="go">${headerActions()}</div>
   </header>`;
 }
 const NAV = [['车队', [['home', '总部'], ['inbox', '收件箱'], ['drivers', '车手'], ['rd', '赛车研发'], ['factory', '工厂与人员'], ['finance', '财务']]],
@@ -3109,7 +3124,7 @@ function sprintPlanView() {
   me._lu.forEach(id => { if (!wk.splans[id]) wk.splans[id] = defaultPlan(id, 'sprint'); });
   return `<div class="note" style="margin-bottom:14px">冲刺赛 <b>${laps} 圈</b>，不强制进站，前 8 名得分（8-7-6-5-4-3-2-1）。${wk.rain.sprint ? '' : ''}降雨概率 ${S.wk.fc}%。</div>
   <div class="grid g2">${me._lu.map(id => planEditor(id, wk.splans[id], laps, 'sprint')).join('')}</div>
-  <div class="row" style="margin-top:16px"><button class="btn pri big" data-act="watch" data-k="sprint">观看冲刺赛直播</button><button class="btn big" data-act="quick" data-k="sprint">直接出结果</button></div>
+  <div class="row" style="margin-top:16px">${raceEntryButtons('sprint')}</div>
   <div class="grid g2" style="margin-top:14px">${qResCard(wk.sq, '冲刺排位成绩')}</div>`;
 }
 function racePlanView() {
@@ -3117,7 +3132,7 @@ function racePlanView() {
   me._lu.forEach(id => { if (!wk.plans[id]) wk.plans[id] = defaultPlan(id, 'race'); });
   return `<div class="note" style="margin-bottom:14px">正赛 <b>${tr.laps} 圈</b>，进站损失约 ${tr.pit} 秒。降雨概率 <b>${wk.fc}%</b>${wk.fc >= 25 ? '，开赛后可在「天气雷达」查看降雨时间、强度、赛道温度和风速' : ''}。比赛中遇到安全车、降雨、受损或车队指令时会暂停，由你决定。也可以随时手动下令进站或调整节奏。</div>
   <div class="grid g2">${me._lu.map(id => planEditor(id, wk.plans[id], tr.laps, 'race')).join('')}</div>
-  <div class="row" style="margin-top:16px"><button class="btn pri big" data-act="watch" data-k="race">观看正赛直播</button><button class="btn big" data-act="quick" data-k="race">直接出结果</button><label class="row muted" style="gap:6px;margin-left:8px"><input type="checkbox" id="pausechk" data-chg="pause" ${S.opts.pause ? 'checked' : ''}> 关键时刻弹窗让我决策</label><label class="row muted" style="gap:6px"><input type="checkbox" data-chg="alerts" ${S.opts.alerts !== false ? 'checked' : ''}> 突发事件弹窗</label></div>
+  <div class="row" style="margin-top:16px">${raceEntryButtons('race')}<label class="row muted" style="gap:6px;margin-left:8px"><input type="checkbox" id="pausechk" data-chg="pause" ${S.opts.pause ? 'checked' : ''}> 关键时刻弹窗让我决策</label><label class="row muted" style="gap:6px"><input type="checkbox" data-chg="alerts" ${S.opts.alerts !== false ? 'checked' : ''}> 突发事件弹窗</label></div>
   <div class="grid g2" style="margin-top:14px">${qResCard(wk.q, '排位赛成绩')}${wk.sprint ? raceResCard(wk.sprint, '冲刺赛成绩', true) : fpResCard()}</div>`;
 }
 function postView() {
@@ -3139,6 +3154,7 @@ function postView() {
 const evRow = e => `<div class="ev e-${e.type} ${e.me ? 'me' : ''}"><span class="l">${e.lap ? 'L' + e.lap : '—'}</span><span class="t">${esc(e.txt)}</span></div>`;
 
 function quick(kind) {
+  if (!S || S.fired || S.phase === 'season' || LIVE || !['sprint', 'race'].includes(kind) || S.wk.stage !== kind) return false;
   if (kind === 'race') ME()._lu.forEach(id => { if (!S.wk.plans[id]) S.wk.plans[id] = defaultPlan(id, 'race'); });
   const RS = initRace(kind, false); simAll(RS); commitSession(kind, RS);
   if (kind === 'race') postRace();
@@ -3320,7 +3336,7 @@ document.addEventListener('click', e => {
     case 'padd': { const p = plansOf(el.dataset.kind)[id]; const laps = el.dataset.kind === 'sprint' ? sprintLaps() : trk().laps; const last = p.stops.length ? p.stops[p.stops.length - 1].lap : 0; p.stops.push({ lap: Math.min(laps - 2, last + Math.round((laps - last) / 2)), comp: p.start === 'H' ? 'M' : 'H' }); keep(); break; }
     case 'pdel': plansOf(el.dataset.kind)[id].stops.splice(+el.dataset.i, 1); keep(); break;
     case 'watch': startLive(el.dataset.k); break;
-    case 'quick': quick(el.dataset.k); render(); $('#main') && ($('#main').scrollTop = 0); break;
+    case 'quick': if (quick(el.dataset.k) === false) break; VIEW = 'weekend'; render(); $('#main') && ($('#main').scrollTop = 0); break;
     case 'pp': if (LIVE.paused) resumeLive(); else { LIVE.paused = true; renderLive(); } break;
     case 'speed': setSpeed(+el.dataset.v); if (LIVE) renderLive(); else keep(); break;
     case 'skip': skipLive(); break;
@@ -3754,6 +3770,7 @@ function setSpeed(v) {
   if (LIVE && LIVE.anim && !LIVE.anim.ended) { const A = LIVE.anim, now = performance.now(); A.ms = lapMs(); A.t0 = now - A.f * A.ms; }
 }
 function startLive(kind) {
+  if (!S || S.fired || S.phase === 'season' || LIVE || !['sprint', 'race'].includes(kind) || S.wk.stage !== kind) return;
   const wk = S.wk;
   if (kind === 'race') ME()._lu.forEach(id => { if (!wk.plans[id]) wk.plans[id] = defaultPlan(id, 'race'); });
   if (LIVE && LIVE.raf) cancelAnimationFrame(LIVE.raf);

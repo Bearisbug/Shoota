@@ -1,0 +1,302 @@
+[
+  {
+    "id": "spud-dawn",
+    "title": "薯光 · Spud Dawn",
+    "w": 390,
+    "chars": 50,
+    "sw": 390,
+    "buttons": 4,
+    "clicked": null,
+    "errors": []
+  },
+  {
+    "id": "f1-driver",
+    "title": "F1-Driver · 争冠之路 · 2026.10.22.3",
+    "w": 390,
+    "chars": 150,
+    "sw": 390,
+    "buttons": 5,
+    "clicked": "存档与设置",
+    "errors": []
+  },
+  {
+    "id": "f1",
+    "title": "F1 Team Principal 2026",
+    "w": 390,
+    "chars": 1514,
+    "sw": 390,
+    "buttons": 11,
+    "clicked": "MCLAREN\n卫冕冠军\nMcLaren Mastercard F1 Team · Mercedes 动力\nLando ",
+    "errors": []
+  },
+  {
+    "id": "basketball-star",
+    "title": "篮球巨星 · 从 CBA 到 NBA",
+    "w": 390,
+    "chars": 581,
+    "sw": 390,
+    "buttons": 15,
+    "clicked": "存档 / 加载",
+    "errors": []
+  },
+  {
+    "id": "wealth-reborn",
+    "title": "我要当首富 · 商业人生",
+    "w": 390,
+    "chars": 111,
+    "sw": 390,
+    "buttons": 3,
+    "clicked": "玩法指南",
+    "errors": []
+  },
+  {
+    "id": "douluo",
+    "title": "斗罗·万相",
+    "w": 390,
+    "chars": 709,
+    "sw": 390,
+    "buttons": 10,
+    "clicked": "武魂殿\n武魂殿·黄金一代\n替罗刹掌灯的人\n上\n冥月灯\n▸\n神\n长明神灯\n「窥忆」",
+    "errors": []
+  },
+  {
+    "id": "yexiao",
+    "title": "重生之我是夜宵摊摊主",
+    "w": 390,
+    "chars": 368,
+    "sw": 390,
+    "buttons": 16,
+    "clicked": "推着车出摊",
+    "errors": []
+  },
+  {
+    "id": "hougong",
+    "title": "后宫生死簿",
+    "w": 390,
+    "chars": 306,
+    "sw": 390,
+    "buttons": 15,
+    "clicked": "满洲大姓\n初封贵人 · 镶黄旗",
+    "errors": []
+  },
+  {
+    "id": "nba",
+    "title": "NBA Basketball Manager 2026",
+    "w": 390,
+    "chars": 1741,
+    "sw": 390,
+    "buttons": 32,
+    "clicked": "重置联赛",
+    "errors": []
+  },
+  {
+    "id": "cba",
+    "title": "CBA 篮球经理 2026-27",
+    "w": 390,
+    "chars": 1486,
+    "sw": 390,
+    "buttons": 22,
+    "clicked": "重置联赛",
+    "errors": []
+  },
+  {
+    "id": "lol",
+    "title": "lol",
+    "w": 390,
+    "chars": 1170,
+    "sw": 390,
+    "buttons": 12,
+    "clicked": "LCK · 10 队",
+    "errors": []
+  },
+  {
+    "id": "yike",
+    "title": "一克之差",
+    "w": 390,
+    "chars": 391,
+    "sw": 390,
+    "buttons": 15,
+    "clicked": "开始抓药",
+    "errors": []
+  },
+  {
+    "id": "entertainment-career",
+    "title": "杀穿娱乐圈 · 完整试玩",
+    "w": 390,
+    "chars": 71,
+    "sw": 390,
+    "buttons": 1,
+    "clicked": "✨ 开始新的人生",
+    "errors": []
+  },
+  {
+    "id": "football-career",
+    "title": "足球巨星 · 从中超到欧洲",
+    "w": 390,
+    "chars": 346,
+    "sw": 390,
+    "buttons": 13,
+    "clicked": "导入存档文件",
+    "errors": []
+  },
+  {
+    "id": "football-manager",
+    "title": "绿茵经理 · 足球经理 2026",
+    "w": 390,
+    "chars": 1129,
+    "sw": 390,
+    "buttons": 30,
+    "clicked": "导入存档文件",
+    "errors": []
+  },
+  {
+    "id": "spud-dawn",
+    "title": "薯光 · Spud Dawn",
+    "w": 1440,
+    "chars": 50,
+    "sw": 1440,
+    "buttons": 4,
+    "clicked": null,
+    "errors": []
+  },
+  {
+    "id": "f1-driver",
+    "title": "F1-Driver · 争冠之路 · 2026.10.22.3",
+    "w": 1440,
+    "chars": 150,
+    "sw": 1440,
+    "buttons": 5,
+    "clicked": "存档与设置",
+    "errors": []
+  },
+  {
+    "id": "f1",
+    "title": "F1 Team Principal 2026",
+    "w": 1440,
+    "chars": 1514,
+    "sw": 1440,
+    "buttons": 11,
+    "clicked": "MCLAREN\n卫冕冠军\nMcLaren Mastercard F1 Team · Mercedes 动力\nLando ",
+    "errors": []
+  },
+  {
+    "id": "basketball-star",
+    "title": "篮球巨星 · 从 CBA 到 NBA",
+    "w": 1440,
+    "chars": 581,
+    "sw": 1440,
+    "buttons": 15,
+    "clicked": "存档 / 加载",
+    "errors": []
+  },
+  {
+    "id": "wealth-reborn",
+    "title": "我要当首富 · 商业人生",
+    "w": 1440,
+    "chars": 128,
+    "sw": 1440,
+    "buttons": 3,
+    "clicked": "玩法指南",
+    "errors": []
+  },
+  {
+    "id": "douluo",
+    "title": "斗罗·万相",
+    "w": 1440,
+    "chars": 709,
+    "sw": 1440,
+    "buttons": 10,
+    "clicked": "武魂殿\n武魂殿·黄金一代\n替罗刹掌灯的人\n上\n冥月灯\n▸\n神\n长明神灯\n「窥忆」",
+    "errors": []
+  },
+  {
+    "id": "yexiao",
+    "title": "重生之我是夜宵摊摊主",
+    "w": 1440,
+    "chars": 820,
+    "sw": 1440,
+    "buttons": 29,
+    "clicked": "推着车出摊",
+    "errors": []
+  },
+  {
+    "id": "hougong",
+    "title": "后宫生死簿",
+    "w": 1440,
+    "chars": 306,
+    "sw": 1440,
+    "buttons": 15,
+    "clicked": "满洲大姓\n初封贵人 · 镶黄旗",
+    "errors": []
+  },
+  {
+    "id": "nba",
+    "title": "NBA Basketball Manager 2026",
+    "w": 1440,
+    "chars": 1743,
+    "sw": 1440,
+    "buttons": 32,
+    "clicked": "重置联赛",
+    "errors": []
+  },
+  {
+    "id": "cba",
+    "title": "CBA 篮球经理 2026-27",
+    "w": 1440,
+    "chars": 1488,
+    "sw": 1440,
+    "buttons": 22,
+    "clicked": "重置联赛",
+    "errors": []
+  },
+  {
+    "id": "lol",
+    "title": "lol",
+    "w": 1440,
+    "chars": 1170,
+    "sw": 1440,
+    "buttons": 12,
+    "clicked": "LCK · 10 队",
+    "errors": []
+  },
+  {
+    "id": "yike",
+    "title": "一克之差",
+    "w": 1440,
+    "chars": 391,
+    "sw": 1440,
+    "buttons": 15,
+    "clicked": "开始抓药",
+    "errors": []
+  },
+  {
+    "id": "entertainment-career",
+    "title": "杀穿娱乐圈 · 完整试玩",
+    "w": 1440,
+    "chars": 71,
+    "sw": 1440,
+    "buttons": 1,
+    "clicked": "✨ 开始新的人生",
+    "errors": []
+  },
+  {
+    "id": "football-career",
+    "title": "足球巨星 · 从中超到欧洲",
+    "w": 1440,
+    "chars": 346,
+    "sw": 1440,
+    "buttons": 13,
+    "clicked": "导入存档文件",
+    "errors": []
+  },
+  {
+    "id": "football-manager",
+    "title": "绿茵经理 · 足球经理 2026",
+    "w": 1440,
+    "chars": 1129,
+    "sw": 1440,
+    "buttons": 30,
+    "clicked": "导入存档文件",
+    "errors": []
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "intro": {
+    "top": 941.296875,
+    "bottom": 981.296875,
+    "viewport": 667,
+    "appHeight": 1957
+  },
+  "post": {
+    "top": 2933.71875,
+    "bottom": 3027.609375,
+    "viewport": 667,
+    "appHeight": 667
+  },
+  "next": {
+    "top": 3217.390625,
+    "bottom": 3257.390625,
+    "viewport": 667,
+    "appHeight": 667
+  }
+}
