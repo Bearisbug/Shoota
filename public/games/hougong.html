@@ -3,215 +3,407 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4A0F0D">
 <title>后宫生死簿</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600&display=swap" media="print" onload="this.media='all'">
 <style>
-/* 布局：左栏「宫册」——画像、位分、指标、人情；右栏「本季」——事件或行动，下接起居注；死局整页化为内务府档册 */
+/* 后宫生死簿 · 竖屏外壳
+   视觉：宫墙朱漆作外框、鎏金描边、绢帛作纸面；卡片做成匾额、卷轴、绿头牌；按钮做成印章。
+   密度：剧情 14px，正文 13px，次要 11–12px，标签 10px；数字用窄体等宽；模块间距 8px，行高 32–36，主按钮 44。 */
 :root{
-  --bg:#E5E9E3; --paper:#F7F8F3; --sunk:#ECEFE8; --ink:#1C2220; --muted:#59655F; --line:#C4CCC5;
-  --jade:#3A7256; --jade-soft:#DBE7DE; --seal:#A9302A; --seal-soft:#F2DCD8; --gold:#9A7820;
+  --lac:#4A0F0D;--lac2:#6E1A16;--lac3:#2E0908;--ver:#A8261C;--ver2:#C8382A;--ver-soft:#F6DCD3;
+  --gold:#C9962E;--gold-l:#F2D88A;--gold-d:#7A5A10;--gold-t:#E8C878;
+  --silk:#F8F0DE;--silk2:#F1E5C8;--silk3:#E8D8B2;--ink:#2A1A12;--muted:#68513F;--line:#D4BD8A;
+  --jade:#2C6249;--jade-soft:#DCEADF;--danger:#A8261C;
   --f-display:"Ma Shan Zheng","STKaiti","KaiTi","Kaiti SC",serif;
   --f-body:"Noto Serif SC","Songti SC","SimSun","Noto Serif CJK SC",serif;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0F1518; --paper:#162024; --sunk:#1B272C; --ink:#E1E5DF; --muted:#94A19B; --line:#2B373C;
-    --jade:#66AA88; --jade-soft:#1C3128; --seal:#DC5E52; --seal-soft:#3A1F1C; --gold:#D4B25C; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0F1518; --paper:#162024; --sunk:#1B272C; --ink:#E1E5DF; --muted:#94A19B; --line:#2B373C;
-  --jade:#66AA88; --jade-soft:#1C3128; --seal:#DC5E52; --seal-soft:#3A1F1C; --gold:#D4B25C; color-scheme:dark;
+  --f-ui:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --f-num:"Barlow Condensed","Roboto Condensed","Arial Narrow","PingFang SC",sans-serif;
+  --colw:560px;--top:88px;--tabh:56px;--dockh:56px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:light;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.8}
-.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 36px;display:flex;flex-direction:column;gap:22px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.brand{font-family:var(--f-display);font-size:1.5rem;line-height:1;letter-spacing:.06em}
-.top nav{display:flex;gap:8px}
-button{font:inherit;color:var(--ink);background:transparent;border:1px solid var(--line);padding:.4em 1em;border-radius:2px;cursor:pointer;line-height:1.6}
-button:hover:not(:disabled){border-color:var(--jade)}
+html{overflow-x:clip;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:var(--gold) var(--lac3);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;color:var(--ink);font:13px/1.5 var(--f-ui);
+  background-color:var(--lac);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23C9962E' stroke-opacity='.16' stroke-width='1.4'%3E%3Cpath d='M8 36c0-8 6-14 14-14s12 6 12 12-4 9-9 9-7-3-7-7 3-5 5-5'/%3E%3Cpath d='M44 0c0 8 6 14 14 14s12-6 12-12M44 72c0-8 6-14 14-14s12 6 12 12'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 50% 0%,#7A1E18 0%,var(--lac) 60%,var(--lac3) 100%);
+  background-attachment:fixed}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 button:disabled{cursor:not-allowed}
-button:focus-visible,input:focus-visible{outline:2px solid var(--jade);outline-offset:2px}
-.primary{background:var(--jade);color:var(--paper);border-color:var(--jade);font-weight:600;letter-spacing:.08em}
-.primary:hover:not(:disabled){filter:brightness(1.08)}
-h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.2;text-wrap:balance;margin:0}
-.eyebrow{margin:0;font-size:.78rem;letter-spacing:.3em;color:var(--muted)}
-.muted{color:var(--muted)}
+:focus-visible{outline:2px solid var(--gold-l);outline-offset:2px}
+h1,h2,h3{margin:0;font-weight:400}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.muted{color:var(--muted);font-size:11px}
+.center{text-align:center}
+[hidden]{display:none!important}
 
-/* 画像 */
-.portrait svg{display:block;width:100%;height:auto}
-.portrait.dead svg{filter:grayscale(1);opacity:.55}
+/* —— 骨架 —— */
+.shell{max-width:var(--colw);margin:0 auto;min-height:100vh;background:var(--silk);
+  background-image:repeating-linear-gradient(0deg,rgba(150,110,40,.035) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(150,110,40,.03) 0 1px,transparent 1px 3px);
+  overflow-x:clip;box-shadow:0 0 0 1px var(--gold-d),0 0 0 4px var(--lac3),0 0 0 5px var(--gold),0 0 40px rgba(0,0,0,.5);
+  padding-bottom:calc(var(--tabh) + var(--dockh) + 8px + env(safe-area-inset-bottom,0px));position:relative}
+.shell.start{padding-bottom:calc(var(--tabh) + var(--dockh) + 8px + env(safe-area-inset-bottom,0px))}
+.shell.dead{padding-bottom:calc(var(--tabh) + 12px + env(safe-area-inset-bottom,0px))}
+.pg{padding:8px;display:flex;flex-direction:column;gap:8px}
 
-/* 建档 */
-.create{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:40px;align-items:start}
-.create h1{font-size:clamp(2.6rem,7vw,4.2rem);margin:.15em 0 .25em}
-.create p{max-width:36em;margin:0 0 .7em}
-.step{margin-top:22px;display:flex;flex-direction:column;gap:10px}
-.step>label,.step>.lbl{font-size:.8rem;letter-spacing:.24em;color:var(--muted)}
-.namerow{display:flex;align-items:baseline;gap:8px}
-.namerow input{font-family:var(--f-display);font-size:1.8rem;width:3.6em;padding:.1em .4em;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:2px}
-.namerow span{font-family:var(--f-display);font-size:1.8rem}
-.pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
-.pick button{text-align:left;padding:10px 14px;display:flex;flex-direction:column;gap:2px;background:var(--paper)}
-.pick button b{font-family:var(--f-display);font-weight:400;font-size:1.25rem}
-.pick button small{color:var(--muted);font-size:.8rem;line-height:1.55}
-.pick button[aria-pressed="true"]{border-color:var(--jade);background:var(--jade-soft)}
-.err{color:var(--seal);font-size:.86rem;margin:0}
-.rule{font-size:.84rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin-top:6px!important}
-.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.create aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);display:flex;flex-direction:column;gap:10px}
-.create aside .portrait{border:1px solid var(--line);background:var(--paper)}
+/* 顶栏 48 */
+.tb{position:sticky;top:0;z-index:20;height:48px;padding:0 8px;padding-top:env(safe-area-inset-top,0px);box-sizing:content-box;display:flex;align-items:center;gap:8px;
+  background:linear-gradient(180deg,var(--lac2),var(--lac));color:var(--gold-l);border-bottom:1px solid var(--gold)}
+.tb .who{flex:1;min-width:0;line-height:1.2}
+.tb .who b{display:block;font:400 18px/1.1 var(--f-display);letter-spacing:.06em;color:#FBE7B0;text-shadow:0 1px 0 #000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb .who small{font-size:11px;color:#E6CC93}
+.ib{width:40px;height:40px;display:grid;place-items:center;background:rgba(0,0,0,.18);border:1px solid var(--gold);border-radius:4px;color:var(--gold-l)}
+.ib .ic{width:18px;height:18px}
+.lamps{display:flex;gap:2px}
+.lamps i{width:18px;height:24px;display:grid;place-items:center;color:#5A2A20}
+.lamps i .ic{width:16px;height:16px}
+.lamps i.on{color:#FFB648;filter:drop-shadow(0 0 4px rgba(255,170,60,.85))}
+/* 数值条 40 */
+.sb5{position:sticky;top:calc(48px + env(safe-area-inset-top,0px));z-index:19;height:40px;display:grid;grid-template-columns:repeat(5,1fr);
+  background:linear-gradient(180deg,var(--lac3),#3A0C0A);border-bottom:2px solid var(--gold);box-shadow:0 3px 8px rgba(40,5,5,.35)}
+.sb5>div{display:flex;align-items:center;justify-content:center;gap:4px;color:var(--gold-t);border-left:1px solid rgba(201,150,46,.28);position:relative}
+.sb5>div:first-child{border-left:none}
+.sb5 .ic{width:14px;height:14px;flex:none}
+.sb5 span{display:flex;flex-direction:column;line-height:1.05}
+.sb5 small{font-size:10px;color:#D8BE88;letter-spacing:.05em}
+.sb5 b{font-size:17px;font-weight:600;color:#FFF1CC}
+.sb5 .warn b,.sb5 .warn .ic{color:#FF8A70}
+.sb5 .warn::after{content:"";position:absolute;left:12%;right:12%;bottom:2px;height:2px;background:#FF5A3C;border-radius:2px;animation:pulse 1.4s ease-in-out infinite}
+.sb5 .flash-up{animation:flashUp .9s var(--ease)}
+.sb5 .flash-dn{animation:flashDn .9s var(--ease)}
 
-/* 主局 */
-.game{display:grid;grid-template-columns:290px minmax(0,1fr);gap:24px;align-items:start}
-.dossier{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);max-height:calc(100vh - 24px);overflow:auto}
-.dossier .portrait{border-bottom:1px solid var(--line)}
-.idblock{padding:12px 16px 4px}
-.idblock h3{font-size:1.65rem}
-.idblock p{margin:2px 0 0;font-size:.8rem;color:var(--muted);line-height:1.6}
-.sect{padding:10px 16px;display:grid;gap:5px;border-top:1px solid var(--line)}
-.sect:first-of-type{border-top:none}
-.sect h4{margin:0 0 2px;font-size:.72rem;font-weight:400;letter-spacing:.3em;color:var(--muted)}
-.stat,.rel{display:grid;grid-template-columns:2.6em minmax(0,1fr) 2.4em;gap:8px;align-items:center;font-size:.82rem;line-height:1.3}
-.stat .sv,.rel .sv{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
-.sb,.rb{height:6px;background:var(--sunk);position:relative;border-radius:1px;overflow:hidden}
-.sb i{position:absolute;inset:0 auto 0 0;background:var(--jade)}
-.stat.danger .sb i{background:var(--seal)}
-.stat.danger .sv{color:var(--seal)}
-.rb::after{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--muted);opacity:.6}
-.rb i{position:absolute;top:0;bottom:0}
-.rb i.pos{left:50%;background:var(--jade)}
-.rb i.neg{right:50%;background:var(--seal)}
-.rel .rw{grid-column:2/4;font-size:.76rem;color:var(--muted);margin-top:-3px}
-.rel.gone .rs{grid-column:2/4;color:var(--muted);font-size:.8rem}
-.kv{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:.82rem;margin:0}
-.kv dt{color:var(--muted)}
-.kv dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+/* 底栏 56 + 行动底条 56 */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;max-width:var(--colw);margin:0 auto;height:calc(var(--tabh) + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);
+  display:grid;grid-template-columns:repeat(5,1fr);background:linear-gradient(180deg,var(--lac2),var(--lac3));border-top:2px solid var(--gold)}
+.tabs.solo{grid-template-columns:1fr}
+.tabs button{background:none;border:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#C9AE7C;font-size:11px;position:relative;min-height:44px}
+.tabs .ic{width:20px;height:20px}
+.tabs .on{color:#FFE9A8;background:radial-gradient(ellipse at 50% 0%,rgba(242,216,138,.28),transparent 70%)}
+.tabs .on::before{content:"";position:absolute;top:-2px;left:22%;right:22%;height:3px;background:var(--gold-l);box-shadow:0 0 8px var(--gold-l)}
+.tabs em{position:absolute;top:8px;left:calc(50% + 8px);width:8px;height:8px;border-radius:50%;background:#FF5A3C;box-shadow:0 0 0 2px var(--lac2)}
+.dock{position:fixed;left:0;right:0;bottom:calc(var(--tabh) + env(safe-area-inset-bottom,0px));z-index:29;max-width:var(--colw);margin:0 auto;height:var(--dockh);padding:6px 8px;
+  display:flex;align-items:center;gap:8px;background:linear-gradient(180deg,rgba(248,240,222,.85),var(--silk2));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--line)}
+.dock>span{flex:1;font-size:11px;color:var(--muted)}
+.dock .btn{min-width:128px}
+.start-dock .btn{flex:1}
 
-.main{display:flex;flex-direction:column;gap:16px;min-width:0}
-.season{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
-.season h2{font-size:clamp(1.8rem,4.5vw,2.4rem)}
-.season .sub{font-size:.82rem;color:var(--muted);letter-spacing:.06em}
-.ap{margin-left:auto;display:flex;gap:6px;align-items:center;font-size:.8rem;color:var(--muted)}
-.ap i{width:11px;height:11px;border:1.5px solid var(--jade);border-radius:50%}
-.ap i.on{background:var(--jade)}
-.card{background:var(--paper);border:1px solid var(--line);padding:clamp(18px,3.6vw,34px);min-width:0}
-.card .meta{font-size:.8rem;color:var(--muted);letter-spacing:.1em;display:flex;gap:14px;flex-wrap:wrap}
-.card h3{font-size:clamp(1.9rem,4.5vw,2.5rem);margin:.15em 0 .4em}
-.text p{margin:0 0 .85em;max-width:40em}
-.intel{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;background:var(--jade-soft);padding:8px 12px;margin:0 0 1em;max-width:42em}
-.intel b{font-family:var(--f-display);font-weight:400;color:var(--jade);font-size:1.05rem;flex:none}
-.choices{list-style:none;padding:0;margin:1.2em 0 0;display:grid;gap:8px}
-.ch{width:100%;text-align:left;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;padding:11px 14px;line-height:1.7;background:transparent}
-.ch .mk{font-family:var(--f-display);color:var(--jade);font-size:1.25rem;line-height:1.3;grid-row:span 2}
-.ch:hover:not(:disabled){background:var(--jade-soft)}
-.ch:disabled{opacity:.42}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tg{font-size:.72rem;line-height:1;padding:4px 7px;border:1px solid var(--line);color:var(--muted);letter-spacing:.04em;border-radius:2px}
-.tg.no{border-color:var(--seal);color:var(--seal)}
-.tg.odds{border-color:var(--jade);color:var(--jade)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:.4em 0 1em}
-.chip{font-size:.78rem;line-height:1;padding:5px 8px;border-radius:2px;font-variant-numeric:tabular-nums}
+/* —— 按钮：印章 / 鎏金 —— */
+.btn{height:44px;padding:0 18px;display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:4px;font:400 18px/1 var(--f-display);letter-spacing:.18em;border:0;transition:transform .12s var(--ease),filter .2s}
+.btn:active:not(:disabled){transform:translateY(1px) scale(.98)}
+.btn.seal{color:#FFF3D6;background:linear-gradient(180deg,var(--ver2),var(--ver) 55%,#7E1A13);box-shadow:inset 0 0 0 1px #E8B866,inset 0 0 0 3px var(--ver),0 2px 0 #5A110C,0 4px 10px rgba(90,17,12,.35);text-shadow:0 1px 0 rgba(0,0,0,.35)}
+.btn.gold{color:#3A2405;background:linear-gradient(180deg,#FBE8A8,var(--gold) 60%,#9A7020);box-shadow:inset 0 0 0 1px #FFF4C8,0 2px 0 var(--gold-d),0 4px 12px rgba(0,0,0,.3)}
+.btn.ghost{color:var(--lac2);background:var(--silk);box-shadow:inset 0 0 0 1px var(--gold)}
+.btn.wide{width:100%}
+.btn:disabled{filter:grayscale(.6) brightness(.9);opacity:.7}
+
+/* —— 面板（匾额式描金边）—— */
+.panel{background:linear-gradient(180deg,#FFFBF0,var(--silk));border:1px solid var(--line);border-radius:4px;padding:8px 10px;position:relative;box-shadow:0 1px 0 #fff inset,0 1px 3px rgba(90,60,20,.12)}
+.panel::before,.panel::after{content:"";position:absolute;width:10px;height:10px;border:2px solid var(--gold);pointer-events:none}
+.panel::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.panel::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:24px;margin-bottom:4px}
+.ph h3{font:600 13px/1 var(--f-num);letter-spacing:.24em;color:var(--lac2);display:flex;align-items:center;gap:6px}
+.ph h3::before{content:"";width:6px;height:6px;background:var(--ver);transform:rotate(45deg);box-shadow:0 0 0 2px var(--silk),0 0 0 3px var(--gold)}
+.row{display:flex;align-items:center;gap:8px;min-height:32px;border-top:1px dashed var(--silk3)}
+.row:first-of-type{border-top:0}
+.row .k{width:3em;color:var(--muted);font-size:12px;flex:none}
+.row .v{flex:1;min-width:0;display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+
+/* —— 头像（描金圆框）—— */
+.md{width:var(--s);height:var(--s);flex:none;display:inline-block;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 50% 35%,#FFF7E6,#E9D6AE);box-shadow:0 0 0 1.5px var(--gold),0 0 0 3px rgba(122,90,16,.25)}
+.md svg{display:block;width:100%;height:100%}
+.md.mini{box-shadow:0 0 0 1px var(--gold)}
+.md.tb-av{box-shadow:0 0 0 2px var(--gold-l),0 0 0 4px var(--lac3),0 0 10px rgba(242,216,138,.5)}
+.npc.gone .md,.md.gone{filter:grayscale(1);opacity:.6}
+.ic{width:14px;height:14px;display:inline-block;vertical-align:-2px;flex:none}
+
+/* —— 事件：卷轴 —— */
+.scroll-card{filter:drop-shadow(0 3px 6px rgba(70,30,10,.25))}
+.rod{height:12px;margin:0 -4px;border-radius:6px;background:linear-gradient(180deg,#E6B85A,#9A6A1C 60%,#6A4510);position:relative}
+.rod::before,.rod::after{content:"";position:absolute;top:-3px;width:14px;height:18px;border-radius:4px;background:linear-gradient(180deg,#7E1A13,#4A0F0D);box-shadow:inset 0 0 0 1px var(--gold)}
+.rod::before{left:-4px}.rod::after{right:-4px}
+.paper{background:#FFFBF0;background-image:radial-gradient(circle at 20% 10%,rgba(201,150,46,.08),transparent 40%),repeating-linear-gradient(0deg,rgba(150,110,40,.04) 0 1px,transparent 1px 4px);
+  padding:10px 12px 12px;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.ev .meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+.tagc{font-size:10px;line-height:18px;padding:0 6px;border-radius:2px;color:var(--lac2);background:var(--silk2);box-shadow:inset 0 0 0 1px var(--gold)}
+.tagc.big{color:#FFF3D6;background:var(--ver);box-shadow:inset 0 0 0 1px #E8B866}
+.more{margin-left:auto}
+.ev h2{font:400 28px/1.2 var(--f-display);color:var(--lac2);margin:4px 0 6px;letter-spacing:.06em;display:flex;align-items:center;gap:8px}
+.ev h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.echo,.intel{font-size:12px;line-height:1.5;padding:4px 8px;margin:0 0 6px;border-radius:2px;display:flex;gap:6px}
+.echo{background:var(--ver-soft);color:#5A1A12}
+.intel{background:var(--jade-soft);color:#1E4433}
+.echo b,.intel b{flex:none;font:400 14px/1.3 var(--f-display)}
+.echo b{color:var(--ver)} .intel b{color:var(--jade)}
+.story{display:flex;flex-direction:column;gap:6px}
+.nar{margin:0;font:14px/1.65 var(--f-body);color:#3A2618}
+.say{margin:0;font:14px/1.65 var(--f-body);text-align:center;color:var(--lac2)}
+.bub{display:flex;align-items:flex-start;gap:8px;animation:rise .35s var(--ease) both}
+.bub .bt{position:relative;background:#fff;border:1px solid var(--line);border-radius:10px;border-top-left-radius:2px;padding:5px 9px;font:14px/1.55 var(--f-body);color:#2A1A12;box-shadow:0 1px 2px rgba(90,60,20,.12);max-width:calc(100% - 40px)}
+.bub .bt b{display:block;font:600 10px/1.3 var(--f-ui);letter-spacing:.1em;color:var(--ver);margin-bottom:1px}
+.bub.me{justify-content:flex-end}
+.bub.me .bt{background:var(--jade-soft);border-color:#A9C8B4;border-radius:10px;border-top-right-radius:2px}
+.choices{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ch{width:100%;min-height:44px;text-align:left;display:grid;grid-template-columns:24px minmax(0,1fr);gap:2px 8px;align-items:start;padding:8px 10px;border-radius:4px;
+  background:linear-gradient(180deg,#FFFBF0,var(--silk2));border:1px solid var(--line);box-shadow:0 1px 0 #fff inset,0 2px 0 var(--silk3);transition:transform .12s var(--ease),box-shadow .2s}
+.ch .mk,.picked .mk{width:24px;height:24px;display:grid;place-items:center;border-radius:3px;background:var(--ver);color:#FFF3D6;font:400 15px/1 var(--f-display);box-shadow:inset 0 0 0 1px #E8B866}
+.ch .ct{font-size:13px;line-height:1.55;padding-top:2px}
+.ch .tags{grid-column:2;display:flex;flex-wrap:wrap;gap:4px}
+.ch:active:not(:disabled){transform:scale(.985)}
+.ch:disabled{opacity:.5}
+.ch:disabled .mk{background:#9A8A7A}
+.tg{display:inline-flex;align-items:center;gap:2px;font-size:10px;line-height:18px;padding:0 6px;border-radius:2px;color:var(--muted);background:var(--silk2);white-space:nowrap}
+.tg .ic{width:11px;height:11px}
+.tg.no{color:var(--ver);background:var(--ver-soft)}
+.tg.odds{color:var(--jade);background:var(--jade-soft)}
+.tg.gold{color:#5A3A05;background:linear-gradient(180deg,#FBE8A8,#E3B94F)}
+.picked{display:flex;gap:8px;align-items:flex-start;padding:6px 10px;font-size:13px;color:var(--muted);border-left:3px solid var(--ver);background:rgba(255,255,255,.5)}
+.result{position:relative;background:#FFFBF0;border:1px solid var(--line);border-radius:4px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;scroll-margin-top:calc(var(--top) + 8px);animation:rise .4s var(--ease) both;box-shadow:0 2px 8px rgba(90,60,20,.15)}
+.verdict{position:absolute;top:-10px;right:10px;font:400 18px/1 var(--f-display);padding:6px 8px;border:2px solid;border-radius:3px;transform:rotate(-6deg);background:#FFFBF0;animation:stamp .4s cubic-bezier(.2,.9,.3,1.3) .1s both}
+.verdict.ok{color:var(--jade)} .verdict.bad{color:var(--ver)}
+.note{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:4px}
+.note summary{cursor:pointer;min-height:32px;display:flex;align-items:center;gap:6px;color:var(--lac2);font-size:12px;list-style:none}
+.note summary::-webkit-details-marker{display:none}
+.note summary::before{content:"按";width:20px;height:20px;display:grid;place-items:center;border:1.5px solid var(--ver);color:var(--ver);font:400 13px/1 var(--f-display);border-radius:2px}
+.note summary::after{content:"展开";margin-left:auto;font-size:10px;color:var(--muted)}
+.note[open] summary::after{content:"收起"}
+.note p{margin:0 0 6px;line-height:1.6}
+
+/* 数值变化 */
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{display:inline-flex;align-items:center;gap:3px;height:24px;padding:0 8px 0 4px;border-radius:12px;font-size:12px}
+.chip b{font:600 14px/1 var(--f-num)}
 .chip.up{background:var(--jade-soft);color:var(--jade)}
-.chip.down{background:var(--seal-soft);color:var(--seal)}
-.verdict{font-family:var(--f-display);font-size:1.15rem;margin:0 0 .4em}
-.verdict.ok{color:var(--jade)} .verdict.bad{color:var(--seal)}
-.note{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;line-height:1.8;color:var(--muted);margin:.6em 0 1em;max-width:42em}
-.an{flex:none;width:1.7em;height:1.7em;display:grid;place-items:center;border:1.5px solid var(--seal);color:var(--seal);font-family:var(--f-display);font-size:.95rem;line-height:1;margin-top:.15em}
-.outcome{animation:fade .45s ease}
+.chip.down{background:var(--ver-soft);color:var(--ver)}
+.chip .md{--s:18px!important}
+.floaters{position:fixed;left:50%;top:42%;z-index:60;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}
+.floaters>span{animation:floatUp 1.5s var(--ease) var(--d) both}
+.floaters .chip{height:30px;padding:0 12px 0 6px;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.7)}
+.floaters .chip b{font-size:18px}
 
-.acts{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:8px;margin-top:6px}
-.act{text-align:left;display:flex;flex-direction:column;gap:5px;padding:12px 14px;background:var(--paper)}
-.act b{font-family:var(--f-display);font-weight:400;font-size:1.3rem;line-height:1.2}
-.act small{font-size:.8rem;color:var(--muted);line-height:1.55}
-.act:hover:not(:disabled){background:var(--jade-soft)}
-.act:disabled{opacity:.45}
-.lastres{border-left:none;background:var(--sunk);padding:12px 16px;margin-bottom:12px;animation:fade .35s ease}
-.lastres p{margin:0 0 .3em}
-.endbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
-.endbar span{font-size:.82rem;color:var(--muted)}
+/* —— 本季：要务匾额 + 行动 —— */
+.plaque{background:linear-gradient(180deg,#3E0C0A,#5A1411);color:#FBE7B0;border-radius:4px;padding:8px 10px;box-shadow:inset 0 0 0 1px var(--gold),inset 0 0 0 4px #3E0C0A,inset 0 0 0 5px rgba(201,150,46,.6),0 3px 8px rgba(60,10,8,.3)}
+.pl-h{display:flex;align-items:center;gap:10px}
+.pl-h small{display:block;font-size:10px;color:#D8BE88;letter-spacing:.2em}
+.pl-h b{font:400 22px/1.1 var(--f-display);color:#FFE6A0;letter-spacing:.1em}
+.req{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 10px}
+.req li{display:flex;align-items:center;gap:4px;min-height:24px;font-size:12px;color:#E9D3A0;border-bottom:1px dashed rgba(201,150,46,.3)}
+.req li b{margin-left:auto;font-size:15px;color:#FFF1CC}
+.req li.ok{color:#9FD6B5}.req li.ok b{color:#9FD6B5}
+.warns{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:4px}
+.warns li{display:flex;align-items:center;gap:6px;font-size:12px;color:#FFD2C4;background:rgba(200,56,42,.32);padding:4px 8px;border-radius:2px;box-shadow:inset 3px 0 0 #FF6A4C}
+.lastres{background:#FFFBF0;border:1px solid var(--line);border-left:3px solid var(--jade);padding:6px 10px;border-radius:2px;display:flex;flex-direction:column;gap:4px;animation:rise .35s var(--ease) both}
+.lastres.bad{border-left-color:var(--ver)}
+.lastres b{font:400 15px/1.2 var(--f-display);color:var(--lac2)}
+.lastres>span{font-size:12px;color:#4A3424;line-height:1.5}
+.ag{font:600 11px/1 var(--f-num);letter-spacing:.3em;color:var(--muted);margin:8px 0 4px;display:flex;align-items:center;gap:6px}
+.ag::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.panel .ag:first-of-type{margin-top:2px}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.act{min-height:52px;display:flex;align-items:center;gap:8px;text-align:left;padding:6px 8px;border-radius:4px;background:linear-gradient(180deg,#FFFDF6,var(--silk2));border:1px solid var(--line);position:relative;transition:transform .12s var(--ease),box-shadow .2s}
+.act .ai{width:28px;height:28px;flex:none;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 50% 35%,#7E1A13,var(--lac));color:var(--gold-l);box-shadow:0 0 0 1px var(--gold)}
+.act .ai .ic{width:15px;height:15px}
+.act .an{min-width:0;display:flex;flex-direction:column;gap:2px}
+.act .an>b{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hcs{display:flex;flex-wrap:wrap;gap:3px}
+.hc{display:inline-flex;align-items:center;gap:1px;font-size:10px;line-height:16px;color:var(--muted)}
+.hc .ic{width:11px;height:11px}
+.hc .md{--s:14px!important}
+.hc.up{color:var(--jade)}.hc.dn{color:var(--ver)}.hc.no{color:var(--ver)}
+.act.rec{border-color:var(--gold);background:linear-gradient(180deg,#FFF6D8,#F6E2A8);box-shadow:0 0 0 1px var(--gold),0 0 12px rgba(201,150,46,.45)}
+.act.rec::after{content:"荐";position:absolute;top:-6px;right:-4px;width:20px;height:20px;display:grid;place-items:center;background:var(--ver);color:#FFF3D6;font:400 13px/1 var(--f-display);border-radius:2px;transform:rotate(8deg);box-shadow:0 0 0 1px #E8B866}
+.act:active:not(:disabled){transform:scale(.97)}
+.act:disabled{opacity:.48;filter:grayscale(.5)}
 
-.log{background:transparent;border-top:1px solid var(--line);padding-top:10px}
-.log h4{margin:0 0 6px;font-size:.75rem;font-weight:400;letter-spacing:.3em;color:var(--muted)}
-.log ol{list-style:none;margin:0;padding:0;display:grid;gap:4px;max-height:260px;overflow:auto}
-.log li{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:10px;font-size:.82rem;line-height:1.6}
-.log li span{color:var(--muted)}
+/* —— 季终弹层 + 绿头牌 —— */
+.sheet-wrap{position:fixed;inset:0;z-index:50;display:flex;align-items:flex-end;justify-content:center}
+.veil{position:absolute;inset:0;background:rgba(30,6,5,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:fade .25s both}
+.sheet{position:relative;width:100%;max-width:var(--colw);max-height:86vh;overflow:auto;background:var(--silk);border-top:3px solid var(--gold);border-radius:12px 12px 0 0;
+  padding:8px 12px calc(12px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:8px;animation:sheetIn .35s var(--ease) both;box-shadow:0 -10px 30px rgba(0,0,0,.4)}
+.sheet-wrap.out .sheet{animation:sheetOut .22s ease-in both}.sheet-wrap.out .veil{animation:fade .22s reverse both}
+.grip{width:40px;height:4px;border-radius:2px;background:var(--line);margin:0 auto}
+.sh-k{margin:0;text-align:center;font:400 20px/1.2 var(--f-display);color:var(--lac2);letter-spacing:.12em}
+.gps{display:flex;align-items:center;justify-content:center;gap:10px;padding:6px 0;perspective:600px}
+.gp{width:36px;height:72px;position:relative;transform-style:preserve-3d}
+.gp i{position:absolute;inset:0;backface-visibility:hidden;border-radius:3px;display:grid;place-items:center}
+.gp .back{background:linear-gradient(180deg,#2F6B50 0 22%,#F3E6C6 22%);box-shadow:inset 0 0 0 1px #8A6414;color:#C9B58A}
+.gp .back .ic{width:18px;height:18px;opacity:.5}
+.gp .front{transform:rotateY(180deg);background:linear-gradient(180deg,#2F6B50 0 22%,#FFF6DC 22%);box-shadow:inset 0 0 0 1px var(--gold),0 0 14px rgba(242,216,138,.9);font:400 18px/1.1 var(--f-display);color:var(--ver);writing-mode:vertical-rl;padding-top:16px}
+.gp.turn{animation:flip .6s var(--ease) var(--d) both}
+.gpn{font-size:12px;color:var(--muted);margin-left:4px}
+.gpn b{font-size:20px;color:var(--ver)}
+.rl{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.rl li{font-size:12px;line-height:1.5;padding-left:12px;position:relative;color:#4A3424}
+.rl li::before{content:"";position:absolute;left:2px;top:7px;width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+.news{margin:0;font-size:12px;line-height:1.5;padding:6px 10px;background:linear-gradient(90deg,#3E0C0A,#5A1411);color:#FBE7B0;border-radius:2px;box-shadow:inset 0 0 0 1px var(--gold)}
+.news b{font:400 14px var(--f-display);color:var(--gold-l);margin-right:6px}
 
-/* 档册 */
-.archive{position:relative;background:var(--paper);border:1px solid var(--line);outline:1px solid var(--line);outline-offset:-9px;padding:clamp(26px,5vw,46px);min-width:0}
-.arc-head{font-size:.78rem;letter-spacing:.32em;color:var(--muted);margin:0;padding-right:100px}
-.archive h3{color:var(--seal);font-size:clamp(2.1rem,5.5vw,2.9rem);margin:.25em 0 .4em;padding-right:100px}
-.archive.good h3{color:var(--jade)} .archive.out h3{color:var(--ink)}
-.arc-line{font-size:.9rem;border-block:1px solid var(--line);padding:.5em 0;margin:0 0 1.3em;letter-spacing:.05em}
-.seal{position:absolute;top:26px;right:26px;width:82px;height:82px;border:3px solid var(--seal);color:var(--seal);border-radius:4px;display:grid;place-items:center;font-family:var(--f-display);font-size:3.1rem;line-height:1;transform:rotate(-8deg);opacity:.9;animation:stamp .45s cubic-bezier(.2,.9,.3,1.25) .25s both}
-.good .seal{border-color:var(--jade);color:var(--jade)}
-.out .seal{border-color:var(--muted);color:var(--muted)}
-.grade{font-family:var(--f-display);font-size:1.4rem;color:var(--gold)}
+/* —— 晋位仪式 —— */
+.cere{position:fixed;inset:0;z-index:80;display:grid;place-items:center;background:rgba(25,5,4,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:fade .3s both;overflow:hidden}
+.cere.out{animation:fade .25s reverse both}
+.rays{position:absolute;width:160vmax;height:160vmax;background:repeating-conic-gradient(from 0deg,rgba(242,216,138,.22) 0 6deg,transparent 6deg 18deg);mask:radial-gradient(circle,#000 0,transparent 55%);-webkit-mask:radial-gradient(circle,#000 0,transparent 55%);animation:spin 18s linear infinite}
+.cere-box{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;color:#FBE7B0}
+.cere-box .rk{filter:drop-shadow(0 0 18px rgba(242,216,138,.8));animation:badgeIn .7s cubic-bezier(.2,.9,.3,1.3) .1s both}
+.cere-k{margin:6px 0 0;font-size:12px;letter-spacing:.4em;color:#E6CC93;animation:rise .4s .5s both}
+.cere-box h2{font:400 40px/1.1 var(--f-display);letter-spacing:.2em;color:#FFE6A0;text-shadow:0 0 18px rgba(242,216,138,.7),0 2px 0 #000;animation:rise .45s .6s both}
+.cere-s{margin:0;font:400 20px var(--f-display);color:#F2D88A;animation:rise .4s .75s both}
+.cere-box .btn{margin-top:12px;min-width:160px;animation:rise .4s .9s both}
 
-/* 生死簿 */
-.book-list{list-style:none;padding:0;margin:1em 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
-.book-list li{border:1px solid var(--line);padding:9px 13px;display:grid;gap:2px;background:var(--paper)}
-.book-list .src{font-size:.74rem;color:var(--muted);letter-spacing:.08em;display:flex;justify-content:space-between;gap:6px}
-.book-list .nm{font-family:var(--f-display);font-size:1.3rem;line-height:1.3}
-.book-list li:not(.got) .nm{color:var(--muted);opacity:.55}
-.kd-death{color:var(--seal)} .kd-good{color:var(--jade)}
+/* —— 宫册 —— */
+.hero{display:grid;grid-template-columns:132px minmax(0,1fr);gap:10px;align-items:start}
+.arch{display:block;border-radius:66px 66px 4px 4px;overflow:hidden;background:var(--silk2);box-shadow:0 0 0 2px var(--gold),0 0 0 5px var(--lac2),0 0 0 6px var(--gold),0 4px 12px rgba(60,10,8,.35)}
+.arch svg{display:block;width:100%;height:auto}
+.arch.sm{width:72px;border-radius:36px 36px 3px 3px;flex:none}
+.hero-t h2{font:400 26px/1.15 var(--f-display);color:var(--lac2)}
+.hero-t p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:0 10px;margin:6px 0 0}
+.kv dt{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px;min-height:26px}
+.kv dd{margin:0;text-align:right;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:flex-end}
+.ladder{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
+.ladder span{display:flex;flex-direction:column;align-items:center;gap:2px}
+.ladder small{font-size:10px;color:var(--muted)}
+.ladder .cur small{color:var(--ver);font-weight:600}
+.ladder .cur .rk{filter:drop-shadow(0 0 6px rgba(201,150,46,.9));transform:scale(1.12)}
+.rk.dim{filter:grayscale(1);opacity:.4}
+.bar-row{display:grid;grid-template-columns:16px 3em minmax(0,1fr) 2.4em;align-items:center;gap:6px;min-height:28px;color:var(--lac2)}
+.bar-row .bl{font-size:12px;color:var(--ink)}
+.bar-row b{text-align:right;font-size:15px}
+.bar{height:6px;background:var(--silk3);border-radius:3px;overflow:hidden;position:relative}
+.bar i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#B98A2A,#E6C063);border-radius:3px}
+.bar-row.bad{color:var(--ver)}.bar-row.bad .bar i{background:linear-gradient(90deg,#C8382A,#FF6A4C)}
+.kids{gap:6px}
+.kid{display:inline-flex;align-items:center;gap:2px;font-size:12px}
+.kid.gone{color:var(--muted);text-decoration:line-through}
+.rules p{margin:0 0 6px;font-size:12px;line-height:1.6;color:#4A3424}
+.rules summary{min-height:32px;display:flex;align-items:center;cursor:pointer;font:600 13px var(--f-num);letter-spacing:.2em;color:var(--lac2)}
 
-footer{font-size:.76rem;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:12px}
-footer p{margin:0;max-width:56em}
+/* —— 人心 —— */
+.npc{display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px;align-items:center;min-height:60px;padding:4px 0;border-top:1px dashed var(--silk3)}
+.panel .npc:nth-child(2){border-top:0}
+.nb{display:flex;flex-direction:column;gap:3px;min-width:0}
+.nt{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.nt b{font:400 17px/1.1 var(--f-display);color:var(--lac2)}
+.nb small{font-size:11px;color:var(--muted)}
+.rb{height:6px;background:var(--silk3);border-radius:3px;position:relative;overflow:hidden}
+.rb::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--muted)}
+.rb i{position:absolute;top:0;bottom:0}
+.rb i.pos{left:50%;background:linear-gradient(90deg,#6FAE8B,var(--jade))}
+.rb i.neg{right:50%;background:linear-gradient(270deg,#E07060,var(--ver))}
+.duo{display:flex;gap:12px;font-size:12px;color:var(--lac2)}
+.duo span{display:flex;align-items:center;gap:3px}
+.duo b{font-size:15px}
+.duo .bad{color:var(--ver)}
 
+/* —— 六宫 —— */
+.arc-row{display:grid;grid-template-columns:4em minmax(0,1fr) 2.6em;align-items:center;gap:8px;min-height:28px;font-size:12px}
+.arc-row b{text-align:right;font-size:14px;color:var(--lac2)}
+.newsl,.logl{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.newsl li,.logl li{display:grid;grid-template-columns:5.6em minmax(0,1fr);gap:8px;font-size:12px;line-height:1.55;padding:3px 0;border-top:1px dashed var(--silk3)}
+.newsl li:first-child,.logl li:first-child{border-top:0}
+.newsl span,.logl span{color:var(--muted);font-size:11px}
 
-.echo{display:grid;gap:4px;margin:0 0 1em;max-width:42em}
-.echo p{margin:0;font-size:.82rem;color:var(--muted);display:flex;gap:10px;align-items:baseline}
-.echo b{flex:none;font-weight:400;font-family:var(--f-display);font-size:1rem;color:var(--seal)}
-.court{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 12px;font-size:.8rem;margin:0}
-.court dt{color:var(--muted)}
-.court dd{margin:0;text-align:right}
-.arcs{list-style:none;margin:0;padding:0;display:grid;gap:3px;font-size:.8rem}
-.arcs li{display:flex;justify-content:space-between;gap:8px}
-.arcs li span:last-child{color:var(--muted);font-variant-numeric:tabular-nums}
-.news{font-size:.86rem;background:var(--sunk);padding:8px 12px;margin:.4em 0 1em}
-.news b{font-family:var(--f-display);font-weight:400;color:var(--gold);margin-right:8px}
-@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
-@keyframes stamp{from{transform:rotate(-8deg) scale(1.9);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:.9}}
+/* —— 生死簿：绿头牌墙 —— */
+.book-h{text-align:center;padding:6px 0 2px}
+.book-h h2{font:400 32px/1.2 var(--f-display);color:var(--lac2);letter-spacing:.2em}
+.book-h p{margin:0;font-size:12px;color:var(--muted)}
+.book-h b{font-size:18px;color:var(--ver)}
+.plaques{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:6px}
+.plaques li{min-height:96px;border-radius:3px;background:linear-gradient(180deg,#9AA59E 0 18px,#E9E2D0 18px);box-shadow:inset 0 0 0 1px #B6A57E;display:flex;flex-direction:column;align-items:center;padding:20px 4px 4px;gap:2px;text-align:center}
+.pq-n{font:400 16px/1.15 var(--f-display);color:#8C8270;writing-mode:vertical-rl;flex:1;letter-spacing:.06em}
+.plaques small{font-size:10px;color:#6E6452}
+.plaques li.got{background:linear-gradient(180deg,#2F6B50 0 18px,#FFF6DC 18px);box-shadow:inset 0 0 0 1px var(--gold),0 2px 4px rgba(60,40,10,.2)}
+.plaques li.got .pq-n{color:var(--ink)}
+.plaques li.d .pq-n{color:var(--ver)}
+.plaques li.g{background:linear-gradient(180deg,#B88A22 0 18px,#FFF6DC 18px)}
+.plaques li.g .pq-n{color:var(--jade)}
 
-@media (max-width:820px){
-  .game{grid-template-columns:1fr}
-  .dossier{position:static;display:grid;grid-template-columns:120px minmax(0,1fr);max-height:none}
-  .dossier .portrait{border-bottom:none;border-right:1px solid var(--line);grid-row:span 1}
-  .dossier .idblock{align-self:center}
-  .dossier .sect{grid-column:1/-1}
-  .dossier .stats-wrap{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}
-  .dossier .stats-wrap .sect{border-left:1px solid var(--line)}
-  .dossier .stats-wrap .sect:first-child{border-left:none}
-  .create{grid-template-columns:1fr}
-  .create aside{position:static;order:-1;max-width:220px}
+/* —— 死局档册 —— */
+.archive{position:relative;overflow:hidden;background:#FFFBF0;border:1px solid var(--line);outline:1px solid var(--gold);outline-offset:-6px;padding:20px 16px 14px;display:flex;flex-direction:column;gap:8px;animation:fade .5s both}
+.arc-head{margin:0;font-size:11px;letter-spacing:.32em;color:var(--muted)}
+.archive h2{font:400 34px/1.1 var(--f-display);color:var(--ver);padding-right:72px}
+.archive.good h2{color:var(--jade)} .archive.out h2{color:var(--ink)}
+.arc-line{margin:0;font-size:12px;border-block:1px solid var(--line);padding:4px 0}
+.seal-stamp{position:absolute;top:14px;right:14px;width:64px;height:64px;border:3px solid var(--ver);border-radius:4px;display:grid;place-items:center;color:var(--ver);font:400 38px/1 var(--f-display);transform:rotate(-8deg);background:rgba(200,56,42,.06);animation:stamp .5s cubic-bezier(.2,.9,.3,1.25) .3s both}
+.good .seal-stamp{border-color:var(--jade);color:var(--jade)} .out .seal-stamp{border-color:var(--muted);color:var(--muted)}
+.grade-l{margin:0;font-size:12px}
+.grade{font:400 22px var(--f-display);color:var(--gold-d)}
+.arc-foot{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted)}
+.dead .sb5{filter:grayscale(.8)}
+
+/* —— 卷首 —— */
+.gate{position:relative;text-align:center;padding:30px 12px 16px;color:#FBE7B0;background:linear-gradient(180deg,#2E0908,#6E1A16 70%,#7E1A13);overflow:hidden;border-bottom:2px solid var(--gold)}
+.gate::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(242,216,138,.35),transparent 60%)}
+.gate-roof{position:relative;height:30px;margin:0 auto 6px;max-width:300px;background:linear-gradient(180deg,#E6B85A,#9A6A1C);clip-path:polygon(0 100%,8% 40%,22% 30%,50% 0,78% 30%,92% 40%,100% 100%,88% 70%,12% 70%)}
+.gate h1{position:relative;font:400 44px/1.1 var(--f-display);letter-spacing:.14em;color:#FFE6A0;text-shadow:0 0 16px rgba(242,216,138,.5),0 3px 0 #2E0908}
+.gate-k{position:relative;margin:0;font-size:11px;letter-spacing:.4em;color:#E6CC93}
+.gate-s{position:relative;margin:6px 0 0;font-size:12px;color:#EBD3A0}
+.namerow{display:flex;align-items:center;gap:12px}
+.nm{display:flex;align-items:baseline;gap:6px;font:400 26px var(--f-display);color:var(--lac2)}
+.nm input{width:3.4em;height:44px;font:400 26px var(--f-display);text-align:center;color:var(--lac2);background:#fff;border:1px solid var(--gold);border-radius:4px;box-shadow:inset 0 1px 3px rgba(90,60,20,.15)}
+.err{margin:4px 0 0;color:var(--ver);font-size:12px}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pick.tri{grid-template-columns:repeat(3,1fr)}
+.pick button{min-height:52px;display:flex;align-items:center;gap:8px;text-align:left;padding:6px 8px;border-radius:4px;background:linear-gradient(180deg,#FFFDF6,var(--silk2));border:1px solid var(--line)}
+.pick button span{display:flex;flex-direction:column;min-width:0}
+.pick b{font:400 16px/1.2 var(--f-display);color:var(--lac2)}
+.pick small{font-size:11px;color:var(--muted);line-height:1.35}
+.pick button[aria-pressed="true"]{border-color:var(--gold);background:linear-gradient(180deg,#FFF6D8,#F3DC9E);box-shadow:0 0 0 1px var(--gold),0 0 10px rgba(201,150,46,.4)}
+.note p b{color:var(--lac2)}
+
+@media (hover:hover){
+  .ch:hover:not(:disabled),.act:hover:not(:disabled),.pick button:hover{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 10px rgba(201,150,46,.3)}
+  .btn.seal:hover:not(:disabled),.btn.gold:hover:not(:disabled){filter:brightness(1.08)}
+  .tabs button:hover{color:#FFE9A8}
+  .ib:hover{background:rgba(242,216,138,.15)}
 }
-@media (max-width:520px){
-  .dossier .stats-wrap{grid-template-columns:1fr}
-  .dossier .stats-wrap .sect{border-left:none}
-  .seal{width:60px;height:60px;font-size:2.3rem;top:20px;right:20px}
-  .arc-head,.archive h3{padding-right:70px}
-  .log li{grid-template-columns:1fr;gap:0}
+@media (min-width:700px){
+  :root{--colw:600px}
+  body{padding:16px 0}
+  .shell{min-height:calc(100vh - 32px)}
 }
-@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes stamp{from{transform:rotate(-8deg) scale(2);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:1}}
+@keyframes floatUp{0%{opacity:0;transform:translateY(20px) scale(.8)}15%{opacity:1;transform:translateY(0) scale(1.08)}30%{transform:scale(1)}80%{opacity:1}100%{opacity:0;transform:translateY(-70px)}}
+@keyframes flip{from{transform:rotateY(0)}to{transform:rotateY(180deg)}}
+@keyframes sheetIn{from{transform:translateY(100%)}to{transform:none}}
+@keyframes sheetOut{to{transform:translateY(100%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes badgeIn{0%{opacity:0;transform:scale(.3) rotate(-30deg)}70%{opacity:1;transform:scale(1.12) rotate(4deg)}100%{transform:scale(1)}}
+@keyframes pulse{50%{opacity:.25}}
+@keyframes flashUp{0%{background:rgba(242,216,138,.55)}100%{background:transparent}}
+@keyframes flashDn{0%{background:rgba(255,90,60,.5)}100%{background:transparent}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .gp.turn{transform:rotateY(180deg)}
+}
+
+/* v4：容器缩到屏内，长档册文案换行；不以裁切掩盖溢出。 */
+.pg,.archive,.story,.arc-line,.npc,.nb,.paper,.ct,.bt{min-inline-size:0;max-inline-size:100%;overflow-wrap:anywhere}
+.archive{inline-size:100%;}.arc-line{white-space:normal}.archive h2{font-size:clamp(24px,7vw,34px)}
+.v4-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.v4-actions button{min-height:44px;padding:8px;border:1px solid var(--line);background:var(--silk2);border-radius:6px;font-size:12px;text-align:left}.v4-actions button:disabled{opacity:.45;cursor:not-allowed}
+.v4-plots{display:grid;gap:6px;margin-block:8px}.v4-plot{border-left:3px solid var(--ver);padding:6px 8px;background:var(--silk2);font-size:12px}.v4-plot small{display:block;color:var(--muted)}.v4-mem{font-size:12px;line-height:1.6;margin-block:6px}.v4-meta{display:flex;gap:6px;flex-wrap:wrap;font-size:11px}.v4-meta span{padding:4px 6px;background:var(--silk2);border-radius:4px}.v4-title{display:flex;align-items:center;gap:6px;margin-block:8px}.v4-world{border-left:3px solid var(--jade);padding-left:8px;font-size:12px;line-height:1.6;margin-block:6px}.rewrite-line{animation:rewrite .45s ease-out}@keyframes rewrite{from{filter:sepia(1);opacity:.5}to{filter:none;opacity:1}}@media(prefers-reduced-motion:reduce){.rewrite-line{animation:none}}.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.story details>summary{min-height:40px;display:flex;align-items:center;color:var(--muted)}
+
+.shell{min-inline-size:0;max-inline-size:min(100%,var(--colw))}
+
+.court-map{position:relative;aspect-ratio:1.1;min-inline-size:0;isolation:isolate;margin-block:8px;background:radial-gradient(ellipse,var(--silk2),var(--silk));border:1px solid var(--line);border-radius:8px}.court-map svg{position:absolute;inset:0;inline-size:100%;block-size:100%;z-index:-1}.court-map button{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);inline-size:29%;min-block-size:54px;border:2px solid var(--pc);border-radius:6px;background:var(--silk);padding:6px 2px;display:grid;place-items:center;gap:2px;box-shadow:0 2px 5px #0002}.court-map button b{font-family:var(--f-display);font-size:16px;white-space:nowrap}.court-map button small{font-size:10px;color:var(--muted)}
+/* 折叠标题也是触控入口，统一留足40px。 */
+summary,.note summary,.panel summary{min-height:40px;display:flex;align-items:center;cursor:pointer;line-height:1.4;padding-block:6px}
+
+/* 未录结局也保留可读文字；禁用项用边框与底色区分。 */
+.pq-n{color:#68513F}.ch:disabled,.act:disabled,.v4-actions button:disabled{opacity:1;color:var(--muted);filter:grayscale(.6);background:var(--silk3)}
+
 </style>
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <div class="brand">后宫生死簿</div>
-    <nav><button id="navHome" type="button" hidden>卷首</button><button id="navBook" type="button">生死簿</button></nav>
-  </header>
-  <main id="app"></main>
-  <footer><p>以电视剧《后宫·甄嬛传》为背景的原创养成游戏。人物与情节依剧中设定，与正史有出入处以剧为准；位分、年例银、服色、选秀、建储等典制兼采《国朝宫史》等史实。你所扮演的秀女、方氏、云苓等启祥宫诸人为原创角色。</p></footer>
-</div>
-
+<div id="app" class="shell"></div>
 <script>
+/* ═══ src/core.js ═══ */
 document.documentElement.lang='zh-CN';
 /* ───────── 基础 ───────── */
 const RANKS=['答应','常在','贵人','嫔','妃','贵妃','皇贵妃'];
@@ -227,7 +419,7 @@ function cnNum(n){n=Math.round(n);if(n<0)return'负'+cnNum(-n);if(n<10)return CN
 function yearCN(era,y){return era+(y===1?'元':cnNum(y))+'年';}
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-const rnd=()=>Math.random();
+const rnd=()=>{if(!S?.rng)return Math.random();let x=S.rng|0;x^=x<<13;x^=x>>>17;x^=x<<5;S.rng=x>>>0;return S.rng/4294967296;};
 const roll=p=>rnd()<p;
 const ri=(a,b)=>a+Math.floor(rnd()*(b-a+1));
 const reduce=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -249,14 +441,14 @@ const TRAITS={
 const KEYS={fav:'圣宠',pres:'威望',wit:'心计',charm:'才貌',hp:'康健',sus:'君疑',loyal:'宫人',silver:'银两',hh:'皇后',hf:'华妃',th:'太后',fang:'方氏'};
 const RELK=['hh','hf','th'];
 
-let S=null, seen=load('hgssb3_seen',[]); if(!Array.isArray(seen))seen=[];
+let S=null, seen=load('hgssb4_seen',load('hgssb3_seen',[])); if(!Array.isArray(seen))seen=[];
 const F=f=>!!S.flags[f];
 const hfActive=s=>!s.flags.hfGone&&s.t<11;
 const thAlive=s=>!s.flags.thDead;
 const ylAlive=s=>['trusted','watched','sworn','torn','coerced','stay'].includes(s.arc.yl);
 const live=s=>s.kids.filter(k=>!k.dead);
 const sonOf=s=>s.kids.find(k=>!k.dead&&k.sex==='子');
-function title(s=S){if(!s.flags.in)return'秀女'+s.name+'氏';return s.rank>=3?s.hao+RANKS[s.rank]:s.name+RANKS[s.rank];}
+function title(s=S){if(s.flags.servant)return'宫女'+s.name+'氏';if(!s.flags.in)return'秀女'+s.name+'氏';return s.rank>=3?s.hao+RANKS[s.rank]:s.name+RANKS[s.rank];}
 function palace(s=S){return s.rank>=3?'启祥宫主位':'启祥宫偏殿';}
 function age(s=S){return 15+s.y;}
 function dateStr(s=S){return yearCN('雍正',s.y)+SEASONS[s.q];}
@@ -267,18 +459,18 @@ const tx=t=>typeof t==='function'?t(S):t;
 
 function newState(name,origin,trait){
   const o=ORIGINS[origin];
-  const s={v:3,name,origin,trait,y:1,q:0,t:0,rank:o.rank,hao:'',flags:{},
+  const s={v:4,name,origin,trait,turn:0,rng:((Date.now()^Math.floor(Math.random()*4294967295))>>>0)||7,y:1,q:0,t:0,rank:o.rank,hao:'',flags:{},
     st:{fav:8,pres:0,wit:0,charm:0,hp:75,sus:0,loyal:42,silver:0},rel:{hh:0,hf:0,th:0},
     arc:{fang:{rel:0,side:null,rank:0,repaid:false,voice:false},yl:'new',hf:null,hh:null,fam:'ok',prince:null,qi:null},
     ap:3,nights:0,cold:0,lastPromo:-9,kids:[],preg:null,ban:0,bribe:false,intel:false,
-    queue:[],forced:[],at:{},cd:{},done:{},memo:{},pending:null,report:null,last:null,log:[]};
+    queue:[],forced:[],at:{},cd:{},done:{},memo:{},pending:null,report:null,last:null,log:[],v4:{mem:{},plots:[],evidence:[],herbs:0,art:'poem',mastery:0,helpers:{yl:0,doctor:0,su:0},world:[],personal:0}};
   Object.assign(s.st,{silver:o.st.silver,pres:o.st.pres,charm:o.st.charm,wit:o.st.wit});
   for(const k in o.rel)s.rel[k]+=o.rel[k];
   const d=TRAITS[trait].d;
   for(const k in d){if(k in s.st)s.st[k]+=d[k];else s.rel[k]+=d[k];}
   return s;
 }
-const HARD={fav:.8,pres:.85,sus:1.3,hpLoss:1.2,relUp:.85,relDown:1.15,chance:.8,intel:.1};
+const HARD={fav:1,pres:1,sus:1.1,hpLoss:1,relUp:1,relDown:1,chance:.95,intel:.15};
 function harden(k,v){
   const isRel=RELK.includes(k)||k==='fang';
   if(k==='fav'&&v>0)return Math.max(1,Math.round(v*HARD.fav));
@@ -304,15 +496,11 @@ function apply(d){
   }
   return out;
 }
-function chipsHTML(list){
-  if(!list||!list.length)return'';
-  const m={};list.forEach(([k,v])=>{m[k]=(m[k]||0)+v;});
-  const items=Object.entries(m).filter(([,v])=>v);if(!items.length)return'';
-  return`<div class="chips">${items.map(([k,v])=>{const good=k==='sus'?v<0:v>0;return`<span class="chip ${good?'up':'down'}">${KEYS[k]} ${v>0?'+':'−'}${Math.abs(v)}${k==='silver'?'两':''}</span>`;}).join('')}</div>`;
-}
 function log(text){S.log.unshift({d:dateStr(),text});if(S.log.length>90)S.log.length=90;}
 function memo(k,t){S.memo[k]={d:dateStr(),t};}
 
+
+/* ═══ src/portrait.js ═══ */
 /* ───────── 画像 ───────── */
 function portrait(s,dead){
   const r=s.flags.in?s.rank:-1, hp=s.st.hp;
@@ -359,6 +547,140 @@ function portrait(s,dead){
   </g></svg>`;
 }
 
+
+/* ═══ src/art.js ═══ */
+/* ───────── 美术：人物半身像、图标、位分徽记（全部为内联 SVG，无外部图片） ───────── */
+const SKIN='#F2DAC8',HAIR='#1F1B1C',LINE='#3A2D2A';
+/* 五官：mood = calm 平静 / smile 笑 / angry 怒 / cold 冷 / sad 哀 / dead 殁 */
+function face(mood,o={}){
+  const m=mood||'calm',male=o.male,old=o.old;
+  const bw=male?2.4:1.6;
+  const brow={calm:['M83,116 Q89,112 96,115','M104,115 Q111,112 117,116'],smile:['M83,115 Q89,111 96,114','M104,114 Q111,111 117,115'],
+    angry:['M83,112 Q90,113 96,118','M104,118 Q110,113 117,112'],cold:['M83,115 L96,115','M104,115 L117,115'],
+    sad:['M83,117 Q90,113 96,112','M104,112 Q110,113 117,117'],dead:['M83,116 Q89,114 96,116','M104,116 Q111,114 117,116']}[m]||[];
+  const eye={calm:['M85,126 Q90,123 95,126','M105,126 Q110,123 115,126'],smile:['M85,127 Q90,121 95,127','M105,127 Q110,121 115,127'],
+    angry:['M85,125 L95,127','M105,127 L115,125'],cold:['M85,126 L95,126','M105,126 L115,126'],
+    sad:['M85,124 Q90,127 95,124','M105,124 Q110,127 115,124'],dead:['M85,126 L95,126','M105,126 L115,126']}[m]||[];
+  const lip=male?'#A0605A':(m==='dead'?'#B2827B':'#B8443C');
+  const mouth={smile:`<path d="M93,148 Q100,155 107,148" stroke="${lip}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`,
+    angry:`<path d="M94,151 Q100,147 106,151" stroke="${lip}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`,
+    sad:`<path d="M95,151 Q100,148 105,151" stroke="${lip}" stroke-width="1.8" fill="none" stroke-linecap="round"/>`,
+    cold:`<path d="M95,149 L105,149" stroke="${lip}" stroke-width="2" stroke-linecap="round"/>`}[m]
+    ||(male?`<path d="M95,149 Q100,151 105,149" stroke="${lip}" stroke-width="1.8" fill="none" stroke-linecap="round"/>`:`<path d="M95,149 Q100,152 105,149 Q100,146.5 95,149 Z" fill="${lip}"/>`);
+  let s=brow.map(d=>`<path d="${d}" stroke="${LINE}" stroke-width="${bw}" fill="none" stroke-linecap="round"/>`).join('')
+    +eye.map(d=>`<path d="${d}" stroke="${LINE}" stroke-width="1.9" fill="none" stroke-linecap="round"/>`).join('')
+    +`<path d="M100,130 Q98,138 101,140" stroke="#C4A08E" stroke-width="1.2" fill="none" stroke-linecap="round"/>`+mouth;
+  if(!male&&m!=='dead'&&m!=='cold')s+=`<circle cx="85" cy="139" r="6.5" fill="#E8998C" opacity="${m==='smile'?.4:.22}"/><circle cx="115" cy="139" r="6.5" fill="#E8998C" opacity="${m==='smile'?.4:.22}"/>`;
+  if(m==='sad')s+=`<path d="M93,130 q-1.5,5 0,7 q1.5,-2 0,-7" fill="#9CC7E0"/>`;
+  if(male)s+=`<path d="M90,144 Q95,141 99,144 M101,144 Q105,141 110,144" stroke="${HAIR}" stroke-width="1.6" fill="none" stroke-linecap="round"/>`;
+  if(old)s+=`<path d="M80,133 q3,3 6,3 M114,136 q3,0 6,-3 M90,108 q10,-3 20,0" stroke="#C4A08E" stroke-width="1" fill="none"/>`;
+  return s;
+}
+function flower(x,y,c,rr){let p='';for(let i=0;i<5;i++){const a=(i*72-90)*Math.PI/180;p+=`<circle cx="${(x+Math.cos(a)*rr*.55).toFixed(1)}" cy="${(y+Math.sin(a)*rr*.55).toFixed(1)}" r="${(rr*.48).toFixed(1)}" fill="${c}"/>`;}return p+`<circle cx="${x}" cy="${y}" r="${(rr*.3).toFixed(1)}" fill="#F1CE73"/>`;}
+/* 通用半身像。o: kind lady|maid|man|emperor|eunuch, robe, trim, mood, old, orn(额外头饰 svg) */
+function bust(o){
+  const robe=o.robe||'#93B5C3',trim=o.trim||'#33445C',skin=o.skin||SKIN;
+  const body=`<path d="M18,244 C22,204 54,188 92,183 Q100,190 108,183 C146,188 178,204 182,244 Z" fill="${robe}"/>`
+    +(o.pattern||'')
+    +`<path d="M100,191 C116,198 132,210 150,244" stroke="${trim}" stroke-width="7" fill="none"/>`
+    +`<path d="M90,156 L90,183 Q100,190 110,183 L110,156 Z" fill="${skin}"/>`
+    +`<path d="M88,183 Q100,196 112,183" stroke="${trim}" stroke-width="7" fill="none"/>`;
+  const male=['man','emperor','eunuch'].includes(o.kind);
+  let head='';
+  if(male){
+    head=`<ellipse cx="100" cy="128" rx="28" ry="34" fill="${skin}"/>${face(o.mood,{male:1,old:o.old})}`;
+    // 暖帽：帽胎、红缨、顶珠
+    head+=`<path d="M68,108 Q100,72 132,108 Z" fill="#2B2422"/><path d="M64,110 Q100,98 136,110 L136,116 Q100,104 64,116 Z" fill="#3B302C"/>`
+      +`<path d="M74,104 Q100,80 126,104" stroke="#B3261E" stroke-width="7" fill="none"/>`
+      +`<circle cx="100" cy="80" r="${o.kind==='emperor'?7:4.5}" fill="${o.bead||'#D9B24A'}" stroke="#7A5A10" stroke-width="1"/>`;
+    if(o.kind==='emperor')head+=`<path d="M100,73 l-4,-8 4,3 4,-3 z" fill="#E8C35A"/>`;
+  }else{
+    const maid=o.kind==='maid';
+    head=`<path d="M66,132 C63,96 82,86 100,86 C118,86 137,96 134,132 L130,150 C129,118 120,103 100,101 C80,103 71,118 70,150 Z" fill="${o.gray?'#5B5658':HAIR}"/>`
+      +`<ellipse cx="100" cy="128" rx="29" ry="35" fill="${skin}"/>`
+      +`<path d="M71,120 C73,100 86,93 100,93 C114,93 127,100 129,120 C122,106 112,101 100,101 C88,101 78,106 71,120 Z" fill="${o.gray?'#5B5658':HAIR}"/>`
+      +face(o.mood,{old:o.old})
+      +`<path d="M80,98 Q80,80 100,78 Q120,80 120,98 Z" fill="${HAIR}"/>`;
+    head+=maid?`<path d="M58,80 Q100,68 142,80 Q144,86 139,89 Q100,78 61,89 Q56,86 58,80 Z" fill="${HAIR}"/>`
+      :`<path d="M40,74 Q100,54 160,74 Q163,82 156,87 Q100,69 44,87 Q37,82 40,74 Z" fill="${HAIR}"/>`;
+    head+=o.orn||'';
+  }
+  return body+head;
+}
+/* 关键人物定妆。mood 由调用方按关系给 */
+const CAST={
+  emperor:{name:'皇帝',kind:'emperor',robe:'#E9B827',trim:'#6B4A12',pattern:'<path d="M52,226 q10,-14 22,-6 q-8,10 4,16 M148,226 q-10,-14 -22,-6 q8,10 -4,16" stroke="#B5851C" stroke-width="2.5" fill="none"/><circle cx="64" cy="214" r="3" fill="#B5851C"/><circle cx="136" cy="214" r="3" fill="#B5851C"/>',bead:'#F1D27A'},
+  hh:{name:'皇后',kind:'lady',robe:'#E6B422',trim:'#5A3D12',orn:'<path d="M44,70 Q100,40 156,70 L150,80 Q100,56 50,80 Z" fill="#D8A52C"/><path d="M84,58 Q100,36 116,58 Q100,50 84,58Z" fill="#E9C25A"/><circle cx="100" cy="52" r="3.6" fill="#B3261E"/><path d="M66,66 l-6,-10 M134,66 l6,-10 M80,60 l-3,-11 M120,60 l3,-11" stroke="#D8A52C" stroke-width="2.5" stroke-linecap="round"/>'+[52,148].map(x=>`<line x1="${x}" y1="82" x2="${x}" y2="124" stroke="#C9A64A" stroke-width="1.2"/>`+[0,1,2,3].map(i=>`<circle cx="${x}" cy="${92+i*10}" r="2.2" fill="#F4EFE3"/>`).join('')).join('')},
+  hf:{name:'华妃',kind:'lady',robe:'#C7402F',trim:'#3B1714',orn:flower(66,72,'#E0412F',10)+flower(134,72,'#E0412F',10)+flower(100,64,'#F05A3C',12)+'<ellipse cx="82" cy="78" rx="7" ry="2.6" fill="#2D7FA8" transform="rotate(-20 82 78)"/><ellipse cx="118" cy="78" rx="7" ry="2.6" fill="#2D7FA8" transform="rotate(20 118 78)"/>'+[46,154].map(x=>`<line x1="${x}" y1="84" x2="${x}" y2="128" stroke="#D7A62A" stroke-width="1.4"/>`+[0,1,2,3].map(i=>`<circle cx="${x}" cy="${92+i*11}" r="2.4" fill="#E0412F"/>`).join('')).join('')},
+  th:{name:'太后',kind:'lady',robe:'#7D5A33',trim:'#3A2614',old:1,gray:1,orn:'<path d="M70,96 Q100,88 130,96 L130,103 Q100,95 70,103 Z" fill="#2E2A2A"/><circle cx="100" cy="96" r="3.6" fill="#E9E1C9"/>'+flower(100,66,'#9A6FA0',8)},
+  fang:{name:'方氏',kind:'lady',robe:'#C9A2B6',trim:'#5A3E50',orn:flower(100,66,'#E8A7B4',8)},
+  qi:{name:'祺贵人',kind:'lady',robe:'#E58DA6',trim:'#5A2234',orn:flower(68,72,'#F06A8C',8)+flower(132,72,'#F06A8C',8)+flower(100,64,'#F06A8C',10)},
+  yl:{name:'云苓',kind:'maid',robe:'#8FB59E',trim:'#2E4A3A',orn:flower(100,74,'#F1F1E6',5)},
+  maid:{name:'宫女',kind:'maid',robe:'#9DB6C4',trim:'#33445C'},
+  songzhi:{name:'颂芝',kind:'maid',robe:'#D9775F',trim:'#4A2018',orn:flower(100,74,'#F05A3C',5)},
+  jianqiu:{name:'剪秋',kind:'maid',robe:'#6E6A8E',trim:'#2C2A40'},
+  su:{name:'苏培盛',kind:'eunuch',robe:'#324A63',trim:'#1C2A38',old:1,bead:'#5A86A8'},
+  eunuch:{name:'太监',kind:'eunuch',robe:'#4A5A6B',trim:'#232C35',bead:'#8A8A8A'},
+  doctor:{name:'太医',kind:'man',robe:'#2F4B5E',trim:'#1A2A35',bead:'#C0C6CC',pattern:'<rect x="80" y="205" width="40" height="34" fill="#C9B07A" stroke="#7A6230"/><circle cx="100" cy="222" r="7" fill="none" stroke="#7A6230"/>'},
+  prince:{name:'果郡王',kind:'man',robe:'#3E6A8A',trim:'#1B3346',bead:'#E3C463',pattern:'<path d="M60,226 q10,-10 20,-2 M140,226 q-10,-10 -20,-2" stroke="#D2B55E" stroke-width="2" fill="none"/>'},
+  mamo:{name:'嬷嬷',kind:'maid',robe:'#6F6250',trim:'#2E261C',old:1,gray:1},
+  cao:{name:'曹贵人',kind:'lady',robe:'#A8B98A',trim:'#3E4A2C',orn:flower(100,66,'#D9C26A',8)},
+  hui:{name:'惠贵人',kind:'lady',robe:'#9FC3D8',trim:'#2E4A5E',orn:flower(100,66,'#F2F2F2',9)},
+  zhen:{name:'甄嬛',kind:'lady',robe:'#B7D0C2',trim:'#2E4A3A',orn:flower(100,66,'#F5EEF0',9)+flower(70,72,'#E3A0AE',7)}
+};
+/* 头像：取头肩部位裁切；size 像素；gone 灰化 */
+function avatar(id,mood,size,cls){
+  const c=CAST[id];if(!c)return'';
+  return`<span class="md ${cls||''}" style="--s:${size||40}px" role="img" aria-label="${c.name}"><svg viewBox="40 46 120 120" aria-hidden="true">${bust({...c,mood})}</svg></span>`;
+}
+function playerAvatar(s,size,cls){
+  const svg=portrait(s,!!s.dead).replace(/viewBox="0 0 200 240"/,'viewBox="40 46 120 120"');
+  return`<span class="md me ${cls||''}" style="--s:${size||40}px">${svg}</span>`;
+}
+const relMood=v=>v>=40?'smile':v>=10?'calm':v>-15?'cold':'angry';
+
+/* 小图标 16×16 */
+const IC={
+  fav:'<path d="M8 14s-5-3.2-5-7a2.8 2.8 0 0 1 5-1.7A2.8 2.8 0 0 1 13 7c0 3.8-5 7-5 7z"/>',
+  pres:'<path d="M3 3h10v10H3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 6h5M5.5 8h5M5.5 10h5" stroke="currentColor" stroke-width="1.2"/>',
+  charm:'<circle cx="8" cy="4.6" r="2.4"/><circle cx="4.6" cy="8" r="2.4"/><circle cx="11.4" cy="8" r="2.4"/><circle cx="8" cy="11.4" r="2.4"/><circle cx="8" cy="8" r="1.6" fill="#F1CE73"/>',
+  wit:'<path d="M3 3.5h4.2c.5 0 .8.3.8.8V13c-.4-.5-1-.7-1.6-.7H3zM13 3.5H8.8c-.5 0-.8.3-.8.8V13c.4-.5 1-.7 1.6-.7H13z"/>',
+  hp:'<path d="M8 2c3 2.5 5 5 5 7.5A5 5 0 0 1 3 9.5C3 7 5 4.5 8 2z"/><path d="M8 6v7M8 9l-2-1.5M8 11l2-1.5" stroke="#fff" stroke-width="1" fill="none"/>',
+  sus:'<path d="M1.5 8S4 3.5 8 3.5 14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2.3"/>',
+  loyal:'<circle cx="8" cy="5" r="2.6"/><path d="M3 14c0-3 2.2-5 5-5s5 2 5 5z"/>',
+  silver:'<path d="M2 9.5c1.5 0 2-2 3-2.5h6c1 .5 1.5 2.5 3 2.5l-1 3H3z"/><ellipse cx="8" cy="6.6" rx="2.4" ry="1.6"/>',
+  night:'<rect x="5" y="1.5" width="6" height="13" rx=".8"/><rect x="5" y="1.5" width="6" height="3" fill="#3A7256"/>',
+  kid:'<circle cx="8" cy="5" r="3"/><path d="M4 14c0-2.6 1.8-4.5 4-4.5s4 1.9 4 4.5z"/>',
+  lamp:'<path d="M6 1.5h4M5 3.5h6l1 2v5l-1 2H5l-1-2v-5z"/><path d="M7 13.5v1.5h2v-1.5"/>',
+  book:'<path d="M3 2h8l2 2v10H3z"/><path d="M5.5 5h5M5.5 7.5h5M5.5 10h3" stroke="#F6EBD3" stroke-width="1.1"/>',
+  heart2:'<circle cx="5.5" cy="6" r="2.5"/><circle cx="10.5" cy="6" r="2.5"/><path d="M1.5 14c.5-2.6 2-4 4-4s3.5 1.4 4 4zM8.5 14c.3-1.4 1-2.6 2-3.4 2 .1 3.4 1.5 4 3.4z"/>',
+  roof:'<path d="M1 7.5 8 2.5l7 5-1.2.9L8 4.6 2.2 8.4z"/><path d="M3.5 8.5h9V14h-3v-3h-3v3h-3z"/>',
+  scroll:'<rect x="2" y="2" width="12" height="2.4" rx="1.2"/><rect x="2" y="11.6" width="12" height="2.4" rx="1.2"/><path d="M3.5 4.4h9v7.2h-9z" opacity=".55"/>',
+  door:'<path d="M3 14V3.5L8 1.5l5 2V14z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8.5" r="1"/>',
+  hh:'',hf:'',th:'',fang:''
+};
+const icon=(k,cls)=>`<svg class="ic ${cls||''}" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">${IC[k]||''}</svg>`;
+/* 数值键 → 图标 + 色调（人情类用头像） */
+const KEYICON={fav:'fav',pres:'pres',charm:'charm',wit:'wit',hp:'hp',sus:'sus',loyal:'loyal',silver:'silver'};
+const RELCAST={hh:'hh',hf:'hf',th:'th',fang:'fang'};
+
+/* 位分徽记：七阶，越高越繁 */
+function rankBadge(r,size,state){
+  const col=ROBE[r],sz=size||44;
+  const pts=n=>{let p='';for(let i=0;i<n;i++){const a=(i/n)*Math.PI*2-Math.PI/2;p+=`${(32+Math.cos(a)*29).toFixed(1)},${(32+Math.sin(a)*29).toFixed(1)} `;}return p;};
+  let shape;
+  if(r<=1)shape=`<circle cx="32" cy="32" r="28" fill="${col}" stroke="url(#gd)" stroke-width="3"/>`;
+  else if(r<=3)shape=`<polygon points="${pts(8)}" fill="${col}" stroke="url(#gd)" stroke-width="3"/>`;
+  else{let petals='';for(let i=0;i<(r>=5?12:8);i++){const a=i*360/(r>=5?12:8);petals+=`<ellipse cx="32" cy="9" rx="6" ry="9" fill="url(#gd)" transform="rotate(${a} 32 32)"/>`;}shape=petals+`<circle cx="32" cy="32" r="22" fill="${col}" stroke="#7A5A10" stroke-width="1.5"/>`;}
+  const ring=r>=6?`<circle cx="32" cy="32" r="31" fill="none" stroke="#F4D98A" stroke-width="1" stroke-dasharray="2 3"/>`:'';
+  return`<svg class="rk ${state||''}" viewBox="0 0 64 64" width="${sz}" height="${sz}" aria-label="${RANKS[r]}"><defs><linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6E3A1"/><stop offset=".5" stop-color="#C9962E"/><stop offset="1" stop-color="#8A6414"/></linearGradient></defs>${ring}${shape}<text x="32" y="${r>=2&&r<=3?40:41}" text-anchor="middle" font-family="Ma Shan Zheng,STKaiti,KaiTi,serif" font-size="${r===6?17:22}" fill="${r>=4?'#5A1A10':'#1C2220'}">${r===6?'皇贵':RANKS[r][0]}</text></svg>`;
+}
+/* 开局旗帜：按旗色 */
+function banner(c1,c2,border){
+  return`<svg viewBox="0 0 32 40" width="26" height="32" aria-hidden="true"><path d="M3 2h26v26l-13 10L3 28z" fill="${c1}" stroke="${border||'#8A6414'}" stroke-width="1.5"/>${c2?`<path d="M3 2h26v6H3z" fill="${c2}"/>`:''}<path d="M10 14q6 -6 12 0q-6 6 -12 0z" fill="rgba(255,255,255,.55)"/></svg>`;
+}
+
+/* ═══ src/content/ends.js ═══ */
 /* ───────── 结局 ───────── */
 const ENDS={
 d_shiyi:{name:'殿前失仪',kind:'out',seal:'撂',status:'撂牌子出宫',src:'殿选',
@@ -486,6 +808,8 @@ function epilogue(s){
   return L;
 }
 
+
+/* ═══ src/content/events.js ═══ */
 /* ───────── 事件 ───────── */
 const did=id=>S.at[id]!=null;
 const since=(s,id)=>s.at[id]==null?99:s.t-s.at[id];
@@ -1074,6 +1398,8 @@ const ARCS=[
  {name:'子嗣',ids:['preg','birth','kid_vac','pox','kid_school','kid_bright']}
 ];
 
+
+/* ═══ src/content/acts.js ═══ */
 /* ───────── 行动 ───────── */
 const ACTS=[
 {id:'hh',name:'景仁宫侍奉',desc:'请安后多留半个时辰，替皇后奉茶捶腿。',hint:'皇后↑ 威望↑',show:s=>!s.flags.hhDown,run:()=>({text:'你在景仁宫陪皇后说了半日家常。皇后赏了你一碟点心。',d:{hh:ri(6,9),pres:2}})},
@@ -1094,12 +1420,10 @@ const ACTS=[
 {id:'xieli',name:'协理六宫',desc:'替皇上分担后宫事务。',hint:'威望↑ 银两↑',show:s=>s.flags.xieli,run:()=>({text:'六宫的账目、人事、节礼，样样都要过你的手。',d:{pres:5,silver:15,hp:-3}})}
 ];
 
+
+/* ═══ src/engine.js ═══ */
 /* ───────── 引擎 ───────── */
-const app=document.getElementById('app');
-const navHome=document.getElementById('navHome');
-const navBook=document.getElementById('navBook');
-let view='start';
-function save(){store('hgssb3_save',S&&!S.dead?S:null);}
+function save(){store('hgssb4_save',S&&!S.dead?S:null);}
 
 function promote(n){
   if(S.rank>=6)return'';
@@ -1109,6 +1433,7 @@ function promote(n){
   line+=`。年例银 ${ALLOW[S.rank]} 两。`;
   if(S.rank>=3&&S.flags.childAt==='hh'){S.flags.childAt=null;line+='依例，孩子从景仁宫接回了你身边。';}
   log(`${title()}——${line}`);
+  S.cere={kind:'promo',rank:S.rank,hao:S.hao,line};
   return line;
 }
 const PROMO=[null,
@@ -1122,20 +1447,20 @@ const PROMO=[null,
 function checkVitals(){
   if(S.st.hp<=0)return'x_ill';
   if(S.st.sus>=100)return'x_sus';
-  if(S.cold>=6)return'x_cold';
+  if(S.cold>=9)return'x_cold';
   return null;
 }
 
 function endSeason(){
   const lines=[],chg=[];
   let p=clamp(.04+S.st.fav/130+S.st.charm/600+(S.bribe?.15:0),0,.8);
-  if(S.preg||S.ban)p=0;
+  if(S.preg||S.ban)p=0;if(S.flags.servant){p=0;if(S.st.fav>=30){S.flags.servant=0;S.flags.in=1;S.cere={kind:'promo',rank:0,hao:'',line:'奉旨晋答应，登记绿头牌。'};}}
   let n=0;for(let i=0;i<3;i++)if(roll(p))n++;
   const first=S.nights===0&&n>0;
   if(n){S.nights+=n;S.cold=0;chg.push(...apply({fav:(S.st.fav>50?1:2)*n}));lines.push(`敬事房翻了你的牌子 ${n} 回。`);}
-  else{if(!S.preg&&!S.ban)S.cold++;lines.push(S.preg?'有孕在身，按例不侍寝。':S.ban?'禁足之中，绿头牌撤了下来。':'这一季，你的绿头牌一次也没被翻过。');}
+  else{if(!S.preg&&!S.ban&&!S.flags.servant)S.cold++;lines.push(S.preg?'有孕在身，按例不侍寝。':S.ban?'禁足之中，绿头牌撤了下来。':'这一季，你的绿头牌一次也没被翻过。');}
   if(first)S.queue.push('firstnight');
-  if(n&&!S.preg&&(S.postpartum||0)<=S.t){let cp=.04*n*(S.trait==='kang'?1.5:1)*(S.st.hp<40?.5:1);if(S.flags.musk)cp*=.5;if(roll(clamp(cp,0,.5))){S.preg={s:0,guard:0};S.queue.push('preg');}}
+  if(n&&!S.preg&&(S.postpartum||0)<=S.t&&(S.flags.avoidThrough==null||S.turn>S.flags.avoidThrough)){let cp=.04*n*(S.trait==='kang'?1.5:1)*(S.st.hp<40?.5:1);if(S.flags.musk)cp*=.5;if(roll(clamp(cp,0,.5))){S.preg={s:0,guard:0};S.queue.push('preg');}}
   if(S.preg&&!S.queue.includes('preg')){
     S.preg.s++;
     if(S.flags.musk&&S.preg.s===1)S.queue.push('muskloss');
@@ -1163,9 +1488,9 @@ function endSeason(){
   log(lines.join(''));
   S.t++;S.q++;if(S.q>3){S.q=0;S.y++;}
   S.ap=3;S.bribe=false;S.last=null;
-  const news=NEWS[S.t]&&!(S.t===15&&S.flags.hfDead)?NEWS[S.t]:'';
+  const news=NEWS[S.t]&&!(S.t===15&&S.flags.hfDead)?newsText4(S.t):'';
   if(news)log('宫中动静：'+news);
-  S.report={date:yearCN('雍正',S.q===0?S.y-1:S.y)+SEASONS[(S.q+3)%4],lines,chg,news};
+  S.report={date:yearCN('雍正',S.q===0?S.y-1:S.y)+SEASONS[(S.q+3)%4],lines,chg,news,n};
   if(S.t>=FINAL_T){S.queue=['finale'];S.forced=[];return;}
   schedule();
 }
@@ -1186,249 +1511,693 @@ function pickRandom(){
   return c[c.length-1][0];
 }
 
-/* ───────── 渲染 ───────── */
-function relWord(v){return v>=50?'倚重':v>=15?'和睦':v>-15?'平常':v>-50?'嫌隙':'敌视';}
-function statRow(k,danger){const v=S.st[k];return`<div class="stat${danger?' danger':''}"><span>${KEYS[k]}</span><span class="sb"><i style="width:${v}%"></i></span><span class="sv">${v}</span></div>`;}
-function relRow(nm,v,gone){
-  if(gone)return`<div class="rel gone"><span>${nm}</span><span class="rs">${gone}</span></div>`;
-  return`<div class="rel"><span>${nm}</span><span class="rb"><i class="${v<0?'neg':'pos'}" style="width:${Math.abs(v)/2}%"></i></span><span class="sv">${v>0?'+':''}${v}</span><span class="rw">${relWord(v)}</span></div>`;
+
+/* ═══ src/v4.js ═══ */
+/* v4 · 五卷一生。t 保留原剧情年份坐标，turn 是32季经营轮次。 */
+const TIMES4=[0,1,2,3,4,5,6,7,8,9,11,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,49,50];
+const volumeName=s=>['初入','翊坤','风起','中宫','大渐'][s.turn<4?0:s.turn<11?1:s.turn<18?2:s.turn<25?3:4];
+const ARTS4={qin:'琴',dance:'舞',poem:'诗',stitch:'绣',food:'厨',medicine:'医'};
+const PERSON4={man:['宗族名声','守住家门的清白','联络宗亲，声势与君疑一并上涨'],han:['父亲的案卷','查清账目，不替谁递刀','以才名换荐书，母家也被推上风口'],low:['家书里的欠账','替寒门亲眷留一条活路','借六宫人情，偿还家中的旧债'],bao:['景仁宫的名册','先让身边的宫女平安','掌事的钥匙，既是权也是责'],criminal:['尘封的旧案','只认能够核验的证据','请太后过问，必须有人愿意作证'],doctor:['父亲的脉案','救人之前，先辨清药性','留下一份脉案，也会得罪开方的人'],nian:['翊坤宫的旧恩','保住故人，别替权势殉葬','年家鼎盛时，每份礼都有价'],mongol:['故乡的来信','在礼法与家乡之间作自己的选择','寿康宫的庇护，也有家门的期望'],weaver:['织造府的账册','账目清楚，银子才干净','修补六宫衣物，换来人情与商路'],orphan:['旧邸遗物','让旧人安居，不再被翻出旧账','请太后保存旧物，换取一线宽宥']};
+Object.assign(ORIGINS,{
+ bao:{name:'包衣宫女',sub:'内务府包衣',desc:'先在宫中当差。用识人和人情换一条出路。',rank:0,st:{silver:22,pres:3,charm:38,wit:62},rel:{hh:8},home:8},
+ criminal:{name:'罪臣之女',sub:'家门待雪',desc:'旧案未平，风声最紧。搜集证物可替家人翻案。',rank:0,st:{silver:25,pres:4,charm:42,wit:65},rel:{th:-8},home:5},
+ doctor:{name:'太医之女',sub:'杏林之家',desc:'药圃收获翻倍，验毒可以留下证物。',rank:0,st:{silver:45,pres:8,charm:40,wit:58},rel:{th:5},home:15},
+ nian:{name:'年家远亲',sub:'翊坤旧亲',desc:'华妃护短，年氏之祸也最难抽身。',rank:1,st:{silver:130,pres:22,charm:44,wit:28},rel:{hf:25,hh:-15},home:32},
+ mongol:{name:'科尔沁格格',sub:'草原来客',desc:'太后庇护，宫规却须重新学起。',rank:2,st:{silver:110,pres:22,charm:45,wit:24},rel:{th:25},home:30},
+ weaver:{name:'江南织造之女',sub:'江南织局',desc:'家资厚，账册也会把你牵入前朝。',rank:1,st:{silver:220,pres:8,charm:54,wit:42},rel:{hh:5},home:45},
+ orphan:{name:'旧邸遗孤',sub:'旧邸故人',desc:'太后念旧，皇帝却记得你的来处。',rank:0,st:{silver:50,pres:6,charm:44,wit:60},rel:{th:18},home:12}
+});
+const baseNew4=newState;
+newState=function(name,origin,trait){const s=baseNew4(name,origin,trait);if(origin==='doctor')s.v4.herbs=3;if(origin==='orphan'||origin==='criminal')s.st.sus=18;if(origin==='nian')s.arc.hf='party';if(origin==='bao')s.flags.servant=1;return s;};
+function initV4(s){
+ s.v4=s.v4||{};for(const[k,v]of Object.entries({mem:{},plots:[],evidence:[],herbs:0,art:'poem',mastery:0,helpers:{yl:0,doctor:0,su:0},world:[],personal:0}))if(s.v4[k]==null)s.v4[k]=v;
+ if(!Number.isInteger(s.turn))s.turn=Math.max(0,TIMES4.findLastIndex(t=>t<=s.t));s.rng=s.rng||17391;return s;
 }
-function courtHTML(){
-  const a=S.arc,rows=[];
-  const hhL={party:'你是她的人',double:'假意投靠',refused:'未入其门',enemy:'敌对',leverage:'互相牵制'}[a.hh];
-  rows.push(['皇后',S.flags.hhDown?'禁足景仁宫':(hhL||'——')]);
-  rows.push(['华妃',hfActive(S)?({party:'你是她的人',neutral:'中立',enemy:'结怨'}[a.hf]||'——'):(S.flags.hfDead||S.t>=15?'殁于冷宫':'冷宫')]);
-  const fs={null:'同住偏殿',you:'与你交好',hh:'已投景仁宫',double:'两边传话',cold:'冷宫',dead:'已殁'}[a.fang.side];
-  rows.push(['方氏',(['cold','dead'].includes(a.fang.side)?'':fangTitle()+' · ')+fs]);
-  if(S.t>=12)rows.push(['祺贵人',S.flags.qiDown?'失势':({feud:'结仇',peace:'面和'}[a.qi]||'——')]);
-  rows.push(['云苓',{new:'初到',trusted:'信任',watched:'提防',sworn:'死忠',torn:'心事重重',coerced:'如常',swapped:'已换作秋纹',dead:'已故',out:'已出宫',stay:'留宫做姑姑'}[a.yl]]);
-  rows.push(['家中',{ok:'平安',rising:'得势',resigned:'致仕回乡',fallen:'获罪流放'}[a.fam]+(S.flags.broDead?' · 兄长战殁':'')]);
-  if(a.prince)rows.push(['果郡王',{proper:'守礼',cool:'疏远',secret:'私交',cut:'已出京'}[a.prince]]);
-  return`<dl class="court">${rows.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`;
+function validSave4(s){return s&&[3,4].includes(s.v)&&!s.dead&&typeof s.name==='string'&&ORIGINS[s.origin]&&TRAITS[s.trait]&&s.st&&s.rel&&s.arc&&s.arc.fang&&s.flags&&s.at&&s.cd&&s.done&&s.memo&&Array.isArray(s.queue)&&Array.isArray(s.kids)&&Array.isArray(s.log)&&Number.isInteger(s.t)&&s.t>=0&&s.t<=50;}
+function migrate4(s){if(!validSave4(s))return null;const v=JSON.parse(JSON.stringify(s));if(v.v===3){v.turn=Math.max(0,TIMES4.findLastIndex(t=>t<=v.t));v.t=TIMES4[v.turn];v.y=1+Math.floor(v.t/4);v.q=v.t%4;v.v=4;initV4(v);v.v4.migrated=true;v.queue=(v.queue||[]).filter(id=>EV[id]);v.report=null;}else initV4(v);return v;}
+function resumeV4(){const current=load('hgssb4_save',null);if(current)return migrate4(current);if(localStorage.getItem('hgssb4_save')!==null)return null;const old=load('hgssb3_save',null);if(!validSave4(old))return null;if(!load('hgssb3_save_bak',null))store('hgssb3_save_bak',old);const s=migrate4(old);store('hgssb4_save',s);return s;}
+function checkpoint(){if(S&&!S.dead)store('hgssb4_checkpoint',S);}
+function rewriteLife(){const old=load('hgssb4_checkpoint',null);const restored=migrate4(old);if(!restored)return;S=restored;S.dead=false;deadInfo=null;S.cere=null;tab='season';view='game';lastSt=null;save();render();app.classList.add('rewrite-line');toTop();}
+function softFailure(id,pick){if((S.turn||0)>=4)return false;const old=load('hgssb4_checkpoint',null);if(old)S=migrate4(old)||S;S.flags.in=1;const chg=apply({fav:-5,pres:-4,hp:-6,sus:5});S.ban=Math.max(S.ban,1);S.pending={title:'降罪',place:'宫门内',text:'嬷嬷替你求下了情。禁足一季，罚俸谢罪。\n这一次活着，代价记在了宫里。',pick,chg,note:'卷一保护：失误保留惩罚，不会直接结束一生。'};log('初入宫失仪：禁足、罚俸，暂免重罪。');save();render();return true;}
+function recordMemory(before,reason){initV4(S);for(const k of ['hh','hf','th','fang']){const now=k==='fang'?S.arc.fang.rel:S.rel[k],d=now-before[k];if(!d)continue;const mem=S.v4.mem[k]||(S.v4.mem[k]=[]);mem.unshift({t:S.t,turn:S.turn,good:d>0,text:reason});let good=0,bad=0;S.v4.mem[k]=mem.filter(x=>x.good?++good<=3:++bad<=3);}}
+function evidence4(id,label,source){if(!S.v4.evidence.some(e=>e.id===id&&!e.used))S.v4.evidence.push({id,label,source,t:S.t,used:false});}
+function worldChange(id,text){if(S.v4.world.some(x=>x.id===id))return;S.v4.world.push({id,text,date:dateStr()});log('与原著不同：'+text);}
+function compactStory(raw,moods){const text=String(raw||'');const chunks=text.split(/\n/).filter(Boolean);const first=(chunks[0]||'').match(/^.{1,100}[。！？]/)?.[0]||(chunks[0]||'').slice(0,100);if(text.length<=130)return storyHTML(text,moods);return storyHTML(first,moods)+'<details><summary>展开完整剧情</summary>'+storyHTML(text,moods)+'</details>';}
+
+// 稳定的原剧情时序；跳过的年份大事仍按顺序排入队列。
+const baseSeason4=endSeason;
+endSeason=function(){if(S.dead||S.queue.length||S.pending||S.report)return false;checkpoint();initV4(S);const prev=S.t,turn=S.turn;const oldN=S.nights;baseSeason4();if(S.dead)return;
+ S.turn=Math.min(31,turn+1);const target=TIMES4[S.turn];
+ for(let t=prev+2;t<=target;t++)for(const id of SCRIPT[t]||[])if(!S.queue.includes(id)&&S.at[id]==null&&(!EV[id].cond||EV[id].cond(S)))S.queue.push(id);
+ S.t=target;S.y=1+Math.floor(target/4);S.q=target%4;
+ if(S.turn>=31){S.queue=['finale'];S.forced=[];return;}
+ if(S.nights>oldN&&!S.queue.includes('v4_night'))S.queue.push('v4_night');
+ if([4,13,24].includes(S.turn))S.queue.push('v4_origin');
+ if([8,17,25].includes(S.turn))S.queue.push('v4_rewrite');
+ if(S.v4.helpers.yl&&ylAlive(S)){S.intel=true;S.v4.helpers.yl--;}
+ if(S.v4.helpers.doctor){apply({hp:5});S.v4.herbs++;S.v4.helpers.doctor--;}
+ if(S.v4.helpers.su){S.st.fav=clamp(S.st.fav+3,0,100);S.v4.helpers.su--;}
+ const enemy=hfActive(S)&&S.arc.hf!=='party'?'hf':!S.flags.hhDown?'hh':null;
+ if(enemy&&S.turn>=4&&!S.v4.plots.length&&S.rel[enemy]<20&&S.turn%3===1)S.v4.plots.push({enemy,progress:0,known:false,kind:S.preg?'药中手脚':'搜宫栽赃'});
+ for(const p of S.v4.plots){p.progress++;if(S.intel||S.st.loyal>=70)p.known=true;if(p.progress>=3&&!S.queue.includes('v4_confront')){S.queue.push('v4_confront');S.v4.duel={step:0,score:0,enemy:p.enemy};}}
+ S.v4.plots=S.v4.plots.filter(p=>p.progress<3);
+ if(S.v4.world.some(x=>x.id==='hfSaved'))S.queue=S.queue.filter(id=>id!=='hf_cold');
+};
+// 冷落成为可经营的低谷：仍会有退出风险，给予更长的可见缓冲。
+const baseVitals4=checkVitals;
+checkVitals=function(){if(S.st.hp<=0)return'x_ill';if(S.st.sus>=100)return'x_sus';if(S.cold>=9)return'x_cold';return null;};
+
+Object.assign(EV,{
+ v4_baoEntry:{title:'宫门内',place:'内务府',text:'你先从景仁宫宫女做起。宫门里每个人都有一条自己的路。',choices:[{t:'先认清规矩，照顾身边的人。',run:s=>{s.flags.in=1;return{text:'你领了腰牌。此时尚是宫女，尚无绿头牌。',d:{loyal:12,wit:4}};}}]},
+ v4_night:{title:'夜话',place:'养心殿',text:'朱笔搁下。皇帝问：「今日可有什么趣事？」',choices:[
+ {t:'说一段诗文，只谈眼前。',run:s=>({text:'他听了，眉头松了一些。',d:{fav:3+Math.floor(s.v4.mastery/30),sus:-2}})},
+ {t:'问安解忧，不问奏章。',run:s=>{evidence4('pillow','枕边话','侍寝夜话');return{text:'他说起一桩宫中旧账。你记下了人名。',d:{fav:4,wit:2}};}},
+ {t:'为宫人求一份体恤。',run:s=>({text:'皇帝允了，却也提醒你不要事事插手。',d:{loyal:10,sus:4,pres:3}})}]},
+ v4_origin:{title:s=>PERSON4[s.origin][0],place:'家书',text:s=>PERSON4[s.origin][1]+'。这封信，只有你能回答。',choices:[
+ {t:'自己承担，保住家人。',cost:15,run:s=>{s.v4.personal++;s.arc.fam='ok';return{text:'家中收到了你的回信。这个决定，他们记得。',d:{pres:5,hp:-3}};}},
+ {t:'请可靠的人帮忙，留下凭据。',need:s=>s.st.wit>=45,needText:'心计45',run:s=>{s.v4.personal++;evidence4('origin'+s.v4.personal,PERSON4[s.origin][0],'家门线');return{text:PERSON4[s.origin][2]+'。',d:{wit:3,sus:3,th:4}};}},
+ {t:'暂不卷入，先顾眼前。',run:s=>({text:'你把信收进妆奁。没有许下做不到的承诺。',d:{hp:4,silver:5}})}]},
+ v4_rewrite:{title:'这一页，由你改写',place:'六宫',text:'原本的故事到了岔路。你可以改写它；不消耗点数，也不限制次数。代价来自这一次选择本身。',choices:[
+ {t:'保全华妃性命，改为远居。',show:s=>s.turn<11&&!s.flags.hfDead,run:s=>{s.flags.hfGone=1;s.flags.hfDead=0;worldChange('hfSaved','华妃离开权势争夺，远居静养。');return{text:'翊坤宫的灯熄了，人却活着。年氏旧部的来信还得由你面对。',d:{pres:-6,hh:-10,sus:8}};}},
+ {t:'让甄嬛留在宫中，守住证人。',show:s=>s.turn>=11&&s.turn<25,run:s=>{s.flags.zhenStay=1;worldChange('zhenStay','甄嬛没有出宫，旧案的证人得以留在六宫。');evidence4('witness','证人证言','改写甄嬛出宫');return{text:'人留下了，景仁宫也开始留意你。',d:{hh:-12,pres:5,sus:5}};}},
+ {t:'先安置宫中旧人，不争储位。',show:s=>s.turn>=25,run:s=>{s.flags.peopleSafe=1;worldChange('peopleSafe','宫中旧人提前得到安置，储位风波不再牵连她们。');return{text:'你写下的是去处，不是罪名。',d:{silver:-20,loyal:12,pres:5}};}},
+ {t:'尊重她们的选择，保留原来的走向。',run:()=>({text:'你没有替她们决定一生。',d:{hp:4,sus:-3}})}]},
+ v4_confront:{pre:s=>{if(!s.v4.duel)s.v4.duel={step:0,score:0,enemy:hfActive(s)?'hf':'hh'};return null;},title:'当殿对质 · 陈情',place:'养心殿',text:'对手呈上一份来历不明的证词。先稳住局面，再出证。',choices:[
+ {t:'逐项核对时间，不争口舌。',run:s=>{s.v4.duel.score+=12+Math.floor(s.st.wit/10);s.queue.splice(1,0,'v4_proof');return{text:'时间对不上。皇帝示意继续。',d:{}};}},
+ {t:'请念旧情，先听你说完。',run:s=>{s.v4.duel.score+=Math.floor(s.st.fav/3);s.queue.splice(1,0,'v4_proof');return{text:'圣心稍缓，仍要真凭实据。',d:{fav:-3}};}},
+ {t:'当场指责对方设局。',run:s=>{s.v4.duel.score-=8;s.queue.splice(1,0,'v4_proof');return{text:'气势压住了一瞬，空口指控却让皇帝皱眉。',d:{sus:5}};}}]},
+ v4_proof:{title:'当殿对质 · 出证',place:'养心殿',text:'一份证物只能在本局使用一次。拿出真正能核验的东西。',choices:[
+ {t:'呈上药渣、账册或证言。',need:s=>s.v4.evidence.some(e=>!e.used),needText:'未使用证物',run:s=>{const e=s.v4.evidence.find(e=>!e.used);e.used=true;s.v4.duel.score+=30;s.queue.splice(1,0,'v4_verdict');return{text:'「'+e.label+'」验明，来源是'+e.source+'。',d:{}};}},
+ {t:'请知情的方氏作证。',need:s=>s.arc.fang.rel>=30&&!['dead','cold'].includes(s.arc.fang.side),needText:'方氏好感30且可作证',run:s=>{s.v4.duel.score+=22;s.queue.splice(1,0,'v4_verdict');return{text:'方氏还记得你帮过她。她站了出来。',d:{fang:-15}};}},
+ {t:'没有证据，只能陈述所见。',run:s=>{s.v4.duel.score+=3;s.queue.splice(1,0,'v4_verdict');return{text:'你的话记入供词，但还不能推翻对方。',d:{}};}}]},
+ v4_verdict:{title:'当殿对质 · 裁断',place:'养心殿',text:s=>'圣心天平 '+(s.v4.duel?.score??s.v4.lastDuelScore??0)+' / 45。收束态度也会改变结局。',choices:[
+ {t:'到此为止，请还清白。',run:s=>finishDuel4(12,false)},
+ {t:'要求追查幕后，承担反噬。',run:s=>finishDuel4(s.st.wit>=65?18:-5,true)},
+ {t:'领罚结案，先保住性命。',run:s=>{s.v4.duel=null;return{text:'罚俸禁足，暂免追究。',d:{silver:-20,pres:-6,sus:-5}};}}]}
+});
+function counterDeath4(id){
+ const claims=['d_wugu','d_frame','d_liuben','d_scapegoat','d_blood','d_poison','d_poison2'];
+ if(!claims.includes(id)||!S.v4.evidence.some(e=>!e.used)||S.queue[0]?.startsWith('v4_'))return false;
+ S.v4.duel={step:0,score:-5,enemy:hfActive(S)?'hf':'hh',source:id};S.queue=['v4_confront',...S.queue.slice(1).filter(id=>!['v4_confront','v4_proof','v4_verdict'].includes(id))];S.pending=null;log('罪名落下前，你要求核验证物。');save();render();return true;
 }
-function arcsHTML(){
-  const items=ARCS.map(a=>{const d=a.ids.filter(id=>S.at[id]!=null).length;return d?`<li><span>${a.name}</span><span>${cnNum(d)} / ${cnNum(a.ids.length)}</span></li>`:'';}).join('');
-  return items?`<ul class="arcs">${items}</ul>`:'<p class="muted" style="margin:0;font-size:.8rem">尚未展开</p>';
+function finishDuel4(extra,counter){S.queue=[S.queue[0],...S.queue.slice(1).filter(id=>!['v4_confront','v4_proof','v4_verdict'].includes(id))];const duel=S.v4.duel;S.v4.lastDuelScore=duel.score+extra;const win=duel.score+extra>=45;S.v4.duel=null;if(win){if(counter){if(duel.enemy==='hh'&&thAlive(S))return{text:'太后保住中宫。你洗清了罪名，暂时动不了皇后。',d:{sus:-10,pres:6,th:-5}};if(duel.enemy==='hh'){S.flags.hhDown=1;worldChange('hhDown','皇后的谋划因对质证据提前败露。');}else{S.flags.hfGone=1;worldChange('hfDown','华妃的搜宫因证据反转而被中止。');}}return{text:'罪名撤下。前日的人情与证物，今日救了你。',d:{sus:-16,pres:10}};}return{text:'证据不足，罚俸禁足。先把眼前这一关熬过去。',d:{pres:-8,sus:12,hp:-8}};}
+// 让原著改写与后续新闻、处置使用同一事实。
+const oldNian4=EV.nianfall;
+EV.nianfall={...oldNian4,valid:s=>!s.v4.world.some(x=>x.id==='hfSaved')};
+const oldNews20=NEWS[20];
+function newsText4(t){if(t===15&&S.v4.world.some(x=>x.id==='hfSaved'))return'华妃奉旨远居，年党清算仍在继续。';if((t===20||t===29)&&S.flags.zhenStay)return'甄嬛留宫，原先的出宫与回宫之路已改变。';return NEWS[t];}
+// 旧剧情的显式致命选项标注风险；卷一则明确降罪。
+for(const e of Object.values(EV))for(const c of e.choices||[])if(/death\s*:/.test(String(c.run)))c.risk=/death\s*:\s*['"](?:e_|d_shiyi|d_climb)/.test(String(c.run))?'离宫结局':'重罪风险';
+// 十个出身的两个独立归宿，具有对应家门线与资源门槛。
+for(const [o,profile] of Object.entries(PERSON4))for(const kind of ['home','honor']){
+ const id='e_'+o+'_'+kind;ENDS[id]={name:ORIGINS[o].name+(kind==='home'?'·归途':'·留名'),kind:kind==='home'?'out':'good',seal:kind==='home'?'归':'荣',src:ORIGINS[o].name+'线',status:kind==='home'?'奉旨出宫，归家自立':'受新朝封赠，安居宫中',text:profile[0]+'终于有了答复。\n'+(kind==='home'?'你带着亲人走出了旧事。宫门之外，也有可以自己决定的一生。':'你保住家人，也为宫中的旧人留了去处。新朝的档册里，记得你的名字。'),note:'本结局为游戏改编分支，取决于本局家门线选择，不作为剧集或史实的原剧情。'};ORDER.push(id);
+ EV.finale.choices.unshift({t:kind==='home'?'自请出宫，归家自立。':'接受新朝封赠，安置家门。',show:s=>s.origin===o,need:s=>s.v4.personal>=(kind==='home'?1:2)&&(kind==='home'?s.st.silver>=20:s.st.pres>=25),needText:kind==='home'?'家门选择1次、银20':'家门选择2次、威望25',run:()=>({death:id})});
 }
-function dossier(dead){
-  const kids=S.kids.length?S.kids.map(k=>(k.sex==='子'?'阿哥':'公主')+(k.dead?'（殇）':'')).join('、'):'无';
-  const o=ORIGINS[S.origin];
-  const f=S.arc.fang;
-  return`<aside class="dossier">
-    <div class="portrait${dead?' dead':''}">${portrait(S,dead)}</div>
-    <div class="idblock"><h3>${esc(title())}</h3><p>${palace()} · 年${cnNum(age())}<br>${o.sub}${o.name.includes('旗')?'':o.name} · 性情${TRAITS[S.trait].name}</p></div>
-    <div class="stats-wrap">
-      <div class="sect"><h4>指标</h4>${statRow('fav')}${statRow('pres')}${statRow('charm')}${statRow('wit')}${statRow('hp',S.st.hp<30)}${statRow('loyal')}${statRow('sus',true)}
-        <dl class="kv" style="margin-top:6px"><dt>银两</dt><dd>${S.st.silver} 两</dd><dt>年例</dt><dd>${ALLOW[S.rank]} 两</dd><dt>侍寝</dt><dd>${S.nights} 回</dd><dt>子嗣</dt><dd>${kids}${S.preg?' · 有孕':''}</dd>${S.ban?'<dt>禁足</dt><dd>'+S.ban+' 季</dd>':''}</dl></div>
-      <div class="sect"><h4>人情</h4>${relRow('皇后',S.rel.hh,S.flags.hhDown?'禁足景仁宫':null)}${relRow('华妃',S.rel.hf,hfActive(S)?null:'已失势')}${relRow('太后',S.rel.th,thAlive(S)?null:'已薨')}${relRow('方氏',f.rel,['dead','cold'].includes(f.side)?(f.side==='dead'?'已殁':'冷宫'):null)}</div>
-    </div>
-    <div class="sect"><h4>六宫</h4>${courtHTML()}</div>
-    <div class="sect"><h4>剧情线</h4>${arcsHTML()}</div>
-  </aside>`;
+function v4Action(a){if(!S||S.dead||S.queue.length||S.pending||S.report||S.ap<=0)return;checkpoint();initV4(S);const [k,id]=a.split(':');let text='',d={};
+ if(k==='art'){S.v4.art=id;text='主修'+ARTS4[id]+'，从今天开始。';}
+ else if(k==='practice'){S.v4.mastery=Math.min(100,S.v4.mastery+8);d={charm:3,pres:S.v4.mastery>=50?2:0};text=ARTS4[S.v4.art]+'艺精进，专精 '+S.v4.mastery+'/100。';}
+ else if(k==='rest'){d={hp:8,sus:-8,fav:-2};text='闭门守礼，既养身体，也让风声慢慢淡去。';}
+ else if(k==='herb'){S.v4.herbs+=S.origin==='doctor'?2:1;text='御药房领到药材。';d={wit:1};}
+ else if(k==='medicine'){if(S.v4.herbs<2)return;S.v4.herbs-=2;d={hp:15,sus:-3};if(S.preg)S.preg.guard=(S.preg.guard||0)+1;text='药材做成调养方，身子缓了过来。';}
+ else if(k==='test'){if(S.v4.herbs<1)return;S.v4.herbs--;evidence4('medicine'+S.turn,'封存药渣','药圃验毒');text='药渣封存，来日可以当殿核验。';if(S.flags.musk){S.flags.musk=0;worldChange('muskFound','你验出近身香料的问题，香方被撤换。');}}
+ else if(k==='helper'){if(S.st.silver<15)return;if(id==='yl'&&!ylAlive(S))return;S.st.silver-=15;S.v4.helpers[id]=3;text=({yl:'云苓打探暗流',doctor:'温太医照看药圃',su:'苏培盛留心敬事房'})[id]+'，持续三季。';}
+ else if(k==='scout'){S.intel=true;S.v4.plots.forEach(p=>p.known=true);evidence4('ledger'+S.turn,'往来账册','打探暗流');text='看清了风声，也留下可以核验的账册。';}
+ else if(k==='stop'){const p=S.v4.plots[0],e=S.v4.evidence.find(e=>!e.used);if(!p||!e)return;e.used=true;S.v4.plots.shift();d={pres:3,sus:2};text='证物摆在桌上，这场谋划被暂时按下。';}
+ else if(k==='favor'){if(S.rel.th<25||!thAlive(S)||!S.v4.plots.length)return;S.rel.th-=20;S.v4.plots.shift();text='太后过问了此事。你欠下的人情，今日还清。';}
+ else if(k==='visit'){if(id==='hf'&&!hfActive(S)||id==='th'&&!thAlive(S)||id==='hh'&&S.flags.hhDown)return;d={[id]:6};text='走动之后，宫里的人记下了这份来往。';}
+ else return;
+ S.ap--;const chg=apply(d);S.last={name:'宫中经营',text,chg};log(text);save();render();floatChips(chg);
 }
-function logHTML(){return`<section class="log"><h4>起居注</h4><ol>${S.log.slice(0,40).map(l=>`<li><span>${l.d}</span>${fill(l.text)}</li>`).join('')||'<li><span></span>尚无记载。</li>'}</ol></section>`;}
-function seasonHead(){
-  const dots=[0,1,2].map(i=>`<i class="${i<S.ap?'on':''}"></i>`).join('');
-  const busy=S.queue.length||S.report||S.pending;
-  return`<div class="season"><h2>${dateStr()}</h2><span class="sub">第${cnNum(S.t+1)}季 / 共五十一季${S.queue.length&&!S.pending&&!S.report?` · 本季尚有 ${cnNum(S.queue.length)} 件事`:''}</span>${!busy?`<span class="ap">行动 ${dots}</span>`:''}</div>`;
+function v4Panel(){initV4(S);const v=S.v4,can=S.ap>0&&!S.report;const button=(a,t,ok=true)=>`<button data-v4="${a}" ${can&&ok?'':'disabled'}>${t}</button>`;
+ const plots=v.plots.map(p=>`<div class="v4-plot">${p.enemy==='hf'?'翊坤宫':'景仁宫'} ${'●'.repeat(p.progress)+'○'.repeat(3-p.progress)} · ${p.known?p.kind:'有动静'}<small>${3-p.progress} 季后发动，可用证物或人情打断</small></div>`).join('');
+ return`<section class="panel"><div class="ph"><h3>暗流 · 心腹</h3><span class="muted">${volumeName(S)}卷</span></div>${plots||'<p class="muted">暂未发现新的谋划</p>'}<div class="v4-actions">${button('rest','闭门调养 · 康健↑ 君疑↓')}${button('scout','打探 · 留下证物')}${button('stop','出证打断',v.plots.length&&v.evidence.some(e=>!e.used))}${button('favor','请太后出面',v.plots.length&&S.rel.th>=25&&thAlive(S))}${button('helper:yl','云苓 · 三季耳目 · 银15',S.st.silver>=15&&ylAlive(S))}${button('helper:doctor','温太医 · 三季调养 · 银15',S.st.silver>=15)}${button('helper:su','苏培盛 · 三季照应 · 银15',S.st.silver>=15)}</div><details class="note"><summary>药圃与才艺</summary><div class="v4-meta"><span>药材 ${v.herbs}</span><span>${ARTS4[v.art]}艺 ${['初学','入门','娴熟','名家'][Math.min(3,Math.floor(v.mastery/25))]} ${v.mastery}/100</span></div><div class="v4-actions">${button('herb','采药')}${button('medicine','调养 · 药材2',v.herbs>=2)}${button('test','验毒留证 · 药材1',v.herbs>=1)}${button('practice','精修'+ARTS4[v.art])}${Object.entries(ARTS4).filter(([id])=>id!==v.art).map(([id,n])=>button('art:'+id,'改修'+n)).join('')}</div></details></section>`;
+}
+function memoryHTML(){initV4(S);return`<section class="panel"><div class="ph"><h3>人心账</h3><span class="muted">各记三恩三怨</span></div>${Object.entries(S.v4.mem).map(([id,ms])=>`<div class="v4-mem"><b>${KEYS[id]}</b>${ms.map(m=>`<p>${m.good?'恩':'怨'} · 第${m.turn+1}季 · ${esc(m.text)}</p>`).join('')}</div>`).join('')||'<p class="muted">一言一行，都会留下记忆。</p>'}</section>`;}
+function inventoryHTML(){initV4(S);return`<section class="panel"><div class="ph"><h3>妆奁 · 证物</h3></div><div class="v4-meta">${S.v4.evidence.map(e=>`<span>${e.used?'已用':'可用'} · ${esc(e.label)}</span>`).join('')||'<span>尚无证物 · 打探或验毒可获得</span>'}</div><p class="muted">家门线 ${S.v4.personal}/3 · 改写 ${S.v4.world.length} 次 · 朱笔勾销不限次数</p>${load('hgssb4_checkpoint',null)?'<button class="btn ghost wide" data-rewrite>重选上一步 · 不限次数</button>':''}</section>`;}
+function worldHTML(){initV4(S);return`<section class="panel"><div class="ph"><h3>六宫来往</h3></div><div class="v4-actions">${[['hh','景仁宫'],['hf','翊坤宫'],['th','寿康宫']].map(([id,n])=>`<button data-v4="visit:${id}" ${S.ap>0&&!S.queue.length&&!S.report&&!S.dead&&(id!=='hf'||hfActive(S))&&(id!=='th'||thAlive(S))&&(id!=='hh'||!S.flags.hhDown)?'':'disabled'}>${n} · ${KEYS[id]} ${S.rel[id]}</button>`).join('')}</div><h3 class="v4-title">已改写的大事</h3>${S.v4.world.map(x=>`<p class="v4-world">${x.date} · ${x.text}</p>`).join('')||'<p class="muted">尚未改写</p>'}</section>`;}
+
+/* ═══ src/v4-expansion.js ═══ */
+/* 完整六段家门线：每条线独立情境、凭据、抉择与归宿。 */
+const HOME_STAGES4={
+ man:[['宗谱来信','族长要把你的名字添进新谱，也想借你的位分举荐子侄。'],['一封荐书','堂兄求你递荐书。字写得漂亮，履历却有一处空白。'],['祠堂银','族中要修祠堂，送来的账目混着一笔来路不明的捐银。'],['家门与宫门','族人盼你替宗族站队。太后却问，你先是族女，还是宫中之人。'],['撤下的名字','堂兄卷入旧案，宗谱上有人要把他的名字悄悄刮掉。'],['重修家谱','新朝将至。你要留下显赫的姓氏，还是一部不遮掩过错的家谱。']],
+ han:[['案牍余墨','父亲寄来一页残稿，说同僚的案卷少了一份签押。'],['查账的人','查账的书吏失踪了。家中问你，要不要替他留住妻儿。'],['两份供词','一份供词能救父亲，却会把责任推给一个早已罢官的人。'],['宫中抄本','内务府留着另一份抄本。借阅会被记名，放过它便难再查。'],['致仕之请','父亲愿意致仕，只求不再让家人活在传唤声里。'],['墨迹未干','案子终于有了复核。你可以保住官位，也可以让文书留下完整的真相。']],
+ low:[['家中米价','母亲的信写得轻描淡写，末尾却问一两银能买多少米。'],['弟妹进学','弟弟交不起束脩。有人愿出钱，条件是日后借你的名头。'],['抵押的宅契','老宅的契纸到了放债人手里。对方托宫人带来一句“都好商量”。'],['寒门同乡','一个同乡宫女求你作保，她想把病母接到城外。'],['归乡的路费','家中备好了出路，只差一笔能公开入账的路费。'],['门上的旧锁','那扇旧门终于可以修了。你要的是显贵匾额，还是家人安睡的一间屋。']],
+ bao:[['宫女名册','同房宫女被写上调往苦差的名册。她从来没有得罪过人。'],['一串钥匙','掌事姑姑让你保管库房钥匙，也把上月的亏空交到了你手上。'],['放出宫的日子','一个宫女满了年限，却因名册上年龄写错，被留了下来。'],['被扣的工钱','针线房说赏钱未到，账上却写着众人已经领讫。'],['姑姑的去留','曾经照顾过你的姑姑病了。她想回乡，主位想留她。'],['自己的名册','你终于有资格改这份名册。是把忠心的人都留下，还是让她们自己选。']],
+ criminal:[['旧案残页','父亲的案卷剩下一页副本，上面的日期和判词对不上。'],['不肯署名的人','一个旧吏愿讲实话，但不肯在纸上写自己的名字。'],['翻供的代价','对方答应撤掉你家的罪名，条件是你承认案中另一家有罪。'],['第三份账','新账目证明钱粮另有去处。送呈之前，必须查清经手的人。'],['家人的决定','家人说，昭雪重要，活着回来也重要。他们不想你赔上一生。'],['开封的案匣','案匣重开。你可以换一纸赦免，也可以留下能让后来人复核的证据。']],
+ doctor:[['药柜旧签','父亲的药柜被人换了签。相似的药名，分量却差得很远。'],['不肯服药的病人','一位宫女怕被诊出重病赶走，藏起了每日的药。'],['谁开的方','宫中送来一张无落款的方子。有人催你说它没有问题。'],['夜半脉案','病人并未病重，脉案却写着命在旦夕。你发现有人在做局。'],['太医院的门槛','父亲可以升任，也可能因此一生都不能说“不”。'],['留给后人的方','你整理多年脉案，决定哪些经验能传下去，哪些错必须署名纠正。']],
+ nian:[['翊坤旧礼','年家送来礼物，要你在请安时替华妃多说一句好话。'],['盛时的账','亲族把借条算成赏赐。你知道，年家的好日子不会永远持续。'],['清算之后','年氏失势后，旧仆来求一条活路。他手里还握着昔日账册。'],['一个姓氏','远房小妹想隐去姓氏成婚。族里说她忘了旧恩。'],['冷下来的炉火','旧宅的炭断了。送炭能救人，也会让你再被问起站队。'],['旧恩新路','你能留下的是对故人的情分，还是对旧权势的不甘。']],
+ mongol:[['草原来书','家中寄来的信写着故乡的风，也写着要你在寿康宫争一席地位。'],['宫规与旧俗','一件家乡贺礼不合宫规。退回会伤母亲，留下会被人借题发挥。'],['远嫁的妹妹','妹妹将远嫁。她的信只问，宫门里的你是否也有说“不”的机会。'],['太后的嘱托','太后要你顾全宗族。你却看见另一位新人的眼泪。'],['没有归期的马车','故乡派来的马车等在京外，带来病讯，也带来一封求官的信。'],['两种乡音','你已经懂得宫规，也没有忘记故乡。最后这封回信，由你自己落款。']],
+ weaver:[['少了一匹缎','贡缎账目少了一匹，织工却说是总管提前取走了。'],['河上的船','运料的船被扣。替谁写一张担保，决定织工们能否拿到工钱。'],['旧衣新账','宫中旧衣被当成新贡记账，牵扯着父亲的签押。'],['不肯盖印','父亲不肯给一批次料盖印，同僚开始说他不识抬举。'],['商路与官路','有人愿保住织造府，代价是让你替他的货一路放行。'],['经纬有序','你把真假账册分开。家业是留下几座库房，还是让织工凭手艺吃饭。']],
+ orphan:[['旧邸遗物','母亲留下的匣子重见天日。里面有旧主的字，也有普通人的家书。'],['还活着的旧人','一位旧仆来找你，他怕自己的名字再次被写进清算名单。'],['太后的佛经','太后要你抄经。经书夹页里，藏着一张旧邸安置名册。'],['不该问的话','有人追问旧主当年说过什么。答得越多，可能越没有退路。'],['一纸除名','官府愿从旧名册上除去家人，条件是你指认另一位旧人。'],['合上的匣子','你决定哪些记忆值得保留，哪些名册应当永远不再成为刀。']]
+};
+const HOME_TURNS4=[4,8,13,18,24,28];
+function homeState4(s){return s.v4.home||(s.v4.home={done:[],trust:0,records:0,compromises:0});}
+for(const [origin,stages] of Object.entries(HOME_STAGES4))stages.forEach(([title,text],stage)=>{
+ const id=`home_${origin}_${stage}`;
+ const labels=[['拿出家用，先护住人','查清缘由，再写回信','借势换路，承下人情'],['不拿旁人作代价','留下可复核的凭据','接受眼前的庇护'],['先救急，后论得失','把两边的说法核对清楚','用沉默换暂时平安'],['问当事人自己的选择','让经手的人署名','按上位者的意思办'],['为归途作准备','公开能证明的部分','保住头衔，先不争辩'],['把选择还给家人','让真相留在档册里','合上旧事，接受封赠']][stage];
+ const result=(s,way)=>{const h=homeState4(s);if(h.done.includes(stage))return{text:'这一封信已经回过。',d:{}};h.done.push(stage);s.v4.personal=Math.max(s.v4.personal,h.done.length);
+  if(way===0){h.trust++;if(stage>=4)s.arc.fam='resigned';const extra=origin==='bao'?{loyal:5}:origin==='doctor'?{hp:4}:origin==='nian'?{hh:-3}:origin==='mongol'?{th:3}:{};return{text:`${labels[0]}。${stage===5?'这一次，家人的去处由他们自己选择。':'你把代价留给自己，没有转嫁给信中的人。'}`,d:{silver:-10,pres:3,sus:-2,...extra}};}
+  if(way===1){h.records++;evidence4(id,'家门凭据·'+title,ORIGINS[origin].name+'第'+(stage+1)+'段');if(stage===5&&h.records>=3){s.flags.homeCleared=1;worldChange('home_'+origin,ORIGINS[origin].name+'的旧事经过复核，完整记入档册。');}return{text:stage>0&&h.records>1?'你拿出之前留下的凭据。新旧说法终于连得上了。':'来历、日期、经手人一一记清。它能救人，也会招来追问。',d:{wit:3,pres:4,sus:3}};}
+  h.compromises++;if(stage>=4)s.arc.fam='rising';return{text:h.compromises>1?'旧人情还没还清，新人情又压在上面。眼前的路顺了，日后却须付出代价。':'庇护落在眼前。家中知道，这份好意并不是没有条件。',d:{silver:20,pres:5,sus:6,hh:3}};
+ };
+ EV[id]={title,place:ORIGINS[origin].name+' · 家门 '+(stage+1)+'/6',text:s=>text+(stage&&homeState4(s).trust>=2?' 家人记得，你从前也先护住了人。':stage&&homeState4(s).compromises>=2?' 以前承下的人情，还没有还清。':''),choices:[
+  {t:labels[0],need:s=>s.st.silver>=10,needText:'银两10',run:s=>result(s,0)},
+  {t:labels[1],need:s=>s.st.wit>=35,needText:'心计35',run:s=>result(s,1)},
+  {t:labels[2],run:s=>result(s,2)}]};
+});
+const seasonBeforeHome4=endSeason;
+endSeason=function(){const old=S.turn;const result=seasonBeforeHome4();if(S.turn===old||S.dead)return result;S.queue=S.queue.filter(id=>id!=='v4_origin');const index=HOME_TURNS4.indexOf(S.turn);if(index>=0){const id=`home_${S.origin}_${index}`;if(S.at[id]==null&&!S.queue.includes(id))S.queue.push(id);}return result;};
+// 先前v4进行中的家门事件映射到所在阶段，不抹去已作出的决定。
+const migrateBeforeHome4=migrate4;
+migrate4=function(raw){const s=migrateBeforeHome4(raw);if(!s)return null;const stage=Math.max(0,HOME_TURNS4.findLastIndex(t=>t<=s.turn));s.queue=s.queue.map(id=>id==='v4_origin'?`home_${s.origin}_${stage}`:id);artsState4(s);homeState4(s);return s;};
+function artsState4(s){const v=s.v4;v.artSkills=v.artSkills||{};if(v.artSkills[v.art]==null)v.artSkills[v.art]=v.mastery||0;v.artSecond=v.artSecond||null;return v;}
+function artPower4(s,id){const v=artsState4(s);return v.art===id?v.mastery:v.artSecond===id?v.artSkills[id]||0:0;}
+const actionBeforeArts4=v4Action;
+v4Action=function(a){if(!S||S.dead)return;const [key,id]=a.split(':');const v=artsState4(S);if(['art','minor','practice2'].includes(key)){
+ if(S.queue.length||S.pending||S.report||S.ap<=0||id&&!ARTS4[id])return;
+ if(key==='minor'&&(S.turn<11||v.mastery<25||id===v.art))return;
+ if(key==='practice2'&&!v.artSecond)return;
+ checkpoint();v.artSkills[v.art]=v.mastery;
+ if(key==='art'){if(id===v.artSecond){v.artSecond=v.art;}v.art=id;v.mastery=v.artSkills[id]||0;}
+ if(key==='minor')v.artSecond=id;
+ if(key==='practice2'){const k=v.artSecond;v.artSkills[k]=Math.min(100,(v.artSkills[k]||0)+6);}
+ S.ap--;const text=key==='practice2'?`兼修${ARTS4[v.artSecond]}艺 ${v.artSkills[v.artSecond]}/100`:`主修${ARTS4[v.art]}${v.artSecond?' · 兼修'+ARTS4[v.artSecond]:''}，各自进度保留。`;S.last={name:'才艺',text,chg:[]};log(text);save();render();return;
+ }
+ if(key.startsWith('palace'))return palaceAction4(key,id);
+ const result=actionBeforeArts4(a);if(key==='practice')v.artSkills[v.art]=v.mastery;return result;
+};
+const panelBeforeArts4=v4Panel;
+v4Panel=function(){const base=panelBeforeArts4();const v=artsState4(S),can=S.ap>0&&!S.report;const button=(a,t,ok)=>`<button data-v4="${a}" ${can&&ok?'':'disabled'}>${t}</button>`;
+ return base+`<details class="panel"><summary>才艺兼修 · ${v.artSecond?ARTS4[v.artSecond]+' '+(v.artSkills[v.artSecond]||0)+'/100':'卷三且主修25解锁'}</summary><div class="v4-actions">${v.artSecond?button('practice2','精修副项 · '+ARTS4[v.artSecond],true):''}${Object.entries(ARTS4).filter(([k])=>k!==v.art&&k!==v.artSecond).map(([k,n])=>button('minor:'+k,'兼修'+n,S.turn>=11&&v.mastery>=25)).join('')}</div><p class="muted">主副项分别成长；换主修不会把熟练度复制到新才艺。</p></details>`;
+};
+EV.v4_night.choices.push({t:'以熟练的副艺解忧，不谈朝政。',show:s=>!!artsState4(s).artSecond,need:s=>artPower4(s,s.v4.artSecond)>=25,needText:'副艺25',run:s=>({text:'平日的练习，到了灯下才显出从容。',d:{fav:6,sus:-4}})});
+EV.banquet.choices.push({t:'主副艺相和，以作品谢席。',need:s=>!!artsState4(s).artSecond&&s.v4.mastery>=50&&artPower4(s,s.v4.artSecond)>=25,needText:'主艺50、副艺25',run:s=>({text:'你没有争席间的口舌，只把两门技艺合成了一段完整的表演。',d:{fav:6,pres:6,hh:-3}})});
+
+/* 六宫图：线与节点状态均来自当前世界，不另造一份关系状态。 */
+const PALACES4=[['emperor','养心殿','皇帝',50,12],['hh','景仁宫','皇后',17,38],['hf','翊坤宫','华妃',83,38],['th','寿康宫','太后',17,84],['me','启祥宫','你',50,62],['fang','偏殿','方氏',83,84]];
+function palaceLive4(id){return id==='hf'?hfActive(S):id==='hh'?!S.flags.hhDown:id==='th'?thAlive(S):id==='fang'?!['dead','cold'].includes(S.arc.fang.side):true;}
+function palaceRel4(id){return id==='emperor'?S.st.fav-S.st.sus:id==='fang'?S.arc.fang.rel:id==='me'?0:S.rel[id];}
+function palaceColor4(id){return !palaceLive4(id)?'var(--muted)':palaceRel4(id)>=15?'var(--jade)':palaceRel4(id)<=-15?'var(--ver)':'var(--gold-d)';}
+function courtMap4(){const lines=PALACES4.filter(([id])=>id!=='me').map(([id,n,p,x,y])=>`<line x1="50" y1="62" x2="${x}" y2="${y}" stroke="${palaceColor4(id)}" stroke-width=".7" ${!palaceLive4(id)?'stroke-dasharray="2 2"':''}/>`).join('');
+ return`<section class="panel"><div class="ph"><h3>六宫图</h3><span class="muted">玉色交好 · 朱色有怨</span></div><div class="court-map"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${lines}</svg>${PALACES4.map(([id,n,p,x,y])=>`<button data-palace="${id}" style="--x:${x}%;--y:${y}%;--pc:${palaceColor4(id)}"><b>${n}</b><small>${p} · ${!palaceLive4(id)?'已离局':id==='me'?'你的宫室':relWord(palaceRel4(id))}</small></button>`).join('')}</div><div class="v4-meta"><span>年党 ${S.t<11&&!S.flags.hfGone?'显赫':'失势'}</span><span>母家 ${{ok:'平安',rising:'得势',resigned:'致仕',fallen:'获罪'}[S.arc.fam]}</span><span>中宫 ${S.flags.hhDown?'禁足':'在位'}</span></div></section>`;
+}
+const worldBeforeMap4=worldHTML;
+worldHTML=function(){return courtMap4()+worldBeforeMap4();};
+function palaceAction4(key,id){if(!S||S.dead||S.queue.length||S.pending||S.report||S.ap<=0||!palaceLive4(id)||id==='me')return;const relKey=id==='emperor'?'fav':id;const need=key==='palaceGift'?20:key==='palaceScout'?15:0;if(S.st.silver<need||key==='palaceAid'&&palaceRel4(id)<30)return;checkpoint();S.ap--;let d={silver:-need},text='';
+ if(key==='palaceGift'){d[relKey]=10;text='礼物送到了，宫中记下这份来往。';}
+ else if(key==='palaceScout'){S.intel=true;S.v4.plots.filter(p=>p.enemy===id).forEach(p=>p.known=true);evidence4('palace_'+id+'_'+S.turn,'宫室往来簿','六宫图打探');d.sus=3;text='耳目带回了往来簿，也可能有人察觉你的打探。';}
+ else if(key==='palaceAid'){d[relKey]=-15;d.sus=-10;S.v4.plots=S.v4.plots.filter(p=>p.enemy!==id);text='旧日的人情换来一次庇护，这笔账也还清了。';}
+ else {d[relKey]=5;text='见过礼、说过话，关系有了新的温度。';}
+ const before={...S.rel,fang:S.arc.fang.rel};const chg=apply(d);recordMemory(before,'六宫来往');S.last={name:'六宫来往',text,chg};log(text);save();render();floatChips(chg);
+}
+function openPalace4(id){const node=PALACES4.find(p=>p[0]===id);if(!node)return;document.getElementById('palace-sheet')?.remove();const active=palaceLive4(id),can=active&&id!=='me'&&!S.dead&&!S.queue.length&&!S.pending&&!S.report&&S.ap>0;const el=document.createElement('div');el.className='sheet-wrap';el.id='palace-sheet';el.innerHTML=`<div class="veil" data-palace-close></div><section class="sheet" role="dialog" aria-modal="true" aria-label="${node[1]}"><div class="grip"></div><h2>${node[1]} · ${node[2]}</h2><p>${!active?'该人物已退出当前宫局，不能再结交。':id==='me'?'这是你的宫室，妆奁与才艺可在宫册查看。':'关系 '+palaceRel4(id)+' · '+relWord(palaceRel4(id))}</p><div class="v4-actions">${[['palaceVisit','走动',true],['palaceGift','送礼 · 银20',S.st.silver>=20],['palaceScout','安插耳目 · 银15',S.st.silver>=15],['palaceAid','讨人情 · 关系30',palaceRel4(id)>=30]].map(([a,t,ok])=>`<button data-palace-act="${a}:${id}" ${can&&ok?'':'disabled'}>${t}</button>`).join('')}</div>${can?'':'<p class="muted">办完本季剧情、留有行动灯，才能走动。</p>'}<button class="btn ghost wide" data-palace-close>收起</button></section>`;document.body.append(el);el.querySelector('[data-palace-close].btn').focus();}
+document.addEventListener('click',e=>{const open=e.target.closest('[data-palace]');if(open)openPalace4(open.dataset.palace);const close=e.target.closest('[data-palace-close]');if(close)document.getElementById('palace-sheet')?.remove();const act=e.target.closest('[data-palace-act]');if(act&&!act.disabled){document.getElementById('palace-sheet')?.remove();v4Action(act.dataset.palaceAct);}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('palace-sheet')?.remove();});
+/* 卷一只降罪；受过告诫后再犯，旧结局仍有符合新时间线的真实入口。 */
+const softBeforeLessons4=softFailure;
+softFailure=function(id,index){const ok=softBeforeLessons4(id,index);if(ok){S.flags.earlyWarnings=S.flags.earlyWarnings||[];if(!S.flags.earlyWarnings.includes(id))S.flags.earlyWarnings.push(id);save();}return ok;};
+const LESSONS4={d_shiyi:['再度面圣','你又被召到御前。嬷嬷提醒，上一回的失仪已经记在册上。','仍直言愿替皇帝分忧，过问前朝。','撂牌子出宫'],d_climb:['旧日攀附','年家的使者请你在御前证明交情。上一回的告诫犹在耳边。','仍以年家势力自保，替旧部求官。','被逐出宫'],d_seat:['第二次请安','凤座旁的椅子又空着。这次，没有人会再替你求情。','不问座次，仍坐在华妃的位子上。','一丈红'],d_informer:['第二只镯子','翊坤宫又送来一份礼。上次转送引起的风波，尚未平息。','照旧把礼送去景仁宫，借皇后打压华妃。','成了两宫相争的弃子']};
+for(const[id,[title,text,choice,status]]of Object.entries(LESSONS4)){
+ EV['lesson_'+id]={title,place:id==='d_shiyi'||id==='d_climb'?'养心殿':'景仁宫',text,choices:[{t:'记住告诫，这次守住分寸。',run:()=>({text:'你改了做法，也保住了此后的人生。',d:{sus:-4,pres:2}})},{t:choice,risk:'再次越界会终结此生',run:s=>{s.flags.repeatedLesson=id;return{death:id};}}]};
+ const oldText=ENDS[id].text;ENDS[id].text=s=>s.flags.repeatedLesson===id?`第一次，宫中的人给过你改正的机会。\n这一次，你明知后果仍然越过了那条线。${status}。\n内务府在旧记录后，又添了一笔。`:typeof oldText==='function'?oldText(s):oldText;
+}
+const seasonBeforeLessons4=endSeason;
+endSeason=function(){const old=S.turn;const result=seasonBeforeLessons4();if(old<4&&S.turn===4)for(const id of S.flags.earlyWarnings||[])if(LESSONS4[id]&&!S.queue.includes('lesson_'+id))S.queue.push('lesson_'+id);return result;};
+
+/* ═══ src/v4-completion.js ═══ */
+/* 批准方案收口：传承、机缘、立场、医毒与可选证物。 */
+Object.assign(TRAITS,{dream:{name:'旧梦',desc:'记得原著风声，提前看见事件提示',d:{wit:10}},old:{name:'宫中旧人',desc:'云苓认得你，多一位三季心腹',d:{loyal:12}}});
+const GIFTS4=['dream','kang','old'];
+const newBeforeGift4=newState;
+newState=function(n,o,t){const s=newBeforeGift4(n,o,t);s.v4.secrets=[...seen];s.v4.opportunities={};s.v4.potions={};if(t==='old'){s.arc.yl='trusted';s.v4.helpers.yl=3;}return s;};
+const SECRETS4={hf_huanyi:['d_musk','d_huanyi'],poison:['d_poison','d_poison2'],blood:['d_blood'],robe:['d_robe']};
+function knowsSecret4(s,id){return(SECRETS4[id]||[]).some(e=>(s.v4.secrets||[]).includes(e));}
+for(const[id,ends]of Object.entries(SECRETS4)){EV[id].choices.push({t:'生死簿有载：先封存物证，请可信之人复核。',show:s=>knowsSecret4(s,id),run:s=>{evidence4('secret_'+id,'旧案复核凭据','生死簿传承');if(id==='hf_huanyi')s.flags.knowHuanyi=1;if(id==='blood')s.flags.bloodCleared=1;return{text:'你照着旧卷记载，先核对来源，再让证人当面说明。旧局没有照旧重演。',d:{wit:3,pres:3,sus:-4}};}});}
+function choiceAllowed4(s,id,c){if(s.origin==='nian'&&!s.flags.nianCut&&/举报年|参劾年|揭发年|自陈当初是受华妃胁迫/.test(c.t))return false;if(s.origin==='mongol'&&/顶撞太后|斥责太后/.test(c.t))return false;return true;}
+for(const[id,e]of Object.entries(EV))for(const c of e.choices||[]){const prior=c.show;c.show=s=>(!prior||prior(s))&&choiceAllowed4(s,id,c);}
+EV.nianfall.choices.push({t:'交还年家账册，与旧权势切割，保住无辜旧人。',show:s=>s.origin==='nian'&&!s.flags.nianCut,run:s=>{s.flags.nianCut=1;s.arc.hf='neutral';evidence4('nian_ledger','年家账册','年氏之祸切割');return{text:'你交出了有名有姓的账，不肯把旧仆都写成罪人。太后记下了你的背主，皇后也看见了你的用处。',d:{th:-10,hh:8,sus:8,pres:-5}};}});
+const CHANCES4={plum:{name:'御苑白梅',start:2,end:4,owner:'甄嬛',d:{fav:8,charm:3}},doctor:{name:'宫外名医',start:8,end:12,owner:'惠贵人',d:{hp:15,wit:4}},foreign:{name:'西洋贡品',start:14,end:18,owner:'祺贵人',d:{pres:8,silver:15}},sutra:{name:'太后旧佛经',start:18,end:21,owner:'寿康宫旧人',d:{th:15,sus:-6}}};
+function opportunityState4(s){return s.v4.opportunities||(s.v4.opportunities={});}
+function opportunityHTML4(){const os=opportunityState4(S);return`<details class="panel"><summary>机缘 · 先听风声，再赴时约</summary>${Object.entries(CHANCES4).map(([id,c])=>{const state=os[id];return`<p>${c.name} · ${state==='owned'?'已得':state==='missed'?'已归'+c.owner:S.turn<c.start?'尚无传闻':state==='heard'?'第'+(c.end+1)+'季前可赴约':'有传闻'}</p>${S.turn>=c.start&&S.turn<=c.end&&!['owned','missed'].includes(state)?`<button class="btn ghost wide" data-v4="${state==='heard'?'chance':'rumor'}:${id}" ${S.ap>0&&!S.queue.length&&!S.pending&&!S.report?'':'disabled'}>${state==='heard'?'赴约 · 银10':'打听来由'}</button>`:''}`;}).join('')}</details>`;}
+const actionBeforeCompletion4=v4Action;
+v4Action=function(a){const[k,id]=a.split(':');if(!['rumor','chance','potion','transfer'].includes(k))return actionBeforeCompletion4(a);if(!S||S.dead||S.queue.length||S.pending||S.report||S.ap<=0)return;let d={},text='';
+ if(k==='rumor'||k==='chance'){const c=CHANCES4[id],os=opportunityState4(S);if(!c||S.turn<c.start||S.turn>c.end||['owned','missed'].includes(os[id]))return;if(k==='chance'&&(os[id]!=='heard'||S.st.silver<10))return;checkpoint();if(k==='rumor'){os[id]='heard';text='听清了'+c.name+'的来由，错过第'+(c.end+1)+'季便会归于'+c.owner+'。';}else{os[id]='owned';d={...c.d,silver:(c.d.silver||0)-10};text='循着传闻赴约，'+c.name+'如今有了新的归属。';evidence4('chance_'+id,c.name,'机缘赴约');}}
+ if(k==='potion'){if(!['antidote','avoid','sleep'].includes(id)||S.v4.herbs<2)return;checkpoint();S.v4.herbs-=2;const bag=S.v4.potions||(S.v4.potions={});bag[id]=(bag[id]||0)+1;text={antidote:'解毒剂已封存，遇毒时可服用并留下物证。',avoid:'避子汤已备好，可在侍寝前自愿服用。',sleep:'迷香已收好，可用来中断一场谋划，但会增加君疑。'}[id];}
+ if(k==='transfer'){if(!S.v4.plots.length||['dead','cold'].includes(S.arc.fang.side))return;checkpoint();S.v4.plots.shift();d={fang:-20,sus:6};text='你把可疑的往来引向偏殿。方氏记住了这一笔，旧日的情分也被磨去。';}
+ const before={...S.rel,fang:S.arc.fang.rel};S.ap--;const chg=apply(d);recordMemory(before,k==='transfer'?'祸水转嫁':'宫中经营');S.last={name:'宫中经营',text,chg};log(text);save();render();floatChips(chg);
+};
+// 成药必须由玩家选择使用，既有库存也有实际后果。
+for(const id of ['poison','muskloss'])EV[id].choices.push({t:'服用备下的解毒剂，再封存药渣。',show:s=>(s.v4.potions?.antidote||0)>0,run:s=>{s.v4.potions.antidote--;s.flags.musk=0;evidence4('antidote_'+s.turn,'解毒后的药渣','成药反制');return{text:'你把命留住，也把剩下的药封了起来。',d:{hp:5,wit:2}};}});
+EV.v4_night.choices.push({t:'自愿服用避子汤，暂不求子。',show:s=>(s.v4.potions?.avoid||0)>0&&!s.preg,run:s=>{s.v4.potions.avoid--;s.flags.avoidThrough=s.turn+3;return{text:'此后三季先调养身子，不安排有孕。',d:{hp:3}};}});
+const actionWithPotions4=v4Action;
+v4Action=function(a){if(a!=='useSleep')return actionWithPotions4(a);if(!S||S.dead||S.queue.length||S.pending||S.report||S.ap<=0||!S.v4.plots.length||!(S.v4.potions?.sleep>0))return;checkpoint();S.ap--;S.v4.potions.sleep--;S.v4.plots.shift();const chg=apply({sus:9});S.last={name:'中断谋划',text:'被收买的宫人睡过了传话时辰。谋划暂断，宫里却多了一层疑心。',chg};save();render();};
+const seasonBeforeCompletion4=endSeason;
+endSeason=function(){const old=S.turn,result=seasonBeforeCompletion4();if(S.dead||S.turn===old)return result;const os=opportunityState4(S);for(const[id,c]of Object.entries(CHANCES4))if(S.turn>c.end&&!['owned','missed'].includes(os[id])){os[id]='missed';log(c.name+'已归'+c.owner+'，时机不再。');}
+ // 三怨的华妃会报复；皇后则盯着子嗣与证据。旧恩可延后一次发动。
+ for(const enemy of ['hf','hh']){if(enemy==='hf'&&!hfActive(S)||enemy==='hh'&&S.flags.hhDown)continue;const ms=S.v4.mem[enemy]||[],grudges=ms.filter(m=>!m.good).length,favors=ms.filter(m=>m.good).length;if(grudges>=3&&!S.v4.plots.some(p=>p.enemy===enemy)&&S.turn>=4&&(S.v4.lastGrudge?.[enemy]||-9)<S.turn-3){S.v4.lastGrudge=S.v4.lastGrudge||{};S.v4.lastGrudge[enemy]=S.turn;S.v4.plots.push({enemy,progress:1,known:S.intel,kind:enemy==='hf'?'旧怨罚跪':S.preg?'借刀伤胎':'借人搜宫'});}if(favors>=3){const p=S.v4.plots.find(p=>p.enemy===enemy&&!p.mercy);if(p){p.progress=Math.max(0,p.progress-1);p.mercy=true;log(KEYS[enemy]+'念着旧日三次情分，暂缓了一步。');}}}return result;};
+// 对质明确选择证物；类别相克，不把所有证物当作同一张牌。
+function proofType4(e){return/药|脉|香/.test(e.label)?'药理':/证言|证人|枕边/.test(e.label)?'证言':'账物';}
+function proofNeed4(s){return/药|毒|胎/.test(s.v4.duel?.kind||s.v4.duel?.source||'')?'药理':s.v4.duel?.enemy==='hf'?'证言':'账物';}
+EV.v4_proof.text=s=>'对手呈上'+proofNeed4(s)+'指控。对应类别能直击漏洞，其他证物可辅证；每份只能用一次。';
+EV.v4_proof.choices[0]={t:'呈上对应类别的第一份证物。',need:s=>s.v4.evidence.some(e=>!e.used),needText:'未用证物',run:s=>useProof4(s,s.v4.evidence.find(e=>!e.used&&proofType4(e)===proofNeed4(s))||s.v4.evidence.find(e=>!e.used))};
+function useProof4(s,e){e.used=true;const match=proofType4(e)===proofNeed4(s);s.v4.duel.score+=match?30:18;s.queue.splice(1,0,'v4_verdict');return{text:'「'+e.label+'」'+(match?'正好击中指控漏洞。':'可以佐证，但尚未解释核心疑点。'),d:{}};}
+for(const type of ['药理','证言','账物'])EV.v4_proof.choices.push({t:'选证：'+type+'凭据。',show:s=>s.v4.evidence.some(e=>!e.used&&proofType4(e)===type),run:s=>useProof4(s,s.v4.evidence.find(e=>!e.used&&proofType4(e)===type))});
+function shift4(s){return Math.min(100,Math.round(s.v4.world.length/10*100));}
+ENDS.e_rewrite={name:'逆天改命',kind:'good',seal:'新',src:'世界改写',status:'旧局改写，安享新朝',text:'三件原本写定的旧事，因为你留下的证据与选择走向不同。\n新朝史官收起旧稿，另写了一页。你没有替所有人决定命运，却让他们多了一条路。',note:'游戏改编结局：至少改写三项世界节点，仍须平安到终局。'};ORDER.push('e_rewrite');EV.finale.choices.push({t:'把改写后的旧事，完整留给新朝。',need:s=>shift4(s)>=30,needText:'改写度30%',run:()=>({death:'e_rewrite'})});
+function rankHTML4(){const list=[{n:title(),r:S.rank,me:true},{n:'皇后',r:7,active:!S.flags.hhDown},{n:'华妃',r:4,active:hfActive(S)},{n:fangTitle(),r:S.arc.fang.rank,active:!['dead','cold'].includes(S.arc.fang.side)},{n:S.flags.zhenStay||S.t>=29?'熹贵妃':'莞常在',r:S.flags.zhenStay||S.t>=29?5:1}].filter(x=>x.active!==false).sort((a,b)=>b.r-a.r);return`<section class="panel"><div class="ph"><h3>宫闱位分榜</h3><span>你在第${list.findIndex(x=>x.me)+1}位</span></div>${list.map((x,i)=>`<p>${i+1} · ${esc(x.n)}${x.me?' · 你':''}</p>`).join('')}<p class="muted">按当前在宫人物位分排序 · 隆科多${S.t<28?'权重':'失势'} · 改写度${shift4(S)}%</p></section>`;}
+const inventoryBeforeComplete4=inventoryHTML;
+inventoryHTML=function(){const bag=S.v4.potions||{};return inventoryBeforeComplete4().replace('家门线 '+S.v4.personal+'/3','家门线 '+(S.v4.home?.done.length||0)+'/6')+`<section class="panel"><h3>秘闻与成药</h3><p>传承秘闻 ${(S.v4.secrets||[]).length} 条 · 不限携带</p><p>解毒剂 ${bag.antidote||0} · 避子汤 ${bag.avoid||0} · 迷香 ${bag.sleep||0}</p></section>`+opportunityHTML4();};
+const worldBeforeComplete4=worldHTML;worldHTML=function(){return worldBeforeComplete4()+rankHTML4();};
+const panelBeforeComplete4=v4Panel;v4Panel=function(){const base=panelBeforeComplete4(),can=S.ap>0&&!S.report;return base+`<details class="panel"><summary>暗流反制与成药</summary><div class="v4-actions">${[['transfer','转嫁偏殿 · 方氏记怨',S.v4.plots.length],['potion:antidote','配解毒剂 · 药材2',S.v4.herbs>=2],['potion:avoid','配避子汤 · 药材2',S.v4.herbs>=2],['potion:sleep','配迷香 · 药材2',S.v4.herbs>=2],['useSleep','迷香断计 · 君疑↑',(S.v4.potions?.sleep||0)>0&&S.v4.plots.length]].map(([id,t,ok])=>`<button data-v4="${id}" ${can&&ok?'':'disabled'}>${t}</button>`).join('')}</div></details>`;};
+function achievement4(id){const done=load('hgssb4_achievements',[]);if(!done.includes(id)){done.push(id);store('hgssb4_achievements',done);}try{if(window.Platform&&typeof window.Platform.unlock==='function')window.Platform.unlock(id);}catch{}}
+try{if(window.Platform&&typeof window.Platform.defineAchievements==='function')window.Platform.defineAchievements([{key:'hougong_survive',name:'走过五卷'},{key:'hougong_rewrite',name:'另写一生'},{key:'hougong_home',name:'家门有答'}]);}catch{}
+// 链式风险也要在承诺之前可读，不能等到几季后才告知。
+for(const e of Object.values(EV))for(const c of e.choices||[])if(!c.risk&&/flags\.(liuben|letterKept|musk)\s*=\s*1/.test(String(c.run)))c.risk='留下把柄，后续可能追查';
+
+const migrationBeforeComplete4=migrate4;
+migrate4=function(raw){const s=migrationBeforeComplete4(raw);if(s){if(!Array.isArray(s.v4.secrets))s.v4.secrets=[...seen];opportunityState4(s);s.v4.potions=s.v4.potions||{};}return s;};
+const artAct4=ACTS.find(a=>a.id==='art'),oldArtAct4=artAct4.run;
+artAct4.name='精修主艺';artAct4.hint='主艺熟练↑ 才貌↑';artAct4.run=s=>{const r=oldArtAct4(s);s.v4.mastery=Math.min(100,s.v4.mastery+8);artsState4(s).artSkills[s.v4.art]=s.v4.mastery;r.text=ARTS4[s.v4.art]+'艺精进至'+s.v4.mastery+'/100。';return r;};
+// 卷四起可主动收束人生，仍须家门积累与归途费用。
+EV.v4_depart={title:'自请出宫',place:'启祥宫',text:'若家人已经有了去处，你不必等到新朝才走。回信须写清，这一步将结束本局。',choices:[{t:'递上归乡的折子，此生到此收束。',need:s=>s.turn>=18&&s.v4.personal>=3&&s.st.silver>=20,needText:'卷四、家门3段、银20',run:s=>({death:'e_'+s.origin+'_home'})},{t:'收起折子，继续留在宫中。',run:()=>({text:'折子没有递出去。你还有想做完的事。',d:{}})}]};
+const actionBeforeDepart4=v4Action;
+v4Action=function(a){if(a!=='depart')return actionBeforeDepart4(a);if(!S||S.dead||S.queue.length||S.pending||S.report||S.turn<18||S.v4.personal<3||S.st.silver<20)return;checkpoint();S.queue.push('v4_depart');tab='season';save();render();};
+const inventoryBeforeDepart4=inventoryHTML;inventoryHTML=function(){return inventoryBeforeDepart4()+(S.turn>=18?`<section class="panel"><button class="btn ghost wide" data-v4="depart" ${S.v4.personal>=3&&S.st.silver>=20&&!S.queue.length&&!S.pending&&!S.report?'':'disabled'}>自请出宫 · 家门3段、银20</button></section>`:'');};
+
+/* ═══ src/ui.js ═══ */
+function relWord(v){return v>=50?"倚重":v>=15?"和睦":v>-15?"平常":v>-50?"嫌隙":"敌视";}
+/* ───────── 界面：竖屏外壳 ─────────
+   固定骨架：顶栏 + 数值条（吸顶）/ 内容区（页面滚动）/ 行动底条 + 五栏（吸底）。
+   页签：本季 · 宫册 · 人心 · 六宫 · 生死簿。状态都从 S 推导，切页签不改存档。 */
+const app=document.getElementById('app');
+let view='start',tab='season',lastSt=null;
+const FX=!reduce;
+function save(){store('hgssb4_save',S&&!S.dead?S:null);}
+function toTop(){try{window.scrollTo({top:0,behavior:'auto'});}catch(e){}}
+
+/* —— 剧情文本：旁白 + 对话气泡 —— */
+const SPEAKERS=[
+  [/皇帝|皇上|圣上|万岁/,'emperor'],[/皇后|景仁宫/,'hh'],[/华妃|年氏/,'hf'],[/太后/,'th'],[/颂芝/,'songzhi'],[/剪秋/,'jianqiu'],
+  [/苏培盛|苏公公/,'su'],[/方答应|方常在|方贵人|方嫔|方氏/,'fang'],[/云苓|秋纹/,'yl'],[/温太医|太医|刘畚|收生姥姥/,'doctor'],
+  [/果郡王|王爷/,'prince'],[/祺贵人/,'qi'],[/曹贵人/,'cao'],[/惠贵人/,'hui'],[/熹妃|熹贵妃|甄氏|莞嫔/,'zhen'],
+  [/嬷嬷/,'mamo'],[/太监|总管|内务府/,'eunuch'],[/宫女|丫头/,'maid'],[/你/,'me']
+];
+function whoIn(t){let best=null,pos=-1;for(const [re,id] of SPEAKERS){const g=new RegExp(re.source,'g');let m;while((m=g.exec(t)))if(m.index>pos){pos=m.index;best=id;}}return best;}
+function storyHTML(raw,ctxMood){
+  const out=[];let lastWho=null;
+  for(const para of fill(raw).split('\n')){
+    if(!para.trim())continue;
+    // 拆成旁白段与引语段；4 字以内且无标点的引语视为专名，留在旁白里
+    const segs=[];let rest=para,re=/「([^」]*)」/g,m,last=0;
+    while((m=re.exec(para))){
+      const q=m[1];if(q.length<=6&&!/[，。！？…；]/.test(q))continue;
+      segs.push(['n',para.slice(last,m.index)]);segs.push(['q',q]);last=m.index+m[0].length;
+    }
+    segs.push(['n',para.slice(last)]);
+    for(let i=0;i<segs.length;i++){
+      const [k,t]=segs[i];
+      if(k==='n'){
+        let n=t.replace(/^[，。、]/,'').trim();
+        const next=segs[i+1];
+        if(next&&next[0]==='q')n=n.replace(/[，,]?(?:笑盈盈|慢慢|低声|淡淡|轻声|只|又|便)?(?:地)?(?:说|道|问|答|唱|笑道|开口)[了一句]*[：:，]?$/,'').replace(/[：:]$/,'');
+        if(n)out.push(`<p class="nar">${n}</p>`);
+        continue;
+      }
+      const ctx=segs[i-1]?segs[i-1][1]:'';
+      let who=whoIn(ctx)||lastWho;
+      if(/^(?:她|他)/.test(ctx.trim())&&lastWho)who=lastWho;
+      lastWho=who;
+      if(!who){out.push(`<p class="say">「${t}」</p>`);continue;}
+      if(who==='me'){out.push(`<div class="bub me"><span class="bt">${t}</span>${playerAvatar(S,30)}</div>`);continue;}
+      const c=CAST[who];
+      const mood=ctxMood&&ctxMood[who]||(['hf','qi'].includes(who)?'cold':'calm');
+      out.push(`<div class="bub">${avatar(who,mood,30)}<span class="bt"><b>${c.name}</b>${t}</span></div>`);
+    }
+  }
+  return out.join('');
+}
+function moodMap(){return{hh:relMood(S.rel.hh),hf:relMood(S.rel.hf),th:relMood(S.rel.th),fang:relMood(S.arc.fang.rel),emperor:S.st.sus>=60?'cold':S.st.fav>=40?'smile':'calm'};}
+
+/* —— 数值变化：图标 + 数字 —— */
+function chipItems(list){
+  if(!list||!list.length)return[];
+  const m={};list.forEach(([k,v])=>{m[k]=(m[k]||0)+v;});
+  return Object.entries(m).filter(([,v])=>v).map(([k,v])=>({k,v,good:k==='sus'?v<0:v>0}));
+}
+function chipHTML(it){
+  const ic=RELCAST[it.k]?avatar(RELCAST[it.k],it.good?'smile':'angry',18,'mini'):icon(KEYICON[it.k]||'fav');
+  return`<span class="chip ${it.good?'up':'down'}" title="${KEYS[it.k]}">${ic}<b>${it.v>0?'+':'−'}${Math.abs(it.v)}</b></span>`;
+}
+const chipsHTML=list=>{const it=chipItems(list);return it.length?`<div class="chips" aria-label="数值变化">${it.map(chipHTML).join('')}</div>`:'';};
+function floatChips(list){
+  if(!FX)return;const it=chipItems(list);if(!it.length)return;
+  const box=document.createElement('div');box.className='floaters';box.setAttribute('aria-hidden','true');
+  box.innerHTML=it.slice(0,6).map((x,i)=>`<span style="--d:${i*90}ms">${chipHTML(x)}</span>`).join('');
+  document.body.appendChild(box);setTimeout(()=>box.remove(),1700);
+}
+
+/* —— 骨架 —— */
+const STATBAR=[['fav','圣宠'],['pres','威望'],['hp','康健'],['sus','君疑'],['silver','银两']];
+function topbar(){
+  const busy=S.queue.length||S.pending||S.report||S.dead;
+  const lamps=!busy?`<span class="lamps" aria-label="本季还可做 ${S.ap} 件事">${[0,1,2].map(i=>`<i class="${i<S.ap?'on':''}">${icon('lamp')}</i>`).join('')}</span>`:'';
+  return`<header class="tb">${playerAvatar(S,40,'tb-av')}<div class="who"><b>${esc(title())}</b><small>${dateStr()} · <span class="num">${(S.turn||0)+1}</span>/32 季 · ${volumeName(S)}</small></div>${lamps}<button class="ib" id="bHome" type="button" aria-label="回到卷首">${icon('door')}</button></header>`;
+}
+function statbar(){
+  const prev=lastSt;lastSt={...S.st};
+  return`<div class="sb5">${STATBAR.map(([k,n])=>{
+    const v=S.st[k],d=prev?v-prev[k]:0;
+    const danger=(k==='sus'&&v>=60)||(k==='hp'&&v<30)||(k==='fav'&&S.cold>=4);
+    return`<div class="${danger?'warn':''} ${d?(((k==='sus')?d<0:d>0)?'flash-up':'flash-dn'):''}">${icon(KEYICON[k])}<span><small>${n}</small><b class="num">${v}</b></span></div>`;}).join('')}</div>`;
+}
+const TABS=[['season','本季','lamp'],['self','宫册','scroll'],['people','人心','heart2'],['court','六宫','roof'],['book','生死簿','book']];
+function tabbar(){
+  const dot=S&&!S.dead&&S.queue.length&&tab!=='season';
+  return`<nav class="tabs" aria-label="页签">${TABS.map(([id,n,ic])=>`<button type="button" data-tab="${id}" class="${tab===id?'on':''}" ${tab===id?'aria-current="page"':''}>${icon(ic)}<span>${n}</span>${id==='season'&&dot?'<em></em>':''}</button>`).join('')}</nav>`;
 }
 
 function render(){
   if(!S){renderStart();return;}
-  view='game';navHome.hidden=false;
+  view='game';
   while(!S.pending&&!S.report&&S.queue.length){const e=EV[S.queue[0]];if(e.valid&&!e.valid(S)){S.queue.shift();continue;}break;}
   if(!S.pending&&!S.report&&S.queue.length){const e=EV[S.queue[0]],key=S.queue[0]+':'+S.t;if(S._preKey!==key){S._preKey=key;S._prechg=[];if(e.pre){const pd=e.pre(S);S._prechg=pd?apply(pd):[];}save();}}
-  let body='';
-  if(S.pending)body=outcomeHTML();
-  else if(S.report)body=reportHTML();
-  else if(S.queue.length)body=eventHTML();
-  else body=actionsHTML();
-  app.innerHTML=`<div class="game">${dossier(false)}<section class="main">${seasonHead()}${body}${logHTML()}</section></div>`;
+  let body='',dock='';
+  if(tab==='season'){
+    if(S.queue.length&&(!S.report||S.pending))body=eventHTML();
+    else{body=actionsHTML();if(!S.report)dock=`<div class="dock"><span>季末 · 翻牌 · 份例${S.preg?' · 胎象':''}</span><button class="btn seal" id="bEnd" type="button">结束本季</button></div>`;}
+  }else body=tabHTML(tab);
+  app.className='shell';
+  app.innerHTML=`${topbar()}${statbar()}<main class="pg" id="pg">${body}</main>${dock}${tabbar()}${S.report&&tab==='season'?reportSheet():''}`;
   bind();
-}
-function echoHTML(e){
-  if(!e.echo)return'';
-  const ks=e.echo(S).filter(k=>S.memo[k]);
-  if(!ks.length)return'';
-  return`<div class="echo">${ks.map(k=>`<p><b>前因</b><span>${S.memo[k].d}：${fill(S.memo[k].t)}</span></p>`).join('')}</div>`;
-}
-function eventHTML(){
-  const id=S.queue[0],e=EV[id];
-  const showIntel=S.intel&&e.intel&&!S.flags.noIntel;
-  const vis=e.choices.filter(c=>!c.show||c.show(S));
-  const tag=(SCRIPT[S.t]||[]).includes(id)?'大事':ARCEV.includes(id)?(ARCS.find(a=>a.ids.includes(id))||{name:''}).name+'线':'';
-  return`<article class="card"><div class="meta"><span>${fill(e.place)}</span>${tag?`<span>${tag}</span>`:''}</div><h3>${tx(e.title)}</h3>
-  ${echoHTML(e)}
-  ${showIntel?`<p class="intel"><b>风声</b><span>${fill(e.intel)}</span></p>`:''}
-  <div class="text">${paras(tx(e.text))}</div>${chipsHTML(S._prechg)}
-  <ol class="choices">${vis.map((c,i)=>{
-    const okNeed=!c.need||c.need(S), okCost=!c.cost||S.st.silver>=c.cost;
-    const tags=[];
-    if(c.need)tags.push(`<span class="tg${okNeed?'':' no'}">需${c.needText}</span>`);
-    if(c.cost)tags.push(`<span class="tg${okCost?'':' no'}">耗银 ${c.cost} 两</span>`);
-    return`<li><button class="ch" type="button" data-c="${i}" ${okNeed&&okCost?'':'disabled'}><span class="mk">${MK[i]||'·'}</span><span>${fill(c.t)}</span>${tags.length?`<span class="tags">${tags.join('')}</span>`:''}</button></li>`;}).join('')}</ol></article>`;
-}
-function outcomeHTML(){
-  const p=S.pending;
-  return`<article class="card outcome"><div class="meta"><span>${fill(p.place)}</span></div><h3>${p.title}</h3>
-  ${p.ok===true?'<p class="verdict ok">得手</p>':p.ok===false?'<p class="verdict bad">失手</p>':''}
-  <div class="text">${paras(p.text)}</div>${chipsHTML(p.chg)}
-  ${p.note?`<p class="note"><span class="an">按</span><span>${fill(p.note)}</span></p>`:''}
-  <button class="primary" id="bCont" type="button">继续</button></article>`;
-}
-function reportHTML(){
-  const r=S.report;
-  return`<article class="card outcome"><div class="meta"><span>季终 · ${r.date}</span></div><h3>季终</h3>
-  <div class="text">${r.lines.map(l=>`<p>${fill(l)}</p>`).join('')}</div>${chipsHTML(r.chg)}
-  ${r.news?`<p class="news"><b>宫中动静</b>${r.news}</p>`:''}
-  <button class="primary" id="bNext" type="button">进入${dateStr()}</button></article>`;
-}
-function actionsHTML(){
-  const last=S.last?`<div class="lastres"><p><b>${S.last.name}</b>　${fill(S.last.text)}</p>${chipsHTML(S.last.chg)}</div>`:'';
-  const acts=ACTS.filter(a=>!a.show||a.show(S));
-  return`<article class="card">${last}
-  <p class="muted" style="margin:0 0 6px;font-size:.86rem">${S.ap?`本季还可做 ${cnNum(S.ap)} 件事。${S.ban?'禁足中，只能做宫内的事。':''}`:'本季的事都做完了。'}</p>
-  <div class="acts">${acts.map(a=>{
-    const okBan=!S.ban||a.ban, okNeed=!a.need||a.need(S), okCost=!a.cost||S.st.silver>=a.cost, can=S.ap>0&&okBan&&okNeed&&okCost;
-    const tags=[`<span class="tg">${a.hint}</span>`];
-    if(a.cost)tags.push(`<span class="tg${okCost?'':' no'}">${a.cost} 两</span>`);
-    if(a.need&&!okNeed)tags.push(`<span class="tg no">需${a.needText}</span>`);
-    if(!okBan)tags.push('<span class="tg no">禁足</span>');
-    return`<button class="act" type="button" data-a="${a.id}" ${can?'':'disabled'}><b>${a.name}</b><small>${fill(a.desc)}</small><span class="tags">${tags.join('')}</span></button>`;}).join('')}</div>
-  <div class="endbar"><span>季末结算：侍寝、份例、圣宠消退${S.preg?'、胎象':''}${S.q===3?'、家中捎银':''}。</span><button class="primary" id="bEnd" type="button">结束本季</button></div></article>`;
+  if(S.cere)ceremony();
+  if(window.Platform)try{Platform.setStatus(`${dateStr()} · ${title()}`);}catch(e){}
 }
 function bind(){
-  app.querySelectorAll('.ch').forEach(b=>b.onclick=()=>choose(+b.dataset.c));
-  app.querySelectorAll('.act').forEach(b=>b.onclick=()=>doAct(b.dataset.a));
+  app.querySelectorAll('.ch[data-c]').forEach(b=>b.onclick=()=>choose(+b.dataset.c));
+  app.querySelectorAll('.act[data-a]').forEach(b=>b.onclick=()=>doAct(b.dataset.a));
+  app.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;S&&S.dead?renderDeadTab():render();toTop();});
   const c=document.getElementById('bCont');if(c)c.onclick=cont;
-  const n=document.getElementById('bNext');if(n)n.onclick=()=>{S.report=null;save();render();toTop();};
-  const e=document.getElementById('bEnd');if(e)e.onclick=()=>{endSeason();save();render();toTop();};
+  const n=document.getElementById('bNext');if(n)n.onclick=()=>{closeSheet(()=>{S.report=null;save();render();toTop();});};
+  const e=document.getElementById('bEnd');if(e)e.onclick=()=>{if(S.ap>0&&!confirm('本季还有 '+S.ap+' 盏灯，仍要结束？'))return;checkpoint();e.disabled=true;endSeason();save();render();};
+  const h=document.getElementById('bHome');if(h)h.onclick=renderStart;
+  app.querySelectorAll('[data-again]').forEach(b=>b.onclick=renderStart);
+ app.querySelectorAll('[data-rewrite]').forEach(b=>b.onclick=rewriteLife);
+ app.querySelectorAll('[data-v4]').forEach(b=>b.onclick=()=>v4Action(b.dataset.v4));
 }
-function toTop(){try{window.scrollTo({top:0,behavior:'auto'});}catch(e){}}
 
+/* —— 事件卡（绢帛卷轴）—— */
+function tagOf(id){return(SCRIPT[S.t]||[]).includes(id)?'大事':ARCEV.includes(id)?(ARCS.find(a=>a.ids.includes(id))||{name:''}).name+'线':'';}
+function eventHTML(){
+  const id=S.queue[0],e=EV[id],p=S.pending;
+  const vis=e.choices.filter(c=>!c.show||c.show(S));
+  const showIntel=!p&&(S.intel||S.trait==='dream')&&e.intel&&!S.flags.noIntel;
+  const tag=tagOf(id);
+  const echo=e.echo?e.echo(S).filter(k=>S.memo[k]):[];
+  let html=`<article class="scroll-card ev"><div class="rod"></div><div class="paper">
+    <div class="meta"><span>${fill(e.place)}</span>${tag?`<span class="tagc ${tag==='大事'?'big':''}">${tag}</span>`:''}${S.queue.length>1?`<span class="more">还有 ${S.queue.length-1} 件</span>`:''}</div>
+    <h2>${tx(e.title)}</h2>
+    ${echo.map(k=>`<p class="echo"><b>前因</b>${fill(S.memo[k].t)}</p>`).join('')}
+    ${showIntel?`<p class="intel"><b>风声</b>${fill(e.intel)}</p>`:''}
+    <div class="story">${compactStory(tx(e.text),moodMap())}</div>${chipsHTML(S._prechg)}
+  </div><div class="rod"></div></article>`;
+  if(!p){
+    html+=`<ol class="choices">${vis.map((c,i)=>{
+      const okNeed=!c.need||c.need(S),okCost=!c.cost||S.st.silver>=c.cost;
+      const tags=[];
+      if(c.need)tags.push(`<span class="tg${okNeed?'':' no'}">需${c.needText}</span>`);
+      if(c.cost)tags.push(`<span class="tg${okCost?'':' no'}">${icon('silver')}${c.cost}</span>`);
+      if(c.risk)tags.push('<span class="tg no">'+c.risk+'</span>');
+      if(c.chance)tags.push(`<span class="tg odds">看运气</span>`);
+      return`<li><button class="ch" type="button" data-c="${i}" ${okNeed&&okCost?'':'disabled'}><span class="mk">${MK[i]||'·'}</span><span class="ct">${fill(c.t)}</span>${tags.length?`<span class="tags">${tags.join('')}</span>`:''}</button></li>`;}).join('')}</ol>`;
+  }else{
+    const c=vis[p.pick];
+    html+=`${c?`<div class="picked"><span class="mk">${MK[p.pick]||'·'}</span><span>${fill(c.t)}</span></div>`:''}
+    <section class="result" id="result" aria-live="polite">
+      ${p.ok===true?'<span class="verdict ok">得手</span>':p.ok===false?'<span class="verdict bad">失手</span>':''}
+      <div class="story">${compactStory(p.text,moodMap())}</div>${chipsHTML(p.chg)}
+      ${p.note?`<details class="note"><summary>按 · 典故</summary><p>${fill(p.note)}</p></details>`:''}
+      <button class="btn seal wide" id="bCont" type="button">继续</button>
+    </section>`;
+  }
+  return html;
+}
+
+/* —— 本季：晋位要务 + 行动 —— */
+const PROMO_REQ=[null,
+  [['nights',2,'侍寝'],['fav',30,'圣宠']],
+  [['nights',4,'侍寝'],['fav',40,'圣宠'],['pres',20,'威望']],
+  [['nights',10,'侍寝'],['fav',55,'圣宠'],['pres',40,'威望']],
+  [['fav',60,'圣宠'],['pres',60,'威望'],['thOrKid',1,'太后 30 或有子嗣']],
+  [['fav',65,'圣宠'],['pres',80,'威望'],['kid',1,'有子嗣']],null];
+function reqVal(s,k){return k==='nights'?s.nights:k==='kid'?live(s).length:k==='thOrKid'?((s.rel.th>=30||live(s).length)?1:0):s.st[k];}
+function goal(){
+  const nx=S.rank+1,req=PROMO_REQ[nx];
+  if(!req)return{name:RANKS[S.rank],done:true,items:[],rec:S.st.hp<45?'heal':'manage'};
+  const items=req.map(([k,n,l])=>({k,l,n,v:reqVal(S,k),ok:reqVal(S,k)>=n}));
+  const wait=Math.max(0,4-(S.t-S.lastPromo));
+  const miss=items.find(i=>!i.ok);
+  let rec='meet';
+  if(S.st.hp<35)rec='heal';
+  else if(S.st.sus>=60)rec=S.flags.hhDown?'read':'hh';
+  else if(miss){rec={nights:S.st.silver>=30&&!S.bribe?'bribe':'meet',fav:S.st.fav>=15?'soup':'meet',pres:S.rank>=3?'manage':(S.rank>=2&&thAlive(S)?'th':'hh'),thOrKid:thAlive(S)&&S.rank>=2?'th':'heal',kid:'heal'}[miss.k];}
+  return{name:RANKS[nx],items,wait,rec};
+}
+const ACT_GROUPS=[['争宠',['meet','soup','bribe']],['经营',['art','read','heal','manage','shien','xieli']],['人心',['hh','hf','th','fang','reward']],['谋划',['intel','burn']]];
+const ACT_IC={meet:'charm',soup:'fav',bribe:'night',art:'charm',read:'wit',heal:'hp',manage:'pres',shien:'silver',xieli:'pres',hh:'hh',hf:'hf',th:'th',fang:'fang',reward:'loyal',intel:'sus',burn:'scroll'};
+function hintChips(h){return h.split(/\s+/).map(x=>{const m=x.match(/^(.+?)([↑↓])$/);if(!m)return`<span class="hc">${x}</span>`;const k=Object.keys(KEYS).find(k=>KEYS[k]===m[1]);const ic=k&&RELCAST[k]?avatar(RELCAST[k],m[2]==='↑'?'smile':'angry',14,'mini'):k?icon(KEYICON[k]):'';return`<span class="hc ${m[2]==='↑'?'up':'dn'}">${ic||m[1]}${m[2]}</span>`;}).join('');}
+function actionsHTML(){
+  const g=goal();
+  const last=S.last?`<div class="lastres ${S.last.ok===false?'bad':''}"><b>${S.last.name}</b><span>${fill(S.last.text)}</span>${chipsHTML(S.last.chg)}</div>`:'';
+  const goalCard=`<section class="plaque"><div class="pl-h">${rankBadge(Math.min(6,S.rank+(g.done?0:1)),40)}<div><small>本季要务</small><b>${g.done?'稳坐'+g.name:'晋 '+g.name}</b></div></div>
+    ${g.done?'':`<ul class="req">${g.items.map(i=>`<li class="${i.ok?'ok':''}">${i.ok?'✓':''}<span>${i.l}</span><b class="num">${['thOrKid','kid'].includes(i.k)?(i.ok?'已备':'未备'):`${Math.min(i.v,i.n)}/${i.n}`}</b></li>`).join('')}${g.wait?`<li><span>距上次晋位</span><b class="num">还需 ${g.wait} 季</b></li>`:''}</ul>`}
+    ${warnHTML()}</section>`;
+  const visible=ACTS.filter(a=>!a.show||a.show(S));
+  const primary=new Set(['meet','soup','art','heal','reward','read','intel','bribe']);
+  const grid=ACT_GROUPS.map(([gn,ids])=>{
+    const as=ids.map(id=>visible.find(a=>a.id===id&&primary.has(id))).filter(Boolean);if(!as.length)return'';
+    return`<h3 class="ag">${gn}</h3><div class="acts">${as.map(a=>{
+      const okBan=!S.ban||a.ban,okNeed=!a.need||a.need(S),okCost=!a.cost||S.st.silver>=a.cost,can=S.ap>0&&okBan&&okNeed&&okCost&&!S.report;
+      const ic=RELCAST[ACT_IC[a.id]]?avatar(RELCAST[ACT_IC[a.id]],'calm',28,'mini'):`<span class="ai">${icon(ACT_IC[a.id]||'fav')}</span>`;
+      const why=!okBan?'禁足':!okNeed?'需'+a.needText:!okCost?'银两不足':'';
+      return`<button class="act ${a.id===g.rec&&can?'rec':''}" type="button" data-a="${a.id}" ${can?'':'disabled'}>${ic}<span class="an"><b>${a.name}</b><span class="hcs">${why?`<span class="hc no">${why}</span>`:hintChips(a.hint)}${a.cost?`<span class="hc">${icon('silver')}${a.cost}</span>`:''}</span></span></button>`;}).join('')}</div>`;}).join('');
+  return`${goalCard}${last}${v4Panel()}<section class="panel"><div class="ph"><h3>本季行动</h3><span class="muted">${S.ap?`还可做 ${S.ap} 件`:'行动已尽'}${S.ban?' · 禁足中':''}</span></div>${grid}<details class="note"><summary>其余差事</summary><div class="v4-actions">${visible.filter(a=>!primary.has(a.id)&&!['hh','hf','th','fang'].includes(a.id)).map(a=>`<button data-a="${a.id}" ${S.ap>0&&(!a.need||a.need(S))&&(!a.cost||S.st.silver>=a.cost)&&(!S.ban||a.ban)?'':'disabled'}>${a.name}</button>`).join('')}</div></details><p class="muted">走动与送礼，请点六宫图中的宫室。</p></section>`;
+}
+function warnHTML(){
+  const w=[];
+  if(S.st.sus>=60)w.push(['sus',S.st.sus>=85?'君心已疑到极处，再有一桩便是死罪':'皇上起了疑心，少碰前朝与外男']);
+  if(S.st.hp<30)w.push(['hp','身子虚透了，先请太医']);
+  if(S.cold>=4)w.push(['night',`绿头牌已 ${S.cold} 季未翻，还可争取 ${9-S.cold} 季`]);
+  return w.length?`<ul class="warns">${w.map(([k,t])=>`<li>${icon(k)}<span>${t}</span></li>`).join('')}</ul>`:'';
+}
+
+/* —— 季终：底部弹层 + 翻牌 —— */
+function reportSheet(){
+  const r=S.report,n=r.n||0;
+  const cards=[0,1,2].map(i=>`<span class="gp ${i<n?'turn':''}" style="--d:${200+i*260}ms"><i class="back">${icon('night')}</i><i class="front">${esc(S.name)}</i></span>`).join('');
+  const lines=r.lines.filter(l=>!/敬事房翻了|一次也没被翻/.test(l));
+  return`<div class="sheet-wrap" id="sheet"><div class="veil"></div><section class="sheet" role="dialog" aria-modal="true" aria-label="季终">
+    <div class="grip"></div><p class="sh-k">季终 · ${r.date}</p>
+    <div class="gps" aria-label="本季侍寝 ${n} 回">${cards}<span class="gpn">${n?`翻牌 <b class="num">${n}</b> 回`:'绿头牌未翻'}</span></div>
+    ${lines.length?`<ul class="rl">${lines.map(l=>`<li>${fill(l)}</li>`).join('')}</ul>`:''}${chipsHTML(r.chg)}
+    ${r.news?`<p class="news"><b>宫中动静</b>${r.news}</p>`:''}
+    <button class="btn seal wide" id="bNext" type="button">进入${dateStr()}</button></section></div>`;
+}
+function closeSheet(done){const w=document.getElementById('sheet');if(!w||!FX){done();return;}w.classList.add('out');setTimeout(done,220);}
+
+/* —— 仪式：晋位 —— */
+function ceremony(){
+  const c=S.cere;S.cere=null;save();
+  if(c.kind!=='promo')return;
+  const o=document.createElement('div');o.className='cere';o.setAttribute('role','dialog');o.setAttribute('aria-label','晋位');
+  o.innerHTML=`<div class="rays"></div><div class="cere-box">${rankBadge(c.rank,120,'big')}<p class="cere-k">圣旨到</p><h2>晋 ${RANKS[c.rank]}</h2>${c.rank>=3&&c.hao?`<p class="cere-s">赐号「${c.hao}」</p>`:''}<button class="btn gold" type="button">谢主隆恩</button></div>`;
+  document.body.appendChild(o);
+  const b=o.querySelector('button');b.focus();
+  b.onclick=()=>{o.classList.add('out');setTimeout(()=>o.remove(),FX?260:0);};
+}
+
+/* —— 页签 —— */
+function tabHTML(t){
+  if(t==='self')return selfHTML();
+  if(t==='people')return peopleHTML();
+  if(t==='court')return courtTabHTML();
+  return bookHTML();
+}
+function selfHTML(){
+  const o=ORIGINS[S.origin],g=goal();
+  const kids=S.kids.length?S.kids.map(k=>`<span class="kid ${k.dead?'gone':''}">${icon('kid')}${k.sex==='子'?'阿哥':'公主'}${k.dead?'（殇）':''}</span>`).join(''):'<span class="muted">无</span>';
+  const bars=[['fav'],['pres'],['charm'],['wit'],['hp'],['loyal'],['sus']].map(([k])=>{const v=S.st[k],bad=k==='sus'?v>=60:k==='hp'&&v<30;return`<div class="bar-row ${bad?'bad':''}">${icon(KEYICON[k])}<span class="bl">${KEYS[k]}</span><span class="bar"><i style="width:${v}%"></i></span><b class="num">${v}</b></div>`;}).join('');
+  return`<section class="hero"><div class="arch">${portrait(S,false)}</div><div class="hero-t"><h2>${esc(title())}</h2><p>${palace()} · 年${cnNum(age())}</p><p>${o.sub}${o.name.includes('旗')?'':' · '+o.name} · 性情${TRAITS[S.trait].name}</p>
+    <dl class="kv"><dt>${icon('silver')}银两</dt><dd class="num">${S.st.silver}</dd><dt>年例</dt><dd class="num">${ALLOW[S.rank]}</dd><dt>${icon('night')}侍寝</dt><dd class="num">${S.nights}</dd></dl></div></section>
+    <section class="panel"><div class="ph"><h3>位分</h3><span class="muted">${g.done?'已至极位':'下一阶 · '+g.name}</span></div>
+      <div class="ladder">${RANKS.map((n,i)=>`<span class="${i<S.rank?'past':i===S.rank?'cur':''}">${rankBadge(i,38,i>S.rank?'dim':'')}<small>${n}</small></span>`).join('')}</div></section>
+    <section class="panel"><div class="ph"><h3>指标</h3></div>${bars}</section>
+    <section class="panel"><div class="ph"><h3>子嗣 · 母家</h3></div><div class="row"><span class="k">子嗣</span><span class="v kids">${kids}${S.preg?'<span class="tg odds">有孕</span>':''}</span></div>
+      <div class="row"><span class="k">家中</span><span class="v">${{ok:'平安',rising:'得势',resigned:'致仕回乡',fallen:'获罪流放'}[S.arc.fam]}${S.flags.broDead?' · 兄长战殁':''}</span></div>${S.ban?`<div class="row"><span class="k">禁足</span><span class="v">${S.ban} 季</span></div>`:''}</section>
+    ${inventoryHTML()}<details class="panel rules"><summary>规矩 · 怎么玩</summary><p>每季先办完宫里的事，再用三盏灯做三件事。季末敬事房翻牌、内务府发份例，圣宠会慢慢消退。</p><p>卷一失误只会降罪。之后君疑满、康健尽或长期冷落会结束此生；朱笔勾销可无限重选，不花点数。后几卷一季跨半年或一年，剧情年月保留原时序。</p></details>`;
+}
+function peopleHTML(){
+  const a=S.arc,f=a.fang;
+  const card=(id,name,v,state,gone,extra)=>{
+    const mood=gone?'dead':v==null?'calm':relMood(v);
+    return`<div class="npc ${gone?'gone':''}">${avatar(id,mood,48)}<div class="nb"><div class="nt"><b>${name}</b><span class="tg ${v>=15?'odds':v<=-15?'no':''}">${gone||(v==null?state:relWord(v))}</span></div>
+      ${v!=null&&!gone?`<span class="rb"><i class="${v<0?'neg':'pos'}" style="width:${Math.abs(v)/2}%"></i></span>`:''}<small>${extra||state||''}</small></div></div>`;};
+  const hhL={party:'你是她的人',double:'假意投靠',refused:'未入其门',enemy:'敌对',leverage:'互相牵制'}[a.hh]||'';
+  const hfL={party:'你是她的人',neutral:'中立',enemy:'结怨'}[a.hf]||'';
+  const fs={null:'同住偏殿',you:'与你交好',hh:'已投景仁宫',double:'两边传话',cold:'冷宫',dead:'已殁'}[f.side];
+  const yl={new:'初到',trusted:'信任',watched:'提防',sworn:'死忠',torn:'心事重重',coerced:'如常',swapped:'已换作秋纹',dead:'已故',out:'已出宫',stay:'留宫做姑姑'}[a.yl];
+  let h=`<section class="panel"><div class="ph"><h3>上位</h3></div>
+    <div class="npc">${avatar('emperor',moodMap().emperor,48)}<div class="nb"><div class="nt"><b>皇帝</b><span class="tg">${icon('night')}${S.nights} 回</span></div><span class="duo"><span>${icon('fav')}<b class="num">${S.st.fav}</b></span><span class="${S.st.sus>=60?'bad':''}">${icon('sus')}<b class="num">${S.st.sus}</b></span></span><small>${S.st.sus>=60?'近来看你的眼神淡了':S.st.fav>=40?'常翻你的牌子':'记得你这个人'}</small></div></div>
+    ${card('hh','皇后',S.flags.hhDown?null:S.rel.hh,'',S.flags.hhDown?'禁足景仁宫':'',hhL)}
+    ${card('hf','华妃',hfActive(S)?S.rel.hf:null,'',hfActive(S)?'':(S.v4.world.some(x=>x.id==='hfSaved')?'远居静养':S.flags.hfDead||S.t>=15?'殁于冷宫':'冷宫'),hfL)}
+    ${card('th','太后',thAlive(S)?S.rel.th:null,'',thAlive(S)?'':'已薨','')}</section>
+    <section class="panel"><div class="ph"><h3>身边 · 同辈</h3></div>
+    ${card('fang',['cold','dead'].includes(f.side)?'方氏':fangTitle(),['cold','dead'].includes(f.side)?null:f.rel,'',f.side==='dead'?'已殁':f.side==='cold'?'冷宫':'',fs)}
+    ${card('yl','云苓',null,yl,['dead','out'].includes(a.yl)?yl:'','掌事宫女')}
+    ${S.t>=12?card('qi','祺贵人',null,S.flags.qiDown?'失势':({feud:'结仇',peace:'面和'}[a.qi]||'新人'),'',''):''}
+    ${a.prince?card('prince','果郡王',null,{proper:'守礼',cool:'疏远',secret:'私交',cut:'已出京'}[a.prince],'',''):''}</section>`;
+  return h+memoryHTML();
+}
+function courtTabHTML(){
+  const arcs=ARCS.map(a=>{const d=a.ids.filter(id=>S.at[id]!=null).length;return`<div class="arc-row"><span>${a.name}</span><span class="bar"><i style="width:${d/a.ids.length*100}%"></i></span><b class="num">${d}/${a.ids.length}</b></div>`;}).join('');
+  const news=Object.keys(NEWS).map(Number).filter(t=>t<=S.t).reverse().map(t=>`<li><span>${t<4?'元':cnNum(Math.floor(t/4)+1)}年</span>${newsText4(t)}</li>`).join('');
+  return`<section class="panel"><div class="ph"><h3>剧情线</h3><span class="muted">走过的段落</span></div>${arcs}</section>
+    ${worldHTML()}${news?`<section class="panel"><div class="ph"><h3>宫中动静</h3></div><ul class="newsl">${news}</ul></section>`:''}
+    <section class="panel"><div class="ph"><h3>起居注</h3></div><ol class="logl">${S.log.slice(0,60).map(l=>`<li><span>${l.d}</span>${fill(l.text)}</li>`).join('')||'<li>尚无记载。</li>'}</ol></section>`;
+}
+function bookHTML(){
+  const kd={death:['死','d'],out:['出宫','o'],good:['善终','g']};
+  return`<section class="book-h"><h2>生死簿</h2><p>已录 <b class="num">${seen.length}</b> / ${ORDER.length}</p></section>
+  <ul class="plaques">${ORDER.map(id=>{const d=ENDS[id],got=seen.includes(id),k=kd[d.kind];return`<li class="${got?'got '+k[1]:''}"><span class="pq-top"></span><span class="pq-n">${got?d.name:'？'}</span><small>${d.src}</small></li>`;}).join('')}</ul>
+  <p class="muted center">有的死法藏在大事里，有的藏在一条剧情线的第四段。</p>`;
+}
+
+/* —— 交互 —— */
 function choose(i){
   const id=S.queue[0],e=EV[id];
   const c=e.choices.filter(x=>!x.show||x.show(S))[i];
-  if(!c)return;
+  if(!c||S.pending)return;
   if(c.need&&!c.need(S))return;
   if(c.cost&&S.st.silver<c.cost)return;
-  const chg=[];
+  checkpoint();const beforeRel={...S.rel,fang:S.arc.fang.rel};const chg=[];
   if(c.cost)chg.push(...apply({silver:-c.cost}));
-  const useIntel=S.intel&&e.intel&&!S.flags.noIntel;
+  const useIntel=(S.intel||S.trait==='dream')&&e.intel&&!S.flags.noIntel;
   const bonus=useIntel?HARD.intel:0;
   if(useIntel)S.intel=false;
   const ok=c.chance?roll(clamp(c.chance(S)*HARD.chance+bonus,.05,.88)):undefined;
   S.at[id]=S.t;
   const r=c.run(S,ok)||{};
-  if(r.death){die(r.death);return;}
+  if(r.death){if(softFailure(r.death,i)||counterDeath4(r.death))return;die(r.death);return;}
   if(r.chg)chg.push(...r.chg);
   chg.push(...apply(r.d));
   let text=r.text||'';
   if(r.promote){const l=promote(r.promote);if(l)text+='\n'+l;}
   if(r.after)r.after(S);
   if(e.post)e.post(S);
-  S.pending={title:tx(e.title),place:e.place,text,ok:r.ok,chg,note:r.note};
-  log(`${tx(e.title)}：${stripText(text)}`);
-  save();render();toTop();
+  S.pending={title:tx(e.title),place:e.place,text,ok:r.ok,chg,note:r.note,pick:i};
+  recordMemory(beforeRel,tx(e.title));log(`${tx(e.title)}：${stripText(text)}`);
+  save();render();
+  floatChips(chg);
+  const el=document.getElementById('result');if(el)el.scrollIntoView({block:'start',behavior:FX?'smooth':'auto'});
 }
 function stripText(t){const s=String(t).split('\n')[0];return s.length>46?s.slice(0,46)+'…':s;}
 function cont(){
   S.pending=null;S.queue.shift();S._prechg=[];
-  const d=checkVitals();if(d){die(d);return;}
+  const d=checkVitals();if(d){if(softFailure(d,0))return;die(d);return;}
   save();render();toTop();
 }
 function doAct(id){
   const a=ACTS.find(x=>x.id===id);if(!a||S.ap<=0)return;
   if(a.need&&!a.need(S))return;if(a.cost&&S.st.silver<a.cost)return;if(S.ban&&!a.ban)return;if(a.show&&!a.show(S))return;
-  S.ap--;
+  checkpoint();const beforeRel={...S.rel,fang:S.arc.fang.rel};S.ap--;
   const chg=[];if(a.cost)chg.push(...apply({silver:-a.cost}));
   const ok=a.chance?roll(clamp(a.chance(S)*HARD.chance,.05,.88)):undefined;
   const r=a.run(S,ok);
   chg.push(...apply(r.d));
   S.last={name:a.name,text:r.text,chg,ok};
-  log(`${a.name}：${r.text}`);
-  const d=checkVitals();if(d){die(d);return;}
-  save();render();
+  recordMemory(beforeRel,a.name);log(`${a.name}：${r.text}`);
+  const d=checkVitals();if(d){if(softFailure(d,0))return;die(d);return;}
+  save();render();floatChips(chg);
 }
 
+/* —— 死局：档册 —— */
+let deadInfo=null;
 function die(id){
   const d=ENDS[id];
-  if(!seen.includes(id)){seen.push(id);store('hgssb3_seen',seen);}
-  S.dead=true;store('hgssb3_save',null);
+  const fresh=!seen.includes(id);
+  if(fresh){seen.push(id);store('hgssb4_seen',seen);}
+  S.dead=true;if(S.turn>=25)achievement4('hougong_survive');if(S.v4.world.length>=3)achievement4('hougong_rewrite');if((S.v4.home?.done.length||0)>=6)achievement4('hougong_home');store('hgssb4_save',null);
   const w=d.when?d.when(S):{era:'雍正',y:S.y,season:SEASONS[S.q]};
   const ag=w.era==='雍正'?15+w.y:28+w.y;
   const who=d.kind==='good'?`${taifei(S)}　${S.name}氏`:(S.flags.in&&S.rank>=3?`${title()}　${S.name}氏`:title());
   const status=d.status?(typeof d.status==='function'?d.status(ag):d.status):(d.kind==='good'?`无疾而终，年${cnNum(ag)}`:`殁，年${cnNum(ag)}`);
-  let grade='',epi='';
+  let grade='',epi=[];
   if(d.kind==='good'){
     const lk=live(S);const sc=S.rank*12+lk.length*10+S.st.pres/4+S.st.fav/8+(lk.some(k=>k.sex==='子')?10:0)+(S.flags.hhDown?8:0);
-    grade=sc>=95?'甲上':sc>=75?'甲':sc>=55?'乙':'丙';
-    const L=epilogue(S);if(L.length)epi=`<h4 style="margin:1.2em 0 .4em;font-size:.8rem;letter-spacing:.3em;color:var(--muted);font-weight:400">身后事</h4><div class="text">${L.map(l=>`<p>${fill(l)}</p>`).join('')}</div>`;
+    grade=sc>=95?'甲上':sc>=75?'甲':sc>=55?'乙':'丙';epi=epilogue(S);
   }
-  view='dead';navHome.hidden=false;
-  app.innerHTML=`<div class="game">${dossier(d.kind!=='good')}<section class="main"><article class="archive ${d.kind}">
-    <div class="seal" aria-hidden="true">${d.seal||'殁'}</div>
-    <p class="arc-head">内务府 · 敬事房档册</p>
-    <h3>${d.name}</h3>
+  deadInfo={id,d,w,who,status,grade,epi,fresh};
+  tab='season';renderDeadTab();toTop();
+}
+function renderDeadTab(){
+  const {d,w,who,status,grade,epi,fresh}=deadInfo;
+  view='dead';
+  let body;
+  if(tab==='season')body=`<article class="archive ${d.kind}"><div class="seal-stamp" aria-hidden="true">${d.seal||'殁'}</div>
+    <p class="arc-head">内务府 · 敬事房档册</p><h2>${d.name}</h2>
     <p class="arc-line">${yearCN(w.era,w.y)}${w.season}　${esc(who)}　${status}</p>
-    ${grade?`<p>一生评定：<span class="grade">${grade}</span>　侍寝 ${S.nights} 回 · 子嗣 ${live(S).length} · 威望 ${S.st.pres}</p>`:''}
-    <div class="text">${paras(tx(d.text))}</div>${epi}
-    <p class="note"><span class="an">按</span><span>${fill(d.note)}</span></p>
-    <p class="muted" style="font-size:.84rem;margin:0">生死簿已录 ${seen.length} / ${ORDER.length} 种结局</p>
-    <div class="btns"><button class="primary" id="bAgain" type="button">重新入宫</button><button id="bBook" type="button">翻看生死簿</button></div>
-  </article>${logHTML()}</section></div>`;
-  document.getElementById('bAgain').onclick=renderStart;
-  document.getElementById('bBook').onclick=renderBook;
-  toTop();
+    ${grade?`<p class="grade-l">一生评定 <span class="grade">${grade}</span></p>`:''}
+    <div class="story">${compactStory(tx(d.text))}</div>
+    ${epi.length?`<details class="note" open><summary>身后事</summary>${epi.map(l=>`<p>${fill(l)}</p>`).join('')}</details>`:''}
+    <details class="note"><summary>按 · 典故</summary><p>${fill(d.note)}</p></details>
+    <div class="arc-foot"><span>生死簿 <b class="num">${seen.length}</b>/${ORDER.length}</span>${fresh?'<span class="tg gold">新录一条</span>':''}</div>
+  </article>${load('hgssb4_checkpoint',null)?'<button class="btn seal wide" type="button" data-rewrite>朱笔勾销 · 重选这一步</button>':''}<button class="btn ghost wide" type="button" data-again>重新入宫</button>`;
+  else body=tabHTML(tab);
+  app.className='shell dead';
+  app.innerHTML=`${topbar()}${statbar()}<main class="pg">${body}</main>${tabbar()}`;
+  bind();
 }
 
-function renderBook(){
-  navHome.hidden=false;const back=view==='game'&&S&&!S.dead;view='book';
-  const kd={death:['死','kd-death'],out:['出宫',''],good:['善终','kd-good']};
-  app.innerHTML=`<section><p class="eyebrow">共 ${ORDER.length} 种结局 · 已录 ${seen.length} 种</p><h2 style="font-size:2.4rem;margin:.1em 0 .2em">生死簿</h2>
-  <p class="muted" style="max-width:40em;margin:0">有的死法藏在大事里，有的藏在一条剧情线的第四段，要你在第一段先种下因。</p>
-  <ul class="book-list">${ORDER.map(id=>{const d=ENDS[id],got=seen.includes(id),k=kd[d.kind];return`<li class="${got?'got':''}"><span class="src"><span>${d.src}</span><span class="${k[1]}">${got?k[0]:''}</span></span><span class="nm">${got?d.name:'？？？'}</span></li>`;}).join('')}</ul>
-  <div class="btns"><button class="primary" id="bBack" type="button">${back?'回到宫中':'回到卷首'}</button></div></section>`;
-  document.getElementById('bBack').onclick=()=>back?render():renderStart();
-  toTop();
-}
-
+/* —— 卷首 —— */
+const ORIGIN_FLAG={man:['#E9C23A','','#8A6414'],han:['#F4F1E8','','#8A6414'],low:['#3E6AA8','#C23A2E','#8A6414']};
 function renderStart(){
-  view='start';navHome.hidden=true;
-  const sv=load('hgssb3_save',null);
-  const canResume=sv&&sv.v===3&&!sv.dead&&sv.name;
-  let pick={name:canResume?sv.name:'陆',origin:'han',trait:'cai'};
+  view='start';tab='season';lastSt=null;
+  const sv=resumeV4();
+  const canResume=sv&&sv.v===4&&!sv.dead&&sv.name;
+  let pick={name:canResume?sv.name:'陆',origin:'han',trait:'dream'};
   const preview=()=>{const tmp=newState(pick.name||'某',pick.origin,pick.trait);tmp.flags.in=1;return portrait(tmp,false);};
-  app.innerHTML=`<section class="create">
-    <div>
-      <p class="eyebrow">雍正元年 · 选秀</p>
-      <h1>后宫生死簿</h1>
-      <p>新帝登基，广选秀女。你年方十六，今日便要入殿候选。</p>
-      <p>自雍正元年至十三年，共五十一季。同住的方氏、身边的云苓、翊坤宫、景仁宫、你的家人、一位不该多看的王爷、一个后来入宫的新人，还有你将来的孩子——八条剧情线各自往前走，你今天怎么待一个人，三年后她就怎么待你。</p>
-      <p>每季可做三件事，季末敬事房翻牌、内务府发份例。数值决定你能选什么，也暗中决定成败——没有人会告诉你胜算几何。有些选择，无论数值多高都是死路。</p>
-      <div class="step"><label for="nameIn">姓氏</label><div class="namerow"><input id="nameIn" maxlength="2" value="${esc(pick.name)}" autocomplete="off"><span>氏</span></div><p class="err" id="nameErr" hidden>请填一到两个汉字。</p></div>
-      <div class="step"><span class="lbl">出身</span><div class="pick" id="pOrigin">${Object.entries(ORIGINS).map(([k,o])=>`<button type="button" data-k="${k}" aria-pressed="${k===pick.origin}"><b>${o.name}</b><small>${o.sub} · 初封${RANKS[o.rank]}<br>${o.desc}</small></button>`).join('')}</div>
-        <p class="rule">清制，选秀只选八旗之女，汉人民女不在其列；包衣三旗之女另由内务府选为宫女。</p></div>
-      <div class="step"><span class="lbl">性情</span><div class="pick" id="pTrait">${Object.entries(TRAITS).map(([k,t])=>`<button type="button" data-k="${k}" aria-pressed="${k===pick.trait}"><b>${t.name}</b><small>${t.desc}</small></button>`).join('')}</div></div>
-      <div class="btns"><button class="primary" id="btnStart" type="button">入宫</button>${canResume?`<button id="btnResume" type="button">接着上回（${yearCN('雍正',sv.y)}${SEASONS[sv.q]}）</button>`:''}</div>
-      <p class="muted" style="font-size:.84rem;margin-top:14px">生死簿已录 ${seen.length} / ${ORDER.length} 种结局</p>
-    </div>
-    <aside><div class="portrait" id="pv">${preview()}</div><p class="muted" style="font-size:.8rem;margin:0">画像随位分而变：发间簪花、点翠、流苏、凤钿，袍色依清制由湖色、藕荷而至香色、金黄、明黄。</p></aside>
-  </section>`;
+  app.className='shell start';
+  app.innerHTML=`<section class="gate"><div class="gate-roof"></div><p class="gate-k">雍正元年 · 选秀</p><h1>后宫生死簿</h1><p class="gate-s">新帝登基，广选秀女。你年方十六，今日入殿候选。</p></section>
+    <main class="pg">
+    <section class="panel"><div class="ph"><h3>姓氏</h3><span class="muted">生死簿 ${seen.length}/${ORDER.length}</span></div>
+      <div class="namerow"><span class="arch sm" id="pv">${preview()}</span><label class="nm"><input id="nameIn" maxlength="2" value="${esc(pick.name)}" autocomplete="off" aria-describedby="nameErr" aria-label="姓氏"><span>氏</span></label></div>
+      <p class="err" id="nameErr" hidden>请填一到两个汉字。</p></section>
+    <section class="panel"><div class="ph"><h3>出身</h3></div><div class="pick" id="pOrigin">${Object.entries(ORIGINS).map(([k,o])=>`<button type="button" data-k="${k}" aria-pressed="${k===pick.origin}">${banner(...(ORIGIN_FLAG[k]||ORIGIN_FLAG.han))}<span><b>${o.name}</b><small>初封${RANKS[o.rank]} · ${o.sub}</small></span></button>`).join('')}</div>
+      <details class="note"><summary>家世详情</summary>${Object.values(ORIGINS).map(o=>`<p><b>${o.name}</b>　${o.desc}</p>`).join('')}<p>清制，选秀只选八旗之女；包衣三旗之女另由内务府选为宫女。</p></details></section>
+    <section class="panel"><div class="ph"><h3>随身所长</h3></div><div class="pick tri" id="pTrait">${GIFTS4.map(k=>[k,TRAITS[k]]).map(([k,t])=>`<button type="button" data-k="${k}" aria-pressed="${k===pick.trait}"><span><b>${t.name}</b><small>${t.desc}</small></span></button>`).join('')}</div></section>
+    </main>
+    <div class="dock start-dock">${canResume?`<button class="btn ghost" id="btnResume" type="button">续 · ${yearCN('雍正',sv.y)}${SEASONS[sv.q]}</button>`:''}<button class="btn seal" id="btnStart" type="button">入宫</button></div>
+    <nav class="tabs solo"><button type="button" data-book>${icon('book')}<span>生死簿</span></button></nav>`;
   const inp=document.getElementById('nameIn'),pv=document.getElementById('pv');
   inp.addEventListener('input',()=>{pick.name=inp.value.trim();});
   inp.addEventListener('keydown',e=>{if(e.key==='Enter')start();});
   const bindPick=(id,key)=>document.querySelectorAll(`#${id} button`).forEach(b=>b.onclick=()=>{pick[key]=b.dataset.k;document.querySelectorAll(`#${id} button`).forEach(x=>x.setAttribute('aria-pressed',x===b));pv.innerHTML=preview();});
   bindPick('pOrigin','origin');bindPick('pTrait','trait');
   function start(){const v=inp.value.trim();if(!/^[一-鿿]{1,2}$/.test(v)){document.getElementById('nameErr').hidden=false;inp.focus();return;}
-    S=newState(v,pick.origin,pick.trait);S.queue=['xuanxiu','yl_arrive'];log(`${v}氏，${ORIGINS[pick.origin].sub}，年十六，应选入宫。`);save();render();toTop();}
+    store('hgssb4_checkpoint',null);S=newState(v,pick.origin,pick.trait);S.queue=[S.origin==='bao'?'v4_baoEntry':'xuanxiu','yl_arrive'];log(`${v}氏，${ORIGINS[pick.origin].sub}，年十六，应选入宫。`);save();tab='season';render();toTop();}
   document.getElementById('btnStart').onclick=start;
-  if(canResume)document.getElementById('btnResume').onclick=()=>{S=sv;render();toTop();};
+  if(canResume)document.getElementById('btnResume').onclick=()=>{S=sv;tab='season';render();toTop();if(S.v4.migrated){S.v4.migrated=false;log('旧版存档已迁入32季新篇，原档原样保留。');save();}};
+  app.querySelector('[data-book]').onclick=renderBookAlone;
   toTop();
 }
-navHome.onclick=renderStart;
-navBook.onclick=renderBook;
+function renderBookAlone(){
+  view='book';
+  app.className='shell start';
+  app.innerHTML=`<header class="tb"><div class="who"><b>生死簿</b><small>历代秀女的结局</small></div><button class="ib" id="bBack" type="button" aria-label="返回">${icon('door')}</button></header><main class="pg">${bookHTML()}</main>`;
+  document.getElementById('bBack').onclick=renderStart;toTop();
+}
+function renderBook(){if(S&&!S.dead){tab='book';render();}else renderBookAlone();}
 renderStart();
+
 </script>
 </body>
 </html>

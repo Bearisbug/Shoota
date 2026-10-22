@@ -1,0 +1,34 @@
+{
+  "catalog": 15,
+  "mapped": 13,
+  "missing": [
+    {
+      "id": "football-career",
+      "expected": "足球巨星",
+      "actual": null
+    },
+    {
+      "id": "football-manager",
+      "expected": "绿茵经理",
+      "actual": null
+    }
+  ]
+}
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: catalog title mapping must include every game
+
+2 !== 0
+
+    at file:///private/tmp/shoota-catalog-titles.mjs:2:727 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 2,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.12.0

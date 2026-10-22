@@ -425,11 +425,18 @@ body.crashed .shell{filter:grayscale(.85) brightness(.7);transition:filter 1s}
  .scene .who{width:340px}
 }
 .aside{display:none}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.stage-bg i{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.stage-bg i{display:none}}
 
 .ending-face{inline-size:min(40vw,12rem);aspect-ratio:1;overflow:hidden;border-radius:50%;background:var(--panel2)}.ending .logo{font-size:clamp(28px,8vw,44px)}.ending .tag{max-inline-size:30rem;line-height:1.8}.ending .chips{justify-content:center;flex-wrap:wrap}.tabbar{scrollbar-width:none}.tabbar::-webkit-scrollbar{display:none}#floaters{position:fixed;inset:0;pointer-events:none;z-index:1000}button{touch-action:manipulation}
 
 .req-note{display:block;color:var(--sub);font-size:10px;line-height:1.4}.choice>span{min-width:0;overflow-wrap:anywhere}
+
+/* Platform switch keeps existing compact visual tokens. */
+.market-tabs{display:flex;gap:4px}.market-tabs button{flex:1;min-height:40px;min-width:0}.market-note{font-size:11px;color:var(--sub);margin:6px 0}.intent small{display:block;line-height:1.4}.lu b{min-width:0;overflow-wrap:anywhere}
+
+.forecast{text-align:center;padding:4px;font-size:11px;color:var(--sub)}.fold .btn{margin:4px 4px 4px 0;max-width:100%;white-space:normal}.intent small{overflow-wrap:anywhere}
+
+.op-groups{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin-top:5px;font-size:10px}.op-groups span{border-bottom:3px solid var(--pink);padding-bottom:3px}.op-groups b{float:right;font-variant-numeric:tabular-nums}.op-groups .op-public{border-color:var(--cyan)}.op-groups .op-anti{border-color:var(--red)}.op-groups .op-media{border-color:var(--gold)}
 </style></head><body><div id="app"></div><div id="floaters" aria-hidden="true"></div><div id="toast" class="toast" role="status" hidden></div><style>[hidden]{display:none!important}</style><script>const TYPES={music:'音乐',book:'文学',screen:'影视'};
 const WORKS=[
 ['qf','起风了','music','青春',90,34,2600,2,10,'清澈的成长叙事，适合小型现场；复杂编曲并非必要。','高桥优作曲；米果中文词'],
@@ -827,8 +834,8 @@ const TIERS=[
 const SKILLS={vocal:['唱功','🎤'],compose:['作曲','🎼'],lyric:['作词','✒️'],acting:['演技','🎭'],camera:['镜头感','📸'],biz:['商业','💼']};
 // 各作品类型使用的能力权重
 const SKILL_MIX={music:{compose:.35,lyric:.25,vocal:.4},screen:{acting:.6,camera:.25,biz:.15},tv:{acting:.55,camera:.35,biz:.1},book:{lyric:.7,compose:.1,biz:.2},show:{camera:.6,biz:.25,vocal:.15}};
-const STAT_ICON={money:'💰',energy:'⚡',mood:'💗',heat:'🔥',rep:'⭐',passer:'👥',work:'💿',solo:'💖',anti:'👿',memory:'🌍',doubt:'❓',original:'✍️'};
-const STAT_NAME={money:'资金',energy:'体力',mood:'心态',heat:'热度',rep:'口碑',passer:'路人',work:'作品粉',solo:'唯粉',anti:'黑粉',memory:'地球记忆',doubt:'怀疑',original:'原创声誉'};
+const STAT_ICON={money:'💰',energy:'⚡',mood:'💗',heat:'🔥',rep:'⭐',passer:'👥',work:'💿',solo:'💖',anti:'👿',cp:'💘',memory:'🌍',doubt:'❓',original:'✍️'};
+const STAT_NAME={money:'资金',energy:'体力',mood:'心态',heat:'热度',rep:'口碑',passer:'路人',work:'作品粉',solo:'唯粉',anti:'黑粉',cp:'CP粉',memory:'地球记忆',doubt:'怀疑',original:'原创声誉'};
 
 /* 人物：look 驱动 SVG 立绘。traits 影响台词和出牌。 */
 const NPCS={
@@ -877,6 +884,7 @@ const ACTIONS={
  live:{name:'直播营业',icon:'📱',energy:-8,desc:'唯粉↑ 热度↑'},
  gig:{name:'跑商演',icon:'🎤',energy:-15,desc:'赚钱 · 路人↑'},
  social:{name:'社交',icon:'🥂',energy:-6,money:-800,desc:'好感↑'},
+ cp:{name:'合体营业',icon:'💘',energy:-10,mood:-2,desc:'CP粉↑ · 唯粉不满'},
  rest:{name:'休息',icon:'🛌',energy:28,mood:8,desc:'回体力和心态'}};
 const PRESETS=[
  {id:'work',name:'冲作品',icon:'🎼',plan:['create','create','rest']},
@@ -938,6 +946,14 @@ const COMMENTS={
  mid:['坐等反转','吃瓜，不站队','双方都拿证据说话','热搜又被买了？','先别骂，等等看'],
  good:['证据链太完整了','恒曜吃相太难看','路人转粉了！','心疼哥哥/姐姐','这才叫实力','原来是被做局','星河会冲啊💖']};
 const NICKS=['吃瓜少女','澜星路人甲','momo','打工人小陈','深夜emo','一只柠檬','不吃香菜','KK','追星打工人','柚子','海岚老炮','阿Z'];
+
+const AWARD_KINDS={
+ song:{name:'年度金曲',type:'music',skill:'compose',cost:10000,threshold:[67,79]},
+ composer:{name:'最佳作曲',type:'music',skill:'compose',cost:10000,threshold:[70,82]},
+ singer:{name:'最佳演唱',type:'music',skill:'vocal',cost:10000,threshold:[70,82]},
+ actor:{name:'年度影帝／影后',type:'film',skill:'acting',cost:20000,threshold:[70,82]},
+ picture:{name:'最佳影片',type:'film',skill:'camera',cost:20000,threshold:[70,82]},
+ international:{name:'国际电影节·导演奖',type:'film',skill:'camera',cost:30000,threshold:[76,86],director:true}};
 
 /* 杀穿娱乐圈 v2 · 剧情。台词短句，一句不超过两行。
  * line: [说话人, 文本]，说话人 me=玩家，sys=旁白，agent=当前经纪人，或 NPCS 的 id。
@@ -1042,8 +1058,8 @@ const SCENES={
  bet_check:{pool:1,bg:'office',lines:[['zhuang','这个季度，热度不及格。'],['zhuang','按合同，接下来三个月你听我安排。']],fx:{heat:-5,mood:-12,flag:'frozen3'}},
  cp_rumor:{pool:1,bg:'night',lines:[['zhou','我给你安排了个CP，热度稳了。'],['sys','对方是当红小花。唯粉已经开始闹了。']],
   choices:[
-   {label:'配合炒一波',icon:'💘',fx:{heat:14,passer:4000,solo:-1500,soloMood:-15,aff:{zhou:6}},mem:['zhou','你听了我的安排',5]},
-   {label:'拒绝，我只做作品',icon:'🙅',fx:{workMood:8,aff:{zhou:-8},rep:2},mem:['zhou','你驳了我的面子',-8]}]}
+   {label:'配合炒一波',icon:'💘',fx:{heat:14,passer:4000,cp:4000,cpMood:15,solo:-1500,soloMood:-15,aff:{zhou:6}},mem:['zhou','你听了我的安排',5]},
+   {label:'拒绝，我只做作品',icon:'🙅',fx:{workMood:8,cpMood:-10,aff:{zhou:-8},rep:2},mem:['zhou','你驳了我的面子',-8]}]}
 };
 
 /* 热搜战设定。s0：初始风向（-100 全黑 · +100 全粉）。deck：对手每回合的意图（会提前亮出）。 */
@@ -1112,15 +1128,17 @@ Object.assign(SCENES,{
  {label:'继续调查，不拿猜测指控人',icon:'🔎',fx:{flag:'investigate',rep:3,mood:-4}},
  {label:'放下这段过去，重新生活',icon:'🕊️',fx:{mood:18,heat:-5}}]},
  finale:{bg:'stage',lines:[['sys','十年过去。你终于可以回答——'],['me','我想被怎样记住？']],choices:[
+ {label:'连续十二个月，全网顶流',icon:'🔥',req:{topYear:true},end:'superstar'},
+ {label:'金曲／影视大满贯',icon:'🏆',req:{grandSlam:true},end:'grandslam'},
  {label:'殿堂之声',icon:'🏆',req:{flag:'award'},end:'legend'},
  {label:'把聚光灯交给新人',icon:'🌱',req:{graduates:3},end:'studio'},
- {label:'镜头背后的名字',icon:'🎬',req:{director:true},end:'director'},
+ {label:'镜头背后的名字',icon:'🎬',req:{international:true},end:'director'},
  {label:'让真相留下',icon:'⚖️',req:{flag:'caseCleared'},end:'justice'},
- {label:'还在台上的独立艺人',icon:'🎤',req:{released:1},end:'artist'},
+ {label:'还在台上的独立艺人',icon:'🎤',req:{independent:true},end:'artist'},
  {label:'平凡生活，也有自己的光',icon:'🌅',end:'quiet'}]}
 });
 const STORY_MILESTONES=[['ch2_route',7],['ch2_stage',12],['ch2_identity',18],['ch3_capital',20],['ch3_witness',27],['ch3_terms',34],['ch4_privacy',39],['ch4_team',47],['ch4_return',56],['ch5_future',62],['ch5_award',82],['ch5_verdict',94],['finale',120]];
-const ENDINGS={legend:['殿堂之声','奖杯只是一个晚上。作品留下了你。'],studio:['下一束星光','三个新人有了自己的舞台。你的名字，在他们的致谢里。'],director:['镜头之后','从被镜头选择，到决定镜头望向哪里。'],justice:['真相不灭','旧案有了答案。那些曾经沉默的人，终于能开口。'],artist:['仍在发光','你没有停在别人的评价里。下一首歌，还在写。'],quiet:['人间有光','你走下舞台，把人生还给自己。']};
+const ENDINGS={grandslam:['满贯星光','从入围到三座金曲奖，或两项影视最高荣誉。每座奖杯背后，都有真正发行的作品。'],superstar:['时代的顶流','连续十二个月，全网热度第一。你把一时的爆红，活成了一个时代。'],legend:['殿堂之声','奖杯只是一个晚上。作品留下了你。'],studio:['下一束星光','三个新人有了自己的舞台。你的名字，在他们的致谢里。'],director:['镜头之后','从被镜头选择，到决定镜头望向哪里。'],justice:['真相不灭','旧案有了答案。那些曾经沉默的人，终于能开口。'],artist:['仍在发光','你没有停在别人的评价里。下一首歌，还在写。'],quiet:['人间有光','你走下舞台，把人生还给自己。']};
 
 /* 杀穿娱乐圈 v2 · 模拟引擎（纯函数式，不碰 DOM，可在 node 里跑长局审计）。
  * 所有随机都走存档里的种子，读档后结果可复现。 */
@@ -1133,7 +1151,7 @@ const pickR=(s,arr)=>arr[Math.floor(rnd(s)*arr.length)];
 function hashN(...xs){let h=2166136261;for(const x of String(xs.join('|'))){h^=x.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
 function sub(seed){let st=seed|0;return()=>{let t=(st=(st+0x6D2B79F5)|0);t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296;};}
 const getWork2=id=>WORKS.find(w=>w.id===id);
-const fansTotal=s=>s.fans.passer+s.fans.work+s.fans.solo;
+const fansTotal=s=>s.fans.passer+s.fans.work+s.fans.solo+(s.fans.cp||0);
 const uid=s=>'u'+(s.uidN=(s.uidN||0)+1);
 const yearOf=m=>Math.floor((m-1)/12)+1,monthOf=m=>(m-1)%12+1;
 const dateLabel=s=>`第${yearOf(s.m)}年 ${monthOf(s.m)}月`;
@@ -1142,20 +1160,20 @@ function newGame(o={}){
  const seed=o.seed??((Date.now()^(Math.random()*1e9))>>>0);
  const s={v:2,seed,rng:seed,name:(o.name||'陆星河').slice(0,12),look:o.look||'a',m:1,w:0,
   money:8000,debt:DEBT,debtPaid:false,energy:80,mood:60,heat:8,rep:22,memory:6,doubt:10,original:0,
-  fans:{passer:3000,work:200,solo:800,anti:2500},fanMood:{work:55,solo:60},
+  fans:{passer:3000,work:200,solo:800,anti:2500,cp:0},fanMood:{work:55,solo:60,cp:55},
   skills:{vocal:30,compose:28,lyric:24,acting:12,camera:14,biz:10},
   tier:0,tierLow:0,agent:null,contract:null,contractUntil:0,excl:{},
   npc:Object.fromEntries(Object.keys(NPCS).map(k=>[k,{aff:k==='cheng'?-30:k==='tang'?30:k==='xu'?-5:0,mem:[]}])),
-  flags:{},plan:emptyPlan(),offers:[],project:null,ready:[],releases:[],chart:[],pendingRelease:null,
+  awards:[],awardEntries:[],eventMonths:{},flags:{},platformCharts:{},heatChart:[],plan:emptyPlan(),offers:[],project:null,ready:[],releases:[],chart:[],pendingRelease:null,
   hand:{evidence:0,dirt:0},queue:['intro','pickAgent'],battle:null,seen:{},log:[],history:[],
-  income:0,stats:{battles:0,wins:0,top1:0,top10:0,released:0,crash:0,maxTier:0},ended:null,uidN:0};
+  income:0,stats:{battles:0,wins:0,top1:0,top10:0,released:0,crash:0,maxTier:0,heatStreak:0,heatBest:0},ended:null,uidN:0};
  s.offers=genOffers(s);
  return s;}
 function emptyPlan(){return Array.from({length:WEEKS},()=>Array(SLOTS).fill(null));}
 
 /* ---------- 通用效果 ---------- */
-function addFans(s,k,n){s.fans[k]=Math.max(0,Math.round(s.fans[k]+n));}
-function remember(s,id,text,d){const n=s.npc[id];if(!n)return;n.mem.unshift({m:s.m,t:text,d});n.mem=n.mem.slice(0,8);}
+function addFans(s,k,n){s.fans[k]=Math.max(0,Math.round((s.fans[k]||0)+n));}
+function remember(s,id,text,d){const n=s.npc[id];if(!n)return;n.mem.unshift({m:s.m,t:text,d});n.mem=n.mem;}
 function addAff(s,id,d){const n=s.npc[id];if(n)n.aff=clamp(Math.round(n.aff+d),-100,100);}
 function earn(s,gross){ // 经纪抽成即时扣除；合约分成在月末结算
  if(gross<=0){s.money+=gross;return gross;}
@@ -1166,7 +1184,8 @@ function applyFx(s,fx={}){
  for(const k of ['energy','mood','heat','rep','memory','doubt','original']){if(fx[k]!=null){const before=s[k];let v=fx[k];if(k==='rep'&&v>0)v=Math.max(1,Math.round(v*(1-s.rep/130)));s[k]=clamp(s[k]+v,0,k==='memory'?10:100);add(k,s[k]-before);}}
  if(fx.money){if(fx.money>0)add('money',earn(s,fx.money));else{s.money+=fx.money;add('money',fx.money);}}
  if(fx.moneySet!=null){add('money',fx.moneySet-s.money);s.money=fx.moneySet;}
- for(const k of ['passer','work','solo','anti']){if(fx[k]){const b=s.fans[k];addFans(s,k,fx[k]);add(k,s.fans[k]-b);}}
+ for(const k of ['passer','work','solo','anti','cp']){if(fx[k]){const b=s.fans[k];addFans(s,k,fx[k]);add(k,s.fans[k]-b);}}
+ if(fx.cpMood)s.fanMood.cp=clamp((s.fanMood.cp??55)+fx.cpMood,0,100);
  if(fx.soloMood)s.fanMood.solo=clamp(s.fanMood.solo+fx.soloMood,0,100);
  if(fx.workMood)s.fanMood.work=clamp(s.fanMood.work+fx.workMood,0,100);
  if(fx.aff)for(const[id,v]of Object.entries(fx.aff)){addAff(s,id,v);d['aff:'+id]=(d['aff:'+id]||0)+v;}
@@ -1245,11 +1264,11 @@ function resolveCell(s,cell,slot,weekend){
  if(cell.offer){
   const o=s.offers.find(x=>x.uid===cell.offer);const d=offerDef(o);out.icon=d.icon;out.label=d.name;out.offer=o.id;
   if(o.done){out.label+='（续）';out.d=applyFx(s,{energy:-8});return out;}
-  o.done=1;const q=d.skill?s.skills[d.skill]/100:.5;const fx={energy:-14*d.slots/2,money:o.pay};
+  o.done=1;s.stats.performances=(s.stats.performances||0)+1;const q=d.skill?s.skills[d.skill]/100:.5;const fx={energy:-14*d.slots/2,money:o.pay};
   for(const[k,r]of Object.entries(d.gain||{}))fx[k]=Math.round(rr(s,r)*(.6+q*.8)*perf);
   if(d.risk&&rnd(s)<d.risk.p*(1.2-q*.8)){fx.anti=(fx.anti||0)+rr(s,d.risk.anti);fx.rep=(fx.rep||0)+rr(s,d.risk.rep);out.bad=d.risk.text;}
   if(d.special==='audition'){s.flags.auditioned=s.m;if(s.skills.acting>=30){fx.aff={shen:12};s.flags.shenRole=s.m;out.good='沈砚记住了你';remember(s,'shen','试镜那场哭戏，你没用眼药水',12);}else{fx.aff={shen:3};out.bad='眼神不对，落选';remember(s,'shen','试镜时你的眼神是空的',-2);s.flags.shenRetry=s.m;}}
-  if(d.special==='cp')fx.soloMood=-10;
+  if(d.special==='cp'){fx.soloMood=-10;fx.cp=2000+s.tier*1000;fx.cpMood=15;s.flags.cpLast=s.m;}
   if(d.npc&&d.special!=='audition')fx.aff={[d.npc]:4};
   out.d=applyFx(s,fx);return out;}
  const A=ACTIONS[cell.a];out.icon=A.icon;out.label=A.name;
@@ -1268,9 +1287,10 @@ function resolveCell(s,cell,slot,weekend){
    const mentor=(k==='acting'&&s.npc.shen.aff>=40)||(k==='vocal'&&s.flags.xu_friend)?1.4:1;
    const g=Math.max(1,Math.round((4+rnd(s)*2.5)*(1-b/125)*perf*mentor));s.skills[k]=clamp(b+g,0,100);
    out.label='练'+SKILLS[k][0];out.icon=SKILLS[k][1];out.d['skill:'+k]=g;break;}
-  case'live':{fx.solo=Math.round((80+s.fans.solo*.025+s.heat*6)*perf);fx.soloMood=5;fx.heat=2;fx.money=Math.round(300+s.fans.solo*.04);
+  case'live':{fx.solo=Math.round((80+s.fans.solo*.025+s.heat*6)*perf);fx.soloMood=5;fx.heat=2+Math.floor(s.skills.camera/20)+(s.tier>=3?2:0);fx.money=Math.round(300+s.fans.solo*.04);
    if(s.doubt>45)fx.anti=Math.round(s.doubt*8);break;}
-  case'gig':{fx.money=Math.round((2600+s.tier*6500)*(1+rnd(s)*.4)*perf);fx.passer=Math.round((150+s.tier*450)*perf);
+  case'cp':{fx.cp=300+Math.round((s.fans.cp||0)*.05);fx.cpMood=10;fx.soloMood=-6;fx.heat=4+Math.floor(s.skills.camera/25);s.flags.cpLast=s.m;break;}
+  case'gig':{s.stats.performances=(s.stats.performances||0)+1;fx.money=Math.round((2600+s.tier*6500)*(1+rnd(s)*.4)*perf);fx.passer=Math.round((150+s.tier*450)*perf);
    if(weekend)fx.money=Math.round(fx.money*1.2);break;}
   case'social':{const k=cell.k||s.agent||'tang';const n=NPCS[k];
    let g=ri(s,4,8);if(n.traits.includes('记仇')&&s.npc[k].aff<0)g=Math.ceil(g/2);if(n.traits.includes('温和')||n.traits.includes('热血'))g+=2;
@@ -1288,9 +1308,9 @@ function advanceWeek(s){
  if(s.energy<=3&&e0<25&&!s.seen.sick_recent){s.queue.push('sick');s.seen.sick_recent=s.m;}
  // 未接的、已过期的邀约作废
  s.offers.forEach(o=>{if(o.state==='new'&&o.week<=s.w)o.state='gone';});
- s.w++;
+ s.heat=Math.round(s.heat*.85);s.w++;
  fireTimed(s);
- return res;}
+ s.queue=s.queue.filter((id,i,a)=>a.indexOf(id)===i&&sceneDue(s,id));return res;}
 function fireTimed(s){
  for(const[id,sc]of Object.entries(SCENES)){if(sc.when&&sc.when.m===s.m&&sc.when.w===s.w+1&&!s.seen[id])s.queue.push(id);}
  if(s.w===1&&s.pool&&!s.seen[s.pool+'@'+s.m]){s.queue.push(s.pool);s.seen[s.pool+'@'+s.m]=1;s.lastPool=s.m;s.poolSeen=s.poolSeen||{};s.poolSeen[s.pool]=s.m;s.pool=null;}}
@@ -1314,7 +1334,7 @@ function finishProject(s){
  if(p.copy){q=.4*p.base+.6*avg;if(avg<p.diff)q-=(p.diff-avg)*.5;}
  else q=avg*.85+8+Math.min(10,s.original*.25);
  q=clamp(Math.round(q),30,99);
- const r={uid:p.uid,workId:p.workId,title:p.title,type:p.type,tag:p.tag,q,grade:grade(q),copy:p.copy,made:s.m,sk:Math.round(sk)};
+ const r={uid:p.uid,workId:p.workId,title:p.title,type:p.type,tag:p.tag,q,grade:grade(q),copy:p.copy,director:!!s.flags.directorPlan&&['screen','tv'].includes(p.type),made:s.m,sk:Math.round(sk)};
  if(p.copy)s.doubt=clamp(s.doubt+3+Math.max(0,q-sk)/3,0,100);
  else{s.doubt=clamp(s.doubt-6,0,100);s.original=clamp(s.original+4,0,100);if(s.hand.evidence<3)s.hand.evidence++;}
  s.ready.push(r);s.project=null;return r;}
@@ -1331,23 +1351,53 @@ function rivalsFor(s,m){
  return out.concat(xu);}
 function songPower(s,r,age,noise=1){
  const fanF=Math.min(.4,Math.log10(1+(s.fans.work+s.fans.solo)/800)*.12);
- return r.q*(.72+s.heat/450+fanF*.6)*(PLATFORMS[r.platform||'all'].mul)*(PROMOS[r.promo||0].mul)*Math.pow(.74,age)*noise;}
+ return r.q*(.72+s.heat/450+fanF*.6)*(PLATFORMS[r.platform||'all'].mul)*(PROMOS[r.promo||0].mul)*(r.joint?1.15:1)*Math.pow(.74,age)*noise;}
 function predictRank(s,r,m){
  const riv=rivalsFor(s,m).map(x=>x.power);const lo=songPower(s,r,0,.9),hi=songPower(s,r,0,1.1);
  const rank=p=>riv.filter(x=>x>p).length+1;return[rank(hi),rank(lo)];}
 function scheduleRelease(s,u,opt){
  const i=s.ready.findIndex(r=>r.uid===u);if(i<0||s.pendingRelease)return false;
  const promo=PROMOS[opt.promo||0];if(s.money<promo.cost)return false;
- const r=s.ready.splice(i,1)[0];r.platform=opt.platform||'all';r.promo=promo.id;r.month=s.m+(opt.next?1:0);
+ const r=s.ready.splice(i,1)[0];r.platform=opt.platform||'all';r.exclusive=MUSIC_MARKETS[opt.exclusive]?opt.exclusive:'qq';r.promo=promo.id;r.month=s.m+(opt.next?1:0);
+ if(opt.joint&&(s.npc.xu.aff<20||s.money<promo.cost+15000)){s.ready.splice(i,0,r);return false;}
+ r.joint=!!opt.joint;if(r.joint){s.money-=15000;addAff(s,'xu',6);remember(s,'xu','我们选择联合宣发，没有互抢档期',8);}
  s.money-=promo.cost;if(r.platform==='excl')earn(s,8000+s.tier*20000);
  s.pendingRelease=r;return true;}
-function buildChart(s){
- const prev=Object.fromEntries((s.chart||[]).map((e,i)=>[e.key,i+1]));
- const mine=s.releases.filter(r=>s.m-r.month<6).map(r=>{const age=s.m-r.month;return{key:r.uid,title:r.title,artist:s.name,power:songPower(s,r,age,r.noise??1),mine:1,uid:r.uid,fresh:age===0};});
- const riv=rivalsFor(s,s.m).map(x=>({...x,key:x.artist+x.title}));
- const all=mine.concat(riv).sort((a,b)=>b.power-a.power).slice(0,10);
- all.forEach((e,i)=>{e.prev=prev[e.key]||0;e.rank=i+1;});
- return all;}
+const MUSIC_MARKETS={
+ qq:{name:'QQ音乐',audience:'大众与唯粉',scale:14000,fan:'solo'},
+ netease:{name:'网易云',audience:'作品粉与原创',scale:11000,fan:'work'},
+ qishui:{name:'汽水音乐',audience:'路人与短视频',scale:18000,fan:'passer'}};
+function marketPower(s,r,id,age){
+ if(r.platform==='excl'&&age===0&&(r.exclusive||'qq')!==id)return 0;
+ const fan=s.fans[MUSIC_MARKETS[id].fan]||0;
+ const taste=id==='qq'?1+Math.min(.3,Math.log10(1+fan)/20):id==='netease'?.82+r.q/220+(!r.copy?.16:0):.85+s.skills.camera/230+(/流行|青春|励志/.test(r.tag||'')?.18:0);
+ return songPower(s,r,age,r.noise??1)*taste*(r.platform==='excl'&&age===0?1.3:1);
+}
+function buildPlatformCharts(s){
+ const charts={};
+ for(const [id,market]of Object.entries(MUSIC_MARKETS)){
+  const prev=Object.fromEntries((s.platformCharts?.[id]||[]).map(e=>[e.key,e.rank]));
+  const mine=s.releases.filter(r=>s.m>=r.month&&s.m-r.month<6).map(r=>({key:r.uid,title:r.title,artist:s.name,power:marketPower(s,r,id,s.m-r.month),mine:1,uid:r.uid,fresh:s.m===r.month})).filter(x=>x.power>0);
+  const rivals=rivalsFor(s,s.m).map(x=>({...x,key:x.artist+x.title,power:x.power*(.72+sub(hashN(s.seed,id,x.artist,x.title))()*.66)}));
+  const all=mine.concat(rivals).sort((a,b)=>b.power-a.power||a.key.localeCompare(b.key));const total=all.reduce((a,b)=>a+b.power,0);
+  charts[id]=all.map((e,i)=>({...e,rank:i+1,prev:prev[e.key]||0,share:e.power/total,plays:Math.round(e.power*market.scale)}));
+ }
+ return charts;
+}
+function buildChart(s,platformCharts=buildPlatformCharts(s)){
+ const prev=Object.fromEntries((s.chart||[]).map(e=>[e.key,e.rank]));const map=new Map();
+ for(const list of Object.values(platformCharts))for(const e of list){let row=map.get(e.key);if(!row){row={...e,power:0,plays:0,share:0};map.set(e.key,row);}row.power+=e.power/3;row.plays+=e.plays;row.share+=e.share/3;}
+ return [...map.values()].sort((a,b)=>b.power-a.power||a.key.localeCompare(b.key)).slice(0,10).map((e,i)=>({...e,rank:i+1,prev:prev[e.key]||0}));
+}
+function settleHeatRace(s){
+ const rivalNames=['许望川',...RIVAL_ARTISTS.slice(0,11)];
+ const rows=rivalNames.map((artist,i)=>({artist,heat:Math.round(44+sub(hashN(s.seed,'heat',s.m,artist))()*30+(i===0?5:0))}));
+ rows.push({artist:s.name,heat:s.heat,mine:1});rows.sort((a,b)=>b.heat-a.heat||(a.mine?1:-1));
+ s.heatChart=rows.map((x,i)=>({...x,rank:i+1}));const first=!!s.heatChart[0].mine;
+ s.stats.heatStreak=first?(s.stats.heatStreak||0)+1:0;s.stats.heatBest=Math.max(s.stats.heatBest||0,s.stats.heatStreak);
+ if(s.stats.heatStreak>=12)s.flags.topYear=s.flags.topYear||s.m;
+ return{rank:s.heatChart.find(x=>x.mine).rank,streak:s.stats.heatStreak,best:s.stats.heatBest};
+}
 
 /* ---------- 月末 ---------- */
 function endMonth(s){
@@ -1357,7 +1407,7 @@ function endMonth(s){
  if(s.pendingRelease&&s.pendingRelease.month<=s.m){const r=s.pendingRelease;r.month=s.m;r.noise=.92+rnd(s)*.16;r.best=99;s.releases.push(r);s.pendingRelease=null;s.stats.released++;s.lastRelease=s.m;
   s.fanMood.work=clamp(s.fanMood.work+(r.q-60)/2,0,100);}
  // 榜单
- const chart=buildChart(s);rep.chart=chart;
+ const platformCharts=buildPlatformCharts(s);s.platformCharts=platformCharts;rep.platformCharts=platformCharts;const chart=buildChart(s,platformCharts);rep.chart=chart;
  let beatXu=false;const xuRow=chart.find(e=>e.xu&&e.fresh);
  chart.filter(e=>e.mine).forEach(e=>{const r=s.releases.find(x=>x.uid===e.uid);r.best=Math.min(r.best||99,e.rank);
   const k=11-e.rank,tf=1+s.tier*.9;const fx={money:Math.round(k*1700*tf+r.q*60),work:Math.round(k*140*(1+s.heat/45)*tf),passer:Math.round(k*320*tf),heat:e.rank===1?12:e.rank<=3?7:e.rank<=10?3:0};
@@ -1368,6 +1418,10 @@ function endMonth(s){
  if(beatXu){addAff(s,'xu',-6);remember(s,'xu','你的歌压了我的新歌',-6);rep.lines.push(['xu','……这次算你运气好。']);s.flags.beatXu=s.m;}
  else if(xuRow&&s.releases.some(r=>r.month===s.m))rep.lines.push(['xu','榜单看了吗？差距在这。']);
  s.chart=chart;
+ // Independent audience shares generate streaming income; never pay the same composite rank three times.
+ rep.streams=0;rep.streamIncome=0;
+ for(const list of Object.values(platformCharts))for(const e of list.filter(e=>e.mine)){const amount=Math.round(e.plays*.0012);earn(s,amount);rep.streamIncome+=amount;rep.streams+=e.plays;}
+ rep.heatRace=settleHeatRace(s);
  // 合约分成
  const cut=contractCut(s);if(cut&&s.income>0){const c=Math.round(s.income*cut);s.money-=c;rep.cut=c;}
  // 固定支出
@@ -1376,11 +1430,11 @@ function endMonth(s){
  const cost=3000+s.tier*s.tier*7000;s.money-=cost;rep.cost=cost;
  if(s.flags.debtLeft&&!s.debtPaid){const intr=Math.round(s.debt*.02);s.debt+=intr;if(s.money>=s.debt+20000){s.money-=s.debt;s.debtPaid=true;s.queue.push('debt_ok');}}
  // 自然变化
- s.heat=Math.round(s.heat*.8);if(s.contract==='hengyao'&&s.m<=s.contractUntil)s.heat=Math.min(s.heat,35);
+ if(s.contract==='hengyao'&&s.m<=s.contractUntil)s.heat=Math.min(s.heat,35);
  s.mood=clamp(Math.round(s.mood+(55-s.mood)*.15),0,100);
  s.memory=clamp(s.memory+2,0,10);s.doubt=clamp(s.doubt-2,0,100);s.rep=clamp(Math.round(s.rep+(s.rep>60?-.5:0)),0,100);
  const sinceRel=s.m-(s.lastRelease||0);
- s.fanMood.work=clamp(s.fanMood.work+(sinceRel>3?-7:-1),0,100);s.fanMood.solo=clamp(s.fanMood.solo-4,0,100);
+ s.fanMood.work=clamp(s.fanMood.work+(sinceRel>3?-7:-1),0,100);s.fanMood.solo=clamp(s.fanMood.solo-4,0,100);s.fanMood.cp=clamp((s.fanMood.cp??55)-(s.m-(s.flags.cpLast||0)>2?8:2),0,100);if(s.fanMood.cp<30){const lost=Math.round((s.fans.cp||0)*.1);addFans(s,'cp',-lost);addFans(s,'anti',lost*.1);}
  if(s.fanMood.solo<30){const lost=Math.round(s.fans.solo*.08);addFans(s,'solo',-lost);addFans(s,'anti',lost*.3);rep.lines.push(['tang','好多姐妹……脱粉了。']);}
  if(s.fanMood.work<30){addFans(s,'work',-Math.round(s.fans.work*.06));}
  addFans(s,'anti',-s.fans.anti*.05);addFans(s,'passer',-s.fans.passer*.03);
@@ -1388,7 +1442,8 @@ function endMonth(s){
  rep.tierChange=updateTier(s);
  if(rep.tierChange<0)rep.lines.push(['agent','咖位掉了。圈里人最会看风向。']);
  // 对赌检查
- if(s.contract&&s.contract.startsWith('xingdu')&&s.m<=s.contractUntil&&(s.m-s.flags.betStart)%3===0&&s.m>s.flags.betStart&&s.heat<40&&!s.seen['bet_check@'+s.m]){s.queue.push('bet_check');s.seen['bet_check@'+s.m]=1;}
+ if(s.contract&&s.contract.startsWith('xingdu')&&s.m<=s.contractUntil&&(s.m-s.flags.betStart)%3===0&&s.m>s.flags.betStart&&s.heat<40&&(!s.seen.bet_check||s.m-s.seen.bet_check>=18)&&!s.seen['bet_check@'+s.m]){s.queue.push('bet_check');s.seen['bet_check@'+s.m]=1;}
+ if(s.m%12===0)rep.awards=settleAwards(s);
  // 章节
  if(s.m===6&&!s.debtPaid&&!s.flags.debtLeft)s.queue.push('debt_day');
  else if(s.m===6&&s.debtPaid&&!s.seen.debt_ok)s.queue.push('debt_ok');
@@ -1403,6 +1458,7 @@ function endMonth(s){
  if(s.flags.frozen3&&s.m-s.flags.frozen3<=3)s.offers=s.offers.slice(0,1);
  fireTimed(s);
  for(const [id,m] of STORY_MILESTONES)if(s.m>=m&&!s.seen[id]&&!s.queue.includes(id)){s.queue.push(id);break;}
+ s.queue=s.queue.filter((id,i,a)=>a.indexOf(id)===i&&sceneDue(s,id));
  return rep;}
 function snap(s){return{money:s.money,heat:s.heat,rep:s.rep,energy:s.energy,mood:s.mood,passer:s.fans.passer,work:s.fans.work,solo:s.fans.solo,anti:s.fans.anti,sp:starPower(s),tier:s.tier};}
 function diffSnap(a,b){const d={};for(const k in a)if(b[k]!==a[k]&&k!=='tier')d[k]=b[k]-a[k];return d;}
@@ -1410,7 +1466,7 @@ function diffSnap(a,b){const d={};for(const k in a)if(b[k]!==a[k]&&k!=='tier')d[
 /* 每月一个随机事件（第一章之后，或条件满足时） */
 function pickPool(s){
  if(s.m<=6)return null;
- const can=(id,cool=18)=>!(s.poolSeen&&s.poolSeen[id]&&s.m-s.poolSeen[id]<cool);
+ const can=(id,cool=18)=>sceneDue(s,id)&&!(s.poolSeen&&s.poolSeen[id]&&s.m-s.poolSeen[id]<cool);
  const c=[];
  if(s.doubt>=55&&can('doubt_hit',18))c.push(['doubt_hit',4]);
  if(s.fanMood.solo<35&&s.fans.solo>3000&&can('fan_war'))c.push(['fan_war',3]);
@@ -1418,15 +1474,19 @@ function pickPool(s){
  if(s.npc.xu.aff>=25&&!s.flags.xu_friend&&can('xu_thanks',12))c.push(['xu_thanks',4]);
  if(s.heat>=50&&can('paparazzi',18))c.push(['paparazzi',2]);
  if(s.agent==='lu'&&s.tier>=3&&!s.flags.luKept&&can('agent_poach',99))c.push(['agent_poach',5]);
- if(s.rep>=40&&can('charity',12))c.push(['charity',1]);
+ if(s.rep>=40&&can('charity',18))c.push(['charity',1]);
  if(s.flags.shenRetry&&can('shen_call',99))c.push(['shen_call',4]);
  if(s.agent==='zhou'&&s.tier>=2&&can('cp_rumor',18))c.push(['cp_rumor',2]);
  if(!c.length||rnd(s)<.25)return null;
  const tot=c.reduce((t,x)=>t+x[1],0);let r=rnd(s)*tot;for(const[id,w]of c){if((r-=w)<=0)return id;}return c[0][0];}
 
 /* ---------- 剧情 ---------- */
-function sceneLines(s,id){const sc=SCENES[id];return(sc.lines||[]).map(([who,t])=>[who==='agent'?(s.agent||'lin'):who,t.replace(/\{name\}/g,s.name)]);}
+function sceneLines(s,id){const sc=SCENES[id];const lines=(sc.lines||[]).slice();const who=lines.find(([w])=>s.npc[w])?.[0];const mem=who&&s.npc[who].mem[0];if(mem&&id!=='intro'&&id!=='finale')lines.unshift([who,'我记得：'+mem.t]);return lines.map(([who,t])=>[who==='agent'?(s.agent||'lin'):who,t.replace(/\{name\}/g,s.name)]);}
 function choiceOk(s,c){const q=c.req||{};
+ if(q.independent&&!(s.stats.released>=1||(s.stats.performances||0)>=24))return false;
+ if(q.grandSlam&&!hasGrandSlam(s))return false;
+ if(q.international&&!s.awards?.some(a=>a.id==='international'&&a.win))return false;
+ if(q.topYear&&!s.flags.topYear)return false;
  if(q.notFlag&&s.flags[q.notFlag])return false;
  if(q.flag&&!s.flags[q.flag])return false;
  if(q.skill&&s.skills[q.skill[0]]<q.skill[1])return false;
@@ -1439,7 +1499,7 @@ function choiceOk(s,c){const q=c.req||{};
  return true;}
 
 function resolveScene(s,id,idx){
- if(s.queue[0]!==id)return null;const sc=SCENES[id];const out={id,d:{}};
+ if(s.queue[0]!==id)return null;const sc=SCENES[id];const out={id,d:{}};s.eventMonths=s.eventMonths||{};(s.eventMonths[id]??=[]).push(s.m);
  if(sc.agentPick){const a=AGENTS[idx];if(!a)return null;s.agent=a;addAff(s,a,25);remember(s,a,'你在三个人里选了我',20);AGENTS.filter(x=>x!==a).forEach(x=>remember(s,x,'你没选我',-3));}
  else if(sc.special==='debt'){s.queue.shift();s.seen[id]=s.m;if(s.money>=s.debt){s.money-=s.debt;s.debtPaid=true;s.flags.ch1done=s.m;s.queue.unshift('debt_ok');}else s.queue.unshift('debt_fail');return out;}
  else if(sc.choices){const c=sc.choices[idx];if(!c||!choiceOk(s,c))return null;out.d=applyFx(s,c.fx);if(c.mem)remember(s,...c.mem);if(c.battle)out.battle=c.battle;out.choice=c;if(c.end)s.ended={id:c.end,m:s.m,tier:s.tier};}
@@ -1460,19 +1520,33 @@ function battleHand(s){
  if(bestAlly(s))h.push('ally');
  if(s.hand.dirt>0)h.push('counter');
  return h;}
+function opponentIntent(s,B=s.battle){
+ if(B.intent&&B.intent.round===B.round)return B.intent;
+ const def=BATTLES[B.id],npc=s.npc[def.opp],traits=NPCS[def.opp]?.traits||['追逐热点'];
+ const mem=(npc?.mem||[]).filter(m=>s.m-m.m<=24);const debt=mem.reduce((v,m)=>v+(m.d||0),0);const hostile=(npc?.aff||0)+debt;
+ let move,reason;
+ if(B.legacy){move=def.deck[B.round];reason='沿用这场已开始的攻防';}
+ else if(mem.some(m=>m.d<=-6)&&traits.includes('记仇')){move=B.round%2?'troll':'leak';reason='记着你上次抢走的资源';}
+ else if(hostile>=20){move='rumor';reason='念着旧情，没有把底牌放出来';}
+ else if(traits.includes('阴狠')){move=B.round%2?'leak':'troll';reason='恒曜擅长水军，随后放出剪辑证据';}
+ else if(traits.includes('嘴毒')){move=B.round%2?'media':'rumor';reason='先阴阳试探，再借媒体扩大声量';}
+ else {move=s.doubt>50?'leak':B.round%2?'media':'rumor';reason=s.doubt>50?'怀疑值让旧片段更容易被包装成实锤':'媒体追逐当前话题';}
+ if(!B.legacy&&B.used.at(-1)==='evidence'&&move==='leak'){move='media';reason='你拿出证据后，对手改打媒体牌';}
+ B.intent={round:B.round,move,reason};return B.intent;
+}
 function startBattle(s,id){const b=BATTLES[id];
  const S=clamp(Math.round(b.s0+(s.rep-30)/3-s.fans.anti/Math.max(1,fansTotal(s))*12),-80,40);
- s.battle={id,round:0,S,H:30,used:[],log:[],hand:battleHand(s),ally:bestAlly(s)};s.stats.battles++;return s.battle;}
+ s.battle={id,round:0,S,H:30,used:[],log:[],hand:battleHand(s),ally:bestAlly(s),opinion:{fans:clamp(S+20,-100,100),public:S,anti:clamp(S-30,-100,100),media:clamp(S-2,-100,100)},legacy:false};opponentIntent(s);s.stats.battles++;return s.battle;}
 const REUSABLE=['statement','silence'];
 function playCard(s,cardId){
  const B=s.battle;if(!B||B.round>=BATTLE_ROUNDS.length)return null;
  if(!B.hand.includes(cardId)||(B.used.includes(cardId)&&!REUSABLE.includes(cardId)))return null;
- const C=CARDS[cardId],def=BATTLES[B.id],mv=OPP_MOVES[def.deck[B.round]];
+ const C=CARDS[cardId],def=BATTLES[B.id],intent=opponentIntent(s,B),move=intent.move,mv=OPP_MOVES[move];
  if(C.cost&&s.money<(cardId==='buy'&&s.agent==='zhou'?C.cost/2:C.cost))return null;
- let ds=rr(s,C.s),dh=rr(s,C.h);const ev={card:cardId,move:def.deck[B.round],notes:[]};
+ let ds=rr(s,C.s),dh=rr(s,C.h);const ev={card:cardId,move,reason:intent.reason,notes:[]};
  if(cardId==='fans')ds+=Math.round(Math.min(10,Math.log10(1+s.fans.solo)*2))-6;
  if(cardId==='live')ds=Math.round(ds*(.4+s.rep/60));
- const counter=C.beats?.includes(def.deck[B.round]);const weak=C.weak?.includes(def.deck[B.round]);
+ const counter=C.beats?.includes(move);const weak=C.weak?.includes(move);
  if(counter){ds=Math.round(ds*1.5);ev.notes.push('克制');}
  if(weak){ds-=10;ev.notes.push('被克制');}
  let os=rr(s,mv.s),oh=rr(s,mv.h);if(counter){os=Math.round(os/2);oh=Math.round(oh/2);}
@@ -1483,8 +1557,10 @@ function playCard(s,cardId){
  if(cardId==='live')s.mood=clamp(s.mood+C.mood,0,100);
  if(C.risk==='expose'&&rnd(s)<.18+s.doubt/250){ds=-16;ev.notes.push('被扒出买热搜');addFans(s,'anti',1500);}
  if(C.risk==='anti'&&B.H>55){addFans(s,'anti',600);ev.notes.push('控评引起反感');}
- B.S=clamp(B.S+ds+os,-100,100);B.H=clamp(B.H+dh+oh,0,100);
- ev.ds=ds;ev.os=os;ev.S=B.S;ev.H=B.H;B.used.push(cardId);B.log.push(ev);B.round++;
+ if(B.legacy||!B.opinion)B.S=clamp(B.S+ds+os,-100,100);
+ else{const f={evidence:[1,1.3,.4,1.5],fans:[1.5,.45,.35,.5],counter:[.8,.9,1.4,.8],silence:[.5,.8,.4,.7],ally:[1.1,1.2,.6,1.1],live:[1.4,1,.4,.7]}[cardId]||[1,1,.7,1];for(const [i,k]of ['fans','public','anti','media'].entries())B.opinion[k]=clamp(B.opinion[k]+Math.round(ds*f[i]+os),-100,100);B.S=Math.round(B.opinion.fans*.25+B.opinion.public*.35+B.opinion.anti*.15+B.opinion.media*.25);}
+ B.H=clamp(B.H+dh+oh,0,100);
+ ev.ds=ds;ev.os=os;ev.S=B.S;ev.H=B.H;B.used.push(cardId);B.log.push(ev);B.round++;B.intent=null;if(B.round<BATTLE_ROUNDS.length)opponentIntent(s,B);
  if(B.round>=BATTLE_ROUNDS.length)ev.result=finishBattle(s);
  return ev;}
 function finishBattle(s){
@@ -1495,7 +1571,7 @@ function finishBattle(s){
  const d=applyFx(s,fx);
  if(r==='win')s.stats.wins++;
  if(r==='crash'){s.stats.crash++;s.flags.crashUntil=s.m+1;s.offers.forEach(o=>{if(o.state==='yes'&&o.week>=s.w){declineOffer(s,o.uid);o.state='cancel';}});}
- if(def.opp==='cheng'&&r==='win'){s.hand.dirt++;}
+ if(def.opp==='cheng'&&r==='win'){s.hand.dirt++;}if(s.npc[def.opp])remember(s,def.opp,r==='win'?'热搜上你让我丢了面子':'你没有躲开这场交锋',r==='win'?-8:2);
  B.result={r,d};return B.result;}
 function endBattle(s){if(s.battle&&s.battle.result)s.battle=null;}
 
@@ -1519,14 +1595,28 @@ function migrateV1(o){
  s.money=Math.round(Math.min(o.money||0,3000000)*.5)+8000;
  s.fans={passer:3000+Math.round(total*.55),work:200+Math.round(total*.25),solo:800+Math.round(total*.15),anti:2500+Math.round(total*.08)};
  s.rep=clamp(Math.round((o.rep||22)*.8),10,80);
- const rel=(o.released||[]).slice().sort((a,b)=>(b.total||0)-(a.total||0)).slice(0,8);
+ const rel=(o.released||[]).slice().sort((a,b)=>(b.total||0)-(a.total||0));
  s.releases=rel.map((r,i)=>{const w=getWork2(r.work);return{uid:'v1_'+i,workId:r.work,title:w?w.title.split(' / ').pop():'旧作',type:w?.type||'music',tag:w?.tag||'青春',q:clamp(Math.round(r.quality||60),30,99),grade:grade(r.quality||60),copy:true,made:-12,month:-12,best:99,old:1};});
  s.doubt=clamp(10+rel.length*3,0,70);
  const cleared=o.audience?.case?.status==='cleared'||o.journey?.caseCleared||o.ended;
  if(cleared){s.debtPaid=true;s.flags.ch1done=1;s.m=7;s.queue=['pickAgent'];s.hand.dirt=1;}
  s.stats.released=s.releases.length;for(const [id,n] of Object.entries(o.relations||o.partners||{})){if(s.npc[id])s.npc[id].aff=clamp(Math.round(typeof n==='number'?n:n.aff||0),-100,100);}
- s.flags.fromV1=1;s.offers=genOffers(s);updateTier(s);updateTier(s);
- return s;}
+ s.legacyArchive={relations:o.relations||{},starTrust:o.starTrust||{},works:o.released||[]};s.flags.fromV1=1;s.offers=genOffers(s);updateTier(s);updateTier(s);
+ return upgradeV2(s);}
+
+function upgradeV2(s){
+ s.awards=s.awards||[];s.awardEntries=s.awardEntries||[];s.eventMonths=s.eventMonths||{};s.fans.cp=s.fans.cp||0;s.fanMood.cp=s.fanMood.cp??55;s.platformCharts=s.platformCharts||{};s.heatChart=s.heatChart||[];
+ s.stats.heatStreak=s.stats.heatStreak||0;s.stats.heatBest=s.stats.heatBest||0;
+ if(s.battle&&s.battle.legacy===undefined){s.battle.legacy=true;if(s.battle.round<BATTLE_ROUNDS.length)opponentIntent(s);}
+ return s;
+}
+
+function sceneDue(s,id){return(s.eventMonths?.[id]||[]).filter(m=>s.m-m<50).length<3;}
+function hasGrandSlam(s){const won=new Set((s.awards||[]).filter(a=>a.win).map(a=>a.id));return['song','composer','singer'].every(x=>won.has(x))||['actor','picture'].every(x=>won.has(x));}
+function awardBlock(s,id,r){const d=AWARD_KINDS[id];if(!d||!r)return'没有可申报作品';if(r.old||s.m-r.month>24)return'需两年内发行作品';if(d.type==='music'?r.type!=='music':!['screen','tv'].includes(r.type))return'作品类型不符';if(d.director&&!r.director)return'需转型导演后亲自执导作品';if((s.awardEntries||[]).some(e=>e.id===id&&e.year===yearOf(s.m)))return'今年已报名';if(s.money<d.cost)return'报名预算不足';return'';}
+function enterAward(s,id,uid){const r=s.releases.find(x=>x.uid===uid);if(awardBlock(s,id,r))return false;s.money-=AWARD_KINDS[id].cost;(s.awardEntries??=[]).push({id,uid,year:yearOf(s.m)});return true;}
+function settleAwards(s){const out=[];for(const e of (s.awardEntries||[]).filter(e=>e.year===yearOf(s.m)&&!e.done)){const r=s.releases.find(x=>x.uid===e.uid),d=AWARD_KINDS[e.id];if(!r)continue;const score=Math.round(r.q*.6+s.skills[d.skill]*.25+s.rep*.15+(!r.copy?3:0));const R=sub(hashN(s.seed,'award',e.id,e.year));const need=Math.round(d.threshold[0]+R()*(d.threshold[1]-d.threshold[0]));const a={...e,title:r.title,score,need,win:score>=need};(s.awards??=[]).push(a);e.done=true;out.push(a);if(a.win){s.flags.award=s.m;applyFx(s,{rep:3,heat:6,work:2000});}else applyFx(s,{mood:-3});}return out;}
+function buyForecast(s){const b=s.battle;if(!b||b.result||s.money<3000||b.forecast?.round===b.round)return false;s.money-=3000;const mv=OPP_MOVES[opponentIntent(s).move];b.forecast={round:b.round,low:clamp(b.S+mv.s[0],-100,100),high:clamp(b.S+mv.s[1]+18,-100,100)};return true;}
 
 /* 杀穿娱乐圈 v2 · 生成式美术：SVG 立绘、专辑封面。全部离线生成，不依赖外部图片。 */
 let svgN=0;
@@ -1612,7 +1702,7 @@ function npcFace(id,o={}){const n=NPCS[id];if(!n)return'';const aff=STATE_REF()?
 let STATE_REF=()=>null;
 
 /* 杀穿娱乐圈 v2 · 界面。事件统一走 data-a 委托。 */
-let S=null;const ui={view:'title',tab:'home',sheet:null,line:0,weekRun:null,report:null,comments:[],busy:false,lib:{mode:'copy',q:'',tag:''},rel:{next:0,platform:'all',promo:1},draft:{name:'陆星河',look:'a'}};
+let S=null;const ui={view:'title',tab:'home',market:'qq',sheet:null,line:0,weekRun:null,report:null,comments:[],busy:false,lib:{mode:'copy',q:'',tag:''},rel:{next:0,platform:'all',promo:1},draft:{name:'陆星河',look:'a'}};
 STATE_REF=()=>S;
 const $=id=>document.getElementById(id);
 const esc=esc2;
@@ -1625,7 +1715,7 @@ const tierOf=s=>TIERS[s.tier];
 /* ---------- 存档 ---------- */
 let saveOK=true;
 function save(){if(!S)return;try{localStorage.setItem(V2_KEY,JSON.stringify(S));saveOK=true;}catch(e){saveOK=false;}}
-function loadV2(){try{const v=JSON.parse(localStorage.getItem(V2_KEY)||'null');return validV2(v)?v:null;}catch(e){return null;}}
+function loadV2(){try{const v=JSON.parse(localStorage.getItem(V2_KEY)||'null');return validV2(v)?upgradeV2(v):null;}catch(e){return null;}}
 function loadV1(){try{const v=JSON.parse(localStorage.getItem(V1_KEY)||'null');return v&&v.version===1&&typeof v.name==='string'?v:null;}catch(e){return null;}}
 
 /* ---------- 小组件 ---------- */
@@ -1719,11 +1809,15 @@ function renderWorks(){
 function chartRows(chart,anim){
  return chart.map((e,i)=>{const mv=!e.prev?'<span class="mv new">NEW</span>':e.prev>e.rank?`<span class="mv up">▲${e.prev-e.rank}</span>`:e.prev<e.rank?`<span class="mv dn">▼${e.rank-e.prev}</span>`:'<span class="mv">—</span>';
   const r=e.mine?S.releases.find(x=>x.uid===e.uid):null;const from=anim?((e.prev||11)-e.rank)*46:0;
-  return`<div class="crow ${e.mine?'mine':''} ${e.xu?'xu':''}" data-from="${from}"><span class="rk">${e.rank}</span>${mv}<span class="cv">${cover({title:e.title,tag:r?.tag||['青春','都市','爱情','城市','热血'][hashN(e.title)%5],seed:e.artist})}</span><span class="tt"><b>${esc(e.title)}</b><small>${esc(e.artist)}${e.xu?' · 对手':''}</small></span><span class="pw">${Math.round(e.power)}</span></div>`;}).join('');}
+  return`<div class="crow ${e.mine?'mine':''} ${e.xu?'xu':''}" data-from="${from}"><span class="rk">${e.rank}</span>${mv}<span class="cv">${cover({title:e.title,tag:r?.tag||['青春','都市','爱情','城市','热血'][hashN(e.title)%5],seed:e.artist})}</span><span class="tt"><b>${esc(e.title)}</b><small>${esc(e.artist)}${e.xu?' · 对手':''}</small></span><span class="pw">${e.share!=null?(e.share*100).toFixed(1)+'%':Math.round(e.power)}</span></div>`;}).join('');}
 function renderChart(){
- const s=S;const lineup=rivalsFor(s,s.m).sort((a,b)=>b.power-a.power).slice(0,5);
- return`<section class="sec"><div class="sec-h"><h3>澜星热歌榜</h3><small>${s.chart.length?'上月':'还没有榜单'}</small></div>${s.chart.length?`<div class="chart">${chartRows(s.chart)}</div>`:'<div class="empty-note">月底发歌，才会进榜。</div>'}</section>
- <section class="sec"><div class="sec-h"><h3>本月档期 · 强敌</h3><small>发歌前先看</small></div><div class="lineup">${lineup.map(x=>`<div class="lu"><span>${x.xu?'⚔️':'🎵'}</span><b>${esc(x.title)}</b><small style="color:var(--dim)">${esc(x.artist)}</small><span class="stars">${'★'.repeat(Math.max(1,Math.min(5,Math.round((x.power-40)/12))))}</span></div>`).join('')}</div></section>`;}
+ const s=S,id=MUSIC_MARKETS[ui.market]?ui.market:'qq',market=MUSIC_MARKETS[id],rows=s.platformCharts?.[id]||[];
+ const own=rows.filter(x=>x.mine);const shown=rows.slice(0,10).concat(own.filter(x=>x.rank>10));
+ const lineup=rivalsFor(s,s.m).sort((a,b)=>b.power-a.power).slice(0,5);
+ return `<section class="sec"><div class="sec-h"><h3>三平台成绩单</h3><small>游戏内模拟 · 收听份额</small></div><div class="seg market-tabs">${Object.entries(MUSIC_MARKETS).map(([k,v])=>`<button data-a="market:${k}" class="${k===id?'on':''}">${v.name}</button>`).join('')}</div><p class="market-note">${market.audience} · 你的作品 ${W(own.reduce((a,b)=>a+b.plays,0))} 次收听</p>${shown.length?`<div class="chart">${chartRows(shown)}</div>`:'<div class="empty-note">第一个月底结算后，三份榜单同时公布。</div>'}</section>
+ <section class="sec card"><div class="sec-h"><h3>全网热度 · 顶流之路</h3><strong>🔥 ${s.stats.heatStreak||0}/12</strong></div><p class="market-note">连续十二个月第一解锁顶流结局 · 最长 ${s.stats.heatBest||0} 月</p>${(s.heatChart||[]).slice(0,5).map(x=>`<div class="lu"><span>#${x.rank}</span><b>${esc(x.artist)}${x.mine?' · 我':''}</b><span class="num">🔥${x.heat}</span></div>`).join('')||'<div class="empty-note">月底开始记录，不回填旧档历史。</div>'}${s.flags.topYear?'<span class="chip">🏆 顶流结局已解锁</span>':''}</section>
+ <section class="sec"><div class="sec-h"><h3>本月档期 · 强敌</h3><small>发歌前先看</small></div><div class="lineup">${lineup.map(x=>`<div class="lu"><span>${x.xu?'⚔️':'🎵'}</span><b>${esc(x.title)}</b><small>${esc(x.artist)}</small></div>`).join('')}</div></section>`;}
+
 function npcCard(id){
  const n=NPCS[id],st=S.npc[id],known=met(id);
  if(!known)return`<div class="pc" style="--nc:#666"><div class="pf" style="filter:brightness(0) opacity(.5)">${portrait(n.look,{})}</div><div class="t"><b>？？？</b><div class="role">尚未相遇</div></div></div>`;
@@ -1733,15 +1827,15 @@ function npcCard(id){
  <div class="mem">${last?`<i>TA记得：</i>${esc(last.t)}`:`<i>“${esc(n.hello)}”</i>`}</div></div></div>`;}
 function renderPeople(){return`<section class="sec"><div class="sec-h"><h3>人脉</h3><small>他们会记仇，也会报恩</small></div><div class="people">${Object.keys(NPCS).map(npcCard).join('')}</div></section>`;}
 function renderMe(){
- const s=S,t=tierOf(s),f=s.fans,tot=Math.max(1,f.passer+f.work+f.solo+f.anti);
- const seg=[['passer','#7fd3ff','路人'],['work','#ffcf5a','作品粉'],['solo','#ff5fa2','唯粉'],['anti','#6b5a7a','黑粉']];
+ const s=S,t=tierOf(s),f=s.fans,tot=Math.max(1,f.passer+f.work+f.solo+f.anti+(f.cp||0));
+ const seg=[['passer','#7fd3ff','路人'],['work','#ffcf5a','作品粉'],['solo','#ff5fa2','唯粉'],['cp','#ff9fcf','CP粉'],['anti','#6b5a7a','黑粉']];
  return`<section class="sec"><div class="profile" style="--tier:${t.color}"><div class="pf">${portrait(s.look,{state:stateMood(s),mood:stateMood(s)==='hot'?'happy':stateMood(s)==='low'?'sad':'normal',nobg:true})}</div><div class="tx"><div class="mg">STAR WEEKLY</div><h2>${esc(s.name)}</h2><span class="tier-chip" style="--tier:${t.color};background:${t.color}">${t.name}</span><div style="margin-top:12px"><small style="color:var(--sub);font-size:10px">粉丝</small><div class="big">${W(fansTotal(s))}</div></div><div style="margin-top:6px"><small style="color:var(--sub);font-size:10px">咖位分</small><div class="big" style="font-size:22px">${starPower(s)}</div></div><div style="margin-top:6px;font-size:11px;color:var(--sub)">🏆 ${s.stats.top1} 冠军 · 🔟 ${s.stats.top10} 前十</div></div></div></section>
  <section class="sec card"><div class="sec-h"><h3>能力</h3><small>越高越难涨</small></div>${Object.entries(SKILLS).map(([k,[n,ic]])=>`<div class="skill"><span>${ic}</span><span>${n}</span><div class="bar"><u style="width:${s.skills[k]}%"></u></div><span class="num">${s.skills[k]}</span></div>`).join('')}</section>
  <section class="sec card"><div class="sec-h"><h3>粉丝构成</h3></div><div class="fanbar">${seg.map(([k,c])=>`<i style="width:${f[k]/tot*100}%;background:${c}"></i>`).join('')}</div>
- <div class="legend">${seg.map(([k,c,n])=>`<span><u style="background:${c}"></u>${n}${k==='work'||k==='solo'?` <em>${s.fanMood[k]<35?'😠':s.fanMood[k]>65?'😍':'🙂'}</em>`:''}<b class="num">${W(f[k])}</b></span>`).join('')}</div></section>
+ <div class="legend">${seg.map(([k,c,n])=>`<span><u style="background:${c}"></u>${n}${k==='work'||k==='solo'||k==='cp'?` <em>${s.fanMood[k]<35?'😠':s.fanMood[k]>65?'😍':'🙂'}</em>`:''}<b class="num">${W(f[k])}</b></span>`).join('')}</div></section>
  <section class="sec card"><div class="sec-h"><h3>底牌</h3><small>热搜战里用</small></div><div class="handcards">${s.hand.evidence?`<span class="chip">📂 证据 ×${s.hand.evidence}</span>`:''}${s.hand.dirt?`<span class="chip">💣 恒曜黑料 ×${s.hand.dirt}</span>`:''}<span class="chip">🌍 地球记忆 ${s.memory}/10</span><span class="chip">❓ 怀疑 ${Math.round(s.doubt)}</span><span class="chip">✍️ 原创 ${s.original}</span></div>
  ${s.contract&&s.m<=s.contractUntil?`<p style="margin-top:8px;font-size:12px;color:var(--sub)">📜 ${{xingdu:'星渡对赌 · 分成30%',xingdu20:'星渡对赌 · 分成20%',xingdu40:'星渡卖身约 · 分成40%',hengyao:'恒曜回签 · 分成50% · 热度封顶'}[s.contract]} · 至第${yearOf(s.contractUntil)}年${monthOf(s.contractUntil)}月</p>`:''}</section>
- ${s.flags.studio?`<section class="sec card"><div class="sec-h"><h3>新人工作室</h3><small>每月培养费 ¥6,000</small></div><p>已出道 ${s.studio?.graduates||0} / 3 人 · 培养进度 ${s.studio?.progress||0}%</p></section>`:''}
+ ${renderAwards(s)}${s.flags.studio?`<section class="sec card"><div class="sec-h"><h3>新人工作室</h3><small>每月培养费 ¥6,000</small></div><p>已出道 ${s.studio?.graduates||0} / 3 人 · 培养进度 ${s.studio?.progress||0}%</p></section>`:''}
  <section class="sec card"><div class="sec-h"><h3>存档</h3><small>${saveOK?'● 已自动保存':'⚠ 保存失败，请导出'}</small></div><div class="chips">${B('导出','export','sm')}${B('导入','import','sm')}${B('回标题','title','sm ghost')}${B('删档重来','reset','sm ghost')}</div>
  <details class="fold"><summary>玩法说明</summary><p>每月 4 周 × 3 格。排好行程、接邀约，点“推进”。<br>企划做完就能发行：选档期、平台和宣发。月底按真实对手排榜。<br>被黑上热搜时出牌应对：看清对手意图，用克制牌。<br>咖位会涨也会掉；没钱、塌房都有翻身路。</p></details></section>`;}
 function renderAside(){
@@ -1794,8 +1888,8 @@ function renderSheet(){
   <div class="sec-h" style="margin-top:12px"><h3>档期</h3></div><div class="seg"><button class="${!R.next?'on':''}" data-a="ro:next:0">本月底</button><button class="${R.next?'on':''}" data-a="ro:next:1">下月底</button></div>
   <div class="lineup" style="margin-top:6px">${lineup.map(x=>`<div class="lu"><span>${x.xu?'⚔️':'🎵'}</span>${esc(x.title)} <small style="color:var(--dim)">${esc(x.artist)}</small><span class="stars">${'★'.repeat(Math.max(1,Math.min(5,Math.round((x.power-40)/12))))}</span></div>`).join('')}</div>
   <div class="sec-h" style="margin-top:10px"><h3>平台</h3></div><div class="seg"><button class="${R.platform==='all'?'on':''}" data-a="ro:platform:all">全平台</button><button class="${R.platform==='excl'?'on':''}" data-a="ro:platform:excl">独家 +${yen(8000+s.tier*20000)}</button></div>
-  <div class="sec-h" style="margin-top:10px"><h3>宣发</h3></div><div class="seg">${PROMOS.map(p=>`<button class="${R.promo===p.id?'on':''}" data-a="ro:promo:${p.id}" ${s.money<p.cost?'disabled style="opacity:.4"':''}>${p.name}<br><small class="num">${p.cost?yen(p.cost):'免费'}</small></button>`).join('')}</div>
-  <div style="margin-top:12px">${B('确认发行 · '+(promo.cost?'-'+yen(promo.cost):'免费'),'relgo','gold block',s.money<promo.cost)}</div>`;}
+  <div class="seg" style="margin-top:6px"><button data-a="ro:joint:0" class="${!R.joint?'on':''}">独立宣发</button><button data-a="ro:joint:1" class="${R.joint?'on':''}" ${s.npc.xu.aff<20||s.money<promo.cost+15000?'disabled':''}>🤝 联合宣发 · ¥1.5万</button></div><small class="market-note">与许望川好感≥20，互相引流并保留合作记忆。</small>${R.platform==='excl'?`<div class="seg market-tabs" style="margin-top:6px">${Object.entries(MUSIC_MARKETS).map(([id,m])=>`<button class="${(R.exclusive||'qq')===id?'on':''}" data-a="ro:exclusive:${id}">${m.name}</button>`).join('')}</div><p class="market-note">首月仅在所选平台收听，次月开放全平台。</p>`:''}<div class="sec-h" style="margin-top:10px"><h3>宣发</h3></div><div class="seg">${PROMOS.map(p=>`<button class="${R.promo===p.id?'on':''}" data-a="ro:promo:${p.id}" ${s.money<p.cost?'disabled style="opacity:.4"':''}>${p.name}<br><small class="num">${p.cost?yen(p.cost):'免费'}</small></button>`).join('')}</div>
+  <div style="margin-top:12px">${B('确认发行 · '+(promo.cost?'-'+yen(promo.cost):'免费'),'relgo','gold block',s.money<promo.cost+(R.joint?15000:0))}</div>`;}
  else if(sh.kind==='work'){const r=s.releases.find(x=>x.uid===sh.uid);h=`<h2>《${esc(r.title)}》<button class="x" data-a="close" aria-label="关闭">×</button></h2><div style="display:flex;gap:10px;margin-top:8px"><div style="width:120px;height:120px;border-radius:10px;overflow:hidden;flex:none">${cover({title:r.title,tag:r.tag,artist:s.name,grade:r.grade})}</div><div class="gains" style="flex-direction:column;align-items:flex-start"><span class="gain">品质 <b class="gr ${r.grade}">${r.grade} ${r.q}</b></span><span class="gain">🏆 最高 <b class="num">${r.best<=10?'#'+r.best:'榜外'}</b></span><span class="gain">${r.copy?'🌍 复刻':'✍️ 原创'}</span>${r.old?'<span class="gain">旧版作品</span>':`<span class="gain">📅 ${dateLabel({m:r.month})}</span>`}</div></div>`;}
  return`<div class="layer" data-a="close-bg"><div class="sheet" role="dialog" aria-modal="true"><div class="grip"></div>${h}</div></div>`;}
 function libraryList(s){
@@ -1821,7 +1915,7 @@ function renderScene(){
  ${pf?`<div class="who ${isMe?'r':'l'}">${pf}</div>`:''}
  ${!atEnd?`<button class="skip" data-a="skipline">跳过 ⏭</button>`:''}
  <div class="vn">${bottom}</div></div>`;}
-function choiceReason(s,c){const q=c.req||{};if(q.money&&s.money<q.money)return '需要 '+yen(q.money);if(q.aff)return NPCS[q.aff[0]].name+'好感 ≥'+q.aff[1];if(q.skill)return SKILLS[q.skill[0]][0]+' ≥'+q.skill[1];if(q.award)return '原创≥16 · 前十≥2 · 口碑≥45';if(q.director)return '演技≥55 · 影视作品品质≥65';if(q.graduates)return '培养三位新人出道';if(q.released)return '发行作品≥'+q.released;if(q.flag)return ({award:'取得年度大奖',caseEvidence:'保全旧案证据',caseCleared:'完成旧案裁决'})[q.flag]||'尚未满足剧情条件';return '条件未满足';}
+function choiceReason(s,c){const q=c.req||{};if(q.independent)return '发行一部作品或完成24场演出通告';if(q.grandSlam)return '获得三类金曲奖或两类影视奖';if(q.international)return '亲自执导作品获国际导演奖';if(q.topYear)return '全网热度连续第一12个月 · 当前'+(s.stats.heatStreak||0)+'/12';if(q.money&&s.money<q.money)return '需要 '+yen(q.money);if(q.aff)return NPCS[q.aff[0]].name+'好感 ≥'+q.aff[1];if(q.skill)return SKILLS[q.skill[0]][0]+' ≥'+q.skill[1];if(q.award)return '原创≥16 · 前十≥2 · 口碑≥45';if(q.director)return '演技≥55 · 影视作品品质≥65';if(q.graduates)return '培养三位新人出道';if(q.released)return '发行作品≥'+q.released;if(q.flag)return ({award:'取得年度大奖',caseEvidence:'保全旧案证据',caseCleared:'完成旧案裁决'})[q.flag]||'尚未满足剧情条件';return '条件未满足';}
 function hintIcons(c){const fx=c.fx||{};const out=[];
  for(const[k,v]of Object.entries(fx)){if(k==='aff'){for(const[id,a]of Object.entries(v))out.push(`<span title="${NPCS[id].name}">${a>0?'❤️':'💔'}</span>`);continue;}
   if(k==='card')out.push(CARDS[v]?.icon||'🃏');else if(k==='debtPaid')out.push('🧾✔');else if(k==='contract')out.push('📜');
@@ -1830,7 +1924,7 @@ function hintIcons(c){const fx=c.fx||{};const out=[];
 
 function renderBattle(){
  const b=S.battle;if(!b)return'';const def=BATTLES[b.id];const tag=def.tag.replace('{name}',S.name);
- const round=Math.min(b.round,BATTLE_ROUNDS.length-1),mvId=def.deck[round],mv=OPP_MOVES[mvId];
+ const round=Math.min(b.round,BATTLE_ROUNDS.length-1),intent=opponentIntent(S,b),mvId=intent.move,mv=OPP_MOVES[mvId];
  const pos=b.H>80?1:b.H>60?2:b.H>40?3:b.H>20?4:5;const fill=['#澜星音乐节阵容','#海岚暴雨','#年度综艺盘点','#打工人的周一','#猫咪迷惑行为'];
  const list=[];let fi=0;for(let k=1;k<=5;k++)list.push(k===pos?{t:tag,me:1}:{t:fill[fi++]});
  const badge=k=>k===1?'<span class="badge bao">爆</span>':k===2?'<span class="badge fei">沸</span>':k===3?'<span class="badge re">热</span>':k===5?'<span class="badge xin">新</span>':'';
@@ -1846,12 +1940,12 @@ function renderBattle(){
  return`<div class="battle" role="dialog" aria-label="热搜战"><div class="app">
  <div class="app-bar"><b>澜博</b><span class="srch">🔍 ${esc(tag)}</span><span class="clock">${done?'结束':BATTLE_ROUNDS[round]}</span></div>
  <div class="trend">${list.map((x,k)=>`<div class="tr ${x.me?'me':''}"><span class="n">${k+1}</span><span>${esc(x.t)}</span>${badge(k+1)}</div>`).join('')}</div>
- <div class="opinion"><div class="op-top"><span>👿 骂 <b class="num">${against}%</b></span><span style="color:var(--dim)">🔥 热度 <b class="num" style="font-size:13px">${b.H}</b></span><span>💖 挺 <b class="num">${100-against}%</b></span></div><div class="op-bar" style="--p:${against}%"><i></i></div></div>
- ${done?'':`<div class="intent"><div class="fa">${oppFace}</div><div><small>${esc(def.oppName)} · 下一步</small><b>${mv.icon} ${mv.name}</b></div><span class="mvic">${mv.icon}</span></div>`}
+ <div class="opinion"><div class="op-top"><span>👿 骂 <b class="num">${against}%</b></span><span style="color:var(--dim)">🔥 热度 <b class="num" style="font-size:13px">${b.H}</b></span><span>💖 挺 <b class="num">${100-against}%</b></span></div><div class="op-bar" style="--p:${against}%"><i></i></div>${b.opinion?`<div class="op-groups">${[['fans','粉丝'],['public','路人'],['anti','黑粉'],['media','媒体']].map(([k,n])=>`<span class="op-${k}">${n}<b>${Math.round((b.opinion[k]+100)/2)}%</b></span>`).join('')}</div>`:''}</div>
+ ${done?'':`<div class="intent"><div class="fa">${oppFace}</div><div><small>${esc(def.oppName)} · 下一步</small><b>${mv.icon} ${mv.name}</b><small>${esc(intent.reason)}</small></div><span class="mvic">${mv.icon}</span></div>`}
  <div class="feed" id="feed">${ui.comments.map(c=>`<div class="cm ${c.sys?'sys':''}"><span class="av" style="background:${c.c}">${esc(c.n[0])}</span><div class="bx"><small>${esc(c.n)}</small>${esc(c.t)}</div><span class="lk">♥${c.l}</span></div>`).join('')}</div>
- <div class="hand">${cards}</div>${result}</div></div>`;}
+ ${!done?`<div class="forecast">${b.forecast?.round===b.round?`舆情预测 ${b.forecast.low}～${b.forecast.high} · 回应牌可改变结果`:B('🔎 舆情预测 ¥3,000','forecast','sm',S.money<3000)}</div>`:''}<div class="hand">${cards}</div>${result}</div></div>`;}
 function seedComments(){const b=S.battle;ui.comments=[];const def=BATTLES[b.id];
- ui.comments.push({sys:1,n:def.oppName,c:'#8c1c2c',t:OPP_MOVES[def.deck[0]].line,l:W(8000+Math.round(Math.random()*20000))});addComments(3);}
+ ui.comments.push({sys:1,n:def.oppName,c:'#8c1c2c',t:OPP_MOVES[opponentIntent(S).move].line,l:W(8000+Math.round(Math.random()*20000))});addComments(3);}
 function addComments(n){const b=S.battle;const pool=b.S<-15?COMMENTS.bad:b.S>15?COMMENTS.good:COMMENTS.mid;
  for(let k=0;k<n;k++){const mix=Math.random();const p=mix<.2?COMMENTS.mid:pool;ui.comments.push({n:NICKS[Math.floor(Math.random()*NICKS.length)],c:['#ff5fa2','#7fd3ff','#ffb547','#4fb3a9','#a98bff'][Math.floor(Math.random()*5)],t:p[Math.floor(Math.random()*p.length)],l:W(Math.round(Math.random()*9000))});}
  ui.comments=ui.comments.slice(-14);}
@@ -1866,8 +1960,8 @@ function renderReport(){
  <div class="kpis">${k('资金',r.after.money,d.money,yen)}${k('粉丝',r.after.passer+r.after.work+r.after.solo,fansD)}${k('咖位分',r.after.sp,d.sp)}</div></div>
  ${r.tierChange>0?`<div class="banner up">⬆ 咖位升级 · ${TIERS[s.tier].name}</div>`:r.tierChange<0?`<div class="banner dn">⬇ 咖位下滑 · ${TIERS[s.tier].name}</div>`:''}
  <div class="ledger">${r.cut?`<span class="gain dn">📜 分成 <b class="num">-${yen(r.cut)}</b></span>`:''}<span class="gain dn">🏠 开销 <b class="num">-${yen(r.cost)}</b></span>${d.heat?`<span class="gain ${d.heat>0?'up':'dn'}">🔥<b class="num">${sgn(d.heat)}</b></span>`:''}${d.anti?`<span class="gain ${d.anti<0?'up':'dn'}">👿<b class="num">${sgn(d.anti)}</b></span>`:''}</div>
- ${r.lines.length?`<div class="bubbles">${r.lines.map(([who,t])=>{const id=who==='agent'?(s.agent||'lin'):who;return`<div class="mini-b"><div class="fa">${npcFace(id)}</div><p><b style="font-size:11px;color:${NPCS[id].color}">${NPCS[id].name}</b><br>${esc(t)}</p></div>`;}).join('')}</div>`:''}
- <section class="sec"><div class="sec-h"><h3>澜星热歌榜</h3><small>${r.label}</small></div><div class="chart" id="rchart">${chartRows(r.chart,true)}</div></section>
+ ${r.awards?.length?`<div class="gains">${r.awards.map(a=>`<span class="gain ${a.win?'up':'dn'}">${a.win?'🏆':'🎟️'} ${AWARD_KINDS[a.id].name} · ${a.win?'获奖':'未获奖'} ${a.score}/${a.need}</span>`).join('')}</div>`:''}${r.heatRace?`<div class="gains"><span class="gain">🔥 全网 #${r.heatRace.rank}</span><span class="gain">连冠 ${r.heatRace.streak}/12</span><span class="gain">🎧 ${W(r.streams||0)} · ${yen(r.streamIncome||0)}</span></div>`:''}${r.lines.length?`<div class="bubbles">${r.lines.map(([who,t])=>{const id=who==='agent'?(s.agent||'lin'):who;return`<div class="mini-b"><div class="fa">${npcFace(id)}</div><p><b style="font-size:11px;color:${NPCS[id].color}">${NPCS[id].name}</b><br>${esc(t)}</p></div>`;}).join('')}</div>`:''}
+ <section class="sec"><div class="sec-h"><h3>全平台综合榜</h3><small>${r.label}</small></div><div class="chart" id="rchart">${chartRows(r.chart,true)}</div></section>
  <div style="margin-top:12px">${B('进入 '+dateLabel(s)+' ▶','repclose','gold block')}</div></div></div>`;}
 
 /* ---------- 渲染 ---------- */
@@ -1911,7 +2005,10 @@ function act(a,el,ev){
   case'pick':if(startProject(s,p[0])){ui.sheet=null;toast('🎼 企划开始！把行程排上「创作」');if(!s.plan[s.w].some(c=>c&&c.a==='create'))applyPreset(s,'work');}break;
   case'orig':if(startProject(s,null,p[0])){ui.sheet=null;toast('✍️ 原创企划开始');}else toast(canStart(s,null));break;
   case'rel':ui.sheet={kind:'rel',uid:p[0]};ui.rel={next:0,platform:'all',promo:s.money>=PROMOS[1].cost+5000?1:0};break;
-  case'ro':ui.rel[p[0]]=p[0]==='platform'?p[1]:+p[1];break;
+  case'ro':ui.rel[p[0]]=['platform','exclusive'].includes(p[0])?p[1]:+p[1];break;
+  case'award':if(enterAward(s,p[0],p[1]))toast('已报名 · 年末公布评审');break;
+  case'forecast':if(buyForecast(s))toast('舆情报告已更新');break;
+  case'market':ui.market=p[0];break;
   case'relgo':if(scheduleRelease(s,ui.sheet.uid,ui.rel)){ui.sheet=null;toast('🚀 已排期，月底见分晓');}break;
   case'work':ui.sheet={kind:'work',uid:p[0]};break;
   case'wr-close':ui.weekRun=null;break;
@@ -1923,7 +2020,7 @@ function act(a,el,ev){
   case'bend':{const r=s.battle?.result?.r;endBattle(s);ui.comments=[];if(r==='crash'&&!RM.matches)shatter();render();openNextScene();return;}
   case'repclose':ui.report=null;render();openNextScene();return;
   case'export':{const blob=new Blob([JSON.stringify(s)],{type:'application/json'});const u=URL.createObjectURL(blob);const x=document.createElement('a');x.href=u;x.download='杀穿娱乐圈-存档.json';x.click();URL.revokeObjectURL(u);return;}
-  case'import':{const inp=document.createElement('input');inp.type='file';inp.accept='.json';inp.onchange=()=>{const f=inp.files[0];if(!f)return;f.text().then(t=>{try{const v=JSON.parse(t);if(validV2(v)){S=v;toast('已导入');render();}else if(v.version===1){S=migrateV1(v);S.look='a';toast('旧版存档已转换');render();}else toast('存档格式不对');}catch(e){toast('读不了这个文件');}});};inp.click();return;}
+  case'import':{const inp=document.createElement('input');inp.type='file';inp.accept='.json';inp.onchange=()=>{const f=inp.files[0];if(!f)return;f.text().then(t=>{try{const v=JSON.parse(t);if(validV2(v)){S=upgradeV2(v);toast('已导入');render();}else if(v.version===1){S=migrateV1(v);S.look='a';toast('旧版存档已转换');render();}else toast('存档格式不对');}catch(e){toast('读不了这个文件');}});};inp.click();return;}
   case'reset':if(confirm('删除当前进度，重新开始？')){localStorage.removeItem(V2_KEY);S=null;ui.view='title';}break;
   case'title':save();ui.view='title';break;
  }
@@ -1954,7 +2051,7 @@ function playBattle(card){
  const s=S;if(ui.busy)return;const el=document.querySelector(`.pcard[data-a="card:${card}"]`);const ev=playCard(s,card);if(!ev)return;
  ui.busy=true;if(el&&!RM.matches)el.classList.add('played');
  const C=CARDS[card];ui.comments.push({sys:1,n:s.name,c:'#ffcf5a',t:`${C.icon} ${C.name}${ev.notes.length?' · '+ev.notes.join(' '):''}（风向 ${ev.ds>=0?'+':''}${ev.ds}）`,l:W(5000+Math.round(Math.random()*30000))});
- const def=BATTLES[s.battle.id];if(s.battle.round<BATTLE_ROUNDS.length)ui.comments.push({sys:1,n:def.oppName,c:'#8c1c2c',t:OPP_MOVES[def.deck[s.battle.round]].line,l:W(3000+Math.round(Math.random()*20000))});
+ const def=BATTLES[s.battle.id];if(s.battle.round<BATTLE_ROUNDS.length)ui.comments.push({sys:1,n:def.oppName,c:'#8c1c2c',t:OPP_MOVES[opponentIntent(s).move].line,l:W(3000+Math.round(Math.random()*20000))});
  addComments(2);
  setTimeout(()=>{ui.busy=false;render();if(ev.result?.r==='win')goldBurst();if(ev.result?.r==='crash'&&!RM.matches)shatter();},RM.matches?0:520);}
 
@@ -1964,4 +2061,6 @@ document.addEventListener('keydown',e=>{
  if((e.key===' '||e.key==='Enter')&&document.querySelector('.scene[data-a="line"]')&&!e.target.closest('button,input')){e.preventDefault();act('line');}});
 document.body.insertAdjacentHTML('afterbegin','<div class="stage-bg" aria-hidden="true"><i></i><i></i></div>'+GRAIN_DEFS);
 render();
+
+function renderAwards(s){return `<section class="sec card"><div class="sec-h"><h3>奖项与电影节</h3><small>第${yearOf(s.m)}年 · 年末评审</small></div><p class="market-note">三座金曲奖或两座影视奖成就大满贯；国际导演奖需要亲自执导。按作品、专业能力与口碑评审。</p>${Object.entries(AWARD_KINDS).map(([id,d])=>{const won=(s.awards||[]).filter(a=>a.id===id&&a.win);const entries=(s.awardEntries||[]).filter(e=>e.id===id&&e.year===yearOf(s.m));const works=s.releases.filter(r=>!awardBlock(s,id,r));return `<details class="fold"><summary>${won.length?'🏆':'🎟️'} ${d.name} · ${won.length?won.length+'次获奖':entries.length?'本年已报名':yen(d.cost)}</summary>${entries.length?'<p>等待年度评审；已评审的结果保存在获奖记录。</p>':works.length?works.map(r=>B('申报《'+esc(r.title)+'》','award:'+id+':'+r.uid,'sm')).join(''):'<p>需要两年内发行的对应作品和报名预算；国际奖还需要转型导演后亲自执导。</p>'}${won.map(a=>`<p>第${a.year}年 · 《${esc(a.title)}》 · ${a.score}分</p>`).join('')}</details>`;}).join('')}</section>`;}
 </script></body></html>

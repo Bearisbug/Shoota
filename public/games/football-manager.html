@@ -359,6 +359,18 @@ table.t th.sortable { cursor: pointer; }
 /* A fixed-height dialog reserves its full controls before allocating scrollable content. */
 .dialog { min-height:0; } .dialog > .hd,.dialog > .ft { flex:none; } .dialog > .bd { flex:1 1 auto; }
 @media(max-width:860px) { .dialog,.dialog.wide,.dialog.match { height:100dvh; max-height:100dvh; } .dialog > .ft { padding-bottom:max(6px,env(safe-area-inset-bottom)); } }
+
+.tbl-tools { display:flex; align-items:center; gap:var(--gap); padding:4px 8px; font-size:var(--fs-xs); }
+.tbl-tools>input { min-width:0; flex:1; min-height:var(--tap); }
+.tbl-tools details { position:relative; flex:none; } .tbl-tools summary { display:flex; align-items:center; min-height:var(--tap); cursor:pointer; }
+.tbl-tools details>div { position:absolute; right:0; top:100%; z-index:12; background:var(--panel2); border:1px solid var(--line2); padding:8px; min-width:10rem; max-height:40vh; overflow:auto; box-shadow:0 8px 20px var(--overlay); }
+.tbl-tools label { display:flex; align-items:center; gap:6px; min-height:32px; white-space:nowrap; } .tbl-tools label input { accent-color:var(--accent); }
+.table-sort { border:0; padding:0; color:inherit; background:none; font:inherit; cursor:pointer; min-height:32px; }
+.coach-person { display:flex; align-items:center; gap:8px; margin-bottom:8px; } .coach-person .portrait,.agent-person .portrait { width:32px; height:36px; } .agent-person>.row { flex:1; min-width:0; flex-wrap:nowrap; } .agent-person .row>div { min-width:0; }
+.moment { position:fixed; top:12%; left:50%; transform:translateX(-50%); width:min(90vw,30rem); z-index:210; display:flex; gap:10px; align-items:center; pointer-events:none; background:linear-gradient(120deg,var(--panel2),var(--panel)); padding:14px; border:1px solid var(--gold); border-radius:8px; box-shadow:0 12px 40px var(--overlay); animation:moment-in 400ms ease-out; }
+.moment>span { color:var(--gold); font-size:32px; }.moment strong { font-size:var(--fs); overflow-wrap:anywhere; }
+@keyframes moment-in { from { opacity:0; transform:translate(-50%,-12px) scale(.95); } to { opacity:1; transform:translate(-50%,0) scale(1); } }
+@media(prefers-reduced-motion:reduce) { .moment { animation:none; } }
 </style></head>
 <body><div id="app"></div><div id="modal-root"></div><div id="toast" role="status" aria-live="polite"></div><input id="import-file" type="file" accept=".json,application/json" hidden><script>/* 名单数据容器与补位姓名池。真实球员见 data/*.js；补位球员由姓名池按国籍稳定生成，为游戏设定。 */
 var FOOTBALL_DATA = { leagues: [] };
@@ -4181,6 +4193,25 @@ var UI = (function () {
   }
 
   /* ---------- 球员详情 ---------- */
+  const columnPrefs = new Map();
+  function enhanceTables(root) {
+    for (const table of root.querySelectorAll('table.t')) {
+      const heads=[...(table.tHead?.rows[0]?.cells || [])];
+      if(heads.length<7 || !table.tBodies[0] || table.dataset.enhanced) continue;
+      table.dataset.enhanced='1';
+      const key=heads.map(h=>h.textContent).join('|'), hidden=columnPrefs.get(key)||new Set();columnPrefs.set(key,hidden);
+      const tools=document.createElement('div');tools.className='tbl-tools';
+      tools.innerHTML=`<input type="search" aria-label="搜索本表" placeholder="搜索本表"><details><summary>显示列</summary><div>${heads.map((h,i)=>i<2?'':`<label><input type="checkbox" data-col="${i}" ${hidden.has(i)?'':'checked'}>${E(h.textContent||'操作')}</label>`).join('')}</div></details>`;
+      (table.parentElement.classList.contains('tbl-wrap')?table.parentElement:table).before(tools);
+      const apply=()=>{for(const row of table.rows) if(row.cells.length===heads.length) [...row.cells].forEach((c,i)=>c.hidden=hidden.has(i));}; apply();
+      tools.querySelector('input[type=search]').addEventListener('input',e=>{const q=e.target.value.toLocaleLowerCase();for(const row of table.tBodies[0].rows)row.hidden=!row.textContent.toLocaleLowerCase().includes(q);});
+      tools.querySelectorAll('[data-col]').forEach(c=>c.addEventListener('change',()=>{const i=+c.dataset.col;c.checked?hidden.delete(i):hidden.add(i);apply();}));
+      heads.forEach((h,i)=>{if(!h.textContent.trim()||h.querySelector('button'))return;const b=document.createElement('button');b.type='button';b.className='table-sort';b.textContent=h.textContent;b.setAttribute('aria-label','按'+h.textContent+'排序');h.textContent='';h.appendChild(b);let dir=1;b.addEventListener('click',()=>{const rows=[...table.tBodies[0].rows].filter(r=>r.cells.length===heads.length);rows.sort((a,b)=>{const x=a.cells[i].textContent.trim(),y=b.cells[i].textContent.trim();return x.localeCompare(y,'zh-CN',{numeric:true})*dir;});for(const row of rows)table.tBodies[0].appendChild(row);heads.forEach(x=>x.removeAttribute('aria-sort'));h.setAttribute('aria-sort',dir===1?'ascending':'descending');dir*=-1;});});
+    }
+  }
+  function celebrate(text) {
+    let el=document.querySelector('.moment');if(el)el.remove();el=document.createElement('div');el.className='moment';el.setAttribute('role','status');el.innerHTML=`<span>★</span><strong>${E(text)}</strong>`;document.body.appendChild(el);setTimeout(()=>el.remove(),2800);
+  }
   function avatar(name, color) {
     return `<svg class="portrait" viewBox="0 0 64 72" role="img" aria-label="${E(name)} 插画头像"><rect width="64" height="72" rx="8" fill="${E(color || '#3fbf6f')}"/><path d="M8 72V59Q32 38 56 59V72" fill="currentColor" opacity=".85"/><path d="M25 44V53L32 59L39 53V44" fill="#cc9972"/><ellipse cx="32" cy="29" rx="15" ry="19" fill="#e2b18c"/><path d="M17 26V18Q19 4 35 7Q52 7 47 27L42 17Q29 24 20 17Z" fill="#20252a"/><path d="M25 32h3m8 0h3m-12 8q5 4 10 0" fill="none" stroke="#594132" stroke-width="2" stroke-linecap="round"/></svg>`;
   }
@@ -4284,7 +4315,7 @@ var UI = (function () {
   }
   function download(name, text) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'application/json' })); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); }
 
-  return { avatar, trend, LZ, tacticBoard, fitTier, shortName, attr20, attrCell, attrList, posMap, radarSvg, badgePanel, badgeSummary, badgeChip, $, E, fmt, money, wage, ovBadge, stars, posChip, crest, btn, tag, card, nat, formDots, bar, plLink, empty, seg, openModal, closeModal, topModal, confirmBox, toast, openMatch, matchRecordHtml, playerHtml, makeSaves, download };
+  return { enhanceTables, celebrate, avatar, trend, LZ, tacticBoard, fitTier, shortName, attr20, attrCell, attrList, posMap, radarSvg, badgePanel, badgeSummary, badgeChip, $, E, fmt, money, wage, ovBadge, stars, posChip, crest, btn, tag, card, nat, formDots, bar, plLink, empty, seg, openModal, closeModal, topModal, confirmBox, toast, openMatch, matchRecordHtml, playerHtml, makeSaves, download };
 })();
 
 ;
@@ -4704,6 +4735,7 @@ var UI = (function () {
     app.innerHTML = `<header class="top"><button type="button" class="btn small ghost mobile-nav" data-act="menu" aria-label="打开导航">☰</button><div class="brand"><b>绿茵</b>经理 <b>${FB.START_YEAR + w.season}</b></div><div class="club">${crest(c)}<div><div class="nm">${E(c.name)}</div><div class="sub">${E(lgName(c.lg))} · 第 ${FB.position(w, c.id)} 名 · 主教练 ${E(state.mgr.name)}</div></div></div><div class="when"><b>${FB.phaseName(w.week)} · 第 ${w.week + 1} / 52 周</b>${seasonLabel()} · ${FB.dateText(w.season, w.week)}${FB.inWindow(w.week) ? ' · <span class="acc">' + FB.windowName(w.week) + '</span>' : ''}</div><div class="go">${state.fired ? btn('查看工作邀请', 'jobs', 'primary') : fx ? btn('观看比赛 ▸', 'watch', 'primary') + btn('快速模拟', 'sim', '') : btn('继续 ▸', 'sim', 'primary')}${btn('到下场比赛', 'skip', 'ghost', fx || state.fired ? 'disabled' : '')}${btn('💾 存档', 'slots', 'ghost')}</div></header>
       <nav class="rail ${ui.mobile ? 'open' : ''}" aria-label="经理导航"><div class="grp">球队</div>${nav('home', '总览')}${nav('squad', '阵容')}${nav('tactics', '战术')}${nav('fixtures', '赛程')}${nav('youth', '青训', state.youth.prospects.length)}<div class="grp">俱乐部</div>${nav('market', '转会', state.offers.length)}${nav('finance', '财务')}${nav('popularity', '★ 人气')}${nav('inbox', '消息', unread)}<div class="grp">足球世界</div>${nav('leagues', '联赛')}${nav('history', '荣誉')}<div class="grp">系统</div>${nav('settings', '存档 · 规则')}<div class="rail-summary"><div>${E(c.name)}</div><div class="dim">余额 ${money(c.balance)}</div><div style="margin:6px 0 2px">董事会信心</div>${bar(state.board.conf, 100, state.board.conf < 30 ? 'bad' : state.board.conf < 50 ? 'warn' : '')}<div class="dim" style="margin-top:8px">${ui.saveOK ? '进度已自动保存' : E(ui.saveErr || '存储不可用，请导出备份')}</div></div></nav>
       <main id="view"><div class="page-heading"><h1 class="h1">${titles[view][0]}</h1><p class="lede">${titles[view][1]}${opp && view === 'home' ? ` · 本周对手 ${E(opp.name)}` : ''}</p></div>${!ui.saveOK ? `<div class="note bad" style="margin-bottom:12px">自动保存失败：${E(ui.saveErr || '')} ${btn('导出当前进度', 'export', 'small')}</div>` : ''}${content}</main><nav class="tabbar" aria-label="主要页面">${[['home', '总览'], ['tactics', '战术'], ['squad', '阵容'], ['market', '转会', state.offers.length]].map(([id, l, b]) => `<button type="button" data-go="${id}" class="${view === id ? 'on' : ''}">${l}${b ? `<span class="badge">${b}</span>` : ''}</button>`).join('')}<button type="button" data-act="menu" class="${ui.mobile ? 'on' : ''}">更多${unread ? `<span class="badge">${unread}</span>` : ''}</button></nav>`;
+    UI.enhanceTables($('main'));
     $('main').scrollTop = prior;
   }
 
@@ -4733,7 +4765,7 @@ var UI = (function () {
     return `<div class="grid g-main"><div class="grid">${card('下一场比赛', nextCard, { right: tag(lgName(c.lg)) })}
       ${card('最近赛果', recent.length ? `<table class="t"><tbody>${recent.map((g, i) => { const home = g.h === state.club, gf = home ? g.hg : g.ag, ga = home ? g.ag : g.hg, o = club(home ? g.a : g.h); return `<tr><td class="dim">第${g.r + 1}轮</td><td>${home ? '主' : '客'}</td><td>${crest(o, 1)} ${E(o.name)}</td><td class="c"><b class="${gf > ga ? 'good' : gf < ga ? 'bad' : ''}">${gf}:${ga}</b></td><td class="n">${btn('详情', 'game', 'small ghost', `data-i="${state.games.indexOf(g)}"`)}</td></tr>`; }).join('')}</tbody></table>` : empty('还没有比赛', '联赛第 4 周开赛。'), { flush: !!recent.length })}
       ${card('伤停与停赛', inj.length ? `<table class="t"><tbody>${inj.map(p => `<tr><td>${posChip(p.pos)}</td><td>${plLink(p)}</td><td class="n">${p.inj > 0 ? '伤停 ' + p.inj + ' 周' : '停赛 1 场'}</td></tr>`).join('')}</tbody></table>` : '<p class="small muted" style="margin:0">全员健康。</p>', { flush: !!inj.length })}</div>
-      <div class="grid">${card('董事会', `<div class="kv"><span>赛季目标</span><span>${E(state.board.text)}</span><span>当前排名</span><span>第 ${pos + 1} 名 ${pos + 1 <= state.board.pos ? '<span class="good">达标</span>' : '<span class="warn">未达标</span>'}</span><span>董事会信心</span><span>${Math.round(state.board.conf)} / 100</span><span>俱乐部余额</span><span>${money(c.balance)}</span><span>俱乐部人气 · 球迷</span><span>${Math.round(state.pop)} · ${fmt(state.fans)} 万</span>${state.loans.length ? `<span>海外锻炼中</span><span>${state.loans.length} 人</span>` : ''}</div><div style="margin-top:8px">${bar(state.board.conf, 100, state.board.conf < 30 ? 'bad' : state.board.conf < 50 ? 'warn' : '')}</div><p class="small dim" style="margin:8px 0 0">赛季结束时完成目标会大幅提升信心；信心低于 15 会被解雇。</p>`)}
+      <div class="grid">${card('董事会', `<div class="coach-person">${UI.avatar(state.mgr.name,c.color)}<span>主教练 <b>${E(state.mgr.name)}</b></span></div><div class="kv"><span>赛季目标</span><span>${E(state.board.text)}</span><span>当前排名</span><span>第 ${pos + 1} 名 ${pos + 1 <= state.board.pos ? '<span class="good">达标</span>' : '<span class="warn">未达标</span>'}</span><span>董事会信心</span><span>${Math.round(state.board.conf)} / 100</span><span>俱乐部余额</span><span>${money(c.balance)}</span><span>俱乐部人气 · 球迷</span><span>${Math.round(state.pop)} · ${fmt(state.fans)} 万</span>${state.loans.length ? `<span>海外锻炼中</span><span>${state.loans.length} 人</span>` : ''}</div><div style="margin-top:8px">${bar(state.board.conf, 100, state.board.conf < 30 ? 'bad' : state.board.conf < 50 ? 'warn' : '')}</div><p class="small dim" style="margin:8px 0 0">赛季结束时完成目标会大幅提升信心；信心低于 15 会被解雇。</p>`)}
       ${card('积分榜', `<table class="t"><thead><tr><th>#</th><th>球队</th><th class="n">赛</th><th class="n">净</th><th class="n">分</th></tr></thead><tbody>${around.map(r => `<tr class="${r.id === c.id ? 'me' : ''}"><td>${tab.indexOf(r) + 1}</td><td>${crest(club(r.id), 1)} ${E(club(r.id).name)}</td><td class="n">${r.p}</td><td class="n">${r.gf - r.ga}</td><td class="n"><b>${r.pts}</b></td></tr>`).join('')}</tbody></table>`, { flush: true, right: btn('完整', 'go-leagues', 'small ghost') })}
       ${card('消息', state.inbox.slice(0, 5).map(n => `<div style="padding:6px 0;border-bottom:1px solid var(--line)"><div class="small"><b>${E(n.t)}</b> <span class="dim">第${n.wk + 1}周</span></div><div class="small muted">${E(n.b)}</div></div>`).join('') || empty('暂无消息'), { right: btn('全部', 'go-inbox', 'small ghost') })}</div></div>`;
   }

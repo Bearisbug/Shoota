@@ -359,6 +359,18 @@ table.t th.sortable { cursor: pointer; }
 /* A fixed-height dialog reserves its full controls before allocating scrollable content. */
 .dialog { min-height:0; } .dialog > .hd,.dialog > .ft { flex:none; } .dialog > .bd { flex:1 1 auto; }
 @media(max-width:860px) { .dialog,.dialog.wide,.dialog.match { height:100dvh; max-height:100dvh; } .dialog > .ft { padding-bottom:max(6px,env(safe-area-inset-bottom)); } }
+
+.tbl-tools { display:flex; align-items:center; gap:var(--gap); padding:4px 8px; font-size:var(--fs-xs); }
+.tbl-tools>input { min-width:0; flex:1; min-height:var(--tap); }
+.tbl-tools details { position:relative; flex:none; } .tbl-tools summary { display:flex; align-items:center; min-height:var(--tap); cursor:pointer; }
+.tbl-tools details>div { position:absolute; right:0; top:100%; z-index:12; background:var(--panel2); border:1px solid var(--line2); padding:8px; min-width:10rem; max-height:40vh; overflow:auto; box-shadow:0 8px 20px var(--overlay); }
+.tbl-tools label { display:flex; align-items:center; gap:6px; min-height:32px; white-space:nowrap; } .tbl-tools label input { accent-color:var(--accent); }
+.table-sort { border:0; padding:0; color:inherit; background:none; font:inherit; cursor:pointer; min-height:32px; }
+.coach-person { display:flex; align-items:center; gap:8px; margin-bottom:8px; } .coach-person .portrait,.agent-person .portrait { width:32px; height:36px; } .agent-person>.row { flex:1; min-width:0; flex-wrap:nowrap; } .agent-person .row>div { min-width:0; }
+.moment { position:fixed; top:12%; left:50%; transform:translateX(-50%); width:min(90vw,30rem); z-index:210; display:flex; gap:10px; align-items:center; pointer-events:none; background:linear-gradient(120deg,var(--panel2),var(--panel)); padding:14px; border:1px solid var(--gold); border-radius:8px; box-shadow:0 12px 40px var(--overlay); animation:moment-in 400ms ease-out; }
+.moment>span { color:var(--gold); font-size:32px; }.moment strong { font-size:var(--fs); overflow-wrap:anywhere; }
+@keyframes moment-in { from { opacity:0; transform:translate(-50%,-12px) scale(.95); } to { opacity:1; transform:translate(-50%,0) scale(1); } }
+@media(prefers-reduced-motion:reduce) { .moment { animation:none; } }
 </style></head>
 <body><div id="app"></div><div id="modal-root"></div><div id="toast" role="status" aria-live="polite"></div><input id="import-file" type="file" accept=".json,application/json" hidden><script>/* 名单数据容器与补位姓名池。真实球员见 data/*.js；补位球员由姓名池按国籍稳定生成，为游戏设定。 */
 var FOOTBALL_DATA = { leagues: [] };
@@ -4181,6 +4193,25 @@ var UI = (function () {
   }
 
   /* ---------- 球员详情 ---------- */
+  const columnPrefs = new Map();
+  function enhanceTables(root) {
+    for (const table of root.querySelectorAll('table.t')) {
+      const heads=[...(table.tHead?.rows[0]?.cells || [])];
+      if(heads.length<7 || !table.tBodies[0] || table.dataset.enhanced) continue;
+      table.dataset.enhanced='1';
+      const key=heads.map(h=>h.textContent).join('|'), hidden=columnPrefs.get(key)||new Set();columnPrefs.set(key,hidden);
+      const tools=document.createElement('div');tools.className='tbl-tools';
+      tools.innerHTML=`<input type="search" aria-label="搜索本表" placeholder="搜索本表"><details><summary>显示列</summary><div>${heads.map((h,i)=>i<2?'':`<label><input type="checkbox" data-col="${i}" ${hidden.has(i)?'':'checked'}>${E(h.textContent||'操作')}</label>`).join('')}</div></details>`;
+      (table.parentElement.classList.contains('tbl-wrap')?table.parentElement:table).before(tools);
+      const apply=()=>{for(const row of table.rows) if(row.cells.length===heads.length) [...row.cells].forEach((c,i)=>c.hidden=hidden.has(i));}; apply();
+      tools.querySelector('input[type=search]').addEventListener('input',e=>{const q=e.target.value.toLocaleLowerCase();for(const row of table.tBodies[0].rows)row.hidden=!row.textContent.toLocaleLowerCase().includes(q);});
+      tools.querySelectorAll('[data-col]').forEach(c=>c.addEventListener('change',()=>{const i=+c.dataset.col;c.checked?hidden.delete(i):hidden.add(i);apply();}));
+      heads.forEach((h,i)=>{if(!h.textContent.trim()||h.querySelector('button'))return;const b=document.createElement('button');b.type='button';b.className='table-sort';b.textContent=h.textContent;b.setAttribute('aria-label','按'+h.textContent+'排序');h.textContent='';h.appendChild(b);let dir=1;b.addEventListener('click',()=>{const rows=[...table.tBodies[0].rows].filter(r=>r.cells.length===heads.length);rows.sort((a,b)=>{const x=a.cells[i].textContent.trim(),y=b.cells[i].textContent.trim();return x.localeCompare(y,'zh-CN',{numeric:true})*dir;});for(const row of rows)table.tBodies[0].appendChild(row);heads.forEach(x=>x.removeAttribute('aria-sort'));h.setAttribute('aria-sort',dir===1?'ascending':'descending');dir*=-1;});});
+    }
+  }
+  function celebrate(text) {
+    let el=document.querySelector('.moment');if(el)el.remove();el=document.createElement('div');el.className='moment';el.setAttribute('role','status');el.innerHTML=`<span>★</span><strong>${E(text)}</strong>`;document.body.appendChild(el);setTimeout(()=>el.remove(),2800);
+  }
   function avatar(name, color) {
     return `<svg class="portrait" viewBox="0 0 64 72" role="img" aria-label="${E(name)} 插画头像"><rect width="64" height="72" rx="8" fill="${E(color || '#3fbf6f')}"/><path d="M8 72V59Q32 38 56 59V72" fill="currentColor" opacity=".85"/><path d="M25 44V53L32 59L39 53V44" fill="#cc9972"/><ellipse cx="32" cy="29" rx="15" ry="19" fill="#e2b18c"/><path d="M17 26V18Q19 4 35 7Q52 7 47 27L42 17Q29 24 20 17Z" fill="#20252a"/><path d="M25 32h3m8 0h3m-12 8q5 4 10 0" fill="none" stroke="#594132" stroke-width="2" stroke-linecap="round"/></svg>`;
   }
@@ -4284,7 +4315,7 @@ var UI = (function () {
   }
   function download(name, text) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'application/json' })); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); }
 
-  return { avatar, trend, LZ, tacticBoard, fitTier, shortName, attr20, attrCell, attrList, posMap, radarSvg, badgePanel, badgeSummary, badgeChip, $, E, fmt, money, wage, ovBadge, stars, posChip, crest, btn, tag, card, nat, formDots, bar, plLink, empty, seg, openModal, closeModal, topModal, confirmBox, toast, openMatch, matchRecordHtml, playerHtml, makeSaves, download };
+  return { enhanceTables, celebrate, avatar, trend, LZ, tacticBoard, fitTier, shortName, attr20, attrCell, attrList, posMap, radarSvg, badgePanel, badgeSummary, badgeChip, $, E, fmt, money, wage, ovBadge, stars, posChip, crest, btn, tag, card, nat, formDots, bar, plLink, empty, seg, openModal, closeModal, topModal, confirmBox, toast, openMatch, matchRecordHtml, playerHtml, makeSaves, download };
 })();
 
 ;
@@ -5167,7 +5198,7 @@ var CR = (function () {
     }
     if (s.next && s.next.start <= CR.weekAbs(s)) { const o = s.next; s.next = null; const fee = CR.signContract(s, o.offer, o.ask); report.lines.push(`新合同生效：加盟 ${club(o.offer.club).name}${fee ? '，转会费 ' + money(fee) : ''}。`); }
     persist(); render();
-    if (ui.fast) ui.fast.push(report); else weekReport(report);
+    if (ui.fast) ui.fast.push(report); else { weekReport(report); const milestone=report.lines.find(x=>/徽章升级|签约|冠军|首秀|首球|五大/.test(x)); if(milestone) UI.celebrate(milestone); }
   }
   function callups(report) {
     const w = W(), nextWeek = w.week + 1;
@@ -5234,6 +5265,7 @@ var CR = (function () {
     app.innerHTML = `<header class="top"><button type="button" class="btn small ghost mobile-nav" data-act="menu" aria-label="打开导航">☰</button><div class="brand"><b>足球</b>巨星</div><div class="club">${c ? crest(c) : '<span class="crest" style="background:#334">FA</span>'}<div><div class="nm">${E(p.n)} · ${E(c ? c.name : '自由球员')}</div><div class="sub">${a}岁 · ${FB.POS[p.pos]} · ${c ? E(lgName(c.lg)) : '—'} · 总评 ${p.ovr}${s.abroad ? ' · <span class="acc">' + E(s.abroad.name) + '</span>' : ''}</div></div></div><div class="when"><b>${s.retired ? '已退役' : FB.phaseName(w.week) + ' · 第 ' + (w.week + 1) + ' / 52 周'}</b>${seasonLabel()} · ${FB.dateText(w.season, w.week)}</div><div class="go">${goBtns}${btn('4 周', 'fast', 'ghost', s.retired || blk ? 'disabled' : '')}${btn('💾 存档', 'slots', 'ghost')}</div></header>
       <nav class="rail ${ui.mobile ? 'open' : ''}" aria-label="生涯导航"><div class="grp">我的生涯</div>${nav('home', '生涯总览')}${nav('profile', '球员档案')}${nav('popularity', '★ 人气')}${nav('training', '训练')}${nav('squad', '本队阵容')}${nav('fixtures', '赛程 · 比赛')}<div class="grp">机会</div>${nav('abroad', '留洋', s.trials.length + s.pre.length || '')}${nav('contracts', '合同', s.offers.length)}${nav('national', '国家队', s.nat.pending ? '!' : '')}${nav('inbox', '消息', unread)}<div class="grp">足球世界</div>${nav('leagues', '联赛')}${nav('history', '生涯 · 荣誉')}<div class="grp">系统</div>${nav('settings', '存档 · 规则')}<div class="rail-summary"><div>${E(p.n)} <span class="pos">${p.pos}</span></div><div class="dim">${a}岁 · ${s.profile.height}cm · ${E(s.profile.foot)}</div><div style="margin-top:7px">${ovBadge(p.ovr)} <span class="muted">潜力</span> ${stars(p.pot)}</div><div style="margin-top:8px" class="small">欧洲关注 ${Math.round(s.euro)}</div>${bar(s.euro)}<div class="dim" style="margin-top:10px">${ui.saveOK ? '进度已自动保存' : E(ui.saveErr || '存储不可用，请导出备份')}</div></div></nav>
       <main id="view"><div class="page-heading"><h1 class="h1">${TITLES[view][0]}</h1><p class="lede">${TITLES[view][1]}</p></div>${!ui.saveOK ? `<div class="note bad" style="margin-bottom:12px">自动保存失败：${E(ui.saveErr || '')} ${btn('导出当前进度', 'export', 'small')}</div>` : ''}${s.retired ? `<div class="note" style="margin-bottom:12px"><b>生涯已结束。</b> 你可以查看生涯记录，或开始新的生涯。 ${btn('新生涯', 'new', 'small')}</div>` : ''}${content}</main><nav class="tabbar" aria-label="主要页面">${[['home', '总览'], ['training', '训练'], ['squad', '阵容'], ['abroad', '留洋', s.trials.length + s.pre.length]].map(([id, l, b]) => `<button type="button" data-go="${id}" class="${view === id ? 'on' : ''}">${l}${b ? `<span class="badge">${b}</span>` : ''}</button>`).join('')}<button type="button" data-act="menu" class="${ui.mobile ? 'on' : ''}">更多${unread ? `<span class="badge">${unread}</span>` : ''}</button></nav>`;
+    UI.enhanceTables($('main'));
     $('main').scrollTop = prior;
   }
   function statusTiles() {
@@ -5298,7 +5330,7 @@ var CR = (function () {
     const pos = CR.bestPositions(s).slice(0, 4);
     const rows = Object.values(s.st || {}).sort((a, b) => b.season - a.season);
     const tot = rows.reduce((t, r) => { for (const k of ['ap', 'st', 'mn', 'g', 'a', 'rs']) t[k] = (t[k] || 0) + r[k]; return t; }, {});
-    return `<div class="grid g-main"><div class="grid">${card('能力', `<div class="spread" style="margin-bottom:12px"><div class="club"><div>${ovBadge(p.ovr, true)}</div><div><div class="nm">${E(p.n)}</div><div class="sub">${CR.ageExact(s)}岁 · ${FB.POS[p.pos]} · ${E(FB.styleOf(p)[1])} · 精确总评 ${fmt2(CR.ovr(s))}</div></div></div><div style="text-align:right"><div class="small muted">潜力 ${p.pot}</div>${stars(p.pot)}</div></div><div class="pdetail"><div>${UI.attrList(p, s.gains)}</div><div class="pside">${UI.radarSvg(p)}<div class="small muted">位置熟练度</div>${UI.posMap(p)}</div></div><p class="small muted" style="margin:6px 0 0">属性为 1–20 分制。各位置能力：${pos.map(([x, v]) => `${FB.POS[x]} ${Math.round(v)}`).join(' · ')}。绿色数字为本赛季累计成长（1–20 分制）。</p>${UI.badgePanel(p)}`)}
+    return `<div class="grid g-main"><div class="grid">${card('能力', `<div class="spread" style="margin-bottom:12px"><div class="club">${UI.avatar(p.n,CR.curClub(s)?.color)}<div>${ovBadge(p.ovr, true)}</div><div><div class="nm">${E(p.n)}</div><div class="sub">${CR.ageExact(s)}岁 · ${FB.POS[p.pos]} · ${E(FB.styleOf(p)[1])} · 精确总评 ${fmt2(CR.ovr(s))}</div></div></div><div style="text-align:right"><div class="small muted">潜力 ${p.pot}</div>${stars(p.pot)}</div></div><div class="pdetail"><div>${UI.attrList(p, s.gains)}</div><div class="pside">${UI.radarSvg(p)}<div class="small muted">位置熟练度</div>${UI.posMap(p)}</div></div><p class="small muted" style="margin:6px 0 0">属性为 1–20 分制。各位置能力：${pos.map(([x, v]) => `${FB.POS[x]} ${Math.round(v)}`).join(' · ')}。绿色数字为本赛季累计成长（1–20 分制）。</p>${UI.badgePanel(p)}`)}
       ${card('生涯数据', rows.length ? `<div class="tbl-wrap"><table class="t"><thead><tr><th>赛季</th><th>赛事</th><th>球队</th><th class="n">出场</th><th class="n">首发</th><th class="n">分钟</th><th class="n">进球</th><th class="n">助攻</th><th class="n">射门</th><th class="n">评分</th></tr></thead><tbody>${rows.map(r => `<tr><td>${FB.START_YEAR + r.season}–${String(FB.START_YEAR + r.season + 1).slice(2)}</td><td>${E(CR.compName(r.comp))}</td><td>${E(r.club)}</td><td class="n">${r.ap}</td><td class="n">${r.st}</td><td class="n">${r.mn}</td><td class="n">${r.g}</td><td class="n">${r.a}</td><td class="n">${r.sh}/${r.sot}</td><td class="n">${r.ap ? (r.rs / r.ap).toFixed(2) : '—'}</td></tr>`).join('')}<tr><td colspan="3"><b>合计</b></td><td class="n"><b>${tot.ap}</b></td><td class="n">${tot.st}</td><td class="n">${tot.mn}</td><td class="n"><b>${tot.g}</b></td><td class="n"><b>${tot.a}</b></td><td></td><td class="n">${tot.ap ? (tot.rs / tot.ap).toFixed(2) : '—'}</td></tr></tbody></table></div>` : empty('还没有比赛数据'), { flush: !!rows.length })}</div>
       <div class="grid">${card('资料', `<div class="kv"><span>生日</span><span>2011-03-15</span><span>国籍</span><span>中国</span><span>身高 · 体重</span><span>${s.profile.height} cm · ${s.profile.weight} kg</span><span>惯用脚</span><span>${E(s.profile.foot)}</span><span>身价</span><span>${money(FB.valueOf(p, w))}</span><span>体能</span><span>${p.cond}</span><span>伤病</span><span>${p.inj > 0 ? p.inj + ' 周' : '健康'}</span></div><p class="small dim" style="margin:8px 0 0">身体资料为游戏生成。</p>`)}${card('状态', statusTiles())}</div></div>`;
   }
@@ -5335,7 +5367,7 @@ var CR = (function () {
     const progHtml = s.abroad ? `<div class="note"><b>${E(s.abroad.name)}</b> 进行中：${E(club(s.abroad.club).name)}，还剩 ${Math.max(0, s.abroad.until - CR.weekAbs(s))} 周。已踢 ${s.abroad.ratings.length} 场${s.abroad.ratings.length ? '，场均评分 ' + (s.abroad.ratings.reduce((x, y) => x + y, 0) / s.abroad.ratings.length).toFixed(2) : ''}。</div>` : progs.length ? progs.map(p => `<div class="spread" style="padding:8px 0;border-bottom:1px solid var(--line)"><div><b>${E(p.name)}</b><div class="small muted">${E(p.note)}</div><div class="small ${p.ok ? 'good' : 'warn'}">${p.need ? '需要总评 ' + p.need + '（当前 ' + ME().ovr + '）' : ''}${p.trust ? ' · 教练信任 ' + p.trust : ''}${p.cost ? ' · 费用 €' + fmt(p.cost * 1000) : ''}${p.ok ? ' · 可以报名' : ''}</div></div>${btn('报名', 'prog', 'primary small', `data-id="${p.id}" ${p.ok ? '' : 'disabled'}`)}</div>`).join('') : empty('当前没有开放的项目', '足协集训在第 28–31 周开放报名，合作交流在第 13–19 周，自费夏训营在第 44–50 周。');
     const trials = s.trials.length ? s.trials.map((t, i) => `<div class="spread" style="padding:8px 0;border-bottom:1px solid var(--line)"><div><b>${E(club(t.club).name)}</b> <span class="small muted">${E(lgName(club(t.club).lg))} · 实力 ${FB.teamRating(w, t.club)}</span><div class="small muted">试训 1 周，本周的球队比赛缺席。邀请第 ${(t.exp % 52) + 1} 周前有效。</div></div>${btn(s.trialNow === i ? '已安排本周' : '本周去试训', 'trial', s.trialNow === i ? 'on small' : 'primary small', `data-i="${i}"`)}</div>`).join('') : empty('暂无试训邀请', '欧洲关注度达到 18 后，海外俱乐部可能邀请你试训；经纪人渠道越广，邀请越多。');
     const pre = s.pre.length ? s.pre.map(x => `<div class="small" style="padding:4px 0">✓ ${E(x.note)}</div>`).join('') : '<p class="small muted" style="margin:0">还没有海外意向。试训成功或交流表现出色会获得意向，年满 18 岁后在转会窗口兑现为报价。</p>';
-    const agents = CR.AGENTS.map(x => `<div class="spread" style="padding:8px 0;border-bottom:1px solid var(--line)"><div><b>${E(x.name)}</b>${s.agent === x.id ? ' <span class="tag acc">当前</span>' : ''}<div class="small muted">${E(x.note)}</div></div>${s.agent === x.id ? btn('解约', 'agent', 'small ghost', 'data-id=""') : btn('签约', 'agent', 'small', `data-id="${x.id}" ${s.euro >= x.need ? '' : 'disabled'}`)}</div>`).join('');
+    const agents = CR.AGENTS.map(x => `<div class="spread agent-person" style="padding:8px 0;border-bottom:1px solid var(--line)"><div class="row">${UI.avatar(x.name)}<div><b>${E(x.name)}</b>${s.agent === x.id ? ' <span class="tag acc">当前</span>' : ''}<div class="small muted">${E(x.note)}</div></div></div>${s.agent === x.id ? btn('解约', 'agent', 'small ghost', 'data-id=""') : btn('签约', 'agent', 'small', `data-id="${x.id}" ${s.euro >= x.need ? '' : 'disabled'}`)}</div>`).join('');
     return `<div class="note" style="margin-bottom:12px">国际足联规定未满 18 岁的球员原则上不能跨国转会。你现在 ${a} 岁${a < 18 ? `，距 18 岁还有 ${18 - a} 年左右：先用集训、交流和试训提升能力、适应度与欧洲关注度` : '，可以签海外职业合同'}。</div>
       <div class="grid g2">${card('留洋项目', progHtml)}${card('海外试训', trials)}${card('海外意向', pre)}${card('经纪人', agents + `<p class="small dim" style="margin:8px 0 0">佣金按周从工资中扣除。欧洲关注度 ${Math.round(s.euro)} · 适应度 ${Math.round(s.adapt)}。</p>`)}</div>`;
   }
