@@ -1,0 +1,41 @@
+
+### start
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":[],"offR":[],"priBtns":[],"priUnder40":0,"btnHeights":{"40":2},"btnCount":22,"fontHist":"11px:954 12px:380 15px:102 13px:70 11.5px:40 16px:28 26px:14","fams":"\"IBM Plex Sans\":1344 \"Barlow Condensed\":244","lowcCount":0,"lowcBody":0,"lowc":[],"docH":1791}
+pickbar { top: 32, h: 40 }
+chrome { top: 90, nav: 36, main: 669 }
+
+### home
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390"],"offR":[],"priBtns":["继续 ▸:40","观看文字直播:40"],"priUnder40":0,"btnHeights":{"40":7},"btnCount":29,"fontHist":"13px:306 11.5px:103 12px:94 11px:84 18px:19 12.5px:18 14px:14 20px:14 15px:9 10px:2 26px:2","fams":"\"IBM Plex Sans\":534 \"Barlow Condensed\":122 \"IBM Plex Mono\":9","lowcCount":0,"lowcBody":0,"lowc":[],"docH":795,"main":"top=126 h=669 sh=1476"}
+
+### squad
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390","div.tw sw=1135 cw=372"],"offR":[],"priBtns":["继续 ▸:40"],"priUnder40":0,"btnHeights":{"28":9,"40":5},"btnCount":88,"fontHist":"12px:634 13px:543 11px:250 11.5px:130 12.5px:111 18px:23 14px:14 15px:9 10px:5 20px:2","fams":"\"IBM Plex Sans\":1051 \"Barlow Condensed\":514 \"IBM Plex Mono\":156","lowcCount":29,"lowcBody":29,"lowc":["3.51 13px rgb(98, 115, 127) \"★\" <span.e>"],"rowH":"n=17 min=26 med=37 max=37","docH":795,"main":"top=126 h=669 sh=1714"}
+
+### tactics
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390","div.tw sw=442 cw=372","div.tw sw=490 cw=352"],"offR":[],"priBtns":["继续 ▸:40"],"priUnder40":0,"btnHeights":{"28":53,"40":5},"btnCount":109,"fontHist":"13px:810 12px:545 12.5px:484 11px:286 10.8333px:87 11.5px:87 10px:14 14px:14 15px:9 20px:5","fams":"\"IBM Plex Sans\":1912 \"Barlow Condensed\":278 \"IBM Plex Mono\":151","lowcCount":0,"lowcBody":0,"lowc":[],"rowH":"n=28 min=26 med=40 max=76","docH":795,"main":"top=126 h=669 sh=3379"}
+
+### standings
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390","div.tw sw=490 cw=372"],"offR":[],"priBtns":["继续 ▸:40"],"priUnder40":0,"btnHeights":{"40":5},"btnCount":62,"fontHist":"13px:545 12px:532 11px:78 14px:14 12.5px:13 15px:9 20px:3 10px:2","fams":"\"IBM Plex Sans\":788 \"Barlow Condensed\":407 \"IBM Plex Mono\":1","lowcCount":0,"lowcBody":0,"lowc":[],"rowH":"n=21 min=26 med=28 max=29","docH":795,"main":"top=126 h=669 sh=1042"}
+
+### stats
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390","div.tw sw=1380 cw=372"],"offR":[],"priBtns":["继续 ▸:40"],"priUnder40":0,"btnHeights":{"40":5},"btnCount":782,"fontHist":"12px:21627 13px:2296 11px:1521 10px:62 12.5px:23 14px:14 15px:9 20px:9","fams":"\"Barlow Condensed\":21201 \"IBM Plex Sans\":3115 \"IBM Plex Mono\":1245","lowcCount":0,"lowcBody":0,"lowc":[],"rowH":"n=364 min=26 med=28 max=28","docH":795,"main":"top=126 h=669 sh=10499"}
+
+### imports
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390","div.tw sw=721 cw=372","div.tw sw=1284 cw=372"],"offR":[],"priBtns":["继续 ▸:40"],"priUnder40":0,"btnHeights":{"28":94,"40":5},"btnCount":228,"fontHist":"11.5px:3800 12px:2087 13px:1168 11px:899 12.5px:125 10px:95 14px:14 18px:14 15px:9 20px:4","fams":"\"IBM Plex Sans\":6586 \"Barlow Condensed\":1289 \"IBM Plex Mono\":340","lowcCount":0,"lowcBody":0,"lowc":[],"rowH":"n=95 min=26 med=45 max=45","docH":795,"main":"top=126 h=669 sh=4718"}
+
+### schedule
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390","div.tw sw=392 cw=372"],"offR":[],"priBtns":["继续 ▸:40"],"priUnder40":0,"btnHeights":{"40":5},"btnCount":75,"fontHist":"13px:669 12px:478 11.5px:86 11px:58 14px:14 15px:9 12.5px:8 10px:2 20px:2","fams":"\"IBM Plex Sans\":983 \"Barlow Condensed\":342 \"IBM Plex Mono\":1","lowcCount":0,"lowcBody":0,"lowc":[],"rowH":"n=58 min=28 med=28 max=36","docH":795,"main":"top=126 h=669 sh=1819"}
+
+### finance
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390"],"offR":[],"priBtns":["继续 ▸:40"],"priUnder40":0,"btnHeights":{"40":5},"btnCount":48,"fontHist":"13px:397 12px:375 11px:96 14px:14 11.5px:14 15px:9 10px:5 26px:5 20px:4","fams":"\"IBM Plex Sans\":708 \"Barlow Condensed\":210 \"IBM Plex Mono\":1","lowcCount":3,"lowcBody":3,"lowc":["2.45 11px rgb(131, 148, 162) \"下限\" <span.>","2.45 11px rgb(131, 148, 162) \"工资帽\" <span.>","2.45 11px rgb(131, 148, 162) \"硬上限\" <span.>"],"rowH":"n=28 min=26 med=28 max=32","docH":795,"main":"top=126 h=669 sh=1349"}
+
+### save
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390"],"offR":[],"priBtns":["继续 ▸:40","生成存档文本:40","导入粘贴的文本:40"],"priUnder40":0,"btnHeights":{"28":8,"40":10},"btnCount":35,"fontHist":"13px:220 12px:121 11px:100 12.5px:67 14px:14 15px:9 20px:5 10px:2","fams":"\"IBM Plex Sans\":444 \"Barlow Condensed\":93 \"IBM Plex Mono\":1","lowcCount":0,"lowcBody":0,"lowc":[],"docH":795,"main":"top=126 h=669 sh=1652"}
+
+### player-modal
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390","div.tw sw=1135 cw=372","div.tw sw=870 cw=360"],"offR":[],"priBtns":["继续 ▸:40","谈续约:40"],"priUnder40":0,"btnHeights":{"28":9,"34":6,"40":9},"btnCount":101,"fontHist":"12px:907 13px:747 11px:343 12.5px:161 11.5px:154 18px:31 14.5px:20 15px:18 14px:15 10px:7 16px:6 10.5px:5","fams":"\"IBM Plex Sans\":1582 \"Barlow Condensed\":639 \"IBM Plex Mono\":203","lowcCount":40,"lowcBody":40,"lowc":["3.51 13px rgb(98, 115, 127) \"★\" <span.e>","1.11 20px rgb(221, 229, 234) \"周鹏\" <div.nm>","1.41 12.5px rgb(131, 148, 162) \"小前 / 大前 · 37 岁\" <div.meta>","1.41 12.5px rgb(131, 148, 162) \"广东\" <a.tm>"],"rowH":"n=19 min=26 med=32 max=37","docH":795,"main":"top=126 h=669 sh=1714","modal":"top=6 h=1674 w=382 pad=8px 10px 12px"}
+x [ 40, 40 ]
+
+### live
+{"vw":390,"vh":795,"docSW":390,"bodySW":390,"hscroll":["div.go sw=422 cw=374","nav.rail sw=1161 cw=390"],"offR":[],"priBtns":["继续 ▸:40","观看文字直播:40"],"priUnder40":0,"btnHeights":{"40":9},"btnCount":39,"fontHist":"12px:1314 11px:574 13px:315 11.5px:103 12.5px:36 14px:24 18px:23 20px:14 15px:9 30px:4 10px:2 26px:2","fams":"\"IBM Plex Sans\":1786 \"IBM Plex Mono\":491 \"Barlow Condensed\":144","lowcCount":0,"lowcBody":0,"lowc":[],"docH":795,"main":"top=126 h=669 sh=1476","modal":"top=6 h=645 w=382 pad=8px 10px 12px"}
+score [ [ '广东东阳光主场', 31, 70 ], [ '新疆伊力特客场', 31, 70 ] ]
+errs []

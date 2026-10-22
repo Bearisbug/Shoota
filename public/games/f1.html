@@ -9,22 +9,26 @@
 <title>F1 Team Principal 2026</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800&display=swap" media="print" onload="this.media='all'">
 <style>
 /* Layout: pit-wall shell — sticky team bar, left rail, dense timing panels. Single dark theme by choice (pit-wall screens). Accent follows the player's team livery. */
 :root {
   --bg: #0a0c0f; --rail: #0d1014; --panel: #12161b; --panel2: #191e25; --line: #222932; --line2: #2e3743;
-  --fg: #e3e8ee; --muted: #8a96a4; --dim: #5a6573;
+  --fg: #e8edf2; --muted: #a0aab6; --dim: #8b96a3;
   --accent: #ff8000; --accent-ink: #160b00; --accent-soft: rgba(255, 128, 0, .14);
   --purple: #b25cff; --green: #3ddc84; --yellow: #ffd23f; --red: #ff4d57; --blue: #4aa8ff;
   --good: var(--green); --bad: var(--red); --warn: var(--yellow);
-  --f-display: 'Titillium Web', 'Noto Sans SC', 'Arial Narrow', sans-serif;
-  --f-body: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
-  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --f-display: 'Barlow Condensed', 'Roboto Condensed', 'Avenir Next Condensed', 'Arial Narrow', sans-serif-condensed, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --f-body: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  /* numbers & ratings use the condensed face with tabular figures */
+  --f-mono: 'Barlow Condensed', 'Roboto Condensed', 'Avenir Next Condensed', 'Arial Narrow', sans-serif-condensed, ui-monospace, monospace;
+  --fs-body: 13px; --fs-sm: 12px; --fs-xs: 11px; --fs-lbl: 10px;
+  --carbon: repeating-linear-gradient(45deg, rgba(255, 255, 255, .028) 0 2px, transparent 2px 4px), repeating-linear-gradient(-45deg, rgba(0, 0, 0, .28) 0 2px, transparent 2px 4px);
+  --metal: linear-gradient(180deg, #1f252d, #161a20);
   color-scheme: dark;
 }
 html, body { height: 100%; }
-body { background: var(--bg); color: var(--fg); font: 13.5px/1.5 var(--f-body); }
+body { background: var(--bg); color: var(--fg); font: 13px/1.45 var(--f-body); font-variant-numeric: tabular-nums; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--rail); }
 * { box-sizing: border-box; }
 a { color: inherit; text-decoration: none; cursor: pointer; }
@@ -51,7 +55,7 @@ button { font: inherit; color: inherit; }
 nav.rail { background: var(--rail); border-right: 1px solid var(--line); padding: 10px 8px; overflow-y: auto; display: flex; flex-direction: column; gap: 1px; }
 nav.rail .grp { font: 700 11px/1 var(--f-display); letter-spacing: .16em; color: var(--dim); text-transform: uppercase; padding: 14px 10px 6px; }
 nav.rail a { display: flex; align-items: center; justify-content: space-between; padding: 7px 10px; border-radius: 3px; color: var(--muted); }
-nav.rail a:hover { background: var(--panel2); color: var(--fg); }
+@media (hover: hover) { nav.rail a:hover { background: var(--panel2); color: var(--fg); } }
 nav.rail a.on { background: var(--accent-soft); color: var(--fg); box-shadow: inset 3px 0 0 var(--accent); }
 .badge { background: var(--accent); color: var(--accent-ink); font: 700 11px/1 var(--f-mono); padding: 2px 6px; border-radius: 9px; }
 
@@ -83,9 +87,9 @@ main { overflow-y: auto; padding-block: 18px 48px; padding-left: max(20px, env(s
 .note.bad { border-left-color: var(--bad); } .note.good { border-left-color: var(--good); }
 
 .btn { background: var(--panel2); border: 1px solid var(--line2); padding: 6px 12px; border-radius: 3px; cursor: pointer; white-space: nowrap; font-size: 13px; }
-.btn:hover { border-color: var(--muted); }
+@media (hover: hover) { .btn:hover { border-color: var(--muted); } }
 .btn.pri { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
-.btn.pri:hover { filter: brightness(1.08); }
+@media (hover: hover) { .btn.pri:hover { filter: brightness(1.08); } }
 .btn.sm { padding: 3px 8px; font-size: 12px; }
 .btn.ghost { background: transparent; }
 .btn.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
@@ -96,12 +100,12 @@ main { overflow-y: auto; padding-block: 18px 48px; padding-left: max(20px, env(s
 table.t { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 table.t th { text-align: left; font: 700 11px/1.2 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--dim); padding: 8px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; background: var(--panel); }
 table.t td { padding: 6px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-table.t tr:hover td { background: rgba(255, 255, 255, .025); }
+@media (hover: hover) { table.t tr:hover td { background: rgba(255, 255, 255, .025); } }
 table.t .n, table.t th.n { text-align: right; }
 table.t tr.me td { background: var(--accent-soft); }
 table.t tr.cut td { border-bottom: 2px solid var(--line2); }
 table.t .num { font-family: var(--f-mono); font-size: 12.5px; }
-.pl { color: var(--fg); font-weight: 500; cursor: pointer; } .pl:hover { color: var(--accent); text-decoration: underline; }
+.pl { color: var(--fg); font-weight: 500; cursor: pointer; } @media (hover: hover) { .pl:hover { color: var(--accent); text-decoration: underline; } }
 .tm { display: inline-flex; align-items: center; gap: 7px; font-weight: 500; }
 .tm i { width: 4px; height: 14px; border-radius: 1px; display: inline-block; flex: none; }
 .code { font: 700 13px/1 var(--f-display); letter-spacing: .06em; }
@@ -145,7 +149,7 @@ table.t .num { font-family: var(--f-mono); font-size: 12.5px; }
 /* inputs */
 input[type=number], select, input[type=text] { background: var(--bg); color: var(--fg); border: 1px solid var(--line2); border-radius: 3px; padding: 5px 7px; font: inherit; }
 input[type=number] { width: 72px; font-family: var(--f-mono); }
-textarea { width: 100%; min-height: 110px; background: var(--bg); color: var(--fg); border: 1px solid var(--line2); border-radius: 3px; font: 11.5px/1.4 var(--f-mono); padding: 8px; }
+textarea { width: 100%; min-height: 110px; background: var(--bg); color: var(--fg); border: 1px solid var(--line2); border-radius: 3px; font: 11.5px/1.4 ui-monospace, Menlo, monospace; padding: 8px; }
 .seg { display: inline-flex; border: 1px solid var(--line2); border-radius: 3px; overflow: hidden; }
 .seg button { background: transparent; border: 0; padding: 5px 10px; cursor: pointer; color: var(--muted); border-right: 1px solid var(--line2); font-size: 12.5px; }
 .seg button:last-child { border-right: 0; }
@@ -176,7 +180,7 @@ textarea { width: 100%; min-height: 110px; background: var(--bg); color: var(--f
 .paddock-option p { margin: 4px 0 0; }
 .tcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
 .tcard { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 0; cursor: pointer; display: flex; flex-direction: column; text-align: left; overflow: hidden; }
-.tcard:hover { border-color: var(--line2); background: var(--panel2); }
+@media (hover: hover) { .tcard:hover { border-color: var(--line2); background: var(--panel2); } }
 .tcard .stripe { height: 5px; background: var(--c); }
 .tcard .in { padding: 11px 13px 13px; display: flex; flex-direction: column; gap: 6px; }
 .tcard .tn { font: 700 19px/1 var(--f-display); }
@@ -222,7 +226,7 @@ textarea { width: 100%; min-height: 110px; background: var(--bg); color: var(--f
 .trk div small { display: block; color: var(--dim); font: 700 10.5px/1 var(--f-display); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4px; }
 .trk div b { font: 700 16px/1.1 var(--f-mono); }
 .opt { border: 1px solid var(--line2); border-radius: 4px; padding: 9px 11px; cursor: pointer; background: var(--panel2); text-align: left; display: flex; flex-direction: column; gap: 3px; }
-.opt:hover { border-color: var(--muted); }
+@media (hover: hover) { .opt:hover { border-color: var(--muted); } }
 .opt.on { border-color: var(--accent); background: var(--accent-soft); }
 .opt b { font: 700 14px/1.2 var(--f-display); }
 .opt small { color: var(--muted); font-size: 12px; }
@@ -307,7 +311,7 @@ textarea { width: 100%; min-height: 110px; background: var(--bg); color: var(--f
 .pp-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
 .tyc { background: none; border: 1px solid transparent; border-radius: 50%; padding: 1px; cursor: pointer; opacity: .45; }
 .tyc.on { opacity: 1; border-color: var(--fg); }
-.tyc:hover { opacity: 1; }
+@media (hover: hover) { .tyc:hover { opacity: 1; } }
 .pplan.editing { border-left-color: var(--yellow); background: linear-gradient(90deg, rgba(255,210,63,.06), var(--panel2) 40%); }
 .pp-h { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .pp-h b { font: 700 11px/1 var(--f-display); letter-spacing: .14em; color: var(--blue); }
@@ -386,7 +390,7 @@ textarea { width: 100%; min-height: 110px; background: var(--bg); color: var(--f
 /* ---------- records & influence ---------- */
 .natc { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
 table.rect th.sortable { cursor: pointer; user-select: none; }
-table.rect th.sortable:hover, table.rect th.sortable.on { color: var(--fg); }
+table.rect th.sortable.on { color: var(--fg); } @media (hover: hover) { table.rect th.sortable:hover { color: var(--fg); } }
 table.rect td.sortc { color: var(--fg); font-weight: 600; }
 table.rect tr.cur td:nth-child(2) { color: var(--fg); }
 table.rect small { font-size: 10.5px; }
@@ -425,12 +429,12 @@ table.rect small { font-size: 10.5px; }
 .wleg { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 12px; }
 .wleg .lg { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); }
 .wleg .lg[data-act] { cursor: pointer; }
-.wleg .lg[data-act]:hover { color: var(--fg); }
+@media (hover: hover) { .wleg .lg[data-act]:hover { color: var(--fg); } }
 .wleg .lg i { width: 12px; height: 8px; border-radius: 2px; display: inline-block; }
 .wleg .lg b { color: var(--fg); font-family: var(--f-mono); font-weight: 600; }
 .lbrow { display: grid; grid-template-columns: 20px 130px minmax(0, 1fr) 58px 96px 26px; gap: 8px; align-items: center; padding: 5px 4px; border-radius: 3px; cursor: pointer; font-size: 12.5px; }
 .lbrow.d { grid-template-columns: 20px minmax(0, 1.3fr) minmax(0, 1fr) 58px; }
-.lbrow:hover { background: var(--panel2); }
+@media (hover: hover) { .lbrow:hover { background: var(--panel2); } }
 .lbrow.me { background: color-mix(in srgb, var(--accent) 10%, transparent); }
 .lbrow b { text-align: right; font-size: 12px; }
 .lbrow > span:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -444,6 +448,208 @@ table.rect small { font-size: 10.5px; }
 .tsvg .xh { stroke: var(--line2); stroke-width: 1; }
 @media (max-width: 900px) { .wgrid { grid-template-columns: 1fr; } .kpis4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .lbrow { grid-template-columns: 18px 96px minmax(0, 1fr) 52px; } .lbrow .ib, .lbrow > span:last-child { display: none; } .kpi2 b { font-size: 19px; } .mkrow { grid-template-columns: 64px minmax(0, 1fr) 50px 40px; } }
+/* ===================== pit-wall skin (all widths) ===================== */
+main, .feed, .tw, .rpop, #modal { scrollbar-width: thin; scrollbar-color: var(--line2) transparent; }
+main { scrollbar-gutter: stable; }
+.top { background: var(--carbon), linear-gradient(90deg, color-mix(in srgb, var(--accent) 24%, var(--rail)) 0, var(--rail) 48%); gap: 12px; padding-block: 6px; }
+.top::after { height: 3px; background: linear-gradient(90deg, var(--accent) 0 38%, color-mix(in srgb, var(--accent) 45%, transparent) 38% 42%, transparent 42%); }
+.brand { font: 800 italic 19px/1 var(--f-display); }
+.livery { width: 40px; height: 26px; font: 800 13px/1 var(--f-display); box-shadow: 0 0 0 1px rgba(255, 255, 255, .2), 0 4px 14px color-mix(in srgb, var(--accent) 40%, transparent); }
+.club .nm { font: 800 italic 20px/1 var(--f-display); text-transform: uppercase; letter-spacing: .02em; }
+.kpi { position: relative; }
+.kpi small { color: var(--muted); font: 600 10px/1 var(--f-display); letter-spacing: .14em; }
+.kpi b { font: 700 20px/1 var(--f-mono); }
+.go .btn.pri { font: 800 italic 16px/1 var(--f-display); min-height: 40px; padding: 0 24px; }
+nav.rail { background: var(--carbon), var(--rail); }
+nav.rail a.on { background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 30%, transparent), var(--accent-soft)); font-weight: 600; }
+.h1 { font: 800 italic 26px/1.05 var(--f-display); border-left: 4px solid var(--accent); padding-left: 10px; margin-bottom: 6px; }
+.h1 small { font: 600 13px/1 var(--f-display); letter-spacing: .08em; }
+.lede { font-size: 12px; margin: 0 0 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lede.more { cursor: pointer; }
+.lede.more::before { content: "i"; display: inline-grid; place-items: center; width: 16px; height: 16px; margin-right: 6px; border-radius: 50%; background: var(--panel2); border: 1px solid var(--line2); color: var(--fg); font: 700 italic 11px/1 Georgia, serif; vertical-align: 1px; }
+.lede.open { white-space: normal; }
+.card { background: linear-gradient(180deg, var(--panel2), var(--panel) 140px); border-radius: 6px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04), 0 6px 18px rgba(0, 0, 0, .28); }
+.card > h3 { background: var(--metal); color: var(--fg); font: 700 13px/1.2 var(--f-display); letter-spacing: .12em; padding: 8px 12px; border-radius: 6px 6px 0 0; }
+.card > h3::before { content: ""; flex: none; width: 4px; height: 14px; background: var(--accent); transform: skewX(-14deg); }
+.card .bd { padding: 10px 12px; }
+.big { font: 800 italic 36px/1 var(--f-display); }
+.kpi2 { background: var(--carbon), linear-gradient(180deg, var(--panel2), var(--panel)); border-radius: 6px; border-top: 3px solid var(--accent); }
+.kpi2 b { font: 800 italic 28px/1.1 var(--f-mono); }
+.btn { background: linear-gradient(180deg, #252c35, #1a1f26); border-color: var(--line2); border-radius: 4px; }
+.btn.ghost { background: transparent; }
+.btn.on { background: var(--accent-soft); }
+.btn.pri { position: relative; isolation: isolate; background: transparent; border-color: transparent; font-weight: 700; }
+.btn.pri::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 3px; transform: skewX(-12deg); background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 82%, #fff), var(--accent) 50%, color-mix(in srgb, var(--accent) 82%, #000)); box-shadow: 0 3px 12px color-mix(in srgb, var(--accent) 35%, transparent), inset 0 1px 0 rgba(255, 255, 255, .3); }
+.btn.big { font: 800 italic 17px/1 var(--f-display); }
+table.t th { color: var(--muted); background: #0f1317; padding: 6px 8px; }
+table.t td { padding: 5px 8px; }
+table.t tbody tr:nth-child(even) td { background-color: rgba(255, 255, 255, .02); }
+table.t tr.me td { background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 24%, transparent), var(--accent-soft)); }
+table.t .num { font: 600 13px/1 var(--f-mono); }
+table.t td.stk, table.t th.stk { position: sticky; z-index: 1; background-color: var(--panel); }
+table.t th.stk { z-index: 2; background: #0f1317; }
+table.t tr.me td.stk { background: linear-gradient(color-mix(in srgb, var(--accent) 20%, transparent), color-mix(in srgb, var(--accent) 20%, transparent)), var(--panel); }
+table.t .stk-e { box-shadow: 6px 0 8px -6px rgba(0, 0, 0, .9); }
+.code { font: 800 14px/1 var(--f-display); }
+.ov { font: 700 14px/1 var(--f-mono); border-radius: 3px; box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .2); }
+.rc { font: 700 13px/1 var(--f-mono); }
+.rc sup { font-size: 10px; }
+.dftab small, .dftab .dfr small { font-size: 10px; }
+.chip { font-size: 11px; }
+.nat { font: 600 11px/1 var(--f-mono); }
+.tline > i, .ev .l { font-size: 11px; }
+.gfit { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.gfit.gfit-w { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid.g21 { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.mkrow > * { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+table.t tbody tr:has(.pl[data-act]) { cursor: pointer; }
+/* strategy rows */
+.opt.sline { display: grid; grid-template-columns: 62px minmax(0, 1fr) auto 52px; align-items: center; gap: 10px; }
+.opt.sline .stint { min-width: 0; }
+.sl-stops, .sl-dt { text-align: right; white-space: nowrap; }
+.sl-stops { min-width: 110px; }
+/* start screen */
+.hero h1 { font: 800 italic clamp(38px, 7vw, 76px)/.9 var(--f-display); }
+.tcard { background: linear-gradient(135deg, color-mix(in srgb, var(--c) 16%, var(--panel)) 0, var(--panel) 60%); border-radius: 6px; }
+.tcard .stripe { height: 6px; background: linear-gradient(90deg, var(--c) 0 72%, transparent 72% 75%, var(--c) 75% 81%, transparent 81%); }
+.tcard .tn { font: 800 italic 22px/1 var(--f-display); text-transform: uppercase; }
+/* race: pit-wall timing screen */
+.rhead { background: var(--carbon), linear-gradient(90deg, color-mix(in srgb, var(--accent) 18%, #10141a), #0d1014 55%); border-left: 4px solid var(--accent); border-radius: 6px; padding: 8px 12px; gap: 10px; }
+.lapc { font: 800 italic 34px/1 var(--f-display); letter-spacing: .01em; }
+.ctrl { background: linear-gradient(180deg, var(--panel2), var(--panel) 120px); border-radius: 6px; }
+.ctrl .ch { background: var(--carbon), var(--metal); }
+.ctrl .ch .p { font: 800 italic 34px/1 var(--f-display); }
+.towercard { background: #06080a; border-color: #1b2229; }
+.tower thead th { background: #000; color: var(--muted); }
+.tower td { padding: 5px 6px; font: 600 13px/1.1 var(--f-mono); border-bottom-color: #141a20; }
+.tower tbody tr:nth-child(even) td { background-color: rgba(255, 255, 255, .03); }
+.tower .pos { font: 800 15px/1 var(--f-mono); }
+.tower .code { font: 800 15px/1 var(--f-display); letter-spacing: .05em; }
+.tower .tm i { width: 4px; height: 16px; }
+.tower .chg { font: 700 11px/1 var(--f-mono); }
+.tower tr.me td { background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 32%, transparent), color-mix(in srgb, var(--accent) 6%, transparent)); }
+/* results: podium */
+table.res tbody tr:nth-child(-n+3) td:first-child { font: 800 italic 14px/1 var(--f-mono); color: #1a1300; text-align: center; }
+table.res tbody tr:nth-child(1) td:first-child { background: #e7c24b; }
+table.res tbody tr:nth-child(2) td:first-child { background: #c9d0d8; color: #111; }
+table.res tbody tr:nth-child(3) td:first-child { background: #c98a4f; color: #1a0d00; }
+/* view-only value-change hint, race-start lights */
+.dlt { position: absolute; right: 0; top: 0; z-index: 3; font: 800 italic 12px/1 var(--f-mono); padding: 2px 5px; border-radius: 3px; pointer-events: none; }
+.dlt.up { background: var(--green); color: #04140b; } .dlt.dn { background: var(--red); color: #1a0003; }
+.lights { position: fixed; left: 50%; top: 38%; z-index: 50; display: flex; gap: 10px; padding: 14px 18px; background: rgba(0, 0, 0, .88); border: 1px solid #222; border-radius: 10px; pointer-events: none; transform: translate(-50%, -50%); }
+.lights i { width: 26px; height: 26px; border-radius: 50%; background: #2a0b0d; }
+.lights i:nth-child(2) { --k: 1; } .lights i:nth-child(3) { --k: 2; } .lights i:nth-child(4) { --k: 3; } .lights i:nth-child(5) { --k: 4; }
+@media (prefers-reduced-motion: no-preference) {
+  .dlt { animation: dlt 1.6s ease-out forwards; }
+  .lights { animation: lightsbox 1.8s ease-in forwards; }
+  .lights i { animation: lampon 0s calc(var(--k, 0) * .18s) forwards, lampoff 0s 1.15s forwards; }
+  .tower tr.gain td { animation: rowup .9s ease-out; }
+  .tower tr.lose td { animation: rowdn .9s ease-out; }
+  table.res tbody tr:nth-child(-n+3) td { animation: podium .5s cubic-bezier(.2, .9, .3, 1.1) both; }
+  table.res tbody tr:nth-child(2) td { animation-delay: .12s; } table.res tbody tr:nth-child(3) td { animation-delay: .24s; }
+  .card .big { animation: popnum .45s cubic-bezier(.2, .9, .3, 1.3) both; }
+  .rhead:not(.grid0) .flag.green { animation: flagin .5s ease-out; }
+}
+@keyframes dlt { 0% { opacity: 0; transform: translateY(6px); } 15% { opacity: 1; transform: none; } 75% { opacity: 1; } 100% { opacity: 0; transform: translateY(-10px); } }
+@keyframes lightsbox { 0%, 72% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes lampon { to { background: #ff2b2b; box-shadow: 0 0 16px #ff2b2b; } }
+@keyframes lampoff { to { background: #2a0b0d; box-shadow: none; } }
+@keyframes rowup { from { background-color: rgba(61, 220, 132, .38); } }
+@keyframes rowdn { from { background-color: rgba(255, 77, 87, .32); } }
+@keyframes podium { from { opacity: 0; transform: translateX(-10px); } }
+@keyframes popnum { from { opacity: 0; transform: scale(.7); } }
+@keyframes flagin { from { transform: scale(1.25); filter: brightness(1.6); } }
+
+@media (max-width: 860px) {
+  nav.rail { scrollbar-width: none; }
+  nav.rail::-webkit-scrollbar { display: none; }
+  nav.rail a.on { background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 26%, transparent)); box-shadow: inset 0 -3px 0 var(--accent); }
+  .grid.g21 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ===================== phone portrait ===================== */
+@media (max-width: 600px) {
+  .top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px 8px; padding-block: 5px; padding-left: max(10px, env(safe-area-inset-left, 0px)); padding-right: max(10px, env(safe-area-inset-right, 0px)); }
+  .brand { display: none; }
+  .club { grid-column: 1; grid-row: 1; gap: 8px; }
+  .livery { width: 32px; height: 22px; font-size: 12px; }
+  .club .nm { font-size: 17px; overflow: hidden; text-overflow: ellipsis; }
+  .club .sub { font-size: 11px; overflow: hidden; text-overflow: ellipsis; }
+  .go { grid-column: 2; grid-row: 1; }
+  .go .btn.pri { font-size: 14px; padding: 0 14px; }
+  .kpis { grid-column: 1 / -1; grid-row: 2; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; width: 100%; margin: 0; }
+  .kpi { background: rgba(0, 0, 0, .4); border-radius: 3px; padding: 3px 6px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .kpi small { font-size: 10px; margin-bottom: 2px; }
+  .kpi b { font-size: 16px; }
+  .kpi .muted { font-size: 11px; }
+  nav.rail { padding: 0 6px; gap: 0; align-items: stretch; }
+  nav.rail a { min-height: 36px; padding: 0 11px; border-radius: 0; font-size: 13px; }
+  main { padding-block: 10px 72px; padding-left: max(10px, env(safe-area-inset-left, 0px)); padding-right: max(10px, env(safe-area-inset-right, 0px)); }
+  .h1 { font-size: 22px; padding-left: 8px; }
+  .h1 small { display: inline-block; font-size: 12px; margin-left: 4px; letter-spacing: .04em; }
+  .grid, .stack { gap: 8px; }
+  .card > h3 { padding: 7px 10px; font-size: 12px; }
+  .card .bd { padding: 8px 10px; }
+  .big { font-size: 30px; }
+  .kpis4 { gap: 6px; }
+  .kpi2 { padding: 8px 10px; }
+  .kpi2 b { font-size: 22px; }
+  table.t th { padding: 6px 6px; font-size: 11px; }
+  table.t td { padding: 5px 6px; font-size: 12px; }
+  table.t td.num, table.t .num { font-size: 13px; }
+  .btn { min-height: 40px; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
+  .btn.sm { min-height: 32px; padding: 0 10px; }
+  .btn.big { min-height: 44px; font-size: 16px; padding: 0 16px; }
+  .seg button { min-height: 40px; padding: 0 10px; font-size: 13px; }
+  .seg.sm button { min-height: 32px; font-size: 12px; }
+  .dfsel button, .dftab .dfh button { min-height: 40px; }
+  select, input[type=number], input[type=text] { min-height: 36px; font-size: 16px; }
+  input[type=checkbox] { width: 18px; height: 18px; }
+  .tabs { gap: 4px; margin-bottom: 8px; }
+  .card > h3 a[data-act] { padding: 9px 0; margin: -9px 0; }
+  .gfit, .gfit.gfit-w { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .opt.sline { grid-template-columns: 50px minmax(0, 1fr) 46px; gap: 4px 8px; padding: 8px 10px; }
+  .opt.sline .sl-stops { grid-row: 2; grid-column: 2; min-width: 0; text-align: left; font-size: 11px; }
+  .opt.sline .sl-dt { grid-row: 1; grid-column: 3; }
+  .trkbig, .trkbig .trkmap { height: 170px; }
+  .nextrow { grid-template-columns: 84px minmax(0, 1fr); gap: 10px; }
+  .nextmap { width: 84px; height: 84px; }
+  .attr { grid-template-columns: 68px minmax(0, 1fr) 28px; gap: 8px; }
+  #modal { padding: calc(8px + env(safe-area-inset-top, 0px)) max(8px, env(safe-area-inset-right, 0px)) 24px max(8px, env(safe-area-inset-left, 0px)); }
+  .mbox { padding: 12px; }
+  .mbox .x { width: 40px; height: 40px; right: 4px; top: 2px; }
+  .dh { gap: 8px; padding-bottom: 8px; margin-bottom: 8px; }
+  .dh .num { font-size: 30px; width: 44px; }
+  .dh .nm { font-size: 19px; }
+  .dh .rt { gap: 12px; }
+  .start { padding-block: 14px 40px; }
+  .hero { padding-bottom: 12px; margin-bottom: 12px; gap: 12px; }
+  .hero h1 { font-size: clamp(30px, 10vw, 42px); }
+  .tcards { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .tcard .in { padding: 8px 10px 10px; gap: 4px; }
+  /* live race: timing tower and car controls first */
+  .rgrid { display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
+  .rgrid > .stack { display: contents; }
+  .rgrid > .towercard { order: 1; } .rgrid .ctrls { order: 2; } .rgrid .mapcard { order: 3; } .rgrid .radar { order: 4; } .rgrid .feedcard { order: 5; }
+  .rhead { padding: 6px 8px; gap: 6px; margin-bottom: 8px; }
+  .lapc { font-size: 28px; }
+  .rhead > span.chip:nth-of-type(n+4) { display: none; }
+  .rhead .btn.big { min-height: 40px; min-width: 0 !important; padding: 0 12px; font-size: 15px; }
+  .speed .lbl { display: none; }
+  .speed .seg button { padding: 0 6px; min-width: 32px; }
+  .tower td { padding: 5px 4px; }
+  .tower th { padding: 6px 4px; }
+  #mapslot { max-height: 240px; }
+  .maplg > span.dim { display: none; }
+  .ctrl .ch { padding: 8px 10px; }
+  .ctrl .cb { padding: 8px 10px; gap: 8px; }
+  .ctrl .seg { flex-wrap: wrap; }
+  .rpop { padding: 12px; }
+  .rpop h4 { font-size: 20px; }
+  .rpop-mini { bottom: calc(8px + env(safe-area-inset-bottom, 0px)); width: calc(100% - 16px); padding: 6px 10px; gap: 8px; }
+  body:has(.rpop-mini) main { padding-bottom: 130px; }
+  .feed { max-height: 260px; }
+}
 </style>
 <div id="app"></div>
 <div id="modal" hidden></div>
@@ -2520,9 +2726,59 @@ function render() {
   app.innerHTML = header() + nav() + `<main id="main">${view()}</main>`;
   if (LIVE && VIEW === 'weekend') mountLiveMap();
   if (MODAL) openModal(MODAL);
+  decor();
   return st;
 }
-function renderMain(keep) { const m = $('#main'); if (!m) return render(); const st = m.scrollTop; m.innerHTML = view(); if (LIVE && VIEW === 'weekend') mountLiveMap(); if (keep) m.scrollTop = st; const h = document.querySelector('.go .btn'); if (h) { h.textContent = contLabel(); h.disabled = !!(LIVE && !LIVE.RS.done && VIEW === 'weekend'); } }
+function renderMain(keep) { const m = $('#main'); if (!m) return render(); const st = m.scrollTop; m.innerHTML = view(); if (LIVE && VIEW === 'weekend') mountLiveMap(); if (keep) m.scrollTop = st; const h = document.querySelector('.go .btn'); if (h) { h.textContent = contLabel(); h.disabled = !!(LIVE && !LIVE.RS.done && VIEW === 'weekend'); } decor(); }
+/* ---------- view-only decoration (no game state is read-written here beyond display values) ---------- */
+const RM = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+let PREVK = null, PREVPOS = null, PREVLAP = null;
+function dChip(el, v, txt) { if (!el || !v || RM()) return; const i = document.createElement('i'); i.className = 'dlt ' + (v > 0 ? 'up' : 'dn'); i.textContent = txt; el.appendChild(i); setTimeout(() => i.remove(), 1700); }
+function decor() {
+  // active tab in view (horizontal rail on narrow screens)
+  const r = document.querySelector('nav.rail'), a = r && r.querySelector('a.on');
+  if (r && a && r.scrollWidth > r.clientWidth + 2) r.scrollLeft = a.offsetLeft - (r.clientWidth - a.offsetWidth) / 2;
+  // explanations: one line by default, tap to expand
+  document.querySelectorAll('#main .lede').forEach(p => {
+    if (p.scrollWidth > p.clientWidth + 1 || p.scrollHeight > p.clientHeight + 1) { p.classList.add('more'); p.tabIndex = 0; p.setAttribute('role', 'button'); p.setAttribute('aria-expanded', 'false'); }
+  });
+  // sticky name column for wide tables
+  document.querySelectorAll('#main .tw > table.t:not(.tower)').forEach(t => {
+    const row = t.tBodies[0] && t.tBodies[0].rows[0]; if (!row || t.scrollWidth <= t.parentElement.clientWidth + 2) return;
+    let k = [...row.cells].findIndex(c => c.querySelector('.pl,.tm,.code,b,a')); if (k < 0 || k > 2) k = 0;
+    const lefts = [...row.cells].slice(0, k + 1).map(c => c.offsetLeft);
+    [...t.rows].forEach(tr => { for (let j = 0; j <= k && j < tr.cells.length; j++) { const c = tr.cells[j]; if (c.colSpan > 1) break; c.classList.add('stk'); c.style.left = lefts[j] + 'px'; if (j === k) c.classList.add('stk-e'); } });
+  });
+  // value-change hints in the header (compares what was shown last time; display only)
+  if (S && document.querySelector('.top .kpis')) {
+    const me = ME(), now = { s: S, me: S.me, pts: me.pts, cash: Math.round(me.cash * 10) / 10, sat: Math.round(S.board.sat), pos: teamPos(S.me) };
+    if (PREVK && PREVK.s === now.s && PREVK.me === now.me) {
+      const k = document.querySelectorAll('.top .kpi');
+      const dp = now.pts - PREVK.pts, dc = Math.round((now.cash - PREVK.cash) * 10) / 10, ds = now.sat - PREVK.sat, dpos = PREVK.pos - now.pos;
+      dChip(k[0], dpos || dp, dpos ? (dpos > 0 ? '▲' + dpos : '▼' + (-dpos)) : '+' + dp);
+      dChip(k[1], dc, (dc > 0 ? '+' : '') + money(dc));
+      dChip(k[3], ds, (ds > 0 ? '+' : '−') + Math.abs(ds));
+    }
+    PREVK = now;
+  }
+  if (LIVE && VIEW === 'weekend') towerFx(); else { PREVPOS = null; PREVLAP = null; }
+}
+function towerFx() {
+  const tb = document.getElementById('towerbody'); if (!tb || !LIVE) return;
+  const lap = LIVE.RS.lap, pos = {};
+  tb.querySelectorAll('tr[data-id]').forEach(tr => { const p = +(tr.querySelector('.pos') || {}).textContent || 0; pos[tr.dataset.id] = p;
+    if (PREVPOS && p && PREVPOS[tr.dataset.id] && PREVPOS[tr.dataset.id] !== p && !RM()) tr.classList.add(p < PREVPOS[tr.dataset.id] ? 'gain' : 'lose'); });
+  if (PREVLAP === 0 && lap > 0 && !RM()) {
+    const m = document.getElementById('main'), el = document.createElement('div');
+    el.className = 'lights'; el.setAttribute('aria-hidden', 'true'); el.innerHTML = '<i></i><i></i><i></i><i></i><i></i>';
+    if (m) { m.appendChild(el); setTimeout(() => el.remove(), 1900); }
+  }
+  PREVPOS = pos; PREVLAP = lap;
+}
+// whole table row opens its driver (taps outside other controls only)
+document.addEventListener('click', e => { if (e.target.closest('[data-act], a, button, input, select, label')) return; const tr = e.target.closest('#main table.t tbody tr'); if (!tr) return; const l = tr.querySelectorAll('.pl[data-act]'); if (l.length === 1) l[0].click(); });
+document.addEventListener('click', e => { const p = e.target.closest('.lede.more'); if (p) { const o = p.classList.toggle('open'); p.setAttribute('aria-expanded', o ? 'true' : 'false'); } });
+document.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('.lede.more')) { e.preventDefault(); e.target.click(); } });
 function stageName() { if (S.phase === 'season') return '赛季结束'; return { fp: '练习赛', sq: '冲刺排位赛', sprint: '冲刺赛', q: '排位赛', race: '正赛', post: '赛后' }[S.wk.stage]; }
 function contLabel() {
   if (S.fired) return '查看结局';
@@ -2638,7 +2894,7 @@ function driverCard(id, role) {
   return `<div class="card"><div class="bd">
     <div class="dh"><div class="num" style="color:${me.color}">${d.num}</div><div><div class="nm">${esc(d.name)}</div><div class="meta">${d.code} · ${d.nat} · ${ageOf(d)} 岁 · ${role}${d.inj ? ` · <span class="bad">伤缺 ${d.inj} 场</span>` : ''}</div></div>
       <div class="rt"><div><small>综合</small>${ovCell(ovr(d))}</div><div><small>积分</small><b class="mono">${d.st.pts}</b></div><div><small>士气</small><b class="mono ${d.morale < 40 ? 'bad' : d.morale > 75 ? 'good' : ''}">${Math.round(d.morale)}</b></div></div></div>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+    <div class="grid gfit">
       <div>${attrRows(d)}</div>
       <div>${kv([['合同', `至 ${d.until} 赛季${d.until <= S.year ? ' <span class="chip warn">到期</span>' : ''}`], ['年薪', money(d.salary)], ['本季', `${d.st.wins} 胜 · ${d.st.pod} 领奖台 · ${d.st.poles} 杆位 · ${d.st.dnf} 退赛`], ['生涯', `${dCareer(d.id).starts} 场 · ${dCareer(d.id).wins} 胜 · ${dCareer(d.id).titles} 冠`], ['动力单元', `第 ${pu.used}/${PU_QUOTA} 台 · 已跑 ${pu.miles} 站`]])}</div>
     </div>
@@ -2821,7 +3077,7 @@ function qResCard(q, title) {
 }
 function raceResCard(sess, title, sprint) {
   const fl = sess.fl;
-  return `<div class="card"><h3>${title}<span class="sp"></span>${sess.sc ? `<span class="chip warn">${sess.sc} 次安全车</span>` : ''}</h3><div class="bd flush tw"><table class="t"><thead><tr><th>位</th><th>车手</th><th class="n">发车</th>${sprint ? '' : '<th class="n">进站</th>'}<th class="n">最快圈</th><th class="n">成绩</th><th class="n">积分</th></tr></thead><tbody>${sess.res.map(r => { const ch = r.pos ? r.grid - r.pos : 0; return `<tr class="${r.tid === S.me ? 'me' : ''}"><td class="mono">${r.pos || r.cls}</td><td>${teamTag(r.tid, true)} ${dLink(r.id)}</td><td class="n num">${r.grid}${r.pos && ch ? ` <span class="${ch > 0 ? 'good' : 'bad'}" style="font-size:11px">${ch > 0 ? '▲' + ch : '▼' + (-ch)}</span>` : ''}</td>${sprint ? '' : `<td class="n num">${r.stops}</td>`}<td class="n num ${fl && fl.id === r.id ? 'pur' : ''}">${fmtLap(r.best)}</td><td class="n num">${r.pos === 1 ? fmtTotal(r.time) : r.pos ? (r.lapped ? `+${r.lapped} 圈` : fmtGap(r.gap)) : `<span class="bad">${esc(r.why)}</span>`}${r.pen ? ` <span class="warn" style="font-size:11px">(+${r.pen}s)</span>` : ''}</td><td class="n num ${r.pts ? 'good' : 'dim'}">${r.pts || ''}</td></tr>`; }).join('')}</tbody></table></div></div>`;
+  return `<div class="card"><h3>${title}<span class="sp"></span>${sess.sc ? `<span class="chip warn">${sess.sc} 次安全车</span>` : ''}</h3><div class="bd flush tw"><table class="t res"><thead><tr><th>位</th><th>车手</th><th class="n">发车</th>${sprint ? '' : '<th class="n">进站</th>'}<th class="n">最快圈</th><th class="n">成绩</th><th class="n">积分</th></tr></thead><tbody>${sess.res.map(r => { const ch = r.pos ? r.grid - r.pos : 0; return `<tr class="${r.tid === S.me ? 'me' : ''}"><td class="mono">${r.pos || r.cls}</td><td>${teamTag(r.tid, true)} ${dLink(r.id)}</td><td class="n num">${r.grid}${r.pos && ch ? ` <span class="${ch > 0 ? 'good' : 'bad'}" style="font-size:11px">${ch > 0 ? '▲' + ch : '▼' + (-ch)}</span>` : ''}</td>${sprint ? '' : `<td class="n num">${r.stops}</td>`}<td class="n num ${fl && fl.id === r.id ? 'pur' : ''}">${fmtLap(r.best)}</td><td class="n num">${r.pos === 1 ? fmtTotal(r.time) : r.pos ? (r.lapped ? `+${r.lapped} 圈` : fmtGap(r.gap)) : `<span class="bad">${esc(r.why)}</span>`}${r.pen ? ` <span class="warn" style="font-size:11px">(+${r.pen}s)</span>` : ''}</td><td class="n num ${r.pts ? 'good' : 'dim'}">${r.pts || ''}</td></tr>`; }).join('')}</tbody></table></div></div>`;
 }
 function stintBar(plan, laps) {
   const segs = []; let prev = 0, c = plan.start;
@@ -2838,7 +3094,7 @@ function planEditor(id, plan, laps, kind) {
   const gridPos = (kind === 'race' ? S.wk.q.grid : S.wk.sq.grid).indexOf(id) + 1;
   const knows = S.wk.prac[id] === 'long';
   return `<div class="card"><h3>${D(id).code} · ${esc(D(id).name)}<span class="sp"></span><span class="mono" style="color:var(--fg)">发车 P${gridPos}</span></h3><div class="bd stack">
-    ${opts ? `<div><div class="dim" style="font-size:11px;letter-spacing:.12em;margin-bottom:6px">工程师推荐策略${knows ? '（长距离数据精确）' : '（无长距离数据，存在误差）'}</div><div class="stack" style="gap:6px">${opts.map((o, i) => { const p = stratToPlan(o); return `<button class="opt" style="flex-direction:row;align-items:center;gap:10px" data-act="pickstrat" data-id="${id}" data-i="${i}"><b style="min-width:62px">${o.seq.join('-')}</b>${stintBar(p, laps)}<span class="mono dim" style="min-width:110px;text-align:right">${p.stops.map(s => 'L' + s.lap).join(' · ')}</span><span class="mono ${i === 0 ? 'good' : 'muted'}" style="min-width:52px;text-align:right">${i === 0 ? '最快' : '+' + (o.t - best).toFixed(1) + 's'}</span></button>`; }).join('')}</div></div>` : ''}
+    ${opts ? `<div><div class="dim" style="font-size:11px;letter-spacing:.12em;margin-bottom:6px">工程师推荐策略${knows ? '（长距离数据精确）' : '（无长距离数据，存在误差）'}</div><div class="stack" style="gap:6px">${opts.map((o, i) => { const p = stratToPlan(o); return `<button class="opt sline" data-act="pickstrat" data-id="${id}" data-i="${i}"><b>${o.seq.join('-')}</b>${stintBar(p, laps)}<span class="mono dim sl-stops">${p.stops.map(s => 'L' + s.lap).join(' · ')}</span><span class="mono sl-dt ${i === 0 ? 'good' : 'muted'}">${i === 0 ? '最快' : '+' + (o.t - best).toFixed(1) + 's'}</span></button>`; }).join('')}</div></div>` : ''}
     <div><div class="dim" style="font-size:11px;letter-spacing:.12em;margin-bottom:6px">当前计划</div>${stintBar(plan, laps)}
       <div class="row" style="margin-top:8px"><span class="muted">起步胎</span><select data-chg="pstart" data-id="${id}" data-kind="${kind}">${Object.keys(COMP).map(c => `<option value="${c}" ${plan.start === c ? 'selected' : ''}>${c} ${COMP[c].cn}</option>`).join('')}</select>
       <span class="muted" style="margin-left:8px">节奏</span><div class="seg">${Object.entries(MODES).map(([k, m]) => `<button class="${plan.mode === k ? 'on' : ''}" data-act="pmode" data-id="${id}" data-kind="${kind}" data-k="${k}">${m.cn}</button>`).join('')}</div></div>
@@ -2990,7 +3246,7 @@ function saveView() {
 function driverModal(id) {
   const d = D(id), t = T(d.team);
   return `<div class="dh"><div class="num" style="color:${t ? t.color : 'var(--muted)'}">${d.num}</div><div><div class="nm">${esc(d.name)}</div><div class="meta">${d.code} · ${d.nat} · ${ageOf(d)} 岁 · ${t ? t.name + (d.res ? ' 替补' : '') : '自由身'}${d.inj ? ' · 伤缺' : ''}${d.retired ? ' · 已退役' : ''}</div></div><div class="rt"><div><small>综合</small>${ovCell(ovr(d))}</div><div><small>积分</small><b class="mono">${d.st.pts}</b></div></div></div>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px"><div>${attrRows(d)}</div><div>${kv([['合同', d.team ? `至 ${d.until} · ${money(d.salary)}/年` : '—'], ['本季', `${d.st.wins} 胜 · ${d.st.pod} 台 · ${d.st.poles} 杆 · ${d.st.dnf} 退赛`], ['生涯', `${dCareer(d.id).starts} 场 · ${dCareer(d.id).wins} 胜 · ${dCareer(d.id).pod} 台 · ${dCareer(d.id).titles} 冠`], ['士气', Math.round(d.morale)]])}</div></div>
+  <div class="grid gfit gfit-w"><div>${attrRows(d)}</div><div>${kv([['合同', d.team ? `至 ${d.until} · ${money(d.salary)}/年` : '—'], ['本季', `${d.st.wins} 胜 · ${d.st.pod} 台 · ${d.st.poles} 杆 · ${d.st.dnf} 退赛`], ['生涯', `${dCareer(d.id).starts} 场 · ${dCareer(d.id).wins} 胜 · ${dCareer(d.id).pod} 台 · ${dCareer(d.id).titles} 冠`], ['士气', Math.round(d.morale)]])}</div></div>
   <div class="row" style="gap:3px;margin-top:12px">${S.cal.map((x, i) => rcCell(d.st.res[i])).join('')}</div>
   ${d.team !== S.me && !d.retired ? `<div class="row" style="margin-top:14px"><button class="btn" data-act="offer" data-id="${id}">报价</button></div>` : ''}`;
 }
@@ -3176,7 +3432,7 @@ function recDriverView() {
     const i = rows.indexOf(r), above = rows.slice(0, i).reverse().find(x => x[k] > r[k]);
     return above ? `<div class="chase"><b>${r.legend ? r.name : esc(D(r.id).name)}</b><span class="dim">第 ${i + 1} 位 · ${r[k]}</span><span class="sp"></span><span>距 ${above.legend ? above.name.split(' <')[0] : esc(D(above.id).name)}（${above[k]}）还差 <b class="acc">${above[k] - r[k]}</b></span></div>` : `<div class="chase"><b>${esc(D(r.id).name)}</b><span class="good">历史第一 · ${r[k]}</span></div>`;
   }).join('');
-  return `<div class="grid g2" style="grid-template-columns:minmax(0,2fr) minmax(0,1fr)">
+  return `<div class="grid g2 g21">
     <div class="card"><h3>车手历史榜 · 按${cols.find(c => c[0] === k)[1]}排序<span class="sp"></span><span class="dim" style="font-size:11px;letter-spacing:0">点表头切换</span></h3><div class="bd flush tw"><table class="t rect"><thead><tr><th>#</th><th>车手</th><th>国籍</th><th>状态</th>${cols.map(([c, l]) => `<th class="n sortable ${c === k ? 'on' : ''}" data-act="recsort" data-k="${c}">${l}${c === k ? ' ▾' : ''}</th>`).join('')}</tr></thead>
       <tbody>${top.map((r, i) => `<tr class="${r.mine ? 'me' : ''} ${r.st === '现役' ? 'cur' : ''}"><td class="mono dim">${i + 1}</td><td>${r.name}</td><td>${natChip(r.nat)}</td><td><span class="chip ${r.st === '现役' ? 'good' : ''}" style="font-size:10.5px">${r.st}</span></td>${cols.map(([c]) => cell(r, c)).join('')}</tr>`).join('')}</tbody></table></div></div>
     <div class="stack"><div class="card"><h3>追赶纪录</h3><div class="bd stack" style="gap:8px">${chase || '<div class="dim">还没有现役车手上榜</div>'}</div></div>
@@ -3354,6 +3610,7 @@ function updateTower() {
   const tb = document.getElementById('towerbody'); if (!tb || !LIVE) return;
   const LS = liveState();
   tb.innerHTML = towerRows(LS);
+  towerFx();
   const lc = document.getElementById('lapc'); if (lc && LIVE.RS.lap > 0) lc.innerHTML = `LAP ${LS.lapNo}<small> / ${LIVE.RS.laps}</small>`;
   LS.rows.filter(x => x.c.mine && !x.out).forEach((x, i) => {
     const pe = document.getElementById('cp-' + x.c.id); if (pe) pe.textContent = LIVE.RS.lap ? 'P' + x.pos : 'P' + x.c.grid;
@@ -3372,7 +3629,7 @@ function raceView() {
   const sp = S.opts.speed;
   const ended = RS.done && LIVE.anim.ended;
   const notStarted = RS.lap === 0;
-  return `<div class="rhead">
+  return `<div class="rhead${notStarted ? ' grid0' : ''}">
     <div><div class="dim" style="font:700 11px/1 var(--f-display);letter-spacing:.14em">${RS.kind === 'sprint' ? 'SPRINT' : 'GRAND PRIX'} · ${tr.en.toUpperCase()}</div><div class="lapc" id="lapc">${notStarted ? 'GRID' : 'LAP ' + LS.lapNo}<small> / ${RS.laps}</small></div></div>
     ${flag}
     <span class="chip ${w > .15 ? 'warn' : ''}">${w > 0.05 ? (rainNow(RS, RS.lap) > 0 ? '下雨中 · ' : '变干中 · ') + '湿度 ' + pct(w) : '干地'}</span>
@@ -3392,10 +3649,10 @@ function raceView() {
         <div class="maplg"><span><i class="dot me"></i>你的车队</span><span>${SECCOL.map((c, i) => `<i class="sec" style="background:${c}"></i>S${i + 1}`).join(' ')}</span><span class="dim">虚线 = 维修区</span><span class="dim">点选计时表可在地图上标出车手</span></div>
       </div>
       ${radarCard(RS)}
-      <div class="grid g2" style="gap:12px">${mine.map(c => carCtrl(RS, c)).join('')}</div>
-      <div class="card"><h3>赛况<span class="sp"></span><label class="row" style="gap:5px;letter-spacing:0;text-transform:none;font:500 12px var(--f-body)"><input type="checkbox" data-chg="mineonly" ${LIVE.mineOnly ? 'checked' : ''}> 只看我的车队</label><label class="row" style="gap:5px;letter-spacing:0;text-transform:none;font:500 12px var(--f-body)"><input type="checkbox" data-chg="alerts" ${S.opts.alerts !== false ? 'checked' : ''}> 突发事件弹窗</label></h3><div class="feed" style="border:0">${feed.map(evRow).join('')}</div></div>
+      <div class="grid g2 ctrls" style="gap:12px">${mine.map(c => carCtrl(RS, c)).join('')}</div>
+      <div class="card feedcard"><h3>赛况<span class="sp"></span><label class="row" style="gap:5px;letter-spacing:0;text-transform:none;font:500 12px var(--f-body)"><input type="checkbox" data-chg="mineonly" ${LIVE.mineOnly ? 'checked' : ''}> 只看我的车队</label><label class="row" style="gap:5px;letter-spacing:0;text-transform:none;font:500 12px var(--f-body)"><input type="checkbox" data-chg="alerts" ${S.opts.alerts !== false ? 'checked' : ''}> 突发事件弹窗</label></h3><div class="feed" style="border:0">${feed.map(evRow).join('')}</div></div>
     </div>
-    <div class="card"><div class="bd flush tw"><table class="t tower"><thead><tr><th class="n">位</th><th></th><th>车手</th><th class="n">差距</th><th class="n">前车</th><th class="n">上一圈</th><th>轮胎</th><th class="n">停</th><th></th></tr></thead><tbody id="towerbody">${rows}</tbody></table></div></div>
+    <div class="card towercard"><div class="bd flush tw"><table class="t tower"><thead><tr><th class="n">位</th><th></th><th>车手</th><th class="n">差距</th><th class="n">前车</th><th class="n">上一圈</th><th>轮胎</th><th class="n">停</th><th></th></tr></thead><tbody id="towerbody">${rows}</tbody></table></div></div>
   </div>
   ${LIVE.pop && !ended ? popup(RS) : ''}`;
 }

@@ -1,0 +1,10 @@
+k 0.959 vw 390 vh 795
+== intro {"sw":390,"vw":390,"ox":["DIV.hrow sw=377 cw=374 ox=visible","DIV.hbtns sw=95 cw=92 ox=visible","BUTTON.hbtn sw=41 cw=38 ox=visible","BUTTON.hbtn sw=51 cw=48 ox=visible","DIV. sw=367 cw=362 ox=visible","BUTTON.prop sw=119 cw=114 ox=visible","BUTTON.prop sw=119 cw=114 ox=visible","BUTTON.prop sw=119 cw=114 ox=visible"]}
+MODAL intro {"parent":"root","card":[208,379,340],"sh":379,"vh":795,"ol":"14px h165","note":"13px h39","sub":"13px h18","btn":"16px h46","h2":"32px h37","stat":null}
+modal hidden after close true
+== play {"sw":390,"vw":390,"ox":["DIV.hrow sw=377 cw=374 ox=visible","DIV.hbtns sw=95 cw=92 ox=visible","BUTTON.hbtn sw=41 cw=38 ox=visible","BUTTON.hbtn sw=51 cw=48 ox=visible","DIV. sw=367 cw=362 ox=visible","BUTTON.prop sw=119 cw=114 ox=visible","BUTTON.prop sw=119 cw=114 ox=visible","BUTTON.prop sw=119 cw=114 ox=visible"]}
+EFF {".chip":"13.4px 57x25",".srow":"12.5px 355x17",".rtag":"12.5px 80x21",".slbl":"13.4px 121x30",".slbl small":"12.5px 121x14",".bob small":"12.5px 5x17",".tile .nm":"12.5px 44x14",".tile .w":"22.1px 44x32",".tile .w small":"12.5px 6x17","#trayHint":"12.5px 187x17","#trayLbl":"12.5px 63x17",".prop b":"15.3px 35x15",".prop span":"12.5px 62x17",".hbtn":"13.4px 36x35",".prop":"15.3px 109x50",".tile":"15.3px 44x44"}
+MODAL end5 {"parent":"root","card":[281,233,342],"sh":231,"vh":795,"ol":null,"note":null,"sub":"13px h36","btn":"16px h46","h2":"32px h37","stat":"13px h45"}
+齐 | 抓齐了 |  | 热身结束。下一关有盲包、抽屉和凑不上的干扰包，关键那一包总在最底下。 |  | 3 | 方子称完 | 1 | 挑战次数 | 下一关 · 第 2 关
+after next: lvChip 第 2 关 modal hidden true
+CONSOLEERR Failed to load resource: net::ERR_CONNECTION_CLOSED

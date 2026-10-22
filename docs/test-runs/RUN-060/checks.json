@@ -1,0 +1,884 @@
+[
+  {
+    "id": "cba",
+    "w": 320,
+    "label": "start",
+    "sw": 320,
+    "text": 1486
+  },
+  {
+    "id": "cba",
+    "w": 320,
+    "label": "home",
+    "sw": 320,
+    "text": 776
+  },
+  {
+    "id": "f1",
+    "w": 320,
+    "label": "start",
+    "sw": 320,
+    "text": 1514
+  },
+  {
+    "id": "f1",
+    "w": 320,
+    "label": "home",
+    "sw": 320,
+    "text": 1036
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "start",
+    "sw": 320,
+    "text": 1170
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "home",
+    "sw": 320,
+    "text": 638
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "roster",
+    "sw": 320,
+    "text": 1278
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "sched",
+    "sw": 320,
+    "text": 660
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "stand",
+    "sw": 320,
+    "text": 1034
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "players",
+    "sw": 320,
+    "text": 11127
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "coach",
+    "sw": 320,
+    "text": 1907
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "trade",
+    "sw": 320,
+    "text": 1042
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "fa",
+    "sw": 320,
+    "text": 2538
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "finance",
+    "sw": 320,
+    "text": 416
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "history",
+    "sw": 320,
+    "text": 491
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "save",
+    "sw": 320,
+    "text": 301
+  },
+  {
+    "id": "lol",
+    "w": 320,
+    "label": "match",
+    "sw": 320,
+    "text": 854
+  },
+  {
+    "id": "yexiao",
+    "w": 320,
+    "label": "start",
+    "sw": 320,
+    "text": 368
+  },
+  {
+    "id": "yexiao",
+    "w": 320,
+    "label": "home",
+    "sw": 320,
+    "text": 242
+  },
+  {
+    "id": "yike",
+    "w": 320,
+    "label": "start",
+    "sw": 320,
+    "text": 391
+  },
+  {
+    "id": "yike",
+    "w": 320,
+    "label": "home",
+    "sw": 320,
+    "text": 211
+  },
+  {
+    "id": "cba",
+    "w": 375,
+    "label": "start",
+    "sw": 375,
+    "text": 1486
+  },
+  {
+    "id": "cba",
+    "w": 375,
+    "label": "home",
+    "sw": 375,
+    "text": 783
+  },
+  {
+    "id": "f1",
+    "w": 375,
+    "label": "start",
+    "sw": 375,
+    "text": 1514
+  },
+  {
+    "id": "f1",
+    "w": 375,
+    "label": "home",
+    "sw": 375,
+    "text": 1036
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "start",
+    "sw": 375,
+    "text": 1170
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "home",
+    "sw": 375,
+    "text": 629
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "roster",
+    "sw": 375,
+    "text": 1278
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "sched",
+    "sw": 375,
+    "text": 660
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "stand",
+    "sw": 375,
+    "text": 1034
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "players",
+    "sw": 375,
+    "text": 11131
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "coach",
+    "sw": 375,
+    "text": 1902
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "trade",
+    "sw": 375,
+    "text": 1042
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "fa",
+    "sw": 375,
+    "text": 2556
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "finance",
+    "sw": 375,
+    "text": 416
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "history",
+    "sw": 375,
+    "text": 491
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "save",
+    "sw": 375,
+    "text": 301
+  },
+  {
+    "id": "lol",
+    "w": 375,
+    "label": "match",
+    "sw": 375,
+    "text": 844
+  },
+  {
+    "id": "yexiao",
+    "w": 375,
+    "label": "start",
+    "sw": 375,
+    "text": 368
+  },
+  {
+    "id": "yexiao",
+    "w": 375,
+    "label": "home",
+    "sw": 375,
+    "text": 242
+  },
+  {
+    "id": "yike",
+    "w": 375,
+    "label": "start",
+    "sw": 375,
+    "text": 391
+  },
+  {
+    "id": "yike",
+    "w": 375,
+    "label": "home",
+    "sw": 375,
+    "text": 211
+  },
+  {
+    "id": "cba",
+    "w": 390,
+    "label": "start",
+    "sw": 390,
+    "text": 1486
+  },
+  {
+    "id": "cba",
+    "w": 390,
+    "label": "home",
+    "sw": 390,
+    "text": 776
+  },
+  {
+    "id": "f1",
+    "w": 390,
+    "label": "start",
+    "sw": 390,
+    "text": 1514
+  },
+  {
+    "id": "f1",
+    "w": 390,
+    "label": "home",
+    "sw": 390,
+    "text": 1036
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "start",
+    "sw": 390,
+    "text": 1170
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "home",
+    "sw": 390,
+    "text": 636
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "roster",
+    "sw": 390,
+    "text": 1278
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "sched",
+    "sw": 390,
+    "text": 660
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "stand",
+    "sw": 390,
+    "text": 1034
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "players",
+    "sw": 390,
+    "text": 11140
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "coach",
+    "sw": 390,
+    "text": 1901
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "trade",
+    "sw": 390,
+    "text": 1042
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "fa",
+    "sw": 390,
+    "text": 2570
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "finance",
+    "sw": 390,
+    "text": 416
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "history",
+    "sw": 390,
+    "text": 491
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "save",
+    "sw": 390,
+    "text": 301
+  },
+  {
+    "id": "lol",
+    "w": 390,
+    "label": "match",
+    "sw": 390,
+    "text": 1203
+  },
+  {
+    "id": "yexiao",
+    "w": 390,
+    "label": "start",
+    "sw": 390,
+    "text": 368
+  },
+  {
+    "id": "yexiao",
+    "w": 390,
+    "label": "home",
+    "sw": 390,
+    "text": 242
+  },
+  {
+    "id": "yike",
+    "w": 390,
+    "label": "start",
+    "sw": 390,
+    "text": 391
+  },
+  {
+    "id": "yike",
+    "w": 390,
+    "label": "home",
+    "sw": 390,
+    "text": 211
+  },
+  {
+    "id": "cba",
+    "w": 430,
+    "label": "start",
+    "sw": 430,
+    "text": 1486
+  },
+  {
+    "id": "cba",
+    "w": 430,
+    "label": "home",
+    "sw": 430,
+    "text": 785
+  },
+  {
+    "id": "f1",
+    "w": 430,
+    "label": "start",
+    "sw": 430,
+    "text": 1514
+  },
+  {
+    "id": "f1",
+    "w": 430,
+    "label": "home",
+    "sw": 430,
+    "text": 1036
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "start",
+    "sw": 430,
+    "text": 1170
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "home",
+    "sw": 430,
+    "text": 636
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "roster",
+    "sw": 430,
+    "text": 1278
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "sched",
+    "sw": 430,
+    "text": 660
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "stand",
+    "sw": 430,
+    "text": 1034
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "players",
+    "sw": 430,
+    "text": 11125
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "coach",
+    "sw": 430,
+    "text": 1901
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "trade",
+    "sw": 430,
+    "text": 1042
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "fa",
+    "sw": 430,
+    "text": 2536
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "finance",
+    "sw": 430,
+    "text": 416
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "history",
+    "sw": 430,
+    "text": 491
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "save",
+    "sw": 430,
+    "text": 301
+  },
+  {
+    "id": "lol",
+    "w": 430,
+    "label": "match",
+    "sw": 430,
+    "text": 969
+  },
+  {
+    "id": "yexiao",
+    "w": 430,
+    "label": "start",
+    "sw": 430,
+    "text": 368
+  },
+  {
+    "id": "yexiao",
+    "w": 430,
+    "label": "home",
+    "sw": 430,
+    "text": 242
+  },
+  {
+    "id": "yike",
+    "w": 430,
+    "label": "start",
+    "sw": 430,
+    "text": 391
+  },
+  {
+    "id": "yike",
+    "w": 430,
+    "label": "home",
+    "sw": 430,
+    "text": 211
+  },
+  {
+    "id": "cba",
+    "w": 768,
+    "label": "start",
+    "sw": 768,
+    "text": 1488
+  },
+  {
+    "id": "cba",
+    "w": 768,
+    "label": "home",
+    "sw": 768,
+    "text": 792
+  },
+  {
+    "id": "f1",
+    "w": 768,
+    "label": "start",
+    "sw": 768,
+    "text": 1514
+  },
+  {
+    "id": "f1",
+    "w": 768,
+    "label": "home",
+    "sw": 768,
+    "text": 1054
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "start",
+    "sw": 768,
+    "text": 1170
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "home",
+    "sw": 768,
+    "text": 638
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "roster",
+    "sw": 768,
+    "text": 1278
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "sched",
+    "sw": 768,
+    "text": 660
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "stand",
+    "sw": 768,
+    "text": 1034
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "players",
+    "sw": 768,
+    "text": 11124
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "coach",
+    "sw": 768,
+    "text": 1897
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "trade",
+    "sw": 768,
+    "text": 1042
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "fa",
+    "sw": 768,
+    "text": 2562
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "finance",
+    "sw": 768,
+    "text": 416
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "history",
+    "sw": 768,
+    "text": 491
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "save",
+    "sw": 768,
+    "text": 301
+  },
+  {
+    "id": "lol",
+    "w": 768,
+    "label": "match",
+    "sw": 768,
+    "text": 890
+  },
+  {
+    "id": "yexiao",
+    "w": 768,
+    "label": "start",
+    "sw": 768,
+    "text": 378
+  },
+  {
+    "id": "yexiao",
+    "w": 768,
+    "label": "home",
+    "sw": 768,
+    "text": 252
+  },
+  {
+    "id": "yike",
+    "w": 768,
+    "label": "start",
+    "sw": 768,
+    "text": 391
+  },
+  {
+    "id": "yike",
+    "w": 768,
+    "label": "home",
+    "sw": 768,
+    "text": 211
+  },
+  {
+    "id": "cba",
+    "w": 1440,
+    "label": "start",
+    "sw": 1440,
+    "text": 1488
+  },
+  {
+    "id": "cba",
+    "w": 1440,
+    "label": "home",
+    "sw": 1440,
+    "text": 802
+  },
+  {
+    "id": "f1",
+    "w": 1440,
+    "label": "start",
+    "sw": 1440,
+    "text": 1514
+  },
+  {
+    "id": "f1",
+    "w": 1440,
+    "label": "home",
+    "sw": 1440,
+    "text": 1065
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "start",
+    "sw": 1440,
+    "text": 1170
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "home",
+    "sw": 1440,
+    "text": 721
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "roster",
+    "sw": 1440,
+    "text": 1363
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "sched",
+    "sw": 1440,
+    "text": 745
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "stand",
+    "sw": 1440,
+    "text": 1119
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "players",
+    "sw": 1440,
+    "text": 11220
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "coach",
+    "sw": 1440,
+    "text": 1988
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "trade",
+    "sw": 1440,
+    "text": 1127
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "fa",
+    "sw": 1440,
+    "text": 2645
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "finance",
+    "sw": 1440,
+    "text": 501
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "history",
+    "sw": 1440,
+    "text": 576
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "save",
+    "sw": 1440,
+    "text": 386
+  },
+  {
+    "id": "lol",
+    "w": 1440,
+    "label": "match",
+    "sw": 1440,
+    "text": 1004
+  },
+  {
+    "id": "yexiao",
+    "w": 1440,
+    "label": "start",
+    "sw": 1440,
+    "text": 820
+  },
+  {
+    "id": "yexiao",
+    "w": 1440,
+    "label": "home",
+    "sw": 1440,
+    "text": 694
+  },
+  {
+    "id": "yike",
+    "w": 1440,
+    "label": "start",
+    "sw": 1440,
+    "text": 391
+  },
+  {
+    "id": "yike",
+    "w": 1440,
+    "label": "home",
+    "sw": 1440,
+    "text": 211
+  }
+]

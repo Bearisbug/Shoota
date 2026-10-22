@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0c0f">
 <meta name="description" content="坐进自己的 F1 驾驶舱。签约、比赛、进站，与车队一起走过一段由你决定的职业生涯。">
-<title>F1-Driver · 争冠之路 · 2026.10.22.1</title>
+<title>F1-Driver · 争冠之路 · 2026.10.22.2</title>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}
 
 /* Layout: pit-wall shell — sticky team bar, left rail, dense timing panels. Single dark theme by choice (pit-wall screens). Accent follows the player's team livery. */
@@ -873,8 +873,168 @@ html,body{height:100%;overflow:hidden}button,a,input,select{touch-action:manipul
 /* The driver's original pace/tactic controls, offered in a real battle. */
 .rpop .driving-choice { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; white-space: normal; text-align: left; max-width: 100%; }
 .rpop .driving-choice small { display: block; max-width: 270px; color: var(--muted); font: 400 11.5px/1.6 var(--f-body); }
+.rpop .driving-choice.pri small { color: var(--accent-ink); opacity: .82; }
 .driving-status { padding: 7px 10px; border-left: 3px solid var(--yellow); background: var(--panel2); font-size: 12px; }
 .driving-status small { display: block; color: var(--muted); margin-top: 3px; font-size: 11.5px; line-height: 1.6; }
+
+/* Phone portrait (≤600px): compact, dense pit-wall layout in the spirit of Football Manager Mobile.
+   Body 13px, secondary 11–12px, table figures 11–12px tabular, labels ≥10px; condensed face for headings and numbers;
+   4–8px module spacing; 40–44px primary controls. Desktop is untouched — every rule lives inside this query. */
+@media (max-width: 600px) {
+  :root {
+    --dim: #7f8b99; /* raised from #5a6573 so 10–11px labels keep ≥4.5:1 on the dark panels */
+    --f-cond: 'Roboto Condensed', 'Arial Narrow', 'Avenir Next Condensed', 'sans-serif-condensed', 'Noto Sans SC', 'PingFang SC', sans-serif;
+    --m-gap: 8px; --m-pad: 8px; --m-tap: 40px;
+  }
+  body { font-size: 13px; line-height: 1.45; }
+  .muted, .dim, small { line-height: 1.4; }
+
+  /* Condensed face for headings and figures; hierarchy by weight and colour, not size */
+  .h1, .hero h1, .card > h3, .card-head h2, .card-head h3, .top .club .nm, .kpi b, .kpi2 b, .metric-value,
+  .result-position, .lapc, .tower .pos, .ch .p, .team-wordmark, .rpop h4, .modal-head h2, .big, .num, .res {
+    font-family: var(--f-cond); font-stretch: condensed;
+  }
+  .kpi b, .kpi2 b, .metric-value, table, .lapc, .ch .p, .result-position, .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------- top bar: team + action on one row, four KPIs on the next ---------- */
+  .top {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 8px;
+    padding: 6px max(8px, env(safe-area-inset-right, 0px)) 6px max(8px, env(safe-area-inset-left, 0px));
+  }
+  .top .brand { display: none; }
+  .top .club { grid-column: 1; grid-row: 1; gap: 6px; min-width: 0; }
+  .top .club .nm { font-size: 14px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; }
+  .top .club .nm span { font-size: 11px !important; }
+  .top .club .sub { font-size: 11px; overflow: hidden; text-overflow: ellipsis; }
+  .top .go { grid-column: 2; grid-row: 1; margin: 0; }
+  .top .go .btn { min-height: var(--m-tap); padding: 0 12px; font-size: 13px; letter-spacing: .02em; }
+  .top .kpis {
+    grid-column: 1 / -1; grid-row: 2; order: 0; width: 100%; margin: 0;
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px;
+  }
+  .top .kpi { text-align: left; min-width: 0; }
+  .top .kpi small { font-size: 10px; letter-spacing: .04em; margin-bottom: 1px; color: var(--muted); }
+  .top .kpi b { font-size: 13px; }
+  .top .kpi .muted { font-size: 11px; }
+
+  /* ---------- navigation: one swipeable tab strip, active tab underlined ---------- */
+  nav.rail {
+    padding: 0 max(4px, env(safe-area-inset-right, 0px)) 0 max(4px, env(safe-area-inset-left, 0px)); gap: 0;
+    scrollbar-width: none; overscroll-behavior-x: contain;
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 20px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 20px), transparent);
+  }
+  nav.rail::-webkit-scrollbar { display: none; }
+  .rail-link { width: auto; min-height: var(--m-tap); padding: 0 10px; font-size: 13px; border-radius: 0; white-space: nowrap; }
+  .rail-link.on { background: none; color: var(--fg); box-shadow: inset 0 -2px 0 var(--accent); }
+
+  /* ---------- page rhythm: 8px modules, tight cards, small radii ---------- */
+  main { padding: var(--m-pad) max(var(--m-pad), env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(var(--m-pad), env(safe-area-inset-left, 0px)); }
+  .stack, .grid, .grid.g2 { gap: var(--m-gap); }
+  .card, .metric, .kpi2, .choice, .save-slot, .calendar-item { border-radius: 4px; }
+  .card > h3, .card-head { padding: 6px var(--m-pad); }
+  .card > h3, .card-head h2, .card-head h3 { font-size: 11px; letter-spacing: .08em; }
+  .card .bd, .card-body { padding: var(--m-pad); }
+  .page-head { margin-bottom: var(--m-gap); gap: var(--m-gap); }
+  .h1, .page-head .h1, .world-page .h1 { font-size: 18px; line-height: 1.15; margin-bottom: 2px; }
+  .page-head p { font-size: 12px; line-height: 1.5; }
+  .notice { padding: 6px var(--m-pad); font-size: 12px; line-height: 1.55; margin-bottom: var(--m-gap); }
+  .chip { font-size: 11px; }
+  .gap { height: var(--m-gap); }
+  .footer-note { font-size: 10px; margin-top: var(--m-gap); }
+  p { margin-bottom: 6px; }
+
+  /* intro */
+  .start { padding-top: var(--m-pad); }
+  .hero { gap: var(--m-gap); margin-bottom: var(--m-gap); }
+  .hero h1, .start .hero h1 { font-size: 30px; }
+  .hero .kick { font-size: 10px; letter-spacing: .16em; margin-bottom: 6px; }
+  .start .hero p { font-size: 12.5px; line-height: 1.6; }
+
+  /* figures that were display-sized on desktop */
+  .metric { padding: var(--m-pad); }
+  .metric-value { font-size: 20px; margin-top: 2px; }
+  .kpi2 { padding: var(--m-pad); }
+  .kpi2 b, .driver-kpis .kpi2 b { font-size: 17px; }
+  .dh .num, .result-position { font-size: 28px; }
+  .ch .p, span.big { font-size: 20px; }
+  .team-wordmark, .modal-body .team-wordmark { font-size: 20px !important; }
+  .lapc span { font-size: 20px; }
+  .result-hero .right b { font-size: 18px; }
+  .big, div.big { font-size: 17px; }
+  .story-title { font-size: 14px; }
+  h2.city, .res { font-size: 14px; }
+  .modal-head h2 { font-size: 15px; }
+
+  /* choices, buttons, segmented controls: 40px+ targets without inflating rows */
+  .btn { min-height: var(--m-tap); display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 12px; font-size: 13px; }
+  .btn.small, .btn.sm { min-height: var(--m-tap); padding: 0 10px; font-size: 12px; }
+  .inline-link { min-height: var(--m-tap); display: inline-flex; align-items: center; }
+  /* in-table links and sort headers fill the row height instead of making rows taller */
+  td .inline-link, td a, td > button { min-height: 32px; display: inline-flex; align-items: center; }
+  th button, th.sortable { min-height: 32px; white-space: nowrap; }
+  th button { display: inline-flex; align-items: center; }
+  .seg button { min-height: var(--m-tap); min-width: 44px; }
+  .choices { gap: 6px; margin-top: var(--m-gap); }
+  .choice { padding: 8px 10px; min-height: 44px; }
+  .choice b { font-size: 13px; }
+  .choice small, .choice span { font-size: 12px; }
+  select, input { min-height: var(--m-tap); font-size: 16px; } /* 16px stops iOS zooming into focused fields */
+
+  /* ---------- tables: 32px rows, condensed figures, sticky first column when wider than the screen ---------- */
+  table.t td, td { padding: 0 6px; height: 32px; font-size: 12px; }
+  th, table.t th { padding: 0 6px; height: 32px; font-size: 10px; letter-spacing: .06em; }
+  .table-wrap, .tw { overflow-x: auto; overscroll-behavior-x: contain; }
+  .table-wrap th:first-child, .table-wrap td:first-child, .tw th:first-child, .tw td:first-child { position: sticky; left: 0; z-index: 1; background: var(--panel); }
+
+  /* ---------- race: toolbar → map → timing → my car → radar → feed ---------- */
+  .rhead.race-stage-toolbar { gap: 6px; padding: var(--m-pad); }
+  .rhead.race-stage-toolbar .chip { font-size: 11px; padding: 1px 6px; }
+  .rhead.race-stage-toolbar > .btn { order: 1; flex: 1 1 40%; font-size: 13px; }
+  .rhead.race-stage-toolbar > .btn.big { font-size: 14px; padding: 0 12px; }
+  .rhead .speed { order: 2; width: 100%; }
+  .rhead .speed .seg { flex: 1; display: flex; }
+  .rhead .speed .seg button { flex: 1; }
+  .rgrid.race-stage { display: flex; flex-direction: column; align-items: stretch; gap: var(--m-gap); }
+  .race-stage .race-main, .race-stage .race-sidebar { display: contents; }
+  .race-stage .race-map-card { order: 1; }
+  .race-stage .race-timing { order: 2; }
+  .race-stage .native-driver-control { order: 3; }
+  .race-stage .radar { order: 4; }
+  .race-stage .race-feed-card { order: 5; }
+  .race-stage .race-sidebar .race-timing .tw { max-height: min(360px, 48dvh); overflow: auto; overscroll-behavior: contain; }
+  .race-timing thead th { position: sticky; top: 0; z-index: 2; background: var(--panel); }
+  .race-timing thead th:first-child { z-index: 3; }
+  .tower { min-width: 0; }
+  .race-stage .tower td { padding: 0 4px; height: 30px; font-size: 12px; }
+  .tower td .inline-link, .tower td > button { min-height: 0; } /* the whole tower row is the tap target */
+  .tower .pos { font-size: 12px; width: 22px; }
+
+  /* in-race decisions become a bottom sheet so the map and tower stay visible above it */
+  .rpop-wrap { align-items: flex-end; padding: 0; }
+  .rpop {
+    width: 100%; max-height: 78dvh; border-radius: 8px 8px 0 0; overscroll-behavior: contain;
+    padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+  }
+  .rpop h4 { font-size: 17px; line-height: 1.2; }
+  .rpop button, .rpop .btn { white-space: normal; text-align: left; justify-content: flex-start; flex-wrap: wrap; height: auto; min-height: 44px; max-width: 100%; padding: 8px 12px; line-height: 1.35; }
+  .rpop .row { gap: 6px; }
+
+  /* ---------- dialogs: fit the screen, respect safe areas, keep scroll inside ---------- */
+  .modal-backdrop { padding: max(8px, env(safe-area-inset-top, 0px)) max(8px, env(safe-area-inset-right, 0px)) max(8px, env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); }
+  .modal { max-height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overscroll-behavior: contain; border-radius: 6px; }
+  .modal-head { padding: 6px 6px 6px 10px; }
+  .modal-body { padding: var(--m-pad) 10px; }
+  .modal-body .section { margin-bottom: 10px; }
+  .modal-body .card { margin-top: var(--m-gap); }
+  .modal-close { min-width: 40px; min-height: 40px; }
+  .save-grid { gap: 6px; }
+  .save-slot { padding: 8px 10px; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px 8px; }
+  .save-slot h3 { font-size: 13px; margin: 0; }
+  .save-slot p { grid-column: 1; margin: 0; min-height: 0; font-size: 12px; }
+  .save-slot .row { grid-column: 2; grid-row: 1 / span 2; margin: 0; display: flex; gap: 6px; }
+  .modal-actions { margin-top: 10px; gap: 6px; }
+  .modal-actions .btn { flex: 1 1 auto; }
+}
 </style>
 </head>
 <body>
@@ -2962,7 +3122,7 @@ globalThis.F1CAREER_RULES = {
   'use strict';
   const C=globalThis.Career,D=C.D;
   const KEY='shoota.f1.driver.v1';
-  const BUILD='2026.10.22.1';
+  const BUILD='2026.10.22.2';
   const RACE_SPEEDS=[.5,1,2,4,8,16],LAP_PLAYBACK_MS=2600;
   const $=s=>document.querySelector(s);
   const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -3007,6 +3167,7 @@ globalThis.F1CAREER_RULES = {
     const nav=groups.map(([g,vs])=>'<div class="grp">'+g+'</div>'+vs.map(v=>{const n=navs.find(n=>n[0]===v);return '<button class="rail-link '+(view===v?'on':'')+'" data-view="'+v+'">'+n[2]+(v==='weekend'&&S.race?.pending?'<span class="badge">决策</span>':'')+'</button>';}).join('')).join('');
     app.innerHTML='<header class="top"><div class="brand">F1-<b>Driver</b></div><div class="club"><div class="livery" style="background:'+accent+';color:var(--accent-ink)"><span>'+C.team(S).id.toUpperCase()+'</span></div><div style="min-width:0"><div class="nm">'+escape(C.team(S).name)+' <span class="muted" style="font-size:13px">· '+escape(S.name)+' #'+S.number+'</span></div><div class="sub">'+S.year+' · '+(S.phase==='season'?'赛季结束':'R'+(S.round+1)+'/'+D.TRACKS.length+' · '+tr.gp+' · '+stage)+' · 原版布局 '+BUILD+'</div></div></div><div class="kpis"><div class="kpi"><small>车手积分</small><b>'+rank+'</b> <span class="muted">· '+(S.grid.you?.points||0)+' 分</span></div><div class="kpi"><small>个人资产</small><b>$'+money(S.money)+'M</b></div><div class="kpi"><small>人气</small><b>'+num(S.popularity)+'</b></div><div class="kpi"><small>领队信任</small><b class="'+(r.principal<35?'bad':r.principal>75?'good':'')+'">'+num(r.principal)+'</b></div></div><div class="go">'+topAction()+'</div></header><nav class="rail" aria-label="游戏导航">'+nav+'<div class="grp">&nbsp;</div><button class="rail-link" data-action="saves">存档与设置</button><button class="rail-link" data-action="help">玩法说明</button><div class="rail-status"><span class="dot"></span> '+(storageOK?'已自动保存':'请导出生涯存档')+'</div></nav><main id="main">'+getView()+'<div class="footer-note">F1-Driver · 原版布局 '+BUILD+' · 原模版架空世界设定 · 单文件 HTML / 本机存档</div></main>';
     $('#main').scrollTop=keep?scroll:0;
+    const navOn=$('nav.rail .rail-link.on'),rail=navOn?.parentElement;if(rail&&rail.scrollWidth>rail.clientWidth)rail.scrollLeft+=navOn.getBoundingClientRect().left-rail.getBoundingClientRect().left-(rail.clientWidth-navOn.offsetWidth)/2;
     syncRaceMotion();
   }
   function head(k,title,sub='',extra=''){return `<div class="page-head"><div><h1 class="h1">${title}</h1>${sub?`<p>${sub}</p>`:''}</div>${extra?`<div class="page-extra">${extra}</div>`:''}</div>`;}

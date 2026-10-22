@@ -1,0 +1,10 @@
+== intro {"sw":390,"vw":390,"ox":["H1.logo sw=178 cw=1 ox=hidden"],"fonts":{"19px":1,"11.4px":1,"16px":3,"11px":10,"12px":4,"15px":5,"18px":2,"13px":7,"10px":1,"22px":1,"14px":2},"small":["10px SPAN.badge \"1\""],"tap":[]}
+GEO {"topbar":[0,42,390],"nav":[743,52,390],"actions":[449,42,374],"seg":[449,42,154],"map":[104,337,374],"vh":795}
+== day {"sw":390,"vw":390,"ox":["H1.logo sw=178 cw=1 ox=hidden"],"fonts":{"19px":1,"11.4px":1,"16px":3,"11px":11,"12px":5,"15px":6,"13px":6,"10px":1,"27.3px":1,"14px":1},"small":["10px SPAN.badge \"1\""],"tap":[]}
+CONSOLEERR Failed to load resource: net::ERR_CONNECTION_CLOSED
+GEO {"topbar":[0,42,390],"nav":[743,52,390],"actions":[449,42,374],"seg":[449,42,154],"map":[104,337,374],"vh":795}
+== night {"sw":390,"vw":390,"ox":["H1.logo sw=178 cw=1 ox=hidden"],"fonts":{"19px":1,"11.4px":1,"16px":3,"11px":11,"12px":5,"15px":6,"13px":6,"10px":1,"27.3px":1,"14px":1},"small":["10px SPAN.badge \"2\""],"tap":[]}
+== manage {"sw":390,"vw":390,"ox":["H1.logo sw=178 cw=1 ox=hidden"],"fonts":{"19px":1,"11.4px":1,"16px":14,"11px":17,"12px":10,"15px":1,"10px":1,"13px":26,"14px":2,"18px":1,"27.3px":1},"small":["10px SPAN.badge \"2\""],"tap":[]}
+== lease {"sw":390,"vw":390,"ox":["H1.logo sw=178 cw=1 ox=hidden"],"fonts":{"19px":1,"11.4px":1,"16px":2,"11px":9,"12px":7,"15px":1,"10px":1,"14px":3,"13px":10,"27.3px":1},"small":["10px SPAN.badge \"2\""],"tap":[]}
+== duel {"sw":390,"vw":390,"ox":["H1.logo sw=178 cw=1 ox=hidden"],"fonts":{"19px":1,"11.4px":1,"16px":2,"11px":7,"12px":2,"15px":1,"10px":1,"22px":1,"27.3px":1,"14px":1},"small":["10px SPAN.badge \"2\""],"tap":[]}
+== social {"sw":390,"vw":390,"ox":["H1.logo sw=178 cw=1 ox=hidden"],"fonts":{"19px":1,"11.4px":1,"16px":3,"11px":13,"12px":12,"15px":1,"10px":1,"13px":21,"36px":1,"27.3px":1,"14px":1},"small":["10px SPAN.badge \"2\""],"tap":[]}

@@ -169,6 +169,77 @@ h1{margin:0;position:absolute;left:50%;transform:translateX(-50%);font:400 30px/
 .btn.sec{border:1.5px solid var(--kraft-lo);color:#6a5640}
 .stamp{position:absolute;right:14px;top:12px;width:46px;height:46px;border:2.5px solid var(--cinnabar);border-radius:50%;color:var(--cinnabar);font:400 26px/40px var(--f-brush);text-align:center;transform:rotate(12deg);opacity:.85}
 
+/* ===== portrait readability + richer herbal-shop finish (REQ-021) ===== */
+#root{padding-left:max(8px, env(safe-area-inset-left, 0px));padding-right:max(8px, env(safe-area-inset-right, 0px))}
+/* in-stage text: logical sizes chosen so the scaled size stays >= 10px at k≈0.78 (375×667) */
+.chip{font-size:14px;padding:6px 9px;background:linear-gradient(180deg,var(--brass-hi),var(--brass) 45%,#a8832f);box-shadow:inset 0 -2px 0 var(--brass-lo),0 1px 2px rgba(0,0,0,.4)}
+.hrow{top:2px;height:38px}
+.hbtn{position:relative;height:36px;min-width:36px;padding:0 10px;font-size:14px;border:0;background:linear-gradient(180deg,rgba(239,213,142,.16),rgba(201,162,74,.06));box-shadow:inset 0 0 0 1.5px rgba(201,162,74,.6),inset 0 1px 0 rgba(255,240,200,.25)}
+.hbtn::after{content:"";position:absolute;inset:-6px -3px}
+.hbtn svg{width:18px;height:18px}
+.srow{top:41px;font-size:13px;letter-spacing:.3px}
+.rtag{font-size:13px;top:-3px;padding:2px 8px;letter-spacing:.5px;background:linear-gradient(180deg,var(--brass-hi),var(--brass))}
+.slbl{font-size:14px;line-height:16px;top:211px}
+.slbl small{font-size:13px;line-height:15px;letter-spacing:0}
+.bob{font-size:16px}
+.bob small{font-size:13px}
+.tile .band{height:15px}
+.tile .nm{font-size:13px;line-height:15px;top:0;letter-spacing:.5px}
+.tile .w{top:15px;line-height:30px}
+.tile .w small{font-size:13px}
+.tile .tag{font-size:12px;padding:1px 3px}
+#trayHint,#trayLbl{font-size:13px;top:653px;letter-spacing:0}
+.drlbl{font-size:13px;letter-spacing:0}
+.prop{border:0;background:linear-gradient(180deg,rgba(239,213,142,.14),rgba(201,162,74,.05));box-shadow:inset 0 0 0 1.5px rgba(201,162,74,.65),inset 0 1px 0 rgba(255,240,200,.25),0 2px 4px rgba(0,0,0,.3)}
+.prop b{font-size:16px}
+.prop span{font-size:13px;color:#b7cdc3}
+.prop:disabled{opacity:1;box-shadow:inset 0 0 0 1.5px rgba(156,183,171,.3)}
+.prop:disabled b{color:#9cb7ab}
+.prop:disabled span{color:#8aa79a}
+.prop:disabled em{background:#5b6b64}
+#toast{font-size:14px}
+
+/* lacquer depth, wood grain, brass sheen, paper fibre — gradients only */
+body{background-image:
+    radial-gradient(ellipse 120% 80% at 50% 30%, rgba(255,240,200,.07), transparent 60%),
+    radial-gradient(ellipse 140% 100% at 50% 50%, transparent 55%, rgba(0,0,0,.45)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.012) 0 3px, transparent 3px 9px, rgba(0,0,0,.03) 9px 11px, transparent 11px 17px),
+    linear-gradient(rgba(0,0,0,.22) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0,0,0,.22) 2px, transparent 2px);
+  background-size:auto,auto,auto,104px 70px,104px 70px}
+h1{background:linear-gradient(180deg,#fff1c4,var(--brass-hi) 45%,var(--brass) 80%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 2px 0 rgba(0,0,0,.45))}
+#board{background:
+    radial-gradient(ellipse at 50% 0, rgba(255,240,200,.06), transparent 60%),
+    repeating-linear-gradient(178deg, rgba(255,255,255,.018) 0 2px, transparent 2px 7px),
+    linear-gradient(180deg,#1f463d,var(--lacquer2) 40%,#163730);
+  box-shadow:inset 0 3px 10px rgba(0,0,0,.45),inset 0 0 0 1px rgba(201,162,74,.18),0 1px 0 rgba(255,255,255,.06)}
+#tray{background:linear-gradient(180deg,rgba(0,0,0,.36),rgba(0,0,0,.2));box-shadow:inset 0 2px 6px rgba(0,0,0,.4),0 1px 0 rgba(255,255,255,.05)}
+.beam,.pan{background:linear-gradient(var(--brass-hi),var(--brass) 50%,var(--brass-lo))}
+.pillar{background:linear-gradient(90deg,var(--brass-lo),var(--brass-hi) 45%,var(--brass) 60%,var(--brass-lo))}
+.tile{background:
+    radial-gradient(circle at 20% 70%, rgba(120,80,30,.10) 0 1px, transparent 2px) 0 0/7px 9px,
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,.18) 0 1px, transparent 2px) 0 0/11px 8px,
+    linear-gradient(160deg,#e8cfa4,var(--kraft) 55%,#d0b17f)}
+.tile.blind{background:linear-gradient(160deg,#d8bd90,#cdb184 60%,#bfa173)}
+.sdone.on{box-shadow:0 0 14px rgba(210,76,51,.35)}
+.ring.sel{background:radial-gradient(ellipse at 50% 30%,rgba(239,213,142,.14),rgba(201,162,74,.05) 70%)}
+
+/* modal lives outside the scaled stage: fixed, unscaled, readable on any phone */
+#modal{position:fixed;inset:0;z-index:20;background:rgba(5,14,12,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:12px;padding-top:max(12px,env(safe-area-inset-top,0px));padding-bottom:max(12px,env(safe-area-inset-bottom,0px))}
+.card{width:min(340px,100%);max-height:100%;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--kraft-lo) transparent;padding:18px 18px 16px;border-radius:10px;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(120,80,30,.06) 0 1px, transparent 2px) 0 0/9px 7px,
+    radial-gradient(circle at 70% 60%, rgba(120,80,30,.05) 0 1px, transparent 2px) 0 0/13px 11px,
+    linear-gradient(180deg,#f6ecd5,var(--paper) 60%,#eadcbc);
+  box-shadow:0 18px 40px rgba(0,0,0,.5),inset 0 0 0 1px rgba(122,93,34,.25),inset 0 0 24px rgba(178,141,88,.18)}
+.card h2{font-size:32px}
+.card ol{font-size:14px;line-height:1.6;margin-bottom:12px}
+.card .note{font-size:13px}
+.card .stat{font-size:13px;margin:8px 0 14px}
+.btn.pri{background:linear-gradient(180deg,#285549,var(--lacquer2) 60%,#143129);box-shadow:inset 0 -3px 0 rgba(0,0,0,.35),inset 0 1px 0 rgba(239,213,142,.25)}
+.stamp{animation:slam .45s cubic-bezier(.3,1.6,.5,1) .15s both}
+@keyframes slam{from{transform:rotate(12deg) scale(2.2);opacity:0}}
+@media (prefers-reduced-motion: reduce){.stamp,.card{animation:none}}
 @media (prefers-reduced-motion: reduce){
   .tile,.beam,.str,.pan,.bob,.sdone{transition-duration:.08s}
   .slbl.near{animation:none}
@@ -193,18 +264,18 @@ h1{margin:0;position:absolute;left:50%;transform:translateX(-50%);font:400 30px/
     <div id="scales"></div>
     <div id="board"></div>
     <div id="tray"></div>
-    <span id="trayHint">翻盘的药包落在这里，点它能再放回秤上</span>
+    <span id="trayHint">翻盘的药包落这里，点它放回秤上</span>
     <span id="trayLbl"></span>
     <div id="props">
       <button class="prop" id="pUndo" type="button"><b>撤回</b><span>收回上一包</span><em>1</em></button>
-      <button class="prop" id="pPeek" type="button"><b>透视</b><span>看清压住的 5 秒</span><em>1</em></button>
-      <button class="prop" id="pSwap" type="button"><b>换方子</b><span>换掉选中秤的目标</span><em>1</em></button>
+      <button class="prop" id="pPeek" type="button"><b>透视</b><span>看清 5 秒</span><em>1</em></button>
+      <button class="prop" id="pSwap" type="button"><b>换方子</b><span>换选中秤目标</span><em>1</em></button>
     </div>
     <div id="layer"></div>
     <div id="fx"></div>
     <div id="toast"></div>
-    <div id="modal" hidden><div class="card" id="card"></div></div>
   </div>
+  <div id="modal" hidden><div class="card" id="card"></div></div>
 </div>
 
 <script>

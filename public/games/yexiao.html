@@ -7,7 +7,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Barlow+Condensed:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
 <style>
 /* Layout: an app shell — sticky money/share bar on top, five pages (街景 · 经营 · 招商 · 对决 · 口碑) behind a bottom tab bar on phones; on desktop the street map stays left and the other pages sit in a right column */
 :root{
@@ -29,6 +29,7 @@
   --display:"ZCOOL KuaiLe","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
   --body:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
   --navh:62px;
+  --num:"Barlow Condensed","Roboto Condensed","Arial Narrow",sans-serif-condensed,var(--body);
   color-scheme:dark;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -356,7 +357,147 @@ details.guide[open] summary::after{content:" －"}
 .memory .mem{margin-top:8px;color:#d9cbff}
 .req{display:inline-block;font-size:12px;color:var(--muted);margin-right:8px;white-space:nowrap}
 .req.ok{color:var(--good)}
+/* condensed tabular numbers (all widths) */
+.chip b,.kv b,.fund b,.fin td:last-child,.result .rev,.rate .big,.duelstats b,.sharebar span{font-family:var(--num);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.btn:disabled{opacity:.6;filter:saturate(.35)}
+.zones{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);padding-right:24px}
+.zones::-webkit-scrollbar{display:none}
+.sheet{overscroll-behavior:contain}
+.opt small,.srow small,.zrow small,.offer .ot{text-wrap:pretty}
+
+/* phones: compact, FM-style density */
+@media (max-width:560px){
+  :root{--navh:52px}
+  body{font-size:13px;line-height:1.45}
+  /* topbar: one row — the platform bar already shows the game title */
+  .tb{padding-block:6px;flex-wrap:nowrap;gap:6px}
+  .logo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .hud{flex:1 1 auto;flex-wrap:nowrap;justify-content:space-between;gap:4px}
+  .chip{font-size:12px;padding:2px 8px 2px 3px;gap:4px;min-height:30px}
+  .chip svg{width:18px;height:18px}
+  .chip b{font-size:15px}
+  .chip.money b{font-size:16px}
+  .chip.share{padding:2px 8px}
+  .sharemini{width:40px}
+  .toasts{top:calc(env(safe-area-inset-top,0px) + 50px)}
+  .toast{font-size:12px;padding:5px 12px;border-radius:10px}
+  /* shell + nav */
+  .shell{padding-block:6px calc(var(--navh) + env(safe-area-inset-bottom,0px) + 10px);padding-left:max(8px, env(safe-area-inset-left, 0px));padding-right:max(8px, env(safe-area-inset-right, 0px));gap:8px}
+  .page{gap:8px}
+  .nav button{font-size:11px;gap:1px}
+  .nav button svg{width:22px;height:22px}
+  .nav .badge{top:3px}
+  /* buttons: ≥40px tap height */
+  .btn{min-height:40px;border-radius:9px}
+  .btn.small{min-height:40px;font-size:13px;padding:.3em .8em;border-radius:8px}
+  .btn.big{min-height:44px;font-size:18px}
+  .seg button{min-height:40px;min-width:38px;padding:4px 8px}
+  .actions{flex-wrap:nowrap;gap:6px}
+  .actions > .chip{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
+  .actions .grow{flex:1 1 0;min-width:0}
+  .actions .btn,.actions .seg{flex:none}
+  .mapwrap{border-radius:10px}
+  /* modules: flatter, tighter */
+  .box{border-radius:10px;padding:8px}
+  .box h3{font-size:16px;margin:0 0 6px}
+  .box h3 small{font-size:12px}
+  .muted{font-size:12px}
+  .kv,.fund{gap:4px}
+  .kv div,.fund div{border-radius:6px;padding:4px 8px}
+  .kv b,.fund b{font-size:16px}
+  .ztab{border-radius:8px;padding:4px 10px 4px 4px;min-height:40px}
+  .ztab b{font-size:15px}
+  /* list rows inside modules become divider rows, whole row stays the tap target */
+  .offers,.slist,.posts,.opts{gap:0}
+  .offer,.opt,.srow,.zrow,.skill,.post{background:none;border:0;border-radius:0;border-top:1px solid var(--line);padding:6px 2px}
+  .zrow + .zrow,.skill + .skill{margin-top:0}
+  .srow{border-left:3px solid var(--cc);padding-left:8px}
+  .offer.hot{border-left:3px solid var(--rival);padding-left:8px}
+  .offer.poach{border-left:3px solid var(--gold);padding-left:8px;background:linear-gradient(90deg,rgba(255,200,87,.08),transparent 70%)}
+  .opt.locked{opacity:.6}
+  .offer{gap:4px}
+  .offer .oh svg,.opt svg,.skill svg{width:36px;height:36px}
+  .opt{grid-template-columns:36px minmax(0,1fr) auto;gap:2px 8px}
+  .skill{grid-template-columns:36px minmax(0,1fr);gap:2px 10px}
+  .srow svg{width:34px;height:34px}
+  .srow{grid-template-columns:34px minmax(0,1fr) auto;gap:2px 8px}
+  .opt b,.offer .oh b{font-size:14px}
+  .sgroup{margin:8px 2px 2px}
+  .duelstats div{border-radius:6px;padding:4px 6px}
+  .tipbox,.alert{border-radius:8px;padding:6px 8px}
+  .rate .big{font-size:36px}
+  /* sheets: smaller header, header + tabs stay pinned while the list scrolls */
+  .sheet{max-height:90vh;padding:6px 12px calc(12px + env(safe-area-inset-bottom,0px));padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));border-radius:14px 14px 0 0}
+  .sheet::before{margin-bottom:6px}
+  .sheet h2{font-size:22px}
+  .sheet .sub{margin:0 0 8px}
+  .shead{position:sticky;top:-6px;z-index:2;background:var(--panel);margin:0 -12px 0;padding:4px 12px;gap:10px;height:52px}
+  .shead svg{width:40px;height:40px}
+  .shead > div{min-width:0}
+  .shead b{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .shead small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .shead .x{min-width:52px;flex:none}
+  .stabs{position:sticky;top:46px;z-index:2;margin:0 -12px 6px;border-radius:0;padding:4px 12px;background:var(--panel);box-shadow:0 1px 0 var(--line)}
+  .stabs button{min-height:40px;padding:6px 4px;background:var(--night)}
+  .stabs button.on{background:var(--panel-2)}
+  .result div,.bestst,.story .st.res{border-radius:8px}
+  .choice{border-radius:10px;padding:8px 12px}
+  .story .st{font-size:14px;line-height:1.65;margin:8px 0 10px}
+  .pickr{border-radius:10px}
+}
+/* ===== night-market glow (visual layer only) ===== */
+:root{--warm:#2c1f3a;--warm-2:#352548;--neon:#ffd27a}
+body{background:
+  radial-gradient(520px 260px at 12% -40px, rgba(255,106,61,.30), transparent 70%),
+  radial-gradient(420px 240px at 92% 0, rgba(255,200,87,.16), transparent 70%),
+  radial-gradient(700px 500px at 50% 110%, rgba(255,80,60,.10), transparent 70%),
+  var(--night)}
+body::after{content:"";position:fixed;inset:-10% -20% auto;height:70vh;z-index:0;pointer-events:none;opacity:.07;
+  background:radial-gradient(closest-side,#fff,transparent) 18% 60%/180px 120px no-repeat,radial-gradient(closest-side,#fff,transparent) 62% 40%/240px 150px no-repeat,radial-gradient(closest-side,#fff,transparent) 85% 75%/160px 110px no-repeat;
+  filter:blur(18px);animation:steam 16s ease-in-out infinite alternate}
+@keyframes steam{from{transform:translate3d(0,30px,0)}to{transform:translate3d(-30px,-40px,0)}}
+.shell{position:relative;z-index:1}
+.topbar{background:linear-gradient(180deg,rgba(44,24,52,.96),rgba(27,21,52,.94));border-bottom:0;box-shadow:0 1px 0 rgba(255,170,90,.18)}
+.topbar::after{content:"";position:absolute;left:0;right:0;top:100%;height:10px;pointer-events:none;
+  background:radial-gradient(3px 4px at 50% 6px,#ff6a3d 70%,transparent 75%) 0 0/46px 10px repeat-x,
+             linear-gradient(180deg,rgba(255,170,90,.35),rgba(255,170,90,.35)) 0 2px/100% 1px no-repeat;
+  filter:drop-shadow(0 0 4px rgba(255,120,50,.8));opacity:.9}
+.box{background:linear-gradient(180deg,var(--warm-2),var(--warm) 60%);border:0;box-shadow:inset 0 1px 0 rgba(255,214,170,.12),0 6px 18px rgba(0,0,0,.28)}
+.box h3{color:var(--neon);text-shadow:0 0 6px rgba(255,150,60,.4)}
+.box h3 small{text-shadow:none}
+.memory{background:linear-gradient(135deg,rgba(185,163,255,.20),rgba(255,106,61,.10)),var(--warm);box-shadow:inset 0 1px 0 rgba(217,203,255,.2),0 6px 18px rgba(0,0,0,.28)}
+.memory h3{color:#e6dbff;text-shadow:0 0 8px rgba(185,163,255,.6)}
+.kv div,.fund div,.duelstats div{background:rgba(16,11,34,.55);box-shadow:inset 0 1px 0 rgba(255,214,170,.06)}
+.chip{background:linear-gradient(180deg,#2e2449,#221b3d);border-color:rgba(255,200,120,.22)}
+.chip.money{box-shadow:0 0 10px rgba(255,200,87,.18)}
+.ztab{background:linear-gradient(180deg,#2e2449,#221b3d);border-color:transparent}
+.ztab.on{background:linear-gradient(180deg,#4a2f3e,#352548);border-color:rgba(255,200,87,.7);box-shadow:0 0 12px rgba(255,170,60,.3)}
+.ztab.on b{text-shadow:0 0 8px rgba(255,170,60,.6)}
+.mapwrap{box-shadow:0 0 0 2px #4a3524,0 0 28px rgba(255,120,50,.18),0 12px 36px rgba(0,0,0,.45)}
+.btn{background:linear-gradient(180deg,#ff8a5c,var(--lantern))}
+.btn.gold{background:linear-gradient(180deg,#ffe08a,var(--gold) 55%,#f5b53a)}
+.btn.teal{background:linear-gradient(180deg,#a6f0da,var(--tenant))}
+.btn.ghost,.btn.danger{background:rgba(255,255,255,.03)}
+.btn.gold.big{box-shadow:0 3px 0 #a7781c,0 0 18px rgba(255,200,87,.45)}
+.seg{background:rgba(16,11,34,.6)}
+.nav{background:linear-gradient(0deg,rgba(24,16,40,.98),rgba(40,26,54,.97));border-top:0;box-shadow:0 -1px 0 rgba(255,170,90,.2),0 -8px 20px rgba(0,0,0,.3)}
+.nav button.on svg{filter:drop-shadow(0 0 6px rgba(255,190,80,.7))}
+.nav button.on{text-shadow:0 0 8px rgba(255,170,60,.5)}
+.sheet{background:linear-gradient(180deg,#3a2648 0,var(--panel) 120px);border-color:rgba(255,200,120,.2)}
+.sheet h2{text-shadow:0 0 12px rgba(255,150,60,.6),0 2px 0 #7a2d10}
+.toast{background:linear-gradient(180deg,rgba(52,30,48,.96),rgba(22,15,40,.96));box-shadow:0 6px 18px rgba(0,0,0,.4),0 0 12px rgba(255,170,60,.18)}
+.banner.show .bt{animation:neon .7s ease-out}
+@keyframes neon{0%{opacity:0;transform:scale(.9);filter:brightness(2)}40%{opacity:1}55%{opacity:.6}70%{opacity:1;transform:none}}
+.verdict,.result .rev{animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.6);opacity:0}}
+@media (max-width:560px){
+  body{margin:0}
+  .toasts{top:auto;bottom:calc(var(--navh) + env(safe-area-inset-bottom,0px) + 10px);flex-direction:column-reverse}
+  .topbar::after{background-size:38px 10px,100% 1px}
+  .shell{padding-top:12px}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media(max-width:360px){.actions{flex-wrap:wrap}.actions .seg{margin-left:auto}.zones{max-width:100%}.shell,.page{min-width:0}}
 </style>
 </head>
 <body>

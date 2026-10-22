@@ -255,6 +255,76 @@ h1,h2,h3{text-wrap:balance;margin:0}
 #pProg{font-variant-numeric:tabular-nums}
 .loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--semantic-color-text-secondary);background:var(--semantic-color-surface-background)}
 
+/* 手机竖屏紧凑排版（REQ-019）：正文降到 label 档、次要文字用 caption 档，间距收到 4–8px 档，商店两列且卡片只留封面、名字与类型，游戏页顶栏压成一行 */
+@media (max-width:760px){
+  body{font-family:var(--semantic-typography-label-font-family);font-size:var(--semantic-typography-label-font-size);font-weight:var(--semantic-typography-label-font-weight);line-height:var(--semantic-typography-label-line-height)}
+  .btn,.cap b,.cont b,.pbar .t,.bk-list li,.menu .who b{font-size:var(--semantic-typography-label-font-size);line-height:var(--semantic-typography-label-line-height)}
+  .cap p,.hero-info p,.prose p,.d-side .tagline,.box p,.perk span,.band p,.start p,.facts,.tbl table,.note,.steps li,.statline{font-family:var(--semantic-typography-caption-font-family);font-size:var(--semantic-typography-caption-font-size);font-weight:var(--semantic-typography-caption-font-weight);line-height:var(--semantic-typography-caption-line-height)}
+  .sec-h h2{font-family:var(--semantic-typography-heading3-font-family);font-size:var(--semantic-typography-heading3-font-size);font-weight:var(--semantic-typography-heading3-font-weight);line-height:var(--semantic-typography-heading3-line-height)}
+  .hero-info h3,.d-head h1,.lib-title{font-family:var(--semantic-typography-heading2-font-family);font-size:var(--semantic-typography-heading2-font-size);font-weight:var(--semantic-typography-heading2-font-weight);line-height:var(--semantic-typography-heading2-line-height)}
+  .band h3,.box h3,.perk b,.start h3,.empty-t{font-family:var(--semantic-typography-body-strong-font-family);font-size:var(--semantic-typography-body-strong-font-size);font-weight:var(--semantic-typography-body-strong-font-weight);line-height:var(--semantic-typography-body-strong-line-height)}
+  .kv b,.statline b{font-size:var(--semantic-typography-heading3-font-size)}
+  .wrap{padding-left:calc(env(safe-area-inset-left,0px) + var(--primitive-dimension-space-3));padding-right:calc(env(safe-area-inset-right,0px) + var(--primitive-dimension-space-3))}
+  .top .wrap{padding-block:var(--primitive-dimension-space-2);gap:var(--primitive-dimension-space-2)}
+  .nav a{padding:var(--primitive-dimension-space-1) var(--primitive-dimension-space-3)}
+  .search input{padding:var(--primitive-dimension-space-1) 0}
+  .page{padding-block:var(--primitive-dimension-space-3) var(--primitive-dimension-space-8);gap:var(--primitive-dimension-space-5)}
+  .page.tight{gap:var(--primitive-dimension-space-3)}
+  .sec-h{margin-bottom:var(--primitive-dimension-space-2)}
+  .hero,.band,.box,.d-side,.start,.perk,.lib-list,.lib-bar,.cont a,.empty{border-radius:var(--semantic-radius-md)}
+  .hero-info{padding:var(--primitive-dimension-space-3);gap:var(--primitive-dimension-space-2)}
+  .hero-nav{margin-top:var(--primitive-dimension-space-2)}
+  .chips{gap:var(--primitive-dimension-space-1);margin:0 calc(-1 * var(--primitive-dimension-space-3)) var(--primitive-dimension-space-3);padding:0 var(--primitive-dimension-space-3);flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;padding:var(--primitive-dimension-space-1) var(--primitive-dimension-space-2)}
+  .tag{padding:0 var(--primitive-dimension-space-2)}
+  .tags{gap:var(--primitive-dimension-space-1)}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--primitive-dimension-space-3) var(--primitive-dimension-space-2)}
+  .cap{gap:var(--primitive-dimension-space-1);padding:var(--primitive-dimension-space-1);margin:calc(-1 * var(--primitive-dimension-space-1));border-radius:var(--semantic-radius-md)}
+  .cap .cv{border-radius:var(--semantic-radius-sm);box-shadow:var(--semantic-elevation-raised)}
+  .grid .cap p{display:none}
+  .cap{grid-template-columns:minmax(0,1fr) auto}
+  .cap-row{display:contents}
+  .cap .cv,.cap b,.cap p{grid-column:1 / -1}
+  .cap .cv{grid-row:1}
+  .cap b{grid-row:2}
+  .cap p{grid-row:3}
+  .cap .meta{grid-row:4;grid-column:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .cap .pill{grid-row:4;grid-column:2;justify-self:end}
+  .cont{grid-template-columns:minmax(0,1fr);gap:var(--primitive-dimension-space-2)}
+  .cont a{grid-template-columns:96px minmax(0,1fr);gap:var(--primitive-dimension-space-2);padding:var(--primitive-dimension-space-2)}
+  .band{padding:var(--primitive-dimension-space-3);gap:var(--primitive-dimension-space-3)}
+  .empty{padding:var(--primitive-dimension-space-5)}
+  .d-top,.d-body{gap:var(--primitive-dimension-space-3)}
+  .d-top .cv{border-radius:var(--semantic-radius-md)}
+  .d-side,.box{padding:var(--primitive-dimension-space-3);gap:var(--primitive-dimension-space-2)}
+  .facts{gap:var(--primitive-dimension-space-1) var(--primitive-dimension-space-3)}
+  .d-main{gap:var(--primitive-dimension-space-5)}
+  .d-main section{gap:var(--primitive-dimension-space-2)}
+  .d-main h2{padding-bottom:var(--primitive-dimension-space-2)}
+  .start{padding:var(--primitive-dimension-space-3);gap:var(--primitive-dimension-space-2)}
+  .steps{gap:var(--primitive-dimension-space-2)}
+  .steps li{grid-template-columns:var(--primitive-dimension-space-6) minmax(0,1fr);gap:var(--primitive-dimension-space-2)}
+  .perks{gap:var(--primitive-dimension-space-2)}
+  .perk{padding:var(--primitive-dimension-space-3)}
+  .tbl th,.tbl td{padding:var(--primitive-dimension-space-1) var(--primitive-dimension-space-2)}
+  .lib{gap:var(--primitive-dimension-space-3)}
+  .lib-list{padding:var(--primitive-dimension-space-1)}
+  .lib-list button{grid-template-columns:56px minmax(0,1fr);gap:var(--primitive-dimension-space-2);padding:var(--primitive-dimension-space-1) var(--primitive-dimension-space-2)}
+  .lib-main{gap:var(--primitive-dimension-space-3)}
+  .lib-bar{gap:var(--primitive-dimension-space-3) var(--primitive-dimension-space-4);padding:var(--primitive-dimension-space-3)}
+  .pbar{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;grid-template-areas:"exit t num full" "exit st saved full";align-items:center;gap:0 var(--primitive-dimension-space-2);padding:calc(env(safe-area-inset-top,0px) + var(--primitive-dimension-space-1)) calc(env(safe-area-inset-right,0px) + var(--primitive-dimension-space-2)) var(--primitive-dimension-space-1) calc(env(safe-area-inset-left,0px) + var(--primitive-dimension-space-2))}
+  .pbar .btn{min-width:40px;min-height:40px;padding:0 var(--primitive-dimension-space-2)}
+  .pbar .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+  #pExit{grid-area:exit}
+  #pFull{grid-area:full}
+  .pbar .t{grid-area:t;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pbar .st{grid-area:st}
+  .pbar .saved{grid-area:saved;text-align:right;white-space:nowrap}
+  .pbar .num{grid-area:num;text-align:right;white-space:nowrap}
+  .pbar .st,.pbar .saved,.pbar .num{font-family:var(--semantic-typography-caption-font-family);font-size:var(--semantic-typography-caption-font-size);font-weight:var(--semantic-typography-caption-font-weight);line-height:var(--semantic-typography-caption-line-height)}
+}
+
 /* toasts */
 #toasts{position:fixed;right:calc(env(safe-area-inset-right,0px) + var(--primitive-dimension-space-4));bottom:calc(env(safe-area-inset-bottom,0px) + var(--primitive-dimension-space-4));z-index:var(--semantic-layout-z-index-toast);display:grid;gap:var(--semantic-space-within-group);justify-items:end;pointer-events:none}
 .toast{background:var(--semantic-color-surface-overlay);border:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle);border-left:3px solid var(--semantic-color-action-primary);border-radius:var(--semantic-radius-md);padding:var(--primitive-dimension-space-3) var(--primitive-dimension-space-4);box-shadow:var(--semantic-elevation-overlay);max-width:340px;animation:tin var(--semantic-motion-duration-base) var(--semantic-motion-easing-emphasized)}
@@ -295,12 +365,12 @@ h1,h2,h3{text-wrap:balance;margin:0}
 <main id="view" class="wrap"></main>
 <div id="player" hidden>
   <div class="pbar">
-    <button class="state-layer focus-ring btn" id="pExit" type="button"><span class="ico ico-back" aria-hidden="true"></span>退出游戏</button>
+    <button class="state-layer focus-ring btn" id="pExit" type="button"><span class="ico ico-back" aria-hidden="true"></span><span class="lbl">退出游戏</span></button>
     <span class="t" id="pTitle"></span>
     <span class="st" id="pStatus"></span>
     <span class="saved" id="pSaved">存档待写入</span>
     <span class="num" id="pTime">本次 0 分钟</span>
-    <button class="state-layer focus-ring btn" id="pFull" type="button"><span class="ico ico-full" aria-hidden="true"></span>全屏</button>
+    <button class="state-layer focus-ring btn" id="pFull" type="button"><span class="ico ico-full" aria-hidden="true"></span><span class="lbl">全屏</span></button>
   </div>
   <div class="pstage" id="pStage"></div>
 </div>
@@ -327,7 +397,7 @@ const CATALOG = [
     loop:['选择薯角色与初始配置，开启新的一局','白天采集矿石和资源，黄昏前返回营地','夜晚躲避并击退怪物，守住营火周围的生存空间','黎明锻造、附魔、营建并自动保存，准备下一天'] },
 
   { id:'f1-driver', title:'F1-Driver', sub:'坐进驾驶舱 · 书写冠军生涯', genre:'体育生涯', tags:['赛车','车手生涯','策略','实时比赛'],
-    src:'games/f1-driver.html', cover:'covers/f1-driver.jpg', size:619892, status:'ok', session:'按比赛周末推进', saves:'自动存档、3 个手动存档位',
+    src:'games/f1-driver.html', cover:'covers/f1-driver.jpg', size:630271, status:'ok', session:'按比赛周末推进', saves:'自动存档、3 个手动存档位',
     tagline:'从争取一张车手席位开始，在排位、进站与每一圈的攻防中，跑出属于你的冠军之路。',
     about:[
       '创建自己的车手，刷新能力与天赋，比较十二支车队的合同、成长环境和商业回报。争取正式席位，或从替补试训中证明自己。',
@@ -338,7 +408,7 @@ const CATALOG = [
     notes:['车队、人物与赛历用于游戏模拟；本作以车手身份游玩，独立于平台原有的 F1 车队经理游戏。'] },
 
   { id:'f1', title:'F1-Team Principal', sub:'执掌维修区 · 带领车队争冠', genre:'赛车经理', tags:['赛车经理','体育','策略','实时比赛'],
-    src:'games/f1.html', cover:'covers/f1-manager.jpg', size:495632, status:'ok', session:'一场比赛周末约 10 分钟', saves:'自动存档',
+    src:'games/f1.html', cover:'covers/f1-manager.jpg', size:515424, status:'ok', session:'一场比赛周末约 10 分钟', saves:'自动存档',
     tagline:'坐上车队领队席位，把研发预算、车手阵容与每一次进站连成制胜策略，带队冲击赛季冠军。',
     about:[
       '从选择车队开始，接手赛车研发、财务预算和车手合同。升级风洞、模拟器与工厂，在成本上限内决定这一季把资源花在哪里。',
@@ -348,7 +418,7 @@ const CATALOG = [
     loop:['赛车研发：安排升级项目，投入风洞、模拟器和工厂产线','比赛周末：制定练习赛计划，找最佳调校','正赛：天气、轮胎断崖、VSC 和安全车随时改写局面，进站与车队指令由你决定','赛季末：对照董事会目标结算，写进领队履历'] },
 
   { id:'basketball-star', title:'篮球巨星', sub:'从 CBA 新秀 · 到世界舞台', genre:'体育生涯', tags:['篮球','球员生涯','养成','比赛直播'],
-    src:'games/basketball-star.html', cover:'covers/basketball-star.jpg', size:510775, status:'ok', session:'按赛季周次推进', saves:'自动存档、3 个手动存档位',
+    src:'games/basketball-star.html', cover:'covers/basketball-star.jpg', size:518286, status:'ok', session:'按赛季周次推进', saves:'自动存档、3 个手动存档位',
     tagline:'17 岁加入 CBA 成年队，用训练和每一次上场争取位置，走向国家队与 NBA 的聚光灯。',
     about:[
       '选择姓名、位置、身高与风格，查看十八项能力和潜力，再从二十支 CBA 球队中选择起点。进入成年队，从培养球员做起，争取稳定的上场时间。',
@@ -358,9 +428,9 @@ const CATALOG = [
     loop:['创建球员，比较球队的定位与预计出场时间','安排训练、恢复和比赛职责','推进一周，观看比赛，复盘技术统计与成长','处理合同、国家队与选秀机会，迈向下一个赛季'],
     notes:['名单、能力、赛程与合同采用游戏模拟规则；本作控制自己的球员，独立于原有 CBA 和 NBA 经理游戏。'] },
 
-  { id:'wealth-reborn', title:'我要当首富', sub:'从三千元起步 · 经营你的商业人生', genre:'模拟经营', tags:['模拟经营','商业','人生模拟','投资'],
-    src:'games/wealth-reborn.html', cover:'covers/wealth-reborn.jpg', size:2148004, status:'ok', session:'自动按周推进，可随时暂停', saves:'玩家独立档案、自动与手动存档',
-    tagline:'回到 2004 年，带着 3,000 元从街头起步。开店、招人、扩张，把小生意做成你的商业版图。',
+  { id:'wealth-reborn', title:'我要当首富', sub:"时代浪潮 · 经营你的商业人生", genre:'模拟经营', tags:['模拟经营','商业','人生模拟','投资'],
+    src:'games/wealth-reborn.html', cover:'covers/wealth-reborn.jpg', size:2228248, status:'ok', session:"按周经营，随时暂停", saves:"独立档案与手动存档，读档先暂停",
+    tagline:"经营门店、做时代选择，人物关系、条件托管与押注共同改变商业道路。",
     about:[
       '18 岁、3,000 元、没有公司，你的商业人生从这里开始。先靠接单或摆摊积累本金，再把摊位升级成门店，逐步进入新的街区和城市。',
       '零售、电商、物流、科技、地产与产业投资都能布局。招募店长与区域经理，分配资金和推广预算，与同行争夺市场，让旗下各处生意每周一起运转。',
@@ -370,11 +440,11 @@ const CATALOG = [
     notes:['投资价格、企业估值与交易机会均为游戏模型；经营结果随策略变化，不保证盈利或成为首富。'] },
 
   { id:'douluo', title:'斗罗·万相', sub:'十个出身 · 一条世界线', genre:'人生模拟', tags:['人生模拟','角色扮演','Roguelite','多结局'],
-    src:'games/douluo.html', cover:'covers/douluo.jpg', size:1455798, status:'ok', version:'v5', session:'一局 15–25 分钟', saves:'自动存档，跨周目保留宿命点',
+    src:'games/douluo.html', cover:'covers/douluo.jpg', size:1470019, status:'ok', version:'v5', session:'一局 15–25 分钟', saves:'自动存档，跨周目收集结局与改写记录',
     tagline:'选一个出身进入斗罗大陆，从六岁觉醒武魂过完一生。拜入史莱克、自立门户，或者走上成神之路。',
     about:[
       '选一个出身进入斗罗大陆，从六岁觉醒武魂开始过完一生。10 个原创身份共享同一条世界线：猎魂之夜，苏夜在进攻方，玉衡在被灭的宗门里，林照守在七宝城堡。',
-      '平时是几十字的短事件，原著大事和身份命运节点才展开成剧情。门槛公开，胜算藏着。改写原著要花宿命点，世界线偏移会一直留到结局。',
+      '平时是几十字的短事件，原著大事和身份命运节点才展开成剧情。门槛公开，胜算藏着。改写原著不限次数，世界线偏移会一直留到结局。',
       '人生不止一条路：可以交一枚金魂币报考史莱克，一路做到院长、创立海神阁；可以开宗立派、招兵买马，和天下争地盘；魂力走到尽头，还能选一道神位，过完九考成神。成神之后还有一战：两位邪神会联手降临，赢了大陆得救，输了被打落神界。',
       '猎魂、赌斗、拍卖得来的魂骨先进物品袋，挑部位融合；剧情里拿到的天材地宝、兵器、典籍可以炼化、参悟或祭炼，直接抬高属性上限。武魂进化到极品、神级时，所有魂环的年限跟着上涨。',
       '一生走完，会生成一份卷宗式人物画像：封号、六维雷达、性格标签、魂环颜色、三张榜单上的名次，以及你改写的世界线在一万年后长成的样子。'
@@ -392,10 +462,10 @@ const CATALOG = [
       ['海神岛·潮音岛民','凌汐','潮音螺','海神九考的旁观与协助；波赛西的献祭'],
       ['庚辛城·神匠学徒','欧冶青','熔炉','楼高殉器能否避免；三大暗器图纸的去向']
     ],
-    perks:[['原著记忆','所有先知机缘的时间、地点、原主一清二楚；关键节点显示原著结局；榜单提前一年揭晓。'],['神眷之体','体魄、精神各 +8，伤势恢复翻倍。'],['气运之子','本局额外 +2 宿命点，可以多改一次命。']] },
+    perks:[['原著记忆','所有先知机缘的时间、地点、原主一清二楚；关键节点显示原著结局；榜单提前一年揭晓。'],['神眷之体','体魄、精神各 +8，伤势恢复翻倍。'],['气运之子','气运提升 15，奇遇与传闻更容易找上门。']] },
 
   { id:'yexiao', title:'重生之我是夜宵摊摊主', sub:'夜市经营 · 重生复仇', genre:'模拟经营', tags:['模拟经营','策略','实时经营','重生'],
-    src:'games/yexiao.html', cover:'covers/yexiao.jpg', size:203928, status:'ok', session:'一晚约 1–2 分钟', saves:'自动存档，可回到当晚开市前重来',
+    src:'games/yexiao.html', cover:'covers/yexiao.jpg', size:213212, status:'ok', session:'一晚约 1–2 分钟', saves:'自动存档，可回到当晚开市前重来',
     tagline:'上一世被对面夜市挤到收摊。重生回摆摊第一晚，这一次把整条街做成城市夜经济名片。',
     about:[
       '上一世，你在这条街摆了十年夜宵摊。对面的夜市抢走了客人，城管的罚单、彪哥的「管理费」一笔笔掏空了本钱，最后在一个雨夜收了摊。重生回到摆摊第一晚，你知道接下来会发生什么。',
@@ -415,7 +485,7 @@ const CATALOG = [
     loop:['选出身：满洲大姓、官宦之女、小吏之女，初封位分不同','每季先处理事件，再用行动经营圣宠、才貌和人情','左栏宫册记下画像、位分、指标与人情，起居注记下你做过的每件事','死局整页化为内务府档册，收进生死簿'] },
 
   { id:'nba', title:'NBA-经理', sub:'掌控阵容 · 打造冠军球队', genre:'体育经理', tags:['体育经理','篮球','策略','长线经营'],
-    src:'games/nba.html', cover:'covers/nba-manager.jpg', size:495292, status:'ok', session:'按赛季推进', saves:'8 个存档位',
+    src:'games/nba.html', cover:'covers/nba-manager.jpg', size:556737, status:'ok', session:'按赛季推进', saves:'8 个存档位',
     tagline:'从交易桌到季后赛场边，选秀、签约、轮换与战术由你决定，把一套阵容打磨成争冠球队。',
     about:[
       '接手一支 NBA 球队，规划核心阵容与替补深度。通过交易、选秀、续约和自由市场补强，在工资帽约束下平衡即战力与未来。',
@@ -425,7 +495,7 @@ const CATALOG = [
     loop:['组建阵容：签约、交易、安排轮换','常规赛：逐场模拟，看球员特质如何影响比赛','交易截止日与选秀：在工资帽内补强，押注未来','季后赛：大心脏球员在关键时刻接管比赛'] },
 
   { id:'cba', title:'CBA-经理', sub:'统筹内外援 · 带队冲击冠军', genre:'体育经理', tags:['体育经理','篮球','策略','长线经营'],
-    src:'games/cba.html', cover:'covers/cba-manager.jpg', size:592218, status:'ok', session:'按赛季推进', saves:'8 个存档位',
+    src:'games/cba.html', cover:'covers/cba-manager.jpg', size:606245, status:'ok', session:'按赛季推进', saves:'8 个存档位',
     tagline:'接手一支 CBA 球队，培养本土核心、挑选外援、安排轮换，在预算与赛程之间找到自己的争冠路线。',
     about:[
       '从二十支 CBA 球队中选择起点，同时承担总经理与主教练的工作。管理交易、选秀、续约和自由市场，决定围绕谁建立阵容。',
@@ -435,7 +505,7 @@ const CATALOG = [
     loop:['选一支球队：争冠队即战力强但薪资紧，重建队有工资空间和更高的选秀顺位','休赛期：交易、续约、逛自由市场，在预算内请外援','常规赛：安排首发轮换、战术和外援上场节次，逐场模拟','季后赛按 3-5-5-7 一路打到总决赛'] },
 
   { id:'lol', title:'lol电竞经理', sub:'电竞战队经理', genre:'电竞经理', tags:['电竞经理','体育','策略','长线经营'],
-    src:'games/lol.html', cover:'covers/lol.jpg', size:236280, status:'ok', session:'按赛季推进', saves:'自动存档',
+    src:'games/lol.html', cover:'covers/lol.jpg', size:238809, status:'ok', session:'按赛季推进', saves:'自动存档',
     tagline:'成为一支英雄联盟职业战队的经理，亲手 BP、在关键节点拍板，从 2027 赛季打到全球总决赛。',
     about:[
       '成为 LPL、LCK 等赛区一支战队的经理，接续真实的 2026 赛季结果，从 2027 赛季开打。',
@@ -446,7 +516,7 @@ const CATALOG = [
     loop:['选择赛区和战队，接手 2027 赛季','管理阵容：转会、交易、薪资、外援名额','比赛日：20 手 BP，再在对线、刷龙、团战等关键节点拍板','季后赛、MSI 与全球总决赛：老将和大心脏选手的舞台'] },
 
   { id:'yike', title:'一克之差', sub:'药铺抓药', genre:'益智解谜', tags:['益智解谜','关卡','短局'],
-    src:'games/yike.html', cover:'covers/yike.jpg', size:37940, status:'ok', session:'一关几分钟', saves:'自动记录关卡与最好成绩',
+    src:'games/yike.html', cover:'covers/yike.jpg', size:43397, status:'ok', session:'一关几分钟', saves:'自动记录关卡与最好成绩',
     tagline:'药铺抓药，一克都不能差。把药包放上戥秤，右盘正好等于砝码才算称完。',
     about:[
       '药铺抓药，一克都不能差。三台戥秤各有一张方子，把药柜上的药包放上去，右盘总重正好等于左边砝码，秤就平了，换下一张方子。',
@@ -455,16 +525,72 @@ const CATALOG = [
     ],
     loop:['点亮着的药包，它会放上选中的那台秤；点秤可以换','右盘正好等于砝码，秤就平了','超重翻盘，药包掉进暂存台；暂存台满了就输','用撤回、透视、换方子渡过难关'] },
 
-  { id:'entertainment-career', title:'杀穿娱乐圈', sub:'作品开路 · 从新人到文娱主场', genre:'演艺经营', tags:['模拟经营','演艺生涯','剧情','策略'],
-    src:'games/entertainment-career.html', cover:'covers/entertainment-career.jpg', size:698929, status:'ok', session:'按天安排创作与经营', saves:'自动存档，感言草稿和交锋记录保留',
-    tagline:'带着地球的文娱记忆穿越平行世界，从第一部作品起步。制作、发行、比赛与舆论，每一步都由你决定。',
+  { id:'entertainment-career', title:'杀穿娱乐圈', sub:"五章人生 · 作品与选择塑造星途", genre:'演艺经营', tags:['模拟经营','演艺生涯','剧情','策略'],
+    src:'games/entertainment-career.html', cover:'covers/entertainment-career.jpg', size:223918, status:'ok', session:"每月4周、每周3个行程", saves:"自动存档，支持旧版继承或新开",
+    tagline:"创作、发行与热搜交锋；经营工作室，在五章故事中走向属于你的结局。",
     about:[
       '选择音乐、文学或影视作为起点，在陌生的平行世界重新开始。熟悉的灵感只是起点：挑选作品、适应当地文化、训练能力，把记忆打磨成真正能够发行的作品。',
-      '按天安排创作与经营，管理资金和精力。在同一工作台选作品、发行和发布感言，查看双方互动与舆论倾向。积累作品成绩和人脉，组建工作室，在新机会与合约条件之间做出取舍。',
+      '按月规划四周行程，管理资金、精力与粉丝。制作作品、选择发行策略，在热搜交锋中回应对手，培养工作室新人。',
       '经营社交平台、回应舆论、参加演唱比赛，逐步探索影视、综艺与海外市场。关注粉丝、口碑和作品收益，让每一次选择写进你的演艺生涯。'
     ],
-    loop:['选择创作起点，了解资源、能力与当前机会','挑选作品，查看费用与耗时，完成制作发行','在同页创作、发行和发感言，兼顾收入、训练与宣传','查看作品成绩、处理剧情和舆论，拓展工作室与海外舞台'] }
-
+    loop:['选择创作起点，了解资源、能力与当前机会','挑选作品，查看费用与耗时，完成制作发行','安排每周行程、制作发行与热搜回应，兼顾收入和声誉','查看作品成绩、处理剧情和舆论，拓展工作室与海外舞台'] }
+,
+{
+    id: "football-career",
+    title: "足球巨星",
+    sub: "15岁启程 · 向欧洲进发",
+    genre: "体育模拟",
+    tags: [
+        "足球",
+        "模拟经营",
+        "球员生涯"
+    ],
+    src: 'games/football-career.html',
+    cover: "covers/football-career.jpg",
+    size: 407877,
+    status: "ok",
+    session: "按比赛与赛季推进",
+    saves: "自动存档，可继续生涯",
+    tagline: "从中超出发，训练、比赛与海外锻炼塑造你的职业道路。",
+    about: [
+        "涵盖中超、欧洲五大联赛、葡超、荷甲和土超，采用紧凑的足球经理式信息界面。",
+        "观看二维比赛，安排赛前角色与阵容；球员成长、人气与海外锻炼共同影响长期发展。"
+    ],
+    loop: [
+        "选择球员或俱乐部，确定成长与经营方向",
+        "安排训练、阵容与赛前战术",
+        "进入比赛，观察比分与关键事件",
+        "复盘成绩与人气，推进下一轮"
+    ]
+},
+{
+    id: "football-manager",
+    title: "绿茵经理",
+    sub: "执掌球队 · 培养下一代巨星",
+    genre: "体育模拟",
+    tags: [
+        "足球",
+        "模拟经营",
+        "球队经理"
+    ],
+    src: 'games/football-manager.html',
+    cover: "covers/football-manager.jpg",
+    size: 367381,
+    status: "ok",
+    session: "按比赛与赛季推进",
+    saves: "自动存档，可继续生涯",
+    tagline: "安排阵容与战术，培养新星，在多国联赛中经营自己的俱乐部。",
+    about: [
+        "涵盖中超、欧洲五大联赛、葡超、荷甲和土超，采用紧凑的足球经理式信息界面。",
+        "观看二维比赛，安排赛前角色与阵容；球员成长、人气与海外锻炼共同影响长期发展。"
+    ],
+    loop: [
+        "选择球员或俱乐部，确定成长与经营方向",
+        "安排训练、阵容与赛前战术",
+        "进入比赛，观察比分与关键事件",
+        "复盘成绩与人气，推进下一轮"
+    ]
+}
 
 ];
 
