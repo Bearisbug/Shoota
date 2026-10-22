@@ -793,6 +793,7 @@
 | RUN-059 | 2026-10-22 | 本地 | 接手前CBA | AI(Node) | 局部(TC-061) | 通过 0/1 · 失败 1 |
 | RUN-060 | 2026-10-22 | 本地 | 2026-10-22接手版 | AI(Chrome、Node) | 局部(TC-060、TC-061、TC-062) | 通过 3/3 |
 | RUN-063 | 2026-10-22 | 本地 | 全部最终试玩整合版 | AI(Chrome) | 局部(TC-063) | 通过 1/1 |
+| RUN-064 | 2026-10-22 | 预发 | 6c945db 测试站 | AI(Chrome、HTTP) | 线上冒烟(TC-063) | 通过 1/1 |
 | RUN-061 | 2026-10-22 | 本地 | 新足球目录格式修复前 | AI(Node) | 局部(TC-064) | 通过 0/1 · 失败 1 |
 | RUN-062 | 2026-10-22 | 本地 | 新足球目录格式修复后 | AI(Node) | 复测(RUN-061:TC-064) | 通过 1/1 |
 | RUN-001 | 2026-10-20 | 本地 | 7bb337f 加工作区未提交的统计与看板改动 | AI(Playwright + Edge 无头、curl) | 全量至 TC-016 | 通过 15/16 · 失败 1 |
@@ -1137,3 +1138,5 @@ RUN-005 至 RUN-007 由 Codex 按旧格式登记，原样保留。当时的用�
 RUN-062 证据：执行 `node scripts/check-catalog-titles.mjs`，实际调用Worker名称读取函数，15个标识均返回正确中文名。结果见 `docs/test-runs/RUN-062/catalog-after.log`。
 
 RUN-063 证据：`docs/test-runs/RUN-063/result.json` 记录15款游戏各在390与1440宽度打开并点击前台按钮，共30次无脚本错误、无页面横向溢出；`store-result.json` 记录15款目录与两款足球的搜索、详情入口。截图同目录。所有游戏以独立浏览器环境验证，未读写玩家原有存档。
+
+RUN-064 证据：测试站自动部署 https://github.com/Bearisbug/changju/actions/runs/39803578510 成功；`docs/test-runs/RUN-064/online-hashes.json` 记录首页及全部15款游戏与本地产物SHA256一致。`result.json` 记录线上15款×手机/桌面30次入口检查，无脚本错误和页面横向溢出；`store-result.json` 记录15款目录及两款足球搜索/详情。采用独立浏览器上下文并屏蔽统计请求，不读取玩家存档。正式站未发布。

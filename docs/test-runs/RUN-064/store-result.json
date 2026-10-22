@@ -1,0 +1,16 @@
+{
+  "games": 15,
+  "results": [
+    {
+      "name": "足球巨星",
+      "id": "football-career",
+      "searchAndDetails": true
+    },
+    {
+      "name": "绿茵经理",
+      "id": "football-manager",
+      "searchAndDetails": true
+    }
+  ],
+  "errors": []
+}

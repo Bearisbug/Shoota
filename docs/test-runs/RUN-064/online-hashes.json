@@ -1,0 +1,86 @@
+{
+  "site": "https://test.shoota.ai",
+  "verifiedAt": "2026-10-22T15:20:20.888Z",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 114213,
+      "sha256": "aa5071764c33277157ffb6b377004147d3ead82a024a924ef738641429fde685"
+    },
+    {
+      "path": "games/spud-dawn.html",
+      "bytes": 3080669,
+      "sha256": "497631f4e272baeac2e21d94fe50b77b3a9cee52c98e799e3dd75e2c4064777b"
+    },
+    {
+      "path": "games/f1-driver.html",
+      "bytes": 630271,
+      "sha256": "6445ad20d4cef6845f836c3fd7b905b623c084c861bbf345f9c8967d4b554927"
+    },
+    {
+      "path": "games/f1.html",
+      "bytes": 515424,
+      "sha256": "21c53a1ebb7f9e7437192f0eed48c61910622d7ea0afd472f94ffb9727255bbe"
+    },
+    {
+      "path": "games/basketball-star.html",
+      "bytes": 518286,
+      "sha256": "14aeb620a34b87ae4175a7b6620f7df6d74bd42c8aa962fbe7f1746d2d048266"
+    },
+    {
+      "path": "games/wealth-reborn.html",
+      "bytes": 2248896,
+      "sha256": "0766338fc28b0bde4409de38c85bb39d4e43ac3b430532c026c46303e7ea1256"
+    },
+    {
+      "path": "games/douluo.html",
+      "bytes": 1470019,
+      "sha256": "0a19cc3a57fb1883a48510f4efb90fc28c17bb6fc329d50591945978e7840625"
+    },
+    {
+      "path": "games/yexiao.html",
+      "bytes": 213212,
+      "sha256": "67fc7672579525f585391582a21858b670ac47bedcf94792e91fd11d3f1e10cf"
+    },
+    {
+      "path": "games/hougong.html",
+      "bytes": 284908,
+      "sha256": "ed0ba05e668c1c2e2bf2fe55ccdb0515de49d571025c65fa01262dc6a5fb0983"
+    },
+    {
+      "path": "games/nba.html",
+      "bytes": 556582,
+      "sha256": "16642ba0528868edb689091fba7b258f3576adf0da6adbe1ffede60e1c3d66b5"
+    },
+    {
+      "path": "games/cba.html",
+      "bytes": 606245,
+      "sha256": "65a82c43b8f6b7d38534421d0b62afdbbb060dbea614d84e521765690f77c8c3"
+    },
+    {
+      "path": "games/lol.html",
+      "bytes": 238809,
+      "sha256": "97ef85f52ed8c35ef7c50d8e305e008c956a495e468425427c929f480e5e5a9c"
+    },
+    {
+      "path": "games/yike.html",
+      "bytes": 43397,
+      "sha256": "1aca197be36024fba21fdae9bacd19b9867866e178c3e87eed9251de9a2eda10"
+    },
+    {
+      "path": "games/entertainment-career.html",
+      "bytes": 239206,
+      "sha256": "0ac825569bd9a6edf26c041ae637f06930051c7bdb2c8d505e653146c2c259b1"
+    },
+    {
+      "path": "games/football-career.html",
+      "bytes": 412468,
+      "sha256": "b8b5f5cb6b086779e0639d37c981ae8d9b7c6db54878110aaa25a9df6871909d"
+    },
+    {
+      "path": "games/football-manager.html",
+      "bytes": 371856,
+      "sha256": "96500e7b368d6827dc12db6f4f1b9864c78910d48883d9038bbb6b35bf3abf2b"
+    }
+  ]
+}
