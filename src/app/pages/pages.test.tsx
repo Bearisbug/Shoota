@@ -173,7 +173,7 @@ describe('游戏库 PAGE-LIBRARY（TC-STORE-007、TC-CLOUD-009、TC-CLOUD-011）
   });
 });
 
-describe('存档 PAGE-BACKUP（TC-CLOUD-002、TC-CLOUD-012、TC-CLOUD-014）', () => {
+describe('存档 PAGE-BACKUP（TC-CLOUD-002、TC-CLOUD-012、TC-CLOUD-014、TC-CLOUD-022）', () => {
   it('没开通：云存档卡写会自动开通，说明用旧版，备份卡先整理，恢复卡逐字沿用', () => {
     const h = render(<BackupPage />);
     const t = text(h);
@@ -202,6 +202,13 @@ describe('存档 PAGE-BACKUP（TC-CLOUD-002、TC-CLOUD-012、TC-CLOUD-014）', (
     expect(t).toContain(copy.cloud.enterCode);
     expect(t).toContain(copy.cloud.stopped);
     expect(t).toContain(`后宫生死簿 ${copy.cloud.tooBig}`);
+  });
+
+  it('云存档卡标题下面一行跟着状态：没开通与暂停同步时写存在这台设备，在同步时写同步到云端（TC-CLOUD-022）', () => {
+    const sub = (o: MockOptions) => /<p class="ui-card-subtitle">(.*?)<\/p>/.exec(render(<BackupPage />, o))?.[1];
+    expect(sub({})).toBe(copy.cloud.localOnly);
+    expect(sub({ snapshot: { cloud: cloudOn() } })).toBe(copy.cloud.synced);
+    expect(sub({ snapshot: { cloud: cloudOn({ stopped: true }) } })).toBe(copy.cloud.localOnly);
   });
 });
 

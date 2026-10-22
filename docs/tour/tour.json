@@ -1,0 +1,10 @@
+{
+  "repos": {
+    "changju": "."
+  },
+  "devices": {
+    "手机": "Microsoft Edge 无头 393x852@2，iPhone Safari UA 与触屏；横竖屏切换走查第 1 步起 852x393@2",
+    "电脑": "Microsoft Edge 无头 1440x900@1"
+  },
+  "seed": "tour-1"
+}

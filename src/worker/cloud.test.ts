@@ -145,6 +145,26 @@ describe('API-CLOUD-003 POST /api/cloud/sync', () => {
     expect(await cloudRow()).toMatchObject({ rev: 2, body: '{"lvl":"2"}', beat_rev: null });
   });
 
+  test('内容相同、秒数更多：只更新秒数、最近游玩与进度文字，不加版本号；10 秒内写过回 too-soon', async () => {
+    const { id } = await openCloud();
+    await sync(id, { push: [game()] });
+    const more = game({ base: 1, s: 90, last: 2000, status: '第 1 关 · 第 3 次', at: 2000 });
+    expect((await sync(id, { push: [more], have: { yike: 1 } })).results).toEqual([{ g: 'yike', r: 'too-soon', rev: 1 }]);
+    expect(await cloudRow()).toMatchObject({ rev: 1, seconds: 60 });
+
+    await age();
+    const res = await sync(id, { push: [more], have: { yike: 1 } });
+    expect(res.results).toEqual([{ g: 'yike', r: 'ok', rev: 1 }]);
+    expect(res.pull).toEqual([]);
+    expect(await cloudRow()).toMatchObject({ rev: 1, body: '{"lvl":"1"}', seconds: 90, last_played: 2000, status: '第 1 关 · 第 3 次', saved_at: 1000 });
+
+    // 秒数不比云端多：照旧不写
+    await age();
+    const writtenAt = (await cloudRow()).updated_at;
+    expect((await sync(id, { push: [game({ base: 1, s: 80 })], have: { yike: 1 } })).results).toEqual([{ g: 'yike', r: 'ok', rev: 1 }]);
+    expect(await cloudRow()).toMatchObject({ rev: 1, seconds: 90, updated_at: writtenAt });
+  });
+
   describe('RULE-CLOUD-001 冲突', () => {
     // 云端一克之差版本 2：累计 60 秒，改档时间 1000
     async function atRev2() {

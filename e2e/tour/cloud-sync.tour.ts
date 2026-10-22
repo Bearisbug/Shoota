@@ -35,7 +35,7 @@ test('TC-CLOUD-019 云同步走查', async ({ open, request }) => {
     await expectDetail(page, 'yike');
     await page.goto('/#backup');
     const last = page.getByText(`${copy.cloud.lastSync} 刚刚`, { exact: true });
-    await expect(page.getByText(C.match(/.{4}/g)!.join('-'), { exact: true })).toBeVisible();
+    await expect(page.getByRole('img', { name: C.match(/.{4}/g)!.join('-'), exact: true })).toBeVisible();
     await expect(last).toBeVisible();
     await expect(page.getByRole('button', { name: copy.cloud.enterCode, exact: true })).toBeVisible();
     // 存档码里带导出时刻，每次运行内容与长度都不同

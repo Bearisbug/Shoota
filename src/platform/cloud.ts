@@ -77,6 +77,7 @@ export async function createAccount(st: CloudLocalState): Promise<{ ok: true; st
 /* ───────── FLOW-CLOUD-SYNC S1：找出改过的游戏 ───────── */
 export interface DirtyGame { g: string; hash: string; item: CloudGamePush; size: number } // size：这一项序列化后占同步正文的字节数
 
+// 存档内容变过，或只多了游玩秒数，都算改过：云端秒数落后会让 RULE-CLOUD-001 判错。
 // 没有进度的不推；这次读档失败过的不推（RULE-LAUNCH-001）；按上传编码后的正文超过 1 MB 的不推，记进 tooBig（RULE-CLOUD-002）
 export async function dirtyGames(st: CloudLocalState, saves: Record<string, GameSave>): Promise<{ dirty: DirtyGame[]; tooBig: string[] }> {
   const dirty: DirtyGame[] = [], tooBig: string[] = [];
@@ -84,7 +85,7 @@ export async function dirtyGames(st: CloudLocalState, saves: Record<string, Game
     const ls = saves[g];
     if (!ls || !Object.keys(ls).length || readFailedThisTime(g)) continue;
     const json = JSON.stringify(ls), hash = digest(json), prev = st.games[g], force = prev?.hash === FORCE_PUSH;
-    if (!force && prev?.hash === hash) continue;
+    if (!force && prev?.hash === hash && int(peek(g)?.seconds) <= int(prev.s)) continue;
     const item = await toPush(g, json, prev?.rev ?? 0, force);
     if (utf8Bytes(item.body) > CLOUD.gameMaxBytes) { tooBig.push(g); continue; }
     dirty.push({ g, hash, item, size:utf8Bytes(JSON.stringify(item)) });
@@ -146,7 +147,7 @@ export async function applyPull(st: CloudLocalState, row: CloudGameRow, o: { los
     let cur: GameSave | undefined;
     try { cur = (await readSaves([row.g]))[row.g]; } catch (e) { return 'skipped'; }
     const curJson = cur && Object.keys(cur).length ? JSON.stringify(cur) : null, prev = st.games[row.g];
-    const mark = () => { st.games[row.g] = { rev:row.rev, hash:got.hash, at:Date.now() }; };
+    const mark = () => { st.games[row.g] = { rev:row.rev, hash:got.hash, s:int(row.s), at:Date.now() }; };
     if (curJson !== null && digest(curJson) === got.hash) { mark(); return 'same'; }
     const dirty = curJson !== null && prev?.hash !== digest(curJson);
     if (dirty && !o.lost) return 'skipped'; // 本机又改过：下次推送再按规则比一次
@@ -202,7 +203,7 @@ async function pushPull(st: CloudLocalState, o: { keepalive: boolean; quiet: boo
     const res = r.data, now = Date.now(), lost = new Set<string>(), sent = new Map(batch.map(b => [b.g, b]));
     for (const x of res.results || []) {
       const d = sent.get(x.g); if (!d) continue;
-      if (x.r === 'ok') st.games[x.g] = { rev:x.rev, hash:d.hash, at:now };
+      if (x.r === 'ok') st.games[x.g] = { rev:x.rev, hash:d.hash, s:d.item.s, at:now };
       else if (x.r === 'kept-cloud') lost.add(x.g);
       else if (x.r === 'too-big' && !st.tooBig.includes(x.g)) st.tooBig.push(x.g);
       // too-soon：同一款 10 秒内写过，下次再推

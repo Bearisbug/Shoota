@@ -39,7 +39,7 @@ export async function restoreUndo(gid: string): Promise<boolean> {
     await putMany([[saveKey(gid, player()), v.save], [undoKey(gid), undefined]]);
     if (v.stat) { const s = stat(gid)!; Object.assign(s, v.stat, { ach:{ ...v.stat.ach, ...s.ach } }); persist(); }
     const st = readCloud();
-    if (st) { st.games[gid] = { rev:st.games[gid]?.rev ?? 0, hash:FORCE_PUSH, at:Date.now() }; writeCloud(st); }
+    if (st) { st.games[gid] = { rev:st.games[gid]?.rev ?? 0, hash:FORCE_PUSH, s:st.games[gid]?.s ?? 0, at:Date.now() }; writeCloud(st); }
     return true;
   }));
   if (done) requestSync();

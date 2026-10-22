@@ -55,6 +55,7 @@ export interface SavePackV1 {
 export interface CloudGameSync {
   rev: number; // 上次和云端对齐时的版本号
   hash: string; // 上次对齐时存档内容的摘要，用来判断本机改过没有
+  s: number; // 上次对齐时的游玩秒数：本机累计秒数比它多也算改过（FLOW-CLOUD-SYNC S1）
   at: number; // 上次对齐时间，Unix 毫秒
 }
 

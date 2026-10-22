@@ -62,7 +62,13 @@ export class FakeCloud {
       const text = p.enc === 'gz64' ? new TextDecoder().decode(await gunzip(fromBase64(p.body))) : p.body;
       const cur = a.games.get(p.g), rev = cur?.rev ?? 0;
       if (utf8Bytes(p.body) > 1_048_576) { results.push({ g:p.g, r:'too-big', rev }); continue; } // 按上传编码后的正文算（RULE-CLOUD-002）
-      if (cur && cur.text === text) { results.push({ g:p.g, r:'ok', rev }); continue; } // 同一份内容重推：不加版本号
+      if (cur && cur.text === text) { // 同一份内容重推：不加版本号；秒数更多时只更新秒数、最近游玩与进度文字
+        if (p.s > cur.s) {
+          if (now - cur.updated < this.tooSoonMs) { results.push({ g:p.g, r:'too-soon', rev }); continue; }
+          Object.assign(cur, { s:p.s, last:p.last, status:p.status, updated:now });
+        }
+        results.push({ g:p.g, r:'ok', rev }); continue;
+      }
       const win = p.force || p.base === rev || !cur || p.s > cur.s || (p.s === cur.s && p.at > cur.at); // RULE-CLOUD-001
       if (!win) { results.push({ g:p.g, r:'kept-cloud', rev }); continue; }
       if (cur && now - cur.updated < this.tooSoonMs) { results.push({ g:p.g, r:'too-soon', rev }); continue; }

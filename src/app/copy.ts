@@ -149,7 +149,8 @@ export const copy = {
   // 云存档卡（§13 存档页）与商店顶部的开通提示（FLOW-CLOUD-FIRST S4）
   cloud: {
     cardTitle: '云存档',
-    localOnly: '存档自动保存在这台设备', // 旧版账号菜单里的说明，移到存档页
+    localOnly: '存档自动保存在这台设备', // 旧版账号菜单里的说明，移到存档页；没开通或暂停同步时用
+    synced: '存档自动保存在这台设备并同步到云端', // 开通后在同步时
     notYet: '玩过之后会自动开通',
     codeLabel: '恢复码',
     copyCode: '复制恢复码',

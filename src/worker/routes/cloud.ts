@@ -162,7 +162,15 @@ async function pushGame(db: Db, sid: string, p: Push, now: number): Promise<Clou
       continue;
     }
     rev = cur.rev;
-    if (cur.same) return { g: p.g, r: 'ok', rev };
+    if (cur.same) {
+      // 内容相同、推上来的秒数更多：只更新秒数、最近游玩与进度文字，不加版本号；云端秒数落后会让 RULE-CLOUD-001 判错
+      if (p.s <= cur.seconds) return { g: p.g, r: 'ok', rev };
+      if (now - cur.updatedAt < CLOUD.sameGameGapMs) return { g: p.g, r: 'too-soon', rev };
+      const n = (await db.update(cloudGames).set({ seconds: p.s, lastPlayed: p.last, status: p.status, updatedAt: now })
+        .where(and(key, eq(cloudGames.rev, rev), same, lt(cloudGames.seconds, p.s), lte(cloudGames.updatedAt, now - CLOUD.sameGameGapMs))).run()).meta.changes;
+      if (n) return { g: p.g, r: 'ok', rev };
+      continue;
+    }
     const base = !p.force && p.base === rev;
     const wins = p.force || base || p.s > cur.seconds || (p.s === cur.seconds && p.at > cur.savedAt);
     if (!wins) return { g: p.g, r: 'kept-cloud', rev };

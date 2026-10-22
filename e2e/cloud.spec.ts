@@ -810,3 +810,33 @@ test('TC-CLOUD-017 时长相同时留改档时间更晚的那份', async ({ requ
     expect((await push(5, { base: 4 }, false)).res).toMatchObject({ r: 'too-soon', rev: 4 });
   });
 });
+
+test('TC-CLOUD-022 存档页云存档卡的副标题跟着云存档状态', async ({ page }) => {
+  test.setTimeout(3 * 60_000);
+  clearTables(...CLOUD_TABLES);
+  const subtitle = page.getByRole('region', { name: copy.cloud.cardTitle, exact: true }).locator('header p');
+
+  await test.step('1 #backup：标题下面写「存档自动保存在这台设备」，卡里是「玩过之后会自动开通」', async () => {
+    await page.goto('/#backup');
+    await expect(subtitle).toHaveText(copy.cloud.localOnly);
+    await expect(page.getByText(copy.cloud.notYet, { exact: true })).toBeVisible();
+  });
+
+  await test.step('2 开通后回到 #backup：标题下面写「存档自动保存在这台设备并同步到云端」', async () => {
+    await openedCloud(page);
+    await page.goto('/#backup');
+    await expect(subtitle).toHaveText(copy.cloud.synced);
+  });
+
+  await test.step('3 同步回 401 cloud-auth 后：卡里写「云存档暂停同步了…」，标题下面换回「存档自动保存在这台设备」', async () => {
+    await page.route('**/api/cloud/sync', r => r.fulfill({
+      status: 401, contentType: 'application/problem+json',
+      body: JSON.stringify({ type: '/errors/cloud-auth', title: 'cloud auth', status: 401, instance: '/api/cloud/sync' }),
+    }));
+    const calls = recordCloud(page), t = Date.now();
+    await page.reload();
+    await nextSync(calls, t, c => c.status === 401);
+    await expect(page.getByText(copy.cloud.stopped, { exact: true })).toBeVisible();
+    await expect(subtitle).toHaveText(copy.cloud.localOnly);
+  });
+});

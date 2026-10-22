@@ -44,7 +44,7 @@ export const cloudAccount = (saveId: string) =>
 export function localCloud(saveId: string, code: string, games: Record<string, { rev: number; save?: GameSave; hash?: string }> = {}): CloudLocalState {
   return {
     v: 1, saveId, code, meta: { rev: 0, hash: '' }, lastSyncAt: 0, tooBig: [],
-    games: Object.fromEntries(Object.entries(games).map(([g, x]) => [g, { rev: x.rev, hash: x.hash ?? (x.save ? saveHash(x.save) : ''), at: Date.now() }])),
+    games: Object.fromEntries(Object.entries(games).map(([g, x]) => [g, { rev: x.rev, hash: x.hash ?? (x.save ? saveHash(x.save) : ''), s: 0, at: Date.now() }])),
   };
 }
 

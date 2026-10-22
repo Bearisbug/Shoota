@@ -56,7 +56,7 @@ function usePacked(): Packed {
   return packed;
 }
 
-// 云存档卡（§13 存档页）：没开通时说明会自动开通；开通后给四段恢复码、复制、上次同步与输入恢复码入口
+// 云存档卡（§13 存档页）：没开通时说明会自动开通；开通后给四段恢复码、复制、上次同步与输入恢复码入口；副标题跟着云存档状态
 function CloudCard({ cloud }: { cloud: CloudView | null }) {
   const { openRecover } = useAppUi();
   const toast = useAppToast();
@@ -68,7 +68,7 @@ function CloudCard({ cloud }: { cloud: CloudView | null }) {
   };
   const tooBig = cloud ? cloud.tooBig.flatMap(id => gameById(id)?.title ?? []) : [];
   return (
-    <Card title={C.cardTitle} subtitle={C.localOnly}>
+    <Card title={C.cardTitle} subtitle={cloud && !cloud.stopped ? C.synced : C.localOnly}>
       <div className="app-cloud">
         {cloud ? (
           <>

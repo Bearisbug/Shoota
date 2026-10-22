@@ -1,0 +1,34 @@
+{
+  "stats": {
+    "startTime": "2026-10-22T14:32:21.016Z",
+    "duration": 24180.856,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "TC-CLOUD-022 存档页云存档卡的副标题跟着云存档状态",
+      "file": "cloud.spec.ts",
+      "project": "desktop",
+      "status": "failed",
+      "durationMs": 13026,
+      "startTime": "2026-10-22T14:32:21.372Z",
+      "steps": [
+        {
+          "title": "1 #backup：标题下面写「存档自动保存在这台设备」，卡里是「玩过之后会自动开通」",
+          "ms": 115
+        },
+        {
+          "title": "2 开通后回到 #backup：标题下面写「存档自动保存在这台设备并同步到云端」",
+          "ms": 10807,
+          "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByRole('region', { name: '云存档', exact: true }).locator('header p')\nExpected: \"存档自动保存在这台设备并同步到云端\"\nReceived: \"存档自动保存在这台设备\"\nTimeout:  10000ms\n\nCall log:\n  - Expect \"toHaveText\" getByRole('region', { name: '云存档', exact: true }).locator('header p') with timeout 10000ms\n  - waiting for getByRole('region', { name: '云存档', exact: true }).locator('header p')\n    24 × locator resolved to <p class=\"ui-card-subtitle\">存档自动保存在这台设备</p>\n       - unexpected value \"存档自动保存在这台设备\""
+        }
+      ],
+      "errors": [
+        "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByRole('region', { name: '云存档', exact: true }).locator('header p')\nExpected: \"存档自动保存在这台设备并同步到云端\"\nReceived: \"存档自动保存在这台设备\"\nTimeout:  10000ms\n\nCall log:\n  - Expect \"toHaveText\" getByRole('region', { name: '云存档', exact: true }).locator('header p') with timeout 10000ms\n  - waiting for getByRole('region', { name: '云存档', exact: true }).locator('header p')\n    24 × locator resolved to <p class=\"ui-card-subtitle\">存档自动保存在这台设备</p>\n       - unexpected value \"存档自动保存在这台设备\"\n\n\n  827 |     await openedCloud(page);\n  828 |     await page.goto('/#backup');\n> 829 |     await expect(subtitle).toHaveText(SYNCED);\n      |                            ^\n  830 |   });\n  831 |"
+      ]
+    }
+  ]
+}

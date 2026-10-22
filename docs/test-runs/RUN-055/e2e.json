@@ -1,0 +1,88 @@
+{
+  "stats": {
+    "startTime": "2026-10-22T14:58:34.618Z",
+    "duration": 44991.565,
+    "expected": 2,
+    "skipped": 9,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "TC-CLOUD-002 存档页的云存档卡与三处说明",
+      "file": "cloud.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 3948,
+      "startTime": "2026-10-22T14:58:46.932Z",
+      "steps": [
+        {
+          "title": "1 #backup：「玩过之后会自动开通」，说明是旧版文案",
+          "ms": 99
+        },
+        {
+          "title": "2 开通后回到 #backup：四段恢复码、复制按钮、上次同步、输入恢复码入口；说明换成云存档文案",
+          "ms": 724
+        },
+        {
+          "title": "3 点「复制恢复码」：提示已复制，剪贴板里是带连字符的四段",
+          "ms": 40
+        },
+        {
+          "title": "4 商店底部说明带：「进度自动存到云端」与正文",
+          "ms": 73
+        },
+        {
+          "title": "5 游戏库点一克之差，「关于存档」换成云存档文案",
+          "ms": 49
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-CLOUD-005 同一份内容重推不加版本号",
+      "file": "cloud.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 17977,
+      "startTime": "2026-10-22T14:58:51.133Z",
+      "steps": [
+        {
+          "title": "1 同一份内容、base 3 再推：200，yike ok、rev 3",
+          "ms": 12
+        },
+        {
+          "title": "2 cloud_games：rev 3，updated_at 与第 1 步之前相同",
+          "ms": 2401
+        },
+        {
+          "title": "3 新浏览器写 S、C（yike 版本 2）与版本 3 的内容，打开商店：70 秒内拉回版本 3",
+          "ms": 244
+        },
+        {
+          "title": "4 撤销槽为空，没有「换成了另一台设备上玩得更久的进度」的提示",
+          "ms": 41
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-PLAY-018 方向与偏好不符时提示旋转",
+      "file": "immersive.spec.ts",
+      "project": "landscape",
+      "status": "failed",
+      "durationMs": 621,
+      "startTime": "2026-10-22T14:58:35.162Z",
+      "steps": [
+        {
+          "title": "1 横屏打开一克之差：游戏区顶部居中一条「竖过手机玩更舒服」，顶边离游戏区顶边 8 像素，有「关闭」",
+          "ms": 305,
+          "error": "Error: expect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 1\nReceived:    43.2072639465332"
+        }
+      ],
+      "errors": [
+        "Error: expect(received).toBeLessThanOrEqual(expected)\n\nExpected: <= 1\nReceived:    43.2072639465332\n\n  386 |       const card = await box(pg.getByRole('status').filter({ has: hint }));\n  387 |       const area = await box(gameFrame(pg, 'yike'));\n> 388 |       expect(Math.abs(card.y - area.y - 8)).toBeLessThanOrEqual(1);\n      |                                             ^\n  389 |       expect(Math.abs(card.x + card.width / 2 - (area.x + area.width / 2))).toBeLessThanOrEqual(1);\n  390 |       await expect(close).toBeVisible();\n  391 |     });\n    at /Users/bug/Documents/Projects/changju-rewrite/e2e/immersive.spec.ts:388:45\n    at /Users/bug/Documents/Projects/changju-rewrite/e2e/immersive.spec.ts:382:5"
+      ]
+    }
+  ]
+}

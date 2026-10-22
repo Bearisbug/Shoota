@@ -118,30 +118,41 @@ html[data-playing] { overflow: hidden; overscroll-behavior: none; scrollbar-gutt
 }
 
 /* 旋转提示：游戏区中间的半透明卡片，只有卡片能点 */
+/* 旋转提示：游戏区顶部居中的一条，只有关闭按钮接点击，盖住的地方照常点得到游戏；收起时向上滑出并淡出 */
 .pl-rotate {
   position: absolute;
-  inset: 0;
+  inset: 0 0 auto;
   z-index: 1;
-  display: grid;
-  place-items: center;
-  padding: var(--space-4);
+  display: flex;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4) 0;
   pointer-events: none;
+  transition:
+    opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard),
+    visibility 0s linear 0s;
+}
+.pl-rotate[data-state="closed"] {
+  opacity: 0;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition-delay: 0s, 0s, var(--duration-base);
 }
 .pl-rotate-card {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  max-inline-size: min(100%, 24rem);
-  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5);
-  border-radius: var(--radius-sheet);
+  gap: var(--space-1);
+  max-inline-size: min(100%, 30rem);
+  padding: var(--space-1) var(--space-1) var(--space-1) var(--space-4);
+  border-radius: var(--radius-card);
   background: var(--material-chrome);
   -webkit-backdrop-filter: var(--material-filter);
   backdrop-filter: var(--material-filter);
   box-shadow: var(--shadow-overlay);
-  pointer-events: auto;
 }
-.pl-rotate-text { display: grid; gap: var(--space-1); }
-.pl-rotate-text p:first-child { font: var(--type-headline); }
+.pl-rotate-close { flex: none; pointer-events: auto; }
+.pl-rotate-text { display: grid; gap: var(--space-1); min-inline-size: 0; }
+.pl-rotate-text p:first-child { font: var(--type-callout); font-weight: var(--primitive-font-weight-semibold); }
 .pl-rotate-text p + p { color: var(--color-label-secondary); font: var(--type-footnote); }
 
 /* 游戏面板：三种形态共用一个盒子，按 data-placement 摆放与进场 */
@@ -249,4 +260,5 @@ html[data-playing] { overflow: hidden; overscroll-behavior: none; scrollbar-gutt
   .pl-panel[data-state] .pl-panel-box { transform: none; transition: opacity var(--duration-base) var(--ease-standard); }
   .pl-panel:not([data-state="open"]) .pl-panel-box { opacity: 0; }
   .pl-wechat-box { transform: none; }
+  .pl-rotate[data-state="closed"] { transform: none; }
 }

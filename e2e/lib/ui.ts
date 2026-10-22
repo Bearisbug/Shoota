@@ -159,7 +159,8 @@ export const hhmm = (t = new Date()) => `${String(t.getHours()).padStart(2, '0')
 export const rotateHint = (page: Page) => page.getByText(anyName(copy.player.rotateToLandscape, copy.player.rotateToPortrait));
 export async function dismissRotateHint(page: Page) {
   if (!await rotateHint(page).isVisible()) return;
-  await page.getByRole('button', { name: extra.close, exact: true }).first().click();
+  // 提示出现 5 秒后自己收起，点「关闭」之前它可能已经收了
+  await page.getByRole('button', { name: extra.close, exact: true }).first().click({ timeout: 2000 }).catch(() => {});
   await expect(rotateHint(page)).toBeHidden();
 }
 

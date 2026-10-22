@@ -43,12 +43,13 @@ test('TC-LEGACY-001 旧游戏的 Platform 接口', async ({ page }) => {
     await page.keyboard.press('Escape');
   });
 
-  await test.step('4 sessionStorage：写一个键，退出再开，两次读到的长度都是 0', async () => {
-    expect(await inGame<number>(fr, 'sessionStorage.length')).toBe(0);
+  await test.step('4 sessionStorage：写一个键，退出再开，两次读到的长度都是 undefined（同旧版），再开后读不到这个键', async () => {
+    expect(await inGame<number | undefined>(fr, 'sessionStorage.length')).toBeUndefined();
     await inGame(fr, `sessionStorage.setItem('e2e', '1')`);
     await exitGame(page, 'basketball-star');
     fr = await play(page, 'basketball-star');
-    expect(await inGame<number>(fr, 'sessionStorage.length')).toBe(0);
+    expect(await inGame<number | undefined>(fr, 'sessionStorage.length')).toBeUndefined();
+    expect(await inGame<string | null>(fr, `sessionStorage.getItem('e2e')`)).toBeNull();
   });
 
   await test.step('5 调用 Platform.exit()：回到详情页', async () => {

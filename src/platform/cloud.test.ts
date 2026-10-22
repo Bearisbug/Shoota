@@ -167,6 +167,21 @@ describe('云同步 FLOW-CLOUD-SYNC', () => {
     expect(server.saveOf(sidOf(dev), 'douluo')).toEqual({ d:'2' });
   });
 
+  it('存档没变、只多了游玩秒数也推，云端秒数跟上、版本号不变；10 秒内写过的下一分钟再推', async () => {
+    const row = () => server.accounts.get(sidOf(dev))!.games.get('douluo')!;
+    expect([row().rev, row().s]).toEqual([1, 60]);
+    server.tooSoonMs = 10_000;
+    await A.run(P => { const s = P.stat('douluo')!; s.seconds = 75; s.last = Date.now(); P.persist(); P.requestSync(); });
+    expect(syncs().at(-1)!.push.map(p => [p.g, p.base, p.body, p.s])).toEqual([['douluo', 1, '{"d":"1"}', 75]]);
+    expect([row().rev, row().s]).toEqual([1, 60]); // too-soon：本机仍算改过
+    await A.run(() => vi.advanceTimersByTimeAsync(60_000));
+    expect(syncs().at(-1)!.push.map(p => [p.g, p.s])).toEqual([['douluo', 75]]);
+    expect([row().rev, row().s]).toEqual([1, 75]);
+    expect(dev.cloud().games.douluo).toMatchObject({ rev:1, s:75 });
+    await A.run(() => vi.advanceTimersByTimeAsync(60_000));
+    expect(syncs().at(-1)!.push).toEqual([]); // 对齐之后不再推
+  });
+
   it('离线时跳过，改动留在本机；联网后立刻补一次', async () => {
     const n = server.sent.length;
     dev.nav.onLine = false;

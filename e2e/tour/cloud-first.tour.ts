@@ -16,8 +16,9 @@ test('TC-CLOUD-018 首次上云走查', async ({ open }) => {
     const code = dashed((await readCloud(page))!.code);
     await page.goto('/#store');
     await expect(page.getByText(copy.cloud.noticeTitle, { exact: true })).toBeVisible();
-    await expect(page.getByText(code, { exact: true })).toBeVisible();
+    const shown = page.getByRole('img', { name: code, exact: true });
+    await expect(shown).toBeVisible();
     await expect(btn(copy.cloud.noticeDismiss)).toBeVisible();
-    await shot(page, 'FLOW-CLOUD-FIRST/S4', { tap: [btn(copy.cloud.copyCode)], look: [page.getByText(code, { exact: true })] });
+    await shot(page, 'FLOW-CLOUD-FIRST/S4', { tap: [btn(copy.cloud.copyCode)], look: [shown] });
   });
 });

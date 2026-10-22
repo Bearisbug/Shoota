@@ -1,0 +1,426 @@
+{
+  "shots": [
+    {
+      "key": "FLOW-CLOUD-CONFLICT/S3",
+      "file": "shots/FLOW-CLOUD-CONFLICT/S3.webp",
+      "captured_at": "2026-10-22T15:30:03.024Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/cloud-conflict.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "tap",
+          "x": 985,
+          "y": 642,
+          "w": 76,
+          "h": 34,
+          "target": "getByRole('button', { name: '去游戏库', exact: true }).or(getByRole('link', { name: '去游戏库', exact: true })).first()"
+        },
+        {
+          "kind": "look",
+          "x": 710,
+          "y": 642,
+          "w": 266,
+          "h": 33,
+          "target": "getByText('《一克之差》的存档换成了另一台设备上玩得更久的进度，可以在游戏库撤销。').first()"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-CLOUD-CONFLICT/S4-a",
+      "file": "shots/FLOW-CLOUD-CONFLICT/S4-a.webp",
+      "captured_at": "2026-10-22T15:30:03.299Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/cloud-conflict.tour.ts",
+      "dynamic_regions": [
+        {
+          "x": 577,
+          "y": 506,
+          "w": 51,
+          "h": 19,
+          "what": "「10月22日」是截图时的时刻或日期，每次运行都不同"
+        }
+      ],
+      "hotspots": [
+        {
+          "kind": "tap",
+          "x": 483,
+          "y": 529,
+          "w": 111,
+          "h": 34,
+          "target": "getByRole('button', { name: '换回原来的进度', exact: true }).or(getByRole('link', { name: '换回原来的进度', exact: true })).first()"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-CLOUD-CONFLICT/S4-b",
+      "file": "shots/FLOW-CLOUD-CONFLICT/S4-b.webp",
+      "captured_at": "2026-10-22T15:30:03.512Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/cloud-conflict.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "look",
+          "x": 954,
+          "y": 650,
+          "w": 92,
+          "h": 17,
+          "target": "getByText('已换回原来的进度').first()"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-CLOUD-FIRST/S4",
+      "file": "shots/FLOW-CLOUD-FIRST/S4.webp",
+      "captured_at": "2026-10-22T15:30:04.746Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/cloud-first.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "tap",
+          "x": 257,
+          "y": 240,
+          "w": 88,
+          "h": 34,
+          "target": "getByRole('button', { name: '复制恢复码', exact: true })"
+        },
+        {
+          "kind": "look",
+          "x": 257,
+          "y": 201,
+          "w": 786,
+          "h": 27,
+          "target": "getByRole('img', { name: '1TJN-T4YZ-ZTG8-FTZJ', exact: true })"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-IMMERSIVE/S1",
+      "file": "shots/FLOW-IMMERSIVE/S1.webp",
+      "captured_at": "2026-10-22T15:30:20.112Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/immersive.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "look",
+          "x": 0,
+          "y": 0,
+          "w": 1100,
+          "h": 688,
+          "target": "locator('iframe[title=\"一克之差\"]')"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-IMMERSIVE/S2",
+      "file": "shots/FLOW-IMMERSIVE/S2.webp",
+      "captured_at": "2026-10-22T15:30:20.276Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/immersive.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "look",
+          "x": 1060,
+          "y": 327,
+          "w": 34,
+          "h": 34,
+          "target": "getByRole('button', { name: '游戏菜单', exact: true })"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-IMMERSIVE/S3",
+      "file": "shots/FLOW-IMMERSIVE/S3.webp",
+      "captured_at": "2026-10-22T15:30:20.664Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/immersive.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "tap",
+          "x": 6,
+          "y": 212,
+          "w": 34,
+          "h": 34,
+          "target": "getByRole('button', { name: '游戏菜单', exact: true })"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-IMMERSIVE/S6",
+      "file": "shots/FLOW-IMMERSIVE/S6.webp",
+      "captured_at": "2026-10-22T15:30:21.742Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/immersive.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "look",
+          "x": 238,
+          "y": 88,
+          "w": 823,
+          "h": 28,
+          "target": "getByRole('heading', { name: '一克之差', level: 1 })"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-LAUNCH/S1",
+      "file": "shots/FLOW-LAUNCH/S1.webp",
+      "captured_at": "2026-10-22T15:30:23.343Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "393x852@2",
+      "scroll": "top",
+      "source": "e2e/tour/launch.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "look",
+          "x": 29,
+          "y": 930,
+          "w": 661,
+          "h": 7,
+          "target": "getByRole('progressbar')"
+        },
+        {
+          "kind": "look",
+          "x": 29,
+          "y": 803,
+          "w": 661,
+          "h": 48,
+          "target": "getByText('一克之差', { exact: true }).visible().first()"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-LAUNCH/S2a",
+      "file": "shots/FLOW-LAUNCH/S2a.webp",
+      "captured_at": "2026-10-22T15:30:26.376Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "393x852@2",
+      "scroll": "top",
+      "source": "e2e/tour/launch.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "look",
+          "x": 29,
+          "y": 930,
+          "w": 661,
+          "h": 7,
+          "target": "getByRole('progressbar')"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-LAUNCH/S4",
+      "file": "shots/FLOW-LAUNCH/S4.webp",
+      "captured_at": "2026-10-22T15:30:41.048Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "393x852@2",
+      "scroll": "top",
+      "source": "e2e/tour/launch.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "look",
+          "x": 0,
+          "y": 0,
+          "w": 720,
+          "h": 1561,
+          "target": "locator('iframe[title=\"一克之差\"]')"
+        },
+        {
+          "kind": "look",
+          "x": 625,
+          "y": 740,
+          "w": 81,
+          "h": 81,
+          "target": "getByRole('button', { name: '游戏菜单', exact: true })"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-RECOVER/S1",
+      "file": "shots/FLOW-RECOVER/S1.webp",
+      "captured_at": "2026-10-22T15:30:43.752Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/recover.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "tap",
+          "x": 317,
+          "y": 639,
+          "w": 458,
+          "h": 34,
+          "target": "getByRole('button', { name: '查找', exact: true })"
+        },
+        {
+          "kind": "look",
+          "x": 329,
+          "y": 572,
+          "w": 434,
+          "h": 34,
+          "target": "getByPlaceholder('XXXX-XXXX-XXXX-XXXX')"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-RECOVER/S3",
+      "file": "shots/FLOW-RECOVER/S3.webp",
+      "captured_at": "2026-10-22T15:30:43.936Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/recover.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "tap",
+          "x": 317,
+          "y": 642,
+          "w": 162,
+          "h": 34,
+          "target": "getByRole('button', { name: '确认取回', exact: true })"
+        },
+        {
+          "kind": "look",
+          "x": 317,
+          "y": 547,
+          "w": 458,
+          "h": 46,
+          "target": "getByRole('list').filter({ hasText: '云端 10 分钟' })"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    },
+    {
+      "key": "FLOW-RECOVER/S5",
+      "file": "shots/FLOW-RECOVER/S5.webp",
+      "captured_at": "2026-10-22T15:30:44.159Z",
+      "data_mode": "本地 wrangler dev 与本地 D1；Service Worker 关闭；减弱动态效果；随机数按走查名固定种子",
+      "device": "Microsoft Edge 155.0.4283.62 无头",
+      "viewport": "1440x900@1",
+      "scroll": "top",
+      "source": "e2e/tour/recover.tour.ts",
+      "dynamic_regions": [],
+      "hotspots": [
+        {
+          "kind": "look",
+          "x": 928,
+          "y": 650,
+          "w": 118,
+          "h": 17,
+          "target": "getByText('已取回 2 款游戏的进度').first()"
+        },
+        {
+          "kind": "look",
+          "x": 238,
+          "y": 189,
+          "w": 214,
+          "h": 46,
+          "target": "getByRole('list', { name: '我的游戏' }).getByRole('listitem').filter({ hasText: '一克之差' })"
+        },
+        {
+          "kind": "look",
+          "x": 238,
+          "y": 140,
+          "w": 214,
+          "h": 46,
+          "target": "getByRole('list', { name: '我的游戏' }).getByRole('listitem').filter({ hasText: '我要当首富' })"
+        }
+      ],
+      "commits": {
+        "changju": "e5ede7d"
+      },
+      "seed": "tour-1"
+    }
+  ]
+}

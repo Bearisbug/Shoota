@@ -242,14 +242,14 @@ test('TC-STORE-007 游戏库排序、愿望单与空态', async ({ page }) => {
 
   const list = page.getByRole('list', { name: copy.library.listLabel });
 
-  await test.step('3 #library：「我的游戏库」，依次一克之差、斗罗·万相、F1-Driver；F1-Driver 显示「愿望单」与「还没玩过」', async () => {
+  await test.step('3 #library：「我的游戏库」，依次一克之差、斗罗·万相、F1-Driver；F1-Driver 只显示「愿望单」', async () => {
     await page.goto('/#library');
     await expect(page.getByRole('heading', { name: copy.library.title })).toBeVisible();
     const rows = list.getByRole('listitem');
     await expect(rows).toHaveCount(3);
     for (const [i, id] of ['yike', 'douluo', 'f1-driver'].entries()) await expect(rows.nth(i)).toContainText(title(id));
     await expect(rows.nth(2)).toContainText(copy.library.wished);
-    await expect(rows.nth(2)).toContainText(copy.library.neverPlayed);
+    await expect(rows.nth(2)).not.toContainText(copy.library.neverPlayed);
   });
 
   await test.step('4 点斗罗·万相：右侧详情有游玩时间、上次游玩与「继续游戏」', async () => {

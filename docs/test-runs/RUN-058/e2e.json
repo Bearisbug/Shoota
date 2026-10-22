@@ -1,0 +1,43 @@
+{
+  "stats": {
+    "startTime": "2026-10-22T15:36:44.308Z",
+    "duration": 20593.540999999997,
+    "expected": 1,
+    "skipped": 3,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "TC-PLAY-012 安卓 UA 下开局请求全屏并锁定方向",
+      "file": "immersive.spec.ts",
+      "project": "portrait",
+      "status": "passed",
+      "durationMs": 7576,
+      "startTime": "2026-10-22T15:36:44.863Z",
+      "steps": [
+        {
+          "title": "1 打开薯光详情，点「开始游戏」：点击的同一个事件里对页面根元素请求了全屏，fullscreenElement 是 <html>",
+          "ms": 600
+        },
+        {
+          "title": "2 请求锁定 landscape 一次",
+          "ms": 7
+        },
+        {
+          "title": "3 等就绪：ready 带 fs 为 2",
+          "ms": 1208
+        },
+        {
+          "title": "4 方向锁定返回拒绝，新浏览器重做第 1 步：照常开局，游戏区顶部居中提示「横过手机玩更舒服」",
+          "ms": 2132
+        },
+        {
+          "title": "5 电脑视口 1440×900，新浏览器重做第 1 步：没有请求全屏，ready 带 fs 为 0",
+          "ms": 2303
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

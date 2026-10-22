@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "startTime": "2026-10-22T14:56:18.062Z",
+    "duration": 107419.339,
+    "expected": 3,
+    "skipped": 9,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "TC-CLOUD-003 退出游戏与每分钟同步",
+      "file": "cloud.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 79861,
+      "startTime": "2026-10-22T14:56:19.068Z",
+      "steps": [
+        {
+          "title": "1 我要当首富建立玩家「张三」：面板显示「已存档 时:分」",
+          "ms": 2080
+        },
+        {
+          "title": "2 点「退出游戏」：2 秒内一次同步推上 wealth-reborn，ok",
+          "ms": 551
+        },
+        {
+          "title": "3 再开我要当首富：面板里云存档状态「已同步 · 时:分」，为第 2 步的时间",
+          "ms": 574
+        },
+        {
+          "title": "4 退出后停在商店 70 秒：至少一次同步",
+          "ms": 71352
+        },
+        {
+          "title": "5 cloud_games 里 wealth-reborn 的秒数等于本机累计秒数",
+          "ms": 2206
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-LEGACY-001 旧游戏的 Platform 接口",
+      "file": "legacy.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 7863,
+      "startTime": "2026-10-22T14:57:39.149Z",
+      "steps": [
+        {
+          "title": "1 读 Platform：version 1.0，game basketball-star，四个方法，对象被冻结",
+          "ms": 2
+        },
+        {
+          "title": "2 定义并解锁测试成就：提示「解锁成就 · 篮球巨星」与「测试成就」，5.2 秒左右消失",
+          "ms": 5823
+        },
+        {
+          "title": "3 setStatus 后打开面板：游戏名下面显示「第 3 赛季」",
+          "ms": 42
+        },
+        {
+          "title": "4 sessionStorage：写一个键，退出再开，两次读到的长度都是 undefined（同旧版），再开后读不到这个键",
+          "ms": 1470
+        },
+        {
+          "title": "5 调用 Platform.exit()：回到详情页",
+          "ms": 22
+        },
+        {
+          "title": "6 详情页成就区：测试成就已解锁",
+          "ms": 2
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-STORE-007 游戏库排序、愿望单与空态",
+      "file": "store.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 13842,
+      "startTime": "2026-10-22T14:57:47.034Z",
+      "steps": [
+        {
+          "title": "1 #library：「游戏库还是空的」与「去商店挑一款」",
+          "ms": 75
+        },
+        {
+          "title": "2 斗罗、一克之差各玩 6 秒后退出，F1-Driver 加入愿望单：按钮变成「已在愿望单」",
+          "ms": 13525
+        },
+        {
+          "title": "3 #library：「我的游戏库」，依次一克之差、斗罗·万相、F1-Driver；F1-Driver 只显示「愿望单」",
+          "ms": 33
+        },
+        {
+          "title": "4 点斗罗·万相：右侧详情有游玩时间、上次游玩与「继续游戏」",
+          "ms": 38
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

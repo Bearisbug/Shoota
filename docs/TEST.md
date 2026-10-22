@@ -14,6 +14,7 @@
 
 | 日期 | 改动 | 作者 |
 | --- | --- | --- |
+| 2026-10-22 | 新增 TC-CLOUD-022（源自缺陷），覆盖存档页云存档卡副标题跟着云存档状态。TC-PLAY-018 按新的旋转提示改写：顶部一条、点击落到游戏、5 秒后自动收起，原第 2 步「关掉提示」并进第 5 步，共 6 步。TC-LEGACY-001 第 4 步预期改为长度 undefined、再开后键读到 null；TC-STORE-007 第 3 步预期改为只显示「愿望单」，两处都与旧版 dd731d6 及设计文档一致。新建 `docs/tour/tour.json`，§3「走查」不再缺它；§3「走查」的浏览器关掉 GPU 加速，截图前等网络静下来与游戏 iframe 的字体就绪；TC-PLAY-018 第 1 步写明等提示滑入停下再量；TC-PLAY-010 第 5 步、TC-PLAY-012 第 4 步的旋转提示位置从游戏区中间改为顶部 | Bearisbug |
 | 2026-10-22 | §3「本地跑旧版」改为起在 8811、用 `E2E_PORT` 指向旧版；冷启动检验走通，删掉「未验证」一句；`HttpsUpgrades` 一条补上自己传 `--disable-features` 时要一起写上；补旧用例执行脚本的位置 `docs/test-runs/RUN-042/old-tc/` 与跑法 | Bearisbug |
 | 2026-10-22 | 新增走查用例 TC-LAUNCH-019、TC-PLAY-022、TC-PLAY-023、TC-CLOUD-018、TC-CLOUD-019、TC-CLOUD-020、TC-CLOUD-021，七张带界面的链路卡各一条；§2 加走查脚本 `e2e/tour/*.tour.ts`，§3 加「走查」的复位、两遍比对与发布，§5 局部轮带上受影响链路的走查，TC-PLAY-023 随改写游戏登记阻塞。TC-CLOUD-012 的大存档改成上传编码后仍约 1.2 MB 的随机内容；TC-STORE-002 关掉 Service Worker；TC-LAUNCH-009、TC-LAUNCH-010、TC-PLAY-017 后置写明实测数与旧版数、目标并排登记；TC-PLAY-015 第 4 步、TC-PLAY-016 第 3 步、TC-SDK-002 第 5 步写明 iPhone Safari UA；§3 中转的游戏文件模式删掉没有用例在用的「发一半后断开」，全屏与方向锁定的注入只留返回拒绝 | Bearisbug |
 | 2026-10-22 | 按自动化脚本补可操作的前置：TC-LAUNCH-002、TC-STORE-002 推迟游戏文件 1.5 秒；TC-LAUNCH-006～008、TC-PLAY-012、TC-CLOUD-001 经本地中转读上报；TC-CLOUD-004、006、011、012、016 补跳过 10 秒写入间隔；TC-CLOUD-014 改用拦截接口造 401；TC-LAUNCH-013 第 4 步改开后宫生死簿，避开浏览器缓存；TC-STORE-007 第 2 步每款玩 6 秒，按钮才是「继续游戏」；TC-PLAY-004 允许「退出全屏」；TC-PLAY-005 写明「旁」的间隙；TC-STORE-011 行内链接不计点击区域。§3 注入脚本改成实际做法，补页面标记与 Safari 视口的 UA；§2 核心区汇总测试的跑法改为 `--root e2e/lib` | Bearisbug |
@@ -121,7 +122,7 @@
 | `e2e/core-area.spec.ts` | TC-PLAY-017 | 同上；读数写到 `test-results/core-area.json` |
 | `e2e/store.spec.ts` | TC-STORE-001、TC-STORE-002、TC-STORE-003、TC-STORE-004、TC-STORE-005、TC-STORE-006、TC-STORE-007、TC-STORE-008、TC-STORE-009、TC-STORE-010、TC-STORE-011 | 同上 |
 | `e2e/legacy.spec.ts` | TC-LEGACY-001、TC-LEGACY-002、TC-LEGACY-003 | 同上 |
-| `e2e/cloud.spec.ts` | TC-CLOUD-001、TC-CLOUD-002、TC-CLOUD-003、TC-CLOUD-004、TC-CLOUD-005、TC-CLOUD-006、TC-CLOUD-007、TC-CLOUD-008、TC-CLOUD-009、TC-CLOUD-010、TC-CLOUD-011、TC-CLOUD-012、TC-CLOUD-013、TC-CLOUD-014、TC-CLOUD-015、TC-CLOUD-016、TC-CLOUD-017 | 同上 |
+| `e2e/cloud.spec.ts` | TC-CLOUD-001、TC-CLOUD-002、TC-CLOUD-003、TC-CLOUD-004、TC-CLOUD-005、TC-CLOUD-006、TC-CLOUD-007、TC-CLOUD-008、TC-CLOUD-009、TC-CLOUD-010、TC-CLOUD-011、TC-CLOUD-012、TC-CLOUD-013、TC-CLOUD-014、TC-CLOUD-015、TC-CLOUD-016、TC-CLOUD-017、TC-CLOUD-022 | 同上 |
 | `e2e/kanban.spec.ts` | TC-006、TC-LAUNCH-017 | 同上 |
 | `e2e/sdk.spec.ts` | TC-SDK-001、TC-SDK-002、TC-SDK-003、TC-SDK-004、TC-SDK-005 | 同上；一克之差的 runtime 不是 play 时整组跳过 |
 | `e2e/tour/*.tour.ts` | 走查 TC-LAUNCH-019、TC-PLAY-022、TC-PLAY-023、TC-CLOUD-018、TC-CLOUD-019、TC-CLOUD-020、TC-CLOUD-021 | 见 §3「走查」；用自己的配置 `e2e/tour/tour.config.ts`，`npx playwright test` 不跑它们；一克之差的 runtime 不是 play 时 TC-PLAY-023 跳过 |
@@ -218,8 +219,8 @@
   - 起跑前确认 `git check-ignore -q .tour-out` 成功（输出目录不入库），`docs/tour/tour.json` 存在：`repos` 写仓别名到相对项目根的路径，本仓是 `{"changju": "."}`，`seed` 写展示种子的版本
   - 一轮的顺序：`TOUR_RUN=<本轮编号> node e2e/tour/reset.ts` → `TOUR_RUN=<本轮编号> TOUR_PASS=1 npx playwright test -c e2e/tour/tour.config.ts` → 再复位 → 同一条命令换成 `TOUR_PASS=2` → 再复位 → `TOUR_RUN=<本轮编号> node e2e/tour/gate.ts --publish`
   - 复位只删本轮时间窗内开通的云存档（三张云端表按 `sid`），时间窗起点在第一次复位时记进 `.tour-out/<本轮编号>/window`，输出复位前后各表的行数；统计表与启动表不用删：走查浏览器都带 `sk_staff=1`，上报不写库
-  - 走查浏览器：浅色、减弱动态效果、关掉 Service Worker；页面与游戏 iframe 里的 `Math.random` 与 `crypto.getRandomValues` 按走查名固定种子，两遍生成同样的编号与恢复码
-  - 截图只拍视口，手机缩到宽 720、电脑缩到宽 1100，`cwebp -q 70`；页面上的时分与「10月22日」这类日期自动登记成动态区域
+  - 走查浏览器：浅色、减弱动态效果、关掉 Service Worker；页面与游戏 iframe 里的 `Math.random` 与 `crypto.getRandomValues` 按走查名固定种子，两遍生成同样的编号与恢复码；关掉 GPU 加速（`--disable-gpu`）：GPU 栅格化时缩小显示的封面清晰度随图片到达的早晚变，两遍的图对不上
+  - 截图前等网络静下来、页面与游戏 iframe 的字体都就绪（一克之差的网页字体是异步加载的）；截图只拍视口，手机缩到宽 720、电脑缩到宽 1100，`cwebp -q 70`；页面上的时分与「10月22日」这类日期自动登记成动态区域
   - 确定性门：`gate.ts` 把两遍的图在两遍登记的动态区域上都涂黑，再用 `magick compare -metric AE -fuzz 0.5%` 数差异像素，不超过全图像素的 0.01%（1100×688 的图上限 75）算通过；没通过的键不发布，`gate.ts` 以非零退出
   - 发布：通过的键从第 2 遍复制到 `docs/tour/shots/<截图键>.webp`，并替换 `docs/tour/shots.json` 里这些键的条目；本机要有 `cwebp` 与 ImageMagick 7（`magick`）
   - 登记完删掉 `.tour-out/<本轮编号>/`
@@ -794,7 +795,7 @@
 | --- | --- | --- |
 | 1 | 打开 `#library` | 显示「游戏库还是空的」与「去商店挑一款」 |
 | 2 | 打开斗罗·万相，画面出现 6 秒后退出；再打开一克之差，画面出现 6 秒后退出；再在 F1-Driver 详情页点「加入愿望单」 | F1-Driver 详情页的按钮变成「已在愿望单」 |
-| 3 | 打开 `#library` | 标题「我的游戏库」，依次列出一克之差、斗罗·万相、F1-Driver；F1-Driver 一行显示「愿望单」与「还没玩过」 |
+| 3 | 打开 `#library` | 标题「我的游戏库」，依次列出一克之差、斗罗·万相、F1-Driver；F1-Driver 一行只显示「愿望单」，与旧版 dd731d6 一致 |
 | 4 | 点列表里的斗罗·万相 | 右侧详情显示游玩时间、上次游玩与「继续游戏」 |
 
 后置：无
@@ -863,7 +864,7 @@
 | 1 | 在游戏 iframe 里读 `Platform` | `version` 为 1.0，`game` 为 basketball-star，有 unlock、defineAchievements、setStatus、exit 四个方法，对象被冻结 |
 | 2 | 在游戏里调用 `Platform.defineAchievements([{key:'t1',name:'测试成就'}])`，再调用 `Platform.unlock('t1')` | 右下角提示两行：「解锁成就 · 篮球巨星」与「测试成就」，5.2 秒左右消失 |
 | 3 | 调用 `Platform.setStatus('第 3 赛季')` 后打开游戏面板 | 游戏名下面显示「第 3 赛季」 |
-| 4 | 在游戏里读 `sessionStorage.length`，写一个键，退出后再打开篮球巨星再读 | 两次读到的都是 0 |
+| 4 | 在游戏里读 `sessionStorage.length`，写一个键，退出后再打开篮球巨星，再读 `sessionStorage.length` 与刚才那个键 | 两次读到的长度都是 undefined，与旧版 dd731d6 一致（旧版的假 sessionStorage 也没有 length）；再打开后那个键读到 null |
 | 5 | 调用 `Platform.exit()` | 回到篮球巨星详情页 |
 | 6 | 看详情页的成就区 | 测试成就标为已解锁 |
 
@@ -1269,7 +1270,7 @@
 | 2 | 点「知道了」 | 说明关掉，游戏继续 |
 | 3 | 退出，再开一克之差 | 不再自动弹出 |
 | 4 | 点悬浮按钮 | 面板里没有「全屏」，有「在浏览器打开」，点开看到同一份说明 |
-| 5 | 竖着拿手机打开薯光 · Spud Dawn | 游戏区中间提示「横过手机玩更舒服」，另有一句「在微信的设置、通用里打开横屏模式」 |
+| 5 | 竖着拿手机打开薯光 · Spud Dawn | 游戏区顶部提示「横过手机玩更舒服」，另有一句「在微信的设置、通用里打开横屏模式」 |
 | 6 | 照说明点右上角「···」，选在浏览器打开 | 系统浏览器打开同一个地址 |
 
 后置：关掉隧道
@@ -1296,7 +1297,7 @@
 | 1 | 打开薯光 · Spud Dawn 详情，点「开始游戏」 | 点击的同一个事件里对页面根元素请求了全屏，`document.fullscreenElement` 是 `<html>` |
 | 2 | 看方向锁定记录 | 请求锁定 landscape 一次 |
 | 3 | 等就绪，看启动上报 | ready 带 `fs` 为 2 |
-| 4 | 让方向锁定返回拒绝，新浏览器重做第 1 步 | 照常开局，游戏区中间提示「横过手机玩更舒服」 |
+| 4 | 让方向锁定返回拒绝，新浏览器重做第 1 步 | 照常开局，游戏区顶部居中提示「横过手机玩更舒服」 |
 | 5 | 换电脑视口 1440×900，新浏览器重做第 1 步 | 没有请求全屏，ready 带 `fs` 为 0 |
 
 后置：无
@@ -1377,11 +1378,12 @@
 
 | # | 操作 | 预期 |
 | --- | --- | --- |
-| 1 | 横屏视口 852×393 打开一克之差 | 游戏区中间显示「竖过手机玩更舒服」，可以关掉 |
-| 2 | 关掉提示 | 提示消失；`changju.ui.v1` 记下一克之差已提示过 |
-| 3 | 退出再打开一克之差，点悬浮按钮 | 不再自动提示；面板里有「这款游戏竖屏玩更舒服」 |
-| 4 | 竖屏视口 393×852 打开薯光 · Spud Dawn | 游戏区中间显示「横过手机玩更舒服」 |
-| 5 | 换微信 UA 的新浏览器，竖屏打开薯光 · Spud Dawn | 提示「横过手机玩更舒服」，另有一句「在微信的设置、通用里打开横屏模式」 |
+| 1 | 横屏视口 852×393 打开一克之差，等提示从上方滑入停下 | 游戏区顶部居中显示一条「竖过手机玩更舒服」，提示顶边离游戏区顶边 8 ± 1 像素，右侧有「关闭」按钮 |
+| 2 | 在提示文字的中央点一下 | 游戏收到这次点击（游戏页面里记到 1 次 click）；提示照常显示 |
+| 3 | 不碰提示，等它自己收起 | 出现后第 4 秒提示还在，第 8 秒前自动收起；`changju.ui.v1` 记下一克之差已提示过 |
+| 4 | 退出再打开一克之差，点悬浮按钮 | 不再自动提示；面板里有「这款游戏竖屏玩更舒服」 |
+| 5 | 竖屏视口 393×852 打开薯光 · Spud Dawn，提示出现后点「关闭」 | 游戏区顶部显示「横过手机玩更舒服」；点「关闭」后 1 秒内消失 |
+| 6 | 换微信 UA 的新浏览器，竖屏打开薯光 · Spud Dawn | 提示「横过手机玩更舒服」，另有一句「在微信的设置、通用里打开横屏模式」 |
 
 后置：无
 
@@ -1731,6 +1733,18 @@
 
 后置：`TOUR_RUN=<本轮编号> node e2e/tour/reset.ts`
 
+#### `TC-CLOUD-022` 存档页云存档卡的副标题跟着云存档状态 — 对应 `REQ-CLOUD-001`、`REQ-CLOUD-002` · 级别: 回归 · 执行者: AI · 源自缺陷 2026-10-22 开通云存档后存档页云存档卡仍写存档自动保存在这台设备
+
+前置：本地已清空云存档表；新浏览器，电脑视口 1440×900
+
+| # | 操作 | 预期 |
+| --- | --- | --- |
+| 1 | 打开 `#backup` | 云存档卡标题「云存档」下面写「存档自动保存在这台设备」；卡里是「玩过之后会自动开通」 |
+| 2 | 打开一克之差再退出，等开通后回到 `#backup` | 云存档卡标题下面写「存档自动保存在这台设备并同步到云端」 |
+| 3 | 用 Playwright 拦下 `/api/cloud/sync`，回 401 与 `{"type":"/errors/cloud-auth"}`；刷新，等一次同步 | 云存档卡里写「云存档暂停同步了：这台设备的云存档凭据不对。进度照常存在这台设备上。」，标题下面换回「存档自动保存在这台设备」 |
+
+后置：无
+
 ### 改写游戏
 
 #### `TC-SDK-001` 改写游戏握手与存档 — 对应 `REQ-SDK-001` · 级别: 回归 · 执行者: AI
@@ -1854,6 +1868,13 @@
 | RUN-045 | 2026-10-22 | 本地 | dd731d6 加工作区未提交的重写版 | AI(Playwright + Edge 无头) | 复测(RUN-039:TC-LAUNCH-001) | 通过 1/1 |
 | RUN-046 | 2026-10-22 | 本地 | dd731d6 加工作区未提交的重写版 | AI(Playwright + Edge 无头) | 复测(RUN-040:TC-PLAY-015) | 通过 0/1 · 失败 1 |
 | RUN-047 | 2026-10-22 | 本地 | dd731d6 加工作区未提交的重写版 | AI(Playwright + Edge 无头) | 复测(RUN-041:TC-PLAY-016) | 通过 1/1 |
+| RUN-052 | 2026-10-22 | 本地 | e5ede7d（未修复，工作区只改了 TEST.md 与 e2e 用例） | AI(Playwright + Edge 无头、wrangler d1) | 局部(TC-CLOUD-022) | 通过 0/1 · 失败 1 |
+| RUN-053 | 2026-10-22 | 本地 | e5ede7d 加工作区未提交的改动 | AI(Playwright + Edge 无头、wrangler d1) | 复测(RUN-052:TC-CLOUD-022 + 冒烟级至 TC-037、TC-STORE-011、TC-LEGACY-003、TC-LAUNCH-019、TC-PLAY-023、TC-CLOUD-022、TC-SDK-005) | 通过 15/15 |
+| RUN-054 | 2026-10-22 | 本地 | e5ede7d 加工作区未提交的改动 | AI(Playwright + Edge 无头、wrangler d1) | 复测(RUN-043:TC-LEGACY-001、TC-STORE-007、TC-CLOUD-003) | 通过 3/3 |
+| RUN-055 | 2026-10-22 | 本地 | e5ede7d 加工作区未提交的改动 | AI(Playwright + Edge 无头、wrangler d1) | 局部(TC-PLAY-018、TC-CLOUD-002、TC-CLOUD-005) | 通过 2/3 · 失败 1 |
+| RUN-056 | 2026-10-22 | 本地 | e5ede7d 加工作区未提交的改动 | AI(Playwright + Edge 无头) | 复测(RUN-055:TC-PLAY-018) | 通过 1/1 |
+| RUN-057 | 2026-10-22 | 本地 | e5ede7d 加工作区未提交的改动 | AI(Playwright + Edge 无头、wrangler d1、ImageMagick) | 局部(TC-LAUNCH-019、TC-PLAY-022、TC-PLAY-023、TC-CLOUD-018、TC-CLOUD-019、TC-CLOUD-020、TC-CLOUD-021) | 通过 6/7 · 阻塞 1 |
+| RUN-058 | 2026-10-22 | 本地 | e5ede7d 加工作区未提交的改动 | AI(Playwright + Edge 无头) | 局部(TC-PLAY-012、TC-PLAY-010) | 通过 1/2 · 待人工 1 |
 
 RUN-001 证据：本地 `wrangler dev` 端口 8791，数据直接读本地 D1 文件核对。TC-002 游玩 150 秒，服务端记 150 秒，与平台本地计时一致。TC-003 无头浏览器没有真实前后台，用脚本把页面可见状态置为隐藏并派发 visibilitychange 代替切标签页。本地取到的地区是代理出口 MY，线上按真实来源记录。截图 `docs/test-runs/RUN-001/login.png`、`docs/test-runs/RUN-001/kanban-error.png`。本轮之外另查手机 390 宽看板，发现页面被游戏排行表撑出横向滚动，已在 RUN-002 前修复。
 
@@ -2112,6 +2133,19 @@ RUN-045～RUN-047 证据：
 - TC-PLAY-015：iframe 顶边 0、高 852，平台控件只有悬浮按钮；NBA-经理核心区占比 69.9%，第 3 步不过。
 - TC-PLAY-016：iframe 顶边 0、高 393；Safari 可见区 734×343 下 iframe 734×343，平台控件只有悬浮按钮。
 
+RUN-052～RUN-058 证据：
+
+- 被测服务是 8812 上的本地 wrangler dev。RUN-052 跑的是修复前的构建（e5ede7d，工作区只改了 TEST.md 与 e2e 用例）；之后重新构建，RUN-053～RUN-058 的实现代码相同，轮次之间只改了 e2e 用例与走查脚本。
+- RUN-053 之前跑过 `npm run typecheck`、`npm test`（31 个文件、333 条）、`npm run build`、`npm run check`，全部通过；cloud.test.ts 与一克之差的 engine.test.tsx 没有超时，没有单独重跑。
+- RUN-052：TC-CLOUD-022 第 1 步通过；第 2 步开通云存档后，存档页云存档卡标题下面仍是「存档自动保存在这台设备」。输出 `docs/test-runs/RUN-052/e2e.json`，截图 `docs/test-runs/RUN-052/TC-CLOUD-022-step2.png`。
+- RUN-053：TC-CLOUD-022 三步通过：没开通时写「存档自动保存在这台设备」，开通后写「存档自动保存在这台设备并同步到云端」，拦截接口回 401 让云端鉴权失败后改回前一句。14 条冒烟级用例全部通过。输出 `docs/test-runs/RUN-053/e2e.json`、`docs/test-runs/RUN-053/old-tc.json`。
+- RUN-054：TC-CLOUD-003 第 5 步 cloud_games 里 wealth-reborn 的秒数等于本机累计秒数；TC-LEGACY-001 第 4 步两次读到的 `sessionStorage.length` 都是 undefined，再开后读不到这个键；TC-STORE-007 第 3 步 F1-Driver 只显示「愿望单」。冒烟级没有重跑，RUN-053 在同一份代码上跑过。输出 `docs/test-runs/RUN-054/e2e.json`。
+- RUN-055：TC-CLOUD-002 五步、TC-CLOUD-005 四步通过，同一份内容重推仍不加版本号，updated_at 不变。TC-PLAY-018 第 1 步失败，见明细。输出 `docs/test-runs/RUN-055/e2e.json`。
+- RUN-056：TC-PLAY-018 的脚本改成等提示滑入停下再量，六步通过：第 2 步点在提示文字中央，游戏记到 1 次 click，提示还在；第 3 步第 4 秒还在，第 8 秒前收起。输出 `docs/test-runs/RUN-056/e2e.json`，第 1 步截图 `docs/test-runs/RUN-056/TC-PLAY-018-step1.png`。
+- RUN-057：按 §3「走查」执行，`docs/tour/tour.json` 本轮新建。TC-PLAY-023 的脚本因一克之差的 runtime 仍是 legacy 整条跳过，其余 6 条每遍都通过。前两次第 1 遍没跑完，各改一处走查脚本后从复位重来：恢复码在页面上是带可读名的图形，脚本原来按文字找；截图前等图片解码时没排除横向滚动条里还没开始加载的懒加载封面，`decode()` 一直不返回。之后两遍的比对暴露两处不确定，改脚本后再连跑两遍：GPU 栅格化时缩小显示的封面清晰度两遍不同，走查浏览器改为关掉 GPU 加速；一克之差的网页字体异步加载，截图前改为等网络静下来与 iframe 的字体就绪。
+- RUN-057 确定性门（遮罩后的差异像素）：发布 14 张，差异都是 0：FLOW-LAUNCH/S1、S2a、S4（上限 112），FLOW-IMMERSIVE/S1、S2、S3、S6，FLOW-CLOUD-FIRST/S4，FLOW-CLOUD-CONFLICT/S3、S4-a、S4-b，FLOW-RECOVER/S1、S3、S5（上限 75）。没过门、未发布 4 张：FLOW-CLOUD-SYNC/S5-a 12561，FLOW-CLOUD-SYNC/S5-b 28015，FLOW-IMMERSIVE/S4 11636，FLOW-IMMERSIVE/S5 7550。这 4 张两遍的原始 png 在动态区域以外逐像素相同，动态区域里是时分或存档码；编成有损 webp 后，动态区域以外也出现几千个不同的像素，门按 webp 比，过不去。截图清单的 commits 写 changju e5ede7d，实际拍的是 e5ede7d 加工作区未提交的改动。门的输出 `docs/test-runs/RUN-057/gate.txt`。
+- RUN-058：旋转提示挪到顶部后，TC-PLAY-012 第 4 步与 TC-PLAY-010 第 5 步的位置写法跟着改。TC-PLAY-012 五步通过，第 4 步提示水平居中；TC-PLAY-010 要在真机微信里测，AI 未执行。输出 `docs/test-runs/RUN-058/e2e.json`。
+
 明细(仅登非「通过」项)：
 
 | 轮次 | 用例 | 结果 | 现象 / 证据 | 跟进 |
@@ -2170,6 +2204,10 @@ RUN-045～RUN-047 证据：
 | RUN-044 | TC-PLAY-017 | 失败 | 第 1 步竖屏最低 69.9%（NBA-经理与 CBA-经理），预期不低于 70%；第 2 到 7 步通过；证据 `docs/test-runs/RUN-044/core-area.json` | 竖屏最低与 TC-PLAY-015 是同一处，待设计裁决 |
 | RUN-044 | TC-PLAY-023 | 阻塞 | 前置不满足：`docs/tour/tour.json` 不存在；未执行任何步骤 | 同 RUN-042 |
 | RUN-046 | TC-PLAY-015 | 失败 | 第 3 步 NBA-经理核心区占比 69.9%，预期不低于 70%（旧版 58.3%）；第 1、2 步通过：iframe 顶边 0、高 852，平台控件只有悬浮按钮；证据 `docs/test-runs/RUN-045/defects.json` | 现象步骤（第 1 步）已修好；第 3 步待设计裁决 |
+| RUN-052 | TC-CLOUD-022 | 失败 | 第 2 步预期开通后云存档卡标题下面写「存档自动保存在这台设备并同步到云端」，实际仍是「存档自动保存在这台设备」；证据 `docs/test-runs/RUN-052/e2e.json`、`docs/test-runs/RUN-052/TC-CLOUD-022-step2.png` | 修复前那一轮，失败在现象步骤；RUN-053 复测通过 |
+| RUN-055 | TC-PLAY-018 | 失败 | 第 1 步预期提示顶边离游戏区顶边 8 ± 1 像素，实际偏差 43.2 像素：脚本在提示从上方滑入的途中量了位置；证据 `docs/test-runs/RUN-055/e2e.json` | 脚本改成等滑入停下再量，用例第 1 步写明这一点，实现未改；RUN-056 复测通过 |
+| RUN-057 | TC-PLAY-023 | 阻塞 | 前置不满足：目录里一克之差的 runtime 仍是 legacy（§5「改写游戏」），走查脚本整条跳过；未执行任何步骤 | 一克之差正式改成 play 的那次发布再跑 |
+| RUN-058 | TC-PLAY-010 | 待人工 | 执行者是人工，要在真机微信里测；AI 未执行 | 人工收口轮补测 |
 
 ## 7. 遗留问题
 

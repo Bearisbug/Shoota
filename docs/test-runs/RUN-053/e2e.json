@@ -1,0 +1,244 @@
+{
+  "stats": {
+    "startTime": "2026-10-22T14:45:18.726Z",
+    "duration": 202536.402,
+    "expected": 8,
+    "skipped": 24,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "TC-CLOUD-001 第一次存下进度后开通云存档",
+      "file": "cloud.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 37583,
+      "startTime": "2026-10-22T14:45:37.238Z",
+      "steps": [
+        {
+          "title": "1 打开一克之差再退出：5 秒内开通返回 201，随后同步推上 yike，ok、版本 1",
+          "ms": 1849
+        },
+        {
+          "title": "2 changju.cloud.v1：saveId 32 位小写十六进制，恢复码 16 位，yike 版本 1",
+          "ms": 47
+        },
+        {
+          "title": "3 回到商店：顶部提示「进度已经存到云端」，四段恢复码，「复制恢复码」与「知道了」",
+          "ms": 479
+        },
+        {
+          "title": "4 点「知道了」后刷新：提示不再出现",
+          "ms": 991
+        },
+        {
+          "title": "5 cloud_accounts、cloud_games 各 1 行；sid 是 saveId 的 SHA-256，三张表找不到原文",
+          "ms": 16363
+        },
+        {
+          "title": "6 统计表、启动表与 /api/e、/api/launch 的正文里都没有 saveId",
+          "ms": 11217
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-CLOUD-006 换设备用恢复码取回",
+      "file": "cloud.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 66975,
+      "startTime": "2026-10-22T14:46:15.671Z",
+      "steps": [
+        {
+          "title": "1 B 输入 A 的恢复码查找：确认页「这份云存档里有 2 款游戏的进度：」，列出两款与云端时长",
+          "ms": 636
+        },
+        {
+          "title": "2 点「确认取回」：跳到游戏库，提示已取回 2 款，游戏库有这两款",
+          "ms": 81
+        },
+        {
+          "title": "3 B 的两款存档与 A 的相同，saveId 与 A 的相同",
+          "ms": 31
+        },
+        {
+          "title": "4 B 打开我要当首富：读到「张三」",
+          "ms": 1396
+        },
+        {
+          "title": "5 B 打开一克之差再退出：推上 yike，云端版本号加 1",
+          "ms": 8174
+        },
+        {
+          "title": "6 A 停在商店 70 秒：拉回新版本，与 B 的存档相同",
+          "ms": 46207
+        },
+        {
+          "title": "7 cloud_accounts 的 recover_n 为 1",
+          "ms": 3008
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-CLOUD-022 存档页云存档卡的副标题跟着云存档状态",
+      "file": "cloud.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 3510,
+      "startTime": "2026-10-22T14:47:22.653Z",
+      "steps": [
+        {
+          "title": "1 #backup：标题下面写「存档自动保存在这台设备」，卡里是「玩过之后会自动开通」",
+          "ms": 86
+        },
+        {
+          "title": "2 开通后回到 #backup：标题下面写「存档自动保存在这台设备并同步到云端」",
+          "ms": 767
+        },
+        {
+          "title": "3 同步回 401 cloud-auth 后：卡里写「云存档暂停同步了…」，标题下面换回「存档自动保存在这台设备」",
+          "ms": 147
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-PLAY-001 游戏页铺满视口，只留悬浮按钮",
+      "file": "immersive.spec.ts",
+      "project": "portrait",
+      "status": "passed",
+      "durationMs": 1690,
+      "startTime": "2026-10-22T14:45:19.168Z",
+      "steps": [
+        {
+          "title": "1 打开 NBA-经理：iframe 左上角在 (0, 0)，宽 393、高 852",
+          "ms": 662
+        },
+        {
+          "title": "2 平台控件只有悬浮按钮，大小 44×44",
+          "ms": 4
+        },
+        {
+          "title": "3 悬浮按钮右边离屏幕右边缘 8 像素，中心高度 426 ± 1",
+          "ms": 12
+        },
+        {
+          "title": "4 横屏视口 852×393 重开：iframe 852×393，平台控件仍只有悬浮按钮",
+          "ms": 543
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-PLAY-004 竖屏打开游戏面板",
+      "file": "immersive.spec.ts",
+      "project": "portrait",
+      "status": "passed",
+      "durationMs": 3026,
+      "startTime": "2026-10-22T14:45:21.364Z",
+      "steps": [
+        {
+          "title": "1 点悬浮按钮：面板从底部弹出，标题「游戏菜单」，高度不超过 596",
+          "ms": 519
+        },
+        {
+          "title": "2 面板内容从上到下：游戏名、存档状态、云存档状态、本次 0 分钟、全屏或退出全屏、恢复默认按钮位置、退出游戏",
+          "ms": 46
+        },
+        {
+          "title": "3 点面板外的游戏区：面板关掉，游戏画面还在",
+          "ms": 304
+        },
+        {
+          "title": "4 再打开面板，按 Esc：面板关掉",
+          "ms": 838
+        },
+        {
+          "title": "5 再打开面板，点「关闭」：面板关掉",
+          "ms": 698
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-006 登录过看板的浏览器不计入",
+      "file": "kanban.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 49949,
+      "startTime": "2026-10-22T14:47:26.191Z",
+      "steps": [
+        {
+          "title": "1 打开 /kanban 输入密码登录：进入看板，有 sk_staff cookie",
+          "ms": 161
+        },
+        {
+          "title": "2 同一浏览器开局一款游戏玩 30 秒后退出：三张统计表与两张启动表都没有行",
+          "ms": 47494
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-LAUNCH-002 打开游戏到可玩并上报开始与就绪",
+      "file": "launch.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 19195,
+      "startTime": "2026-10-22T14:48:16.159Z",
+      "steps": [
+        {
+          "title": "1 打开一克之差详情，点「开始游戏」：载入页有封面、名称、进度条与「退出」",
+          "ms": 444
+        },
+        {
+          "title": "2 10 秒内载入页消失，只剩游戏画面与悬浮按钮",
+          "ms": 1569
+        },
+        {
+          "title": "3 2 秒后 launch_days：开始 1、就绪 1，五个耗时分桶里只有一格为 1",
+          "ms": 8084
+        },
+        {
+          "title": "4 game_days：这个旅客今天 yike 开局 1 次",
+          "ms": 2225
+        }
+      ],
+      "errors": []
+    },
+    {
+      "title": "TC-STORE-001 商店首页、导航与 13 款目录",
+      "file": "store.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 662,
+      "startTime": "2026-10-22T14:48:35.377Z",
+      "steps": [
+        {
+          "title": "1 打开首页：标题「shoota 游戏平台」；导航商店、游戏库、存档，商店高亮",
+          "ms": 191
+        },
+        {
+          "title": "2 「全部游戏」标为 13 款，顺序同目录",
+          "ms": 23
+        },
+        {
+          "title": "3 精选区标题「精选与推荐」，第一款是薯光；页面上没有「继续游玩」",
+          "ms": 11
+        },
+        {
+          "title": "4 点一克之差的卡片：地址 #game-yike，大标题「一克之差」，有「开始游戏」",
+          "ms": 114
+        },
+        {
+          "title": "5 回到商店：底部说明带「进度只存在这台设备上」与「备份 / 恢复进度」",
+          "ms": 72
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

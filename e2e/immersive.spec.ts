@@ -7,7 +7,7 @@ import { launchEvents } from './lib/proxy';
 import { CODE_DASHED } from './lib/cloud';
 import { readSave, readUi } from './lib/storage';
 import {
-  SAVE_STATE, box, closePanel, copy, dismissRotateHint, dotLit, expectDetail, exitGame, extra, floatButton, gameFrame,
+  SAVE_STATE, box, closePanel, copy, dotLit, expectDetail, exitGame, extra, floatButton, gameFrame,
   openPanel, panel, panelBox, pattern, platformControls, play, rotateHint, startGame, title, toast, waitPlayable,
 } from './lib/ui';
 import { DESKTOP_UA, IPHONE_UA, WECHAT_UA } from './lib/viewports';
@@ -210,7 +210,7 @@ test.describe('竖屏手机', () => {
       await expect.poll(() => readyOf('spud-dawn', 0)?.fs).toBe(2);
     });
 
-    await test.step('4 方向锁定返回拒绝，新浏览器重做第 1 步：照常开局，游戏区中间提示「横过手机玩更舒服」', async () => {
+    await test.step('4 方向锁定返回拒绝，新浏览器重做第 1 步：照常开局，游戏区顶部居中提示「横过手机玩更舒服」', async () => {
       const pg = await fresh();
       await installFaults(pg, { lock: 'reject' });
       await startGame(pg, 'spud-dawn', p.url);
@@ -375,18 +375,43 @@ test.describe('横屏手机', () => {
 
   test('TC-PLAY-018 方向与偏好不符时提示旋转', async ({ fresh }) => {
     const pg = await fresh({ ua: IPHONE_UA });
+    const hint = pg.getByText(copy.player.rotateToPortrait, { exact: true });
+    const close = pg.getByRole('button', { name: extra.close, exact: true });
+    let fr: Frame, shownAt = 0;
 
-    await test.step('1 横屏打开一克之差：游戏区中间显示「竖过手机玩更舒服」，可以关掉', async () => {
-      await play(pg, 'yike');
-      await expect(pg.getByText(copy.player.rotateToPortrait, { exact: true })).toBeVisible();
+    await test.step('1 横屏打开一克之差：游戏区顶部居中一条「竖过手机玩更舒服」，顶边离游戏区顶边 8 像素，有「关闭」', async () => {
+      fr = await play(pg, 'yike');
+      await expect(hint).toBeVisible();
+      shownAt = Date.now();
+      const strip = pg.getByRole('status').filter({ has: hint });
+      const area = await box(gameFrame(pg, 'yike'));
+      // 提示是从上方滑进来的，等滑入停下再量
+      await expect.poll(async () => Math.abs((await box(strip)).y - area.y - 8) <= 1, { timeout: 2000 }).toBe(true);
+      const card = await box(strip);
+      expect(Math.abs(card.x + card.width / 2 - (area.x + area.width / 2))).toBeLessThanOrEqual(1);
+      await expect(close).toBeVisible();
     });
 
-    await test.step('2 关掉提示：提示消失，changju.ui.v1 记下一克之差已提示过', async () => {
-      await dismissRotateHint(pg);
+    await test.step('2 在提示文字中央点一下：游戏收到这次点击，提示照常显示', async () => {
+      await fr.evaluate(() => {
+        const w = window as unknown as { __clicks: number };
+        w.__clicks = 0;
+        document.addEventListener('click', () => { w.__clicks++; }, true);
+      });
+      const t = await box(hint);
+      await pg.mouse.click(t.x + t.width / 2, t.y + t.height / 2);
+      expect(await fr.evaluate(() => (window as unknown as { __clicks: number }).__clicks)).toBe(1);
+      await expect(hint).toBeVisible();
+    });
+
+    await test.step('3 不碰提示：出现 4 秒时还在，8 秒内自动收起；changju.ui.v1 记下一克之差已提示过', async () => {
+      await sleep(shownAt + 4000 - Date.now());
+      await expect(hint).toBeVisible();
+      await expect(hint).toBeHidden({ timeout: Math.max(0, shownAt + 8000 - Date.now()) });
       expect((await readUi(pg))?.rotateHintSeen.yike).toBe(1);
     });
 
-    await test.step('3 退出再打开，点悬浮按钮：不再自动提示，面板里有「这款游戏竖屏玩更舒服」', async () => {
+    await test.step('4 退出再打开，点悬浮按钮：不再自动提示，面板里有「这款游戏竖屏玩更舒服」', async () => {
       await exitGame(pg, 'yike');
       await startGame(pg, 'yike');
       await waitPlayable(pg, 'yike');
@@ -396,13 +421,16 @@ test.describe('横屏手机', () => {
       await expect(p.getByText(extra.preferPortrait, { exact: true })).toBeVisible();
     });
 
-    await test.step('4 竖屏 393×852 打开薯光：提示「横过手机玩更舒服」', async () => {
+    await test.step('5 竖屏 393×852 打开薯光：提示「横过手机玩更舒服」，点「关闭」后消失', async () => {
       const p2 = await fresh({ at: 'portrait', ua: IPHONE_UA });
       await play(p2, 'spud-dawn');
-      await expect(p2.getByText(copy.player.rotateToLandscape, { exact: true })).toBeVisible();
+      const h2 = p2.getByText(copy.player.rotateToLandscape, { exact: true });
+      await expect(h2).toBeVisible();
+      await p2.getByRole('button', { name: extra.close, exact: true }).click();
+      await expect(h2).toBeHidden({ timeout: 1000 });
     });
 
-    await test.step('5 微信 UA 竖屏打开薯光：提示旋转，另有「在微信的设置、通用里打开横屏模式」', async () => {
+    await test.step('6 微信 UA 竖屏打开薯光：提示旋转，另有「在微信的设置、通用里打开横屏模式」', async () => {
       const p3 = await fresh({ at: 'portrait', ua: WECHAT_UA });
       await play(p3, 'spud-dawn');
       await expect(p3.getByText(copy.player.rotateToLandscape, { exact: true })).toBeVisible();

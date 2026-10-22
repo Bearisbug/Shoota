@@ -116,10 +116,18 @@ export interface ShotOptions {
 // 拍一个截图键：等字体、视口里的图片与布局落定，存 webp，记热点、动态区域与拍法
 export async function shot(page: Page, key: string, o: ShotOptions) {
   if (!o.tap?.length && !o.look?.length) throw new Error(`${key} 至少要一个热点`);
+  // 游戏 iframe 里的网页字体是异步加载的（如一克之差的 Google Fonts）：等网络静下来、各 frame 的字体都就绪再拍
+  await page.waitForLoadState('networkidle');
+  for (const f of page.frames().slice(1)) await f.evaluate(() => document.fonts.ready.then(() => undefined));
   await page.evaluate(async () => {
     await document.fonts.ready;
-    const seen = [...document.images].filter(i => { const r = i.getBoundingClientRect(); return r.width > 0 && r.bottom > 0 && r.top < innerHeight; });
-    await Promise.all(seen.map(i => i.decode().catch(() => undefined)));
+    // 只等真正露在视口里的图：横向滚动条里被裁掉的懒加载封面不会开始加载，等它的 decode() 会一直挂着
+    const inView = (i: HTMLImageElement) => new Promise<boolean>(r => {
+      const io = new IntersectionObserver(([e]) => { io.disconnect(); r(e.isIntersecting); });
+      io.observe(i);
+    });
+    const imgs = [...document.images], shown = await Promise.all(imgs.map(inView));
+    await Promise.all(imgs.filter((_, n) => shown[n]).map(i => i.decode().catch(() => undefined)));
     await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
   });
   const vp = page.viewportSize()!, dpr = await page.evaluate(() => devicePixelRatio);

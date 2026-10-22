@@ -1,0 +1,19 @@
+FLOW-CLOUD-CONFLICT/S3 遮罩 0 块后差异 0 像素，上限 75：通过
+FLOW-CLOUD-CONFLICT/S4-a 遮罩 2 块后差异 0 像素，上限 75：通过
+FLOW-CLOUD-CONFLICT/S4-b 遮罩 0 块后差异 0 像素，上限 75：通过
+FLOW-CLOUD-FIRST/S4 遮罩 0 块后差异 0 像素，上限 75：通过
+FLOW-CLOUD-SYNC/S5-a 遮罩 4 块后差异 12561 像素，上限 75：没通过，未发布
+FLOW-CLOUD-SYNC/S5-b 遮罩 4 块后差异 28015 像素，上限 75：没通过，未发布
+FLOW-IMMERSIVE/S1 遮罩 0 块后差异 0 像素，上限 75：通过
+FLOW-IMMERSIVE/S2 遮罩 0 块后差异 0 像素，上限 75：通过
+FLOW-IMMERSIVE/S3 遮罩 0 块后差异 0 像素，上限 75：通过
+FLOW-IMMERSIVE/S4 遮罩 2 块后差异 11636 像素，上限 75：没通过，未发布
+FLOW-IMMERSIVE/S5 遮罩 2 块后差异 7550 像素，上限 75：没通过，未发布
+FLOW-IMMERSIVE/S6 遮罩 0 块后差异 0 像素，上限 75：通过
+FLOW-LAUNCH/S1 遮罩 0 块后差异 0 像素，上限 112：通过
+FLOW-LAUNCH/S2a 遮罩 0 块后差异 0 像素，上限 112：通过
+FLOW-LAUNCH/S4 遮罩 0 块后差异 0 像素，上限 112：通过
+FLOW-RECOVER/S1 遮罩 0 块后差异 0 像素，上限 75：通过
+FLOW-RECOVER/S3 遮罩 0 块后差异 0 像素，上限 75：通过
+FLOW-RECOVER/S5 遮罩 0 块后差异 0 像素，上限 75：通过
+已发布 14 张到 docs/tour/shots/
