@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-22",
+  "results": [
+    {
+      "name": "Default unchecked",
+      "result": "pass"
+    },
+    {
+      "name": "Default eleven cards",
+      "result": "pass"
+    },
+    {
+      "name": "BYD card hidden",
+      "result": "pass"
+    },
+    {
+      "name": "Keyboard opt-in shows twelve cards",
+      "result": "pass"
+    },
+    {
+      "name": "Revoking consent hides BYD",
+      "result": "pass"
+    },
+    {
+      "name": "Default game excludes BYD resources",
+      "result": "pass"
+    },
+    {
+      "name": "Missing consent cannot create BYD game",
+      "result": "pass"
+    },
+    {
+      "name": "Default race grid",
+      "result": "pass"
+    },
+    {
+      "name": "Default autosave reload",
+      "result": "pass"
+    },
+    {
+      "name": "Next season remains eleven teams",
+      "result": "pass"
+    },
+    {
+      "name": "Restart unchecked",
+      "result": "pass"
+    },
+    {
+      "name": "Opt-in includes AI BYD",
+      "result": "pass"
+    },
+    {
+      "name": "Opt-in race grid",
+      "result": "pass"
+    },
+    {
+      "name": "Reload does not reuse consent",
+      "result": "pass"
+    },
+    {
+      "name": "Opt-in autosave keeps BYD",
+      "result": "pass"
+    },
+    {
+      "name": "BYD playable after consent",
+      "result": "pass"
+    },
+    {
+      "name": "Team page count",
+      "result": "pass"
+    },
+    {
+      "name": "Mobile no horizontal overflow",
+      "result": "pass"
+    },
+    {
+      "name": "Mobile opt-in",
+      "result": "pass"
+    },
+    {
+      "name": "Legacy save lacks new option",
+      "result": "pass"
+    },
+    {
+      "name": "Legacy save keeps BYD player",
+      "result": "pass"
+    },
+    {
+      "name": "No JavaScript errors",
+      "result": "pass"
+    }
+  ],
+  "errors": []
+}
