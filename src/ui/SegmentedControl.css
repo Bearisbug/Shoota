@@ -1,0 +1,55 @@
+/* 轨道是下沉槽，滑块是浮层色加卡片阴影；亮暗两种模式都是滑块比轨道亮 */
+.ui-seg {
+  --ui-seg-h: var(--control-h-md);
+  --ui-seg-pad: calc(var(--space-1) / 2);
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  grid-template-columns: repeat(var(--ui-seg-count), minmax(0, 1fr));
+  min-block-size: var(--ui-seg-h);
+  padding: var(--ui-seg-pad);
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-sunken);
+}
+/* 鼠标环境矮一档；触屏保持 44 */
+@media (pointer: fine) {
+  .ui-seg { --ui-seg-h: calc(var(--space-8) + var(--space-1)); }
+}
+.ui-seg-block { display: grid; inline-size: 100%; }
+
+.ui-seg-thumb {
+  position: absolute;
+  z-index: -1;
+  inset-block: var(--ui-seg-pad);
+  inset-inline-start: var(--ui-seg-pad);
+  inline-size: calc((100% - 2 * var(--ui-seg-pad)) / var(--ui-seg-count));
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-overlay);
+  box-shadow: var(--shadow-card);
+  transform: translateX(calc(var(--ui-seg-index) * 100%));
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.ui-seg-item {
+  display: grid;
+  place-items: center;
+  min-inline-size: 0;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-label-secondary);
+  font: var(--type-callout);
+  font-weight: var(--primitive-font-weight-medium);
+  line-height: var(--primitive-ratio-line-height-tight);
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+.ui-seg-item[aria-checked="true"] {
+  color: var(--color-label);
+  font-weight: var(--primitive-font-weight-semibold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-seg-thumb { transition: none; }
+}

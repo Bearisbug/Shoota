@@ -1,0 +1,194 @@
+{
+ "stats": {
+  "startTime": "2026-10-22T12:55:52.715Z",
+  "duration": 389269.709,
+  "expected": 7,
+  "skipped": 0,
+  "unexpected": 0,
+  "flaky": 0
+ },
+ "tests": [
+  {
+   "file": "game.spec.ts",
+   "title": "TC-018 三款新游戏的目录、封面与游玩",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:55:53.005Z",
+   "seconds": 57.2,
+   "steps": [
+    {
+     "step": "1 打开商店：共 13 款，「全部游戏」顺序同用例",
+     "ok": true
+    },
+    {
+     "step": "2 两个 F1 的详情：标题 F1-Driver、F1-Team Principal，开始入口指向 f1-driver、f1",
+     "ok": true
+    },
+    {
+     "step": "3 按三款新游戏的完整名称分别搜索：每次都找到对应卡片",
+     "ok": true
+    },
+    {
+     "step": "4 三款新游戏的详情，玩过后再看游戏库：同一张封面、名称与玩法简介",
+     "ok": true
+    },
+    {
+     "step": "5 390 宽：商店、三个详情与游戏库没有横向滚动",
+     "ok": true
+    },
+    {
+     "step": "6 F1-Driver 创建车手后签下正式合同：进入 2026 赛季第 1 站",
+     "ok": true
+    },
+    {
+     "step": "7 我要当首富建立玩家，摆摊后经营一周：进入第 2 周",
+     "ok": true
+    },
+    {
+     "step": "8 篮球巨星创建球员，选上海久事后确认开局：进入 CBA 生涯总览",
+     "ok": true
+    },
+    {
+     "step": "9 逐个打开其余十款：都出现游戏画面，没有运行错误",
+     "ok": true
+    },
+    {
+     "step": "10 npm run check 与 npx tsc -b：退出码 0；游戏标识唯一，封面与登记大小对得上",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-001 首次打开平台记一次访问",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:56:50.532Z",
+   "seconds": 13.4,
+   "steps": [
+    {
+     "step": "1 打开平台首页，等商店出现：本地存储有 32 位十六进制旅客编号",
+     "ok": true
+    },
+    {
+     "step": "2 visitors：只有这个编号一行，首访今天，desktop，微信 0",
+     "ok": true
+    },
+    {
+     "step": "3 visitor_days：今天一行，访问 1，游玩秒数 0",
+     "ok": true
+    },
+    {
+     "step": "4 刷新：visitors 仍一行，今天访问 2",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-002 开局并游玩约 2 分半",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:57:03.992Z",
+   "seconds": 161.9,
+   "steps": [
+    {
+     "step": "1 打开一克之差：game_days 今天 yike 一行，开局 1",
+     "ok": true
+    },
+    {
+     "step": "2 前台 130 秒：yike 游玩秒数 120，旅客日也是 120",
+     "ok": true
+    },
+    {
+     "step": "3 再等 20 秒，面板显示「本次 2 分钟」，退出后 145 到 155 秒",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-008 看板登录",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:59:45.892Z",
+   "seconds": 5.1,
+   "steps": [
+    {
+     "step": "1 打开 /kanban：登录页，有密码框与「进入看板」",
+     "ok": true
+    },
+    {
+     "step": "2 错误密码：停在登录页，「密码不对，还能试 4 次」",
+     "ok": true
+    },
+    {
+     "step": "3 正确密码：看板五块加「启动 · 近 7 天」",
+     "ok": true
+    },
+    {
+     "step": "4 关掉标签页重新打开 /kanban：直接显示看板",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-010 未登录读取统计",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:59:51.031Z",
+   "seconds": 0.1,
+   "steps": [
+    {
+     "step": "1 不带 cookie：401 not-logged-in，没有统计数字",
+     "ok": true
+    },
+    {
+     "step": "2 签名被改过：401 not-logged-in",
+     "ok": true
+    },
+    {
+     "step": "3 已过期：401 not-logged-in；同一密钥签的未过期会话 200",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-016 真实游玩后看板可见",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:59:55.236Z",
+   "seconds": 135.7,
+   "steps": [
+    {
+     "step": "1 开局一款游戏，前台 130 秒后打开面板：「本次 2 分钟」，再退出",
+     "ok": true
+    },
+    {
+     "step": "2 另一个浏览器登录看板：今日活跃至少 1，今日游玩时长至少 2 分钟",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-011 概览与每日趋势",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:59:51.126Z",
+   "seconds": 4.1,
+   "steps": [
+    {
+     "step": "1 概览：今日、近 7 天、近 30 天与种子注释一致",
+     "ok": true
+    },
+    {
+     "step": "2 每日趋势：近 30 天每天的活跃、新增与时长，没数据的日子为 0",
+     "ok": true
+    }
+   ]
+  }
+ ]
+}

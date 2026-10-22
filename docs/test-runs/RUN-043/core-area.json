@@ -1,0 +1,1227 @@
+{
+  "at": "2026-10-22T12:52:54.640Z",
+  "summary": {
+    "portrait": {
+      "n": 12,
+      "median": 77.7,
+      "min": 61.9,
+      "minIds": [
+        "yike"
+      ],
+      "screenMedian": null
+    },
+    "landscape": {
+      "n": 12,
+      "median": 59.6,
+      "min": 18.5,
+      "minIds": [
+        "yike"
+      ],
+      "screenMedian": null
+    },
+    "safari-portrait": {
+      "n": 12,
+      "median": 71.2,
+      "min": 61.1,
+      "minIds": [
+        "cba",
+        "nba"
+      ],
+      "screenMedian": 55.1
+    },
+    "safari-landscape": {
+      "n": 12,
+      "median": 56.7,
+      "min": 18.7,
+      "minIds": [
+        "yike"
+      ],
+      "screenMedian": 42.6
+    },
+    "tablet": {
+      "n": 12,
+      "median": 87.7,
+      "min": 45.5,
+      "minIds": [
+        "yike"
+      ],
+      "screenMedian": null
+    },
+    "desktop": {
+      "n": 13,
+      "median": 84.9,
+      "min": 25.7,
+      "minIds": [
+        "yike"
+      ],
+      "screenMedian": null
+    }
+  },
+  "old": {
+    "portrait": {
+      "median": 66.1,
+      "min": 58.3,
+      "minIds": [
+        "cba",
+        "nba"
+      ]
+    },
+    "landscape": {
+      "median": 48.3,
+      "min": 14,
+      "minIds": [
+        "yike"
+      ]
+    },
+    "safari-portrait": {
+      "median": 56.2,
+      "min": 46.1,
+      "minIds": [
+        "cba",
+        "nba"
+      ],
+      "screenMedian": 43.4
+    },
+    "safari-landscape": {
+      "median": 42,
+      "min": 13.5,
+      "minIds": [
+        "yike"
+      ]
+    },
+    "tablet": {
+      "median": 83.5,
+      "min": 45.6,
+      "minIds": [
+        "yike"
+      ]
+    },
+    "desktop": {
+      "median": 79.4,
+      "min": 22.9,
+      "minIds": [
+        "yike"
+      ]
+    }
+  },
+  "targets": {
+    "portrait": {
+      "median": 77,
+      "min": 70
+    },
+    "landscape": {
+      "median": 60
+    },
+    "safari-portrait": {
+      "median": 71,
+      "min": 61,
+      "screenMedian": 55
+    },
+    "safari-landscape": {
+      "median": 56
+    },
+    "tablet": {
+      "median": 87,
+      "min": 49
+    },
+    "desktop": {
+      "median": 84,
+      "min": 28
+    }
+  },
+  "readings": [
+    {
+      "vp": "portrait",
+      "id": "spud-dawn",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "f1-driver",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 79.1,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "f1",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 71.8,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "basketball-star",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 75.8,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "wealth-reborn",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 81.5,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "douluo",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 76.3,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "yexiao",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 82.9,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "hougong",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "nba",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 69.9,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "cba",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 69.9,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "lol",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "yike",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 61.9,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "portrait",
+      "id": "entertainment-career",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "coreAreaPct": 92.5,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "spud-dawn",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "f1-driver",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 74,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "f1",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 61.1,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "basketball-star",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 58.1,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "wealth-reborn",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 50.6,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "douluo",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 48.7,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "yexiao",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 69.5,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "hougong",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 64.1,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "nba",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 57.3,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "cba",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 57.3,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "lol",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "yike",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 18.5,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "landscape",
+      "id": "entertainment-career",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 852,
+        "h": 393
+      },
+      "coreAreaPct": 91.1,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "spud-dawn",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": 77.3
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "f1-driver",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 73,
+      "screenAreaPct": 56.5
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "f1",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 63.5,
+      "screenAreaPct": 49.1
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "basketball-star",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 68.7,
+      "screenAreaPct": 53.1
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "wealth-reborn",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 76,
+      "screenAreaPct": 58.8
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "douluo",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 69.4,
+      "screenAreaPct": 53.7
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "yexiao",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 77.9,
+      "screenAreaPct": 60.2
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "hougong",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": 77.3
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "nba",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 61.1,
+      "screenAreaPct": 47.3
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "cba",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 61.1,
+      "screenAreaPct": 47.3
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "lol",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": 77.3
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "yike",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 68.5,
+      "screenAreaPct": 53
+    },
+    {
+      "vp": "safari-portrait",
+      "id": "entertainment-career",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 659
+      },
+      "coreAreaPct": 90.3,
+      "screenAreaPct": 69.8
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "spud-dawn",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": 75.2
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "f1-driver",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 54,
+      "screenAreaPct": 40.6
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "f1",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 55.5,
+      "screenAreaPct": 41.7
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "basketball-star",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 57.8,
+      "screenAreaPct": 43.5
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "wealth-reborn",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 43.4,
+      "screenAreaPct": 32.7
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "douluo",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 41.2,
+      "screenAreaPct": 31
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "yexiao",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 65,
+      "screenAreaPct": 48.9
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "hougong",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": 75.2
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "nba",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 57.8,
+      "screenAreaPct": 43.5
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "cba",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 45,
+      "screenAreaPct": 33.9
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "lol",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": 75.2
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "yike",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 18.7,
+      "screenAreaPct": 14
+    },
+    {
+      "vp": "safari-landscape",
+      "id": "entertainment-career",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 734,
+        "h": 343
+      },
+      "coreAreaPct": 89.6,
+      "screenAreaPct": 67.4
+    },
+    {
+      "vp": "tablet",
+      "id": "spud-dawn",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "f1-driver",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 91.4,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "f1",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 87.1,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "basketball-star",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 87.7,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "wealth-reborn",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 82,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "douluo",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 82.9,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "yexiao",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 89.8,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "hougong",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "nba",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 87.7,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "cba",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 87.7,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "lol",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "yike",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 45.5,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "tablet",
+      "id": "entertainment-career",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 820,
+        "h": 1180
+      },
+      "coreAreaPct": 90.7,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "spud-dawn",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "f1-driver",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 81.2,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "f1",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 81.2,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "basketball-star",
+      "misses": [],
+      "mode": "inner-scroller",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 81.8,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "wealth-reborn",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 76.4,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "douluo",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 77.6,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "yexiao",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 93.7,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "hougong",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 100,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "nba",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 94.1,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "cba",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 94.1,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "lol",
+      "misses": [],
+      "mode": "document-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 93.1,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "yike",
+      "misses": [],
+      "mode": "manual",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 25.7,
+      "screenAreaPct": null
+    },
+    {
+      "vp": "desktop",
+      "id": "entertainment-career",
+      "misses": [],
+      "mode": "no-scroll",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      },
+      "coreAreaPct": 84.9,
+      "screenAreaPct": null
+    }
+  ],
+  "failed": []
+}

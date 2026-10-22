@@ -1,0 +1,8 @@
+$ npm run check
+
+> check
+> node scripts/check.mjs
+
+✓ 18 个页面、24 段内嵌脚本解析通过；13 款游戏标识唯一，游戏与封面文件齐全，登记大小与文件一致，旧游戏外部字体不阻塞，1 款改写游戏不直接碰本地存储，public/brand/ 与 brand/ 一致
+
+$ npx tsc -b

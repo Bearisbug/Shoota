@@ -1,0 +1,128 @@
+/* GameShell：铺满游戏页，四边避开安全区（在平台的 iframe 里安全区已由平台留出，这里取到的是 0）。
+   颜色与字体跟随游戏自己的样式，这里只管排版与触控。 */
+.gs-root {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+  block-size: 100dvh;
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.gs-header {
+  flex: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-inline-size: 0;
+}
+.gs-header-content { flex: 1; min-inline-size: 0; }
+/* 收成一行：只留一行高，超出的截掉 */
+.gs-header[data-collapsed] { align-items: center; }
+.gs-header[data-collapsed] .gs-header-content {
+  max-block-size: 44px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.gs-toggle {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  inline-size: 44px;
+  block-size: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.gs-toggle svg { transition: transform 200ms ease; }
+.gs-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.gs-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: -4px; }
+
+/* 核心区与侧栏：竖屏上下排，横屏左右排 */
+.gs-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 0;
+  min-inline-size: 0;
+}
+.gs-root[data-orientation="landscape"] .gs-body { flex-direction: row; }
+.gs-core {
+  position: relative;
+  flex: 1 1 auto;
+  min-block-size: 0;
+  min-inline-size: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.gs-core::-webkit-scrollbar { display: none; }
+.gs-aside {
+  flex: none;
+  min-block-size: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.gs-aside::-webkit-scrollbar { display: none; }
+.gs-root[data-orientation="landscape"] .gs-aside { max-inline-size: 40%; }
+.gs-footer { flex: none; }
+
+.gs-split { display: flex; flex-direction: column; block-size: 100%; min-block-size: 0; }
+.gs-split[data-orientation="landscape"] { flex-direction: row; }
+.gs-split-first { flex: 1 1 auto; min-block-size: 0; min-inline-size: 0; }
+.gs-split-second { flex: none; min-block-size: 0; min-inline-size: 0; }
+
+/* 触控工具 */
+/* 点击区域不足 44×44 的控件，四周扩到 44 */
+.gs-hit { position: relative; }
+.gs-hit::before {
+  content: "";
+  position: absolute;
+  inset: min(0px, calc((100% - 44px) / 2));
+}
+/* 平台式控件：不弹长按菜单、不选中文字 */
+.gs-control {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.gs-orphan {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  padding: max(24px, env(safe-area-inset-top, 0px)) 24px max(24px, env(safe-area-inset-bottom, 0px));
+  text-align: center;
+}
+.gs-orphan-title { margin: 0; font-size: 20px; font-weight: 600; }
+.gs-orphan-text { margin: 0; font-size: 15px; opacity: 0.72; }
+.gs-orphan-link {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gs-toggle svg { transition: none; }
+}

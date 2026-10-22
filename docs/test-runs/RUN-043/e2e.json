@@ -1,0 +1,473 @@
+{
+ "stats": {
+  "startTime": "2026-10-22T12:39:20.454Z",
+  "duration": 982284.262,
+  "expected": 11,
+  "skipped": 48,
+  "unexpected": 5,
+  "flaky": 0
+ },
+ "tests": [
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-001 第一次存下进度后开通云存档",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:40:06.134Z",
+   "seconds": 28.0,
+   "steps": [
+    {
+     "step": "1 打开一克之差再退出：5 秒内开通返回 201，随后同步推上 yike，ok、版本 1",
+     "ok": true
+    },
+    {
+     "step": "2 changju.cloud.v1：saveId 32 位小写十六进制，恢复码 16 位，yike 版本 1",
+     "ok": true
+    },
+    {
+     "step": "3 回到商店：顶部提示「进度已经存到云端」，四段恢复码，「复制恢复码」与「知道了」",
+     "ok": true
+    },
+    {
+     "step": "4 点「知道了」后刷新：提示不再出现",
+     "ok": true
+    },
+    {
+     "step": "5 cloud_accounts、cloud_games 各 1 行；sid 是 saveId 的 SHA-256，三张表找不到原文",
+     "ok": true
+    },
+    {
+     "step": "6 统计表、启动表与 /api/e、/api/launch 的正文里都没有 saveId",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-003 退出游戏与每分钟同步",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T12:40:34.486Z",
+   "seconds": 83.1,
+   "steps": [
+    {
+     "step": "1 我要当首富建立玩家「张三」：面板显示「已存档 时:分」",
+     "ok": true
+    },
+    {
+     "step": "2 点「退出游戏」：2 秒内一次同步推上 wealth-reborn，ok",
+     "ok": true
+    },
+    {
+     "step": "3 再开我要当首富：面板里云存档状态「已同步 · 时:分」，为第 2 步的时间",
+     "ok": true
+    },
+    {
+     "step": "4 退出后停在商店 70 秒：至少一次同步",
+     "ok": true
+    },
+    {
+     "step": "5 cloud_games 里 wealth-reborn 的秒数等于本机累计秒数",
+     "ok": false,
+     "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 4\nReceived: 3"
+    }
+   ],
+   "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 4\nReceived: 3"
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-006 换设备用恢复码取回",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:42:08.665Z",
+   "seconds": 66.5,
+   "steps": [
+    {
+     "step": "1 B 输入 A 的恢复码查找：确认页「这份云存档里有 2 款游戏的进度：」，列出两款与云端时长",
+     "ok": true
+    },
+    {
+     "step": "2 点「确认取回」：跳到游戏库，提示已取回 2 款，游戏库有这两款",
+     "ok": true
+    },
+    {
+     "step": "3 B 的两款存档与 A 的相同，saveId 与 A 的相同",
+     "ok": true
+    },
+    {
+     "step": "4 B 打开我要当首富：读到「张三」",
+     "ok": true
+    },
+    {
+     "step": "5 B 打开一克之差再退出：推上 yike，云端版本号加 1",
+     "ok": true
+    },
+    {
+     "step": "6 A 停在商店 70 秒：拉回新版本，与 B 的存档相同",
+     "ok": true
+    },
+    {
+     "step": "7 cloud_accounts 的 recover_n 为 1",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-010 两台设备进度冲突",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:43:15.448Z",
+   "seconds": 92.4,
+   "steps": [
+    {
+     "step": "1 A 打开商店：推 yike（base 3）ok，云端版本 4",
+     "ok": true
+    },
+    {
+     "step": "2 跳过间隔，B 打开商店：推 yike（base 3）ok，云端版本 5、秒数 900、beat_rev 4",
+     "ok": true
+    },
+    {
+     "step": "3 A 等下一次同步：拉回版本 5，本机换成 B 的那份，撤销槽是 A 原来那份（conflict），有替换提示",
+     "ok": true
+    },
+    {
+     "step": "4 A 打开游戏库：一克之差旁边显示「可撤销」",
+     "ok": true
+    },
+    {
+     "step": "5 反过来 A 900 秒、B 360 秒：B 推的结果 kept-cloud，云端仍是版本 4；B 换成 A 的那份，撤销槽是 B 原来那份",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "core-area.spec.ts",
+   "title": "TC-PLAY-017 六组视口核心区占比复测",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T12:44:47.850Z",
+   "seconds": 486.8,
+   "steps": [
+    {
+     "step": "1 393×852 量 12 款",
+     "ok": false,
+     "error": "Error: portrait 最低（旧版 58.3%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    61.9"
+    },
+    {
+     "step": "2 852×393 量 12 款",
+     "ok": false,
+     "error": "Error: landscape 中位数（旧版 48.3%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 60\nReceived:    59.6"
+    },
+    {
+     "step": "3 393×659 量 12 款",
+     "ok": true
+    },
+    {
+     "step": "4 734×343 量 12 款",
+     "ok": true
+    },
+    {
+     "step": "5 820×1180 量 12 款",
+     "ok": false,
+     "error": "Error: tablet 最低（旧版 45.6%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 49\nReceived:    45.5"
+    },
+    {
+     "step": "6 1440×900 量 13 款",
+     "ok": false,
+     "error": "Error: desktop 最低（旧版 22.9%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 28\nReceived:    25.7"
+    },
+    {
+     "step": "7 六组视口每款都有读数，没有一款记成「进主界面的步骤没点到」",
+     "ok": true
+    }
+   ],
+   "error": "Error: portrait 最低（旧版 58.3%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    61.9"
+  },
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-LAUNCH-001 第一次下载没有回音时自动重试并进入游戏",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:53:12.220Z",
+   "seconds": 38.6,
+   "steps": [
+    {
+     "step": "1 点「开始游戏」",
+     "ok": true
+    },
+    {
+     "step": "2 等到点击后第 20 秒：15 到 20 秒之间出现重试提示，中转记到第二次斗罗文件请求",
+     "ok": true
+    },
+    {
+     "step": "3 最多等到点击后第 45 秒，游戏画面出现",
+     "ok": true
+    },
+    {
+     "step": "4 启动上报：start 一条、ready 一条且 n 为 2，没有 fail",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-PLAY-015 竖屏游戏区不再被平台栏挤占",
+   "project": "portrait",
+   "status": "failed",
+   "start": "2026-10-22T12:39:20.860Z",
+   "seconds": 4.5,
+   "steps": [
+    {
+     "step": "portrait 1 打开 NBA-经理：iframe 顶边在 0，高 852",
+     "ok": true
+    },
+    {
+     "step": "portrait 2 平台控件只有悬浮按钮",
+     "ok": true
+    },
+    {
+     "step": "portrait 3 核心区占比不低于 70%",
+     "ok": false,
+     "error": "Error: expect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    69.9"
+    }
+   ],
+   "error": "Error: expect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    69.9"
+  },
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-PLAY-016 横屏游戏区不再被平台栏挤占",
+   "project": "landscape",
+   "status": "passed",
+   "start": "2026-10-22T12:39:53.229Z",
+   "seconds": 1.6,
+   "steps": [
+    {
+     "step": "1 打开斗罗·万相：iframe 顶边在 0，高 393",
+     "ok": true
+    },
+    {
+     "step": "2 平台控件只有悬浮按钮",
+     "ok": true
+    },
+    {
+     "step": "3 Safari 可见区 734×343 重开斗罗·万相：iframe 734×343，平台控件只有悬浮按钮",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-001 游戏页铺满视口，只留悬浮按钮",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T12:39:36.266Z",
+   "seconds": 1.3,
+   "steps": [
+    {
+     "step": "1 打开 NBA-经理：iframe 左上角在 (0, 0)，宽 393、高 852",
+     "ok": true
+    },
+    {
+     "step": "2 平台控件只有悬浮按钮，大小 44×44",
+     "ok": true
+    },
+    {
+     "step": "3 悬浮按钮右边离屏幕右边缘 8 像素，中心高度 426 ± 1",
+     "ok": true
+    },
+    {
+     "step": "4 横屏视口 852×393 重开：iframe 852×393，平台控件仍只有悬浮按钮",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-004 竖屏打开游戏面板",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T12:39:37.807Z",
+   "seconds": 2.9,
+   "steps": [
+    {
+     "step": "1 点悬浮按钮：面板从底部弹出，标题「游戏菜单」，高度不超过 596",
+     "ok": true
+    },
+    {
+     "step": "2 面板内容从上到下：游戏名、存档状态、云存档状态、本次 0 分钟、全屏或退出全屏、恢复默认按钮位置、退出游戏",
+     "ok": true
+    },
+    {
+     "step": "3 点面板外的游戏区：面板关掉，游戏画面还在",
+     "ok": true
+    },
+    {
+     "step": "4 再打开面板，按 Esc：面板关掉",
+     "ok": true
+    },
+    {
+     "step": "5 再打开面板，点「关闭」：面板关掉",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-012 安卓 UA 下开局请求全屏并锁定方向",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T12:39:40.746Z",
+   "seconds": 5.1,
+   "steps": [
+    {
+     "step": "1 打开薯光详情，点「开始游戏」：点击的同一个事件里对页面根元素请求了全屏，fullscreenElement 是 <html>",
+     "ok": true
+    },
+    {
+     "step": "2 请求锁定 landscape 一次",
+     "ok": true
+    },
+    {
+     "step": "3 等就绪：ready 带 fs 为 2",
+     "ok": true
+    },
+    {
+     "step": "4 方向锁定返回拒绝，新浏览器重做第 1 步：照常开局，游戏区中间提示「横过手机玩更舒服」",
+     "ok": true
+    },
+    {
+     "step": "5 电脑视口 1440×900，新浏览器重做第 1 步：没有请求全屏，ready 带 fs 为 0",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "kanban.spec.ts",
+   "title": "TC-006 登录过看板的浏览器不计入",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:53:51.453Z",
+   "seconds": 47.3,
+   "steps": [
+    {
+     "step": "1 打开 /kanban 输入密码登录：进入看板，有 sk_staff cookie",
+     "ok": true
+    },
+    {
+     "step": "2 同一浏览器开局一款游戏玩 30 秒后退出：三张统计表与两张启动表都没有行",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-002 打开游戏到可玩并上报开始与就绪",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:54:38.800Z",
+   "seconds": 9.2,
+   "steps": [
+    {
+     "step": "1 打开一克之差详情，点「开始游戏」：载入页有封面、名称、进度条与「退出」",
+     "ok": true
+    },
+    {
+     "step": "2 10 秒内载入页消失，只剩游戏画面与悬浮按钮",
+     "ok": true
+    },
+    {
+     "step": "3 2 秒后 launch_days：开始 1、就绪 1，五个耗时分桶里只有一格为 1",
+     "ok": true
+    },
+    {
+     "step": "4 game_days：这个旅客今天 yike 开局 1 次",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "legacy.spec.ts",
+   "title": "TC-LEGACY-001 旧游戏的 Platform 接口",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T12:54:48.052Z",
+   "seconds": 6.6,
+   "steps": [
+    {
+     "step": "1 读 Platform：version 1.0，game basketball-star，四个方法，对象被冻结",
+     "ok": true
+    },
+    {
+     "step": "2 定义并解锁测试成就：提示「解锁成就 · 篮球巨星」与「测试成就」，5.2 秒左右消失",
+     "ok": true
+    },
+    {
+     "step": "3 setStatus 后打开面板：游戏名下面显示「第 3 赛季」",
+     "ok": true
+    },
+    {
+     "step": "4 sessionStorage：写一个键，退出再开，两次读到的长度都是 0",
+     "ok": false,
+     "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 0\nReceived: undefined"
+    }
+   ],
+   "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 0\nReceived: undefined"
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-001 商店首页、导航与 13 款目录",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:55:05.460Z",
+   "seconds": 1.2,
+   "steps": [
+    {
+     "step": "1 打开首页：标题「shoota 游戏平台」；导航商店、游戏库、存档，商店高亮",
+     "ok": true
+    },
+    {
+     "step": "2 「全部游戏」标为 13 款，顺序同目录",
+     "ok": true
+    },
+    {
+     "step": "3 精选区标题「精选与推荐」，第一款是薯光；页面上没有「继续游玩」",
+     "ok": true
+    },
+    {
+     "step": "4 点一克之差的卡片：地址 #game-yike，大标题「一克之差」，有「开始游戏」",
+     "ok": true
+    },
+    {
+     "step": "5 回到商店：底部说明带「进度只存在这台设备上」与「备份 / 恢复进度」",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-007 游戏库排序、愿望单与空态",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T12:55:07.004Z",
+   "seconds": 24.9,
+   "steps": [
+    {
+     "step": "1 #library：「游戏库还是空的」与「去商店挑一款」",
+     "ok": true
+    },
+    {
+     "step": "2 斗罗、一克之差各玩 6 秒后退出，F1-Driver 加入愿望单：按钮变成「已在愿望单」",
+     "ok": true
+    },
+    {
+     "step": "3 #library：「我的游戏库」，依次一克之差、斗罗·万相、F1-Driver；F1-Driver 显示「愿望单」与「还没玩过」",
+     "ok": false,
+     "error": "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2)\nExpected substring: \"还没玩过\"\nReceived string:    \"F1-Driver愿望单\"\nTimeout: 10000ms\n\nCall log:\n  - Expect \"toContainText\" getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2) with timeout 10000ms\n  - waiting for getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2)\n    24 × locator resolved to <li>…</li>\n       - unexpected value \"F1-Driver愿望单\"\n"
+    }
+   ],
+   "error": "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2)\nExpected substring: \"还没玩过\"\nReceived string:    \"F1-Driver愿望单\"\nTimeout: 10000ms\n\nCall log:\n  - Expect \"toContainText\" getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2) with timeout 10000ms\n  - waiting for getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2)\n    24 × locator resolved to <li>…</li>\n       - unexpected value \"F1-Driver愿望单\"\n"
+  }
+ ]
+}

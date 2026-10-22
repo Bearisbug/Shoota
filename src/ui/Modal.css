@@ -1,0 +1,27 @@
+/* Sheet 与 Dialog 共用：dialog 铺满视口、自身透明，遮罩和面板都是它的子元素，这样遮罩能和面板一起做过渡 */
+.ui-modal {
+  position: fixed;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  max-inline-size: none;
+  max-block-size: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: transparent;
+  color: inherit;
+}
+.ui-modal::backdrop { background: transparent; }
+.ui-modal[data-state="closed"] { pointer-events: none; }
+
+/* 遮罩只压暗不模糊：brand/tokens.json 的 notUsed 禁用 backdrop-filter */
+.ui-modal-scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--color-scrim);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.ui-modal[data-state="open"] .ui-modal-scrim { opacity: 1; }

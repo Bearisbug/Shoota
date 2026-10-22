@@ -1,0 +1,108 @@
+/* 状态标：文字用正文色保证可读，状态色只给前面的圆点 */
+.app-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: calc(var(--space-1) / 2) var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-fill);
+  color: var(--color-label);
+  font: var(--type-caption);
+  font-weight: var(--primitive-font-weight-medium);
+  white-space: nowrap;
+}
+.app-pill::before {
+  content: "";
+  inline-size: 0.5em;
+  block-size: 0.5em;
+  border-radius: 50%;
+  background: var(--color-success);
+}
+.app-pill[data-tone="dev"]::before { background: var(--color-warning); }
+@media (forced-colors: active) {
+  .app-pill { border: 1px solid CanvasText; }
+  .app-pill::before { background: CanvasText; }
+}
+
+.app-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+/* 标签比普通按钮轻一档：高度仍是 44，字小一号、次要色 */
+.app-tags .app-tag {
+  padding-inline: var(--space-4);
+  font: var(--type-footnote);
+  font-weight: var(--primitive-font-weight-medium);
+  color: var(--color-label-secondary);
+}
+
+/* 类型筛选条：手机上一行横滑，不露滚动条，键盘仍可逐个 Tab 过去；≥ 760 折行排开 */
+.app-chips {
+  display: flex;
+  gap: var(--space-2);
+  margin-inline: calc(var(--layout-page-pad-start, var(--layout-gutter)) * -1) calc(var(--layout-page-pad-end, var(--layout-gutter)) * -1);
+  padding: var(--space-1) var(--layout-page-pad-end, var(--layout-gutter)) var(--space-1) var(--layout-page-pad-start, var(--layout-gutter));
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: var(--layout-page-pad-start, var(--layout-gutter));
+  scrollbar-width: none;
+}
+.app-chips::-webkit-scrollbar { display: none; }
+@media (min-width: 760px) {
+  .app-chips { flex-wrap: wrap; margin-inline: 0; padding-inline: 0; overflow-x: visible; }
+}
+.app-chips .ui-btn { flex: none; }
+.app-chips .ui-btn[aria-pressed="true"] { background: var(--color-bg-selected); color: var(--color-accent); }
+@media (forced-colors: active) {
+  .app-chips .ui-btn[aria-pressed="true"] { outline: 2px solid Highlight; }
+}
+.app-chip-n {
+  margin-inline-start: var(--space-1);
+  color: var(--color-label-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+.app-chips .ui-btn[aria-pressed="true"] .app-chip-n { color: inherit; }
+
+/* 输入框：下沉的槽，聚焦时由 focus-ring 画环（is-field 让状态层只在悬停时显示） */
+.app-field {
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-field);
+  background: var(--color-bg-sunken);
+  color: var(--color-label);
+}
+.app-field input,
+.app-field textarea {
+  flex: 1;
+  min-inline-size: 0;
+  border: 0;
+  background: transparent;
+  outline: none;
+  font: var(--type-body);
+}
+.app-field input::placeholder,
+.app-field textarea::placeholder { color: var(--color-label-tertiary); }
+.app-field:has([aria-invalid="true"]) { box-shadow: inset 0 0 0 var(--focus-ring-width) var(--color-danger); }
+@media (forced-colors: active) {
+  .app-field { border: 1px solid CanvasText; }
+}
+
+.app-search {
+  gap: var(--space-2);
+  min-block-size: var(--touch-target);
+  padding-inline: var(--space-3);
+}
+.app-search input { block-size: var(--touch-target); }
+.app-search input::-webkit-search-decoration { appearance: none; }
+.app-search-icon { color: var(--color-label-tertiary); }
+
+/* 恢复码：等宽字体分四段，段间留空 */
+.app-code {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--primitive-dimension-font-size-20);
+  font-weight: var(--primitive-font-weight-semibold);
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  user-select: all;
+  -webkit-user-select: all;
+}

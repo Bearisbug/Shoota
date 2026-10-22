@@ -1,0 +1,84 @@
+{
+ "stats": {
+  "startTime": "2026-10-22T13:30:52.616Z",
+  "duration": 79980.598,
+  "expected": 2,
+  "skipped": 9,
+  "unexpected": 1,
+  "flaky": 0
+ },
+ "tests": [
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-LAUNCH-001 第一次下载没有回音时自动重试并进入游戏",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T13:31:22.624Z",
+   "seconds": 39.1,
+   "steps": [
+    {
+     "step": "1 点「开始游戏」",
+     "ok": true
+    },
+    {
+     "step": "2 等到点击后第 20 秒：15 到 20 秒之间出现重试提示，中转记到第二次斗罗文件请求",
+     "ok": true
+    },
+    {
+     "step": "3 最多等到点击后第 45 秒，游戏画面出现",
+     "ok": true
+    },
+    {
+     "step": "4 启动上报：start 一条、ready 一条且 n 为 2，没有 fail",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-PLAY-015 竖屏游戏区不再被平台栏挤占",
+   "project": "portrait",
+   "status": "failed",
+   "start": "2026-10-22T13:30:52.941Z",
+   "seconds": 5.3,
+   "steps": [
+    {
+     "step": "portrait 1 打开 NBA-经理：iframe 顶边在 0，高 852",
+     "ok": true
+    },
+    {
+     "step": "portrait 2 平台控件只有悬浮按钮",
+     "ok": true
+    },
+    {
+     "step": "portrait 3 核心区占比不低于 70%",
+     "ok": false,
+     "error": "Error: expect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    69.9"
+    }
+   ],
+   "error": "Error: expect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    69.9"
+  },
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-PLAY-016 横屏游戏区不再被平台栏挤占",
+   "project": "landscape",
+   "status": "passed",
+   "start": "2026-10-22T13:31:09.614Z",
+   "seconds": 1.8,
+   "steps": [
+    {
+     "step": "1 打开斗罗·万相：iframe 顶边在 0，高 393",
+     "ok": true
+    },
+    {
+     "step": "2 平台控件只有悬浮按钮",
+     "ok": true
+    },
+    {
+     "step": "3 Safari 可见区 734×343 重开斗罗·万相：iframe 734×343，平台控件只有悬浮按钮",
+     "ok": true
+    }
+   ]
+  }
+ ]
+}

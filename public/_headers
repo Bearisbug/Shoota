@@ -1,0 +1,6 @@
+# 静态资源响应头（§15 缓存，ADR-009）。文件名带内容摘要的缓存一年；其余沿用默认的 max-age=0, must-revalidate。
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/g/*
+  Cache-Control: public, max-age=31536000, immutable

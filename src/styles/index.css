@@ -1,0 +1,7 @@
+/* 样式唯一入口，平台、看板、改写后的游戏各自的入口脚本 import 一次：
+   品牌 token → 品牌状态层与焦点环 → 字体（Fredoka 只给字标，自托管）→ 苹果风语义层 → 全局默认 */
+@import '../../brand/tokens.css';
+@import '../../brand/state-layer.css';
+@import '../../brand/fonts/fonts.css';
+@import './semantic.css';
+@import './base.css';

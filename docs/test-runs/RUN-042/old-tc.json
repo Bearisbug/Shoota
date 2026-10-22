@@ -1,0 +1,662 @@
+{
+ "stats": {
+  "startTime": "2026-10-22T12:28:02.970Z",
+  "duration": 651820.845,
+  "expected": 27,
+  "skipped": 0,
+  "unexpected": 0,
+  "flaky": 0
+ },
+ "tests": [
+  {
+   "file": "game.spec.ts",
+   "title": "TC-018 三款新游戏的目录、封面与游玩",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:28:03.224Z",
+   "seconds": 55.5,
+   "steps": [
+    {
+     "step": "1 打开商店：共 13 款，「全部游戏」顺序同用例",
+     "ok": true
+    },
+    {
+     "step": "2 两个 F1 的详情：标题 F1-Driver、F1-Team Principal，开始入口指向 f1-driver、f1",
+     "ok": true
+    },
+    {
+     "step": "3 按三款新游戏的完整名称分别搜索：每次都找到对应卡片",
+     "ok": true
+    },
+    {
+     "step": "4 三款新游戏的详情，玩过后再看游戏库：同一张封面、名称与玩法简介",
+     "ok": true
+    },
+    {
+     "step": "5 390 宽：商店、三个详情与游戏库没有横向滚动",
+     "ok": true
+    },
+    {
+     "step": "6 F1-Driver 创建车手后签下正式合同：进入 2026 赛季第 1 站",
+     "ok": true
+    },
+    {
+     "step": "7 我要当首富建立玩家，摆摊后经营一周：进入第 2 周",
+     "ok": true
+    },
+    {
+     "step": "8 篮球巨星创建球员，选上海久事后确认开局：进入 CBA 生涯总览",
+     "ok": true
+    },
+    {
+     "step": "9 逐个打开其余十款：都出现游戏画面，没有运行错误",
+     "ok": true
+    },
+    {
+     "step": "10 npm run check 与 npx tsc -b：退出码 0；游戏标识唯一，封面与登记大小对得上",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "game.spec.ts",
+   "title": "TC-019 新游戏进度保存与隔离",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:28:59.091Z",
+   "seconds": 20.8,
+   "steps": [
+    {
+     "step": "1 三款各建一份进度并各存一个手动档：保存后面板显示「已存档」与时间",
+     "ok": true
+    },
+    {
+     "step": "2 刷新后逐款进入：自动进度保留人物、球队或周次；手动档在列表里，能读取",
+     "ok": true
+    },
+    {
+     "step": "3 斗罗玩到产生存档，再依次回到三款新游戏：不串档，斗罗能继续",
+     "ok": true
+    },
+    {
+     "step": "4 存档页复制存档码，到另一个新浏览器粘贴并确认恢复：四款都能继续，手动档保留",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "game.spec.ts",
+   "title": "TC-022 游戏里的外部链接在新标签页打开",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:29:19.862Z",
+   "seconds": 1.8,
+   "steps": [
+    {
+     "step": "1 篮球巨星创建球员并确认开局，切到「存档 · 规则」：看到「NBA / NBPA 劳资协议」链接",
+     "ok": true
+    },
+    {
+     "step": "2 点这个链接：开出新标签页，地址是 https://nbpa.com/cba",
+     "ok": true
+    },
+    {
+     "step": "3 回到游戏所在的标签页：仍停在「存档 · 规则」，球员还在",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "game.spec.ts",
+   "title": "TC-023 重开我要当首富时游戏面板保持「已读取存档」",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:29:21.687Z",
+   "seconds": 14.4,
+   "steps": [
+    {
+     "step": "1 重新打开我要当首富，打开面板：「已读取存档」",
+     "ok": true
+    },
+    {
+     "step": "2 关掉面板等 5 秒再打开：仍是「已读取存档」，这 5 秒悬浮按钮没亮过小点",
+     "ok": true
+    },
+    {
+     "step": "3 点「继续这段经营」后点「经营一周」：1 秒内小点亮起；面板「已存档」与当前时分",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "game.spec.ts",
+   "title": "TC-026 经理游戏与斗罗封面更新",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:29:36.100Z",
+   "seconds": 4.0,
+   "steps": [
+    {
+     "step": "1 商店分别搜索三个经理游戏新名称：各命中一款，原游戏顺序不变",
+     "ok": true
+    },
+    {
+     "step": "2 四款详情与经理游戏库卡片：封面加载、标题可读；斗罗九个完整魂环；经理简介符合玩法",
+     "ok": true
+    },
+    {
+     "step": "3 从平台打开三个经理游戏：加载至可操作画面",
+     "ok": true
+    },
+    {
+     "step": "4 平台质量门与变更文件：通过；游戏 HTML、标识不变",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "game.spec.ts",
+   "title": "TC-032 其余四款摄影封面与电竞经理改名",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:29:40.112Z",
+   "seconds": 2.2,
+   "steps": [
+    {
+     "step": "1 商店与四款详情：夜宵摊、后宫、lol电竞经理、一克之差封面完整加载，标题清晰",
+     "ok": true
+    },
+    {
+     "step": "2 搜索 lol电竞经理，进详情再开始：只命中 lol，名称已更新，原游戏正常加载",
+     "ok": true
+    },
+    {
+     "step": "3 质量门与变更范围：通过；游戏顺序、游戏 HTML、标识不变",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "move.spec.ts",
+   "title": "TC-027 http 下玩过的浏览器在 https 下接着玩",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:29:42.330Z",
+   "seconds": 12.2,
+   "steps": [
+    {
+     "step": "1 http 下开一克之差，面板「已存档」后退出：游戏库有一克之差；旅客表 1 行",
+     "ok": true
+    },
+    {
+     "step": "2 同一浏览器打开 https：经过一次 http://shoota.ai/move 回到 https 商店，游戏库有一克之差",
+     "ok": true
+    },
+    {
+     "step": "3 旅客表只有第 1 步那个编号一行",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "move.spec.ts",
+   "title": "TC-028 全新浏览器只跳一次",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:29:54.842Z",
+   "seconds": 6.9,
+   "steps": [
+    {
+     "step": "1 打开 https://shoota.ai/#backup：经过一次搬家页回到 #backup，显示「备份 / 恢复进度」",
+     "ok": true
+    },
+    {
+     "step": "2 刷新：不经过搬家页，仍是备份页",
+     "ok": true
+    },
+    {
+     "step": "3 旅客表 1 行，今天访问 2",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "move.spec.ts",
+   "title": "TC-029 两边都有同一款游戏时留时长更长的那份",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:30:01.773Z",
+   "seconds": 29.1,
+   "steps": [
+    {
+     "step": "1 https 下开一克之差，「已存档」后退出：旅客表 1 行，记为 B",
+     "ok": true
+    },
+    {
+     "step": "2 http 下开一克之差后退出，把 http 下一克之差累计时长改成 600 秒：旅客表 2 行，新增的记为 A",
+     "ok": true
+    },
+    {
+     "step": "3 回到 https，删掉 changju.moved 后刷新：经过一次搬家页回到商店，游戏库一克之差 10 分钟",
+     "ok": true
+    },
+    {
+     "step": "4 2 秒后查三张表：旅客表只有 A；B 没有行；A 今天访问 4",
+     "ok": true
+    },
+    {
+     "step": "5 /api/merge 发 v 与 from 相同：400 bad-merge",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "move.spec.ts",
+   "title": "TC-031 本机没发起搬家时地址里的搬家数据不认",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:30:30.904Z",
+   "seconds": 5.7,
+   "steps": [
+    {
+     "step": "1 X 在 http 下开一克之差，「已存档」后退出，在存档页复制存档码：以 CJ 开头",
+     "ok": true
+    },
+    {
+     "step": "2 新浏览器 Y 打开 https://shoota.ai/#move=<存档码>&r=library：不经过搬家页，地址变成 #library，游戏库是空的",
+     "ok": true
+    },
+    {
+     "step": "3 Y 刷新：经过一次搬家页回到 #library，游戏库仍是空的",
+     "ok": true
+    },
+    {
+     "step": "4 Y 再刷新：不经过搬家页",
+     "ok": true
+    },
+    {
+     "step": "5 新浏览器 Z 直接打开 https://shoota.ai/move：跳到 https://shoota.ai/，显示商店",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-001 首次打开平台记一次访问",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:30:45.380Z",
+   "seconds": 16.4,
+   "steps": [
+    {
+     "step": "1 打开平台首页，等商店出现：本地存储有 32 位十六进制旅客编号",
+     "ok": true
+    },
+    {
+     "step": "2 visitors：只有这个编号一行，首访今天，desktop，微信 0",
+     "ok": true
+    },
+    {
+     "step": "3 visitor_days：今天一行，访问 1，游玩秒数 0",
+     "ok": true
+    },
+    {
+     "step": "4 刷新：visitors 仍一行，今天访问 2",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-002 开局并游玩约 2 分半",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:31:01.792Z",
+   "seconds": 158.0,
+   "steps": [
+    {
+     "step": "1 打开一克之差：game_days 今天 yike 一行，开局 1",
+     "ok": true
+    },
+    {
+     "step": "2 前台 130 秒：yike 游玩秒数 120，旅客日也是 120",
+     "ok": true
+    },
+    {
+     "step": "3 再等 20 秒，面板显示「本次 2 分钟」，退出后 145 到 155 秒",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-003 切到后台立即上报，后台不计时",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:33:39.837Z",
+   "seconds": 83.2,
+   "steps": [
+    {
+     "step": "1 前台 30 秒后切到另一个标签页：2 秒内游玩秒数 30 左右（±5）",
+     "ok": true
+    },
+    {
+     "step": "2 停 40 秒再切回来：游玩秒数没有增加",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-004 非法上报整批拒绝",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:35:03.026Z",
+   "seconds": 8.4,
+   "steps": [
+    {
+     "step": "1 旅客编号 abc：400 bad-event",
+     "ok": true
+    },
+    {
+     "step": "2 类型 click：400 bad-event",
+     "ok": true
+    },
+    {
+     "step": "3 一条 play 900 秒：400 bad-event",
+     "ok": true
+    },
+    {
+     "step": "4 两条 play 各 200 秒：400 bad-event",
+     "ok": true
+    },
+    {
+     "step": "5 21 个访问事件：400 bad-event",
+     "ok": true
+    },
+    {
+     "step": "6 缺少游戏的 start：400 bad-event",
+     "ok": true
+    },
+    {
+     "step": "7 三张统计表都没有行",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-005 复制存档码与恢复进度各记一次",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:35:11.407Z",
+   "seconds": 13.2,
+   "steps": [
+    {
+     "step": "1 A 在存档页点「复制存档码」：2 秒内 A 今天备份 1",
+     "ok": true
+    },
+    {
+     "step": "2 A 点「下载存档文件」：2 秒内备份 2",
+     "ok": true
+    },
+    {
+     "step": "3 B 粘贴 A 的存档码并确认恢复：2 秒内 B 恢复 1，A 恢复 0",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-007 同一旅客两个标签页同时首访",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:35:24.620Z",
+   "seconds": 5.9,
+   "steps": [
+    {
+     "step": "1 同一个新编号同时发两个访问上报：都返回 204",
+     "ok": true
+    },
+    {
+     "step": "2 visitors 一行，今天访问 2",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-008 看板登录",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:35:30.532Z",
+   "seconds": 5.3,
+   "steps": [
+    {
+     "step": "1 打开 /kanban：登录页，有密码框与「进入看板」",
+     "ok": true
+    },
+    {
+     "step": "2 错误密码：停在登录页，「密码不对，还能试 4 次」",
+     "ok": true
+    },
+    {
+     "step": "3 正确密码：看板五块加「启动 · 近 7 天」",
+     "ok": true
+    },
+    {
+     "step": "4 关掉标签页重新打开 /kanban：直接显示看板",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-009 连错 5 次锁定 15 分钟",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:35:35.836Z",
+   "seconds": 6.5,
+   "steps": [
+    {
+     "step": "1 连续 4 次错误密码：401，剩余 4、3、2、1",
+     "ok": true
+    },
+    {
+     "step": "2 第 5 次：429，提示几点几分后再试",
+     "ok": true
+    },
+    {
+     "step": "3 立刻提交正确密码：仍是 429，没有登录态 cookie",
+     "ok": true
+    },
+    {
+     "step": "4 锁定到期改成 0 再提交正确密码：303 到看板，login_guards 这条删了",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-010 未登录读取统计",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:35:42.364Z",
+   "seconds": 0.1,
+   "steps": [
+    {
+     "step": "1 不带 cookie：401 not-logged-in，没有统计数字",
+     "ok": true
+    },
+    {
+     "step": "2 签名被改过：401 not-logged-in",
+     "ok": true
+    },
+    {
+     "step": "3 已过期：401 not-logged-in；同一密钥签的未过期会话 200",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-015 看板空数据与读取失败",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:36:26.314Z",
+   "seconds": 2.6,
+   "steps": [
+    {
+     "step": "1 概览 0、0、0 秒、「—」；留存、排行、来源「还没有数据」",
+     "ok": true
+    },
+    {
+     "step": "2 断网点刷新数据：「读取失败」与「重试」，原有内容不清空",
+     "ok": true
+    },
+    {
+     "step": "3 恢复网络点「重试」：重新显示数据，失败提示消失",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-016 真实游玩后看板可见",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:36:28.951Z",
+   "seconds": 135.3,
+   "steps": [
+    {
+     "step": "1 开局一款游戏，前台 130 秒后打开面板：「本次 2 分钟」，再退出",
+     "ok": true
+    },
+    {
+     "step": "2 另一个浏览器登录看板：今日活跃至少 1，今日游玩时长至少 2 分钟",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-011 概览与每日趋势",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:35:42.457Z",
+   "seconds": 5.1,
+   "steps": [
+    {
+     "step": "1 概览：今日、近 7 天、近 30 天与种子注释一致",
+     "ok": true
+    },
+    {
+     "step": "2 每日趋势：近 30 天每天的活跃、新增与时长，没数据的日子为 0",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-012 留存表",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:35:47.541Z",
+   "seconds": 4.8,
+   "steps": [
+    {
+     "step": "1 10 天前：新旅客 10，次日 30%，7 日 10%，30 日为空",
+     "ok": true
+    },
+    {
+     "step": "2 40 天前：新旅客 4，次日 50%，7 日 25%，30 日 25%",
+     "ok": true
+    },
+    {
+     "step": "3 今天：次日、7 日、30 日都为空",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-013 游戏排行",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:35:52.345Z",
+   "seconds": 4.5,
+   "steps": [
+    {
+     "step": "1 按总时长从高到低，列为游戏名、玩家数、开局数、总时长、人均时长、次日回访率",
+     "ok": true
+    },
+    {
+     "step": "2 F1 与一克之差两行与种子注释一致，显示中文名",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-014 来源与设备",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:35:56.834Z",
+   "seconds": 5.4,
+   "steps": [
+    {
+     "step": "1 微信内打开、手机、电脑占比与种子注释一致",
+     "ok": true
+    },
+    {
+     "step": "2 地区前 10：按旅客数从多到少，取不到的显示「未知」",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-024 看板趋势图的峰值标注留在卡片内",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:36:02.211Z",
+   "seconds": 7.2,
+   "steps": [
+    {
+     "step": "1 1280 宽：三张图的「最高」都在卡片左右边缘以内",
+     "ok": true
+    },
+    {
+     "step": "2 390 宽：同上，没有横向滚动",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "stats.spec.ts",
+   "title": "TC-030 老玩家不算新旅客，留存表注明统计首日",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:36:09.462Z",
+   "seconds": 16.8,
+   "steps": [
+    {
+     "step": "1 概览「今日」显示活跃与新旅客两个数",
+     "ok": true
+    },
+    {
+     "step": "2 新浏览器写只有 session 与一克之差 300 秒、没有 vid 的元数据再打开：2 秒内旅客表新增一行，prior 为 1",
+     "ok": true
+    },
+    {
+     "step": "3 刷新看板：今日活跃多 1，新旅客不变",
+     "ok": true
+    },
+    {
+     "step": "4 插入首访 2026-10-20 的旅客，刷新：留存表下方注明统计首日与老玩家",
+     "ok": true
+    }
+   ]
+  }
+ ]
+}

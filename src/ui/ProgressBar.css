@@ -1,0 +1,37 @@
+.ui-progress {
+  position: relative;
+  overflow: hidden;
+  block-size: var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--color-fill);
+}
+.ui-progress-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-label);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+.ui-progress-indeterminate .ui-progress-fill {
+  inline-size: 40%;
+  transform: translateX(-100%);
+  animation: ui-progress-slide calc(var(--duration-slow) * 4) linear infinite;
+}
+@keyframes ui-progress-slide {
+  to { transform: translateX(250%); }
+}
+@keyframes ui-progress-pulse {
+  from { opacity: 1; }
+  to { opacity: 0.4; }
+}
+/* 减少动效：不再横向滑动，整条明暗呼吸，仍看得出在进行 */
+@media (prefers-reduced-motion: reduce) {
+  .ui-progress-fill { transition: none; }
+  .ui-progress-indeterminate .ui-progress-fill {
+    inline-size: 100%;
+    transform: none;
+    animation: ui-progress-pulse calc(var(--duration-slow) * 3) ease-in-out infinite alternate;
+  }
+}

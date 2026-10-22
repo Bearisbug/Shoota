@@ -1,0 +1,64 @@
+{
+ "stats": {
+  "startTime": "2026-10-22T09:23:02.043Z",
+  "duration": 69530.401,
+  "expected": 0,
+  "skipped": 9,
+  "unexpected": 3,
+  "flaky": 0
+ },
+ "tests": [
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-LAUNCH-001 第一次下载没有回音时自动重试并进入游戏",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T09:23:29.270Z",
+   "seconds": 30.7,
+   "steps": [
+    {
+     "step": "1 点「开始游戏」",
+     "ok": true
+    },
+    {
+     "step": "2 等到点击后第 20 秒：15 到 20 秒之间出现重试提示，中转记到第二次斗罗文件请求",
+     "ok": false,
+     "error": "Error: 点击后 20 秒内没出现「网络不太稳，正在重试…」\n\nexpect(received).toBeGreaterThan(expected)\n\nExpected: > 0\nReceived:   0"
+    }
+   ],
+   "error": "Error: 点击后 20 秒内没出现「网络不太稳，正在重试…」\n\nexpect(received).toBeGreaterThan(expected)\n\nExpected: > 0\nReceived:   0"
+  },
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-PLAY-015 竖屏游戏区不再被平台栏挤占",
+   "project": "portrait",
+   "status": "failed",
+   "start": "2026-10-22T09:23:02.485Z",
+   "seconds": 1.9,
+   "steps": [
+    {
+     "step": "portrait 1 打开 NBA-经理：iframe 顶边在 0，高 852",
+     "ok": false,
+     "error": "Error: iframe 顶边\n\nexpect(received).toBeCloseTo(expected, precision)\n\nExpected: 0\nReceived: 99.5\n\nExpected precision:    0\nExpected difference: < 0.5\nReceived difference:   99.5"
+    }
+   ],
+   "error": "Error: iframe 顶边\n\nexpect(received).toBeCloseTo(expected, precision)\n\nExpected: 0\nReceived: 99.5\n\nExpected precision:    0\nExpected difference: < 0.5\nReceived difference:   99.5"
+  },
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-PLAY-016 横屏游戏区不再被平台栏挤占",
+   "project": "landscape",
+   "status": "failed",
+   "start": "2026-10-22T09:23:16.167Z",
+   "seconds": 1.6,
+   "steps": [
+    {
+     "step": "1 打开斗罗·万相：iframe 顶边在 0，高 393",
+     "ok": false,
+     "error": "Error: iframe 顶边\n\nexpect(received).toBeCloseTo(expected, precision)\n\nExpected: 0\nReceived: 50.25\n\nExpected precision:    0\nExpected difference: < 0.5\nReceived difference:   50.25"
+    }
+   ],
+   "error": "Error: iframe 顶边\n\nexpect(received).toBeCloseTo(expected, precision)\n\nExpected: 0\nReceived: 50.25\n\nExpected precision:    0\nExpected difference: < 0.5\nReceived difference:   50.25"
+  }
+ ]
+}

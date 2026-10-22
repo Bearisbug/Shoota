@@ -1,0 +1,80 @@
+/* 平台页面共用：页面纵向节奏、区块标题行、行内链接、品牌链接、提示条位置。各页自己的排版在 pages/*.css */
+
+.app-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-10);
+  padding-block-end: var(--space-6);
+}
+.app-page-tight { gap: var(--space-6); }
+/* 存档页只有一栏表单，限宽读起来不累（旧版 .page.narrow 760） */
+.app-page-narrow { max-inline-size: 47.5rem; }
+
+.app-sec-h {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-block-end: var(--space-4);
+}
+.app-sec-h h2 { font: var(--type-title2); }
+.app-aside {
+  flex: none;
+  color: var(--color-label-tertiary);
+  font: var(--type-caption);
+  font-variant-numeric: tabular-nums;
+}
+.app-acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.app-muted { color: var(--color-label-secondary); }
+.app-fine { color: var(--color-label-tertiary); font: var(--type-caption); }
+.app-metric { font: var(--type-headline); font-variant-numeric: tabular-nums; }
+/* 错误行常驻占一行高，出错时不推动下面的按钮（旧版 .err） */
+.app-err { min-block-size: 1lh; color: var(--color-danger); font: var(--type-footnote); }
+
+/* 正文里的链接：上下补到 44 高的点击区域，不撑高行距 */
+.app-inline-link {
+  padding-block: max(0px, (var(--touch-target) - 1lh) / 2);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* 说明块：旧版 .note，左侧一道提示色 */
+.app-note {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-elevated);
+  box-shadow: inset 3px 0 0 var(--color-warning);
+  color: var(--color-label-secondary);
+}
+.app-note > b { color: var(--color-label); }
+@media (forced-colors: active) {
+  .app-note { border-inline-start: 3px solid CanvasText; }
+}
+
+/* 列表行首的封面缩略图 */
+.app-thumb { inline-size: 5.5rem; border-radius: var(--radius-sm); }
+
+/* 应用壳里的品牌：整块是回商店的链接，点击区域不小于 44×44 */
+.app-brand-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--touch-target);
+  min-block-size: var(--touch-target);
+  border-radius: var(--radius-field);
+  -webkit-touch-callout: none;
+}
+.app-wordmark { block-size: var(--space-6); inline-size: auto; }
+.app-brandmark { inline-size: var(--space-8); block-size: var(--space-8); }
+.app-toolbar-search { inline-size: min(100%, 20rem); }
+
+/* 提示条在右下角（§13 平台页面内容，沿用旧版） */
+.app-root .ui-toast-region { justify-content: flex-end; }
+.app-toast-lines { display: grid; gap: calc(var(--space-1) / 2); }
+.app-toast-lines small { font: var(--type-caption); color: var(--color-label-secondary); }

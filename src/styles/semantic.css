@@ -1,0 +1,146 @@
+/* 苹果风语义层：组件只引用这里的变量。数值全部来自 brand/tokens.css（品牌唯一来源），这里只做角色映射与少量派生，不写颜色字面量。
+   亮暗跟随系统：brand/tokens.css 在 prefers-color-scheme: light 时整体换掉 semantic 颜色，下面的映射两种模式通用。
+   对比度（WCAG 2.x，脚本按 brand/tokens.css 实算）写在各行注释里，格式「暗 / 亮」。
+   颜色映射同时写在 [data-theme] 上：子树单独指定模式时，在那一层按新的 brand 值重算。 */
+
+/* 字体和字阶在每个带 lang 的元素上重算，跟着 brand 的中文覆盖走 */
+:root, [lang] {
+  /* 系统字体栈：中文环境苹方在前。Fredoka 只给字标 */
+  --font-text: var(--semantic-typography-body-font-family);
+  --font-wordmark: var(--primitive-font-family-display);
+  --font-mono: var(--primitive-font-family-mono);
+
+  /* 字阶 7 档，font 简写：字重 字号/行高 字体 */
+  --type-large-title: var(--primitive-font-weight-bold) var(--primitive-dimension-font-size-30)/var(--primitive-ratio-line-height-headline) var(--font-text);
+  --type-title1: var(--primitive-font-weight-semibold) var(--primitive-dimension-font-size-24)/var(--primitive-ratio-line-height-tight) var(--font-text);
+  --type-title2: var(--primitive-font-weight-semibold) var(--primitive-dimension-font-size-20)/var(--primitive-ratio-line-height-tight) var(--font-text);
+  --type-headline: var(--primitive-font-weight-semibold) var(--primitive-dimension-font-size-17)/var(--primitive-ratio-line-height-snug) var(--font-text);
+  --type-body: var(--primitive-font-weight-regular) var(--primitive-dimension-font-size-17)/var(--semantic-typography-body-line-height) var(--font-text);
+  --type-callout: var(--primitive-font-weight-regular) var(--primitive-dimension-font-size-15)/var(--semantic-typography-body-line-height) var(--font-text);
+  --type-footnote: var(--primitive-font-weight-regular) var(--primitive-dimension-font-size-13)/var(--primitive-ratio-line-height-snug) var(--font-text);
+  --type-caption: var(--primitive-font-weight-regular) var(--primitive-dimension-font-size-12)/var(--primitive-ratio-line-height-snug) var(--font-text);
+  /* 大标题收紧字距（中文为 0） */
+  --tracking-title: var(--semantic-typography-heading1-letter-spacing);
+}
+
+:root, [data-theme] {
+  /* 背景 */
+  --color-bg: var(--semantic-color-surface-background);          /* 页面、分组列表所在的底 */
+  --color-bg-elevated: var(--semantic-color-surface-raised);     /* 卡片、分组列表的行 */
+  --color-bg-overlay: var(--semantic-color-surface-overlay);     /* Sheet、Dialog、Toast、分段控件滑块 */
+  --color-bg-sunken: var(--semantic-color-surface-sunken);       /* 下沉的槽：分段控件轨道、输入框 */
+  --color-bg-selected: var(--semantic-color-surface-selected);   /* 当前导航项、选中行 */
+  /* 填充：正文色 12% 叠在任意表面上，次要按钮、骨架、进度条轨道用。正文在其上 ≥ 9.69 / 12.23 */
+  --color-fill: color-mix(in srgb, var(--semantic-color-text-primary) 12%, transparent);
+
+  /* 文本四级 */
+  --color-label: var(--semantic-color-text-primary);             /* 标题、正文 */
+  --color-label-secondary: var(--semantic-color-text-secondary); /* 说明、未选中的导航 */
+  --color-label-tertiary: var(--semantic-color-text-tertiary);   /* 计数、元信息、占位文字；各表面 ≥ 5.88 / 5.65 */
+  --color-label-quaternary: var(--semantic-color-border-strong); /* 只给图标、chevron、开关关闭态轨道，不放要读的字；≥ 3.67 / 3.56 */
+
+  /* 分隔线 */
+  --color-separator: var(--semantic-color-border-subtle);
+  --color-separator-strong: var(--semantic-color-border-strong);
+
+  /* 强调色：主按钮底与选中项。暗色是品牌黄，亮色是琥珀（黄在浅底上只有 1.8:1） */
+  --color-accent: var(--semantic-color-action-primary);          /* 选中底上的强调字 6.67 / 5.89 */
+  --color-on-accent: var(--semantic-color-text-on-action);       /* 10.34 / 7.33 */
+
+  /* 状态色 */
+  --color-success: var(--semantic-color-feedback-success);
+  --color-warning: var(--semantic-color-feedback-warning);
+  --color-danger: var(--semantic-color-feedback-error);          /* 各表面 ≥ 4.65 / 4.65 */
+  --color-on-danger: var(--semantic-color-text-on-action);       /* 危险按钮字：暗色墨字 5.59、亮色白字 5.62 */
+
+  /* 遮罩：模态弹层下压暗页面 */
+  --color-scrim: color-mix(in srgb, var(--primitive-color-neutral-950) 44%, transparent);
+
+  /* 材质：只给内容会从下面滚过的栏与浮在游戏上的控件。不透明度 86% 时，底下是纯白或纯黑，
+     栏上次要文字 ≥ 7.15 / 8.12、强调色 ≥ 7.04 / 4.89。
+     brand/tokens.json 现在把 material 标为 notApplicable、notUsed 含 backdrop-filter，这组值等品牌侧补进 brand/ 后改为引用 */
+  --material-bar: color-mix(in srgb, var(--semantic-color-surface-background) 86%, transparent);
+  --material-chrome: color-mix(in srgb, var(--semantic-color-surface-overlay) 86%, transparent);
+  --material-filter: saturate(180%) blur(20px);
+}
+
+/* 以下与亮暗无关 */
+:root {
+  /* 层级 */
+  --shadow-card: var(--semantic-elevation-raised);
+  --shadow-overlay: var(--semantic-elevation-overlay);
+  --z-sticky: var(--semantic-layout-z-index-sticky);
+  --z-overlay: var(--semantic-layout-z-index-overlay);
+  --z-toast: var(--semantic-layout-z-index-toast);
+
+  /* 圆角：能点的控件是胶囊，容器按层级逐级变大 */
+  --radius-sm: var(--semantic-radius-sm);        /* 8：行内小块 */
+  --radius-field: var(--semantic-radius-md);     /* 12：输入框、卡内分组 */
+  --radius-card: var(--semantic-radius-lg);      /* 16：卡片、分组列表 */
+  --radius-sheet: var(--semantic-radius-xl);     /* 24：Sheet、Dialog */
+  --radius-pill: var(--semantic-radius-pill);    /* 按钮、分段控件、开关、Toast */
+
+  /* 间距：4px 网格 */
+  --space-1: var(--primitive-dimension-space-1);
+  --space-2: var(--primitive-dimension-space-2);
+  --space-3: var(--primitive-dimension-space-3);
+  --space-4: var(--primitive-dimension-space-4);
+  --space-5: var(--primitive-dimension-space-5);
+  --space-6: var(--primitive-dimension-space-6);
+  --space-8: var(--primitive-dimension-space-8);
+  --space-10: var(--primitive-dimension-space-10);
+  --space-12: var(--primitive-dimension-space-12);
+  --hairline: var(--semantic-layout-hairline);
+
+  /* 动效：进出与屏上移动都用 standard（减速型），弹层进场用 emphasized；退出比进场快一档 */
+  --duration-fast: var(--semantic-motion-duration-fast);   /* 120ms：按压、悬停 */
+  --duration-base: var(--semantic-motion-duration-base);   /* 200ms：分段滑块、开关、Toast、弹层退出 */
+  --duration-slow: var(--semantic-motion-duration-slow);   /* 320ms：Sheet 与 Dialog 进场（弹层预算 200–500ms） */
+  --ease-standard: var(--semantic-motion-easing-standard);
+  --ease-emphasized: var(--semantic-motion-easing-emphasized);
+  --press-scale: 0.97;                                     /* brand/DESIGN.md：按下缩到 0.97 */
+
+  /* 尺寸：触控目标 ≥ 44px */
+  --touch-target: 44px;
+  --control-h-sm: var(--primitive-dimension-space-8);                            /* 32，命中区由组件扩到 44 */
+  --control-h-md: var(--touch-target);                                           /* 44 */
+  --control-h-lg: calc(var(--touch-target) + var(--primitive-dimension-space-2)); /* 52 */
+
+  /* 版式 */
+  --layout-gutter: var(--space-4);
+  --layout-content: var(--semantic-layout-content);
+  --layout-bar-h: var(--touch-target);                     /* 页面导航栏 */
+  --layout-tabbar-h: var(--space-12);                      /* 手机竖屏底部标签栏 */
+  --layout-rail-w: calc(var(--space-12) + var(--space-8)); /* 手机横屏、平板竖屏的侧边栏 */
+  --layout-sidebar-w: clamp(14rem, 20vw, 17rem);           /* ≥ 1024px 的分组侧栏 */
+  --layout-topbar-h: calc(var(--touch-target) + var(--space-3));
+  --layout-bottom-inset: 0px;                              /* 底部固定栏占高，AppShell 显示标签栏时改写，Toast 据此让位 */
+}
+
+@media (min-width: 760px) {
+  :root { --layout-gutter: var(--space-6); }
+}
+@media (min-width: 1024px) {
+  :root { --layout-gutter: var(--space-10); }
+}
+
+/* 系统「降低透明度」或「增强对比度」：材质换实底，分隔线加深 */
+@media (prefers-reduced-transparency: reduce) {
+  :root, [data-theme] {
+    --material-bar: var(--semantic-color-surface-background);
+    --material-chrome: var(--semantic-color-surface-overlay);
+    --material-filter: none;
+  }
+}
+@media (prefers-contrast: more) {
+  :root, [data-theme] {
+    --material-bar: var(--semantic-color-surface-background);
+    --material-chrome: var(--semantic-color-surface-overlay);
+    --material-filter: none;
+    --color-separator: var(--semantic-color-border-strong);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --press-scale: 1; }
+}

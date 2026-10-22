@@ -1,0 +1,63 @@
+/* 关：轨道用四级文字色（对卡片 ≥ 3.67:1）；开：强调色。滑钮用强调色上的文字色，对两种轨道都 ≥ 4.3:1 */
+.ui-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-block-size: var(--touch-target);
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+.ui-switch-label {
+  font: var(--type-body);
+  line-height: var(--primitive-ratio-line-height-snug);
+}
+.ui-switch:has(:disabled) .ui-switch-label { opacity: var(--state-disabled); }
+
+.ui-switch-track {
+  --ui-switch-w: 3.1875rem;
+  --ui-switch-h: 1.9375rem;
+  --ui-switch-pad: calc(var(--space-1) / 2);
+  --ui-switch-knob: calc(var(--ui-switch-h) - 2 * var(--ui-switch-pad));
+  --ui-switch-travel: calc(var(--ui-switch-w) - var(--ui-switch-h));
+  --ui-switch-stretch: var(--space-1);
+  flex: none;
+  inline-size: var(--ui-switch-w);
+  block-size: var(--ui-switch-h);
+  border-radius: var(--radius-pill);
+  background: var(--color-label-quaternary);
+  color: var(--color-label);
+  transition: background-color var(--duration-base) var(--ease-standard);
+}
+.ui-switch-track:has(:checked) { background: var(--color-accent); }
+
+.ui-switch-input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  appearance: none;
+  cursor: inherit;
+}
+.ui-switch-thumb {
+  position: absolute;
+  inset-block-start: var(--ui-switch-pad);
+  inset-inline-start: var(--ui-switch-pad);
+  inline-size: var(--ui-switch-knob);
+  block-size: var(--ui-switch-knob);
+  border-radius: var(--radius-pill);
+  background: var(--color-on-accent);
+  box-shadow: var(--shadow-card);
+  pointer-events: none;
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    inline-size var(--duration-fast) var(--ease-standard);
+}
+.ui-switch-input:checked + .ui-switch-thumb { transform: translateX(var(--ui-switch-travel)); }
+/* 按住时滑钮朝行进方向拉宽 */
+.ui-switch:active .ui-switch-input:not(:disabled) + .ui-switch-thumb { inline-size: calc(var(--ui-switch-knob) + var(--ui-switch-stretch)); }
+.ui-switch:active .ui-switch-input:checked:not(:disabled) + .ui-switch-thumb { transform: translateX(calc(var(--ui-switch-travel) - var(--ui-switch-stretch))); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-switch-thumb { transition: none; }
+}

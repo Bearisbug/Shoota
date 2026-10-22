@@ -2,16 +2,19 @@
   "name": "changju",
   "account_id": "627a6218f132dffc9cb22dd50c2fe1a6",
   "compatibility_date": "2026-10-12",
-  "main": "src/worker.js",
-  // 只有统计上报与看板走脚本，商店与游戏文件由静态资源直接返回，不计 Worker 调用次数
+  "main": "src/worker/index.ts",
+  // 静态资源是 npm run build 的产物 dist/。只有统计、启动遥测、云存档接口与看板走脚本，
+  // 商店、游戏文件与 Service Worker 由静态资源直接返回，不计 Worker 调用次数
   "assets": {
-    "directory": "./public",
+    "directory": "./dist",
     "binding": "ASSETS",
     "run_worker_first": ["/api/*", "/kanban", "/kanban/*"]
   },
   "d1_databases": [
     { "binding": "DB", "database_name": "shoota-metrics", "database_id": "dc9aa2eb-ccac-4c5c-bd26-d470988216bc", "migrations_dir": "migrations" }
   ],
+  // 每天 20:00 UTC（北京 04:00）删 365 天没同步的云存档（cloud.expire，§17）
+  "triggers": { "crons": ["0 20 * * *"] },
   "routes": [{ "pattern": "shoota.ai", "custom_domain": true }],
   "workers_dev": false,
   "preview_urls": false,
@@ -23,6 +26,14 @@
         { "binding": "DB", "database_name": "shoota-metrics-test", "database_id": "fa5d0eb6-047a-40af-8d7f-eed813614ad5", "migrations_dir": "migrations" }
       ],
       "routes": [{ "pattern": "test.shoota.ai", "custom_domain": true }]
+    },
+    // 重写预览站：push rewrite 分支部署到这里（--env next），重写版合进 main 后撤掉
+    "next": {
+      "name": "changju-next",
+      "d1_databases": [
+        { "binding": "DB", "database_name": "shoota-metrics-next", "database_id": "384cbef2-475f-4fe8-b016-cb995f4fc30b", "migrations_dir": "migrations" }
+      ],
+      "routes": [{ "pattern": "next.shoota.ai", "custom_domain": true }]
     }
   }
 }

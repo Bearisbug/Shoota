@@ -1,0 +1,58 @@
+/* 吸顶栏贴在安全区下沿（安全区本身由 AppShell 的状态栏底色盖住），左右出血到内容区边缘 */
+.ui-nav { display: grid; }
+.ui-nav-bar {
+  position: sticky;
+  top: env(safe-area-inset-top);
+  z-index: var(--z-sticky);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-2);
+  min-block-size: var(--layout-bar-h);
+  margin-inline: calc(var(--layout-page-pad-start, var(--layout-gutter)) * -1) calc(var(--layout-page-pad-end, var(--layout-gutter)) * -1);
+  padding-inline: var(--layout-page-pad-start, var(--layout-gutter)) var(--layout-page-pad-end, var(--layout-gutter));
+  transition: background-color var(--duration-base) var(--ease-standard), box-shadow var(--duration-base) var(--ease-standard);
+}
+.ui-nav[data-collapsed] .ui-nav-bar {
+  background: var(--material-bar);
+  -webkit-backdrop-filter: var(--material-filter);
+  backdrop-filter: var(--material-filter);
+  box-shadow: inset 0 calc(var(--hairline) * -1) 0 var(--color-separator);
+}
+.ui-nav-leading,
+.ui-nav-trailing { display: flex; align-items: center; gap: var(--space-1); min-inline-size: 0; }
+.ui-nav-leading { margin-inline-start: calc(var(--space-2) * -1); }
+.ui-nav-trailing { justify-content: flex-end; margin-inline-end: calc(var(--space-2) * -1); }
+.ui-nav-inline-title {
+  overflow: hidden;
+  font: var(--type-headline);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.ui-nav[data-collapsed] .ui-nav-inline-title { opacity: 1; }
+
+.ui-nav-large { display: grid; gap: var(--space-1); padding-block: var(--space-1) var(--space-4); }
+.ui-nav-title { font: var(--type-large-title); letter-spacing: var(--tracking-title); }
+.ui-nav-subtitle { font: var(--type-footnote); color: var(--color-label-secondary); }
+.ui-nav-accessory { padding-block-end: var(--space-4); }
+
+/* 宽屏：吸顶栏拆开，返回按钮在标题上方，右侧动作与标题同一行 */
+@media (min-width: 1024px) and (min-height: 501px) {
+  .ui-nav {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "lead lead" "title actions" "acc acc";
+    align-items: end;
+    column-gap: var(--space-4);
+    padding-block-start: var(--space-6);
+  }
+  .ui-nav-bar { display: contents; }
+  .ui-nav-leading { grid-area: lead; margin-block-end: var(--space-2); }
+  .ui-nav-leading:empty { display: none; }
+  .ui-nav-inline-title { display: none; }
+  .ui-nav-trailing { grid-area: actions; margin-inline-end: 0; padding-block-end: var(--space-4); }
+  .ui-nav-large { grid-area: title; }
+  .ui-nav-accessory { grid-area: acc; }
+}

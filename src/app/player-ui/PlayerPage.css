@@ -1,0 +1,252 @@
+/* 游戏页：固定层铺满视口，高度 100dvh（不认 dvh 时 100%）；游戏区四边扣安全区，让出的条带是页面背景色 */
+/* 游戏页开着时页面根不滚动，也不留滚动条槽位，游戏区铺到视口右边缘 */
+html[data-playing] { overflow: hidden; overscroll-behavior: none; scrollbar-gutter: auto; }
+
+/* 游戏 iframe 在 body 下的 .pl-host 里（src/app/player/host.css，z-index 0）；这一层叠在它上面，
+   本身透明、不接点击，安全区条带露出页面根的背景色，只有平台控件接点击 */
+.pl-root {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  block-size: 100%;
+  block-size: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
+  pointer-events: none;
+}
+.pl-root > :not(.pl-area) { pointer-events: auto; }
+/* 游戏区：关掉双击缩放与点击延迟；游戏里的长按、选中照常 */
+.pl-area {
+  position: absolute;
+  inset: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  touch-action: manipulation;
+}
+.pl-stage { position: absolute; inset: 0; touch-action: manipulation; }
+/* iframe 由运行层放进 .pl-stage（src/app/player/legacyRunner.ts、playRunner.ts） */
+.pl-frame {
+  position: absolute;
+  inset: 0;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 0;
+  touch-action: manipulation;
+}
+
+/* 平台控件：不弹长按菜单、不选中文字、没有点击高亮 */
+.pl-float,
+.pl-panel,
+.pl-launch,
+.pl-rotate-card,
+.pl-wechat {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 悬浮按钮：位置写在 translate 上；变淡只在离开时过渡，碰到立刻恢复 */
+.pl-float {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  touch-action: none;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.pl-float[data-idle]:not([data-dragging]) {
+  opacity: 0.4;
+  transition: transform var(--duration-fast) var(--ease-standard), opacity var(--duration-slow) var(--ease-standard);
+}
+.pl-float-icon {
+  inline-size: calc(var(--space-6) + var(--space-1));
+  block-size: calc(var(--space-6) + var(--space-1));
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+.pl-float-dot {
+  position: absolute;
+  inset-block-start: var(--space-1);
+  inset-inline-end: var(--space-1);
+  inline-size: var(--space-2);
+  block-size: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-success);
+  box-shadow: 0 0 0 2px var(--color-bg-overlay);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.pl-float[data-dot="on"] .pl-float-dot { opacity: 1; }
+@media (forced-colors: active) {
+  .pl-float { border: 1px solid ButtonText; }
+  .pl-float-dot { background: Highlight; }
+}
+
+/* 载入页与失败页：盖住游戏区，内容在安全区内居中 */
+.pl-launch {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  padding:
+    max(env(safe-area-inset-top), var(--space-4))
+    max(env(safe-area-inset-right), var(--space-4))
+    max(env(safe-area-inset-bottom), var(--space-4))
+    max(env(safe-area-inset-left), var(--space-4));
+  overflow-y: auto;
+  background: var(--color-bg);
+}
+.pl-launch-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  inline-size: min(100%, 24rem);
+}
+.pl-launch-cover { border-radius: var(--radius-card); }
+.pl-launch-info { display: grid; gap: var(--space-3); text-align: center; }
+.pl-launch-title { font: var(--type-title2); }
+.pl-launch-fail { font: var(--type-headline); }
+.pl-launch-msg,
+.pl-launch-retry { color: var(--color-label-secondary); font: var(--type-footnote); }
+.pl-launch-retry { min-block-size: 1lh; }
+.pl-launch-acts { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); }
+@media (orientation: landscape) and (max-height: 500px) {
+  .pl-launch-card { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; inline-size: min(100%, 40rem); }
+}
+
+/* 旋转提示：游戏区中间的半透明卡片，只有卡片能点 */
+.pl-rotate {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  pointer-events: none;
+}
+.pl-rotate-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-inline-size: min(100%, 24rem);
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5);
+  border-radius: var(--radius-sheet);
+  background: var(--material-chrome);
+  -webkit-backdrop-filter: var(--material-filter);
+  backdrop-filter: var(--material-filter);
+  box-shadow: var(--shadow-overlay);
+  pointer-events: auto;
+}
+.pl-rotate-text { display: grid; gap: var(--space-1); }
+.pl-rotate-text p:first-child { font: var(--type-headline); }
+.pl-rotate-text p + p { color: var(--color-label-secondary); font: var(--type-footnote); }
+
+/* 游戏面板：三种形态共用一个盒子，按 data-placement 摆放与进场 */
+.pl-panel-box {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-bg-overlay);
+  box-shadow: var(--shadow-overlay);
+  transition: transform var(--duration-base) var(--ease-standard), opacity var(--duration-base) var(--ease-standard);
+}
+.pl-panel[data-state="open"] .pl-panel-box { transition-duration: var(--duration-slow); transition-timing-function: var(--ease-emphasized); }
+
+/* 手机竖屏：底部弹出，最高为可见高度的 70%，内容让出底部安全区 */
+.pl-panel[data-placement="sheet"] .pl-panel-box {
+  inset-inline: 0;
+  inset-block-end: 0;
+  max-block-size: 70%;
+  max-block-size: round(down, 70dvh, 1px);
+  padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  border-start-start-radius: var(--radius-sheet);
+  border-start-end-radius: var(--radius-sheet);
+  transform: translateY(100%);
+}
+/* 手机横屏：从右侧滑出，宽 320 加右侧安全区，高等于游戏区 */
+.pl-panel[data-placement="side"] .pl-panel-box {
+  top: env(safe-area-inset-top);
+  bottom: env(safe-area-inset-bottom);
+  right: 0;
+  inline-size: calc(20rem + env(safe-area-inset-right));
+  padding-right: env(safe-area-inset-right);
+  border-start-start-radius: var(--radius-sheet);
+  border-end-start-radius: var(--radius-sheet);
+  transform: translateX(100%);
+}
+/* 平板与电脑：按钮旁弹出，宽 320；遮罩透明，点外面仍能关 */
+.pl-panel[data-placement="popover"] .ui-modal-scrim { background: transparent; }
+.pl-panel[data-placement="popover"] .pl-panel-box {
+  inline-size: 20rem;
+  max-block-size: calc(100% - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 2 * var(--space-2));
+  border-radius: var(--radius-sheet);
+  opacity: 0;
+  transform: scale(0.96);
+}
+.pl-panel[data-state="open"] .pl-panel-box { opacity: 1; transform: none; }
+
+.pl-panel-head { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-5) var(--space-4) var(--space-3) var(--space-5); }
+.pl-panel-titles { flex: 1; min-inline-size: 0; display: grid; gap: var(--space-1); }
+.pl-panel-titles h2 { font: var(--type-title2); }
+.pl-panel-titles p { color: var(--color-label-secondary); font: var(--type-footnote); }
+.pl-panel-body {
+  flex: 1 1 auto;
+  min-block-size: 0;
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding: 0 var(--space-5) var(--space-5);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-label-quaternary) transparent;
+}
+.pl-panel-note { display: grid; gap: var(--space-1); color: var(--color-label-secondary); font: var(--type-footnote); }
+
+/* 添加到主屏幕引导 */
+.pl-guide { display: grid; gap: var(--space-5); }
+.pl-guide-code { display: grid; gap: var(--space-3); }
+.pl-guide-steps { display: grid; gap: var(--space-2); margin: 0; padding-inline-start: var(--space-5); color: var(--color-label-secondary); }
+
+/* 微信引导：贴右上角，箭头指向微信的「···」菜单 */
+.pl-wechat-box {
+  position: absolute;
+  top: calc(env(safe-area-inset-top) + var(--space-4));
+  right: calc(env(safe-area-inset-right) + var(--space-2));
+  display: grid;
+  gap: var(--space-3);
+  inline-size: min(20rem, 100% - 2 * var(--space-2));
+  padding: var(--space-5);
+  border-radius: var(--radius-sheet);
+  background: var(--color-bg-overlay);
+  box-shadow: var(--shadow-overlay);
+  opacity: 0;
+  transform: translateY(calc(var(--space-2) * -1));
+  transition: opacity var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard);
+}
+.pl-wechat-box::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--space-2) * -1);
+  right: var(--space-5);
+  inline-size: var(--space-4);
+  block-size: var(--space-4);
+  background: inherit;
+  rotate: 45deg;
+}
+.pl-wechat-box h2 { font: var(--type-headline); }
+.pl-wechat[data-state="open"] .pl-wechat-box { opacity: 1; transform: none; }
+
+/* 减弱动态效果：按钮不做淡出动画，面板与弹层不滑入，只淡入淡出 */
+@media (prefers-reduced-motion: reduce) {
+  .pl-float,
+  .pl-float[data-idle]:not([data-dragging]) { transition: none; }
+  .pl-panel .pl-panel-box,
+  .pl-panel[data-state] .pl-panel-box { transform: none; transition: opacity var(--duration-base) var(--ease-standard); }
+  .pl-panel:not([data-state="open"]) .pl-panel-box { opacity: 0; }
+  .pl-wechat-box { transform: none; }
+}

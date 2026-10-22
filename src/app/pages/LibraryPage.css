@@ -1,0 +1,79 @@
+/* 游戏库：手机上列表在上、详情在下；≥ 1024 左侧列表 280、右侧详情（旧版 .lib） */
+
+.app-lib {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+.app-lib-list {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-elevated);
+  box-shadow: var(--shadow-card);
+}
+.app-lib-item {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-3);
+  inline-size: 100%;
+  min-block-size: var(--touch-target);
+  padding: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-field);
+  background: none;
+  color: var(--color-label);
+  text-align: start;
+  touch-action: manipulation;
+}
+.app-lib-item[aria-pressed="true"] { background: var(--color-bg-selected); box-shadow: inset 3px 0 0 var(--color-accent); }
+@media (forced-colors: active) {
+  .app-lib-item[aria-pressed="true"] { outline: 2px solid Highlight; }
+}
+.app-lib-item .app-cover { border-radius: var(--radius-sm); }
+.app-lib-text { display: grid; gap: calc(var(--space-1) / 2); min-inline-size: 0; }
+.app-lib-text b { overflow-wrap: anywhere; font: var(--type-headline); }
+.app-lib-sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  color: var(--color-label-secondary);
+  font: var(--type-caption);
+}
+
+.app-badge {
+  display: inline-block;
+  padding: calc(var(--space-1) / 2) var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-fill);
+  color: var(--color-label);
+  font: var(--type-caption);
+  font-weight: var(--primitive-font-weight-semibold);
+  white-space: nowrap;
+}
+.app-badge[data-tone="undo"] { background: var(--color-bg-selected); color: var(--color-accent); }
+@media (forced-colors: active) {
+  .app-badge { border: 1px solid CanvasText; }
+}
+
+.app-lib-main { display: grid; gap: var(--space-4); min-inline-size: 0; scroll-margin-block-start: calc(env(safe-area-inset-top) + var(--layout-bar-h) + var(--space-2)); }
+.app-lib-hero { border-radius: var(--radius-card); }
+.app-lib-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+}
+.app-kvs { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); }
+.app-kvs > div { display: grid; gap: calc(var(--space-1) / 2); }
+.app-kvs dt { color: var(--color-label-tertiary); font: var(--type-caption); }
+.app-lib-store { margin-inline-start: auto; }
+.app-undo { gap: var(--space-2); }
+
+@media (min-width: 1024px) and (min-height: 501px) {
+  .app-lib { grid-template-columns: 17.5rem minmax(0, 1fr); }
+}

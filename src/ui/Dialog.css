@@ -1,0 +1,42 @@
+.ui-dialog-panel {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  gap: var(--space-3);
+  inline-size: min(calc(100% - 2 * var(--layout-gutter)), 26rem);
+  block-size: fit-content;
+  max-block-size: calc(100% - 2 * var(--layout-gutter));
+  margin: auto;
+  padding: var(--space-6);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-label-quaternary) transparent;
+  border-radius: var(--radius-sheet);
+  background: var(--color-bg-overlay);
+  box-shadow: var(--shadow-overlay);
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+.ui-dialog[data-state="open"] .ui-dialog-panel {
+  opacity: 1;
+  transform: none;
+  transition-duration: var(--duration-base);
+}
+.ui-dialog-title { font: var(--type-title2); }
+.ui-dialog-description { color: var(--color-label-secondary); }
+.ui-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-block-start: var(--space-3);
+}
+.ui-dialog-actions > * { flex: 1 1 auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-dialog-panel { transform: none; }
+}

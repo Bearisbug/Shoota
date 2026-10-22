@@ -5,14 +5,17 @@
 | 项 | 值 |
 | --- | --- |
 | 部署目标 | `paas` |
-| 平台 | Cloudflare Workers 静态资源 · Worker `changju` · 账号 ID `627a6218f132dffc9cb22dd50c2fe1a6`（Bearisbug 的 Cloudflare 账号） |
+| 平台 | Cloudflare Workers 静态资源 · Worker `changju` · 账号 ID `627a6218f132dffc9cb22dd50c2fe1a6`（Bearisbug 的 Cloudflare 账号）。脚本入口 `src/worker/index.ts`，静态资源目录是构建产物 `dist/` |
 | 发布策略 | 平台内建（paas）：新版本上传完再整体切换，切换无停机 |
 | 域名 | https://shoota.ai （根域，Worker 自定义域名；workers.dev 与预览地址已关闭） |
 | DNS | Cloudflare，shoota.ai zone；根域这条记录由 Worker 自定义域名自动创建和维护，不要手改。`www.shoota.ai` 由 zone 的 Redirect Rule 301 跳到 `https://shoota.ai`，路径和参数原样保留，浏览器会带上 `#` 后面的部分；它的 DNS 记录是橙云的 `AAAA 100::` 占位、没有源站。这两项不在 `wrangler.jsonc` 里，在 Cloudflare 面板 shoota.ai → Rules → Redirect Rules 管理。www 不能改成直接显示网站：存档按域名隔离，www 和根域会成两份互不相通的进度。同理 http 一律 301 到 https，由同一处的第二条 Redirect Rule 负责，只放行存档搬家页 `/move`、`/move.html`；这条规则保留到 2026-11-21，之后删掉它、重新打开 SSL/TLS → Edge Certificates 的 Always Use HTTPS。在那之前不能开 Always Use HTTPS 或 HSTS：它们会把 `/move` 也跳到 https，浏览器会被记成查过了，http 下的旧存档再也搬不回来。规则表达式里判断 http 用 `not ssl`，这个套餐不认 `http.request.scheme`。在 CI 里部署时，wrangler 会直接覆盖与配置域名冲突的 DNS 记录、不提示，往 `wrangler.jsonc` 加域名前先确认该主机名上没有在用的记录 |
-| 健康检查 | 请求 https://shoota.ai/ 。身份断言：首页含 `<title>shoota 游戏平台</title>`。版本断言：`public/` 下每个文件与本次提交逐字节一致。另外断言 `/kanban` 返回看板登录页、`POST /api/e` 对空上报返回 400，证明 Worker 脚本在线且不写数据。没有回显三元组的健康端点，用内容比对代替 |
-| CI | GitHub Actions `.github/workflows/deploy.yml`：`check`（质量门）→ `deploy`（数据库迁移、部署、健康检查、失败回滚）。push `main` 部署正式站，push `test` 部署测试站，PR 只跑 `check` |
+| 健康检查 | 请求 https://shoota.ai/ 。身份断言：首页含 `<title>shoota 游戏平台</title>`。版本断言：`dist/` 下每个文件与本次构建逐字节一致，`dist/kanban/` 与 `_headers` 除外（看板页验过会话才返回，登录页会填入提示文字；`_headers` 由平台读走、不对外提供）。另外断言 `/kanban` 返回看板登录页、`POST /api/e` 与 `POST /api/launch` 对空上报都返回 400，证明新 Worker 脚本在线且不写数据（旧版 Worker 没有 `/api/launch`，返回 404）。没有回显三元组的健康端点，用内容比对代替 |
+| CI | GitHub Actions `.github/workflows/deploy.yml`：`check`（`npm ci`、类型检查、单测、构建、检查脚本，把 `dist/` 存成本次 run 的构件）→ `deploy`（取回同一份 `dist/`，数据库迁移、部署、健康检查、失败回滚）。push `main` 部署正式站，push `test` 部署测试站，push `rewrite` 部署重写预览站，PR 只跑 `check` |
 | 测试站 | https://test.shoota.ai 。Worker `changju-test`（`wrangler.jsonc` 的 `env.test`，wrangler 命令加 `--env test`），D1 `shoota-metrics-test`（亚太），看板密码另设，见第 5 节。GitHub 环境 `test` 只接受 `test` 分支部署，`production` 只接受 `main`。zone 的 Response Header Transform Rule「测试站禁止搜索引擎收录」给这个主机名加 `X-Robots-Tag: noindex, nofollow`。正式站的 http 跳转规则只匹配 `shoota.ai`，测试站的 http 不跳 https，测试时用 https 地址 |
-| 数据库 | Cloudflare D1 `shoota-metrics`（亚太），Worker 里的绑定名 `DB`，表结构在 `migrations/` |
+| 重写预览站 | https://next.shoota.ai 。重写版在合进 `main` 之前的真机测试用。Worker `changju-next`（`wrangler.jsonc` 的 `env.next`，wrangler 命令加 `--env next`），D1 `shoota-metrics-next`（亚太），看板密码另设，见第 5 节。GitHub 环境 `next` 只接受 `rewrite` 分支部署。和测试站一样由 Transform Rule 加 `noindex`，http 不跳 https。重写版合进 `main` 后，这个站与 `rewrite` 触发一起撤掉 |
+| 数据库 | Cloudflare D1 `shoota-metrics`（亚太），Worker 里的绑定名 `DB`，表结构在 `migrations/`。存统计、启动遥测与玩家的云存档 |
+| 定时任务 | Cron Trigger `0 20 * * *`（北京 04:00），删除 365 天没同步的云存档；写在 `wrangler.jsonc` 的 `triggers`，随部署生效 |
+| 缓存 | `public/_headers`：`/assets/*` 与旧游戏的摘要地址 `/g/*` 缓存一年（immutable），其余沿用默认 `max-age=0, must-revalidate`。浏览器里另有 Service Worker `/sw.js`，缓存平台页面、`/assets/*`、游戏文件与封面 |
 | 看板 | https://shoota.ai/kanban ，密码见第 5 节；统计口径见 `docs/DESIGN.md` |
 | 服务器 / 应用目录 / 镜像 / 端口 / 反代 | N/A（没有自管服务器） |
 | Synco 编排 | 未挂接（paas 目标不走 Synco 部署方式） |
@@ -21,21 +24,24 @@
 
 **测试站**：改动先推到 `test` 分支（`git push origin HEAD:test`），流程和下面的正式发布一样，只是部署到 https://test.shoota.ai 、迁移跑在测试库上；在 Environments 页的 `test` 下看记录。测试通过后把改动合进 `main` 才会上正式站。`test` 分支可以随时用 `git push -f origin main:test` 重置成和正式站一致。
 
-push 到 `main` 即自动发布：质量门 `node scripts/check.mjs` → 记下当前线上版本号 → `wrangler d1 migrations apply` 执行新迁移 → `wrangler deploy` → 健康检查（最多重试 12 次，每次间隔 10 秒）→ 不通过就 `wrangler rollback` 回到部署前的版本，并把 run 标成失败。进度在仓库 Actions 页看，每次发布也会出现在仓库 Environments 页的 `production` 下。手动重跑：Actions 页 → deploy → Run workflow。
+**重写预览站**：`rewrite` 分支推上去部署到 https://next.shoota.ai ，迁移跑在 `shoota-metrics-next` 上，在 Environments 页的 `next` 下看记录。
 
-上线前提：改动已在本地过一遍 README「本地预览」里的流程，并且 `node scripts/check.mjs` 通过。
+push 到 `main` 即自动发布：质量门（`npm run typecheck`、`npm test`、`npm run build`、`npm run check`）→ 记下当前线上版本号 → `wrangler d1 migrations apply` 执行新迁移 → 用质量门构建出的 `dist/` 执行 `wrangler deploy` → 健康检查（最多重试 12 次，每次间隔 10 秒）→ 不通过就 `wrangler rollback` 回到部署前的版本，并把 run 标成失败。wrangler 版本由 `package.json` 钉在 4.151.1。进度在仓库 Actions 页看，每次发布也会出现在仓库 Environments 页的 `production` 下。手动重跑：Actions 页 → deploy → Run workflow。
+
+上线前提：改动已在本地过一遍 README「本地预览」里的流程，质量门四条都通过，并按 `docs/TEST.md` 跑过受影响的用例。
 
 ## 3. 查日志 / 排障
 
 - **部署日志**：Actions 里对应 run 的 `deploy` job。每一步失败的原因都写在日志里：质量门列出出错的文件和段落；健康检查列出不一致的文件路径。
 - **线上版本历史**：`npx wrangler@4.151.1 deployments list --name changju`，每个版本的 message 以 commit 短哈希开头。
 - **当前线上版本**：`npx wrangler@4.151.1 deployments status --name changju`。
-- **游戏打不开**：先看 `https://shoota.ai/games/<id>.html` 是否返回 200，再看 `CATALOG` 里的 `src` 是否和文件名一致。本地双击打开 `index.html` 时游戏一定打不开（`fetch` 不支持 file://），这不是线上问题。
+- **游戏打不开**：先按游戏页失败页的原因文案判断是哪一段，看板「启动」块按国家列出成功率与失败原因。旧游戏依次查摘要地址 `https://shoota.ai/g/<id>-<摘要前 8 位>`（摘要在构建日志的 `dist/g/` 一行）与固定地址 `https://shoota.ai/games/<id>` 是否返回 200，再看 `src/catalog/catalog.ts` 里的 `src` 是否和文件名一致；改写游戏查 `https://shoota.ai/play/<id>/`。
+- **玩家拿到的不是新版**：平台页面由 Service Worker 先给缓存的那份、后台取新版，玩家要打开两次才看到新版，这是设计如此。要确认线上内容，用 curl 直接请求，不经浏览器缓存。
 - **看板打不开或数字异常**：先看 `https://shoota.ai/kanban` 能否出登录页；能出登录页但登录后读取失败，到 Cloudflare 面板 Workers → changju → Logs 看报错，按 `docs/DESIGN.md` §22 处理。
 - **看板登录被锁**：同一网络连错 5 次锁 15 分钟，等到期，或按第 6 节查询命令删掉 `login_guards` 里的记录。
-- **玩家说进度没了**：进度只存在玩家自己的浏览器里，换设备、换浏览器、清缓存都会丢。让玩家用站内「存档」页的存档码迁移；平台侧没有数据可以恢复。
+- **玩家说进度没了**：进度存在玩家的浏览器里，并同步到云存档。换设备、换浏览器或清了缓存的，让玩家在新设备的「存档」页输入恢复码；没有恢复码的用存档码迁移。服务端只存恢复码和存档编号的摘要，平台侧查不到某个玩家是哪个云存档，也无法替他找回恢复码。
 - 以上命令都要先设置 token：`export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)`。
-- 查测试站：wrangler 命令加 `--env test`（`deployments`、`d1`、`secret` 都适用），按名字操作的命令把 `changju` 换成 `changju-test`、`shoota-metrics` 换成 `shoota-metrics-test`。
+- 查测试站：wrangler 命令加 `--env test`（`deployments`、`d1`、`secret` 都适用），按名字操作的命令把 `changju` 换成 `changju-test`、`shoota-metrics` 换成 `shoota-metrics-test`。重写预览站同理，换成 `--env next`、`changju-next`、`shoota-metrics-next`。
 
 ## 4. 回滚
 
@@ -47,7 +53,9 @@ npx wrangler@4.151.1 rollback <版本号> --name changju -m "回滚原因" -y
 
 回滚只回退 Worker 版本，不回退 D1 数据库：迁移只新增表或列，旧版本照常可用；数据要回到某个时刻按第 6 节恢复。回滚只改线上，不改 git。下一次 push main 会把 `main` 的内容重新发上去，所以回滚之后还要 `git revert` 出问题的提交，否则坏版本会被再次发布。
 
-测试站回滚：同样两条命令，`--name` 换成 `changju-test`。测试站回滚后，下一次 push `test` 会把 `test` 分支的内容重新发上去。
+测试站回滚：同样两条命令，`--name` 换成 `changju-test`；重写预览站换成 `changju-next`。测试站回滚后，下一次 push `test` 会把 `test` 分支的内容重新发上去。
+
+回滚到重写之前的版本（没有 `/sw.js` 的版本）时，已经装过 Service Worker 的浏览器还会先给缓存的平台页面，后台取到旧版后下次打开才换过去。要让这些浏览器立刻停用它，发一版只做注销的 `sw.js`（`self.registration.unregister()` 后刷新已打开的页面），见 `docs/DESIGN.md` §23。
 
 CI 的自动回滚目标是「本次部署前的线上版本」。只要每次失败的部署都回滚成功，它就是最后一次通过健康检查的版本。如果连回滚这一步也失败了（run 日志里 rollback 步骤报错），就按上面的命令手动回到最后一个健康版本。
 
@@ -67,18 +75,18 @@ CI 的自动回滚目标是「本次部署前的线上版本」。只要每次�
 - 设置或更换看板密码：`printf '%s' "$(bw get password SHOOTA_KANBAN_PASSWORD)" | npx wrangler@4.151.1 secret put KANBAN_PASSWORD`。换密码先在 Bitwarden 改条目，再执行这一行。
 - 设置或轮换签名密钥：`openssl rand -hex 32 | tr -d '\n' | npx wrangler@4.151.1 secret put KANBAN_SECRET`。轮换后所有人的看板登录态立即失效，要重新输密码。
 - 核对：`npx wrangler@4.151.1 secret list` 能看到两个键名。
-- 测试站另有一套：看板密码在 Bitwarden 条目 `SHOOTA_TEST_KANBAN_PASSWORD`，签名密钥另外生成；上面三条命令都加 `--env test`，密码那条把条目名换成 `SHOOTA_TEST_KANBAN_PASSWORD`。
+- 测试站另有一套：看板密码在 Bitwarden 条目 `SHOOTA_TEST_KANBAN_PASSWORD`，签名密钥另外生成；上面三条命令都加 `--env test`，密码那条把条目名换成 `SHOOTA_TEST_KANBAN_PASSWORD`。重写预览站与测试站共用 `SHOOTA_TEST_KANBAN_PASSWORD` 这个密码，签名密钥另外生成，命令加 `--env next`。
 
 **轮换 token**：在 Cloudflare 新建同权限的 token → `bw edit` 更新 `CHANGJU_CI_DEPLOY_TOKEN` → `bw get password CHANGJU_CI_DEPLOY_TOKEN | gh secret set CLOUDFLARE_API_TOKEN -R Bearisbug/changju` → 在 Actions 页手动 Run workflow 验证 → 删除旧 token。有协作者离开时也要轮换：仓库写权限能读到这个 Secret。
 
 ## 6. 数据库备份与恢复
 
-统计数据在 Cloudflare D1 `shoota-metrics`。玩家的游戏进度不在这里，只存在玩家自己的浏览器，靠站内「存档」页的存档码自己备份。以下命令都先设置 `export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)`，并在项目根执行。
+统计、启动遥测与玩家的云存档都在 Cloudflare D1 `shoota-metrics`。玩家进度另有一份在玩家自己的浏览器里。以下命令都先设置 `export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)`，并在项目根执行。
 
 - 备份方式与频率：D1 自带时间点恢复，免费版可回到最近 7 天内任意时刻，不需要另配定时备份。
 - 手动立即备份：`npx wrangler@4.151.1 d1 export shoota-metrics --remote --output shoota-metrics-$(date +%F).sql`，导出文件不入仓。
 - 查当前时间点书签：`npx wrangler@4.151.1 d1 time-travel info shoota-metrics`；做有风险的操作前先记下它。
-- 恢复步骤：`npx wrangler@4.151.1 d1 time-travel restore shoota-metrics --bookmark <书签>`，或用 `--timestamp <Unix 秒>`。不要加 `-y`，这个命令不认，非交互环境会自动确认。恢复会丢掉该时刻之后写入的全部统计，输出里会给出撤销用的书签。恢复后登录看板核对概览数字。
+- 恢复步骤：`npx wrangler@4.151.1 d1 time-travel restore shoota-metrics --bookmark <书签>`，或用 `--timestamp <Unix 秒>`。不要加 `-y`，这个命令不认，非交互环境会自动确认。恢复会丢掉该时刻之后写入的全部统计与云存档改动，输出里会给出撤销用的书签；玩家浏览器里的进度不受影响，下次同步时按冲突规则重新比一次。恢复后登录看板核对概览数字。
 - 查询或删改个别行：`npx wrangler@4.151.1 d1 execute shoota-metrics --remote --command "<SQL>"`。
 - 迁移执行点：CI 在部署前执行 `wrangler d1 migrations apply shoota-metrics --remote`。迁移文件只新增表或列，旧版本 Worker 照常可用，所以回滚 Worker 时不回退数据库。确实要删改表结构时，先停下与负责人确认停机窗口。
 - 演练记录：2026-10-20 在临时库 `shoota-metrics-drill` 上演练过时间点恢复与导出，结果见第 10 节，临时库已删除。
@@ -88,17 +96,18 @@ CI 的自动回滚目标是「本次部署前的线上版本」。只要每次�
 ```bash
 export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)
 npx wrangler@4.151.1 deployments status --name changju          # ① 记下当前版本号，出问题时回滚用
-node scripts/check.mjs                                           # ② 质量门
+npm ci && npm run typecheck && npm test && npm run build && npm run check   # ② 质量门，产物在 dist/
 npx wrangler@4.151.1 d1 migrations apply shoota-metrics --remote             # ②b 数据库迁移，没有新迁移时什么都不做
 npx wrangler@4.151.1 deploy --message "$(git rev-parse --short HEAD) manual"   # ③ 部署
 curl -fsSL https://shoota.ai/ | grep -c '<title>shoota 游戏平台</title>'   # ④ 身份断言，应输出 1
-for f in $(cd public && find . -type f | sed 's#^\./##'); do                    # ⑤ 逐文件比对，无输出即全部一致
+for f in $(cd dist && find . -type f ! -path './kanban/*' ! -name _headers | sed 's#^\./##'); do   # ⑤ 逐文件比对，无输出即全部一致
   p=$f; [ "$f" = index.html ] && p=""
-  [ "$(shasum -a 256 < public/$f | cut -d' ' -f1)" = "$(curl -fsSL "https://shoota.ai/$p?v=$RANDOM" | shasum -a 256 | cut -d' ' -f1)" ] || echo "不一致：/$p"
+  [ "$(shasum -a 256 < dist/$f | cut -d' ' -f1)" = "$(curl -fsSL "https://shoota.ai/$p?v=$RANDOM" | shasum -a 256 | cut -d' ' -f1)" ] || echo "不一致：/$p"
 done
+curl -s -o /dev/null -w '%{http_code}\n' -X POST -H 'content-type: application/json' --data '{}' https://shoota.ai/api/launch   # ⑥ 新 Worker 在线，应输出 400
 ```
 
-④ 或 ⑤ 不通过，就用 ① 记下的版本号按第 4 节回滚。
+④、⑤ 或 ⑥ 不通过，就用 ① 记下的版本号按第 4 节回滚。
 
 ## 10. 变更记录
 

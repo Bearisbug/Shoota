@@ -1,0 +1,14 @@
+{
+  "id": "/",
+  "name": "shoota 游戏平台",
+  "short_name": "shoota",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#13100D",
+  "theme_color": "#13100D",
+  "icons": [
+    { "src": "/brand/assets/logo/app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

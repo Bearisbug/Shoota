@@ -1,0 +1,12 @@
+/* 游戏 iframe 的宿主（player.ts 挂在 body 下）：位置与 src/app/player-ui/PlayerPage.css 的游戏区 .pl-area 相同，
+   视口四边扣安全区，高度按 100dvh 算（不认 dvh 时 100%）。平台控件所在的 .pl-root 要叠在它上面 */
+.pl-host {
+  position: fixed;
+  z-index: 0;
+  top: env(safe-area-inset-top, 0px);
+  left: env(safe-area-inset-left, 0px);
+  right: env(safe-area-inset-right, 0px);
+  block-size: calc(100% - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  block-size: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  touch-action: manipulation;
+}

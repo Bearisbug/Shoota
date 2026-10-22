@@ -1,0 +1,24 @@
+/* 存档页：三张卡纵向排开 */
+
+.app-cloud,
+.app-bk { display: grid; gap: var(--space-4); }
+.app-cloud-code { display: grid; gap: var(--space-2); }
+.app-cloud-big { display: grid; gap: var(--space-2); }
+.app-cloud-big li { display: grid; gap: calc(var(--space-1) / 2); color: var(--color-label-secondary); }
+.app-cloud-big b { color: var(--color-label); font-weight: var(--primitive-font-weight-medium); }
+
+.app-bk-list { display: grid; gap: var(--space-2); }
+.app-bk-list li { display: flex; justify-content: space-between; gap: var(--space-3); }
+.app-bk-list span { color: var(--color-label-secondary); font: var(--type-caption); white-space: nowrap; }
+
+/* 存档码：等宽、可整段选中，长串任意处断行 */
+.app-code-field { padding: var(--space-3) var(--space-4); }
+.app-code-field textarea {
+  min-block-size: calc(3lh + var(--space-1));
+  resize: vertical;
+  font-family: var(--font-mono);
+  font-size: var(--primitive-dimension-font-size-13);
+  line-height: var(--primitive-ratio-line-height-snug);
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}

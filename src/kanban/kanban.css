@@ -1,0 +1,194 @@
+/* 看板页面（PAGE-KANBAN）。数值全部经 src/styles/semantic.css 与 brand/tokens.css 的变量，亮暗跟随系统。
+   图表只用 brand 的顺序色阶（brand/DESIGN.md「颜色角色」末段），对比度按 brand/tokens.css 实算，写在各行注释里，格式「暗 / 亮」。 */
+
+:root {
+  /* 趋势柱：暗色取第 3 档（对卡片 4.18）；亮色第 3 档对白卡只有 2.71，改取第 4 档（4.56）。今天那根第 5 档（9.55 / 7.62） */
+  --kb-bar: var(--semantic-color-data-viz-sequential-3);
+  --kb-bar-today: var(--semantic-color-data-viz-sequential-5);
+  /* 横条：第 4 档（6.70 / 4.56） */
+  --kb-hbar: var(--semantic-color-data-viz-sequential-4);
+  /* 唯一的大号数字：今日活跃旅客 */
+  --kb-hero: var(--primitive-font-weight-bold) var(--primitive-dimension-font-size-48)/var(--primitive-ratio-line-height-display) var(--font-text);
+}
+@media (prefers-color-scheme: light) {
+  :root { --kb-bar: var(--semantic-color-data-viz-sequential-4); }
+}
+
+/* 页面：内容宽度封顶，两侧留白不小于安全区 */
+.kb-page {
+  --layout-page-pad-start: max(var(--layout-gutter), env(safe-area-inset-left));
+  --layout-page-pad-end: max(var(--layout-gutter), env(safe-area-inset-right));
+  max-inline-size: calc(var(--layout-content) + var(--layout-page-pad-start) + var(--layout-page-pad-end));
+  margin-inline: auto;
+  padding: env(safe-area-inset-top) var(--layout-page-pad-end) calc(env(safe-area-inset-bottom) + var(--space-12)) var(--layout-page-pad-start);
+}
+/* LargeTitle 的左侧槽按图标按钮的内边距往外挪了一格，标志挪回来与正文左缘对齐 */
+.kb-logo { inline-size: var(--space-8); block-size: var(--space-8); margin-inline-start: var(--space-2); }
+
+/* 重新读取时保留上一版内容，压淡表示正在更新，不闪骨架 */
+.kb-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-8);
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.kb-main[data-stale] { opacity: 0.6; }
+
+.kb-section { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+.kb-h2 { font: var(--type-title2); letter-spacing: var(--tracking-title); }
+.kb-note { font: var(--type-footnote); color: var(--color-label-secondary); }
+.kb-foot { margin-block-start: var(--space-3); }
+.kb-sub {
+  margin-block: var(--space-6) var(--space-3);
+  font: var(--type-footnote);
+  font-weight: var(--primitive-font-weight-semibold);
+  color: var(--color-label-secondary);
+}
+.kb-empty { padding-block: var(--space-6); text-align: center; color: var(--color-label-tertiary); }
+.kb-skel { inline-size: 100%; border-radius: var(--radius-card); }
+
+/* 读取失败：错误色只给图标和浅底，文字用正文色 */
+.kb-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-field);
+  background: color-mix(in srgb, var(--color-danger) 12%, var(--color-bg-elevated));
+}
+.kb-banner-icon { flex: none; color: var(--color-danger); }
+.kb-banner-text { flex: 1 1 14rem; min-inline-size: 0; }
+
+/* 概览 */
+.kb-overview { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+@media (min-width: 760px) {
+  .kb-overview { grid-template-columns: minmax(11rem, 15rem) minmax(0, 1fr); }
+}
+.kb-hero .ui-card-body { display: grid; align-content: center; gap: var(--space-1); }
+.kb-hero-label { font: var(--type-footnote); color: var(--color-label-secondary); }
+.kb-hero-value { font: var(--kb-hero); color: var(--color-accent); }
+
+/* 表格 */
+.kb-table {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-label-quaternary) transparent;
+  border-radius: var(--radius-sm);
+}
+.kb-table table { inline-size: 100%; border-collapse: collapse; font: var(--type-callout); }
+.kb-table th,
+.kb-table td {
+  padding: var(--space-2) var(--space-3);
+  border-block-end: var(--hairline) solid var(--color-separator);
+  text-align: end;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.kb-table th:first-child,
+.kb-table td:first-child { padding-inline-start: 0; text-align: start; }
+.kb-table th:last-child,
+.kb-table td:last-child { padding-inline-end: 0; }
+.kb-table thead th {
+  font: var(--type-footnote);
+  font-weight: var(--primitive-font-weight-semibold);
+  color: var(--color-label-tertiary);
+}
+.kb-table tbody th { font-weight: var(--primitive-font-weight-regular); }
+.kb-table tbody tr:last-child > * { border-block-end: 0; }
+.kb-table .kb-start { text-align: start; }
+.kb-table .kb-wrap { min-inline-size: 12rem; white-space: normal; }
+.kb-strong { font-weight: var(--primitive-font-weight-semibold); }
+.kb-dim { color: var(--color-label-tertiary); }
+
+/* 留存热度 4 档，2 的底色缝隔开相邻格。字色：1、2 档正文色（暗 10.74、6.29 / 亮 15.36、10.78），
+   3 档两种模式都用墨色（4.72 / 7.30），4 档用强调底上的字色（暗墨色 7.26 / 亮白色 4.56） */
+.kb-table td.kb-heat { padding-inline: var(--space-3); box-shadow: inset 0 0 0 2px var(--color-bg-elevated); }
+.kb-heat-1 { background: var(--semantic-color-data-viz-sequential-1); }
+.kb-heat-2 { background: var(--semantic-color-data-viz-sequential-2); }
+.kb-heat-3 { background: var(--semantic-color-data-viz-sequential-3); color: var(--primitive-color-neutral-950); }
+.kb-heat-4 { background: var(--semantic-color-data-viz-sequential-4); color: var(--color-on-accent); }
+
+/* 趋势 */
+.kb-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--space-4);
+}
+.kb-chart-title { font: var(--type-footnote); font-weight: var(--primitive-font-weight-semibold); color: var(--color-label-secondary); }
+.kb-chart-now { font: var(--type-title2); color: var(--color-label); }
+.kb-plot { position: relative; margin-block: var(--space-3) var(--space-1); }
+.kb-plot svg { display: block; inline-size: 100%; overflow: visible; touch-action: pan-y; border-radius: var(--radius-sm); }
+.kb-plot text { font: var(--type-caption); fill: var(--color-label-tertiary); }
+.kb-axis { stroke: var(--color-separator); stroke-width: 1; }
+.kb-bar { fill: var(--kb-bar); transition: opacity var(--duration-fast) var(--ease-standard); }
+.kb-bar.is-today { fill: var(--kb-bar-today); }
+.kb-plot svg[data-hover] .kb-bar:not(.is-hover) { opacity: 0.45; }
+.kb-tip {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-overlay);
+  box-shadow: var(--shadow-overlay), 0 0 0 var(--hairline) var(--color-separator);
+  font: var(--type-caption);
+  color: var(--color-label-secondary);
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+}
+.kb-tip b { font: var(--type-footnote); font-weight: var(--primitive-font-weight-semibold); color: var(--color-label); font-variant-numeric: tabular-nums; }
+/* 保留默认的展开三角；行高撑到触控目标 */
+.kb-details summary {
+  border-radius: var(--radius-sm);
+  font: var(--type-footnote);
+  line-height: var(--touch-target);
+  color: var(--color-label-secondary);
+  cursor: pointer;
+}
+
+/* 一组并列的数字：来源占比、启动汇总 */
+.kb-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: var(--space-5) var(--space-6);
+}
+.kb-stat { display: grid; align-content: start; gap: var(--space-1); }
+.kb-stat dt { font: var(--type-footnote); color: var(--color-label-secondary); }
+.kb-stat-value { font: var(--type-title1); }
+.kb-stat-sub { font: var(--type-caption); color: var(--color-label-tertiary); font-variant-numeric: tabular-nums; }
+
+/* 横条 */
+.kb-hbars { display: grid; gap: var(--space-2); }
+.kb-hrow {
+  display: grid;
+  grid-template-columns: minmax(4.5rem, 7rem) minmax(0, 1fr) minmax(3rem, auto);
+  align-items: center;
+  gap: var(--space-3);
+}
+.kb-hrow-name { min-inline-size: 0; overflow-wrap: anywhere; }
+.kb-hrow-track { display: block; block-size: var(--space-3); }
+.kb-hrow-fill {
+  display: block;
+  block-size: 100%;
+  max-inline-size: 100%;
+  border-radius: 0 var(--semantic-radius-inner-min) var(--semantic-radius-inner-min) 0;
+  background: var(--kb-hbar);
+}
+.kb-hrow-n { text-align: end; white-space: nowrap; color: var(--color-label-secondary); font-variant-numeric: tabular-nums; }
+
+/* 启动 */
+.kb-launch,
+.kb-pair { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+@media (min-width: 1024px) {
+  .kb-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (forced-colors: active) {
+  .kb-bar,
+  .kb-bar.is-today { fill: CanvasText; }
+  .kb-hrow-fill { background: CanvasText; }
+  .kb-table td.kb-heat { forced-color-adjust: none; }
+}

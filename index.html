@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+/* 存档搬到 https（docs/DESIGN.md FLOW-SAVE-MOVE S1，保留到 2026-11-21）：这台浏览器还没查过 http 下的旧数据时，去 http 的搬家页取一次。
+   标记先记第几次去查再跳，带回后记 done；搬家页打不开时下次打开再试，最多 3 次；本地存储写不了时不跳。 */
+(function moveCheck(){
+  try {
+    const st = localStorage.getItem('changju.moved');
+    if (location.protocol !== 'https:' || location.hash.startsWith('#move=') || st === 'done' || Number(st) >= 3) return;
+    localStorage.setItem('changju.moved', String(Number(st) + 1));
+    window.__cjMoving = true;
+    location.replace('http://' + location.host + '/move#r=' + encodeURIComponent(location.hash.slice(1)));
+  } catch (e) {}
+})();
+</script>
+<title>shoota 游戏平台</title>
+<link rel="icon" href="/brand/assets/logo/app-icon.svg" type="image/svg+xml">
+<!-- 亮暗跟随系统；两个值与 brand/tokens.css 的 --semantic-color-surface-background 相同 -->
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#13100D">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F7F5F0">
+<!-- 添加到主屏幕后全屏打开（§13 全屏与引导）：iOS 用透明状态栏，内容画到屏幕最顶上再按上安全区让开 -->
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="shoota">
+<script type="module" src="/src/app/main.tsx"></script>
+</head>
+<body>
+<div id="root"></div>
+</body>
+</html>

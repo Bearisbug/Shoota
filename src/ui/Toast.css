@@ -1,0 +1,61 @@
+/* popover 的 UA 样式（居中、边框、Canvas 底）在这里全部复位 */
+.ui-toast-region {
+  position: fixed;
+  inset: auto 0 calc(env(safe-area-inset-bottom) + var(--layout-bottom-inset) + var(--space-4));
+  z-index: var(--z-toast);
+  display: flex;
+  justify-content: center;
+  inline-size: auto;
+  block-size: auto;
+  margin: 0;
+  padding: 0 var(--layout-gutter);
+  border: 0;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  pointer-events: none;
+}
+.ui-toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  max-inline-size: min(100%, 30rem);
+  min-block-size: var(--touch-target);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-sheet);
+  background: var(--color-bg-overlay);
+  color: var(--color-label);
+  box-shadow: var(--shadow-overlay);
+  font: var(--type-callout);
+  line-height: var(--primitive-ratio-line-height-snug);
+  pointer-events: none; /* 只显示文字的提示不挡下面的点击：游戏里成就提示盖在游戏按钮上 5 秒 */
+  transition:
+    opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
+}
+.ui-toast[data-state="closed"] {
+  opacity: 0;
+  transform: translateY(var(--space-4));
+  pointer-events: none;
+}
+.ui-toast-has-action { padding-block: 0; padding-inline-end: 0; pointer-events: auto; }
+.ui-toast-message { flex: 1; min-inline-size: 0; }
+.ui-toast-success .ui-toast-icon { color: var(--color-success); }
+.ui-toast-error .ui-toast-icon { color: var(--color-danger); }
+.ui-toast-action {
+  flex: none;
+  align-self: stretch;
+  min-block-size: var(--touch-target);
+  padding: 0 var(--space-5);
+  border: 0;
+  border-radius: var(--radius-sheet);
+  background: transparent;
+  color: var(--color-label);
+  font-weight: var(--primitive-font-weight-semibold);
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-toast[data-state="closed"] { transform: none; }
+}

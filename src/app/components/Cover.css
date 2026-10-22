@@ -1,0 +1,51 @@
+/* 封面：46:21，图片铺满；标题叠在左下，字号随封面宽度（容器查询单位）。
+   标题颜色属于封面美术，不属于界面色板（brand/DESIGN.md「游戏封面」），亮暗模式下都一样；下面的取值逐条沿用旧版 .cv[data-c] 规则 */
+.app-cover {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  container-type: inline-size;
+  inline-size: 100%;
+  aspect-ratio: 46 / 21;
+  border-radius: var(--radius-field);
+  background: var(--color-bg-sunken);
+}
+.app-cover img {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+.app-cover-title {
+  position: absolute;
+  inset-inline: 6% 40%;
+  inset-block-end: 13%;
+  font-family: var(--semantic-typography-heading1-font-family);
+  font-weight: var(--semantic-typography-heading1-font-weight);
+  font-size: clamp(15px, 7.4cqw, 60px);
+  line-height: 1.08;
+  color: var(--primitive-color-brand-cream);
+  text-wrap: balance;
+}
+.app-cover-sub {
+  display: block;
+  margin-block-start: 0.45em;
+  font-family: var(--semantic-typography-label-font-family);
+  font-weight: var(--semantic-typography-label-font-weight);
+  font-size: clamp(12px, 2.4cqw, 17px);
+  line-height: 1.3;
+  opacity: 0.85;
+}
+.app-cover[data-c="douluo"] .app-cover-title { color: #f3d58a; }
+.app-cover[data-c="hougong"] .app-cover-title { color: #f7e7c4; }
+.app-cover[data-c="lol"] .app-cover-title { color: #d9f6ff; }
+.app-cover[data-c="yike"] .app-cover-title { color: #efd58e; }
+.app-cover[data-c="f1"] .app-cover-title,
+.app-cover[data-c="nba"] .app-cover-title { font-size: clamp(14px, 6.6cqw, 50px); }
+.app-cover[data-c="f1-driver"] .app-cover-title { color: #fff; font-size: clamp(15px, 7.2cqw, 56px); font-style: italic; }
+.app-cover[data-c="wealth-reborn"] .app-cover-title { color: #ffe4a3; font-size: clamp(15px, 7.6cqw, 60px); }
+.app-cover[data-c="basketball-star"] .app-cover-title { color: #fff0d9; }
+.app-cover[data-c="f1"] .app-cover-title { color: #fff; font-style: italic; }
+.app-cover[data-c="nba"] .app-cover-title,
+.app-cover[data-c="cba"] .app-cover-title { color: #fff0d9; font-size: clamp(15px, 7.2cqw, 56px); }

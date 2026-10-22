@@ -1,0 +1,62 @@
+/* 交互态由 brand/state-layer.css 承担（.state-layer 叠当前文字色，.focus-ring 画焦点环），这里只管形状、配色与按压缩放 */
+.ui-btn {
+  --ui-btn-h: var(--control-h-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: var(--ui-btn-h);
+  padding: 0 var(--space-5);
+  border: 0;
+  border-radius: var(--radius-pill);
+  font: var(--type-callout);
+  font-weight: var(--primitive-font-weight-semibold);
+  line-height: var(--primitive-ratio-line-height-tight);
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.ui-btn:active:not(:disabled) { transform: scale(var(--press-scale)); }
+.ui-btn-content { display: inline-flex; align-items: center; gap: var(--space-2); }
+
+.ui-btn-sm {
+  --ui-btn-h: var(--control-h-sm);
+  padding-inline: var(--space-3);
+  font: var(--type-footnote);
+  font-weight: var(--primitive-font-weight-semibold);
+}
+/* 视觉 32，命中区上下各扩到 44 */
+.ui-btn-sm::before {
+  content: "";
+  position: absolute;
+  inset: calc((var(--ui-btn-h) - var(--touch-target)) / 2) 0;
+}
+.ui-btn-lg {
+  --ui-btn-h: var(--control-h-lg);
+  padding-inline: var(--space-6);
+  font: var(--type-headline);
+}
+.ui-btn-block { display: flex; inline-size: 100%; }
+
+.ui-btn-primary { background: var(--color-accent); color: var(--color-on-accent); }
+.ui-btn-secondary { background: var(--color-fill); color: var(--color-label); }
+.ui-btn-text { background: transparent; color: var(--color-label); }
+.ui-btn-danger { background: var(--color-danger); color: var(--color-on-danger); }
+
+.ui-btn[aria-busy="true"] .ui-btn-content { visibility: hidden; }
+.ui-btn-spinner {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  inline-size: 1.125em;
+  block-size: 1.125em;
+  border: var(--semantic-icon-stroke) solid currentColor;
+  border-block-start-color: transparent;
+  border-radius: 50%;
+  animation: ui-btn-spin calc(var(--duration-slow) * 2.5) linear infinite;
+}
+@keyframes ui-btn-spin {
+  to { transform: rotate(1turn); }
+}

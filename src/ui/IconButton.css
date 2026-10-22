@@ -1,0 +1,30 @@
+.ui-iconbtn {
+  --ui-iconbtn-size: var(--control-h-md);
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  inline-size: var(--ui-iconbtn-size);
+  block-size: var(--ui-iconbtn-size);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-label);
+  touch-action: manipulation;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.ui-iconbtn:active:not(:disabled) { transform: scale(var(--press-scale)); }
+.ui-iconbtn-sm { --ui-iconbtn-size: var(--control-h-sm); }
+/* 视觉 32，命中区四周扩到 44 */
+.ui-iconbtn-sm::before {
+  content: "";
+  position: absolute;
+  inset: calc((var(--ui-iconbtn-size) - var(--touch-target)) / 2);
+}
+.ui-iconbtn-filled { background: var(--color-fill); }
+.ui-iconbtn-material {
+  background: var(--material-chrome);
+  -webkit-backdrop-filter: var(--material-filter);
+  backdrop-filter: var(--material-filter);
+  box-shadow: var(--shadow-card);
+}

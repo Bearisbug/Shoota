@@ -1,0 +1,62 @@
+.ui-list { display: grid; gap: var(--space-2); min-inline-size: 0; }
+.ui-list-header,
+.ui-list-footer {
+  padding-inline: var(--space-4);
+  font: var(--type-footnote);
+  color: var(--color-label-secondary);
+}
+.ui-list-header { font-weight: var(--primitive-font-weight-semibold); }
+.ui-list-rows { border-radius: var(--radius-card); background: var(--color-bg-elevated); }
+
+.ui-row {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+  inline-size: 100%;
+  min-block-size: var(--touch-target);
+  padding: 0 0 0 var(--space-4);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+/* 列表不裁切（焦点环要露出来），首末行自己带圆角，状态层随之变圆 */
+.ui-row-item:first-child > .ui-row { border-start-start-radius: var(--radius-card); border-start-end-radius: var(--radius-card); }
+.ui-row-item:last-child > .ui-row { border-end-start-radius: var(--radius-card); border-end-end-radius: var(--radius-card); }
+
+.ui-row-leading { display: flex; align-items: center; flex: none; padding-block: var(--space-2); color: var(--color-label-secondary); }
+.ui-row-main {
+  flex: 1;
+  min-inline-size: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4) var(--space-3) 0;
+}
+/* 行间发丝线从文字起点画到右缘 */
+.ui-row-item + .ui-row-item .ui-row-main { box-shadow: inset 0 var(--hairline) 0 var(--color-separator); }
+
+.ui-row-text { flex: 1; min-inline-size: 0; display: grid; }
+.ui-row-title,
+.ui-row-value {
+  font: var(--type-body);
+  line-height: var(--primitive-ratio-line-height-snug);
+}
+.ui-row-subtitle { font: var(--type-footnote); color: var(--color-label-secondary); }
+.ui-row-value {
+  flex: none;
+  color: var(--color-label-secondary);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.ui-row-chevron { color: var(--color-label-quaternary); }
+.ui-row-danger .ui-row-title { color: var(--color-danger); }
+
+/* 鼠标环境行文字小一档 */
+@media (pointer: fine) {
+  .ui-row-title,
+  .ui-row-value { font-size: var(--primitive-dimension-font-size-15); }
+}

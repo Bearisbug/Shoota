@@ -1,6 +1,6 @@
 # shoota
 
-文字游戏平台：`public/index.html` 是平台，`public/games/*.html` 是各款游戏，都是静态文件；`src/worker.js` 处理匿名统计上报与 `/kanban` 看板，数据存 Cloudflare D1。目录说明、本地预览、加游戏的方法见 `README.md`。
+文字游戏平台，Vite + React + TypeScript：平台入口是根目录 `index.html` 与 `src/app/`，看板是 `kanban/` 与 `src/kanban/`，Worker 是 `src/worker/`（Hono + Drizzle，数据存 Cloudflare D1），构建产物 `dist/` 由 Worker 的静态资源提供。游戏分两种运行层：旧单文件游戏 `public/games/*.html` 在沙箱 iframe 里经 `window.Platform` 1.0 存档；改写后的游戏 `src/games/<id>/` 在同源 `/play/<id>/` 经 `src/sdk/` 存档，不直接用 `localStorage` 与 `indexedDB`。目录 `src/catalog/catalog.ts` 的 `runtime` 字段决定一款游戏走哪种。目录说明、本地预览、加游戏的方法见 `README.md`；质量门是 `npm run typecheck`、`npm test`、`npm run build`、`npm run check` 四条。
 
 ## 部署
 <!-- deploy-pipeline:部署 rev 2026-10 -->

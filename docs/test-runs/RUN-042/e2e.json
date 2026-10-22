@@ -1,0 +1,1730 @@
+{
+ "stats": {
+  "startTime": "2026-10-22T11:05:55.264Z",
+  "duration": 3519351.697,
+  "expected": 58,
+  "skipped": 218,
+  "unexpected": 8,
+  "flaky": 0
+ },
+ "tests": [
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-001 第一次存下进度后开通云存档",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:11:05.029Z",
+   "seconds": 169.6,
+   "steps": [
+    {
+     "step": "1 打开一克之差再退出：5 秒内开通返回 201，随后同步推上 yike，ok、版本 1",
+     "ok": true
+    },
+    {
+     "step": "2 changju.cloud.v1：saveId 32 位小写十六进制，恢复码 16 位，yike 版本 1",
+     "ok": true
+    },
+    {
+     "step": "3 回到商店：顶部提示「进度已经存到云端」，四段恢复码，「复制恢复码」与「知道了」",
+     "ok": true
+    },
+    {
+     "step": "4 点「知道了」后刷新：提示不再出现",
+     "ok": true
+    },
+    {
+     "step": "5 cloud_accounts、cloud_games 各 1 行；sid 是 saveId 的 SHA-256，三张表找不到原文",
+     "ok": true
+    },
+    {
+     "step": "6 统计表、启动表与 /api/e、/api/launch 的正文里都没有 saveId",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-002 存档页的云存档卡与三处说明",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:13:56.039Z",
+   "seconds": 19.1,
+   "steps": [
+    {
+     "step": "1 #backup：「玩过之后会自动开通」，说明是旧版文案",
+     "ok": true
+    },
+    {
+     "step": "2 开通后回到 #backup：四段恢复码、复制按钮、上次同步、输入恢复码入口；说明换成云存档文案",
+     "ok": true
+    },
+    {
+     "step": "3 点「复制恢复码」：提示已复制，剪贴板里是带连字符的四段",
+     "ok": true
+    },
+    {
+     "step": "4 商店底部说明带：「进度自动存到云端」与正文",
+     "ok": true
+    },
+    {
+     "step": "5 游戏库点一克之差，「关于存档」换成云存档文案",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-003 退出游戏与每分钟同步",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T11:14:15.194Z",
+   "seconds": 115.7,
+   "steps": [
+    {
+     "step": "1 我要当首富建立玩家「张三」：面板显示「已存档 时:分」",
+     "ok": true
+    },
+    {
+     "step": "2 点「退出游戏」：2 秒内一次同步推上 wealth-reborn，ok",
+     "ok": true
+    },
+    {
+     "step": "3 再开我要当首富：面板里云存档状态「已同步 · 时:分」，为第 2 步的时间",
+     "ok": true
+    },
+    {
+     "step": "4 退出后停在商店 70 秒：至少一次同步",
+     "ok": true
+    },
+    {
+     "step": "5 cloud_games 里 wealth-reborn 的秒数等于本机累计秒数",
+     "ok": false,
+     "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 8\nReceived: 5"
+    }
+   ],
+   "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 8\nReceived: 5"
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-004 离线时攒到联网再传",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:16:29.085Z",
+   "seconds": 33.0,
+   "steps": [
+    {
+     "step": "1 打开一克之差，切到离线，打开面板：「离线，联网后同步」",
+     "ok": true
+    },
+    {
+     "step": "2 离线时退出，停 5 秒：没有发出同步",
+     "ok": true
+    },
+    {
+     "step": "3 恢复联网：5 秒内一次同步推上 yike，ok",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-005 同一份内容重推不加版本号",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:17:03.541Z",
+   "seconds": 133.6,
+   "steps": [
+    {
+     "step": "1 同一份内容、base 3 再推：200，yike ok、rev 3",
+     "ok": true
+    },
+    {
+     "step": "2 cloud_games：rev 3，updated_at 与第 1 步之前相同",
+     "ok": true
+    },
+    {
+     "step": "3 新浏览器写 S、C（yike 版本 2）与版本 3 的内容，打开商店：70 秒内拉回版本 3",
+     "ok": true
+    },
+    {
+     "step": "4 撤销槽为空，没有「换成了另一台设备上玩得更久的进度」的提示",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-006 换设备用恢复码取回",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T11:19:17.350Z",
+   "seconds": 64.7,
+   "steps": [],
+   "error": "Error: 30000 毫秒内没等到《我要当首富》的游戏画面"
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-007 恢复码输入规整与错误提示",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:20:38.408Z",
+   "seconds": 28.0,
+   "steps": [
+    {
+     "step": "1 15 位：提示「恢复码是 16 位…」，没有请求",
+     "ok": true
+    },
+    {
+     "step": "2 「01ab-cdef ghjk-mnpq」：请求里的 code 规整成 01ABCDEFGHJKMNPQ，进入确认页",
+     "ok": true
+    },
+    {
+     "step": "3 「OLAB-CDEF-GHJK-MNPQ」：O 当 0、L 当 1",
+     "ok": true
+    },
+    {
+     "step": "4 「ZZZZ-ZZZZ-ZZZZ-ZZZZ」：输入框标红，「没找到这个恢复码，核对后再试」",
+     "ok": true
+    },
+    {
+     "step": "5 离线时查找：「网络不通，连上网再试」，停在输入框",
+     "ok": true
+    },
+    {
+     "step": "6 联网后进入确认页点「取消」：回到存档页，本机没有云存档状态，没有一克之差存档",
+     "ok": true
+    },
+    {
+     "step": "7 已在用 S、C 的浏览器输入 C：「这台设备已经在用这个恢复码…」",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-008 恢复链接只弹确认",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:21:09.335Z",
+   "seconds": 20.8,
+   "steps": [
+    {
+     "step": "1 打开 /#recover=<C>：弹出「用恢复码取回进度」，恢复码已填好",
+     "ok": true
+    },
+    {
+     "step": "2 等 5 秒：没有同步，本机没有云存档状态与一克之差存档",
+     "ok": true
+    },
+    {
+     "step": "3 走到「确认取回」并点它：跳到游戏库，有一克之差，saveId 为 S",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-009 取回时本机已有进度与另一个云存档",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:21:30.164Z",
+   "seconds": 38.5,
+   "steps": [
+    {
+     "step": "1 B 输入 C 查找：一克之差「云端 10 分钟，这台设备 1 分钟」，另两句说明",
+     "ok": true
+    },
+    {
+     "step": "2 点「确认取回」：本机换成第 5 关那份，撤销槽是原来那份、why 为 recover",
+     "ok": true
+    },
+    {
+     "step": "3 saveId 换成 S，之后的同步请求头为 Save <S>",
+     "ok": true
+    },
+    {
+     "step": "4 游戏库点一克之差：「可撤销」与「…取回云存档时换成了云端的进度。」",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-011 撤销被替换的存档",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:31:37.684Z",
+   "seconds": 56.0,
+   "steps": [
+    {
+     "step": "1 游戏库点一克之差：「可撤销」、替换说明与「换回原来的进度」",
+     "ok": true
+    },
+    {
+     "step": "2 点「换回原来的进度」：提示已换回，本机变成第 5 关，撤销槽清空，「可撤销」消失",
+     "ok": true
+    },
+    {
+     "step": "3 随后的同步：yike 带 force，ok；云端版本加 1，内容是第 5 关那份",
+     "ok": true
+    },
+    {
+     "step": "4 撤销槽写成 31 天前，刷新后打开游戏库：不显示「可撤销」，撤销槽被删掉",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-012 存档超过 1 MB 不上云",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:32:35.787Z",
+   "seconds": 73.4,
+   "steps": [
+    {
+     "step": "1 打开商店等一次同步：没有 hougong 的行，yike 版本加 1",
+     "ok": true
+    },
+    {
+     "step": "2 打开后宫生死簿，点悬浮按钮：面板里写存档太大",
+     "ok": true
+    },
+    {
+     "step": "3 #backup：云存档卡里后宫生死簿标着存档太大",
+     "ok": true
+    },
+    {
+     "step": "4 推一款原文 1,048,577 字节的存档：200，too-big，没有这一行",
+     "ok": true
+    },
+    {
+     "step": "5 跳过间隔，推正好 1,048,576 字节：ok，bytes 为 1048576",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-013 365 天没同步的云存档被删后重新开通",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:33:49.193Z",
+   "seconds": 82.3,
+   "steps": [
+    {
+     "step": "1 触发到期删除任务：三张表没有 S 的行，R 还在",
+     "ok": true
+    },
+    {
+     "step": "2 停在商店等下一次同步：404 cloud-not-found，随后同编号同恢复码开通 201，再推上 yike",
+     "ok": true
+    },
+    {
+     "step": "3 S 重新有一行，seen_day 为今天；有 S 的 yike 行",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-014 云存档凭据不对时停止同步",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:35:11.572Z",
+   "seconds": 83.0,
+   "steps": [
+    {
+     "step": "1 刷新等一次同步：401，type 为 /errors/cloud-auth",
+     "ok": true
+    },
+    {
+     "step": "2 #backup：云存档卡写「云存档暂停同步了…」",
+     "ok": true
+    },
+    {
+     "step": "3 打开一克之差，点悬浮按钮：「云存档暂时不可用」",
+     "ok": true
+    },
+    {
+     "step": "4 退出后停在商店 70 秒：没有再发同步",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-015 两个标签页同时开通",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:36:34.589Z",
+   "seconds": 47.0,
+   "steps": [
+    {
+     "step": "1 两个标签页同时开始、画面出现后同时退出：都回到详情页",
+     "ok": true
+    },
+    {
+     "step": "2 10 秒后：cloud_accounts 只有 1 行，两个标签页的 saveId 与恢复码相同",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-016 同步拉回正在玩的游戏",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:37:21.673Z",
+   "seconds": 132.9,
+   "steps": [
+    {
+     "step": "1 A 打开一克之差再退出：推上 yike，云端版本 2",
+     "ok": true
+    },
+    {
+     "step": "2 B 留在游戏里 70 秒：本机一克之差仍是 B 自己的，没有换成版本 2",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-017 时长相同时留改档时间更晚的那份",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:39:34.928Z",
+   "seconds": 88.8,
+   "steps": [
+    {
+     "step": "1 base 1、300 秒、改档时间 T+1000：ok，rev 3，beat_rev 2",
+     "ok": true
+    },
+    {
+     "step": "2 base 1、300 秒、改档时间 T：kept-cloud，rev 3，pull 里有版本 3",
+     "ok": true
+    },
+    {
+     "step": "3 base 1、200 秒：kept-cloud，rev 3",
+     "ok": true
+    },
+    {
+     "step": "4 base 1、200 秒、带 force：ok，rev 4，beat_rev 3",
+     "ok": true
+    },
+    {
+     "step": "5 不跳过间隔，base 4 再推一份：too-soon，rev 4",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-010 两台设备进度冲突",
+   "project": "desktop",
+   "status": "timedOut",
+   "start": "2026-10-22T11:22:08.775Z",
+   "seconds": 528.4,
+   "steps": [
+    {
+     "step": "1 A 打开商店：推 yike（base 3）ok，云端版本 4",
+     "ok": true
+    },
+    {
+     "step": "2 跳过间隔，B 打开商店：推 yike（base 3）ok，云端版本 5、秒数 900、beat_rev 4",
+     "ok": true
+    },
+    {
+     "step": "3 A 等下一次同步：拉回版本 5，本机换成 B 的那份，撤销槽是 A 原来那份（conflict），有替换提示",
+     "ok": true
+    },
+    {
+     "step": "4 A 打开游戏库：一克之差旁边显示「可撤销」",
+     "ok": true
+    },
+    {
+     "step": "5 反过来 A 900 秒、B 360 秒：B 推的结果 kept-cloud，云端仍是版本 4；B 换成 A 的那份，撤销槽是 B 原来那份",
+     "ok": false,
+     "error": "Error: apiRequestContext.post: Request context disposed.\nCall log:\n  - → POST http://localhost:8812/api/cloud/sync\n    - user-agent: Playwright/1.64.1 (arm64; macOS 26.7) node/26.5\n    - accept: */*\n    - accept-encoding: gzip,deflate,br\n    - authorization: Save 7ebce597ee6819fa43a5bb7f65a40d0b\n    - content-type: application/json\n    - content-length: 295\n"
+    }
+   ],
+   "error": "Test timeout of 360000ms exceeded."
+  },
+  {
+   "file": "core-area.spec.ts",
+   "title": "TC-PLAY-017 六组视口核心区占比复测",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T11:41:03.972Z",
+   "seconds": 485.0,
+   "steps": [
+    {
+     "step": "1 393×852 量 12 款",
+     "ok": false,
+     "error": "Error: portrait 最低（旧版 58.3%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    61.9"
+    },
+    {
+     "step": "2 852×393 量 12 款",
+     "ok": false,
+     "error": "Error: landscape 计入的款数\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 12\nReceived: 11"
+    },
+    {
+     "step": "3 393×659 量 12 款",
+     "ok": true
+    },
+    {
+     "step": "4 734×343 量 12 款",
+     "ok": true
+    },
+    {
+     "step": "5 820×1180 量 12 款",
+     "ok": false,
+     "error": "Error: tablet 最低（旧版 45.6%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 49\nReceived:    45.5"
+    },
+    {
+     "step": "6 1440×900 量 13 款",
+     "ok": false,
+     "error": "Error: desktop 最低（旧版 22.9%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 28\nReceived:    25.7"
+    },
+    {
+     "step": "7 六组视口每款都有读数，没有一款记成「进主界面的步骤没点到」",
+     "ok": false,
+     "error": "Error: 没量到的\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 7\n\n- Array []\n+ Array [\n+   Object {\n+     \"error\": \"Error: page.waitForTimeout: Target page, context or browser has been closed\",\n+     \"id\": \"yexiao\",\n+     \"vp\": \"landscape\",\n+   },\n+ ]"
+    }
+   ],
+   "error": "Error: portrait 最低（旧版 58.3%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    61.9"
+  },
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-LAUNCH-001 第一次下载没有回音时自动重试并进入游戏",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:49:41.305Z",
+   "seconds": 39.0,
+   "steps": [
+    {
+     "step": "1 点「开始游戏」",
+     "ok": true
+    },
+    {
+     "step": "2 等到点击后第 20 秒：15 到 20 秒之间出现重试提示，中转记到第二次斗罗文件请求",
+     "ok": true
+    },
+    {
+     "step": "3 最多等到点击后第 45 秒，游戏画面出现",
+     "ok": true
+    },
+    {
+     "step": "4 启动上报：start 一条、ready 一条且 n 为 2，没有 fail",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-PLAY-015 竖屏游戏区不再被平台栏挤占",
+   "project": "portrait",
+   "status": "failed",
+   "start": "2026-10-22T11:05:55.869Z",
+   "seconds": 5.1,
+   "steps": [
+    {
+     "step": "portrait 1 打开 NBA-经理：iframe 顶边在 0，高 852",
+     "ok": true
+    },
+    {
+     "step": "portrait 2 平台控件只有悬浮按钮",
+     "ok": true
+    },
+    {
+     "step": "portrait 3 核心区占比不低于 70%",
+     "ok": false,
+     "error": "Error: expect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    69.9"
+    }
+   ],
+   "error": "Error: expect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    69.9"
+  },
+  {
+   "file": "defects.spec.ts",
+   "title": "TC-PLAY-016 横屏游戏区不再被平台栏挤占",
+   "project": "landscape",
+   "status": "passed",
+   "start": "2026-10-22T11:10:18.010Z",
+   "seconds": 3.0,
+   "steps": [
+    {
+     "step": "1 打开斗罗·万相：iframe 顶边在 0，高 393",
+     "ok": true
+    },
+    {
+     "step": "2 平台控件只有悬浮按钮",
+     "ok": true
+    },
+    {
+     "step": "3 Safari 可见区 734×343 重开斗罗·万相：iframe 734×343，平台控件只有悬浮按钮",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-001 游戏页铺满视口，只留悬浮按钮",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T11:06:19.322Z",
+   "seconds": 12.8,
+   "steps": [
+    {
+     "step": "1 打开 NBA-经理：iframe 左上角在 (0, 0)，宽 393、高 852",
+     "ok": true
+    },
+    {
+     "step": "2 平台控件只有悬浮按钮，大小 44×44",
+     "ok": true
+    },
+    {
+     "step": "3 悬浮按钮右边离屏幕右边缘 8 像素，中心高度 426 ± 1",
+     "ok": true
+    },
+    {
+     "step": "4 横屏视口 852×393 重开：iframe 852×393，平台控件仍只有悬浮按钮",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-002 拖动悬浮按钮与恢复默认位置",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T11:06:33.721Z",
+   "seconds": 8.8,
+   "steps": [
+    {
+     "step": "1 拖到 (60, 150) 松手：贴到左边 8 像素，中心高度 150 ± 2",
+     "ok": true
+    },
+    {
+     "step": "2 退出再打开一克之差：按钮仍在左边，中心高度 150 ± 2",
+     "ok": true
+    },
+    {
+     "step": "3 按下按钮，移动 5 像素后松开：游戏面板打开",
+     "ok": true
+    },
+    {
+     "step": "4 点「恢复默认按钮位置」：回到右边、中心高度 426 ± 1，changju.ui.v1 里一克之差竖屏的位置被删掉",
+     "ok": true
+    },
+    {
+     "step": "5 拖到 (380, 850) 松手：贴到右边，下边离屏幕底边不少于 8 像素",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-003 悬浮按钮变淡与减弱动态效果",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T11:06:42.515Z",
+   "seconds": 16.7,
+   "steps": [
+    {
+     "step": "1 画面出现后 4 秒不碰屏幕：不透明度 0.4",
+     "ok": true
+    },
+    {
+     "step": "2 按下悬浮按钮不松开：不透明度回到 1",
+     "ok": true
+    },
+    {
+     "step": "3 开减弱动态效果，新浏览器重做第 1 步：不透明度 0.4，过渡时长为 0",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-004 竖屏打开游戏面板",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T11:06:59.264Z",
+   "seconds": 7.5,
+   "steps": [
+    {
+     "step": "1 点悬浮按钮：面板从底部弹出，标题「游戏菜单」，高度不超过 596",
+     "ok": true
+    },
+    {
+     "step": "2 面板内容从上到下：游戏名、存档状态、云存档状态、本次 0 分钟、全屏或退出全屏、恢复默认按钮位置、退出游戏",
+     "ok": true
+    },
+    {
+     "step": "3 点面板外的游戏区：面板关掉，游戏画面还在",
+     "ok": true
+    },
+    {
+     "step": "4 再打开面板，按 Esc：面板关掉",
+     "ok": true
+    },
+    {
+     "step": "5 再打开面板，点「关闭」：面板关掉",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-012 安卓 UA 下开局请求全屏并锁定方向",
+   "project": "portrait",
+   "status": "failed",
+   "start": "2026-10-22T11:07:06.796Z",
+   "seconds": 144.9,
+   "steps": [
+    {
+     "step": "1 打开薯光详情，点「开始游戏」：点击的同一个事件里对页面根元素请求了全屏，fullscreenElement 是 <html>",
+     "ok": true
+    },
+    {
+     "step": "2 请求锁定 landscape 一次",
+     "ok": true
+    },
+    {
+     "step": "3 等就绪：ready 带 fs 为 2",
+     "ok": true
+    },
+    {
+     "step": "4 方向锁定返回拒绝，新浏览器重做第 1 步：照常开局，游戏区中间提示「横过手机玩更舒服」",
+     "ok": true
+    },
+    {
+     "step": "5 电脑视口 1440×900，新浏览器重做第 1 步：没有请求全屏，ready 带 fs 为 0",
+     "ok": false,
+     "error": "Error: 60000 毫秒内没等到《薯光 · Spud Dawn》的游戏画面"
+    }
+   ],
+   "error": "Error: 60000 毫秒内没等到《薯光 · Spud Dawn》的游戏画面"
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-013 iPhone 与微信 UA 下的面板引导",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T11:09:55.362Z",
+   "seconds": 9.6,
+   "steps": [
+    {
+     "step": "1 iPhone：打开一克之差再退出，再打开，点悬浮按钮：没有「全屏」，有「添加到主屏幕，全屏玩」",
+     "ok": true
+    },
+    {
+     "step": "2 点「添加到主屏幕，全屏玩」：先是恢复码与「复制恢复码」，下面是四个添加步骤",
+     "ok": true
+    },
+    {
+     "step": "3 微信：打开一克之差，游戏载入时自动弹出「在浏览器打开，可全屏、可横屏」",
+     "ok": true
+    },
+    {
+     "step": "4 点「知道了」，退出再开：不再自动弹出，changju.ui.v1 里有 wechatHintAt",
+     "ok": true
+    },
+    {
+     "step": "5 点悬浮按钮：没有「全屏」，有「在浏览器打开」",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-005 横屏、平板与电脑的面板形态",
+   "project": "landscape",
+   "status": "passed",
+   "start": "2026-10-22T11:10:21.487Z",
+   "seconds": 6.1,
+   "steps": [
+    {
+     "step": "1 横屏 852×393 打开 NBA-经理，点悬浮按钮：面板贴右边，宽 320，高 393",
+     "ok": true
+    },
+    {
+     "step": "2 820×1180 重做：面板在悬浮按钮旁弹出，宽 320，整块在屏幕内",
+     "ok": true
+    },
+    {
+     "step": "3 1440×900 重做：面板在悬浮按钮旁弹出，宽 320，整块在屏幕内",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-014 安全区与触控规则",
+   "project": "landscape",
+   "status": "passed",
+   "start": "2026-10-22T11:10:27.650Z",
+   "seconds": 1.8,
+   "steps": [
+    {
+     "step": "1 打开 NBA-经理：iframe 在 (62, 0)，750×382；让出的条带是页面背景色",
+     "ok": true
+    },
+    {
+     "step": "2 悬浮按钮右边离屏幕右边缘 70 像素",
+     "ok": true
+    },
+    {
+     "step": "3 拖到屏幕最右边松手：右边仍离屏幕右边缘 70 像素",
+     "ok": true
+    },
+    {
+     "step": "4 游戏区 touch-action 为 manipulation，游戏页根元素 overscroll-behavior 为 none",
+     "ok": true
+    },
+    {
+     "step": "5 contextmenu：悬浮按钮上的被拦下，游戏里的没被拦下",
+     "ok": true
+    },
+    {
+     "step": "6 视口元信息为 width=device-width,initial-scale=1,viewport-fit=cover，没有 user-scalable",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-018 方向与偏好不符时提示旋转",
+   "project": "landscape",
+   "status": "passed",
+   "start": "2026-10-22T11:10:29.507Z",
+   "seconds": 16.2,
+   "steps": [
+    {
+     "step": "1 横屏打开一克之差：游戏区中间显示「竖过手机玩更舒服」，可以关掉",
+     "ok": true
+    },
+    {
+     "step": "2 关掉提示：提示消失，changju.ui.v1 记下一克之差已提示过",
+     "ok": true
+    },
+    {
+     "step": "3 退出再打开，点悬浮按钮：不再自动提示，面板里有「这款游戏竖屏玩更舒服」",
+     "ok": true
+    },
+    {
+     "step": "4 竖屏 393×852 打开薯光：提示「横过手机玩更舒服」",
+     "ok": true
+    },
+    {
+     "step": "5 微信 UA 竖屏打开薯光：提示旋转，另有「在微信的设置、通用里打开横屏模式」",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-019 游玩中转动手机",
+   "project": "landscape",
+   "status": "passed",
+   "start": "2026-10-22T11:10:45.697Z",
+   "seconds": 2.8,
+   "steps": [
+    {
+     "step": "1 视口改成 852×393：iframe 852×393，游戏页面里的标记还在",
+     "ok": true
+    },
+    {
+     "step": "2 悬浮按钮在右边、中心高度 196 ± 1",
+     "ok": true
+    },
+    {
+     "step": "3 打开面板，视口改回 393×852：面板从底部弹出，按钮回到左边、中心高度 150 ± 2",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-006 退出游戏、浏览器后退与退出前写存档",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:50:20.962Z",
+   "seconds": 2.8,
+   "steps": [
+    {
+     "step": "1 打开一克之差，在面板里点「退出游戏」：回到详情页，地址 #game-yike",
+     "ok": true
+    },
+    {
+     "step": "2 再开一克之差，画面出现后按浏览器后退：回到详情页，没有游戏 iframe",
+     "ok": true
+    },
+    {
+     "step": "3 我要当首富建立玩家「张三」，0.3 秒内退出：回到详情页，本机存档里有「张三」",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-007 重开一克之差显示已存档",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:50:23.795Z",
+   "seconds": 2.2,
+   "steps": [
+    {
+     "step": "1 重新打开，画面出现后 2 秒内看悬浮按钮：亮过小点",
+     "ok": true
+    },
+    {
+     "step": "2 打开游戏面板：存档状态为「已存档」加当前时分",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-021 电脑面板里进入与退出全屏",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:50:26.021Z",
+   "seconds": 1.4,
+   "steps": [
+    {
+     "step": "1 打开面板，点「全屏」：进入全屏，按钮变成「退出全屏」",
+     "ok": true
+    },
+    {
+     "step": "2 点「退出全屏」：退出全屏，按钮变回「全屏」",
+     "ok": true
+    },
+    {
+     "step": "3 全屏请求返回拒绝，再点「全屏」：停在原样，提示「这个窗口不支持全屏。」",
+     "ok": true
+    },
+    {
+     "step": "4 恢复全屏请求，点「全屏」再点「退出游戏」：先退出全屏，再回到详情页",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "kanban.spec.ts",
+   "title": "TC-006 登录过看板的浏览器不计入",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:50:27.395Z",
+   "seconds": 51.5,
+   "steps": [
+    {
+     "step": "1 打开 /kanban 输入密码登录：进入看板，有 sk_staff cookie",
+     "ok": true
+    },
+    {
+     "step": "2 同一浏览器开局一款游戏玩 30 秒后退出：三张统计表与两张启动表都没有行",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "kanban.spec.ts",
+   "title": "TC-LAUNCH-017 看板查看启动成功率",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:51:18.888Z",
+   "seconds": 14.3,
+   "steps": [
+    {
+     "step": "1 「启动 · 近 7 天」：启动次数 100；成功率 97%，下面写「97 次就绪」",
+     "ok": true
+    },
+    {
+     "step": "2 启动按国家或地区：中国大陆一行，开始 100、成功率 97%、失败 2、没回音 1",
+     "ok": true
+    },
+    {
+     "step": "3 失败原因：「网络中途卡住」2 次，地区写中国大陆 2",
+     "ok": true
+    },
+    {
+     "step": "4 种子日期改成 6 天前：启动次数仍是 100",
+     "ok": true
+    },
+    {
+     "step": "5 改成 7 天前：启动面板显示「还没有数据」",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-002 打开游戏到可玩并上报开始与就绪",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:51:33.214Z",
+   "seconds": 11.8,
+   "steps": [
+    {
+     "step": "1 打开一克之差详情，点「开始游戏」：载入页有封面、名称、进度条与「退出」",
+     "ok": true
+    },
+    {
+     "step": "2 10 秒内载入页消失，只剩游戏画面与悬浮按钮",
+     "ok": true
+    },
+    {
+     "step": "3 2 秒后 launch_days：开始 1、就绪 1，五个耗时分桶里只有一格为 1",
+     "ok": true
+    },
+    {
+     "step": "4 game_days：这个旅客今天 yike 开局 1 次",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-003 下载中途卡住后自动重试",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:51:44.992Z",
+   "seconds": 50.7,
+   "steps": [
+    {
+     "step": "1 点「开始游戏」：进度条走到 40% 到 60% 之间停住",
+     "ok": true
+    },
+    {
+     "step": "2 停住后再等 12 秒：出现重试提示，中转记到第二次斗罗文件请求",
+     "ok": true
+    },
+    {
+     "step": "3 最多到点击后第 60 秒，游戏画面出现",
+     "ok": true
+    },
+    {
+     "step": "4 启动上报：start 一条、ready 一条且 n 为 2，没有 fail",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-004 重试后仍卡住显示失败页",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:52:35.673Z",
+   "seconds": 36.9,
+   "steps": [
+    {
+     "step": "1 点「开始游戏」：进度条停在一半左右",
+     "ok": true
+    },
+    {
+     "step": "2 到点击后第 15 秒：显示重试提示",
+     "ok": true
+    },
+    {
+     "step": "3 到点击后第 30 秒：失败页，原因「网络不太稳，游戏没下载完，可以重试」",
+     "ok": true
+    },
+    {
+     "step": "4 一条 fail，原因 net-stall；launch_fails 今天 net-stall 为 1",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-005 两次都等不到首字节显示失败页",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:53:12.499Z",
+   "seconds": 32.1,
+   "steps": [
+    {
+     "step": "1 点「开始游戏」：出现「正在载入游戏…」",
+     "ok": true
+    },
+    {
+     "step": "2 到点击后第 20 秒：显示重试提示，中转记到两次一克之差文件请求",
+     "ok": true
+    },
+    {
+     "step": "3 到点击后第 35 秒：失败页",
+     "ok": true
+    },
+    {
+     "step": "4 一条 fail，原因 net-timeout",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-006 游戏迟迟不就绪",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:53:44.610Z",
+   "seconds": 16.7,
+   "steps": [
+    {
+     "step": "1 点「开始游戏」：出现载入页",
+     "ok": true
+    },
+    {
+     "step": "2 到点击后第 10 秒：仍是载入页",
+     "ok": true
+    },
+    {
+     "step": "3 到点击后第 20 秒：失败页「游戏没能启动，可以重试一次」；没出现过重试提示，一克之差文件只请求了一次",
+     "ok": true
+    },
+    {
+     "step": "4 一条 fail，原因 boot-timeout",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-011 同一款游戏不重开",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:54:21.916Z",
+   "seconds": 23.6,
+   "steps": [
+    {
+     "step": "1 在「开始游戏」上连点两下：只出现一个载入页",
+     "ok": true
+    },
+    {
+     "step": "2 等游戏画面出现：中转只记到一次斗罗文件请求",
+     "ok": true
+    },
+    {
+     "step": "3 start 只有一条",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-012 载入中点退出",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:54:45.558Z",
+   "seconds": 18.0,
+   "steps": [
+    {
+     "step": "1 打开一克之差详情，点「开始游戏」：出现载入页",
+     "ok": true
+    },
+    {
+     "step": "2 3 秒后点载入页的「退出」：回到一克之差详情页",
+     "ok": true
+    },
+    {
+     "step": "3 start 一条、cancel 一条，cancel 带耗时",
+     "ok": true
+    },
+    {
+     "step": "4 2 秒后 launch_days：今天 yike 开始 1、取消 1、就绪 0",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-013 失败页的重试与退出",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:55:03.532Z",
+   "seconds": 61.9,
+   "steps": [
+    {
+     "step": "1 打开一克之差详情，点「开始游戏」：35 秒内失败页",
+     "ok": true
+    },
+    {
+     "step": "2 中转改成照常转发，点「重试」：载入页重新出现，10 秒内游戏画面出现",
+     "ok": true
+    },
+    {
+     "step": "3 启动上报依次为 start、fail、start、ready",
+     "ok": true
+    },
+    {
+     "step": "4 退出游戏，中转改回「不回」，打开后宫生死簿，等失败页后点「退出」：回到后宫生死簿详情页",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-014 带摘要的地址找不到时改用固定地址",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:56:05.430Z",
+   "seconds": 0.5,
+   "steps": [
+    {
+     "step": "1 打开一克之差详情，点「开始游戏」：10 秒内游戏画面出现",
+     "ok": true
+    },
+    {
+     "step": "2 先请求 /g/yike-<8 位摘要>，被回 404 后请求 /games/yike，没有请求 /games/yike.html",
+     "ok": true
+    },
+    {
+     "step": "3 一条 ready，没有 fail",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-015 游戏文件取不到",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:56:05.942Z",
+   "seconds": 0.5,
+   "steps": [
+    {
+     "step": "1 打开一克之差详情，点「开始游戏」：10 秒内失败页「游戏文件暂时取不到，稍后再试」",
+     "ok": true
+    },
+    {
+     "step": "2 一条 fail，原因 http-404",
+     "ok": true
+    },
+    {
+     "step": "3 点「退出」，中转改成「500」，再开一克之差：20 秒内失败页，新的 fail 原因为 http-error",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-016 离线且缓存里没有",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:56:06.491Z",
+   "seconds": 0.5,
+   "steps": [
+    {
+     "step": "1 浏览器切到离线，点「开始游戏」：3 秒内失败页「网络断开了，连上网再试」",
+     "ok": true
+    },
+    {
+     "step": "2 恢复联网，点「重试」：10 秒内游戏画面出现",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-018 整个下载超过两分钟",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:56:06.957Z",
+   "seconds": 225.7,
+   "steps": [
+    {
+     "step": "1 点「开始游戏」：进度条持续往前走",
+     "ok": true
+    },
+    {
+     "step": "2 到点击后第 125 秒：失败页「网络太慢，游戏两分钟还没下载完」，整个过程没出现重试提示",
+     "ok": true
+    },
+    {
+     "step": "3 一条 fail，原因 net-slow",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-007 本机存档读不出来时不开局、不写回",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:54:01.346Z",
+   "seconds": 15.1,
+   "steps": [
+    {
+     "step": "1 点「继续游戏」：出现载入页",
+     "ok": true
+    },
+    {
+     "step": "2 到点击后第 6 秒：仍是载入页，没有游戏画面",
+     "ok": true
+    },
+    {
+     "step": "3 到点击后第 12 秒：失败页「这台设备的存档读不出来…」，页面上没有一克之差的 iframe",
+     "ok": true
+    },
+    {
+     "step": "4 一条 fail，原因 save-timeout",
+     "ok": true
+    },
+    {
+     "step": "5 开关打开后发出的 /api/cloud/sync 推送里没有 yike",
+     "ok": true
+    },
+    {
+     "step": "6 关掉开关，刷新后读一克之差的本机存档：仍是第 5 关那份",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-008 存档库报错时不开局",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T11:54:16.468Z",
+   "seconds": 5.4,
+   "steps": [
+    {
+     "step": "1 点「继续游戏」：10 秒内失败页「这台设备的存档读不出来…」",
+     "ok": true
+    },
+    {
+     "step": "2 一条 fail，原因 save-error",
+     "ok": true
+    },
+    {
+     "step": "3 关掉开关，刷新后读一克之差的本机存档：仍是第 5 关那份",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "legacy.spec.ts",
+   "title": "TC-LEGACY-001 旧游戏的 Platform 接口",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T11:59:52.716Z",
+   "seconds": 6.5,
+   "steps": [
+    {
+     "step": "1 读 Platform：version 1.0，game basketball-star，四个方法，对象被冻结",
+     "ok": true
+    },
+    {
+     "step": "2 定义并解锁测试成就：提示「解锁成就 · 篮球巨星」与「测试成就」，5.2 秒左右消失",
+     "ok": true
+    },
+    {
+     "step": "3 setStatus 后打开面板：游戏名下面显示「第 3 赛季」",
+     "ok": true
+    },
+    {
+     "step": "4 sessionStorage：写一个键，退出再开，两次读到的长度都是 0",
+     "ok": false,
+     "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 0\nReceived: undefined"
+    }
+   ],
+   "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 0\nReceived: undefined"
+  },
+  {
+   "file": "legacy.spec.ts",
+   "title": "TC-LEGACY-002 旧游戏的假 localStorage 与合并写入",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:08.113Z",
+   "seconds": 3.0,
+   "steps": [
+    {
+     "step": "1 连写 t=1、2、3：1.5 秒内本机存档 t 为 3，面板显示「已存档 时:分」",
+     "ok": true
+    },
+    {
+     "step": "2 removeItem 后立刻退出：本机存档里没有 t",
+     "ok": true
+    },
+    {
+     "step": "3 再打开，读 yikezhicha.v2：不是 null",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "legacy.spec.ts",
+   "title": "TC-LEGACY-003 旧版留下的本机数据与存档码在新版照常读",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:11.400Z",
+   "seconds": 1.9,
+   "steps": [
+    {
+     "step": "1 刷新，打开游戏库：一克之差「10 分钟」「1 小时前」，斗罗·万相「愿望单」",
+     "ok": true
+    },
+    {
+     "step": "2 打开一克之差：第 5 关",
+     "ok": true
+    },
+    {
+     "step": "3 退出后读平台元数据：x 仍为 1，sendLog 仍在",
+     "ok": true
+    },
+    {
+     "step": "4 新浏览器粘贴 CJ1 存档码并确认：提示已恢复 1 款，本机一克之差存档是第 5 关那份",
+     "ok": true
+    },
+    {
+     "step": "5 IndexedDB changju 的版本号仍为 1",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-001 商店首页、导航与 13 款目录",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:13.285Z",
+   "seconds": 0.6,
+   "steps": [
+    {
+     "step": "1 打开首页：标题「shoota 游戏平台」；导航商店、游戏库、存档，商店高亮",
+     "ok": true
+    },
+    {
+     "step": "2 「全部游戏」标为 13 款，顺序同目录",
+     "ok": true
+    },
+    {
+     "step": "3 精选区标题「精选与推荐」，第一款是薯光；页面上没有「继续游玩」",
+     "ok": true
+    },
+    {
+     "step": "4 点一克之差的卡片：地址 #game-yike，大标题「一克之差」，有「开始游戏」",
+     "ok": true
+    },
+    {
+     "step": "5 回到商店：底部说明带「进度只存在这台设备上」与「备份 / 恢复进度」",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-003 按类型筛选",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:14.543Z",
+   "seconds": 0.5,
+   "steps": [
+    {
+     "step": "1 点「体育经理」：只剩 NBA-经理、CBA-经理，标为 2 款",
+     "ok": true
+    },
+    {
+     "step": "2 点「赛车经理」：只剩 F1-Team Principal，标为 1 款",
+     "ok": true
+    },
+    {
+     "step": "3 点「全部」：恢复 13 款",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-004 按名称、类型、标签与简介搜索",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:15.046Z",
+   "seconds": 1.0,
+   "steps": [
+    {
+     "step": "1 输入「首富」：跳回商店，标题「搜索「首富」」，只有我要当首富；精选与继续游玩隐藏",
+     "ok": true
+    },
+    {
+     "step": "2 「赛车经理」（类型）：只有 F1-Team Principal",
+     "ok": true
+    },
+    {
+     "step": "3 「肉鸽」（标签）：只有薯光",
+     "ok": true
+    },
+    {
+     "step": "4 「戥秤」（简介）：只有一克之差",
+     "ok": true
+    },
+    {
+     "step": "5 「没有这款游戏」：显示「没有找到匹配的游戏。」与「清除筛选」",
+     "ok": true
+    },
+    {
+     "step": "6 点「清除筛选」：搜索框清空，恢复精选与 13 款",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-005 详情页记录、成就与愿望单",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:16.038Z",
+   "seconds": 1.2,
+   "steps": [
+    {
+     "step": "1 开始卡：「开始玩《篮球巨星》」「你已玩 30 分钟，上次 3 小时前。存档会接着上次。」，按钮「继续游戏」",
+     "ok": true
+    },
+    {
+     "step": "2 你的记录：30 分钟、3 小时前；成就「已解锁 2 / 5」，成就一、成就二已解锁",
+     "ok": true
+    },
+    {
+     "step": "3 点「加入愿望单」：提示「已加入愿望单」，按钮变成「已在愿望单」",
+     "ok": true
+    },
+    {
+     "step": "4 再点一次：提示「已移出愿望单」，按钮变回「加入愿望单」",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-006 没玩过的详情页与找不到的游戏",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:17.257Z",
+   "seconds": 0.6,
+   "steps": [
+    {
+     "step": "1 #game-f1-driver：「点开就能玩，存档自动保存。」与「开始游戏」；四项事实，大小「603 KB」",
+     "ok": true
+    },
+    {
+     "step": "2 你的记录：「还没玩过」与「—」",
+     "ok": true
+    },
+    {
+     "step": "3 #game-not-a-game：「找不到这款游戏…」与「回到商店」",
+     "ok": true
+    },
+    {
+     "step": "4 点「回到商店」：显示商店，导航高亮商店",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-007 游戏库排序、愿望单与空态",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T12:00:17.887Z",
+   "seconds": 24.5,
+   "steps": [
+    {
+     "step": "1 #library：「游戏库还是空的」与「去商店挑一款」",
+     "ok": true
+    },
+    {
+     "step": "2 斗罗、一克之差各玩 6 秒后退出，F1-Driver 加入愿望单：按钮变成「已在愿望单」",
+     "ok": true
+    },
+    {
+     "step": "3 #library：「我的游戏库」，依次一克之差、斗罗·万相、F1-Driver；F1-Driver 显示「愿望单」与「还没玩过」",
+     "ok": false,
+     "error": "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2)\nExpected substring: \"还没玩过\"\nReceived string:    \"F1-Driver愿望单\"\nTimeout: 10000ms\n\nCall log:\n  - Expect \"toContainText\" getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2) with timeout 10000ms\n  - waiting for getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2)\n    24 × locator resolved to <li>…</li>\n       - unexpected value \"F1-Driver愿望单\"\n"
+    }
+   ],
+   "error": "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2)\nExpected substring: \"还没玩过\"\nReceived string:    \"F1-Driver愿望单\"\nTimeout: 10000ms\n\nCall log:\n  - Expect \"toContainText\" getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2) with timeout 10000ms\n  - waiting for getByRole('list', { name: '我的游戏' }).getByRole('listitem').nth(2)\n    24 × locator resolved to <li>…</li>\n       - unexpected value \"F1-Driver愿望单\"\n"
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-010 旧分享链接与地址兼容",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:57.067Z",
+   "seconds": 0.7,
+   "steps": [
+    {
+     "step": "1 /#game-f1：F1-Team Principal 详情页",
+     "ok": true
+    },
+    {
+     "step": "2 /#login：地址换成 #store，显示商店；后退不回 #login",
+     "ok": true
+    },
+    {
+     "step": "3 /#play-not-a-game：显示商店，没有载入页",
+     "ok": true
+    },
+    {
+     "step": "4 /#whatever：显示商店，导航高亮商店",
+     "ok": true
+    },
+    {
+     "step": "5 开始一克之差，画面出现后后退：回到详情页，滚在顶部",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-011 跟随系统亮暗、点击区域与导航形态",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:57.732Z",
+   "seconds": 6.1,
+   "steps": [
+    {
+     "step": "1 浅色：页面背景 #F7F5F0",
+     "ok": true
+    },
+    {
+     "step": "2 切到深色不刷新：背景 #13100D，theme-color 为深色值",
+     "ok": true
+    },
+    {
+     "step": "3 四个视口 × 四页：点击区域都不小于 44×44，文字不小于 12 像素",
+     "ok": true
+    },
+    {
+     "step": "4 导航形态：竖屏底部标签栏，横屏与平板左侧窄栏，电脑侧栏加吸顶顶栏；都没有横向滚动",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-002 商店三块与继续游玩",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:13.867Z",
+   "seconds": 0.7,
+   "steps": [
+    {
+     "step": "1 从上到下依次是「精选与推荐」「继续游玩」「全部游戏」",
+     "ok": true
+    },
+    {
+     "step": "2 「继续游玩」只有 3 张，依次为篮球巨星、F1-Driver、一克之差",
+     "ok": true
+    },
+    {
+     "step": "3 「全部游戏」13 款，顺序不变",
+     "ok": true
+    },
+    {
+     "step": "4 点「继续游玩」里的篮球巨星：地址 #play-basketball-star，出现载入页",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-008 存档码两步恢复",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:52.760Z",
+   "seconds": 2.1,
+   "steps": [
+    {
+     "step": "1 A 在存档页点「复制存档码」：提示已复制，剪贴板里以 CJ 开头",
+     "ok": true
+    },
+    {
+     "step": "2 B 粘贴后点「恢复进度」：导出时间与覆盖提示，「确认恢复」与「取消」；B 本机存档未变",
+     "ok": true
+    },
+    {
+     "step": "3 点「确认恢复」：提示「已恢复 1 款游戏的进度」，跳到游戏库；B 存档与 A 相同",
+     "ok": true
+    },
+    {
+     "step": "4 B 打开一克之差：第 5 关",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-009 存档码错误提示与存档文件",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:00:55.377Z",
+   "seconds": 1.7,
+   "steps": [
+    {
+     "step": "1 不粘贴，点「恢复进度」：先粘贴存档码…",
+     "ok": true
+    },
+    {
+     "step": "2 粘贴 CJ1abc：这段存档码读不出来…",
+     "ok": true
+    },
+    {
+     "step": "3 粘贴只含目录外游戏的 CJ0：这份存档码里没有本平台游戏的进度。",
+     "ok": true
+    },
+    {
+     "step": "4 选择下载的存档文件：显示导出时间与《一克之差》，确认后提示已恢复 1 款",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "weak-network.spec.ts",
+   "title": "TC-LAUNCH-009 弱网首次打开不超过 30 秒",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:01:03.854Z",
+   "seconds": 100.6,
+   "steps": [
+    {
+     "step": "1 薯光 · Spud Dawn：点「开始游戏」到游戏画面出现不超过 30 秒",
+     "ok": true
+    },
+    {
+     "step": "2 我要当首富：点「开始游戏」到游戏画面出现不超过 30 秒",
+     "ok": true
+    },
+    {
+     "step": "3 斗罗·万相：点「开始游戏」到游戏画面出现不超过 30 秒",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "weak-network.spec.ts",
+   "title": "TC-LAUNCH-010 弱网再次打开不重新下载",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T12:02:44.514Z",
+   "seconds": 107.3,
+   "steps": [
+    {
+     "step": "1 薯光：点「开始游戏」到游戏画面出现不超过 2 秒",
+     "ok": true
+    },
+    {
+     "step": "2 第 1 步期间没有薯光游戏文件的请求",
+     "ok": true
+    },
+    {
+     "step": "3 这次的 ready 带 c 为 1",
+     "ok": true
+    },
+    {
+     "step": "4 我要当首富、斗罗·万相各做一遍：都不超过 2 秒，都没有游戏文件请求",
+     "ok": true
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,80 @@
+.ui-sheet-panel {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  display: flex;
+  flex-direction: column;
+  inline-size: min(100%, 40rem);
+  max-block-size: calc(100% - env(safe-area-inset-top) - var(--space-10));
+  margin-inline: auto;
+  border-start-start-radius: var(--radius-sheet);
+  border-start-end-radius: var(--radius-sheet);
+  background: var(--color-bg-overlay);
+  box-shadow: var(--shadow-overlay);
+  transform: translateY(100%);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+.ui-sheet[data-state="open"] .ui-sheet-panel {
+  transform: translateY(0);
+  transition: transform var(--duration-slow) var(--ease-emphasized);
+}
+/* 拖动时遮罩随面板位置变淡 */
+.ui-sheet[data-state="open"] .ui-modal-scrim { opacity: var(--ui-sheet-progress, 1); }
+.ui-sheet[data-dragging] .ui-sheet-panel,
+.ui-sheet[data-dragging] .ui-modal-scrim { transition: none; }
+
+.ui-sheet-head {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-5) var(--space-3);
+  touch-action: none;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.ui-sheet-head button { cursor: auto; }
+.ui-sheet-grabber {
+  position: absolute;
+  inset-block-start: var(--space-2);
+  inset-inline: 0;
+  inline-size: calc(var(--space-8) + var(--space-1));
+  block-size: var(--space-1);
+  margin-inline: auto;
+  border-radius: var(--radius-pill);
+  background: var(--color-label-quaternary);
+}
+.ui-sheet-titles { flex: 1; min-inline-size: 0; display: grid; gap: var(--space-1); }
+.ui-sheet-title { font: var(--type-title2); }
+.ui-sheet-description { font: var(--type-footnote); color: var(--color-label-secondary); }
+
+.ui-sheet-body {
+  flex: 1 1 auto;
+  min-block-size: 0;
+  padding: 0 var(--space-5) var(--space-5);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-label-quaternary) transparent;
+}
+.ui-sheet-body:last-child { padding-block-end: calc(env(safe-area-inset-bottom) + var(--space-5)); }
+.ui-sheet-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5) calc(env(safe-area-inset-bottom) + var(--space-4));
+  box-shadow: inset 0 var(--hairline) 0 var(--color-separator);
+}
+.ui-sheet-foot > * { flex: 1 1 auto; }
+
+/* 减少动效：不再从底部滑入，只淡入淡出；拖动仍然跟手 */
+@media (prefers-reduced-motion: reduce) {
+  .ui-sheet-panel,
+  .ui-sheet[data-state="open"] .ui-sheet-panel {
+    transform: none;
+    transition: opacity var(--duration-base) var(--ease-standard);
+  }
+  .ui-sheet-panel { opacity: 0; }
+  .ui-sheet[data-state="open"] .ui-sheet-panel { opacity: 1; }
+}

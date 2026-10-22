@@ -1,0 +1,368 @@
+{
+ "stats": {
+  "startTime": "2026-10-22T13:03:41.535Z",
+  "duration": 559408.946,
+  "expected": 12,
+  "skipped": 39,
+  "unexpected": 1,
+  "flaky": 0
+ },
+ "tests": [
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-001 第一次存下进度后开通云存档",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T13:04:17.282Z",
+   "seconds": 24.9,
+   "steps": [
+    {
+     "step": "1 打开一克之差再退出：5 秒内开通返回 201，随后同步推上 yike，ok、版本 1",
+     "ok": true
+    },
+    {
+     "step": "2 changju.cloud.v1：saveId 32 位小写十六进制，恢复码 16 位，yike 版本 1",
+     "ok": true
+    },
+    {
+     "step": "3 回到商店：顶部提示「进度已经存到云端」，四段恢复码，「复制恢复码」与「知道了」",
+     "ok": true
+    },
+    {
+     "step": "4 点「知道了」后刷新：提示不再出现",
+     "ok": true
+    },
+    {
+     "step": "5 cloud_accounts、cloud_games 各 1 行；sid 是 saveId 的 SHA-256，三张表找不到原文",
+     "ok": true
+    },
+    {
+     "step": "6 统计表、启动表与 /api/e、/api/launch 的正文里都没有 saveId",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "cloud.spec.ts",
+   "title": "TC-CLOUD-006 换设备用恢复码取回",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T13:04:42.412Z",
+   "seconds": 64.4,
+   "steps": [
+    {
+     "step": "1 B 输入 A 的恢复码查找：确认页「这份云存档里有 2 款游戏的进度：」，列出两款与云端时长",
+     "ok": true
+    },
+    {
+     "step": "2 点「确认取回」：跳到游戏库，提示已取回 2 款，游戏库有这两款",
+     "ok": true
+    },
+    {
+     "step": "3 B 的两款存档与 A 的相同，saveId 与 A 的相同",
+     "ok": true
+    },
+    {
+     "step": "4 B 打开我要当首富：读到「张三」",
+     "ok": true
+    },
+    {
+     "step": "5 B 打开一克之差再退出：推上 yike，云端版本号加 1",
+     "ok": true
+    },
+    {
+     "step": "6 A 停在商店 70 秒：拉回新版本，与 B 的存档相同",
+     "ok": true
+    },
+    {
+     "step": "7 cloud_accounts 的 recover_n 为 1",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "core-area.spec.ts",
+   "title": "TC-PLAY-017 六组视口核心区占比复测",
+   "project": "desktop",
+   "status": "failed",
+   "start": "2026-10-22T13:05:46.856Z",
+   "seconds": 365.5,
+   "steps": [
+    {
+     "step": "1 393×852 量 12 款",
+     "ok": false,
+     "error": "Error: portrait 最低（旧版 58.3%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    69.9"
+    },
+    {
+     "step": "2 852×393 量 12 款",
+     "ok": true
+    },
+    {
+     "step": "3 393×659 量 12 款",
+     "ok": true
+    },
+    {
+     "step": "4 734×343 量 12 款",
+     "ok": true
+    },
+    {
+     "step": "5 820×1180 量 12 款",
+     "ok": true
+    },
+    {
+     "step": "6 1440×900 量 13 款",
+     "ok": true
+    },
+    {
+     "step": "7 六组视口每款都有读数，没有一款记成「进主界面的步骤没点到」",
+     "ok": true
+    }
+   ],
+   "error": "Error: portrait 最低（旧版 58.3%）\n\nexpect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 70\nReceived:    69.9"
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-001 游戏页铺满视口，只留悬浮按钮",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T13:03:41.940Z",
+   "seconds": 1.5,
+   "steps": [
+    {
+     "step": "1 打开 NBA-经理：iframe 左上角在 (0, 0)，宽 393、高 852",
+     "ok": true
+    },
+    {
+     "step": "2 平台控件只有悬浮按钮，大小 44×44",
+     "ok": true
+    },
+    {
+     "step": "3 悬浮按钮右边离屏幕右边缘 8 像素，中心高度 426 ± 1",
+     "ok": true
+    },
+    {
+     "step": "4 横屏视口 852×393 重开：iframe 852×393，平台控件仍只有悬浮按钮",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "immersive.spec.ts",
+   "title": "TC-PLAY-004 竖屏打开游戏面板",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T13:03:44.006Z",
+   "seconds": 2.9,
+   "steps": [
+    {
+     "step": "1 点悬浮按钮：面板从底部弹出，标题「游戏菜单」，高度不超过 596",
+     "ok": true
+    },
+    {
+     "step": "2 面板内容从上到下：游戏名、存档状态、云存档状态、本次 0 分钟、全屏或退出全屏、恢复默认按钮位置、退出游戏",
+     "ok": true
+    },
+    {
+     "step": "3 点面板外的游戏区：面板关掉，游戏画面还在",
+     "ok": true
+    },
+    {
+     "step": "4 再打开面板，按 Esc：面板关掉",
+     "ok": true
+    },
+    {
+     "step": "5 再打开面板，点「关闭」：面板关掉",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "kanban.spec.ts",
+   "title": "TC-006 登录过看板的浏览器不计入",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T13:12:02.061Z",
+   "seconds": 43.7,
+   "steps": [
+    {
+     "step": "1 打开 /kanban 输入密码登录：进入看板，有 sk_staff cookie",
+     "ok": true
+    },
+    {
+     "step": "2 同一浏览器开局一款游戏玩 30 秒后退出：三张统计表与两张启动表都没有行",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "launch.spec.ts",
+   "title": "TC-LAUNCH-002 打开游戏到可玩并上报开始与就绪",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T13:12:46.081Z",
+   "seconds": 6.7,
+   "steps": [
+    {
+     "step": "1 打开一克之差详情，点「开始游戏」：载入页有封面、名称、进度条与「退出」",
+     "ok": true
+    },
+    {
+     "step": "2 10 秒内载入页消失，只剩游戏画面与悬浮按钮",
+     "ok": true
+    },
+    {
+     "step": "3 2 秒后 launch_days：开始 1、就绪 1，五个耗时分桶里只有一格为 1",
+     "ok": true
+    },
+    {
+     "step": "4 game_days：这个旅客今天 yike 开局 1 次",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "sdk.spec.ts",
+   "title": "TC-SDK-001 改写游戏握手与存档",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T13:12:52.815Z",
+   "seconds": 1.2,
+   "steps": [
+    {
+     "step": "1 打开一克之差：消息依次 hello（游戏发）、welcome（平台发）、ready（游戏发），信封 ns shoota、sdk 2",
+     "ok": true
+    },
+    {
+     "step": "2 点「开始抓药」：1.5 秒内本机存档更新，键仍是 yikezhicha.v2",
+     "ok": true
+    },
+    {
+     "step": "3 打开游戏面板：「已存档」加当前时分",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "sdk.spec.ts",
+   "title": "TC-SDK-004 直接打开改写游戏的地址",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T13:12:54.001Z",
+   "seconds": 0.5,
+   "steps": [
+    {
+     "step": "1 直接打开 /play/yike/：1 秒内显示「请从 shoota.ai 打开」",
+     "ok": true
+    },
+    {
+     "step": "2 回到平台读本机存档：没有一克之差的存档",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "sdk.spec.ts",
+   "title": "TC-SDK-005 退出前等游戏收尾",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T13:12:54.520Z",
+   "seconds": 2.4,
+   "steps": [
+    {
+     "step": "1 推进一步后立刻退出：平台发 suspend，游戏回 suspended，1 秒内回到详情页",
+     "ok": true
+    },
+    {
+     "step": "2 本机存档包含那一步的改动",
+     "ok": true
+    },
+    {
+     "step": "3 再打开，把页面可见状态置为隐藏：平台发出 suspend",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "sdk.spec.ts",
+   "title": "TC-SDK-002 GameShell 横屏折叠信息区",
+   "project": "landscape",
+   "status": "passed",
+   "start": "2026-10-22T13:03:57.332Z",
+   "seconds": 8.8,
+   "steps": [
+    {
+     "step": "1 852×393 打开一克之差：顶部信息区收成一行，有展开按钮",
+     "ok": true
+    },
+    {
+     "step": "2 核心区占比不低于 60%",
+     "ok": true
+    },
+    {
+     "step": "3 点展开，退出再打开：展开后显示全部信息，再打开仍是展开",
+     "ok": true
+    },
+    {
+     "step": "4 竖屏 393×852 打开：信息区不折叠",
+     "ok": true
+    },
+    {
+     "step": "5 Safari 横屏可见区 734×343：信息区收成一行，核心区占比不低于 55%",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "sdk.spec.ts",
+   "title": "TC-SDK-003 一克之差改写后接着玩",
+   "project": "portrait",
+   "status": "passed",
+   "start": "2026-10-22T13:03:46.916Z",
+   "seconds": 6.5,
+   "steps": [
+    {
+     "step": "1 打开一克之差：第 5 关",
+     "ok": true
+    },
+    {
+     "step": "2 核心区占比不低于 75%",
+     "ok": true
+    },
+    {
+     "step": "3 退出后读本机存档：键仍是 yikezhicha.v2，关卡不小于 5",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "file": "store.spec.ts",
+   "title": "TC-STORE-001 商店首页、导航与 13 款目录",
+   "project": "desktop",
+   "status": "passed",
+   "start": "2026-10-22T13:12:56.989Z",
+   "seconds": 0.8,
+   "steps": [
+    {
+     "step": "1 打开首页：标题「shoota 游戏平台」；导航商店、游戏库、存档，商店高亮",
+     "ok": true
+    },
+    {
+     "step": "2 「全部游戏」标为 13 款，顺序同目录",
+     "ok": true
+    },
+    {
+     "step": "3 精选区标题「精选与推荐」，第一款是薯光；页面上没有「继续游玩」",
+     "ok": true
+    },
+    {
+     "step": "4 点一克之差的卡片：地址 #game-yike，大标题「一克之差」，有「开始游戏」",
+     "ok": true
+    },
+    {
+     "step": "5 回到商店：底部说明带「进度只存在这台设备上」与「备份 / 恢复进度」",
+     "ok": true
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>shoota 看板 · 登录</title>
+<link rel="icon" href="/brand/assets/logo/app-icon.svg" type="image/svg+xml">
+<!-- 亮暗跟随系统；两个值与 brand/tokens.css 的 --semantic-color-surface-background 相同 -->
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#13100D">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F7F5F0">
+<link rel="stylesheet" href="/src/kanban/login.css">
+</head>
+<body>
+<!-- 看板登录页（PAGE-KANBAN-LOGIN）：Worker 从静态资源取出本页，把提示文字填进 #err 里的占位；有提示时把密码框的 aria-invalid 改成 true -->
+<main class="kb-login">
+<form class="kb-login-card" method="post" action="/kanban/login">
+  <img class="kb-login-logo" src="/brand/assets/logo/app-icon.svg" alt="" width="48" height="48">
+  <h1>shoota 看板</h1>
+  <p class="kb-login-note">输入看板密码。登录后这个浏览器之后的游玩不计入统计。</p>
+  <label for="pw">密码</label>
+  <div class="kb-field state-layer focus-ring is-field"><input id="pw" name="password" type="password" autocomplete="current-password" required autofocus aria-describedby="err" aria-invalid="false"></div>
+  <p class="kb-login-err" id="err" role="alert"><!--MSG--></p>
+  <button class="ui-btn ui-btn-primary ui-btn-lg ui-btn-block state-layer focus-ring" type="submit"><span class="ui-btn-content">进入看板</span></button>
+</form>
+</main>
+</body>
+</html>

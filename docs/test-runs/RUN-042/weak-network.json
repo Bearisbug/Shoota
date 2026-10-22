@@ -1,0 +1,30 @@
+{
+ "TC-LAUNCH-009 弱网首次打开不超过 30 秒": {
+  "status": "passed",
+  "annotations": [
+   {
+    "首开耗时": "spud-dawn 19.7 秒"
+   },
+   {
+    "首开耗时": "wealth-reborn 23.3 秒"
+   },
+   {
+    "首开耗时": "douluo 11.3 秒"
+   }
+  ]
+ },
+ "TC-LAUNCH-010 弱网再次打开不重新下载": {
+  "status": "passed",
+  "annotations": [
+   {
+    "再开耗时": "spud-dawn 1.3 秒"
+   },
+   {
+    "再开耗时": "wealth-reborn 0.5 秒"
+   },
+   {
+    "再开耗时": "douluo 0.6 秒"
+   }
+  ]
+ }
+}
