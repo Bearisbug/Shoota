@@ -1,0 +1,90 @@
+[
+  {
+    "width": 320,
+    "id": "football-career",
+    "src": "covers/football-career.jpg",
+    "naturalWidth": 1380,
+    "naturalHeight": 628,
+    "objectFit": "cover",
+    "viewWidth": 320,
+    "scrollWidth": 320,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "id": "football-manager",
+    "src": "covers/football-manager.jpg",
+    "naturalWidth": 1380,
+    "naturalHeight": 627,
+    "objectFit": "cover",
+    "viewWidth": 320,
+    "scrollWidth": 320,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "id": "football-career",
+    "src": "covers/football-career.jpg",
+    "naturalWidth": 1380,
+    "naturalHeight": 628,
+    "objectFit": "cover",
+    "viewWidth": 390,
+    "scrollWidth": 390,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "id": "football-manager",
+    "src": "covers/football-manager.jpg",
+    "naturalWidth": 1380,
+    "naturalHeight": 627,
+    "objectFit": "cover",
+    "viewWidth": 390,
+    "scrollWidth": 390,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "id": "football-career",
+    "src": "covers/football-career.jpg",
+    "naturalWidth": 1380,
+    "naturalHeight": 628,
+    "objectFit": "cover",
+    "viewWidth": 768,
+    "scrollWidth": 768,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "id": "football-manager",
+    "src": "covers/football-manager.jpg",
+    "naturalWidth": 1380,
+    "naturalHeight": 627,
+    "objectFit": "cover",
+    "viewWidth": 768,
+    "scrollWidth": 768,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "id": "football-career",
+    "src": "covers/football-career.jpg",
+    "naturalWidth": 1380,
+    "naturalHeight": 628,
+    "objectFit": "cover",
+    "viewWidth": 1440,
+    "scrollWidth": 1440,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "id": "football-manager",
+    "src": "covers/football-manager.jpg",
+    "naturalWidth": 1380,
+    "naturalHeight": 627,
+    "objectFit": "cover",
+    "viewWidth": 1440,
+    "scrollWidth": 1440,
+    "errors": []
+  }
+]
