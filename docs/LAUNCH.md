@@ -7,8 +7,8 @@
 | 键名 | 配到哪 | 来源 | 配置动作（零回显） | 验证 | 状态 |
 | --- | --- | --- | --- | --- | --- |
 | `CLOUDFLARE_API_TOKEN` | GitHub Secrets（Bearisbug/changju） | 生成：Cloudflare 账号级 token `changju-ci-deploy`，2026-10-20 加了 D1 Write，已录入 Bitwarden 条目 `CHANGJU_CI_DEPLOY_TOKEN` | A：`bw get password CHANGJU_CI_DEPLOY_TOKEN \| gh secret set CLOUDFLARE_API_TOKEN -R Bearisbug/changju` | `gh secret list -R Bearisbug/changju` 见键名；首次 Actions 部署成功 | ☑ 2026-10-18：secret list 见 `CLOUDFLARE_API_TOKEN`；run 39104230080 部署成功 |
-| `KANBAN_PASSWORD` | Worker 加密变量 | Bitwarden 条目 `SHOOTA_KANBAN_PASSWORD`，值由老板指定 | A：`printf '%s' "$(bw get password SHOOTA_KANBAN_PASSWORD)" \| npx wrangler@4.151.1 secret put KANBAN_PASSWORD` | `npx wrangler@4.151.1 secret list` 见键名；线上 TC-008 用该密码能登录 | ☑ 2026-10-20：secret list 见键名；RUN-003 TC-008 登录通过 |
-| `KANBAN_SECRET` | Worker 加密变量 | 生成，不入 Bitwarden | A：`openssl rand -hex 32 \| tr -d '\n' \| npx wrangler@4.151.1 secret put KANBAN_SECRET` | `secret list` 见键名；线上 TC-010 改签名的 cookie 被拒 | ☑ 2026-10-20：secret list 见键名；RUN-004 TC-010 改签名被拒 |
+| `KANBAN_PASSWORD` | Worker 加密变量 | Bitwarden 条目 `SHOOTA_KANBAN_PASSWORD`，值由老板指定 | A：`printf '%s' "$(bw get password SHOOTA_KANBAN_PASSWORD)" \| npx wrangler@4.151.1 secret put KANBAN_PASSWORD` | `npx wrangler@4.151.1 secret list` 见键名；线上 TC-008 用该密码能登录 | ☑ 2026-10-20：secret list 见键名；RUN-003 TC-008 登录通过；2026-10-22 测试站 `changju-test` 另设，Bitwarden 条目 `SHOOTA_TEST_KANBAN_PASSWORD`，登录实测通过 |
+| `KANBAN_SECRET` | Worker 加密变量 | 生成，不入 Bitwarden | A：`openssl rand -hex 32 \| tr -d '\n' \| npx wrangler@4.151.1 secret put KANBAN_SECRET` | `secret list` 见键名；线上 TC-010 改签名的 cookie 被拒 | ☑ 2026-10-20：secret list 见键名；RUN-004 TC-010 改签名被拒；2026-10-22 测试站 `changju-test` 另生成一份，secret list 见键名 |
 
 ## 2. 部署步骤清单
 
@@ -61,3 +61,4 @@
 | RUN-4 | 2026-10-21 | 线上 https://shoota.ai （@1afcf4b，平台换品牌视觉后，Edge 无头：桌面 1280 宽 + 手机 390 宽） | S1–S5 全部通过：两种宽度商店顺序正确、无横向溢出、无控制台错误；S3 关掉浏览器重开后首富第 2 周进度保留，S4 新浏览器恢复后一致；另外 10 款无游戏运行错误。顶栏载入时显示「已读取存档」，游戏随即写一次存档，约 1 秒后变为「已存档 hh:mm」。详情见 TEST.md RUN-009 |
 | RUN-5 | 2026-10-21 | 线上 https://shoota.ai （@b3300bb，存档提示与外链修复、看板换品牌视觉、强制 https 后，Edge 无头：桌面 1280 宽 + 手机 390 宽） | S1–S5 全部通过：两种宽度商店顺序正确、无横向溢出、无控制台错误；S3 首富重开后顶栏 4 秒仍是「已读取存档」，第 2 周进度保留，S4 新浏览器恢复后一致；另外 10 款无游戏运行错误。第一次执行时脚本没点首富的「继续这段经营」，S3、S4 读不到进度，补上这一步后重跑通过。详情见 TEST.md RUN-018 |
 | RUN-6 | 2026-10-21 | 线上 https://shoota.ai （@2a1ea03，存档搬家与老玩家识别上线后，Edge 无头：桌面 1280 宽 + 手机 390 宽，带内部标记不写统计） | S1–S5 全部通过：两种宽度商店顺序正确、无横向溢出、无页面错误；S3 首富关掉浏览器重开后顶栏「已读取存档」、第 2 周进度保留；S4 存档码在新浏览器恢复后一致；另外 10 款无游戏运行错误。详情见 TEST.md RUN-028 |
+| RUN-7 | 2026-10-22 | 测试站 https://test.shoota.ai （@0563344，加测试站后首次部署，Edge 无头：桌面 1280 宽 + 手机 390 宽） | S1、S2、S5 通过：两种宽度商店都是 13 款、无横向溢出、无页面错误，13 款游戏都能出画面；看板用测试站密码登录后数据接口返回 200。S3、S4 没跑：这次只改部署，存档代码与正式站同一份 |
