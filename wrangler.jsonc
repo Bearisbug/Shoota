@@ -14,5 +14,15 @@
   ],
   "routes": [{ "pattern": "shoota.ai", "custom_domain": true }],
   "workers_dev": false,
-  "preview_urls": false
+  "preview_urls": false,
+  // 测试站：push test 分支部署到这里（wrangler 命令加 --env test），数据库与正式站分开
+  "env": {
+    "test": {
+      "name": "changju-test",
+      "d1_databases": [
+        { "binding": "DB", "database_name": "shoota-metrics-test", "database_id": "fa5d0eb6-047a-40af-8d7f-eed813614ad5", "migrations_dir": "migrations" }
+      ],
+      "routes": [{ "pattern": "test.shoota.ai", "custom_domain": true }]
+    }
+  }
 }

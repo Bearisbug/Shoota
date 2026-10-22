@@ -69,4 +69,6 @@ if (window.Platform) {
 
 push 到 `main` 就会自动上线，约 1 分钟：先过质量门，再部署，然后做健康检查；健康检查不通过会自动回滚到上一版。进度在仓库的 Actions 页看。PR 只跑质量门，不会部署。
 
+想先在线上试、不影响正式站：推到 `test` 分支（`git push origin HEAD:test`），同样的流程会部署到 https://test.shoota.ai 。测试站的统计和看板用单独的数据库，搜索引擎不收录。试好了再合进 `main`。
+
 提交前先在本地跑一次 `node scripts/check.mjs`。

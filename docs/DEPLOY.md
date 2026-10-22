@@ -10,13 +10,16 @@
 | 域名 | https://shoota.ai （根域，Worker 自定义域名；workers.dev 与预览地址已关闭） |
 | DNS | Cloudflare，shoota.ai zone；根域这条记录由 Worker 自定义域名自动创建和维护，不要手改。`www.shoota.ai` 由 zone 的 Redirect Rule 301 跳到 `https://shoota.ai`，路径和参数原样保留，浏览器会带上 `#` 后面的部分；它的 DNS 记录是橙云的 `AAAA 100::` 占位、没有源站。这两项不在 `wrangler.jsonc` 里，在 Cloudflare 面板 shoota.ai → Rules → Redirect Rules 管理。www 不能改成直接显示网站：存档按域名隔离，www 和根域会成两份互不相通的进度。同理 http 一律 301 到 https，由同一处的第二条 Redirect Rule 负责，只放行存档搬家页 `/move`、`/move.html`；这条规则保留到 2026-11-21，之后删掉它、重新打开 SSL/TLS → Edge Certificates 的 Always Use HTTPS。在那之前不能开 Always Use HTTPS 或 HSTS：它们会把 `/move` 也跳到 https，浏览器会被记成查过了，http 下的旧存档再也搬不回来。规则表达式里判断 http 用 `not ssl`，这个套餐不认 `http.request.scheme`。在 CI 里部署时，wrangler 会直接覆盖与配置域名冲突的 DNS 记录、不提示，往 `wrangler.jsonc` 加域名前先确认该主机名上没有在用的记录 |
 | 健康检查 | 请求 https://shoota.ai/ 。身份断言：首页含 `<title>shoota 游戏平台</title>`。版本断言：`public/` 下每个文件与本次提交逐字节一致。另外断言 `/kanban` 返回看板登录页、`POST /api/e` 对空上报返回 400，证明 Worker 脚本在线且不写数据。没有回显三元组的健康端点，用内容比对代替 |
-| CI | GitHub Actions `.github/workflows/deploy.yml`：`check`（质量门）→ `deploy`（数据库迁移、部署、健康检查、失败回滚）；PR 只跑 `check` |
+| CI | GitHub Actions `.github/workflows/deploy.yml`：`check`（质量门）→ `deploy`（数据库迁移、部署、健康检查、失败回滚）。push `main` 部署正式站，push `test` 部署测试站，PR 只跑 `check` |
+| 测试站 | https://test.shoota.ai 。Worker `changju-test`（`wrangler.jsonc` 的 `env.test`，wrangler 命令加 `--env test`），D1 `shoota-metrics-test`（亚太），看板密码另设，见第 5 节。GitHub 环境 `test` 只接受 `test` 分支部署，`production` 只接受 `main`。zone 的 Response Header Transform Rule「测试站禁止搜索引擎收录」给这个主机名加 `X-Robots-Tag: noindex, nofollow`。正式站的 http 跳转规则只匹配 `shoota.ai`，测试站的 http 不跳 https，测试时用 https 地址 |
 | 数据库 | Cloudflare D1 `shoota-metrics`（亚太），Worker 里的绑定名 `DB`，表结构在 `migrations/` |
 | 看板 | https://shoota.ai/kanban ，密码见第 5 节；统计口径见 `docs/DESIGN.md` |
 | 服务器 / 应用目录 / 镜像 / 端口 / 反代 | N/A（没有自管服务器） |
 | Synco 编排 | 未挂接（paas 目标不走 Synco 部署方式） |
 
 ## 2. 日常发布
+
+**测试站**：改动先推到 `test` 分支（`git push origin HEAD:test`），流程和下面的正式发布一样，只是部署到 https://test.shoota.ai 、迁移跑在测试库上；在 Environments 页的 `test` 下看记录。测试通过后把改动合进 `main` 才会上正式站。`test` 分支可以随时用 `git push -f origin main:test` 重置成和正式站一致。
 
 push 到 `main` 即自动发布：质量门 `node scripts/check.mjs` → 记下当前线上版本号 → `wrangler d1 migrations apply` 执行新迁移 → `wrangler deploy` → 健康检查（最多重试 12 次，每次间隔 10 秒）→ 不通过就 `wrangler rollback` 回到部署前的版本，并把 run 标成失败。进度在仓库 Actions 页看，每次发布也会出现在仓库 Environments 页的 `production` 下。手动重跑：Actions 页 → deploy → Run workflow。
 
@@ -32,6 +35,7 @@ push 到 `main` 即自动发布：质量门 `node scripts/check.mjs` → 记下�
 - **看板登录被锁**：同一网络连错 5 次锁 15 分钟，等到期，或按第 6 节查询命令删掉 `login_guards` 里的记录。
 - **玩家说进度没了**：进度只存在玩家自己的浏览器里，换设备、换浏览器、清缓存都会丢。让玩家用站内「存档」页的存档码迁移；平台侧没有数据可以恢复。
 - 以上命令都要先设置 token：`export CLOUDFLARE_API_TOKEN=$(bw get password CHANGJU_CI_DEPLOY_TOKEN)`。
+- 查测试站：wrangler 命令加 `--env test`（`deployments`、`d1`、`secret` 都适用），按名字操作的命令把 `changju` 换成 `changju-test`、`shoota-metrics` 换成 `shoota-metrics-test`。
 
 ## 4. 回滚
 
@@ -42,6 +46,8 @@ npx wrangler@4.151.1 rollback <版本号> --name changju -m "回滚原因" -y
 ```
 
 回滚只回退 Worker 版本，不回退 D1 数据库：迁移只新增表或列，旧版本照常可用；数据要回到某个时刻按第 6 节恢复。回滚只改线上，不改 git。下一次 push main 会把 `main` 的内容重新发上去，所以回滚之后还要 `git revert` 出问题的提交，否则坏版本会被再次发布。
+
+测试站回滚：同样两条命令，`--name` 换成 `changju-test`。测试站回滚后，下一次 push `test` 会把 `test` 分支的内容重新发上去。
 
 CI 的自动回滚目标是「本次部署前的线上版本」。只要每次失败的部署都回滚成功，它就是最后一次通过健康检查的版本。如果连回滚这一步也失败了（run 日志里 rollback 步骤报错），就按上面的命令手动回到最后一个健康版本。
 
@@ -61,6 +67,7 @@ CI 的自动回滚目标是「本次部署前的线上版本」。只要每次�
 - 设置或更换看板密码：`printf '%s' "$(bw get password SHOOTA_KANBAN_PASSWORD)" | npx wrangler@4.151.1 secret put KANBAN_PASSWORD`。换密码先在 Bitwarden 改条目，再执行这一行。
 - 设置或轮换签名密钥：`openssl rand -hex 32 | tr -d '\n' | npx wrangler@4.151.1 secret put KANBAN_SECRET`。轮换后所有人的看板登录态立即失效，要重新输密码。
 - 核对：`npx wrangler@4.151.1 secret list` 能看到两个键名。
+- 测试站另有一套：看板密码在 Bitwarden 条目 `SHOOTA_TEST_KANBAN_PASSWORD`，签名密钥另外生成；上面三条命令都加 `--env test`，密码那条把条目名换成 `SHOOTA_TEST_KANBAN_PASSWORD`。
 
 **轮换 token**：在 Cloudflare 新建同权限的 token → `bw edit` 更新 `CHANGJU_CI_DEPLOY_TOKEN` → `bw get password CHANGJU_CI_DEPLOY_TOKEN | gh secret set CLOUDFLARE_API_TOKEN -R Bearisbug/changju` → 在 Actions 页手动 Run workflow 验证 → 删除旧 token。有协作者离开时也要轮换：仓库写权限能读到这个 Secret。
 

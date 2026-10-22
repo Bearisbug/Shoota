@@ -1,10 +1,11 @@
-# push main → 质量门 → 部署到 Cloudflare Worker「changju」→ 健康检查（身份断言 + 逐文件比对）→ 不通过自动回滚。
+# push main → 质量门 → 部署到 Cloudflare Worker「changju」（shoota.ai）→ 健康检查（身份断言 + 逐文件比对）→ 不通过自动回滚。
+# push test → 同样的流程部署到测试站 Worker「changju-test」（test.shoota.ai），数据库也是测试库，不碰正式站。
 # PR 只跑质量门。手册见 docs/DEPLOY.md。
 name: deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main, test]
   pull_request:
   workflow_dispatch:
 
@@ -13,7 +14,6 @@ permissions:
 
 env:
   WRANGLER: wrangler@4.151.1
-  SITE: https://shoota.ai
 
 jobs:
   check:
@@ -29,17 +29,22 @@ jobs:
 
   deploy:
     needs: check
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && (github.ref_name == 'main' || github.ref_name == 'test')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
-      group: deploy-production
+      group: deploy-${{ github.ref_name }}
       cancel-in-progress: false
     environment:
-      name: production
-      url: https://shoota.ai
+      name: ${{ github.ref_name == 'main' && 'production' || 'test' }}
+      url: ${{ github.ref_name == 'main' && 'https://shoota.ai' || 'https://test.shoota.ai' }}
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      # main 部署正式站，test 部署测试站；WENV 在 main 上为空（写成 != 的形式，空串放在 && 后面会被当成假）
+      SITE: ${{ github.ref_name == 'main' && 'https://shoota.ai' || 'https://test.shoota.ai' }}
+      WORKER: ${{ github.ref_name == 'main' && 'changju' || 'changju-test' }}
+      DB: ${{ github.ref_name == 'main' && 'shoota-metrics' || 'shoota-metrics-test' }}
+      WENV: ${{ github.ref_name != 'main' && '--env test' || '' }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -49,17 +54,17 @@ jobs:
       - name: 记录部署前的版本（失败回滚目标）
         id: prev
         run: |
-          v=$(npx -y $WRANGLER deployments status --json | jq -r '.versions[0].version_id')
+          v=$(npx -y $WRANGLER deployments status $WENV --json | jq -r '.versions[0].version_id')
           [ -n "$v" ] && [ "$v" != null ] || { echo "读不到当前线上版本，停止部署"; exit 1; }
           echo "当前线上版本：$v"
           echo "version=$v" >> "$GITHUB_OUTPUT"
 
       - name: 数据库迁移（只新增表或列，回滚 Worker 时不回退）
-        run: npx -y $WRANGLER d1 migrations apply shoota-metrics --remote
+        run: npx -y $WRANGLER d1 migrations apply $DB --remote $WENV
 
       - name: 部署
         id: deploy
-        run: npx -y $WRANGLER deploy --message "${GITHUB_SHA::7} $(git log -1 --format=%s | head -c 80)"
+        run: npx -y $WRANGLER deploy $WENV --message "${GITHUB_SHA::7} $(git log -1 --format=%s | head -c 80)"
 
       - name: 健康检查（身份断言 + 逐文件比对线上内容 + 看板与上报接口在线）
         id: health
@@ -92,5 +97,5 @@ jobs:
       - name: 失败回滚
         if: failure() && (steps.deploy.outcome == 'failure' || steps.health.outcome == 'failure')
         run: |
-          npx -y $WRANGLER rollback "${{ steps.prev.outputs.version }}" --name changju -m "rolled_back: ${GITHUB_SHA::7} 健康检查未通过" -y
+          npx -y $WRANGLER rollback "${{ steps.prev.outputs.version }}" --name $WORKER -m "rolled_back: ${GITHUB_SHA::7} 健康检查未通过" -y
           echo "::error::部署未通过健康检查，已回滚到 ${{ steps.prev.outputs.version }}"
