@@ -238,28 +238,15 @@ h1,h2,h3{text-wrap:balance;margin:0}
 @media (max-width:820px){.lib{grid-template-columns:minmax(0,1fr)}}
 
 /* player */
-#player{--sa-t:env(safe-area-inset-top,0px);--sa-r:env(safe-area-inset-right,0px);--sa-b:env(safe-area-inset-bottom,0px);--sa-l:env(safe-area-inset-left,0px);position:fixed;inset:0;z-index:var(--semantic-layout-z-index-overlay);background:var(--semantic-color-surface-sunken);display:grid;grid-template-rows:auto minmax(0,1fr)}
-/* 横向显示：竖着拿的手机上把顶栏和游戏一起顺时针转 90 度，宽高与位移由脚本按窗口尺寸写；页面的左边落在手机顶边，安全区按此对调（REQ-016） */
-#player.rotated,#toasts.rotated{inset:auto;left:0;top:0;transform-origin:0 0}
-#player.rotated{--sa-t:env(safe-area-inset-right,0px);--sa-r:env(safe-area-inset-bottom,0px);--sa-b:env(safe-area-inset-left,0px);--sa-l:env(safe-area-inset-top,0px)}
-#toasts.rotated{align-content:end;padding:0 calc(env(safe-area-inset-bottom,0px) + var(--primitive-dimension-space-4)) calc(env(safe-area-inset-left,0px) + var(--primitive-dimension-space-4)) 0}
-.pbar{display:flex;align-items:center;gap:var(--primitive-dimension-space-4);padding:calc(var(--sa-t) + var(--primitive-dimension-space-2)) calc(var(--sa-r) + var(--primitive-dimension-space-3)) var(--primitive-dimension-space-2) calc(var(--sa-l) + var(--primitive-dimension-space-3));background:var(--semantic-color-surface-background);border-bottom:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle);flex-wrap:wrap}
+#player{position:fixed;inset:0;z-index:var(--semantic-layout-z-index-overlay);background:var(--semantic-color-surface-sunken);display:grid;grid-template-rows:auto minmax(0,1fr)}
+.pbar{display:flex;align-items:center;gap:var(--primitive-dimension-space-4);padding:calc(env(safe-area-inset-top,0px) + var(--primitive-dimension-space-2)) calc(env(safe-area-inset-right,0px) + var(--primitive-dimension-space-3)) var(--primitive-dimension-space-2) calc(env(safe-area-inset-left,0px) + var(--primitive-dimension-space-3));background:var(--semantic-color-surface-background);border-bottom:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle);flex-wrap:wrap}
 .pbar .btn{padding:var(--primitive-dimension-space-1) var(--primitive-dimension-space-3)}
 .pbar .st{color:var(--semantic-color-text-tertiary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .pbar .saved{color:var(--semantic-color-text-tertiary)}
 .pbar .saved.on{color:var(--semantic-color-feedback-success)}
 .pbar .num{color:var(--semantic-color-text-secondary)}
-.pstage{position:relative;background:var(--semantic-color-surface-sunken);padding-bottom:var(--sa-b)}
+.pstage{position:relative;background:var(--semantic-color-surface-sunken);padding-bottom:env(safe-area-inset-bottom,0px)}
 .pstage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--primitive-color-neutral-0)}
-.rot{position:absolute;inset:0;z-index:1;display:grid;place-content:center;justify-items:center;gap:var(--semantic-space-within-group);padding:calc(var(--sa-t) + var(--primitive-dimension-space-6)) calc(var(--sa-r) + var(--primitive-dimension-space-6)) calc(var(--sa-b) + var(--primitive-dimension-space-6)) calc(var(--sa-l) + var(--primitive-dimension-space-6));background:var(--semantic-color-surface-background);color:var(--semantic-color-text-secondary);text-align:center;cursor:pointer}
-.rot-phone{width:calc(var(--semantic-icon-size-lg) * 2);aspect-ratio:7/12;border:3px solid var(--semantic-color-text-primary);border-radius:var(--semantic-radius-md);margin-bottom:var(--semantic-space-between-groups);position:relative;animation:rot-phone 2.2s var(--semantic-motion-easing-standard) infinite}
-.rot-phone i{position:absolute;left:50%;bottom:12%;width:24%;height:3px;margin-left:-12%;border-radius:var(--semantic-radius-pill);background:var(--semantic-color-text-primary)}
-@keyframes rot-phone{0%,20%{transform:rotate(0)}55%,85%{transform:rotate(90deg)}to{transform:rotate(0)}}
-.rot-t{color:var(--semantic-color-text-primary);font-family:var(--semantic-typography-heading3-font-family);font-size:var(--semantic-typography-heading3-font-size);font-weight:var(--semantic-typography-heading3-font-weight);line-height:var(--semantic-typography-heading3-line-height)}
-.rot p{margin:0;max-width:22em;text-wrap:pretty}
-.rot-note{color:var(--semantic-color-feedback-warning)}
-.rot .acts{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--semantic-space-within-group);margin-top:var(--semantic-space-between-groups)}
-.rot .btn{min-height:44px}
 .load-box{display:grid;justify-items:center;gap:var(--semantic-space-within-group);max-width:28em;padding:var(--primitive-dimension-space-6);text-align:center}
 .load-box b{color:var(--semantic-color-text-primary)}
 .load-box p{margin:0;text-wrap:pretty}
@@ -277,7 +264,6 @@ h1,h2,h3{text-wrap:balance;margin:0}
 @media (prefers-reduced-motion:reduce){
   .toast{animation-name:fade}
   .cap .cv,.btn{transition:none}
-  .rot-phone{animation:none;transform:rotate(90deg)}
   .cap:hover .cv,.btn:active{transform:none}
 }
 @media (forced-colors:active){
@@ -314,20 +300,9 @@ h1,h2,h3{text-wrap:balance;margin:0}
     <span class="st" id="pStatus"></span>
     <span class="saved" id="pSaved">存档待写入</span>
     <span class="num" id="pTime">本次 0 分钟</span>
-    <button class="state-layer focus-ring btn" id="pRotReset" type="button" hidden>恢复横屏提示</button>
     <button class="state-layer focus-ring btn" id="pFull" type="button"><span class="ico ico-full" aria-hidden="true"></span>全屏</button>
   </div>
   <div class="pstage" id="pStage"></div>
-  <div class="rot" id="pRot" role="dialog" aria-modal="true" aria-labelledby="pRotT" aria-describedby="pRotD" hidden>
-    <div class="rot-phone" aria-hidden="true"><i></i></div>
-    <b class="rot-t" id="pRotT">请把手机横过来</b>
-    <p id="pRotD">这款游戏要横屏玩。点空白处试试自动横屏，转不过来就直接继续，游戏会横着显示。</p>
-    <p class="rot-note" id="pRotNote" aria-live="polite" hidden>这个浏览器不能自动横屏，请手动把手机横过来，或点「无法旋转，直接继续」。</p>
-    <div class="acts">
-      <button class="state-layer focus-ring btn btn-primary" id="pRotGo" type="button">无法旋转，直接继续</button>
-      <button class="state-layer focus-ring btn" id="pRotExit" type="button">退出游戏</button>
-    </div>
-  </div>
 </div>
 <div id="toasts" aria-live="polite"></div>
 
@@ -429,7 +404,7 @@ const CATALOG = [
     ],
     loop:['白天：用赚来的钱开新摊、升级、摆装饰，招商签下摊主','开市：发传单、打折、投放广告，盯着排队和客人评价','收摊：结算成交额、人工、食材和还贷，和对面比输赢','长线：扩建新区、提升旅游等级，把对面的夜市一家家干倒'] },
 
-  { id:'hougong', orient:'portrait', title:'后宫生死簿', sub:'卷首 · 生死簿', genre:'宫廷养成', tags:['宫廷养成','剧情','多结局','历史'],
+  { id:'hougong', title:'后宫生死簿', sub:'卷首 · 生死簿', genre:'宫廷养成', tags:['宫廷养成','剧情','多结局','历史'],
     src:'games/hougong.html', cover:'covers/hougong.jpg', size:181785, status:'ok', session:'按季推进', saves:'自动存档',
     tagline:'以《后宫·甄嬛传》为背景的原创养成。从殿选开始，在请安、争宠、子嗣和站队之间活下去。',
     about:[
@@ -470,7 +445,7 @@ const CATALOG = [
     ],
     loop:['选择赛区和战队，接手 2027 赛季','管理阵容：转会、交易、薪资、外援名额','比赛日：20 手 BP，再在对线、刷龙、团战等关键节点拍板','季后赛、MSI 与全球总决赛：老将和大心脏选手的舞台'] },
 
-  { id:'yike', orient:'portrait', title:'一克之差', sub:'药铺抓药', genre:'益智解谜', tags:['益智解谜','关卡','短局'],
+  { id:'yike', title:'一克之差', sub:'药铺抓药', genre:'益智解谜', tags:['益智解谜','关卡','短局'],
     src:'games/yike.html', cover:'covers/yike.jpg', size:37940, status:'ok', session:'一关几分钟', saves:'自动记录关卡与最好成绩',
     tagline:'药铺抓药，一克都不能差。把药包放上戥秤，右盘正好等于砝码才算称完。',
     about:[
@@ -1055,14 +1030,6 @@ var lsp=typeof Proxy==='function'?new Proxy(ls,{get:function(t,p){if(p in t)retu
 var sd={},ss={getItem:function(k){return Object.prototype.hasOwnProperty.call(sd,k)?sd[k]:null},setItem:function(k,v){sd[String(k)]=String(v)},removeItem:function(k){delete sd[k]},clear:function(){sd={}},key:function(i){return Object.keys(sd)[i]||null}};
 try{Object.defineProperty(window,'localStorage',{configurable:true,get:function(){return lsp}})}catch(e){}
 try{Object.defineProperty(window,'sessionStorage',{configurable:true,get:function(){return ss}})}catch(e){}
-// 横向显示时平台把游戏转了 90 度，浏览器仍按屏幕方向滚动；这里的触摸坐标已是游戏自己的方向，按它手动滚动（REQ-016）
-var rot=false,tl=null,tel=null,tax=true,tv=0,traf=0;
-addEventListener('message',function(e){if(e.source===parent&&e.data&&e.data.__cj===1&&e.data.type==='rotated'){rot=!!e.data.on;tl=null}});
-var scroller=function(n,y){for(;n&&n.nodeType===1;n=n.parentElement){var c=getComputedStyle(n);if(y?n.scrollHeight>n.clientHeight&&/(auto|scroll)/.test(c.overflowY):n.scrollWidth>n.clientWidth&&/(auto|scroll)/.test(c.overflowX))return n}var r=document.scrollingElement;return r&&(y?r.scrollHeight>r.clientHeight:r.scrollWidth>r.clientWidth)?r:null};
-addEventListener('touchstart',function(e){cancelAnimationFrame(traf);tel=null;tl=null;if(!rot||e.touches.length>1||(e.target.closest&&e.target.closest('input,textarea,select,canvas,[contenteditable]')))return;var t=e.touches[0];tl={x:t.clientX,y:t.clientY,at:Date.now()};tv=0},{passive:true,capture:true});
-addEventListener('touchmove',function(e){if(!tl||e.touches.length>1)return;var t=e.touches[0],dx=tl.x-t.clientX,dy=tl.y-t.clientY;if(tel===null){if(Math.abs(dx)+Math.abs(dy)<6)return;tax=Math.abs(dy)>=Math.abs(dx);tel=scroller(e.target,tax)||false}if(!tel)return;e.preventDefault();var now=Date.now(),d=tax?dy:dx;if(tax)tel.scrollTop+=d;else tel.scrollLeft+=d;tv=d/Math.max(1,now-tl.at);tl={x:t.clientX,y:t.clientY,at:now}},{passive:false,capture:true});
-var tend=function(){var s=tel,y=tax,v=tl&&Date.now()-tl.at<100?tv*16:0;tl=null;tel=null;if(!s)return;(function step(){if(Math.abs(v)<0.5)return;if(y)s.scrollTop+=v;else s.scrollLeft+=v;v*=0.95;traf=requestAnimationFrame(step)})()};
-addEventListener('touchend',tend,{capture:true});addEventListener('touchcancel',tend,{capture:true});
 var done={};
 window.Platform=Object.freeze({version:'1.0',game:I.game,user:I.user,
 unlock:function(k){k=String(k);if(done[k])return;done[k]=1;post({type:'unlock',key:k})},
@@ -1084,7 +1051,6 @@ async function openPlayer(id){
   $('#pTitle').textContent = g.title; $('#pStatus').textContent = st.status || ''; $('#pTime').textContent = '本次 0 分钟';
   $('#pSaved').textContent = '读取存档…'; $('#pSaved').className = 'saved';
   $('#player').hidden = false; document.body.style.overflow = 'hidden';
-  orient();
   bootGame(g);
 }
 const mb = n => (n / 1048576).toFixed(1) + ' MB';
@@ -1094,7 +1060,7 @@ function loadView(g){
 function failView(title, body, acts){
   $('#pStage').innerHTML = `<div class="loading" role="alert"><div class="load-box"><b>${esc(title)}</b><p>${esc(body)}</p><div class="acts">${acts.map((a, i) => `<button class="state-layer focus-ring btn${i ? '' : ' btn-primary'}" type="button" data-i="${i}">${esc(a[0])}</button>`).join('')}</div></div></div>`;
   $('#pStage').querySelectorAll('[data-i]').forEach(b => b.addEventListener('click', acts[+b.dataset.i][1]));
-  if (rotMode !== 'prompt') $('#pStage [data-i="0"]').focus();
+  $('#pStage [data-i="0"]').focus();
 }
 // 载入游戏：任何一步卡住都给出提示与出路，不让玩家停在「正在载入」（REQ-017）
 async function bootGame(g){
@@ -1118,7 +1084,6 @@ async function bootGame(g){
   fr.setAttribute('allow', 'fullscreen; autoplay');
   fr.srcdoc = inject(html, { game:{ id, title:g.title }, user:{ id:hashId(u.email), nickname:u.nickname }, storage:P.ls });
   P.frame = fr;
-  fr.addEventListener('load', tellFrame);
   $('#pStage').innerHTML = ''; $('#pStage').appendChild(fr);
   $('#pSaved').textContent = Object.keys(P.ls).length ? '已读取存档' : '新存档';
   P.timer = setInterval(() => {
@@ -1142,7 +1107,7 @@ function dirty(){ if (P && !P.saveT) P.saveT = setTimeout(saveLs, 700); }
 // 游玩时长攒在本地，满 2 分钟、切到后台、退出或关页面时上报
 function reportPlay(){ if (P && P.unsent) { track({ t:'play', g:P.gid, s:P.unsent }); P.unsent = 0; } }
 function closePlayer(){
-  if (!P) { $('#player').hidden = true; document.body.style.overflow = ''; orient(); return; }
+  if (!P) { $('#player').hidden = true; document.body.style.overflow = ''; return; }
   reportPlay();
   if (P.saveT) saveLs();
   clearInterval(P.timer); persist();
@@ -1150,8 +1115,6 @@ function closePlayer(){
   P = null;
   $('#pStage').innerHTML = ''; $('#player').hidden = true; document.body.style.overflow = '';
   try { if (document.fullscreenElement) document.exitFullscreen(); } catch (e) {}
-  try { screen.orientation?.unlock?.(); } catch (e) {}
-  orient();
 }
 window.addEventListener('message', e => {
   if (!P || !P.frame || e.source !== P.frame.contentWindow) return;
@@ -1175,59 +1138,10 @@ window.addEventListener('message', e => {
 window.addEventListener('pagehide', () => { if (P) { reportPlay(); saveLs(); persist(); } });
 document.addEventListener('visibilitychange', () => { if (document.hidden) reportPlay(); });
 $('#pExit').addEventListener('click', () => { const id = P?.gid; go(id ? 'game-' + id : 'store'); });
-// 全屏整个页面而不是游戏页：浏览器给全屏元素强制 transform:none，横向显示会被打回竖的（REQ-016）
 $('#pFull').addEventListener('click', () => {
-  const el = document.documentElement;
+  const el = $('#player');
   try { (el.requestFullscreen ? el.requestFullscreen() : Promise.reject()).catch(() => toast('这个窗口不支持全屏。')); } catch (e) { toast('这个窗口不支持全屏。'); }
 });
-
-/* ───────── 横屏提示（REQ-016，状态与迁移见设计文档 §11） ───────── */
-// 触屏设备竖着拿、游戏没标竖屏时盖上提示；本机点过「直接继续」就把顶栏和游戏一起转 90 度
-const ROT_KEY = 'changju.forceLandscape';
-const coarse = matchMedia('(pointer: coarse)');
-const rotPicked = () => { try { return localStorage.getItem(ROT_KEY) === '1'; } catch (e) { return false; } };
-function setRotPicked(on){ try { on ? localStorage.setItem(ROT_KEY, '1') : localStorage.removeItem(ROT_KEY); } catch (e) {} }
-let rotMode = 'normal';
-function orient(){
-  const g = P && findGame(P.gid), w = innerWidth, h = innerHeight;
-  const need = !!g && g.orient !== 'portrait' && coarse.matches && h > w;
-  const mode = !need ? 'normal' : rotPicked() ? 'rotated' : 'prompt';
-  const turn = mode === 'rotated' ? `width:${h}px;height:${w}px;transform:translateX(${w}px) rotate(90deg)` : '';
-  for (const el of [$('#player'), $('#toasts')]) { el.classList.toggle('rotated', mode === 'rotated'); el.style.cssText = turn; }
-  $('#pRotReset').hidden = mode !== 'rotated';
-  if (mode === rotMode) return;
-  const was = rotMode; rotMode = mode;
-  tellFrame();
-  const rot = $('#pRot'), bg = [$('.pbar'), $('#pStage')];
-  rot.hidden = mode !== 'prompt';
-  bg.forEach(el => el.toggleAttribute('inert', mode === 'prompt'));
-  if (mode === 'prompt') { $('#pRotNote').hidden = true; $('#pRotGo').focus(); }
-  else if (was === 'prompt' && P) $('#pExit').focus();
-}
-// 横向显示时通知游戏里的引导脚本按画面方向换算滑动
-function tellFrame(){ try { P?.frame?.contentWindow?.postMessage({ __cj:1, type:'rotated', on:rotMode === 'rotated' }, '*'); } catch (e) {} }
-async function tryLandscape(){
-  const el = document.documentElement;
-  try {
-    if (!document.fullscreenElement) await (el.requestFullscreen ? el.requestFullscreen({ navigationUI:'hide' }) : el.webkitRequestFullscreen ? el.webkitRequestFullscreen() : Promise.reject());
-  } catch (e) {}
-  try { await screen.orientation.lock('landscape'); }
-  catch (e) { if (rotMode === 'prompt') $('#pRotNote').hidden = false; }
-}
-$('#pRot').addEventListener('click', e => { if (!e.target.closest('button')) tryLandscape(); });
-$('#pRot').addEventListener('keydown', e => {
-  if (e.key === 'Escape') { e.preventDefault(); $('#pRotExit').click(); return; }
-  if (e.key !== 'Tab') return;
-  const first = $('#pRotGo'), last = $('#pRotExit');
-  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-});
-$('#pRotGo').addEventListener('click', () => { setRotPicked(true); orient(); });
-$('#pRotExit').addEventListener('click', () => $('#pExit').click());
-$('#pRotReset').addEventListener('click', () => { setRotPicked(false); orient(); });
-addEventListener('resize', orient);
-addEventListener('orientationchange', () => setTimeout(orient, 120)); // iOS 转完屏那一刻报的还是旧尺寸
-coarse.addEventListener?.('change', orient);
 
 /* ───────── 交互 ───────── */
 document.addEventListener('click', e => {

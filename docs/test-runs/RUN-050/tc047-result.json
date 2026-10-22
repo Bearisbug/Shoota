@@ -1,0 +1,52 @@
+{
+ "base": "http://localhost:8791",
+ "steps": {
+  "1": {
+   "prompt": false,
+   "restoreBtn": false,
+   "playerTransform": "none",
+   "frame": {
+    "w": 390,
+    "h": 745
+   },
+   "hscroll": false,
+   "pass": true
+  },
+  "2": {
+   "prompt": false,
+   "restoreBtn": false,
+   "playerTransform": "none",
+   "frame": {
+    "w": 390,
+    "h": 745
+   },
+   "hscroll": false,
+   "pass": true
+  },
+  "3": {
+   "prompt": false,
+   "restoreBtn": false,
+   "playerTransform": "none",
+   "frame": {
+    "w": 390,
+    "h": 745
+   },
+   "hscroll": false,
+   "spudOwnPrompt": true,
+   "pass": true
+  },
+  "4": {
+   "prompt": false,
+   "restoreBtn": false,
+   "playerTransform": "none",
+   "frame": {
+    "w": 844,
+    "h": 340
+   },
+   "hscroll": false,
+   "pass": true
+  }
+ },
+ "pageErrors": [],
+ "pass": true
+}
