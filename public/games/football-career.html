@@ -371,6 +371,67 @@ table.t th.sortable { cursor: pointer; }
 .moment>span { color:var(--gold); font-size:32px; }.moment strong { font-size:var(--fs); overflow-wrap:anywhere; }
 @keyframes moment-in { from { opacity:0; transform:translate(-50%,-12px) scale(.95); } to { opacity:1; transform:translate(-50%,0) scale(1); } }
 @media(prefers-reduced-motion:reduce) { .moment { animation:none; } }
+
+/* Keep intrinsic table/text widths inside their own scroller, including iframe viewports. */
+:root { --control-touch: 44px; --record-gap: 10px; --nav-blur: 3px; }
+#app, main, .grid > *, .dialog, .dialog > .bd, .tbl-wrap, .club > div { min-width: 0; min-height: 0; }
+.overlay { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+.dialog { max-width: 100%; overflow-wrap: anywhere; }
+.dialog > .bd { overscroll-behavior: contain; scrollbar-gutter: stable; }
+.dialog > .hd h2 { min-width: 0; overflow-wrap: anywhere; }
+.dialog > .hd .x { flex: none; min-width: var(--control-touch); min-height: var(--control-touch); }
+.dialog > .ft { background: var(--panel); }
+.tbl-wrap { max-width: 100%; overscroll-behavior-x: contain; }
+.club .nm { white-space: normal; overflow-wrap: anywhere; }
+.kv { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+.kv > span, .feed .ev > span, .goal-ring .g > span { overflow-wrap: anywhere; min-width: 0; }
+.goal-ring .g { grid-template-columns: auto minmax(0, 1fr) auto; }
+.game-list { min-width: 0; }
+.game-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px var(--record-gap); padding: var(--record-gap); border-bottom: 1px solid var(--line); align-items: center; }
+.game-row:last-child { border-bottom: 0; }
+.game-label { grid-column: 1 / -1; color: var(--muted); font-size: var(--fs-xs); overflow-wrap: anywhere; }
+.game-score { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--gap); align-items: center; min-width: 0; }
+.game-score > span { overflow-wrap: anywhere; }
+.game-score > span:last-child { text-align: right; }
+.game-score > b { font: 700 20px/1.2 var(--f-display); white-space: nowrap; color: var(--fg); }
+.game-meta { display: flex; flex-wrap: wrap; gap: 4px var(--record-gap); color: var(--muted); font-size: var(--fs-xs); grid-column: 1; }
+.game-meta b { color: var(--fg); }
+.game-detail { grid-column: 2; grid-row: 2 / 4; min-height: var(--control-touch); justify-content: center; }
+.match-personal { margin-bottom: var(--record-gap); line-height: 1.7; }
+.table-hint { color: var(--muted); font-size: var(--fs-xs); margin: var(--gap) 0; }
+.nav-backdrop { display: none; }
+@media (max-width: 860px) {
+  :root { --fs: 14px; --fs-s: 13px; --fs-xs: 12px; --fs-min: 11px; --tap: var(--control-touch); }
+  .top .club { flex: 1 1 55%; }
+  .when { white-space: normal; }
+  .go { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-flow: row; }
+  .go > .btn { grid-column: span 2; min-width: 0; white-space: normal; padding: 4px; }
+  .go > .btn:nth-child(4), .go > .btn:nth-child(5) { grid-column: span 3; }
+  main { scroll-padding-block: var(--record-gap); }
+  .nav-backdrop { display: block; position: fixed; inset: 0; z-index: 85; padding: 0; border: 0; background: var(--overlay); backdrop-filter: blur(var(--nav-blur)); -webkit-backdrop-filter: blur(var(--nav-blur)); }
+  nav.rail.open { max-width: 100%; padding-bottom: max(var(--gap), env(safe-area-inset-bottom)); }
+  nav.rail.open .rail-link { min-height: var(--control-touch); }
+  .dialog, .dialog.wide, .dialog.match, .dialog.narrow { width: 100%; height: 100%; max-height: 100%; }
+  .dialog > .hd { padding-top: max(6px, env(safe-area-inset-top)); }
+  .dialog > .ft { padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+  .dialog > .ft .btn { flex: 1 1 auto; justify-content: center; min-height: var(--control-touch); white-space: normal; }
+  .scoreboard { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--gap); }
+  .scoreboard .team { flex-direction: column; align-items: center; text-align: center; gap: 6px; }
+  .scoreboard .team.away { flex-direction: column-reverse; text-align: center; }
+  .scoreboard .team b { font: 600 var(--fs)/1.5 var(--f-body); overflow-wrap: anywhere; }
+  .record-players th:nth-child(2), .record-players td:nth-child(2) { position: sticky; left: 0; z-index: 2; background: var(--panel); min-width: 7em; max-width: 12em; white-space: normal; overflow-wrap: anywhere; }
+  .record-players th:nth-child(2) { background: var(--panel2); z-index: 3; }
+  .record-players tr.me td:nth-child(2) { background: var(--rail); color: var(--accent); }
+  .btn.small, .seg button, .pl { min-height: var(--control-touch); }
+  input[type=text], input[type=number], input[type=search], select { font-size: 16px; min-height: var(--control-touch); }
+  .spread { flex-wrap: wrap; }
+  #toast { bottom: calc(60px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 380px) {
+  .game-score { grid-column: 1 / -1; }
+  .game-detail { grid-row: 3; }
+  .top .when { text-align: left; }
+}
 </style></head>
 <body><div id="app"></div><div id="modal-root"></div><div id="toast" role="status" aria-live="polite"></div><input id="import-file" type="file" accept=".json,application/json" hidden><script>/* 名单数据容器与补位姓名池。真实球员见 data/*.js；补位球员由姓名池按国籍稳定生成，为游戏设定。 */
 var FOOTBALL_DATA = { leagues: [] };
@@ -3994,25 +4055,35 @@ var UI = (function () {
     wrap.addEventListener('mousedown', e => { if (e.target === wrap && !opts.noClose && !opts.sticky) closeModal(); });
     wrap.querySelector('[data-close]')?.addEventListener('click', () => closeModal());
     root.appendChild(wrap);
-    modalStack.push({ wrap, opts });
-    setTimeout(() => { const f = wrap.querySelector('[autofocus]') || wrap.querySelector('.ft .btn.primary') || wrap.querySelector('button'); f && f.focus(); }, 30);
+    enhanceTables(wrap);
+    const returnFocus = document.activeElement;
+    if (topModal()) topModal().inert = true;
+    $('#app').inert = true;
+    modalStack.push({ wrap, opts, returnFocus });
+    setTimeout(() => { if (topModal() !== wrap) return; const f = wrap.querySelector('[autofocus]') || wrap.querySelector('.ft .btn.primary') || wrap.querySelector('button'); f && f.focus(); }, 30);
     return wrap;
   }
   function closeModal(all) {
+    let returnFocus;
     while (modalStack.length) {
       const top = modalStack.pop();
+      returnFocus = top.returnFocus;
       top.wrap.remove();
       if (top.opts.onClose) top.opts.onClose();
       if (!all) break;
     }
-    if (!modalStack.length && lastFocus && document.contains(lastFocus)) lastFocus.focus();
+    const active = topModal();
+    if (active) active.inert = false;
+    else $('#app').inert = false;
+    const focus = returnFocus?.isConnected ? returnFocus : active?.querySelector('.ft .btn.primary, button') || (lastFocus?.isConnected ? lastFocus : null);
+    focus?.focus({ preventScroll: true });
   }
   function topModal() { return modalStack.length ? modalStack[modalStack.length - 1].wrap : null; }
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && modalStack.length) { const t = modalStack[modalStack.length - 1]; if (!t.opts.noClose) { e.preventDefault(); closeModal(); } }
     if (e.key === 'Tab' && modalStack.length) {
       const d = topModal().querySelector('.dialog');
-      const f = [...d.querySelectorAll('button:not(:disabled),input,select,[tabindex="0"]')];
+      const f = [...d.querySelectorAll('button:not(:disabled),input,select,[tabindex="0"]')].filter(el => el.getClientRects().length && !el.closest('[hidden]'));
       if (!f.length) return;
       if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
       else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
@@ -4055,7 +4126,7 @@ var UI = (function () {
       return rows.map(([k, x, y]) => { const t = (x + y) || 1; return `<div class="cmp"><span class="l">${x}</span><div><div class="c">${k}</div><div class="bars"><i class="lh" style="width:${x / t * 100}%"></i><i class="ra" style="width:${y / t * 100}%"></i></div></div><span>${y}</span></div>`; }).join('') + (m.done ? '' : '<p class="small dim" style="margin-top:8px">统计按比赛进程实时更新，传球数据在终场后统计。</p>');
     }
     function renderPlayers() {
-      return m.sides.map(side => { const rows = Object.entries(side.st).sort((x, y) => y[1].start - x[1].start || x[1].from - y[1].from).map(([id, S]) => { const on = side.on.some(e => e.p.id === id); return `<tr class="${id === opts.meId ? 'me' : ''}"><td>${posChip(S.slot)}</td><td>${w.players[id] ? plLink(w.players[id]) : E(nameOf(id))}${S.start ? '' : ' <span class="dim small">' + S.from + "'↑</span>"}${!on && S.to != null && S.to < 90 ? ' <span class="dim small">' + S.to + "'↓" + (S.out ? ' ' + E(S.out) : '') + '</span>' : ''}</td><td class="n">${S.mn}</td><td class="n">${S.g || ''}</td><td class="n">${S.a || ''}</td><td class="n">${S.sh || ''}</td><td class="n">${S.yc ? '🟨' : ''}${S.rc ? '🟥' : ''}</td><td class="n"><b>${(Math.round(S.rt * 10) / 10).toFixed(1)}</b></td></tr>`; }).join(''); return `<div style="margin-bottom:10px"><div class="small muted" style="margin-bottom:4px">${E(side.name)}</div><div class="tbl-wrap short"><table class="t"><thead><tr><th>位置</th><th>球员</th><th class="n">分钟</th><th class="n">进</th><th class="n">助</th><th class="n">射</th><th class="n">牌</th><th class="n">评分</th></tr></thead><tbody>${rows}</tbody></table></div></div>`; }).join('');
+      return m.sides.map(side => { const rows = Object.entries(side.st).sort((x, y) => y[1].start - x[1].start || x[1].from - y[1].from).map(([id, S]) => { const on = side.on.some(e => e.p.id === id); return `<tr class="${id === opts.meId ? 'me' : ''}"><td>${posChip(S.slot)}</td><td>${w.players[id] ? plLink(w.players[id]) : E(nameOf(id))}${S.start ? '' : ' <span class="dim small">' + S.from + "'↑</span>"}${!on && S.to != null && S.to < 90 ? ' <span class="dim small">' + S.to + "'↓" + (S.out ? ' ' + E(S.out) : '') + '</span>' : ''}</td><td class="n">${S.mn}</td><td class="n">${S.g || ''}</td><td class="n">${S.a || ''}</td><td class="n">${S.sh || ''}</td><td class="n">${S.yc ? '🟨' : ''}${S.rc ? '🟥' : ''}</td><td class="n"><b>${(Math.round(S.rt * 10) / 10).toFixed(1)}</b></td></tr>`; }).join(''); return `<div style="margin-bottom:10px"><div class="small muted" style="margin-bottom:4px">${E(side.name)}</div><p class="table-hint">左右滑动查看完整技术统计，球员姓名固定显示。</p><div class="tbl-wrap short"><table class="t record-players"><thead><tr><th>位置</th><th>球员</th><th class="n">分钟</th><th class="n">进</th><th class="n">助</th><th class="n">射</th><th class="n">牌</th><th class="n">评分</th></tr></thead><tbody>${rows}</tbody></table></div></div>`; }).join('');
     }
     function renderBody() { const b = wrap.querySelector('#mt-body'); if (st.tab === 'feed') { if (!feedEl()) { b.innerHTML = '<div class="feed" id="mt-feed" aria-live="polite"></div>'; st.shown = 0; } renderFeed(); } else b.innerHTML = st.tab === 'stats' ? renderStats() : renderPlayers(); }
     function liveLine() { const a = m.home.stats, b = m.away.stats, tot = (a.possT + b.possT) || 1; return `控球 ${Math.round(a.possT / tot * 100)}% : ${100 - Math.round(a.possT / tot * 100)}% · 射门 ${a.sh}(${a.sot}) : ${b.sh}(${b.sot}) · xG ${a.xg.toFixed(2)} : ${b.xg.toFixed(2)}`; }
@@ -4165,14 +4236,17 @@ var UI = (function () {
   function matchRecordHtml(w, rec, meId) {
     const side = (s, i) => {
       const rows = s.pl.map(FB.plRow).sort((x, y) => y.start - x.start || x.from - y.from).map(S => { const p = w.players[S.id] || { n: S.n || '（已离开）' }; return `<tr class="${S.id === meId ? 'me' : ''}"><td>${posChip(S.slot)}</td><td>${E(p.n)}${S.start ? '' : ' <span class="dim small">' + S.from + "'↑</span>"}</td><td class="n">${S.mn}</td><td class="n">${S.g || ''}</td><td class="n">${S.a || ''}</td><td class="n">${S.sh}/${S.sot}</td><td class="n">${S.kp || ''}</td><td class="n">${S.tk || ''}</td><td class="n">${S.ps ? S.pc + '/' + S.ps : ''}</td><td class="n">${S.yc ? '🟨' : ''}${S.rc ? '🟥' : ''}</td><td class="n"><b>${(+S.rt).toFixed(1)}</b></td></tr>`; }).join('');
-      return `<div><div class="small muted" style="margin-bottom:4px">${E(s.name)} · ${s.g} 球</div><div class="tbl-wrap short"><table class="t"><thead><tr><th>位置</th><th>球员</th><th class="n">分钟</th><th class="n">进</th><th class="n">助</th><th class="n">射/正</th><th class="n">关键传</th><th class="n">抢断</th><th class="n">传球</th><th class="n">牌</th><th class="n">评分</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+      return `<div><div class="small muted" style="margin-bottom:4px">${E(s.name)} · ${s.g} 球</div><p class="table-hint">左右滑动查看完整技术统计，球员姓名固定显示。</p><div class="tbl-wrap short"><table class="t record-players"><thead><tr><th>位置</th><th>球员</th><th class="n">分钟</th><th class="n">进</th><th class="n">助</th><th class="n">射/正</th><th class="n">关键传</th><th class="n">抢断</th><th class="n">传球</th><th class="n">牌</th><th class="n">评分</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
     };
     const a = rec.h.stats, b = rec.a.stats;
     const rows = [['控球率 %', a.poss, b.poss], ['射门', a.sh, b.sh], ['射正', a.sot, b.sot], ['预期进球 xG', +(+a.xg).toFixed(2), +(+b.xg).toFixed(2)], ['角球', a.corners, b.corners], ['犯规', a.fouls, b.fouls], ['黄牌', a.yc, b.yc], ['红牌', a.rc, b.rc], ['扑救', a.saves, b.saves], ['传球', a.ps, b.ps]];
     const cmp = rows.map(([k, x, y]) => { const t = (x + y) || 1; return `<div class="cmp"><span class="l">${x}</span><div><div class="c">${k}</div><div class="bars"><i class="lh" style="width:${x / t * 100}%"></i><i class="ra" style="width:${y / t * 100}%"></i></div></div><span>${y}</span></div>`; }).join('');
     const ev = (rec.ev || []).slice().reverse().map(e => `<div class="ev ${e[1]}${meId && e[3] === meId ? ' me' : ''}"><span class="m">${E(e[0])}'</span><span>${E(e[4])}</span></div>`).join('');
     const motm = rec.motm && w.players[rec.motm] ? `<p class="small">全场最佳：<b>${E(w.players[rec.motm].n)}</b></p>` : '';
-    return `<div class="scoreboard"><div class="team">${crest(w.clubs[rec.h.club])}<b>${E(rec.h.name)}</b></div><div class="score">${rec.h.g} : ${rec.a.g}</div><div class="team away"><b>${E(rec.a.name)}</b>${crest(w.clubs[rec.a.club])}</div></div>${motm}<div class="grid g2"><div>${cmp}</div><div class="feed" style="max-height:330px">${ev || '<div class="empty">只保留了进球与红牌记录。</div>'}</div></div><div class="grid" style="margin-top:12px">${side(rec.h, 0)}${side(rec.a, 1)}</div>`;
+    const ownSide = meId && [rec.h, rec.a].find(side => side.pl.some(row => FB.plRow(row).id === meId));
+    const own = ownSide && ownSide.pl.map(FB.plRow).find(row => row.id === meId);
+    const personal = meId ? `<div class="note match-personal"><b>我的表现</b><div>${own ? `${own.start ? '首发' : '替补'} ${own.mn} 分钟 · 评分 <b>${(+own.rt).toFixed(1)}</b> · ${own.g || 0} 球 · ${own.a || 0} 助攻` : '本场未出场'}</div></div>` : '';
+    return `<div class="scoreboard"><div class="team">${crest(w.clubs[rec.h.club])}<b>${E(rec.h.name)}</b></div><div class="score">${rec.h.g} : ${rec.a.g}</div><div class="team away"><b>${E(rec.a.name)}</b>${crest(w.clubs[rec.a.club])}</div></div>${personal}${motm}<div class="grid g2"><div>${cmp}</div><div class="feed" style="max-height:330px">${ev || '<div class="empty">只保留了进球与红牌记录。</div>'}</div></div><div class="grid" style="margin-top:12px">${side(rec.h, 0)}${side(rec.a, 1)}</div>`;
   }
 
   /* ---------- 风格雷达与徽章 ---------- */
@@ -4196,6 +4270,15 @@ var UI = (function () {
   const columnPrefs = new Map();
   function enhanceTables(root) {
     for (const table of root.querySelectorAll('table.t')) {
+      // Contain wide data tables locally; they must never set the page/dialog width.
+      if (!table.parentElement.classList.contains('tbl-wrap')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'tbl-wrap';
+        table.before(wrap); wrap.appendChild(table);
+      }
+      table.parentElement.tabIndex = 0;
+      table.parentElement.setAttribute('role', 'region');
+      table.parentElement.setAttribute('aria-label', '数据表，可左右滑动查看完整数据');
       const heads=[...(table.tHead?.rows[0]?.cells || [])];
       if(heads.length<7 || !table.tBodies[0] || table.dataset.enhanced) continue;
       table.dataset.enhanced='1';
@@ -4226,7 +4309,7 @@ var UI = (function () {
     const at = FB.attrs(p), club = p.club ? w.clubs[p.club] : null, a = FB.age(w, p);
     const s = p.s || {};
     const pos3 = FB.POS_ORDER.filter(x => x !== 'GK' || p.pos === 'GK').map(x => [x, Math.round(FB.ovrOf(at, x))]).sort((x, y) => y[1] - x[1]).slice(0, 3);
-    return `<div class="spread player-banner" data-tier="${p.ovr >= 85 ? "special" : p.ovr >= 75 ? "gold" : p.ovr >= 65 ? "silver" : "bronze"}" style="--team:${E(club?.color || "#3fbf6f")};align-items:flex-start;margin-bottom:12px"><div class="club">${avatar(p.n,club?.color)}<div><div class="nm" style="font-size:22px">${E(p.n)}</div><div class="sub">${E(club ? club.name : '自由球员')} · ${a}岁 · ${E(nat(p.nat))} · ${E(FB.POS[p.pos])}</div></div></div><div style="text-align:right">${ovBadge(p.ovr, true)}<div style="margin-top:4px">${stars(p.pot)}</div></div></div>
+    return `<div class="spread player-banner" data-tier="${p.ovr >= 85 ? "special" : p.ovr >= 75 ? "gold" : p.ovr >= 65 ? "silver" : "bronze"}" style="--team:${E(club?.color || "#3fbf6f")};align-items:flex-start;margin-bottom:12px"><div class="club">${extra.portrait === false ? '' : avatar(p.n,club?.color)}<div><div class="nm" style="font-size:22px">${E(p.n)}</div><div class="sub">${E(club ? club.name : '自由球员')} · ${a}岁 · ${E(nat(p.nat))} · ${E(FB.POS[p.pos])}</div></div></div><div style="text-align:right">${ovBadge(p.ovr, true)}<div style="margin-top:4px">${stars(p.pot)}</div></div></div>
       <div class="stat-row" style="margin-bottom:12px"><div class="stat"><div class="k">身价</div><div class="v">${money(FB.valueOf(p, w))}</div></div><div class="stat"><div class="k">周薪</div><div class="v" style="font-size:18px">${wage(p.wage)}</div></div><div class="stat"><div class="k">合同到期</div><div class="v">${p.cy ? p.cy + '年夏' : '—'}</div></div><div class="stat"><div class="k">体能 · 状态</div><div class="v" style="font-size:18px">${Math.round(p.cond == null ? 100 : p.cond)} <small>${p.inj > 0 ? '伤停 ' + p.inj + ' 周' : p.ban > 0 ? '停赛' : '可出场'}</small></div></div></div>
       <div class="pdetail"><div>${attrList(p)}</div><div class="pside"><div class="small muted">风格 <b class="acc">${E(FB.styleOf(p)[1])}</b></div>${radarSvg(p)}<div class="small muted" style="margin-top:4px">位置熟练度</div>${posMap(p)}</div></div>
       <p class="small muted" style="margin:10px 0 4px">适合位置：${pos3.map(([x, v]) => `${FB.POS[x]} ${v}`).join(' · ')}</p>${badgePanel(p)}
@@ -5225,11 +5308,20 @@ var CR = (function () {
   }
   function retire(why) { s.retired = true; CR.log(s, `宣布退役（${why}）。`); }
 
+  // One responsive match list for the overview, calendar and both reports.
+  function gamesList(games, dates = false) {
+    return `<div class="game-list">${games.map(g => `<article class="game-row">
+      <div class="game-label">${dates ? `<span>${E(g.d)}</span> · ` : ''}${E(g.title)}</div>
+      <div class="game-score"><span>${E(g.us)}</span><b>${g.gf} : ${g.ga}</b><span>${E(g.them)}</span></div>
+      <div class="game-meta"><span>${g.played ? (g.start ? '首发' : '替补') + ' ' + g.mn + ' 分钟' : E(g.why || '未出场')}</span>${g.g ? `<span>${g.g} 球</span>` : ''}${g.a ? `<span>${g.a} 助攻</span>` : ''}${g.rt != null ? `<span>评分 <b>${g.rt.toFixed(1)}</b></span>` : ''}</div>
+      ${g.rec ? btn('详情', 'game', 'ghost game-detail', `data-i="${s.games.indexOf(g)}" aria-label="${E(g.title)}比赛详情"`) : ''}
+    </article>`).join('')}</div>`;
+  }
   function weekReport(r) {
     const w = W();
     const gains = Object.entries(r.gains || {}).filter(([, v]) => Math.abs(v) >= .005).sort((a, b) => b[1] - a[1]);
-    const games = r.matches.map(g => `<tr><td>${E(g.title)}</td><td>${E(g.us)} <b>${g.gf}:${g.ga}</b> ${E(g.them)}</td><td>${g.played ? (g.start ? '首发' : '替补') + ' ' + g.mn + "'" : '<span class="dim">未出场</span>'}</td><td class="n">${g.g ? g.g + '球 ' : ''}${g.a ? g.a + '助 ' : ''}</td><td class="n">${g.rt != null ? '<b>' + g.rt.toFixed(1) + '</b>' : '—'}</td><td>${g.rec ? btn('详情', 'game', 'small ghost', `data-i="${s.games.indexOf(g)}"`) : ''}</td></tr>`).join('');
-    const html = `${r.trial ? `<div class="note ${r.trial.ok ? '' : 'warn'}" style="margin-bottom:10px">${E(r.trial.text)}</div>` : ''}${games ? `<table class="t" style="margin-bottom:12px"><tbody>${games}</tbody></table>` : ''}
+    const games = r.matches.length ? gamesList(r.matches) : '';
+    const html = `${r.trial ? `<div class="note ${r.trial.ok ? '' : 'warn'}" style="margin-bottom:10px">${E(r.trial.text)}</div>` : ''}${games}
       <div class="grid g2"><div><h4 class="small muted" style="margin:0 0 6px">训练成长 · ${E(CR.FOCUS[s.train.focus].name)} · ${E(CR.INTENSITY[s.train.int].name)}</h4>${gains.length ? gains.slice(0, 8).map(([k, v]) => `<div class="attr"><span>${FB.ATTR_NAME[k]}</span><span class="${v >= 0 ? 'good' : 'bad'}">${gainTxt(v)}</span></div>`).join('') : '<p class="small muted">本周没有能力变化。</p>'}<div class="attr" style="border-top:1px solid var(--line);margin-top:4px;padding-top:4px"><span>总评</span><span><b>${ME().ovr}</b> <span class="${r.dOvr >= 0 ? 'good' : 'bad'}">${gainTxt(r.dOvr || 0)}</span></span></div></div>
       <div><h4 class="small muted" style="margin:0 0 6px">身体与收入</h4><div class="kv"><span>疲劳</span><span>${Math.round(s.fatigue)}</span><span>伤病</span><span>${ME().inj > 0 ? ME().inj + ' 周' : '健康'}</span><span>士气</span><span>${Math.round(s.morale)}</span><span>教练信任</span><span>${Math.round(s.trust)}</span><span>本周收入</span><span>${wage(r.pay || 0).replace('/周', '')}${r.endorse ? `（含代言 ${wage(r.endorse).replace('/周', '')}）` : ''}</span><span>人气 · 球迷</span><span>${Math.round(s.fame)} · ${fmt(s.fans)} 万</span></div></div></div>
       ${r.lines.length ? `<ul class="small" style="margin:12px 0 0;padding-left:18px;line-height:1.7">${r.lines.map(l => `<li>${E(l)}</li>`).join('')}</ul>` : ''}`;
@@ -5263,8 +5355,8 @@ var CR = (function () {
     const blk = blockers();
     const goBtns = s.retired ? btn('生涯已结束', 'x', 'primary', 'disabled') : blk ? btn(s.event ? '处理剧情 ▸' : '回复征召 ▸', s.event ? 'show-event' : 'show-call', 'primary') : hasMatch ? btn('观看整场 ▸', 'watch', 'primary') + btn('只看我上场', 'watch-me') + btn('快速', 'quick', 'ghost') : btn(plan.trial != null ? '前往试训 ▸' : '继续 ▸', 'quick', 'primary');
     app.innerHTML = `<header class="top"><button type="button" class="btn small ghost mobile-nav" data-act="menu" aria-label="打开导航">☰</button><div class="brand"><b>足球</b>巨星</div><div class="club">${c ? crest(c) : '<span class="crest" style="background:#334">FA</span>'}<div><div class="nm">${E(p.n)} · ${E(c ? c.name : '自由球员')}</div><div class="sub">${a}岁 · ${FB.POS[p.pos]} · ${c ? E(lgName(c.lg)) : '—'} · 总评 ${p.ovr}${s.abroad ? ' · <span class="acc">' + E(s.abroad.name) + '</span>' : ''}</div></div></div><div class="when"><b>${s.retired ? '已退役' : FB.phaseName(w.week) + ' · 第 ' + (w.week + 1) + ' / 52 周'}</b>${seasonLabel()} · ${FB.dateText(w.season, w.week)}</div><div class="go">${goBtns}${btn('4 周', 'fast', 'ghost', s.retired || blk ? 'disabled' : '')}${btn('💾 存档', 'slots', 'ghost')}</div></header>
-      <nav class="rail ${ui.mobile ? 'open' : ''}" aria-label="生涯导航"><div class="grp">我的生涯</div>${nav('home', '生涯总览')}${nav('profile', '球员档案')}${nav('popularity', '★ 人气')}${nav('training', '训练')}${nav('squad', '本队阵容')}${nav('fixtures', '赛程 · 比赛')}<div class="grp">机会</div>${nav('abroad', '留洋', s.trials.length + s.pre.length || '')}${nav('contracts', '合同', s.offers.length)}${nav('national', '国家队', s.nat.pending ? '!' : '')}${nav('inbox', '消息', unread)}<div class="grp">足球世界</div>${nav('leagues', '联赛')}${nav('history', '生涯 · 荣誉')}<div class="grp">系统</div>${nav('settings', '存档 · 规则')}<div class="rail-summary"><div>${E(p.n)} <span class="pos">${p.pos}</span></div><div class="dim">${a}岁 · ${s.profile.height}cm · ${E(s.profile.foot)}</div><div style="margin-top:7px">${ovBadge(p.ovr)} <span class="muted">潜力</span> ${stars(p.pot)}</div><div style="margin-top:8px" class="small">欧洲关注 ${Math.round(s.euro)}</div>${bar(s.euro)}<div class="dim" style="margin-top:10px">${ui.saveOK ? '进度已自动保存' : E(ui.saveErr || '存储不可用，请导出备份')}</div></div></nav>
-      <main id="view"><div class="page-heading"><h1 class="h1">${TITLES[view][0]}</h1><p class="lede">${TITLES[view][1]}</p></div>${!ui.saveOK ? `<div class="note bad" style="margin-bottom:12px">自动保存失败：${E(ui.saveErr || '')} ${btn('导出当前进度', 'export', 'small')}</div>` : ''}${s.retired ? `<div class="note" style="margin-bottom:12px"><b>生涯已结束。</b> 你可以查看生涯记录，或开始新的生涯。 ${btn('新生涯', 'new', 'small')}</div>` : ''}${content}</main><nav class="tabbar" aria-label="主要页面">${[['home', '总览'], ['training', '训练'], ['squad', '阵容'], ['abroad', '留洋', s.trials.length + s.pre.length]].map(([id, l, b]) => `<button type="button" data-go="${id}" class="${view === id ? 'on' : ''}">${l}${b ? `<span class="badge">${b}</span>` : ''}</button>`).join('')}<button type="button" data-act="menu" class="${ui.mobile ? 'on' : ''}">更多${unread ? `<span class="badge">${unread}</span>` : ''}</button></nav>`;
+      <nav id="career-nav" class="rail ${ui.mobile ? 'open' : ''}" aria-label="生涯导航"><div class="grp">我的生涯</div>${nav('home', '生涯总览')}${nav('profile', '球员档案')}${nav('popularity', '★ 人气')}${nav('training', '训练')}${nav('squad', '本队阵容')}${nav('fixtures', '赛程 · 比赛')}<div class="grp">机会</div>${nav('abroad', '留洋', s.trials.length + s.pre.length || '')}${nav('contracts', '合同', s.offers.length)}${nav('national', '国家队', s.nat.pending ? '!' : '')}${nav('inbox', '消息', unread)}<div class="grp">足球世界</div>${nav('leagues', '联赛')}${nav('history', '生涯 · 荣誉')}<div class="grp">系统</div>${nav('settings', '存档 · 规则')}<div class="rail-summary"><div>${E(p.n)} <span class="pos">${p.pos}</span></div><div class="dim">${a}岁 · ${s.profile.height}cm · ${E(s.profile.foot)}</div><div style="margin-top:7px">${ovBadge(p.ovr)} <span class="muted">潜力</span> ${stars(p.pot)}</div><div style="margin-top:8px" class="small">欧洲关注 ${Math.round(s.euro)}</div>${bar(s.euro)}<div class="dim" style="margin-top:10px">${ui.saveOK ? '进度已自动保存' : E(ui.saveErr || '存储不可用，请导出备份')}</div></div></nav>
+      <main id="view" tabindex="-1"><div class="page-heading"><h1 class="h1">${TITLES[view][0]}</h1><p class="lede">${TITLES[view][1]}</p></div>${!ui.saveOK ? `<div class="note bad" style="margin-bottom:12px">自动保存失败：${E(ui.saveErr || '')} ${btn('导出当前进度', 'export', 'small')}</div>` : ''}${s.retired ? `<div class="note" style="margin-bottom:12px"><b>生涯已结束。</b> 你可以查看生涯记录，或开始新的生涯。 ${btn('新生涯', 'new', 'small')}</div>` : ''}${content}</main><nav class="tabbar" aria-label="主要页面">${[['home', '总览'], ['training', '训练'], ['squad', '阵容'], ['abroad', '留洋', s.trials.length + s.pre.length]].map(([id, l, b]) => `<button type="button" data-go="${id}" class="${view === id ? 'on' : ''}">${l}${b ? `<span class="badge">${b}</span>` : ''}</button>`).join('')}<button type="button" data-act="menu" aria-controls="career-nav" aria-expanded="${ui.mobile}" class="${ui.mobile ? 'on' : ''}">更多${unread ? `<span class="badge">${unread}</span>` : ''}</button></nav>${ui.mobile ? '<button type="button" class="nav-backdrop" data-act="dismiss-menu" aria-label="收起更多菜单"></button>' : ''}`;
     UI.enhanceTables($('main'));
     $('main').scrollTop = prior;
   }
@@ -5275,7 +5367,7 @@ var CR = (function () {
     const h = s.fameHistory || [], inc = CR.endorseIncome(s);
     const milestones = Object.entries(CR.MILESTONES).map(([k,v]) => `<div class="milestone ${s.flags['ms_'+k] ? 'achieved' : ''}"><b>${s.flags['ms_'+k] ? '✓' : '○'}</b><span>${E(v[2].replace('国内媒体沸腾：','').replace('国内媒体：',''))}<small>人气 +${v[0]} · 球迷 +${v[1]} 万</small></span></div>`).join('');
     const news = s.inbox.filter(n => /媒体|人气|首秀|首球|代言|留洋|欧洲|五大/.test(n.t+' '+n.b));
-    return `<div class="pophero">${UI.avatar(ME().n, CR.curClub(s)?.color)}<div><small>球场之外</small><h2>${E(ME().n)}</h2><span>${E(CR.fameInfo(s).name)}</span></div><strong>${Math.round(s.fame)}<small>人气 / 100</small></strong></div><div class="stat-row"><div class="stat"><div class="k">球迷</div><div class="v">${fmt(s.fans)}<small> 万</small></div></div><div class="stat"><div class="k">国内关注</div><div class="v">${Math.round(s.fame)}</div></div><div class="stat"><div class="k">欧洲关注</div><div class="v">${Math.round(s.euro)}</div></div><div class="stat"><div class="k">每周代言</div><div class="v">${wage(inc)}</div></div></div><div class="grid g2">${card('最近 26 周人气', UI.trend(h.map(x=>x.fame)))}${card('留洋里程碑', milestones)}</div><div class="grid g2">${card('媒体动态', news.length ? news.slice(0,12).map(n=>`<details class="news-short"><summary>${E(n.t)}</summary><p>${E(n.b)}</p></details>`).join('') : empty('等待你的第一个头条','参加留洋项目、首秀或进球后留下记录。'))}${card('代言结算', h.length ? `<div class="tbl-wrap"><table class="t"><thead><tr><th>周次</th><th class="n">人气</th><th class="n">到账</th></tr></thead><tbody>${h.slice(-12).reverse().map(x=>`<tr><td>${Math.floor(x.week/52)+1}季 · ${x.week%52+1}周</td><td class="n">${x.fame.toFixed(1)}</td><td class="n">${wage(x.income).replace('/周','')}</td></tr>`).join('')}</tbody></table></div>` : empty('还没有周结算','继续一周后开始记录。'))}</div><details class="card bd"><summary>人气如何影响生涯</summary>${fameCard()}<p>更高人气提高合同薪资与转会邀约机会，也会影响国家队入选；欧洲关注反映海外球探的兴趣。旧存档的历史从本次继续开始记录。</p></details>`;
+    return `<div class="pophero"><div><small>球场之外</small><h2>${E(ME().n)}</h2><span>${E(CR.fameInfo(s).name)}</span></div><strong>${Math.round(s.fame)}<small>人气 / 100</small></strong></div><div class="stat-row"><div class="stat"><div class="k">球迷</div><div class="v">${fmt(s.fans)}<small> 万</small></div></div><div class="stat"><div class="k">国内关注</div><div class="v">${Math.round(s.fame)}</div></div><div class="stat"><div class="k">欧洲关注</div><div class="v">${Math.round(s.euro)}</div></div><div class="stat"><div class="k">每周代言</div><div class="v">${wage(inc)}</div></div></div><div class="grid g2">${card('最近 26 周人气', UI.trend(h.map(x=>x.fame)))}${card('留洋里程碑', milestones)}</div><div class="grid g2">${card('媒体动态', news.length ? news.slice(0,12).map(n=>`<details class="news-short"><summary>${E(n.t)}</summary><p>${E(n.b)}</p></details>`).join('') : empty('等待你的第一个头条','参加留洋项目、首秀或进球后留下记录。'))}${card('代言结算', h.length ? `<div class="tbl-wrap"><table class="t"><thead><tr><th>周次</th><th class="n">人气</th><th class="n">到账</th></tr></thead><tbody>${h.slice(-12).reverse().map(x=>`<tr><td>${Math.floor(x.week/52)+1}季 · ${x.week%52+1}周</td><td class="n">${x.fame.toFixed(1)}</td><td class="n">${wage(x.income).replace('/周','')}</td></tr>`).join('')}</tbody></table></div>` : empty('还没有周结算','继续一周后开始记录。'))}</div><details class="card bd"><summary>人气如何影响生涯</summary>${fameCard()}<p>更高人气提高合同薪资与转会邀约机会，也会影响国家队入选；欧洲关注反映海外球探的兴趣。旧存档的历史从本次继续开始记录。</p></details>`;
   }
   function fameCard() {
     const st = CR.fameInfo(s), inc = CR.endorseIncome(s);
@@ -5321,7 +5413,7 @@ var CR = (function () {
     if (progs.length) todo.push(`可报名：${E(progs.map(x => x.name).join('、'))} ${btn('查看', 'go-abroad', 'small')}`);
     return `${first ? `<div class="note" style="margin-bottom:14px"><b>15 岁，加入${E(club(s.parent).name)}梯队。</b> 先在梯队争取首发，入选国少，再抓住留洋集训、合作交流和试训的机会。年满 18 岁才能签海外职业合同。</div>` : ''}
       <div class="grid g-main"><div class="grid">${card('本周', thisWeek, { right: c ? tag(E(lgName(c.lg))) : '' })}${todo.length ? card('待办', todo.map(t => `<div class="spread small" style="padding:4px 0">${t}</div>`).join('')) : ''}${card('状态', statusTiles())}
-      ${card('最近比赛', recent.length ? `<table class="t"><tbody>${recent.map(g => `<tr><td class="dim">${E(g.title)}</td><td>${E(g.us)} <b>${g.gf}:${g.ga}</b> ${E(g.them)}</td><td>${g.played ? (g.start ? '首发' : '替补') + ' ' + g.mn + "'" : '<span class="dim">' + E(g.why || '未出场') + '</span>'}</td><td class="n">${g.g ? g.g + '球' : ''}${g.a ? ' ' + g.a + '助' : ''}</td><td class="n">${g.rt != null ? '<b>' + g.rt.toFixed(1) + '</b>' : ''}</td><td>${g.rec ? btn('详情', 'game', 'small ghost', `data-i="${s.games.indexOf(g)}"`) : ''}</td></tr>`).join('')}</tbody></table>` : empty('还没有比赛', '青年联赛第 4 周开赛。'), { flush: !!recent.length })}</div>
+      ${card('最近比赛', recent.length ? gamesList(recent) : empty('还没有比赛', '青年联赛第 4 周开赛。'), { flush: !!recent.length })}</div>
       <div class="grid">${card('留洋路线', roadmap())}${card('人气与球迷', fameCard())}${card('当前合同', `<div class="kv"><span>球队</span><span>${E(c ? c.name : '—')}</span><span>类型</span><span>${E(s.contract.name)}</span><span>角色</span><span>${E(CR.ROLES[s.contract.role] || '')}</span><span>周薪</span><span>${s.contract.type === 'youth' ? '补贴 €100' : wage(s.contract.wage)}</span><span>到期</span><span>${s.contract.until} 年夏</span></div>`)}</div></div>`;
   }
   function profileView() {
@@ -5330,7 +5422,7 @@ var CR = (function () {
     const pos = CR.bestPositions(s).slice(0, 4);
     const rows = Object.values(s.st || {}).sort((a, b) => b.season - a.season);
     const tot = rows.reduce((t, r) => { for (const k of ['ap', 'st', 'mn', 'g', 'a', 'rs']) t[k] = (t[k] || 0) + r[k]; return t; }, {});
-    return `<div class="grid g-main"><div class="grid">${card('能力', `<div class="spread" style="margin-bottom:12px"><div class="club">${UI.avatar(p.n,CR.curClub(s)?.color)}<div>${ovBadge(p.ovr, true)}</div><div><div class="nm">${E(p.n)}</div><div class="sub">${CR.ageExact(s)}岁 · ${FB.POS[p.pos]} · ${E(FB.styleOf(p)[1])} · 精确总评 ${fmt2(CR.ovr(s))}</div></div></div><div style="text-align:right"><div class="small muted">潜力 ${p.pot}</div>${stars(p.pot)}</div></div><div class="pdetail"><div>${UI.attrList(p, s.gains)}</div><div class="pside">${UI.radarSvg(p)}<div class="small muted">位置熟练度</div>${UI.posMap(p)}</div></div><p class="small muted" style="margin:6px 0 0">属性为 1–20 分制。各位置能力：${pos.map(([x, v]) => `${FB.POS[x]} ${Math.round(v)}`).join(' · ')}。绿色数字为本赛季累计成长（1–20 分制）。</p>${UI.badgePanel(p)}`)}
+    return `<div class="grid g-main"><div class="grid">${card('能力', `<div class="spread" style="margin-bottom:12px"><div class="club"><div>${ovBadge(p.ovr, true)}</div><div><div class="nm">${E(p.n)}</div><div class="sub">${CR.ageExact(s)}岁 · ${FB.POS[p.pos]} · ${E(FB.styleOf(p)[1])} · 精确总评 ${fmt2(CR.ovr(s))}</div></div></div><div style="text-align:right"><div class="small muted">潜力 ${p.pot}</div>${stars(p.pot)}</div></div><div class="pdetail"><div>${UI.attrList(p, s.gains)}</div><div class="pside">${UI.radarSvg(p)}<div class="small muted">位置熟练度</div>${UI.posMap(p)}</div></div><p class="small muted" style="margin:6px 0 0">属性为 1–20 分制。各位置能力：${pos.map(([x, v]) => `${FB.POS[x]} ${Math.round(v)}`).join(' · ')}。绿色数字为本赛季累计成长（1–20 分制）。</p>${UI.badgePanel(p)}`)}
       ${card('生涯数据', rows.length ? `<div class="tbl-wrap"><table class="t"><thead><tr><th>赛季</th><th>赛事</th><th>球队</th><th class="n">出场</th><th class="n">首发</th><th class="n">分钟</th><th class="n">进球</th><th class="n">助攻</th><th class="n">射门</th><th class="n">评分</th></tr></thead><tbody>${rows.map(r => `<tr><td>${FB.START_YEAR + r.season}–${String(FB.START_YEAR + r.season + 1).slice(2)}</td><td>${E(CR.compName(r.comp))}</td><td>${E(r.club)}</td><td class="n">${r.ap}</td><td class="n">${r.st}</td><td class="n">${r.mn}</td><td class="n">${r.g}</td><td class="n">${r.a}</td><td class="n">${r.sh}/${r.sot}</td><td class="n">${r.ap ? (r.rs / r.ap).toFixed(2) : '—'}</td></tr>`).join('')}<tr><td colspan="3"><b>合计</b></td><td class="n"><b>${tot.ap}</b></td><td class="n">${tot.st}</td><td class="n">${tot.mn}</td><td class="n"><b>${tot.g}</b></td><td class="n"><b>${tot.a}</b></td><td></td><td class="n">${tot.ap ? (tot.rs / tot.ap).toFixed(2) : '—'}</td></tr></tbody></table></div>` : empty('还没有比赛数据'), { flush: !!rows.length })}</div>
       <div class="grid">${card('资料', `<div class="kv"><span>生日</span><span>2011-03-15</span><span>国籍</span><span>中国</span><span>身高 · 体重</span><span>${s.profile.height} cm · ${s.profile.weight} kg</span><span>惯用脚</span><span>${E(s.profile.foot)}</span><span>身价</span><span>${money(FB.valueOf(p, w))}</span><span>体能</span><span>${p.cond}</span><span>伤病</span><span>${p.inj > 0 ? p.inj + ' 周' : '健康'}</span></div><p class="small dim" style="margin:8px 0 0">身体资料为游戏生成。</p>`)}${card('状态', statusTiles())}</div></div>`;
   }
@@ -5358,7 +5450,7 @@ var CR = (function () {
   function fixturesView() {
     const w = W(), c = CR.curClub(s);
     const list = c ? FB.clubFixtures(w, c.id) : [];
-    return `<div class="grid g-main">${card('我的比赛', s.games.length ? `<div class="tbl-wrap"><table class="t"><thead><tr><th>日期</th><th>赛事</th><th>比分</th><th>出场</th><th class="n">进</th><th class="n">助</th><th class="n">评分</th><th></th></tr></thead><tbody>${s.games.slice(0, 120).map(g => `<tr><td class="dim">${E(g.d)}</td><td>${E(g.title)}</td><td>${E(g.us)} <b>${g.gf}:${g.ga}</b> ${E(g.them)}</td><td>${g.played ? (g.start ? '首发' : '替补') + ' ' + g.mn + "'" : '<span class="dim">' + E(g.why || '未出场') + '</span>'}</td><td class="n">${g.g || ''}</td><td class="n">${g.a || ''}</td><td class="n">${g.rt != null ? g.rt.toFixed(1) : ''}</td><td>${g.rec ? btn('详情', 'game', 'small ghost', `data-i="${s.games.indexOf(g)}"`) : ''}</td></tr>`).join('')}</tbody></table></div>` : empty('还没有比赛'), { flush: !!s.games.length })}
+    return `<div class="grid g-main">${card('我的比赛', s.games.length ? gamesList(s.games.slice(0, 120), true) : empty('还没有比赛'), { flush: !!s.games.length })}
       ${card(c ? `${E(c.name)} 赛程` : '赛程', list.length ? `<div class="tbl-wrap"><table class="t"><tbody>${list.map(f => { const home = f.home === c.id, o = club(home ? f.away : f.home); const r = f.res; return `<tr class="${f.week === w.week && !r ? 'me' : ''}"><td class="dim">第${f.round + 1}轮</td><td>${home ? '主' : '客'}</td><td>${crest(o, 1)} ${E(o.name)}</td><td class="c">${r ? `<b>${home ? r[0] : r[1]}:${home ? r[1] : r[0]}</b>` : '<span class="dim">第' + (f.week + 1) + '周</span>'}</td></tr>`; }).join('')}</tbody></table></div>` : empty('没有赛程'), { flush: !!list.length })}</div>`;
   }
   function abroadView() {
@@ -5367,7 +5459,7 @@ var CR = (function () {
     const progHtml = s.abroad ? `<div class="note"><b>${E(s.abroad.name)}</b> 进行中：${E(club(s.abroad.club).name)}，还剩 ${Math.max(0, s.abroad.until - CR.weekAbs(s))} 周。已踢 ${s.abroad.ratings.length} 场${s.abroad.ratings.length ? '，场均评分 ' + (s.abroad.ratings.reduce((x, y) => x + y, 0) / s.abroad.ratings.length).toFixed(2) : ''}。</div>` : progs.length ? progs.map(p => `<div class="spread" style="padding:8px 0;border-bottom:1px solid var(--line)"><div><b>${E(p.name)}</b><div class="small muted">${E(p.note)}</div><div class="small ${p.ok ? 'good' : 'warn'}">${p.need ? '需要总评 ' + p.need + '（当前 ' + ME().ovr + '）' : ''}${p.trust ? ' · 教练信任 ' + p.trust : ''}${p.cost ? ' · 费用 €' + fmt(p.cost * 1000) : ''}${p.ok ? ' · 可以报名' : ''}</div></div>${btn('报名', 'prog', 'primary small', `data-id="${p.id}" ${p.ok ? '' : 'disabled'}`)}</div>`).join('') : empty('当前没有开放的项目', '足协集训在第 28–31 周开放报名，合作交流在第 13–19 周，自费夏训营在第 44–50 周。');
     const trials = s.trials.length ? s.trials.map((t, i) => `<div class="spread" style="padding:8px 0;border-bottom:1px solid var(--line)"><div><b>${E(club(t.club).name)}</b> <span class="small muted">${E(lgName(club(t.club).lg))} · 实力 ${FB.teamRating(w, t.club)}</span><div class="small muted">试训 1 周，本周的球队比赛缺席。邀请第 ${(t.exp % 52) + 1} 周前有效。</div></div>${btn(s.trialNow === i ? '已安排本周' : '本周去试训', 'trial', s.trialNow === i ? 'on small' : 'primary small', `data-i="${i}"`)}</div>`).join('') : empty('暂无试训邀请', '欧洲关注度达到 18 后，海外俱乐部可能邀请你试训；经纪人渠道越广，邀请越多。');
     const pre = s.pre.length ? s.pre.map(x => `<div class="small" style="padding:4px 0">✓ ${E(x.note)}</div>`).join('') : '<p class="small muted" style="margin:0">还没有海外意向。试训成功或交流表现出色会获得意向，年满 18 岁后在转会窗口兑现为报价。</p>';
-    const agents = CR.AGENTS.map(x => `<div class="spread agent-person" style="padding:8px 0;border-bottom:1px solid var(--line)"><div class="row">${UI.avatar(x.name)}<div><b>${E(x.name)}</b>${s.agent === x.id ? ' <span class="tag acc">当前</span>' : ''}<div class="small muted">${E(x.note)}</div></div></div>${s.agent === x.id ? btn('解约', 'agent', 'small ghost', 'data-id=""') : btn('签约', 'agent', 'small', `data-id="${x.id}" ${s.euro >= x.need ? '' : 'disabled'}`)}</div>`).join('');
+    const agents = CR.AGENTS.map(x => `<div class="spread agent-person" style="padding:8px 0;border-bottom:1px solid var(--line)"><div class="row"><div><b>${E(x.name)}</b>${s.agent === x.id ? ' <span class="tag acc">当前</span>' : ''}<div class="small muted">${E(x.note)}</div></div></div>${s.agent === x.id ? btn('解约', 'agent', 'small ghost', 'data-id=""') : btn('签约', 'agent', 'small', `data-id="${x.id}" ${s.euro >= x.need ? '' : 'disabled'}`)}</div>`).join('');
     return `<div class="note" style="margin-bottom:12px">国际足联规定未满 18 岁的球员原则上不能跨国转会。你现在 ${a} 岁${a < 18 ? `，距 18 岁还有 ${18 - a} 年左右：先用集训、交流和试训提升能力、适应度与欧洲关注度` : '，可以签海外职业合同'}。</div>
       <div class="grid g2">${card('留洋项目', progHtml)}${card('海外试训', trials)}${card('海外意向', pre)}${card('经纪人', agents + `<p class="small dim" style="margin:8px 0 0">佣金按周从工资中扣除。欧洲关注度 ${Math.round(s.euro)} · 适应度 ${Math.round(s.adapt)}。</p>`)}</div>`;
   }
@@ -5401,7 +5493,7 @@ var CR = (function () {
     const pool = CR.chinaAPool(s).slice(0, 26);
     const tour = CR.tournamentFor(s);
     return `${s.nat.pending ? `<div class="note" style="margin-bottom:12px">有待回复的征召。 ${btn('查看', 'show-call', 'small')}</div>` : ''}<div class="grid g-main"><div class="grid">${card('国字号梯队', `<table class="t"><thead><tr><th>级别</th><th>年龄</th><th>入选门槛</th><th>状态</th><th class="n">出场</th><th class="n">进球</th></tr></thead><tbody>${tiers}</tbody></table><p class="small dim" style="padding:0 12px">国际比赛日在第 9、16、31、36 周；夏季大赛在第 46–48 周。本届夏季：${E(Object.values(tour).join('、') || '无')}。赛程、对手与赛制为游戏压缩设定。</p>`, { flush: true })}
-      ${card('国家队比赛', natGames.length ? `<table class="t"><tbody>${natGames.slice(0, 30).map(g => `<tr><td class="dim">${E(g.d)}</td><td>${E(g.title)}</td><td>${E(g.us)} <b>${g.gf}:${g.ga}</b> ${E(g.them)}</td><td class="n">${g.played ? g.mn + "'" : '—'}</td><td class="n">${g.g ? g.g + '球' : ''}</td><td class="n">${g.rt != null ? g.rt.toFixed(1) : ''}</td><td>${btn('详情', 'game', 'small ghost', `data-i="${s.games.indexOf(g)}"`)}</td></tr>`).join('')}</tbody></table>` : empty('还没有国家队比赛'), { flush: !!natGames.length })}</div>
+      ${card('国家队比赛', natGames.length ? gamesList(natGames.slice(0, 30), true) : empty('还没有国家队比赛'), { flush: !!natGames.length })}</div>
       ${card('中国球员能力榜（成年队候选）', `<div class="tbl-wrap"><table class="t"><tbody>${pool.map((p, i) => `<tr class="${p.me ? 'me' : ''}"><td>${i + 1}</td><td>${posChip(p.pos)}</td><td>${UI.plLink(p)}</td><td>${E(club(p.club).name)}</td><td class="c">${ovBadge(p.ovr)}</td></tr>`).join('')}</tbody></table></div>`, { flush: true })}</div>`;
   }
   function leaguesView() {
@@ -5423,6 +5515,23 @@ var CR = (function () {
       ${card('规则说明', `<ul class="small" style="margin:0;padding-left:18px;line-height:1.7"><li>每季 52 周，第 4–42 周联赛。中超赛季按欧洲赛历统一推进，为游戏设定。</li><li>成长取决于年龄、潜力空间、训练方向与强度、最近 6 场的出场时间、训练条件、留洋加成、疲劳与士气。</li><li>15–17 岁在中超 U17 青年联赛比赛；能力达到一线队门槛后在转会窗口收到首份职业合同；一线队进不了大名单时回梯队比赛。</li><li>国际足联规定未满 18 岁不能跨国转会：前期通过足协集训、合作青训交流、自费夏训营和海外试训积累欧洲关注度与意向，18 岁后签海外职业合同。</li><li>国家队：国少 U17、国青 U20、国奥 U23 与成年队；赛程和大赛赛制为压缩设定。</li><li>风格决定能力强项；18 枚徽章分六类，铜/银/金/名人堂带来 +4%/+8%/+13%/+18% 的对应比赛加成，按能力、职业出场、数据积累与专项训练升级，与潜力无关。</li><li>人气随阶段放大：国内梯队、中超、海外集训、葡超荷甲土超、五大联赛的单场人气倍数依次为 ×0.35、×1、×1.6、×1.6、×2.3；签海外合同、欧洲首秀首球、登陆五大联赛都有一次性人气与球迷加成。人气影响周薪、国字号入选、试训与转会机会和代言收入。</li><li>38 岁结束生涯，33 岁起可以主动退役。</li><li>名单依据 2026 年 9–10 月公开的各队名单整理，核心为真实球员，其余为补位；能力、身价、合同金额与合作关系都是游戏设定。</li></ul>`)}</div>`;
   }
 
+  function setMenu(open) {
+    ui.mobile = open;
+    render();
+    const target = open ? $('.rail.open .rail-link.on') || $('.rail.open .rail-link') : $('.tabbar [data-act="menu"]');
+    target?.focus({ preventScroll: true });
+  }
+  document.addEventListener('keydown', e => {
+    if (!ui.mobile || UI.topModal()) return;
+    if (e.key === 'Escape') { e.preventDefault(); setMenu(false); }
+    if (e.key === 'Tab') {
+      const links = [...document.querySelectorAll('.rail.open button')];
+      const first = links[0], last = links[links.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  window.matchMedia('(max-width: 860px)').addEventListener('change', () => { if (ui.mobile) setMenu(false); });
   /* ---------- 事件 ---------- */
   document.addEventListener('click', e => {
     const sb = e.target.closest('[data-seg]');
@@ -5440,7 +5549,8 @@ var CR = (function () {
     const act = a.dataset.act, id = a.dataset.id;
     if (act.startsWith('mt-')) return;
     switch (act) {
-      case 'menu': ui.mobile = !ui.mobile; render(); break;
+      case 'menu': setMenu(!ui.mobile); break;
+      case 'dismiss-menu': setMenu(false); break;
       case 'c-pos': if (draft.pos !== a.dataset.v) { draft.pos = a.dataset.v; draft.style = ''; draft.height = 0; } render(); break;
       case 'c-roll': draft.seed = (draft.seed * 1103515245 + 12345) | 0; render(); break;
       case 'c-next': draft.name = ($('#c-name') ? $('#c-name').value : draft.name).trim(); if (draft.step === 1 && (!draft.pos || !draft.name)) { toast('请填写姓名并选择位置'); break; } draft.step++; render(); break;
@@ -5464,7 +5574,7 @@ var CR = (function () {
       case 'go-abroad': view = 'abroad'; render(); break;
       case 't-focus': s.train.focus = a.dataset.v; persist(); render(); break;
       case 'game': { const g = s.games[+a.dataset.i]; if (g && g.rec) openModal(UI.matchRecordHtml(W(), g.rec, 'ME'), { title: E(g.title), size: 'wide' }); break; }
-      case 'player': { const p = W().players[id]; if (!p) break; if (p.me) { closeModal(true); view = 'profile'; render(); $('main').scrollTop = 0; break; } openModal(UI.playerHtml(W(), p), { title: '球员详情', size: 'wide' }); break; }
+      case 'player': { const p = W().players[id]; if (!p) break; if (p.me) { closeModal(true); view = 'profile'; render(); $('main').scrollTop = 0; break; } openModal(UI.playerHtml(W(), p, { portrait: false }), { title: '球员详情', size: 'wide' }); break; }
       case 'club': { const w = W(), c = club(id), sq = FB.squad(w, id).slice().sort((x, y) => FB.POS_ORDER.indexOf(x.pos) - FB.POS_ORDER.indexOf(y.pos) || y.ovr - x.ovr); openModal(`<div class="tbl-wrap"><table class="t"><tbody>${sq.map(p => `<tr class="${p.me ? 'me' : ''}"><td>${posChip(p.pos)}</td><td>${UI.plLink(p)}</td><td class="n">${p.me ? CR.ageExact(s) : FB.age(w, p)}岁</td><td>${E(nat(p.nat))}</td><td class="c">${ovBadge(p.ovr)}</td><td class="n">${p.s.g} 球</td></tr>`).join('')}</tbody></table></div>`, { title: E(c.name), size: 'wide' }); break; }
       case 'prog': { const r = CR.startProgram(s, id); if (!r.ok) toast(r.msg); persist(); render(); break; }
       case 'trial': { const i = +a.dataset.i; s.trialNow = s.trialNow === i ? null : i; persist(); render(); toast(s.trialNow === i ? '本周将前往试训，点「前往试训」出发' : '已取消本周试训'); break; }
@@ -5513,7 +5623,7 @@ var CR = (function () {
     const lines = reps.flatMap(r => r.lines);
     const d0 = reps[0], dN = reps[reps.length - 1];
     const dOvr = reps.reduce((x, r) => x + (r.dOvr || 0), 0), pay = reps.reduce((x, r) => x + (r.pay || 0), 0);
-    const html = `<p style="margin-top:0">实际推进 ${reps.length} 周（第 ${d0.wk}–${dN.wk} 周）${why ? '，因<b>' + why + '</b>暂停' : ''}。总评 ${ME().ovr}（${gainTxt(dOvr)}），收入 ${wage(pay).replace('/周', '')}。</p>${games.length ? `<table class="t" style="margin-bottom:10px"><tbody>${games.map(g => `<tr><td class="dim">${E(g.d)}</td><td>${E(g.title)}</td><td>${E(g.us)} <b>${g.gf}:${g.ga}</b> ${E(g.them)}</td><td>${g.played ? (g.start ? '首发' : '替补') + ' ' + g.mn + "'" : '<span class="dim">' + E(g.why || '未出场') + '</span>'}</td><td class="n">${g.g ? g.g + '球' : ''}${g.a ? ' ' + g.a + '助' : ''}</td><td class="n">${g.rt != null ? '<b>' + g.rt.toFixed(1) + '</b>' : ''}</td><td>${g.rec ? btn('详情', 'game', 'small ghost', `data-i="${s.games.indexOf(g)}"`) : ''}</td></tr>`).join('')}</tbody></table>` : ''}${lines.length ? `<ul class="small" style="margin:0;padding-left:18px;line-height:1.7">${lines.map(l => `<li>${E(l)}</li>`).join('')}</ul>` : ''}`;
+    const html = `<p style="margin-top:0">实际推进 ${reps.length} 周（第 ${d0.wk}–${dN.wk} 周）${why ? '，因<b>' + why + '</b>暂停' : ''}。总评 ${ME().ovr}（${gainTxt(dOvr)}），收入 ${wage(pay).replace('/周', '')}。</p>${games.length ? gamesList(games, true) : ''}${lines.length ? `<ul class="small" style="margin:0;padding-left:18px;line-height:1.7">${lines.map(l => `<li>${E(l)}</li>`).join('')}</ul>` : ''}`;
     const next = s.event ? btn('处理剧情', 'show-event', 'primary') : s.nat.pending ? btn('查看征召', 'show-call', 'primary') : btn('继续', 'close-modal', 'primary');
     openModal(html, { title: '快进汇总', size: 'wide', footer: next });
   }

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "entertainment-career",
+    "game": "杀穿娱乐圈",
+    "localFile": "01-本地最新/杀穿娱乐圈【最新·2026-10-23_0100】.html",
+    "sha256": "17e897297517cd8e265435f9d2159b66c63cca569280cfe6560a3805517f3563",
+    "bytes": 7593928,
+    "changed": true
+  },
+  {
+    "id": "football-manager",
+    "game": "绿茵经理",
+    "localFile": "01-本地最新/绿茵经理【最新·2026-10-23_0048】.html",
+    "sha256": "ce18dbe79cfe16e7b7ab1786e78ebb06c0e85253deac46fd0e34fc9361ee7e0e",
+    "bytes": 403011,
+    "changed": true
+  },
+  {
+    "id": "wealth-reborn",
+    "game": "我要当首富",
+    "localFile": "01-本地最新/我要当首富【最新·2026-10-23_0041】.html",
+    "sha256": "dce0754f3783d8d034863d621ced4a38d828988470b6eedde2b897e2e71676c0",
+    "bytes": 2254949,
+    "changed": false
+  },
+  {
+    "id": "football-career",
+    "game": "足球巨星",
+    "localFile": "01-本地最新/足球巨星【最新·2026-10-23_0008】.html",
+    "sha256": "48acf09ab202062c46f507a4809a0f51b967adac279ac953824188dab6fffc51",
+    "bytes": 418040,
+    "changed": true
+  },
+  {
+    "id": "f1-driver",
+    "game": "F1车手",
+    "localFile": "01-本地最新/F1车手【最新·2026-10-22_2355】.html",
+    "sha256": "463d732855a20afe16cc9bc8d6c30be12cea59f7fb2589e39929572c1626535d",
+    "bytes": 648115,
+    "changed": false
+  },
+  {
+    "id": "f1",
+    "game": "F1领队",
+    "localFile": "01-本地最新/F1领队【最新·2026-10-22_2343】.html",
+    "sha256": "3af4f4cfc0aa2dcc7644554cdb435e5821a22d8bfbe32f042994b9df1cba3fbf",
+    "bytes": 516979,
+    "changed": false
+  },
+  {
+    "id": "hougong",
+    "game": "后宫生死簿",
+    "localFile": "01-本地最新/后宫生死簿【最新·2026-10-22_2315】.html",
+    "sha256": "ed0ba05e668c1c2e2bf2fe55ccdb0515de49d571025c65fa01262dc6a5fb0983",
+    "bytes": 284908,
+    "changed": false
+  },
+  {
+    "id": "nba",
+    "game": "NBA-经理",
+    "localFile": "01-本地最新/NBA-经理【最新·2026-10-22_2242】.html",
+    "sha256": "16642ba0528868edb689091fba7b258f3576adf0da6adbe1ffede60e1c3d66b5",
+    "bytes": 556582,
+    "changed": false
+  },
+  {
+    "id": "basketball-star",
+    "game": "篮球巨星",
+    "localFile": "01-本地最新/篮球巨星【最新·2026-10-22_2238】.html",
+    "sha256": "14aeb620a34b87ae4175a7b6620f7df6d74bd42c8aa962fbe7f1746d2d048266",
+    "bytes": 518286,
+    "changed": false
+  },
+  {
+    "id": "douluo",
+    "game": "斗罗·万相",
+    "localFile": "01-本地最新/斗罗·万相【最新·2026-10-22_2231】.html",
+    "sha256": "0a19cc3a57fb1883a48510f4efb90fc28c17bb6fc329d50591945978e7840625",
+    "bytes": 1470019,
+    "changed": false
+  },
+  {
+    "id": "yexiao",
+    "game": "重生之我是夜宵摊摊主",
+    "localFile": "01-本地最新/重生之我是夜宵摊摊主【最新·2026-10-22_2230】.html",
+    "sha256": "67fc7672579525f585391582a21858b670ac47bedcf94792e91fd11d3f1e10cf",
+    "bytes": 213212,
+    "changed": false
+  },
+  {
+    "id": "lol",
+    "game": "LOL电竞经理",
+    "localFile": "01-本地最新/LOL电竞经理【最新·2026-10-22_2227】.html",
+    "sha256": "97ef85f52ed8c35ef7c50d8e305e008c956a495e468425427c929f480e5e5a9c",
+    "bytes": 238809,
+    "changed": false
+  },
+  {
+    "id": "cba",
+    "game": "CBA-经理",
+    "localFile": "01-本地最新/CBA-经理【最新·2026-10-22_2222】.html",
+    "sha256": "65a82c43b8f6b7d38534421d0b62afdbbb060dbea614d84e521765690f77c8c3",
+    "bytes": 606245,
+    "changed": false
+  },
+  {
+    "id": "yike",
+    "game": "一克之差",
+    "localFile": "01-本地最新/一克之差【最新·2026-10-22_2154】.html",
+    "sha256": "1aca197be36024fba21fdae9bacd19b9867866e178c3e87eed9251de9a2eda10",
+    "bytes": 43397,
+    "changed": false
+  },
+  {
+    "id": "spud-dawn",
+    "game": "薯光",
+    "localFile": "01-本地最新/薯光【最新·2026-10-22_1943】.html",
+    "sha256": "497631f4e272baeac2e21d94fe50b77b3a9cee52c98e799e3dd75e2c4064777b",
+    "bytes": 3080669,
+    "changed": false
+  }
+]
