@@ -1,0 +1,23 @@
+resource-dependent scenes executed 53
+neutral origin chapters checked 102
+✔ M28 preserves independent hunt before and after flower consumption (19.375959ms)
+✔ all origins × all stolen resource branches retain interactive choices (28.396208ms)
+✔ individual support → core → adult romance → rift → dark → negotiated peace (16.178917ms)
+✔ relationship prerequisites and duplicate callbacks are enforced (9.27425ms)
+✔ one lost resource does not force blackening and fair competition is persistent (6.511ms)
+✔ all source story IDs and ending rewards unchanged (32.889125ms)
+✔ saved auto-skipped chapter reopens, settled choices do not (7.430417ms)
+✔ independent resource visibility ignores another event using the same canon chapter (7.705417ms)
+✔ current partners never defend Tang San, safe companion cannot be hunted (8.000958ms)
+✔ known-dead Xiao Wu stays absent in revived-resource narratives (7.601709ms)
+✔ ten origins retain all unmodified source stories in neutral world (81.718542ms)
+✔ blackened Tang San cannot recover stolen items, skills or god seats (6.674875ms)
+✔ joined worldline does not generate outsider reunion and hostile Tang San is not an automatic divine ally (6.122292ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 305.411792

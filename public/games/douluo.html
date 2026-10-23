@@ -1139,7 +1139,7 @@ function shrekHuntBlock(on){
  const need=shrekKillPower(shrekRoster());return power()<need?`击杀需战力 ${need}（含殊死反抗与同行援护）`:null;
 }
 function shrekEncounterEvent(force=false){
- const r=R(),y=year();if(y<2643||r.lv<30||!npcPresent('唐三')||!npcPresent('小舞'))return null;
+ const r=R(),y=year();if(shrekHistory().joined)return null;if(y<2643||r.lv<30||!npcPresent('唐三')||!npcPresent('小舞'))return null;
  if(!force&&r.shrekEncounterYear!=null&&y-r.shrekEncounterYear<2)return null;
  const roster=shrekRoster(),leader=roster.find(x=>x.n==='唐三'),kill=shrekKillPower(roster),lost=Object.values(opportunityLedger()).filter(o=>Object.keys(o.loss).some(n=>roster.some(x=>x.n===n)));
  const on=whTargets().find(w=>ringSlotOpen(w.i,r)&&!ringAbsorbBlock({on:w.i,ring:{beast:'柔骨兔·小舞',years:100000,on:w.i}}))?.i||1;
@@ -9881,7 +9881,7 @@ const DIVINE_SEATS=[
 const DIVINE_INTRUDERS=[{k:'calamity',title:'灾厄之神',owner:null,p:16000},{k:'abyss',title:'深渊魔神',owner:null,p:17000}];
 function playerHoldsDivineSeat(k){const r=R();return r.world.divineSeats?.[k]==='player'||r.godQ?.done&&r.godQ.k===k||r.x.god===k}
 function divineSeatAvailable(seat){const r=R(),assigned=r.world.divineSeats?.[seat.k];return !playerHoldsDivineSeat(seat.k)&&(!assigned||assigned===seat.owner)&&!r.world.sealedSeats?.includes(seat.k)&&npcPresent(seat.owner)&&npcLevel(seat.owner)>=100}
-function divineFriendly(n,side){const r=R();return (r.bonds[n]||0)>=60||r.org?.members.some(m=>m.n===n)||factionAtPeace(side)}
+function divineFriendly(n,side){const r=R();if(n==='唐三'&&['决裂','黑化','敌对'].includes(shrekHistory().tang))return false;return (r.bonds[n]||0)>=60||r.org?.members.some(m=>m.n===n)||factionAtPeace(side)}
 function godWarEnemies(){const r=R(),k=r.godQ?.k,prefer=['sea','shura'].includes(k)?'武魂殿':['angel','luocha'].includes(k)?'史莱克':campaignSide()==='武魂殿'?'史莱克':'武魂殿';
  const candidates=DIVINE_SEATS.filter(seat=>divineSeatAvailable(seat)&&!divineFriendly(seat.owner,seat.side)).sort((a,b)=>(b.side===prefer)-(a.side===prefer)||(r.bonds[a.owner]||0)-(r.bonds[b.owner]||0));
  const chosen=candidates.slice(0,2).map(seat=>({...seat,n:seat.title+'·'+seat.owner,p:npcPower(100)}));
@@ -10617,6 +10617,7 @@ function canonNews(c){const r=R();if(shrekHistory().core&&SHREK_CHAPTERS[c.id]&&
  if(playerHasFlower()&&/相思断肠红|红花/.test(c.event+" "+c.result))return "【改写】相思断肠红已被你取走，小舞没有凭空获得护身花；身份风波另有走向。";
  const sides=({M51:["七宝琉璃宗","蓝电霸王龙宗"],M56:["天斗","武魂殿"],M74:["天斗","武魂殿"],M75:["天斗","武魂殿"],M82:["天斗","武魂殿"],M83:["天斗","武魂殿"]})[c.id];
  if(sides?.every(factionAtPeace))return "【改写】相关势力已纳入本方秩序或盟约，旧定讨伐停发，各方改议边防与治理。";
+ if(["M52","M53","M54","M71"].includes(c.id)&&r.flags.includes("xiaowu_safe")&&npcPresent("小舞"))return "【改写】小舞在此前护送中生还，不曾献祭，后续寻药与复活的原定前提不再成立。";
  if(c.id==="M52"&&r.flags.includes("lake_treaty"))return "【改写】星湖停猎之约生效，猎捕与献祭的旧定局被改变。";
  return c.event;
 }
