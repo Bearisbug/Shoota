@@ -1,0 +1,506 @@
+[
+  {
+    "label": "dialogue",
+    "width": 320,
+    "scrollWidth": 320,
+    "dialogue": "程启山\n\n合约今天到期。违约金十二万，半年内还清。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:intro",
+    "buttons": [
+      {
+        "text": "开始新的生活\n无需消耗精力\n即时处理",
+        "box": {
+          "x": 16,
+          "y": 664.515625,
+          "w": 288,
+          "h": 64.484375
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "restored",
+    "width": 320,
+    "scrollWidth": 320,
+    "dialogue": "旁白\n\n这具身体的主人，是被恒曜雪藏三年的练习生。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:intro",
+    "buttons": [
+      {
+        "text": "开始新的生活\n无需消耗精力\n即时处理",
+        "box": {
+          "x": 16,
+          "y": 664.515625,
+          "w": 288,
+          "h": 64.484375
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "choice-result",
+    "width": 320,
+    "scrollWidth": 320,
+    "dialogue": "旁白\n\n三个经纪人想签你。只能选一个。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:pickAgent",
+    "buttons": [
+      {
+        "text": "老周 · 抽成 20%\n跟我，三个月让全网认识你。代价是——别太要面子。\n每月多 1 个邀约 · 买热搜五折",
+        "box": {
+          "x": 16,
+          "y": 350.0625,
+          "w": 288,
+          "h": 197.25
+        },
+        "inside": true
+      },
+      {
+        "text": "林见夏 · 抽成 12%\n我不保证爆红，但保证你每一步都站得住。\n心态恢复 +50% · 塌房损失减半",
+        "box": {
+          "x": 16,
+          "y": 547.3125,
+          "w": 288,
+          "h": 197.25
+        },
+        "inside": true
+      },
+      {
+        "text": "小鹿 · 抽成 8%\n我没资源，但我只有你一个艺人。抽成最低！\n抽成仅 8% · 和你一起成长",
+        "box": {
+          "x": 16,
+          "y": 744.5625,
+          "w": 288,
+          "h": 197.25
+        },
+        "inside": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "workbench",
+    "width": 320,
+    "scrollWidth": 320,
+    "portraitCount": 0,
+    "portraitsLoaded": true,
+    "buttons": [],
+    "errors": []
+  },
+  {
+    "label": "people",
+    "width": 320,
+    "scrollWidth": 320,
+    "portraitCount": 0,
+    "portraitsLoaded": true,
+    "buttons": [],
+    "errors": []
+  },
+  {
+    "label": "dialogue",
+    "width": 390,
+    "scrollWidth": 390,
+    "dialogue": "程启山\n\n合约今天到期。违约金十二万，半年内还清。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:intro",
+    "buttons": [
+      {
+        "text": "开始新的生活\n无需消耗精力\n即时处理",
+        "box": {
+          "x": 16,
+          "y": 664.515625,
+          "w": 358,
+          "h": 64.484375
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "restored",
+    "width": 390,
+    "scrollWidth": 390,
+    "dialogue": "旁白\n\n这具身体的主人，是被恒曜雪藏三年的练习生。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:intro",
+    "buttons": [
+      {
+        "text": "开始新的生活\n无需消耗精力\n即时处理",
+        "box": {
+          "x": 16,
+          "y": 664.515625,
+          "w": 358,
+          "h": 64.484375
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "choice-result",
+    "width": 390,
+    "scrollWidth": 390,
+    "dialogue": "旁白\n\n三个经纪人想签你。只能选一个。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:pickAgent",
+    "buttons": [
+      {
+        "text": "老周 · 抽成 20%\n跟我，三个月让全网认识你。代价是——别太要面子。\n每月多 1 个邀约 · 买热搜五折",
+        "box": {
+          "x": 16,
+          "y": 350.0625,
+          "w": 358,
+          "h": 241
+        },
+        "inside": true
+      },
+      {
+        "text": "林见夏 · 抽成 12%\n我不保证爆红，但保证你每一步都站得住。\n心态恢复 +50% · 塌房损失减半",
+        "box": {
+          "x": 16,
+          "y": 591.0625,
+          "w": 358,
+          "h": 241
+        },
+        "inside": false
+      },
+      {
+        "text": "小鹿 · 抽成 8%\n我没资源，但我只有你一个艺人。抽成最低！\n抽成仅 8% · 和你一起成长",
+        "box": {
+          "x": 16,
+          "y": 832.0625,
+          "w": 358,
+          "h": 241
+        },
+        "inside": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "workbench",
+    "width": 390,
+    "scrollWidth": 390,
+    "portraitCount": 0,
+    "portraitsLoaded": true,
+    "buttons": [],
+    "errors": []
+  },
+  {
+    "label": "people",
+    "width": 390,
+    "scrollWidth": 390,
+    "portraitCount": 0,
+    "portraitsLoaded": true,
+    "buttons": [],
+    "errors": []
+  },
+  {
+    "label": "dialogue",
+    "width": 768,
+    "scrollWidth": 768,
+    "dialogue": "程启山\n\n合约今天到期。违约金十二万，半年内还清。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:intro",
+    "buttons": [
+      {
+        "text": "开始新的生活\n无需消耗精力\n即时处理",
+        "box": {
+          "x": 120,
+          "y": 814.21875,
+          "w": 528,
+          "h": 69.78125
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "restored",
+    "width": 768,
+    "scrollWidth": 768,
+    "dialogue": "旁白\n\n这具身体的主人，是被恒曜雪藏三年的练习生。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:intro",
+    "buttons": [
+      {
+        "text": "开始新的生活\n无需消耗精力\n即时处理",
+        "box": {
+          "x": 120,
+          "y": 814.21875,
+          "w": 528,
+          "h": 69.78125
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "choice-result",
+    "width": 768,
+    "scrollWidth": 768,
+    "dialogue": "旁白\n\n三个经纪人想签你。只能选一个。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:pickAgent",
+    "buttons": [
+      {
+        "text": "老周 · 抽成 20%\n跟我，三个月让全网认识你。代价是——别太要面子。\n每月多 1 个邀约 · 买热搜五折",
+        "box": {
+          "x": 120,
+          "y": 631.484375,
+          "w": 528,
+          "h": 84.171875
+        },
+        "inside": true
+      },
+      {
+        "text": "林见夏 · 抽成 12%\n我不保证爆红，但保证你每一步都站得住。\n心态恢复 +50% · 塌房损失减半",
+        "box": {
+          "x": 120,
+          "y": 715.65625,
+          "w": 528,
+          "h": 84.171875
+        },
+        "inside": true
+      },
+      {
+        "text": "小鹿 · 抽成 8%\n我没资源，但我只有你一个艺人。抽成最低！\n抽成仅 8% · 和你一起成长",
+        "box": {
+          "x": 120,
+          "y": 799.828125,
+          "w": 528,
+          "h": 84.171875
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "workbench",
+    "width": 768,
+    "scrollWidth": 768,
+    "portraitCount": 0,
+    "portraitsLoaded": true,
+    "buttons": [],
+    "errors": []
+  },
+  {
+    "label": "people",
+    "width": 768,
+    "scrollWidth": 768,
+    "portraitCount": 0,
+    "portraitsLoaded": true,
+    "buttons": [],
+    "errors": []
+  },
+  {
+    "label": "dialogue",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "dialogue": "程启山\n\n合约今天到期。违约金十二万，半年内还清。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:intro",
+    "buttons": [
+      {
+        "text": "开始新的生活\n无需消耗精力\n即时处理",
+        "box": {
+          "x": 384,
+          "y": 856.21875,
+          "w": 856,
+          "h": 69.78125
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "restored",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "dialogue": "旁白\n\n这具身体的主人，是被恒曜雪藏三年的练习生。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:intro",
+    "buttons": [
+      {
+        "text": "开始新的生活\n无需消耗精力\n即时处理",
+        "box": {
+          "x": 384,
+          "y": 856.21875,
+          "w": 856,
+          "h": 69.78125
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "choice-result",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "dialogue": "旁白\n\n三个经纪人想签你。只能选一个。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:pickAgent",
+    "buttons": [
+      {
+        "text": "老周 · 抽成 20%\n跟我，三个月让全网认识你。代价是——别太要面子。\n每月多 1 个邀约 · 买热搜五折",
+        "box": {
+          "x": 384,
+          "y": 673.484375,
+          "w": 856,
+          "h": 84.171875
+        },
+        "inside": true
+      },
+      {
+        "text": "林见夏 · 抽成 12%\n我不保证爆红，但保证你每一步都站得住。\n心态恢复 +50% · 塌房损失减半",
+        "box": {
+          "x": 384,
+          "y": 757.65625,
+          "w": 856,
+          "h": 84.171875
+        },
+        "inside": true
+      },
+      {
+        "text": "小鹿 · 抽成 8%\n我没资源，但我只有你一个艺人。抽成最低！\n抽成仅 8% · 和你一起成长",
+        "box": {
+          "x": 384,
+          "y": 841.828125,
+          "w": 856,
+          "h": 84.171875
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "workbench",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "portraitCount": 0,
+    "portraitsLoaded": true,
+    "buttons": [],
+    "errors": []
+  },
+  {
+    "label": "people",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "portraitCount": 0,
+    "portraitsLoaded": true,
+    "buttons": [],
+    "errors": []
+  },
+  {
+    "label": "legacy",
+    "width": 390,
+    "scrollWidth": 390,
+    "dialogue": "旁白\n\n三个经纪人想签你。只能选一个。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:pickAgent",
+    "buttons": [
+      {
+        "text": "老周 · 抽成 20%\n跟我，三个月让全网认识你。代价是——别太要面子。\n每月多 1 个邀约 · 买热搜五折",
+        "box": {
+          "x": 16,
+          "y": 350.0625,
+          "w": 358,
+          "h": 241
+        },
+        "inside": true
+      },
+      {
+        "text": "林见夏 · 抽成 12%\n我不保证爆红，但保证你每一步都站得住。\n心态恢复 +50% · 塌房损失减半",
+        "box": {
+          "x": 16,
+          "y": 591.0625,
+          "w": 358,
+          "h": 241
+        },
+        "inside": false
+      },
+      {
+        "text": "小鹿 · 抽成 8%\n我没资源，但我只有你一个艺人。抽成最低！\n抽成仅 8% · 和你一起成长",
+        "box": {
+          "x": 16,
+          "y": 832.0625,
+          "w": 358,
+          "h": 241
+        },
+        "inside": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "legacy-core-equal",
+    "core": {
+      "name": "演出验收",
+      "m": 1,
+      "w": 0,
+      "money": 8000,
+      "energy": 80,
+      "queue": [
+        "pickAgent"
+      ],
+      "releases": [],
+      "agent": null,
+      "skills": {
+        "vocal": 30,
+        "compose": 28,
+        "lyric": 24,
+        "acting": 12,
+        "camera": 14,
+        "biz": 10
+      },
+      "flags": {}
+    }
+  },
+  {
+    "label": "automatic-paused",
+    "width": 390,
+    "scrollWidth": 390,
+    "dialogue": "旁白\n\n这具身体的主人，是被恒曜雪藏三年的练习生。",
+    "portraitCount": 1,
+    "portraitsLoaded": true,
+    "scene": "story:intro",
+    "buttons": [
+      {
+        "text": "开始新的生活\n无需消耗精力\n即时处理",
+        "box": {
+          "x": 16,
+          "y": 664.515625,
+          "w": 358,
+          "h": 64.484375
+        },
+        "inside": true
+      }
+    ],
+    "errors": []
+  }
+]

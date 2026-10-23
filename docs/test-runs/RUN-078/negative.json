@@ -1,0 +1,8 @@
+{
+  "anchor": "p.index=Math.min(p.index+1,p.lines.length-1)",
+  "redAssertions": [
+    "下一句应从第0句推进至第1句"
+  ],
+  "stillGreenAssertions": [],
+  "observedIndex": "0"
+}

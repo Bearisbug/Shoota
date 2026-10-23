@@ -1,0 +1,8 @@
+{
+  "sourceSha256": "548f4052cca803f81a0534091f3f91eb43af5f0563a8d66bd81f75f457a003b1",
+  "publishedSha256": "74c72a7134fc5dfbf08bcaf143db4f05d5717656bcbb5ac8edbd5387c9e72098",
+  "sourceBytes": 7620868,
+  "publishedBytes": 7620866,
+  "difference": "Remove two spaces from one whitespace-only line",
+  "nonWhitespaceIdentical": true
+}
