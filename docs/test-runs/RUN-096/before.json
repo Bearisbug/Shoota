@@ -1,0 +1,11 @@
+{
+  "story": {
+    "choices": 3,
+    "modal": false
+  },
+  "match": {
+    "height": 795,
+    "watchTop": 1736.640625,
+    "scroll": 1899
+  }
+}

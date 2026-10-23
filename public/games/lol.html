@@ -385,6 +385,26 @@ body{margin:0}.grid{grid-template-columns:repeat(auto-fit,minmax(min(290px,100%)
 
 .list .grow{overflow-wrap:anywhere}.legend-positions .btn,.legend-card .btn{min-height:44px}
 @media(max-width:600px){.top{position:relative}.play{width:100%}.play .btn{flex:1;white-space:normal;min-height:44px}.main{padding:16px 12px calc(72px + env(safe-area-inset-bottom));gap:16px}.card{padding:14px 12px}.hero{flex-wrap:wrap}.pre-row{flex-wrap:wrap}.pre-row select{min-width:0;max-width:100%}.pre-ch{width:100%}.cols2{grid-template-columns:minmax(0,1fr)}.mx-head{flex-wrap:wrap}.btn{min-height:40px}.kv{grid-template-columns:minmax(0,1fr) auto}.stat-row{flex-wrap:wrap}select{max-width:100%}}
+
+/* Match commands precede information on every viewport; panes never restart the simulation. */
+.match-header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px max(10px,env(safe-area-inset-right)) 6px max(10px,env(safe-area-inset-left));border-bottom:1px solid var(--line);background:var(--panel)}
+.match-header>b{display:flex;align-items:center;gap:8px;font-size:14px}.match-main{max-width:1200px;width:100%;margin:auto;padding:12px;gap:12px}
+.match-main .btn,.match-header .btn,.match-main .seg button,.match-main summary{min-height:44px;white-space:normal}
+.match-main select{font-size:16px;min-height:44px;width:100%}
+.match-main .mx-head{padding:10px;gap:8px}.match-main .mx-used{display:none}
+.match-controls{position:relative;z-index:15;background:var(--bg);padding:6px 0;display:flex;flex-direction:column;gap:8px}
+.match-actions{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:6px}.match-actions .btn{min-width:0;padding:8px;font-size:14px}
+.match-tabs{display:flex;gap:6px}.match-tabs>.btn{flex:1;min-width:0;padding:6px;font-size:14px}
+.match-panel{max-width:800px;gap:12px}.match-panel h3{font-size:14px}.match-panel .field{font-size:14px}.pre-champs{display:flex;flex-wrap:wrap;gap:12px}.pre-champs>span{display:flex;align-items:center;gap:4px}.scout-row{display:flex;align-items:center;gap:8px;min-height:44px}.scout-row .grow{overflow-wrap:anywhere}
+.match-panel details{border-top:1px solid var(--line);padding-top:6px}.match-panel summary{cursor:pointer;display:flex;align-items:center}.match-panel .seg{display:flex;flex-wrap:wrap}.match-panel .seg button{flex:1;font-size:14px}
+.mobile-match.lv{display:flex;flex-direction:column;gap:10px}.mobile-match>section{min-width:0}.mobile-match .lv-top{padding:8px}.mobile-match .lv-rep{height:auto;max-height:none}.mobile-match .lv-mapw{width:min(100%,500px);aspect-ratio:1;margin:auto;order:initial;grid-row:auto}.mobile-match .lv-mapw canvas{width:100%;height:100%}
+.mobile-match .sbd{margin-bottom:12px}.mobile-match .lv-q{max-width:900px}.mobile-match .lv-tac{max-width:900px}.mobile-match .lv-q .mx-opts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.mobile-match .mx-opt{min-height:48px}.mobile-match .mx-opt b{font-size:14px}.mobile-match .mx-opt span{font-size:12px}.mobile-match .lv-qd{font-size:14px}.mobile-match .tg-s button{min-height:44px;font-size:14px}.live-actions{grid-template-columns:1fr auto;align-items:center}.mobile-match .tg{grid-template-columns:70px minmax(0,1fr)}
+.story-notice{width:min(100%,520px);max-height:calc(100dvh - 32px);overflow:auto}.story-notice .btn{min-height:44px}.story-notice h2{font-size:24px;margin:0}.story-notice p{font-size:16px;margin:0;overflow-wrap:anywhere}.story-notice p.small{font-size:13px}
+@media(max-width:600px){.match-main{padding:8px;gap:8px}.match-main .mx-head{padding:8px}.match-main .mx-head .grow{flex-basis:100%}.match-main .mx-score{font-size:22px}.match-main .mx-head .small{font-size:12px}.match-panel{padding:10px}.match-main .mx-res{padding:12px}.match-main .mx-res h1{font-size:26px}.mobile-match .lv-top{display:grid;grid-template-columns:1fr 1fr;gap:4px}.mobile-match .clock{flex-direction:row;grid-column:1/-1;grid-row:1;display:flex;align-items:center;justify-content:space-between;gap:8px}.mobile-match .clock>b{font-size:20px}.mobile-match .clock>span{font-size:12px}.mobile-match .sbx{gap:4px}.mobile-match .sbx .k{font-size:24px}.mobile-match .sbx-i{gap:2px;font-size:11px}.mobile-match .lvh{font-size:12px}.mobile-match .lv-qt{font-size:16px}.mobile-match .lv-q{padding:10px}.mobile-match .sbd-r{gap:4px}.match-controls .row{flex-wrap:wrap}.match-controls .row>.btn{flex:1}.match-tabs{gap:4px}}
+
+.decision-help summary{cursor:pointer;display:flex;align-items:center;min-height:44px;color:var(--mute)}.decision-help dd{margin:4px 0 12px;color:var(--mute)}
+@media(max-height:500px){.match-controls{position:static}.mobile-match .lv-q .mx-opts{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}}
+.match-main{overflow-anchor:none}
 </style>
 </head>
 <body>
@@ -1649,20 +1669,18 @@ function pMatch(){if(S.review)return pReview();const L=liveGet();
   if(!L)return`<div class="sec"><h2>比赛日</h2><p class="muted">当前没有你的比赛。</p><a data-a="go" data-p="home">返回主页</a></div>`;
   if(L.stage==='pre'||L.stage==='bp'||L.stage==='ready')return pPre(L);
   if(L.stage==='live')return pLive(L);return pPost(L)}
+function matchTabs(items,active,action){return`<div class="match-tabs" aria-label="比赛分页">${items.map(([id,label])=>`<button class="btn ${active===id?'pri':''}" data-a="${action}" data-v="${id}" aria-pressed="${active===id}">${label}</button>`).join('')}</div>`}
 function pPre(L){
-  const tids=liveTids(L),us=isUser(tids[0])?0:1,opp=tids[1-us];const used=new Set(L.se.used||[]);
-  const myL=lineup(S.userTid),opL=lineup(opp);const ro=roster(S.userTid).sort((a,b)=>POS.indexOf(a.pos)-POS.indexOf(b.pos)||b.ovr-a.ovr);
-  const champs=p=>topChamps(p,3,used).map(([c,v])=>`${chIco(c,1)}<span class="small">${esc(c)} <span class="num muted">${v}</span></span>`).join(' ');
-  return mxHead(L)+`<div class="grid">
-  <div class="card"><h3>我方首发 · 可用招牌</h3><div class="list">${POS.map(pos=>`<div class="pre-row"><span class="pos">${PCN[pos]}</span><select id="mst-${pos}" data-a="setst" data-pos="${pos}">${ro.map(p=>`<option value="${p.id}" ${myL[pos].id===p.id?'selected':''}>${esc(p.name)}（${PCN[p.pos]} ${p.ovr}）</option>`).join('')}</select><span class="pre-ch">${champs(myL[pos])}</span></div>`).join('')}</div></div>
-  <div class="card"><h3>对手情报 · ${esc(T(opp).name)}</h3><div class="list">${POS.map(pos=>{const p=opL[pos];return`<div class="pre-row"><span class="pos">${PCN[pos]}</span><span>${pl(p)} ${ov(p.ovr)} ${styChip(p)}</span><span class="pre-ch">${champs(p)}</span></div>`}).join('')}</div>
-    <div class="small muted">战力 ${teamRating(opp)}，我方 ${teamRating(S.userTid)}。教练组 BP 时会针对对方的招牌英雄。</div></div>
-  <div class="card"><h3>教练组</h3>${[S.userTid,opp].map(id=>{const c=coachOf(id);return c?`<div class="row">${tb(id)}<b>${esc(c.name)}</b><span class="small muted">BP ${c.dr} · 战术 ${c.tc} · 培养 ${c.dv}</span></div>`:''}).join('')}<div class="small muted">BP 全部由教练组自动完成，BP 能力越高，选出的阵容越好。<a data-a="go" data-p="coach">更换教练 →</a></div></div>
-  <div class="card"><h3>赛前战术</h3>${tacSeg(L,'tempo','ptac')}${tacSeg(L,'focus','ptac')}${tacSeg(L,'late','ptac')}<div class="note">${TACD[L.tac.tempo]}；${TACD[L.tac.focus]}；${TACD[L.tac.late]}。比赛中可以随时调整。</div><div class="small muted">比赛按关键节点推进：对线期 2 次、每次刷龙、团战爆发前各停一次，由你拍板。</div></div>
-  <div class="card"><h3>阵营</h3>${canPickSide(L)?`<div class="small muted">上一局失利，由你选边</div><div class="seg"><button data-a="pside" data-v="0" class="${L.sidePick===0?'on':''}">蓝色方 · 一选</button><button data-a="pside" data-v="1" class="${L.sidePick===1?'on':''}">红色方 · 最后一手</button></div>`:`<div>本局你是 <b>${us===0?'蓝色方':'红色方'}</b>，${us===0?'拥有第一手选择':'拥有最后一手 Counter 位'}。</div>`}
-    <label class="row small"><input type="checkbox" id="adec" data-a="adec" ${L.autoDec?'checked':''}> 比赛决策全部交给教练组（不停在决策节点，直接出结果）</label></div>
-  </div>
-  <div class="row"><button class="btn pri" data-a="bpgo">观看比赛（教练 BP）</button><button class="btn" data-a="qgame">快速模拟本局</button><button class="btn" data-a="qseries">快速模拟剩余比赛</button></div>`;
+  const tids=liveTids(L),us=isUser(tids[0])?0:1,opp=tids[1-us],used=new Set(L.se.used||[]);
+  const myL=lineup(S.userTid),opL=lineup(opp),ro=roster(S.userTid).sort((a,b)=>POS.indexOf(a.pos)-POS.indexOf(b.pos)||b.ovr-a.ovr);
+  const tab=L.preTab||'lineup',pos=L.prePos||'TOP';
+  const champs=p=>topChamps(p,3,used).map(([c,v])=>`<span>${chIco(c,1)} ${esc(c)} <span class="num muted">${v}</span></span>`).join('');
+  let content='';
+  if(tab==='lineup')content=`<h3>我方首发</h3>${matchTabs(POS.map(p=>[p,PCN[p]]),pos,'prepos')}<label class="field">${PCN[pos]} · 首发选手<select data-a="setst" data-pos="${pos}">${ro.map(p=>`<option value="${p.id}" ${myL[pos].id===p.id?'selected':''}>${esc(p.name)}（${PCN[p.pos]} ${p.ovr}）</option>`).join('')}</select></label><div class="row">${pl(myL[pos])} ${ov(myL[pos].ovr)} ${styChip(myL[pos])}</div><div class="pre-champs">${champs(myL[pos])}</div>`;
+  else if(tab==='opponent')content=`<h3>对手 · ${esc(T(opp).name)} · 战力 ${teamRating(opp)}</h3><div class="list">${POS.map(pos=>{const p=opL[pos];return`<div class="scout-row">${posb(pos)}<span class="grow">${pl(p)}</span>${ov(p.ovr)}</div>`}).join('')}</div><p class="small muted">点击选手查看英雄与完整能力。我方战力 ${teamRating(S.userTid)}。</p>`;
+  else if(tab==='coach')content=`<h3>教练组</h3>${[S.userTid,opp].map(id=>{const c=coachOf(id);return c?`<div class="card"><div class="row">${tb(id)}<b>${esc(c.name)}</b></div><div>BP ${c.dr} · 战术 ${c.tc} · 培养 ${c.dv}</div></div>`:''}).join('')}<p class="small muted">教练组自动完成 BP，根据对手招牌与阵容选人。</p><a data-a="go" data-p="coach">更换教练 →</a>`;
+  else content=`<h3>赛前战术</h3>${tacSeg(L,'tempo','ptac')}${tacSeg(L,'focus','ptac')}${tacSeg(L,'late','ptac')}<details><summary>选边与教练托管</summary>${canPickSide(L)?`<div class="seg"><button data-a="pside" data-v="0" class="${L.sidePick===0?'on':''}">蓝色方</button><button data-a="pside" data-v="1" class="${L.sidePick===1?'on':''}">红色方</button></div>`:`<p>本局你是${us===0?'蓝色方':'红色方'}。</p>`}<label class="row"><input type="checkbox" data-a="adec" ${L.autoDec?'checked':''}>决策交给教练组，直接出结果</label></details>`;
+  return mxHead(L)+`<div class="match-controls"><div class="match-actions"><button class="btn pri" data-a="bpgo">▶ 观看比赛</button><button class="btn" data-a="qgame">模拟本局</button><button class="btn" data-a="qseries">模拟整场</button></div>${matchTabs([['lineup','阵容'],['tactics','战术'],['opponent','对手'],['coach','教练']],tab,'pretab')}</div><section class="card match-panel">${content}</section>`;
 }
 function bpLs(L){const t=liveTids(L);return[lineup(t[0]),lineup(t[1])]}
 function compBars(pk,Ls,s){const o=compOf(pk),cm=compMods(o);const n=Object.keys(pk).length;if(!n)return'<div class="small muted">还没有选人</div>';
@@ -1760,11 +1778,11 @@ function completeRound(){const q=S.review;if(!q)return;LIVE=null;
 function pPost(L){const b=L.box;const u=S.userTid,us=b.a===u?0:1,win=b.w===u;
   const k=[0,1].map(s=>b.ps.filter(r=>r[2]===s).reduce((a,r)=>a+r[5],0)),g=[0,1].map(s=>b.ps.filter(r=>r[2]===s).reduce((a,r)=>a+r[9],0));const mvp=b.ps.find(r=>r[11]);
   const row=r=>`<tr class="${r[11]?'me':''}"><td>${posb(r[3])} ${esc(r[1])}</td><td>${chIco(r[4],1)} ${esc(r[4])}</td><td class="n">${r[5]}/${r[6]}/${r[7]}</td><td class="n">${gkda(r[5],r[6],r[7])}</td><td class="n">${r[8]}</td><td class="n">${r[9].toFixed(1)}k</td><td class="n">${r[10].toFixed(1)}</td></tr>`;
-  return mxHead(L,b.gn)+`<div class="mx-res ${win?'win':'lose'}"><h3>第 ${b.gn} 局 · ${mmss(b.durS||b.dur*60)}</h3><h1>${win?'胜利':'失败'}</h1>
+  return mxHead(L,b.gn)+`<div class="match-controls">  <div class="row">${L.final?`<button class="btn pri" data-a="mfinish">系列赛结束 · 继续</button>`:`<button class="btn pri" data-a="mnext">准备下一局</button><button class="btn" data-a="qseries">快速模拟剩余比赛</button>`}${b.id?`<a data-a="game" data-id="${b.id}">本局完整数据与事件</a>`:''}</div></div><div class="mx-res ${win?'win':'lose'}"><h3>第 ${b.gn} 局 · ${mmss(b.durS||b.dur*60)}</h3><h1>${win?'胜利':'失败'}</h1>
     <div class="stat-row"><div><b>${k[us]} : ${k[1-us]}</b><span>击杀</span></div><div><b>${(g[us]-g[1-us]>0?'+':'')+(g[us]-g[1-us]).toFixed(1)}k</b><span>经济差</span></div><div><b>${b.tw?b.tw[1-us]:'-'} : ${b.tw?b.tw[us]:'-'}</b><span>推塔</span></div><div><b>${b.drag?b.drag[us].length:'-'} : ${b.drag?b.drag[1-us].length:'-'}</b><span>小龙</span></div></div>
     <div>本局 MVP：<b>${esc(mvp[1])}</b>（${esc(mvp[4])}，${mvp[5]}/${mvp[6]}/${mvp[7]}）</div></div>
   <div class="cols2">${[us,1-us].map(s=>`<div class="wrap-x ${s===0?'sideB':'sideR'}"><table class="tbl"><thead><tr><th>${tb(s===0?b.a:b.b)}</th><th>英雄</th><th class="n">K/D/A</th><th class="n">KDA</th><th class="n">补刀</th><th class="n">经济</th><th class="n">评分</th></tr></thead><tbody>${b.ps.filter(r=>r[2]===s).map(row).join('')}</tbody></table></div>`).join('')}</div>
-  <div class="row">${L.final?`<button class="btn pri" data-a="mfinish">系列赛结束 · 继续</button>`:`<button class="btn pri" data-a="mnext">准备下一局</button><button class="btn" data-a="qseries">快速模拟剩余比赛</button>`}${b.id?`<a data-a="game" data-id="${b.id}">本局完整数据与事件</a>`:''}</div>`;
+`;
 }
 /* ---------- 直播 ---------- */
 const SPD=[0,8,16,32,64],SPDN=['暂停','1x','2x','4x','8x'];
@@ -1781,21 +1799,21 @@ function pLive(L){const M=L.m,us=L.us,op=1-us,se=L.se,u=S.userTid;const ms=se.a=
   const hd=r=>`<div class="sp hd ${r?'r':''}"><span></span><span>${r?'对方':'我方'}</span><span>K/D/A</span><span>补刀</span><span>经济</span></div>`;
   const sbx=(s,r)=>`<div class="sbx ${r?'r':''} ${s?'rs':'bs'}">${tb(M.tid[s])}<b class="k num" id="sb-k${s}">0</b><div class="sbx-i"><span>经济 <b id="sb-g${s}" class="num">2.5k</b></span><span>推塔 <b id="sb-t${s}" class="num">0</b></span><span id="sb-d${s}" class="mx-drag"></span><span id="sb-b${s}"></span></div></div>`;
   const tac=k=>`<div class="tg"><span class="tg-l">${{tempo:'节奏',focus:'资源重心',late:'中后期打法'}[k]}</span><div class="seg tg-s">${Object.entries(TACN[k]).map(([v,l])=>`<button data-a="ltac" data-k="${k}" data-v="${v}" class="${L.tac[k]===v?'on':''}" title="${esc(TACD[v])}">${l}</button>`).join('')}</div></div>`;
-  return`<div class="lv">
-  <div class="lvp lv-top">${sbx(us,0)}<div class="clock"><b id="sb-clock" class="num">00:00</b><span>${esc(L.label)} · 第 ${M.gn} 局 · 系列赛 ${ms}:${os}</span></div>${sbx(op,1)}</div>
-  <div class="lv-left">
-    <div class="lvp sbd"><div class="lvh"><span>记分板</span><span>${T(M.tid[us]).id} ${M.tid[0]===M.tid[us]?'蓝色方':'红色方'} · ${T(M.tid[op]).id} ${M.tid[0]===M.tid[op]?'蓝色方':'红色方'}</span></div>
+  const tab=L.liveTab||'decision';
+  return`<div class="lv mobile-match">
+  <div class="lvp lv-top">${sbx(us,0)}<div class="clock"><b id="sb-clock" class="num">00:00</b><span>第 ${M.gn} 局 · 系列赛 ${ms}:${os}</span></div>${sbx(op,1)}</div>
+  <div class="match-controls"><div class="match-actions live-actions"><span class="small muted">关键节点等待你的指令</span><button class="btn" data-a="lskip">模拟结果</button></div>${matchTabs([['decision','决策'],['tactics','战术'],['report','战报'],['map','地图'],['stats','数据']],tab,'livetab')}</div>
+  <section data-live-pane="decision" ${tab==='decision'?'':'hidden'}><div class="lvp lv-q" id="lv-q"></div></section>
+  <section data-live-pane="tactics" ${tab==='tactics'?'':'hidden'}><div class="lvp lv-tac"><div class="lvh"><span>比赛战术</span><span>从下一分钟生效</span></div>${tac('tempo')}${tac('focus')}${tac('late')}</div></section>
+  <section data-live-pane="report" ${tab==='report'?'':'hidden'}><div class="lvp lv-rep" id="lv-rep"></div><details><summary>完整解说</summary><div id="mx-feed" class="mx-feed">${M.ev.slice(0,LV.shown).slice(-90).reverse().map(feedRow).join('')}</div></details></section>
+  <section data-live-pane="map" ${tab==='map'?'':'hidden'}><div class="lvp lv-mapw"><canvas id="mapc" aria-label="小地图"></canvas></div></section>
+  <section data-live-pane="stats" ${tab==='stats'?'':'hidden'}><div class="lvp sbd"><div class="lvh"><span>记分板</span><span>${T(M.tid[us]).id} ${M.tid[0]===M.tid[us]?'蓝色方':'红色方'} · ${T(M.tid[op]).id} ${M.tid[0]===M.tid[op]?'蓝色方':'红色方'}</span></div>
       <div class="sbd-r sbd-h">${hd(0)}<span></span>${hd(1)}</div>
-      ${POS.map((pos,i)=>{const ca=CHM[A[i].ch],cb=CHM[B[i].ch],ci=ca&&cb?cntInfo(ca,cb):{v:0,x:''};const mu=ci.v>0?`<i class="mu g">我克</i>`:ci.v<0?`<i class="mu b">被克</i>`:'';return`<div class="sbd-r">${pcell(A[i],0)}<span class="sbd-pos" title="${esc(ci.x)}"><span>${PCN[pos]}</span>${mu}</span>${pcell(B[i],1)}</div>`}).join('')}</div>
-    <div class="lvp lv-rep" id="lv-rep"></div></div>
-  <div class="lvp lv-mapw"><canvas id="mapc" aria-label="小地图"></canvas></div>
-  <div class="lvp lv-q" id="lv-q"></div>
-  <div class="lvp lv-tac"><div class="lvh"><span>战术</span><span>从下一分钟生效</span></div>${tac('tempo')}${tac('focus')}${tac('late')}
-    <div class="tg-a"><button class="btn sm" data-a="lskip">交给教练组，直接出结果</button><a class="small" data-a="go" data-p="home">离开比赛</a></div></div>
-  </div>
-  ${draftPanel(L)}
-  <div class="grid lv-more"><div class="card"><h3>经济差</h3><div id="mx-gold"></div></div><div class="card"><h3>完整解说</h3><div id="mx-feed" class="mx-feed">${M.ev.slice(0,LV.shown).slice(-90).reverse().map(feedRow).join('')}</div></div></div>`;
+      ${POS.map((pos,i)=>{const ca=CHM[A[i].ch],cb=CHM[B[i].ch],ci=ca&&cb?cntInfo(ca,cb):{v:0,x:''};const mu=ci.v>0?`<i class="mu g">我克</i>`:ci.v<0?`<i class="mu b">被克</i>`:'';return`<div class="sbd-r">${pcell(A[i],0)}<span class="sbd-pos" title="${esc(ci.x)}"><span>${PCN[pos]}</span>${mu}</span>${pcell(B[i],1)}</div>`}).join('')}</div><div class="card"><h3>经济差</h3><div id="mx-gold"></div></div>${draftPanel(L)}</section>
+  </div>`;
 }
+function switchLiveTab(tab){if(!LIVE||LIVE.stage!=='live')return;LIVE.liveTab=tab;document.querySelectorAll('[data-live-pane]').forEach(p=>p.hidden=p.dataset.livePane!==tab);document.querySelectorAll('[data-a="livetab"]').forEach(b=>{const active=b.dataset.v===tab;b.classList.toggle('pri',active);b.setAttribute('aria-pressed',active)});if(tab==='map')lvTween();window.scrollTo(0,0)}
+
 function lvStart(){if(!LV)return;if(!LV.started){LV.started=true;lvAdvance()}else lvRefresh()}
 const KEYEV=['fight','skir','drag','baron','elder','steal','tower','inhib','grub','herald','nexT','info'];
 function lvAdvance(){const M=LIVE.m;LV.segT=LV.c;LV.seg=LV.shown;let g=0;
@@ -1807,7 +1825,7 @@ function lvAdvance(){const M=LIVE.m;LV.segT=LV.c;LV.seg=LV.shown;let g=0;
 function lvRefresh(){const q=document.getElementById('lv-q'),r=document.getElementById('lv-rep');if(q)q.innerHTML=nodeQ();if(r)r.innerHTML=nodeRep();lvUI();lvTween()}
 function nodeQ(){const pr=LIVE.m.pending;if(!pr)return'<div class="lvh"><span>决策</span></div><div class="muted">比赛进行中…</div>';
   return`<div class="lvh"><span>决策节点</span><span>${esc(pr.title.slice(0,5))}</span></div><b class="lv-qt">${esc(pr.title.slice(8))}</b><div class="lv-qd">${esc(pr.desc)}</div>
-  <div class="mx-opts">${pr.opts.map(o=>`<button class="mx-opt" data-a="mdec" data-v="${o.k}"><b>${esc(o.l)}</b><span>${esc(o.d)}</span></button>`).join('')}</div>`}
+  <div class="mx-opts">${pr.opts.map(o=>`<button class="mx-opt" data-a="mdec" data-v="${o.k}"><b>${esc(o.l)}</b></button>`).join('')}</div><details class="decision-help"><summary>查看选项说明</summary><dl>${pr.opts.map(o=>`<dt>${esc(o.l)}</dt><dd>${esc(o.d)}</dd>`).join('')}</dl></details>`}
 function nodeRep(){const M=LIVE.m,us=LIVE.us;const seg=M.ev.slice(LV.seg,LV.shown);
   const fights=seg.filter(e=>e.ty==='fight'||e.ty==='skir');
   const key=seg.filter(e=>KEYEV.includes(e.ty)||e.fb||(e.ty==='kill'&&!fights.some(f=>Math.abs(f.ts-e.ts)<25))).slice(-9);
@@ -1942,13 +1960,17 @@ function render(){
   const nav=[['home','主页','HQ'],...(S.review?[['review','整场复盘','REVIEW']]:[]),...(userPending()?[['match','比赛日','LIVE']]:[]),['roster','阵容','ROSTER'],['sched','赛程','SCHED'],['stand','积分榜','TABLE'],['playoffs','季后赛','PO'],['msi','MSI','MSI'],['worlds','世界赛','WORLDS'],
     ['players','选手库','PLAYERS'],['coach','教练','COACH'],['trade','交易','TRADE'],['fa','自由市场','FA'],...(S.phase==='RESIGN'?[['resign','续约','CONTRACT']]:[]),['finance','收支与赞助','FIN'],['summary','赛季总结','AWARDS'],['history','历史','HIST'],['save','存档','SAVE']];
   const pageHtml=page();
+  if(R.p==='match'||R.p==='review'){
+    app.innerHTML=`<header class="match-header"><b>${tb(u.id)} ${R.p==='review'||S.review?'整场复盘':'比赛日'}</b><button class="btn" data-a="go" data-p="home">回到球队</button></header><main class="main match-main" id="main">${pageHtml}</main>`;
+    if(R.p==='match'&&LIVE&&LIVE.stage==='live'&&LV)lvStart();showDevelopment();return;
+  }
   const acts=actions();
   app.innerHTML=`<header class="top"><div class="brand">峡谷经理<small>LOL GM</small></div>
     <div class="status">${tb(u.id)}<span><b>${esc(u.name)}</b> · ${S.season} ${phaseName()}</span></div>
     <div class="play">${acts.map((a,i)=>`<button class="btn ${i===0?'pri':''}" data-a="act" data-k="${a[0]}">${i===0?'▶ ':''}${a[1]}</button>`).join('')}</div></header>
     <div class="shell ${R.p==='match'&&LIVE&&LIVE.stage==='live'?'lv-mode':''}"><nav class="nav">${nav.map(([k,l,c])=>`<a data-a="go" data-p="${k}" class="${R.p===k?'on':''}">${l}<span class="k">${c}</span></a>`).join('')}</nav>
     <main class="main" id="main">${pageHtml}</main></div>`;
-  if(R.p==='match'&&LIVE&&LIVE.stage==='live'&&LV)lvStart();
+  showDevelopment();
 }
 function page(){
   try{switch(R.p){
@@ -1990,7 +2012,7 @@ function pHome(){
   const o=S.owner[S.owner.length-1];const pr=payroll(u.id);
   return`<section class="hero">${tb(u.id,true)}<div><h1>${esc(u.name)}</h1><div class="muted">${u.lg} · 人气 ${u.pop} · 战力 ${teamRating(u.id)}</div></div>
     <div class="stat-row" style="margin-left:auto"><div><b>${u.st.sw}-${u.st.sl}</b><span>大场战绩</span></div><div><b>${u.st.gw}-${u.st.gl}</b><span>小场</span></div><div><b>#${rank}</b><span>${u.lg} 排名</span></div><div><b>${money(u.cash)}</b><span>俱乐部资金</span></div></div></section>
-  ${developmentCard()}
+
   <div class="grid">
     <div class="card"><h3>下一场</h3>${opp?`<div class="row" style="gap:14px">${tb(u.id)}<b class="num">${teamRating(u.id)}</b><span class="muted">vs</span><b class="num">${teamRating(opp)}</b>${tb(opp)}<span class="chip">BO${nx.se.bo}</span></div>
       <div class="small muted">${esc(T(opp).name)} · ${T(opp).st&&T(opp).lg===u.lg?`${T(opp).st.sw}-${T(opp).st.sl}`:''}${nx.d!=null?` · 第 ${nx.d+1} 轮`:''}</div>${opponentIntel(opp)}${userPending()&&userPending().se===nx.se?'<div class="row"><button class="btn pri" data-a="act" data-k="match">进入比赛日</button><span class="small muted">BP、战术和小地图直播</span></div>':''}`:`<div class="muted">${S.phase==='REG'?'本赛季没有剩余比赛':offseason()?'休赛期：处理合同和转会':'本阶段没有你的比赛'}</div>`}</div>
@@ -2246,8 +2268,10 @@ function seriesReport(list,inline=false){const u=S.userTid;
     return open?`<div class="sec"><div class="row">${head}</div>${body}</div>`:`<details class="card"><summary class="row">${head}</summary>${body}</details>`};
   const w=list.filter(se=>(se.a===u?se.sa:se.sb)>(se.a===u?se.sb:se.sa)).length;
   return`<div class="${inline?'sec':'mbox'}" ${inline?'':'role="dialog" aria-label="战报"'}><div class="row"><h2>战报</h2><span class="muted small">${list.length} 场系列赛 · ${w} 胜 ${list.length-w} 负</span>${inline?'':'<button class="btn sm mclose" data-a="mclose">关闭</button>'}</div>${list.map((se,i)=>one(se,i===0)).join('')}</div>`}
-function openModal(html){const m=document.getElementById('modal');m.innerHTML=html;m.hidden=!html}
-function closeModal(){openModal('')}
+let modalReturnFocus=null;
+function openModal(html){const m=document.getElementById('modal');if(m.hidden&&html)modalReturnFocus=document.activeElement;m.innerHTML=html;m.hidden=!html;if(html)m.querySelector('button')?.focus({preventScroll:true});document.getElementById('app').inert=!!html}
+function closeModal(){const m=document.getElementById('modal'),story=m.querySelector('[data-story-id]');if(story&&S?.devEvent?.id===story.dataset.storyId){S.devEvent=null;save()}openModal('');if(modalReturnFocus?.isConnected)modalReturnFocus.focus({preventScroll:true});showDevelopment()}
+
 
 /* ================= 事件 ================= */
 let prevRoute=null;
@@ -2257,7 +2281,6 @@ document.addEventListener('click',ev=>{
   const a=el.dataset.a,id=el.dataset.id;
   if(['setst','schedday','trteam','trcash','trsel','adec','lauto','fanat','plnat','trcin'].includes(a))return;
   ev.preventDefault();
-  if(a==='devevent'){resolveDevelopment(id,el.dataset.choice);return}
   if(a.startsWith('legend')){legendAction(a,id);return}
   if(a.startsWith('sponsor')){negotiateSponsor(id,a.replace('sponsor',''),el.dataset.mode);return}
   switch(a){
@@ -2266,6 +2289,9 @@ document.addEventListener('click',ev=>{
     case'rehire':S.userTid=id;S.owner=[];S.fired=false;news(`你接手了 ${T(id).name}`,'gold');R={p:'home'};save();render();break;
     case'go':closeModal();R={p:el.dataset.p};render();window.scrollTo(0,0);break;
     case'act':doAct(el.dataset.k);break;
+    case'pretab':LIVE.preTab=el.dataset.v;render();window.scrollTo(0,0);break;
+    case'prepos':LIVE.prePos=el.dataset.v;render();window.scrollTo(0,0);break;
+    case'livetab':switchLiveTab(el.dataset.v);break;
     case'ptac':LIVE.tac[el.dataset.k]=el.dataset.v;S.utac={...LIVE.tac};LIVE.pred=null;render();break;
     case'pside':LIVE.sidePick=+el.dataset.v;render();break;
     case'bpgo':if(!LIVE||LIVE.stage!=='pre')break;autoBP(LIVE);startLive();window.scrollTo(0,0);break;
@@ -2322,7 +2348,7 @@ document.addEventListener('change',ev=>{
   else if(a==='trsel'){const k=el.dataset.k,id=+el.dataset.id;UI[k]=el.checked?[...UI[k],id]:UI[k].filter(x=>x!==id);render()}
   else if(a==='trcash'){UI.cash=Math.max(0,Math.round(+el.value||0));render()}
 });
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.addEventListener('keydown',e=>{const m=document.getElementById('modal');if(m.hidden)return;if(e.key==='Escape'){e.preventDefault();closeModal()}else if(e.key==='Tab'){const items=[...m.querySelectorAll('button,a[data-a],input,select,textarea,[tabindex="0"]')].filter(x=>!x.disabled&&x.getClientRects().length);const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
 
 /* 经营与开局：所有现金只在明确的结算动作中变动。 */
 const SPONSORS=[{id:'gear',name:'星曜外设',kind:'设备伙伴',factor:1},{id:'drink',name:'跃动饮品',kind:'饮品伙伴',factor:.8},{id:'stream',name:'云端直播',kind:'直播伙伴',factor:1.2}];
@@ -2367,7 +2393,7 @@ function legendAction(a,id){const d=draftState();if(a==='legendcontinue'&&d.done
   // Keep the revealed overall exact while preserving the player's attribute profile.
   for(let i=0;i<4&&calcOvr(p.r)!==q.ovr;i++){const delta=q.ovr-calcOvr(p.r);for(const [k]of ATTR)p.r[k]=clamp(p.r[k]+delta,25,99)}p.ovr=calcOvr(p.r);p.peak=p.ovr;p.pot=q.pot;p.c={amt:100,exp:S.season+2};p.legend=true;refreshBadges(p);d.done=true;d.playerId=p.id;d.welcomePending=true;news(`17 岁的 ${p.name} 加入俱乐部，可在阵容页安排首发。`,'gold');R={p:'legend'}}
  else if(a==='legendskip'){d.done=true;d.skipped=true;R={p:'home'}}save();render();if(d.done)window.scrollTo(0,0)}
-function pReview(){const q=S.review||S.lastReview;if(!q)return'<div class="card">暂无整场复盘</div>';return`<section class="sec"><h1>整场复盘</h1><p class="muted">${esc(q.se.lab||'系列赛')}已结束。查看整场表现后，返回主页准备下一场。</p></section>${seriesReport([q.se],true)}<div class="row">${S.review?'<button class="btn pri" data-a="mfinish">确认复盘，回到主页</button>':'<button class="btn" data-a="go" data-p="home">回到主页</button>'}</div>`}
+function pReview(){const q=S.review||S.lastReview;if(!q)return'<div class="card">暂无整场复盘</div>';return`<section class="sec"><h1>整场复盘</h1><p class="muted">${esc(q.se.lab||'系列赛')}已结束。查看整场表现后，返回主页准备下一场。</p></section><div class="row">${S.review?'<button class="btn pri" data-a="mfinish">确认复盘，回到主页</button>':'<button class="btn" data-a="go" data-p="home">回到主页</button>'}</div>${seriesReport([q.se],true)}`}
 function opponentIntel(id){const l=lineup(id);return`<div class="list opponent-intel">${POS.map(pos=>{const p=l[pos];return`<div>${posb(pos)}<span class="grow">${pl(p)}<span class="small muted"> · ${p.id?age(p)+' 岁':''} ${styChip(p)}</span></span>${ov(p.ovr)}</div>`}).join('')}</div>`}
 function financeCard(){const t=T(S.userTid),x=financeTotals(t);return`<div class="card"><h3>俱乐部经营</h3><div class="stat-row"><div><b>${money(x.income)}</b><span>本季已到账</span></div><div><b>${money(x.expense)}</b><span>本季已支出</span></div></div><div class="row"><span>预计季末现金</span><b class="num ${x.projected<0?'L':'W'}">${money(x.projected)}</b></div><a data-a="go" data-p="finance">收入明细与赞助谈判 →</a></div>`}
 function pFinance(){const t=T(S.userTid),f=financeDefaults(t),x=financeTotals(t);return`<section class="sec"><h3>${S.season} · 俱乐部经营</h3><h1>收入与支出</h1><div class="stat-row"><div><b>${money(t.cash)}</b><span>可用现金</span></div><div><b>${money(x.income)}</b><span>已到账收入</span></div><div><b>${money(x.expense)}</b><span>已付支出</span></div><div><b class="${x.projected<0?'L':'W'}">${money(x.projected)}</b><span>预计季末现金</span></div></div>${x.projected<0?'<p class="L">预计资金不足：增加赞助收入，或调整高薪合同。签约仍由你决定。</p>':''}</section>
@@ -2394,16 +2420,13 @@ function applyLifestyle(p,kind){const d=development(p),old=p.ovr;let text='';
 function developmentEvent(tid,se){const t=T(tid);if(t.devLastSeries===se.id)return;t.devLastSeries=se.id;const ro=roster(tid);for(const p of ro){const d=development(p);if(d.formRounds>0&&--d.formRounds===0)d.form=0;if(d.cooldown>0)d.cooldown--}
  if((isUser(tid)&&S.devEvent)||rnd()>=.24)return;const eligible=ro.filter(p=>development(p).cooldown===0);if(!eligible.length)return;
  const p=pick(eligible),d=development(p),z=rnd();const kind=z<.25?'late':z<.45?'fatigue':z<(.45+(100-d.drive)/170)?'slack':'grind';const text=applyLifestyle(p,kind);
- if(isUser(tid)){S.devEvent={id:`${S.season}:${se.id}:${p.id}`,pid:p.id,kind,text};news(`游戏剧情 · ${p.name}：${text}`,kind==='grind'?'W':'L')}
+ if(isUser(tid)){S.devEvent={id:`${S.season}:${se.id}:${p.id}`,pid:p.id,name:p.name,kind,text};news(`游戏剧情 · ${p.name}：${text}`,kind==='grind'?'W':'L')}
 }
-function resolveDevelopment(id,choice){const e=S.devEvent;if(!e||e.id!==id||!['talk','train','rest'].includes(choice))return;const p=P(e.pid);if(!p||p.tid!==S.userTid){S.devEvent=null;save();render();return}const d=development(p);let note;
- if(choice==='talk'){d.drive=clamp(d.drive+6,20,100);d.slack=Math.max(0,d.slack-1);note='经理谈话：投入 +6，降低持续松懈风险。'}
- else if(choice==='train'){d.drive=clamp(d.drive+3,20,100);if(p.ovr<p.pot)p.xp=Math.min(7.99,(p.xp||0)+ageGrowth(age(p)));d.form=clamp(d.form-1,-5,3);d.formRounds=Math.max(d.formRounds,1);note='专项训练：投入 +3，积累年龄对应经验，但短期状态 -1。'}
- else{d.form=0;d.formRounds=0;note='安排休息：恢复短期状态，已损失的基础能力仍需重新训练。'}
- rememberDevelopment(p,note);S.devEvent=null;save();render();toast(note)}
 function formChip(p){const d=development(p);return`<span class="chip ${d.form<0?'':'acc'}" title="游戏状态，不改变基础OVR">状态 ${d.form>0?'+':''}${d.form}${d.formRounds?' · '+d.formRounds+'场':''}</span>`}
 function developmentPanel(p){const d=development(p);return`<section class="sec"><h3>成长与状态</h3><div class="row"><span>训练投入 ${d.drive}/100</span><span>学习效率 ×${d.learning.toFixed(2)}</span>${formChip(p)}</div><p class="small muted">${age(p)} 岁 · 年龄成长系数 ×${ageGrowth(age(p))} · 经验 ${(p.xp||0).toFixed(1)}/8 · 本季能力变化 ${(p.sg||0)>0?'+':''}${p.sg||0}。大型赛事经验更高，接近潜力时减速。</p>${d.history.length?`<div class="list small">${d.history.map(x=>`<div>${x.season} · ${esc(x.text)}</div>`).join('')}</div>`:''}<p class="small muted">学习效率、投入及生活剧情均为游戏设定，不代表选手的现实经历。</p></section>`}
-function developmentCard(){const e=S.devEvent;if(!e)return'';const p=P(e.pid);if(!p)return'';return`<section class="card"><h3>队内动态 · 游戏剧情</h3><h2>${esc(p.name)}</h2><p>${esc(e.text)}</p><div class="row">${formChip(p)}<span>训练投入 ${development(p).drive}/100</span></div><div class="row"><button class="btn" data-a="devevent" data-id="${e.id}" data-choice="talk">谈话 · 投入 +6</button><button class="btn" data-a="devevent" data-id="${e.id}" data-choice="train">专项训练 · 经验积累</button><button class="btn pri" data-a="devevent" data-id="${e.id}" data-choice="rest">休息 · 恢复状态</button></div><p class="small muted">专项训练会短暂增加疲劳。剧情仅发生在本局模拟中。</p></section>`}
+function showDevelopment(){const e=S?.devEvent,m=document.getElementById('modal');if(!e||!m.hidden)return;const p=P(e.pid);
+ openModal(`<section class="mbox story-notice" role="dialog" aria-modal="true" aria-labelledby="story-title" data-story-id="${esc(e.id)}"><div class="row"><span class="chip">队内动态 · 游戏剧情</span><button class="btn mclose" data-a="mclose" aria-label="关闭剧情">关闭</button></div><h2 id="story-title">${esc(e.name||p?.name||'队员动态')}</h2><p>${esc(e.text)}</p><p class="small muted">变化已记入球员状态，可在选手详情回顾。</p></section>`);
+}
 function migrateDevelopment(){if(!S||S.developmentVersion===1)return;for(const p of Object.values(S.players)){development(p);const oldNeed=age(p)<=20?6:age(p)<=22?8:11;p.xp=Math.min(7.99,Math.max(0,p.xp||0)/oldNeed*8)}S.developmentVersion=1;save()}
 
 /* ================= 启动 ================= */
