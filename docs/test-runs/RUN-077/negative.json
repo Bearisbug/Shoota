@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "nameReadable": false,
+    "captainCorrect": false
+  },
+  "turnedRed": [
+    "nameReadable",
+    "captainCorrect"
+  ],
+  "stillGreen": [],
+  "width": 19.171875,
+  "captain": "81\nCM\nYouri Tielemans\n曼联\n队长\n中场 · 0 球 0 助",
+  "errors": []
+}

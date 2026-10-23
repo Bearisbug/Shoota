@@ -1,0 +1,65 @@
+{
+  "captain": "81\nCM\nYouri Tielemans\n曼联\n队长\n中场 · 0 球 0 助",
+  "tables": [
+    {
+      "view": "squad",
+      "metrics": [
+        {
+          "name": "Senne Lammens 首发",
+          "width": 54.640625,
+          "height": 68.1875
+        },
+        {
+          "name": "Nélson de Jesus Silva 传奇",
+          "width": 54.640625,
+          "height": 286.546875
+        },
+        {
+          "name": "Quentin Laurent",
+          "width": 54.640625,
+          "height": 45
+        },
+        {
+          "name": "Jake Holloway",
+          "width": 54.640625,
+          "height": 51.390625
+        },
+        {
+          "name": "Lisandro Martínez 首发",
+          "width": 54.640625,
+          "height": 84.984375
+        }
+      ]
+    },
+    {
+      "view": "market",
+      "metrics": [
+        {
+          "name": "Erling Haaland",
+          "width": 19.171875,
+          "height": 168.96875
+        },
+        {
+          "name": "Kylian Mbappé",
+          "width": 19.171875,
+          "height": 168.96875
+        },
+        {
+          "name": "Lamine Yamal",
+          "width": 19.171875,
+          "height": 152.171875
+        },
+        {
+          "name": "Harry Kane",
+          "width": 19.171875,
+          "height": 118.578125
+        },
+        {
+          "name": "Jude Bellingham",
+          "width": 19.171875,
+          "height": 202.5625
+        }
+      ]
+    }
+  ]
+}

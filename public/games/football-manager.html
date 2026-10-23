@@ -114,6 +114,7 @@ label.fld { display: grid; gap: 3px; font-size: var(--fs-xs); color: var(--muted
 table.t { width: 100%; border-collapse: collapse; font-size: var(--fs-s); font-variant-numeric: tabular-nums; }
 table.t th { position: sticky; top: 0; background: var(--panel2); color: var(--muted); font-weight: 600; text-align: left; padding: 0 6px; height: 26px; border-bottom: 1px solid var(--line2); white-space: nowrap; z-index: 1; font-size: var(--fs-min); text-transform: uppercase; letter-spacing: .04em; }
 table.t td { padding: 0 6px; height: var(--row); border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.t .player-pin { min-width:9rem; }
 table.t td.n, table.t th.n { text-align: right; }
 table.t td.c, table.t th.c { text-align: center; }
 table.t tr.me td { background: var(--accent-soft); }
@@ -451,7 +452,8 @@ html, body { width:100%; overflow:hidden; }
   .pside { grid-template-columns:minmax(0,1fr); justify-items:center; }
   .attr-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
   .badge-grid { grid-template-columns:minmax(0,1fr); }
-  table.t .player-pin { position:sticky; left:0; z-index:2; background:var(--panel); box-shadow:1px 0 var(--line2); max-width:156px; white-space:normal; overflow-wrap:anywhere; }
+  table.t .player-pin { position:sticky; left:0; z-index:2; background:var(--panel); box-shadow:1px 0 var(--line2); min-width:9rem; white-space:nowrap; overflow-wrap:normal; word-break:normal; }
+  table.t .player-pin .pl { white-space:nowrap; overflow-wrap:normal; word-break:normal; }
   table.t th.player-pin { z-index:3; background:var(--panel2); }
   .mx-pitch { max-height:50dvh; }
   #toast { bottom:calc(64px + env(safe-area-inset-bottom)); }
@@ -4624,7 +4626,7 @@ var UI = (function () {
   }
 
   /* ---------- 存取 ---------- */
-  function snapshot() { return { v: GAME_VERSION, pop: state.pop, popHistory: state.popHistory, loanFame: state.loanFame, fans: state.fans, loans: state.loans, club: state.club, captains: state.captains || {}, mgr: state.mgr, board: state.board, inbox: state.inbox, games: state.games, tactic: state.tactic, lineup: state.lineup, youth: state.youth, fac: state.fac, fin: state.fin, offers: state.offers, listed: state.listed, shortlist: state.shortlist, history: state.history, fired: state.fired, w: FB.pack(state.w) }; }
+  function snapshot() { myCaptain(); return { v: GAME_VERSION, pop: state.pop, popHistory: state.popHistory, loanFame: state.loanFame, fans: state.fans, loans: state.loans, club: state.club, captains: state.captains || {}, captainModes: state.captainModes || {}, mgr: state.mgr, board: state.board, inbox: state.inbox, games: state.games, tactic: state.tactic, lineup: state.lineup, youth: state.youth, fac: state.fac, fin: state.fin, offers: state.offers, listed: state.listed, shortlist: state.shortlist, history: state.history, fired: state.fired, w: FB.pack(state.w) }; }
   function restore(o) { const s = Object.assign({}, o); s.w = FB.unpack(o.w); FB.rebuildIndex(s.w); if (s.pop == null) s.pop = initPop(s.w.clubs[s.club]); if (s.fans == null) s.fans = Math.round(s.pop * 3); if (!s.loans) s.loans = []; s.tactic = Object.assign({ press: 3, line: 3, tempo: 3, width: 3, roles: [] }, s.tactic); return s; }
   function meta() { const c = club(); return { club: c.name, lg: lgName(c.lg), season: seasonLabel(), week: state.w.week + 1, mgr: state.mgr.name, pos: FB.position(state.w, c.id) }; }
   function persist() { if (!state) return; const r = SAVE.write('auto', snapshot(), meta()); ui.saveOK = r.ok; if (!r.ok) ui.saveErr = r.err; }
@@ -4637,15 +4639,199 @@ var UI = (function () {
   const seasonLabel = () => { const y = FB.START_YEAR + W().season; return `${y}–${String(y + 1).slice(2)} 赛季`; };
   const mySquad = () => FB.squad(W(), state.club);
   const ageOf = p => FB.age(W(), p);
+  // Opening-season club captains; audited sources: docs/football-captains.json.
+  const CLUB_CAPTAINS = {
+  "CSL-SHP": "武磊",
+  "CSL-SHH": "吴曦",
+  "CSL-CDR": "韦世豪",
+  "CSL-BJG": "张稀哲",
+  "CSL-SDT": "王大雷",
+  "CSL-TJT": "王秋明",
+  "CSL-ZJP": "程进",
+  "CSL-YNY": "赵宇豪",
+  "CSL-QWC": "孙捷",
+  "CSL-HEN": "王上源",
+  "CSL-DLY": "吕鹏",
+  "CSL-SZP": "Wesley Moraes",
+  "CSL-WTT": "刘奕鸣",
+  "CSL-QDH": "Nemanja Anđelković",
+  "CSL-LNT": "Takahiro Kunimoto",
+  "CSL-CQT": "向余望",
+  "EPL-ARS": "Martin Ødegaard",
+  "EPL-MCI": "Rúben Dias",
+  "EPL-LIV": "Virgil van Dijk",
+  "EPL-CHE": "Reece James",
+  "EPL-MUN": "Bruno Fernandes",
+  "EPL-TOT": "Micky van de Ven",
+  "EPL-AVL": "John McGinn",
+  "EPL-NEW": "Dan Burn",
+  "EPL-NFO": "Ryan Yates",
+  "EPL-CRY": "Dean Henderson",
+  "EPL-BHA": "Lewis Dunk",
+  "EPL-BOU": "Adam Smith",
+  "EPL-EVE": "James Tarkowski",
+  "EPL-BRE": "Nathan Collins",
+  "EPL-FUL": "Tom Cairney",
+  "EPL-SUN": "Granit Xhaka",
+  "EPL-LEE": "Ethan Ampadu",
+  "EPL-IPS": "Dara O'Shea",
+  "EPL-COV": "Matt Grimes",
+  "EPL-HUL": "Lewie Coyle",
+  "LALIGA-RMA": "Federico Valverde",
+  "LALIGA-FCB": "Raphinha",
+  "LALIGA-ATM": "Koke",
+  "LALIGA-VIL": "Gerard Moreno",
+  "LALIGA-ATH": "Iñaki Williams",
+  "LALIGA-BET": "Isco",
+  "LALIGA-RSO": "Mikel Oyarzabal",
+  "LALIGA-CEL": "Iago Aspas",
+  "LALIGA-OSA": "Kike Barja",
+  "LALIGA-RAY": "Óscar Valentín",
+  "LALIGA-SEV": "Gabriel Suazo",
+  "LALIGA-VAL": "José Gayà",
+  "LALIGA-ESP": "Javi Puado",
+  "LALIGA-GET": "Dakonam Djené",
+  "LALIGA-ALA": "Antonio Sivera",
+  "LALIGA-DEP": "Diego Villares",
+  "LALIGA-ELC": "Pedro Bigas",
+  "LALIGA-RAC": "Íñigo Sainz-Maza",
+  "LALIGA-LEV": "Pablo Martínez",
+  "LALIGA-MAL": "Ramón Enríquez",
+  "SERIEA-INT": "Lautaro Martínez",
+  "SERIEA-NAP": "Giovanni Di Lorenzo",
+  "SERIEA-MIL": "Mike Maignan",
+  "SERIEA-JUV": "Manuel Locatelli",
+  "SERIEA-ROM": "Bryan Cristante",
+  "SERIEA-ATA": "Éderson",
+  "SERIEA-COM": "Lucas Da Cunha",
+  "SERIEA-BOL": "Lorenzo De Silvestri",
+  "SERIEA-LAZ": "Mattia Zaccagni",
+  "SERIEA-FIO": "David de Gea",
+  "SERIEA-TOR": "Duván Zapata",
+  "SERIEA-UDI": "Jesper Karlström",
+  "SERIEA-GEN": "Johan Vásquez",
+  "SERIEA-SAS": "Domenico Berardi",
+  "SERIEA-PAR": "Enrico Delprato",
+  "SERIEA-CAG": "Alessandro Deiola",
+  "SERIEA-LEC": "Wladimiro Falcone",
+  "SERIEA-VEN": "Gianluca Busio",
+  "SERIEA-MON": "Matteo Pessina",
+  "SERIEA-FRO": "Ilario Monterisi",
+  "BUN-FCB": "Manuel Neuer",
+  "BUN-BVB": "Emre Can",
+  "BUN-B04": "Edmond Tapsoba",
+  "BUN-RBL": "David Raum",
+  "BUN-SGE": "Robin Koch",
+  "BUN-VFB": "Deniz Undav",
+  "BUN-SCF": "Christian Günter",
+  "BUN-M05": "Silvan Widmer",
+  "BUN-BMG": "Tim Kleindienst",
+  "BUN-FCU": "Christopher Trimmel",
+  "BUN-SVW": "Marco Friedl",
+  "BUN-FCA": "Jeffrey Gouweleeuw",
+  "BUN-TSG": "Oliver Baumann",
+  "BUN-HSV": "Nicolai Remberg",
+  "BUN-KOE": "Marvin Schwäbe",
+  "BUN-S04": "Kenan Karaman",
+  "BUN-SVE": "Lukas Pinckert",
+  "BUN-SCP": "Felix Götze",
+  "LIGUE1-PSG": "Marquinhos",
+  "LIGUE1-OM": "Timothy Weah",
+  "LIGUE1-ASM": "Denis Zakaria",
+  "LIGUE1-LOSC": "Benjamin André",
+  "LIGUE1-OGC": "Jonathan Clauss",
+  "LIGUE1-OL": "Corentin Tolisso",
+  "LIGUE1-RCS": "Filip Jörgensen",
+  "LIGUE1-RCL": "Florian Thauvin",
+  "LIGUE1-SB29": "Brendan Chardonnet",
+  "LIGUE1-TFC": "Rasmus Nicolaisen",
+  "LIGUE1-AJA": "Elisha Owusu",
+  "LIGUE1-SRFC": "Valentin Rongier",
+  "LIGUE1-SCO": "Haris Belkebla",
+  "LIGUE1-HAC": "Rassoul Ndiaye",
+  "LIGUE1-FCL": "Montassar Talbi",
+  "LIGUE1-PFC": "Pierre Lees-Melou",
+  "LIGUE1-LMF": "Edwin Quarshie",
+  "LIGUE1-ETR": "Adrien Monfray",
+  "POR-SLB": "Fredrik Aursnes",
+  "POR-FCP": "Diogo Costa",
+  "POR-SCP": "Gonçalo Inácio",
+  "POR-SCB": "Ricardo Horta",
+  "POR-VSC": "Samu Silva",
+  "POR-FAM": "Tom van de Looi",
+  "POR-GVI": "Jonathan Buatu",
+  "POR-MOR": "Dinis Pinto",
+  "POR-EST": "João Carvalho",
+  "POR-RAV": "Marios Vrousai",
+  "POR-ARO": "Tiago Esgaio",
+  "POR-CPI": "André Geraldes",
+  "POR-CDS": "Gonçalo Paciência",
+  "POR-NAC": "Léo Santos",
+  "POR-EAM": "Stefan Leković",
+  "POR-ALV": "Sergi Gómez",
+  "POR-MAR": "Romain Correia",
+  "POR-ACV": "Luís Silva",
+  "NED-AJA": "Davy Klaassen",
+  "NED-PSV": "Jerdy Schouten",
+  "NED-FEY": "Luciano Valente",
+  "NED-AZA": "Jordy Clasie",
+  "NED-TWE": "Robin Pröpper",
+  "NED-UTR": "Nick Viergever",
+  "NED-NEC": "Tjaronn Chery",
+  "NED-GAE": "Joris Kramer",
+  "NED-HEE": "Luuk Brouwers",
+  "NED-SPA": "Bruno Martins Indi",
+  "NED-GRO": "Thijmen Blokzijl",
+  "NED-FOR": "Ivo Pinto",
+  "NED-PEC": "Ryan Thomas",
+  "NED-EXC": "Casper Widell",
+  "NED-TEL": "Danny Bakker",
+  "NED-ADO": "Juho Kilo",
+  "NED-CAM": "Nicky Souren",
+  "NED-WIL": "Jari Schuurman",
+  "TUR-GAL": "Abdülkerim Bardakcı",
+  "TUR-FEN": "Milan Škriniar",
+  "TUR-BJK": "Orkun Kökçü",
+  "TUR-TRA": "Stefan Savić",
+  "TUR-BAS": "Ömer Ali Şahiner",
+  "TUR-SAM": "Emre Kılınç",
+  "TUR-GOZ": "Ogün Bayrak",
+  "TUR-EYU": "Lucas Calegari",
+  "TUR-KAS": "Haris Hajradinović",
+  "TUR-KON": "Adil Demirbağ",
+  "TUR-ALA": "Fidan Aliti",
+  "TUR-GAZ": "Alexandru Maxim",
+  "TUR-RIZ": "Taylan Antalyalı",
+  "TUR-KOC": "Bruno Petković",
+  "TUR-GEN": "Dimitrios Goutas",
+  "TUR-AME": "Mehmet Yeşil",
+  "TUR-COR": "Ferhat Yazgan",
+  "TUR-ERZ": "Eren Tozlu"
+};
   function myCaptain(squad = mySquad()) {
     state.captains = state.captains || {};
+    state.captainModes = state.captainModes || {};
     const assigned = squad.find(p => p.id === state.captains[state.club]);
-    if (assigned) return assigned;
-    // New and older saves use the oldest starting player until the manager chooses.
-    const starters = myLineup().xi.filter(p => squad.some(x => x.id === p.id));
-    const next = (starters.length ? starters : squad).slice().sort((a,b) => ageOf(b)-ageOf(a) || b.ovr-a.ovr || a.id.localeCompare(b.id))[0];
+    if (assigned) {
+      // Legacy saves cannot distinguish automatic selection from a human appointment.
+      if (!state.captainModes[state.club]) state.captainModes[state.club] = 'legacy';
+      return assigned;
+    }
+    const hadAssignment = !!state.captains[state.club];
+    state.captains[state.club] = null;
+    // A departure must never silently appoint a replacement.
+    if (hadAssignment) state.captainModes[state.club] = 'vacant';
+    if (state.captainModes[state.club] === 'vacant') return null;
+    const next = squad.find(p => p.real && p.n === CLUB_CAPTAINS[state.club]) || null;
     state.captains[state.club] = next ? next.id : null;
+    state.captainModes[state.club] = 'default';
     return next;
+  }
+  function captainNotice() {
+    const p = myCaptain(), name = CLUB_CAPTAINS[state.club];
+    if (state.captainModes[state.club] === 'legacy') return `<div class="note" style="margin-bottom:10px">旧档队长 ${E(p.n)} 待确认${name ? `；球队默认：${E(name)}` : ''}<div class="row" style="margin-top:8px;flex-wrap:wrap">${btn('保留当前队长', 'captain-keep', 'small')}${btn('恢复球队默认', 'captain-reset', 'small')}</div></div>`;
+    if (!p) return `<div class="note" style="margin-bottom:10px">${state.captainModes[state.club] === 'vacant' ? '队长已离队，请重新任命。' : name ? `球队资料队长：${E(name)}（未在当前阵容）。` : '尚未任命队长。'} <button type="button" class="btn small" data-go="squad">任命队长</button></div>`;
+    return '';
   }
 
   function news(title, body, kind) { state.inbox.unshift({ t: title, b: body || '', k: kind || '', s: W().season, wk: W().week, read: 0 }); if (state.inbox.length > 80) state.inbox.length = 80; }
@@ -5075,7 +5261,7 @@ var UI = (function () {
     const squad = mySquad(), captain = myCaptain(squad);
     const topThree = squad.slice().sort((a,b)=>b.ovr-a.ovr || a.id.localeCompare(b.id)).slice(0,3);
     const core = captain ? [captain, ...topThree.filter(p => p.id !== captain.id)] : topThree;
-    return `${card('球队核心', `<div class="core-cards">${core.map(p=>`<button type="button" class="core-player" data-act="player" data-id="${E(p.id)}" aria-label="查看 ${E(p.n)}${p.id === captain?.id ? '，队长' : ''} 球员卡">${UI.starCard(w,p,p.id === captain?.id)}<small>${E(FB.POS[p.pos])} · ${p.s.g || 0} 球 ${p.s.a || 0} 助</small></button>`).join('')}</div>`)}<div class="grid g-main"><div class="grid">${card('下一场比赛', nextCard, { right: tag(lgName(c.lg)) })}
+    return `${captainNotice()}${card('球队核心', `<div class="core-cards">${core.map(p=>`<button type="button" class="core-player" data-act="player" data-id="${E(p.id)}" aria-label="查看 ${E(p.n)}${p.id === captain?.id ? (state.captainModes[state.club] === 'legacy' ? '，旧档队长待确认' : '，队长') : ''} 球员卡">${UI.starCard(w,p,p.id === captain?.id && state.captainModes[state.club] !== 'legacy')}<small>${E(FB.POS[p.pos])} · ${p.s.g || 0} 球 ${p.s.a || 0} 助</small></button>`).join('')}</div>`)}<div class="grid g-main"><div class="grid">${card('下一场比赛', nextCard, { right: tag(lgName(c.lg)) })}
       ${card('最近赛果', recent.length ? `<table class="t"><tbody>${recent.map((g, i) => { const home = g.h === state.club, gf = home ? g.hg : g.ag, ga = home ? g.ag : g.hg, o = club(home ? g.a : g.h); return `<tr><td class="dim">第${g.r + 1}轮</td><td>${home ? '主' : '客'}</td><td>${crest(o, 1)} ${E(o.name)}</td><td class="c"><b class="${gf > ga ? 'good' : gf < ga ? 'bad' : ''}">${gf}:${ga}</b></td><td class="n">${btn('详情', 'game', 'small ghost', `data-i="${state.games.indexOf(g)}"`)}</td></tr>`; }).join('')}</tbody></table>` : empty('还没有比赛', '联赛第 4 周开赛。'), { flush: !!recent.length })}
       ${card('伤停与停赛', inj.length ? `<table class="t"><tbody>${inj.map(p => `<tr><td>${posChip(p.pos)}</td><td>${plLink(p)}</td><td class="n">${p.inj > 0 ? '伤停 ' + p.inj + ' 周' : '停赛 1 场'}</td></tr>`).join('')}</tbody></table>` : '<p class="small muted" style="margin:0">全员健康。</p>', { flush: !!inj.length })}</div>
       <div class="grid">${card('董事会', `<div class="coach-person">${UI.avatar(state.mgr.name,c.color)}<span>主教练 <b>${E(state.mgr.name)}</b></span></div><div class="kv"><span>赛季目标</span><span>${E(state.board.text)}</span><span>当前排名</span><span>第 ${pos + 1} 名 ${pos + 1 <= state.board.pos ? '<span class="good">达标</span>' : '<span class="warn">未达标</span>'}</span><span>董事会信心</span><span>${Math.round(state.board.conf)} / 100</span><span>俱乐部余额</span><span>${money(c.balance)}</span><span>俱乐部人气 · 球迷</span><span>${Math.round(state.pop)} · ${fmt(state.fans)} 万</span>${state.loans.length ? `<span>海外锻炼中</span><span>${state.loans.length} 人</span>` : ''}</div><div style="margin-top:8px">${bar(state.board.conf, 100, state.board.conf < 30 ? 'bad' : state.board.conf < 50 ? 'warn' : '')}</div><p class="small dim" style="margin:8px 0 0">赛季结束时完成目标会大幅提升信心；信心低于 15 会被解雇。</p>`)}
@@ -5091,7 +5277,7 @@ var UI = (function () {
     const yearEnd = FB.START_YEAR + w.season + 1;
     const total = sq.reduce((s, p) => s + p.wage, 0);
     const captain = myCaptain(sq);
-    return `<label class="row" style="margin-bottom:10px"><span class="small muted">队长</span><select data-pick="captain" aria-label="选择球队队长" style="flex:1;max-width:280px">${sq.map(p=>`<option value="${E(p.id)}" ${p.id === captain?.id ? 'selected' : ''}>${E(p.n)} · ${E(FB.POS[p.pos])}</option>`).join('')}</select></label><div class="row" style="margin-bottom:10px"><span class="small muted">排序</span>${seg('squad-sort', [['pos', '位置'], ['ovr', '总评'], ['age', '年龄'], ['value', '身价'], ['g', '进球'], ['cy', '合同']], ui.squadSort)}<span class="small muted" style="margin-left:auto">${sq.length} 人 · 周薪总额 ${wage(total)}</span></div>
+    return `${captainNotice()}<label class="row" style="margin-bottom:10px"><span class="small muted">队长</span><select data-pick="captain" aria-label="选择球队队长" style="flex:1;max-width:280px">${!captain ? '<option value="" selected disabled>请选择队长</option>' : ''}${sq.map(p=>`<option value="${E(p.id)}" ${p.id === captain?.id ? 'selected' : ''}>${E(p.n)} · ${E(FB.POS[p.pos])}</option>`).join('')}</select></label><div class="row" style="margin-bottom:10px"><span class="small muted">排序</span>${seg('squad-sort', [['pos', '位置'], ['ovr', '总评'], ['age', '年龄'], ['value', '身价'], ['g', '进球'], ['cy', '合同']], ui.squadSort)}<span class="small muted" style="margin-left:auto">${sq.length} 人 · 周薪总额 ${wage(total)}</span></div>
       ${card('一线队', `<div class="tbl-wrap"><table class="t"><thead><tr><th>位置</th><th>球员</th><th class="n">年龄</th><th>国籍</th><th class="c">总评</th><th>潜力</th><th>风格</th><th>徽章</th><th class="n">体能</th><th>状态</th><th class="n">出场</th><th class="n">进球</th><th class="n">助攻</th><th class="n">评分</th><th class="n">身价</th><th class="n">周薪</th><th class="n">合同</th><th></th></tr></thead><tbody>${sq.map(p => `<tr><td>${posChip(p.pos)}</td><td>${plLink(p)}${xi.has(p.id) ? ' <span class="tag acc">首发</span>' : ''}${state.listed.includes(p.id) ? ' <span class="tag warn">挂牌</span>' : ''}</td><td class="n">${ageOf(p)}</td><td>${E(nat(p.nat))}</td><td class="c">${ovBadge(p.ovr)}</td><td>${stars(p.pot)}</td><td class="small">${E(FB.styleOf(p)[1])}</td><td>${UI.badgeSummary(p, 2)}</td><td class="n">${Math.round(p.cond)}</td><td>${p.inj > 0 ? `<span class="bad">伤 ${p.inj}周</span>` : p.ban > 0 ? '<span class="warn">停赛</span>' : (p.form > 1 ? '<span class="good">火热</span>' : p.form < -1 ? '<span class="muted">低迷</span>' : '正常')}</td><td class="n">${p.s.ap}</td><td class="n">${p.s.g}</td><td class="n">${p.s.a}</td><td class="n">${p.s.ap ? (p.s.rs / p.s.ap).toFixed(2) : '—'}</td><td class="n">${money(FB.valueOf(p, w))}</td><td class="n">${wage(p.wage)}</td><td class="n ${p.cy <= yearEnd ? 'warn' : ''}">${p.cy}</td><td>${p.cy <= yearEnd + 1 ? btn('续约', 'renew', 'small ghost', `data-id="${E(p.id)}"`) : ''}</td></tr>`).join('')}</tbody></table></div>`, { flush: true })}`;
   }
 
@@ -5266,6 +5452,8 @@ var UI = (function () {
     const act = a.dataset.act, id = a.dataset.id;
     if (act.startsWith('mt-')) return;
     switch (act) {
+      case 'captain-keep': { const p = myCaptain(); if (p) { state.captainModes[state.club] = 'manual'; persist(); render(); toast('已确认 ' + p.n + ' 为队长'); } break; }
+      case 'captain-reset': { state.captains = state.captains || {}; state.captainModes = state.captainModes || {}; delete state.captains[state.club]; delete state.captainModes[state.club]; myCaptain(); persist(); render(); toast('已恢复球队默认队长设置'); break; }
       case 'menu': ui.mobile = !ui.mobile; render(); break;
       case 'pick-club': ui.pickClub = id; render(); setTimeout(() => $('#mgr-name') && $('#mgr-name').focus(), 0); break;
       case 'start': beginLegendDraft(); break;
@@ -5339,7 +5527,7 @@ var UI = (function () {
   document.addEventListener('change', e => {
     if (e.target.matches('select[data-pick="captain"]') && state) {
       const p = W().players[e.target.value];
-      if (p && p.club === state.club) { state.captains = state.captains || {}; state.captains[state.club] = p.id; persist(); render(); toast('已任命 ' + p.n + ' 为队长'); }
+      if (p && p.club === state.club) { state.captains = state.captains || {}; state.captains[state.club] = p.id; state.captainModes = state.captainModes || {}; state.captainModes[state.club] = 'manual'; persist(); render(); toast('已任命 ' + p.n + ' 为队长'); }
       return;
     }
     if (e.target.matches('select[data-pick="form"]') && state) { const v = e.target.value; state.tactic.formation = v; state.tactic.roles = []; state.lineup = null; ui.tpSel = ''; club().formation = v; persist(); return render(); }

@@ -1,0 +1,1414 @@
+{
+  "layouts": [
+    {
+      "width": 320,
+      "view": "squad",
+      "count": 25,
+      "minWidth": 146.265625,
+      "maxHeight": 45
+    },
+    {
+      "width": 320,
+      "view": "market",
+      "count": 100,
+      "minWidth": 144,
+      "maxHeight": 45
+    },
+    {
+      "width": 320,
+      "view": "free",
+      "count": 1
+    },
+    {
+      "width": 390,
+      "view": "squad",
+      "count": 25,
+      "minWidth": 147.453125,
+      "maxHeight": 45
+    },
+    {
+      "width": 390,
+      "view": "market",
+      "count": 100,
+      "minWidth": 144,
+      "maxHeight": 45
+    },
+    {
+      "width": 390,
+      "view": "free",
+      "count": 1
+    },
+    {
+      "width": 768,
+      "view": "squad",
+      "count": 25,
+      "minWidth": 146.265625,
+      "maxHeight": 45
+    },
+    {
+      "width": 768,
+      "view": "market",
+      "count": 100,
+      "minWidth": 144,
+      "maxHeight": 45
+    },
+    {
+      "width": 768,
+      "view": "free",
+      "count": 1
+    },
+    {
+      "width": 1440,
+      "view": "squad",
+      "count": 25,
+      "minWidth": 174.46875,
+      "maxHeight": 32
+    },
+    {
+      "width": 1440,
+      "view": "market",
+      "count": 100,
+      "minWidth": 172.421875,
+      "maxHeight": 32
+    },
+    {
+      "width": 1440,
+      "view": "free",
+      "count": 1
+    }
+  ],
+  "captains": [
+    {
+      "id": "CSL-SHP",
+      "expected": "武磊",
+      "actual": "武磊",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-SHH",
+      "expected": "吴曦",
+      "actual": "吴曦",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-CDR",
+      "expected": "韦世豪",
+      "actual": "韦世豪",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-BJG",
+      "expected": "张稀哲",
+      "actual": "张稀哲",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-SDT",
+      "expected": "王大雷",
+      "actual": "王大雷",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-TJT",
+      "expected": "王秋明",
+      "actual": "王秋明",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-ZJP",
+      "expected": "程进",
+      "actual": "程进",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-YNY",
+      "expected": "赵宇豪",
+      "actual": "赵宇豪",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-QWC",
+      "expected": "孙捷",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：孙捷（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "CSL-HEN",
+      "expected": "王上源",
+      "actual": "王上源",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-DLY",
+      "expected": "吕鹏",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：吕鹏（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "CSL-SZP",
+      "expected": "Wesley Moraes",
+      "actual": "Wesley Moraes",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-WTT",
+      "expected": "刘奕鸣",
+      "actual": "刘奕鸣",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-QDH",
+      "expected": "Nemanja Anđelković",
+      "actual": "Nemanja Anđelković",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-LNT",
+      "expected": "Takahiro Kunimoto",
+      "actual": "Takahiro Kunimoto",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "CSL-CQT",
+      "expected": "向余望",
+      "actual": "向余望",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-ARS",
+      "expected": "Martin Ødegaard",
+      "actual": "Martin Ødegaard",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-MCI",
+      "expected": "Rúben Dias",
+      "actual": "Rúben Dias",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-LIV",
+      "expected": "Virgil van Dijk",
+      "actual": "Virgil van Dijk",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-CHE",
+      "expected": "Reece James",
+      "actual": "Reece James",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-MUN",
+      "expected": "Bruno Fernandes",
+      "actual": "Bruno Fernandes",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-TOT",
+      "expected": "Micky van de Ven",
+      "actual": "Micky van de Ven",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-AVL",
+      "expected": "John McGinn",
+      "actual": "John McGinn",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-NEW",
+      "expected": "Dan Burn",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Dan Burn（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "EPL-NFO",
+      "expected": "Ryan Yates",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Ryan Yates（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "EPL-CRY",
+      "expected": "Dean Henderson",
+      "actual": "Dean Henderson",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-BHA",
+      "expected": "Lewis Dunk",
+      "actual": "Lewis Dunk",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-BOU",
+      "expected": "Adam Smith",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Adam Smith（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "EPL-EVE",
+      "expected": "James Tarkowski",
+      "actual": "James Tarkowski",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-BRE",
+      "expected": "Nathan Collins",
+      "actual": "Nathan Collins",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-FUL",
+      "expected": "Tom Cairney",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Tom Cairney（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "EPL-SUN",
+      "expected": "Granit Xhaka",
+      "actual": "Granit Xhaka",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-LEE",
+      "expected": "Ethan Ampadu",
+      "actual": "Ethan Ampadu",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-IPS",
+      "expected": "Dara O'Shea",
+      "actual": "Dara O'Shea",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-COV",
+      "expected": "Matt Grimes",
+      "actual": "Matt Grimes",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "EPL-HUL",
+      "expected": "Lewie Coyle",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Lewie Coyle（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "LALIGA-RMA",
+      "expected": "Federico Valverde",
+      "actual": "Federico Valverde",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-FCB",
+      "expected": "Raphinha",
+      "actual": "Raphinha",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-ATM",
+      "expected": "Koke",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Koke（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "LALIGA-VIL",
+      "expected": "Gerard Moreno",
+      "actual": "Gerard Moreno",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-ATH",
+      "expected": "Iñaki Williams",
+      "actual": "Iñaki Williams",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-BET",
+      "expected": "Isco",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Isco（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "LALIGA-RSO",
+      "expected": "Mikel Oyarzabal",
+      "actual": "Mikel Oyarzabal",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-CEL",
+      "expected": "Iago Aspas",
+      "actual": "Iago Aspas",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-OSA",
+      "expected": "Kike Barja",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Kike Barja（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "LALIGA-RAY",
+      "expected": "Óscar Valentín",
+      "actual": "Óscar Valentín",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-SEV",
+      "expected": "Gabriel Suazo",
+      "actual": "Gabriel Suazo",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-VAL",
+      "expected": "José Gayà",
+      "actual": "José Gayà",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-ESP",
+      "expected": "Javi Puado",
+      "actual": "Javi Puado",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-GET",
+      "expected": "Dakonam Djené",
+      "actual": "Dakonam Djené",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-ALA",
+      "expected": "Antonio Sivera",
+      "actual": "Antonio Sivera",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-DEP",
+      "expected": "Diego Villares",
+      "actual": "Diego Villares",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-ELC",
+      "expected": "Pedro Bigas",
+      "actual": "Pedro Bigas",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-RAC",
+      "expected": "Íñigo Sainz-Maza",
+      "actual": "Íñigo Sainz-Maza",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LALIGA-LEV",
+      "expected": "Pablo Martínez",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Pablo Martínez（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "LALIGA-MAL",
+      "expected": "Ramón Enríquez",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Ramón Enríquez（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "SERIEA-INT",
+      "expected": "Lautaro Martínez",
+      "actual": "Lautaro Martínez",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-NAP",
+      "expected": "Giovanni Di Lorenzo",
+      "actual": "Giovanni Di Lorenzo",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-MIL",
+      "expected": "Mike Maignan",
+      "actual": "Mike Maignan",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-JUV",
+      "expected": "Manuel Locatelli",
+      "actual": "Manuel Locatelli",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-ROM",
+      "expected": "Bryan Cristante",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Bryan Cristante（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "SERIEA-ATA",
+      "expected": "Éderson",
+      "actual": "Éderson",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-COM",
+      "expected": "Lucas Da Cunha",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Lucas Da Cunha（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "SERIEA-BOL",
+      "expected": "Lorenzo De Silvestri",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Lorenzo De Silvestri（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "SERIEA-LAZ",
+      "expected": "Mattia Zaccagni",
+      "actual": "Mattia Zaccagni",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-FIO",
+      "expected": "David de Gea",
+      "actual": "David de Gea",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-TOR",
+      "expected": "Duván Zapata",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Duván Zapata（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "SERIEA-UDI",
+      "expected": "Jesper Karlström",
+      "actual": "Jesper Karlström",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-GEN",
+      "expected": "Johan Vásquez",
+      "actual": "Johan Vásquez",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-SAS",
+      "expected": "Domenico Berardi",
+      "actual": "Domenico Berardi",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-PAR",
+      "expected": "Enrico Delprato",
+      "actual": "Enrico Delprato",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-CAG",
+      "expected": "Alessandro Deiola",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Alessandro Deiola（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "SERIEA-LEC",
+      "expected": "Wladimiro Falcone",
+      "actual": "Wladimiro Falcone",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-VEN",
+      "expected": "Gianluca Busio",
+      "actual": "Gianluca Busio",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-MON",
+      "expected": "Matteo Pessina",
+      "actual": "Matteo Pessina",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "SERIEA-FRO",
+      "expected": "Ilario Monterisi",
+      "actual": "Ilario Monterisi",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-FCB",
+      "expected": "Manuel Neuer",
+      "actual": "Manuel Neuer",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-BVB",
+      "expected": "Emre Can",
+      "actual": "Emre Can",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-B04",
+      "expected": "Edmond Tapsoba",
+      "actual": "Edmond Tapsoba",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-RBL",
+      "expected": "David Raum",
+      "actual": "David Raum",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-SGE",
+      "expected": "Robin Koch",
+      "actual": "Robin Koch",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-VFB",
+      "expected": "Deniz Undav",
+      "actual": "Deniz Undav",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-SCF",
+      "expected": "Christian Günter",
+      "actual": "Christian Günter",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-M05",
+      "expected": "Silvan Widmer",
+      "actual": "Silvan Widmer",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-BMG",
+      "expected": "Tim Kleindienst",
+      "actual": "Tim Kleindienst",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-FCU",
+      "expected": "Christopher Trimmel",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Christopher Trimmel（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "BUN-SVW",
+      "expected": "Marco Friedl",
+      "actual": "Marco Friedl",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-FCA",
+      "expected": "Jeffrey Gouweleeuw",
+      "actual": "Jeffrey Gouweleeuw",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-TSG",
+      "expected": "Oliver Baumann",
+      "actual": "Oliver Baumann",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-HSV",
+      "expected": "Nicolai Remberg",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Nicolai Remberg（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "BUN-KOE",
+      "expected": "Marvin Schwäbe",
+      "actual": "Marvin Schwäbe",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-S04",
+      "expected": "Kenan Karaman",
+      "actual": "Kenan Karaman",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-SVE",
+      "expected": "Lukas Pinckert",
+      "actual": "Lukas Pinckert",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "BUN-SCP",
+      "expected": "Felix Götze",
+      "actual": "Felix Götze",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-PSG",
+      "expected": "Marquinhos",
+      "actual": "Marquinhos",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-OM",
+      "expected": "Timothy Weah",
+      "actual": "Timothy Weah",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-ASM",
+      "expected": "Denis Zakaria",
+      "actual": "Denis Zakaria",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-LOSC",
+      "expected": "Benjamin André",
+      "actual": "Benjamin André",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-OGC",
+      "expected": "Jonathan Clauss",
+      "actual": "Jonathan Clauss",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-OL",
+      "expected": "Corentin Tolisso",
+      "actual": "Corentin Tolisso",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-RCS",
+      "expected": "Filip Jörgensen",
+      "actual": "Filip Jörgensen",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-RCL",
+      "expected": "Florian Thauvin",
+      "actual": "Florian Thauvin",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-SB29",
+      "expected": "Brendan Chardonnet",
+      "actual": "Brendan Chardonnet",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-TFC",
+      "expected": "Rasmus Nicolaisen",
+      "actual": "Rasmus Nicolaisen",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-AJA",
+      "expected": "Elisha Owusu",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Elisha Owusu（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "LIGUE1-SRFC",
+      "expected": "Valentin Rongier",
+      "actual": "Valentin Rongier",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-SCO",
+      "expected": "Haris Belkebla",
+      "actual": "Haris Belkebla",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-HAC",
+      "expected": "Rassoul Ndiaye",
+      "actual": "Rassoul Ndiaye",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-FCL",
+      "expected": "Montassar Talbi",
+      "actual": "Montassar Talbi",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-PFC",
+      "expected": "Pierre Lees-Melou",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Pierre Lees-Melou（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "LIGUE1-LMF",
+      "expected": "Edwin Quarshie",
+      "actual": "Edwin Quarshie",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "LIGUE1-ETR",
+      "expected": "Adrien Monfray",
+      "actual": "Adrien Monfray",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-SLB",
+      "expected": "Fredrik Aursnes",
+      "actual": "Fredrik Aursnes",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-FCP",
+      "expected": "Diogo Costa",
+      "actual": "Diogo Costa",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-SCP",
+      "expected": "Gonçalo Inácio",
+      "actual": "Gonçalo Inácio",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-SCB",
+      "expected": "Ricardo Horta",
+      "actual": "Ricardo Horta",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-VSC",
+      "expected": "Samu Silva",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Samu Silva（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "POR-FAM",
+      "expected": "Tom van de Looi",
+      "actual": "Tom van de Looi",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-GVI",
+      "expected": "Jonathan Buatu",
+      "actual": "Jonathan Buatu",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-MOR",
+      "expected": "Dinis Pinto",
+      "actual": "Dinis Pinto",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-EST",
+      "expected": "João Carvalho",
+      "actual": "João Carvalho",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-RAV",
+      "expected": "Marios Vrousai",
+      "actual": "Marios Vrousai",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-ARO",
+      "expected": "Tiago Esgaio",
+      "actual": "Tiago Esgaio",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-CPI",
+      "expected": "André Geraldes",
+      "actual": "André Geraldes",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-CDS",
+      "expected": "Gonçalo Paciência",
+      "actual": "Gonçalo Paciência",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-NAC",
+      "expected": "Léo Santos",
+      "actual": "Léo Santos",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-EAM",
+      "expected": "Stefan Leković",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Stefan Leković（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "POR-ALV",
+      "expected": "Sergi Gómez",
+      "actual": "Sergi Gómez",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-MAR",
+      "expected": "Romain Correia",
+      "actual": "Romain Correia",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "POR-ACV",
+      "expected": "Luís Silva",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Luís Silva（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "NED-AJA",
+      "expected": "Davy Klaassen",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Davy Klaassen（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "NED-PSV",
+      "expected": "Jerdy Schouten",
+      "actual": "Jerdy Schouten",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-FEY",
+      "expected": "Luciano Valente",
+      "actual": "Luciano Valente",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-AZA",
+      "expected": "Jordy Clasie",
+      "actual": "Jordy Clasie",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-TWE",
+      "expected": "Robin Pröpper",
+      "actual": "Robin Pröpper",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-UTR",
+      "expected": "Nick Viergever",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Nick Viergever（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "NED-NEC",
+      "expected": "Tjaronn Chery",
+      "actual": "Tjaronn Chery",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-GAE",
+      "expected": "Joris Kramer",
+      "actual": "Joris Kramer",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-HEE",
+      "expected": "Luuk Brouwers",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Luuk Brouwers（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "NED-SPA",
+      "expected": "Bruno Martins Indi",
+      "actual": "Bruno Martins Indi",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-GRO",
+      "expected": "Thijmen Blokzijl",
+      "actual": "Thijmen Blokzijl",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-FOR",
+      "expected": "Ivo Pinto",
+      "actual": "Ivo Pinto",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-PEC",
+      "expected": "Ryan Thomas",
+      "actual": "Ryan Thomas",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-EXC",
+      "expected": "Casper Widell",
+      "actual": "Casper Widell",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-TEL",
+      "expected": "Danny Bakker",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Danny Bakker（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "NED-ADO",
+      "expected": "Juho Kilo",
+      "actual": "Juho Kilo",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-CAM",
+      "expected": "Nicky Souren",
+      "actual": "Nicky Souren",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "NED-WIL",
+      "expected": "Jari Schuurman",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Jari Schuurman（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "TUR-GAL",
+      "expected": "Abdülkerim Bardakcı",
+      "actual": "Abdülkerim Bardakcı",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-FEN",
+      "expected": "Milan Škriniar",
+      "actual": "Milan Škriniar",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-BJK",
+      "expected": "Orkun Kökçü",
+      "actual": "Orkun Kökçü",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-TRA",
+      "expected": "Stefan Savić",
+      "actual": "Stefan Savić",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-BAS",
+      "expected": "Ömer Ali Şahiner",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Ömer Ali Şahiner（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "TUR-SAM",
+      "expected": "Emre Kılınç",
+      "actual": "Emre Kılınç",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-GOZ",
+      "expected": "Ogün Bayrak",
+      "actual": "Ogün Bayrak",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-EYU",
+      "expected": "Lucas Calegari",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Lucas Calegari（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "TUR-KAS",
+      "expected": "Haris Hajradinović",
+      "actual": "Haris Hajradinović",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-KON",
+      "expected": "Adil Demirbağ",
+      "actual": "Adil Demirbağ",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-ALA",
+      "expected": "Fidan Aliti",
+      "actual": "Fidan Aliti",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-GAZ",
+      "expected": "Alexandru Maxim",
+      "actual": "Alexandru Maxim",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-RIZ",
+      "expected": "Taylan Antalyalı",
+      "actual": "Taylan Antalyalı",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-KOC",
+      "expected": "Bruno Petković",
+      "actual": "Bruno Petković",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-GEN",
+      "expected": "Dimitrios Goutas",
+      "actual": "Dimitrios Goutas",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    },
+    {
+      "id": "TUR-AME",
+      "expected": "Mehmet Yeşil",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Mehmet Yeşil（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "TUR-COR",
+      "expected": "Ferhat Yazgan",
+      "actual": null,
+      "has": false,
+      "notice": "球队资料队长：Ferhat Yazgan（未在当前阵容）。 任命队长",
+      "tags": 0
+    },
+    {
+      "id": "TUR-ERZ",
+      "expected": "Eren Tozlu",
+      "actual": "Eren Tozlu",
+      "has": true,
+      "notice": "",
+      "tags": 1
+    }
+  ],
+  "checks": [
+    "manual save/reload/formation/departure passed",
+    "legacy keep/reset/core unchanged/reload passed"
+  ]
+}
