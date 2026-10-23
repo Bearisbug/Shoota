@@ -1,0 +1,176 @@
+✔ all ten origins start and all main tabs render (551.033083ms)
+✔ an entire year consists of four seasons at every growth stage (79.343917ms)
+✔ a physically mature second spirit can take a hundred-thousand-year first ring (21.652125ms)
+✔ late game has distinct stories instead of a blank annual jump (21.735834ms)
+✔ late game ends voluntarily and final achievements replace letter grades (16.593625ms)
+✔ swapping soul bones cannot farm permanent stats or luck (205.279041ms)
+✔ pending story blocks action rewards and action points stay bounded (10.860541ms)
+✔ a dead rare individual remains dead after save and reload (118.82675ms)
+✔ snow fusion grants four orange rings only to the Ice Empress spirit (15.333708ms)
+✔ sealed ordinary rings still respect physical capacity (15.312125ms)
+✔ actual bag controls cultivate bone quality, costs and percentage power without permanent stat farming (36.703084ms)
+✔ queue, action, resources, physique and level limits are enforced on actual handler (32.8865ms)
+✔ ordinary bone needs a consumed rare source to pass 100k, and growth survives swapping and reload (87.491583ms)
+✔ cultivated equipped quality counts for divine requirements but bag sources do not (9.344417ms)
+Cross-state audit {"mainChapters":102,"factionChapters":66,"scenarios":99240,"choices":279781,"levels":[35,60,78,95,100],"affiliations":12,"resources":["none","garden","spider","orca"],"stances":["neutral","ally","dead","ruler"],"limits":"State-derived scene and rule checks; not exhaustive sequences of all choices."}
+✔ same-year choice determines the next branch; skipped alternative never replays (62.609542ms)
+✔ same-year canonical chronology runs reunion before sacrifice and divine war (20.12275ms)
+✔ unmet prerequisites are deferred, not silently consumed (26.126042ms)
+✔ current allegiance replaces birth restrictions and mutually exclusive route flags (26.43425ms)
+✔ unresolved views and choice conditions follow live state; settled views remain immutable (15.402875ms)
+✔ claimed resources match alternate names, and dead owners cannot falsely recover levels (12.61ms)
+✔ titled showdown is an actual combat gate and rank does not become a junior errand (34.442292ms)
+✔ saved master and protected Xiaowu are not declared dead or reduced to remains (38.516208ms)
+✔ all origins and faction chapters crossed with level, affiliation, opportunity and stance (5824.738417ms)
+✔ legacy pending branches migrate without replaying already completed history (13.786833ms)
+✔ Tangmen and Shrek share a faction; slain leaders cannot revive through diplomatic fallback (10.211667ms)
+✖ junior faction members cannot sign continent-wide orders in changed storylines (10.099458ms)
+Divine worldline combinations: 327680
+✔ exhaustive finite divine roster matrix: paths, lives, divinity, faction, bonds, seats and era (1316.594458ms)
+✔ canonical pair selection, double-seat Tang San and stolen seats remain coherent (17.850292ms)
+✔ support uses living allies, current resources and capped contributions; never the enemy twice (25.175084ms)
+✔ preparations charge once, require available allies/resources, and the battle uses displayed powers (44.35225ms)
+✔ unprepared players cannot use disruption or free sacrificial victory; fallen gods cannot reascend directly (25.172416ms)
+✔ fusion failure records combat victory separately and enforces two-season recovery without spending another action (57.283167ms)
+✔ resolved divine battle keeps its roster after world changes and reload (44.81575ms)
+✔ sacrificial ending requires high power, seals actual seats, and does not kill allied characters (20.62375ms)
+Treasure matrix {"cases":8100,"available":7860,"unavailable":240,"choices":26898,"origins":10,"treasures":45,"levels":[60,90,100],"states":["neutral","allied","dead"],"claims":["none","allOther"]}
+✔ ancient power is authoritative across preview, actual enemy and faction peak (28.535208ms)
+✔ all ten origins can complete the consent, trial, dream and covenant chain using real controls (273.109625ms)
+✔ raiding closes consent routes, noncombat help remains viable, and defer preserves the invitation (47.479917ms)
+✔ legacy dragon visitors retain their rewards and discover followups on load (17.839792ms)
+✔ bone percentages grow through each 100k band, external bone is amplified and duplicate slots do not stack (10.2395ms)
+✔ six regular bones qualify without external bones; low external quality cannot block divinity (56.586041ms)
+✔ unification records the achievement and every choice continues playing without new governance events (52.974333ms)
+✔ old queued or pending unification endings migrate to a continuation, including after reload (62.273209ms)
+✔ rare sightings are summarized and sorted first, preserving location ids and avoiding rerolls (42.049208ms)
+✔ all treasure choices are inspected across every origin, stage, allegiance, deaths and resource ownership (1555.637792ms)
+✔ 90–91 level opponents and ordinary 100k beasts share the 2800 benchmark (31.262833ms)
+✔ strong body alone at level 70 cannot harvest a red ring through a stale low-power choice (15.752ms)
+✔ exceptional level 70 can kill and absorb 100k, while the titled-duel level gate remains (37.722ms)
+✔ excellent level 75 can win an actual 2800-power duel with good tactics (20.579584ms)
+✔ beast-drop stories use the real opponent rather than the old 0.85 discount (29.020959ms)
+✔ herb garden uses body AND mind and no combat, even for a low-power character (43.380375ms)
+✔ relic exploration and voluntary spirit gifts do not trigger invented boss fights (22.242917ms)
+Faction linkage checks passed: event deeds/persistence, map accessibility, deferred founding, membership, NPC timeline/death/divinity, historical unification achievement, ending integration.
+✔ test-faction-links.mjs (314.803875ms)
+Faction checks passed: map, ownership, queued-story gates, AP/costs, deduplication, recruitment/founding, migration, fame cap, diplomacy, siege, defense, all origins.
+✔ test-factions.mjs (490.057166ms)
+{"result":"PASS","tests":15,"policy":"十万年以上魂环无契合奖励或排斥惩罚；旧存档、猎魂、剧情吸环、直接赠环一致；越限伤害、承受和战力限制保留；天梦精神门槛 50。"}
+✔ test-fit-policy.mjs (440.966833ms)
+{"result":"PASS","tests":12,"policy":"普通配置无论名望/属性/锻造均不能成神；入口、每次神考与最终提交校验实装品质，最终还需99级/名望85。困难战斗数值已恢复。"}
+✔ test-god-requirements.mjs (336.861041ms)
+Actual nine-trial runs 50
+✔ final equipment requires each regular bone slot, optional external bones, and three rare rings (31.441417ms)
+✔ every awakened spirit needs nine attached rings, while sealed rings and vessels do not count (16.109208ms)
+✔ all combat previews match actual enhanced enemies, including divine and deceased rivals (30.600292ms)
+✔ kill challenge requires full enhanced power; thunder requires both stats without consuming actions (13.878916ms)
+✔ old unfinished trials restart at strengthened combat, completed gods retain their status (20.88775ms)
+✔ all origins and five paths can actually complete nine trials using an exceptional build (4022.707125ms)
+✔ ascension rechecks equipment and cannot skip enhanced combat evidence (7.304708ms)
+✔ rare location is marked before entry, stays stable on reopen/reload, clears after death or season change (25.5165ms)
+✔ cached living sightings mark only their own zone and defeated trophies do not mark red (6.977917ms)
+{"states":270,"habitats":2700,"candidates":64800,"actualHunts":270}
+✔ exact screenshot: 684 power / 14k capacity / 13k rabbit needing 874 (36.174833ms)
+✔ already acquired 13k ring is absorbable at 684 power through the real story control (36.216167ms)
+✔ high power cannot bypass physical capacity, and all filters use the same predicate (14.908834ms)
+✔ hunting rechecks current capacity rather than stale modal snapshots (28.48325ms)
+✔ queued absorption rechecks changed stats and cannot grant the same ring twice (41.087208ms)
+✔ simulate every origin, every ring slot, three physical profiles and ten habitats (4363.85925ms)
+✔ second spirit, full slots and tenth-ring attempts use the same access rules (7.455625ms)
+Compatible share: local pool 58.0%, encounters 70.7%
+✔ each habitat has 36 distinct local species and rare ecology stays separate (29.651791ms)
+✔ encounters have 24 distinct regional species across every age band (24.026458ms)
+✔ current huntable choices and compatible species are deliberately represented (264.941125ms)
+✔ a 980-year personal option is never injected into unrelated habitats (34.925042ms)
+✔ revisits, switching spirits, filtering and reload never reroll current encounters (62.617625ms)
+✔ rare sightings stay globally scarce, die permanently, and ignore fit (35.423ms)
+✔ old hunting lists are migrated once, keeping rare deaths and earned trophies (77.169375ms)
+✔ a consumed encounter cannot be hunted again through a stale choice (43.068459ms)
+✔ existing rare trail follows the revised habitat without rerolling its individual (13.74625ms)
+✔ Ice fusion is blocked at body 49, grants exactly 400k ring and 400k torso at 50 (33.321792ms)
+✔ Snow rejects generic ice, binds Ice only and never drops a bone (14.052459ms)
+✔ old saves move Snow off main without losing level; migrations are idempotent (40.233583ms)
+✔ Snow without an Ice spirit is sealed visibly until Ice fusion (24.246792ms)
+✔ spirit tab switches the displayed ring list through actual controls (56.574292ms)
+✔ fourth/fifth/sixth capacity is 10k/30k/80k and stronger physique and mind raise it (11.821458ms)
+✔ soul bones multiply power and their absolute contribution grows with soul level (18.935917ms)
+✔ even extreme equipment cannot bypass the 75-level titled duel minimum (18.192208ms)
+✔ 75 requires excellent rings AND fused bones; ordinary peer-level titled duel stays available (17.810584ms)
+✔ Ice fusion grants a 400k secondary ring, 400k torso and two levels exactly once (46.2825ms)
+✔ secondary fusion does not unlock a missing primary ring; levels bank and release only at primary breakthrough (19.601666ms)
+✔ old fused saves correct 100k to 400k and compensate levels once without duplicating the ring or bone (32.908334ms)
+✔ ring upgrades number each spirit separately, including a third spirit and explicit upgrade targets (21.278667ms)
+✔ each awakened spirit needs nine rings while three rare rings may be split across spirits (8.886542ms)
+✔ recovery is automatic, names a replacement, restores only half, and never rewards the player (20.857917ms)
+✔ all due recoveries resolve at season start without queued decisions; dead owners cannot recover (14.302458ms)
+✔ a one-level opportunity loss still receives a fractional, incomplete recovery (10.263416ms)
+Independent treasure pairs: 1144
+✔ Saint Soul Grass remains collectible after taking the ginseng and spider in the screenshot (37.218167ms)
+✔ independent treasure pairs cannot invalidate each other through chapter, memory or outcome notes (70.396125ms)
+✔ armor auction is retained when Xiaowu is dead; purchase charges once and grants both pieces (25.135959ms)
+✔ armor and both whale opportunities keep their own rewards after every other opportunity was claimed (80.507625ms)
+✔ dead historical beneficiaries do not erase armor or living whales; direct help to the dead is unavailable (104.162958ms)
+✔ restoring whale options never revives a killed whale king or bypasses its combat requirement (24.620792ms)
+All treasure outcome cases: 206
+✔ every claimed canonical opportunity reduces its owners, rewrites dependent scenes and cannot duplicate rewards (882.231542ms)
+✔ losing or leaving never steals the opportunity; each treasure result remains a valid state (1964.12ms)
+✔ partial herbs do not confiscate other herbs; full garden affects Oscar too (19.252167ms)
+✔ replacement takes three years, restores only part, never restores unique item or god inheritance (10.976625ms)
+✔ old garden saves migrate once without pretending a mere visit was confiscation (24.148291ms)
+✔ all ten origins have a real reunion, separate sparring/lethal thresholds and all living escorts (180.622333ms)
+✔ insufficient absorption and combat block killing without affecting legitimate sparring (7.779667ms)
+✔ winning the real lethal battle grants one ring and bone; loss and reload cannot resurrect or duplicate Xiao Wu (33.892458ms)
+✔ a stale field-hunt save cannot bypass Xiao Wu escorts, and a recorded death rewrites later revival (12.381958ms)
+✔ lost equipment changes NPC skills and faction peaks, not just the duel number (10.681ms)
+Pacing tests passed: four quarters, 20 unique seasonal events, legacy consequences, annual fame decay, post-canon continuation, two fame gates, achievement grades, restrained growth.
+✔ test-pacing.mjs (104.77775ms)
+Progression envelopes: [{"id":"wuhun","policy":"ordinary","maxLead":5.2,"y2645":43.6,"y2650":62.7,"y2656":86},{"id":"wuhun","policy":"intensive","maxLead":8.4,"y2645":50.5,"y2650":66.4,"y2656":99},{"id":"landian","policy":"ordinary","maxLead":5.2,"y2645":44.6,"y2650":64.2,"y2656":90.1},{"id":"landian","policy":"intensive","maxLead":8.4,"y2645":49.3,"y2650":67.3,"y2656":99},{"id":"beast","policy":"ordinary","maxLead":5.5,"y2645":43.4,"y2650":63.4,"y2656":89.6},{"id":"beast","policy":"intensive","maxLead":8.7,"y2645":49.3,"y2650":66.7,"y2656":99},{"id":"qiangu","policy":"ordinary","maxLead":5.3,"y2645":42.1,"y2650":63.1,"y2656":87.3},{"id":"qiangu","policy":"intensive","maxLead":8.6,"y2645":49.1,"y2650":66.6,"y2656":99},{"id":"shalu","policy":"ordinary","maxLead":5,"y2645":40.9,"y2650":61.1,"y2656":81.5},{"id":"shalu","policy":"intensive","maxLead":8.4,"y2645":48.9,"y2650":67.1,"y2656":99},{"id":"qibao","policy":"ordinary","maxLead":5.4,"y2645":43.3,"y2650":63.4,"y2656":89.4},{"id":"qibao","policy":"intensive","maxLead":8.7,"y2645":49.3,"y2650":66.7,"y2656":99},{"id":"huangshi","policy":"ordinary","maxLead":3.1,"y2645":38.1,"y2650":51.9,"y2656":69.3},{"id":"huangshi","policy":"intensive","maxLead":8.1,"y2645":50.2,"y2650":65.9,"y2656":99},{"id":"xingluo","policy":"ordinary","maxLead":5.1,"y2645":43.7,"y2650":64.1,"y2656":88.4},{"id":"xingluo","policy":"intensive","maxLead":8.4,"y2645":49.2,"y2650":67.3,"y2656":99},{"id":"haishen","policy":"ordinary","maxLead":2.2,"y2645":39.1,"y2650":61,"y2656":84.7},{"id":"haishen","policy":"intensive","maxLead":8.3,"y2645":50.5,"y2650":66.4,"y2656":99},{"id":"shenjiang","policy":"ordinary","maxLead":1.6,"y2645":36.4,"y2650":55.9,"y2656":76.3},{"id":"shenjiang","policy":"intensive","maxLead":8.4,"y2645":48.8,"y2650":66.3,"y2656":99}]
+✔ reference interpolates seasons and cannot be weakened by changing NPC destiny (29.0365ms)
+✔ normal pace retained, leading rewards diminish smoothly, no loss of existing levels (14.01975ms)
+✔ large and split awards follow same pace; attributes and fame remain rewarding (10.526625ms)
+✔ banked training, ring grants and old saves obey the same progression rule (33.01425ms)
+✔ all origins: ordinary and intensive training stay near contemporaries over the full timeline (315.133042ms)
+{"origins":[{"id":"wuhun","scenes":36},{"id":"landian","scenes":44},{"id":"beast","scenes":36},{"id":"qiangu","scenes":36},{"id":"shalu","scenes":44},{"id":"qibao","scenes":40},{"id":"huangshi","scenes":44},{"id":"xingluo","scenes":44},{"id":"haishen","scenes":44},{"id":"shenjiang","scenes":40}],"scenes":408,"choices":1141,"actualChoices":362}
+Continuous runs [{"id":"wuhun","seasons":80,"decisions":132,"hunts":9,"level":93.0851,"power":3381,"ended":true,"checkpoints":[{"year":2637,"level":14.3,"reference":10},{"year":2638,"level":16.8,"reference":13.2},{"year":2639,"level":20,"reference":16.3},{"year":2640,"level":23.3,"reference":19.5},{"year":2641,"level":26.9,"reference":22.7},{"year":2642,"level":30,"reference":25.8},{"year":2643,"level":32.4,"reference":29},{"year":2644,"level":34.7,"reference":36},{"year":2645,"level":41.8,"reference":43},{"year":2646,"level":45.5,"reference":46.2},{"year":2647,"level":49.2,"reference":49.4},{"year":2648,"level":56.3,"reference":52.6},{"year":2649,"level":59.6,"reference":55.8},{"year":2650,"level":64.5,"reference":59},{"year":2651,"level":68.7,"reference":66},{"year":2652,"level":73.2,"reference":68},{"year":2653,"level":76.2,"reference":80},{"year":2654,"level":84.9,"reference":84},{"year":2655,"level":89.7,"reference":85},{"year":2656,"level":93.1,"reference":95}]},{"id":"landian","seasons":76,"decisions":130,"hunts":9,"level":96.5552,"power":3874,"ended":true,"checkpoints":[{"year":2639,"level":14.7,"reference":16.3},{"year":2640,"level":20.3,"reference":19.5},{"year":2641,"level":26.4,"reference":22.7},{"year":2642,"level":30.8,"reference":25.8},{"year":2643,"level":31.9,"reference":29},{"year":2644,"level":37.6,"reference":36},{"year":2645,"level":43.9,"reference":43},{"year":2646,"level":47.2,"reference":46.2},{"year":2647,"level":53.1,"reference":49.4},{"year":2648,"level":56.4,"reference":52.6},{"year":2649,"level":58.7,"reference":55.8},{"year":2650,"level":64,"reference":59},{"year":2651,"level":69,"reference":66},{"year":2652,"level":71.6,"reference":68},{"year":2653,"level":82.2,"reference":80},{"year":2654,"level":85.6,"reference":84},{"year":2655,"level":88.5,"reference":85},{"year":2656,"level":94.6,"reference":95},{"year":2657,"level":96.6,"reference":99}]},{"id":"beast","seasons":76,"decisions":123,"hunts":9,"level":95.9193,"power":4666,"ended":true,"checkpoints":[{"year":2638,"level":16.2,"reference":13.2},{"year":2639,"level":20.9,"reference":16.3},{"year":2640,"level":24.7,"reference":19.5},{"year":2641,"level":26.7,"reference":22.7},{"year":2642,"level":30.3,"reference":25.8},{"year":2643,"level":33.7,"reference":29},{"year":2644,"level":37.1,"reference":36},{"year":2645,"level":43.5,"reference":43},{"year":2646,"level":49.7,"reference":46.2},{"year":2647,"level":54.7,"reference":49.4},{"year":2648,"level":56.1,"reference":52.6},{"year":2649,"level":60.8,"reference":55.8},{"year":2650,"level":63.5,"reference":59},{"year":2651,"level":65.3,"reference":66},{"year":2652,"level":71.6,"reference":68},{"year":2653,"level":75.5,"reference":80},{"year":2654,"level":79.3,"reference":84},{"year":2655,"level":86.1,"reference":85},{"year":2656,"level":95.9,"reference":95}]},{"id":"qiangu","seasons":80,"decisions":128,"hunts":9,"level":99,"power":7331,"ended":true,"checkpoints":[{"year":2638,"level":17.2,"reference":13.2},{"year":2639,"level":19.8,"reference":16.3},{"year":2640,"level":23.2,"reference":19.5},{"year":2641,"level":26.9,"reference":22.7},{"year":2642,"level":29.9,"reference":25.8},{"year":2643,"level":33,"reference":29},{"year":2644,"level":36,"reference":36},{"year":2645,"level":39.1,"reference":43},{"year":2646,"level":45.1,"reference":46.2},{"year":2647,"level":48.1,"reference":49.4},{"year":2648,"level":56.8,"reference":52.6},{"year":2649,"level":60,"reference":55.8},{"year":2650,"level":62.6,"reference":59},{"year":2651,"level":65,"reference":66},{"year":2652,"level":70,"reference":68},{"year":2653,"level":74.6,"reference":80},{"year":2654,"level":78,"reference":84},{"year":2655,"level":85.8,"reference":85},{"year":2656,"level":91.7,"reference":95},{"year":2657,"level":99,"reference":99}]},{"id":"shalu","seasons":88,"decisions":133,"hunts":9,"level":92.6505,"power":3127,"ended":true,"checkpoints":[{"year":2636,"level":12.9,"reference":8.3},{"year":2637,"level":15.2,"reference":10},{"year":2638,"level":18,"reference":13.2},{"year":2639,"level":19.5,"reference":16.3},{"year":2640,"level":22.4,"reference":19.5},{"year":2641,"level":26.1,"reference":22.7},{"year":2642,"level":28.3,"reference":25.8},{"year":2643,"level":30.7,"reference":29},{"year":2644,"level":35,"reference":36},{"year":2645,"level":37.2,"reference":43},{"year":2646,"level":39.4,"reference":46.2},{"year":2647,"level":45.9,"reference":49.4},{"year":2648,"level":48.3,"reference":52.6},{"year":2649,"level":51,"reference":55.8},{"year":2650,"level":56.2,"reference":59},{"year":2651,"level":61.4,"reference":66},{"year":2652,"level":71.1,"reference":68},{"year":2653,"level":75.6,"reference":80},{"year":2654,"level":78.3,"reference":84},{"year":2655,"level":81.3,"reference":85},{"year":2656,"level":90,"reference":95},{"year":2657,"level":92.7,"reference":99}]},{"id":"qibao","seasons":80,"decisions":131,"hunts":9,"level":97.2512,"power":4398,"ended":true,"checkpoints":[{"year":2638,"level":14.9,"reference":13.2},{"year":2639,"level":20.5,"reference":16.3},{"year":2640,"level":24.2,"reference":19.5},{"year":2641,"level":26.5,"reference":22.7},{"year":2642,"level":29.9,"reference":25.8},{"year":2643,"level":33.9,"reference":29},{"year":2644,"level":37.6,"reference":36},{"year":2645,"level":41,"reference":43},{"year":2646,"level":48.5,"reference":46.2},{"year":2647,"level":52.4,"reference":49.4},{"year":2648,"level":56.5,"reference":52.6},{"year":2649,"level":60.4,"reference":55.8},{"year":2650,"level":63.2,"reference":59},{"year":2651,"level":65.7,"reference":66},{"year":2652,"level":73.3,"reference":68},{"year":2653,"level":80,"reference":80},{"year":2654,"level":84,"reference":84},{"year":2655,"level":91.4,"reference":85},{"year":2656,"level":95.2,"reference":95},{"year":2657,"level":97.3,"reference":99}]},{"id":"huangshi","seasons":80,"decisions":122,"hunts":7,"level":72.955,"power":1509,"ended":true,"checkpoints":[{"year":2637,"level":13.6,"reference":10},{"year":2638,"level":16,"reference":13.2},{"year":2639,"level":19.5,"reference":16.3},{"year":2640,"level":23.1,"reference":19.5},{"year":2641,"level":24.2,"reference":22.7},{"year":2642,"level":28.8,"reference":25.8},{"year":2643,"level":30.6,"reference":29},{"year":2644,"level":33.3,"reference":36},{"year":2645,"level":36.7,"reference":43},{"year":2646,"level":38.4,"reference":46.2},{"year":2647,"level":40.5,"reference":49.4},{"year":2648,"level":45.9,"reference":52.6},{"year":2649,"level":47.6,"reference":55.8},{"year":2650,"level":49.4,"reference":59},{"year":2651,"level":53.5,"reference":66},{"year":2652,"level":60,"reference":68},{"year":2653,"level":62.6,"reference":80},{"year":2654,"level":66.3,"reference":84},{"year":2655,"level":70,"reference":85},{"year":2656,"level":73,"reference":95}]},{"id":"xingluo","seasons":76,"decisions":129,"hunts":9,"level":94.5871,"power":3442,"ended":true,"checkpoints":[{"year":2639,"level":12.9,"reference":16.3},{"year":2640,"level":17.6,"reference":19.5},{"year":2641,"level":22.9,"reference":22.7},{"year":2642,"level":29.9,"reference":25.8},{"year":2643,"level":31.4,"reference":29},{"year":2644,"level":37.3,"reference":36},{"year":2645,"level":43.4,"reference":43},{"year":2646,"level":46.6,"reference":46.2},{"year":2647,"level":52.7,"reference":49.4},{"year":2648,"level":56,"reference":52.6},{"year":2649,"level":59.6,"reference":55.8},{"year":2650,"level":63.1,"reference":59},{"year":2651,"level":66.4,"reference":66},{"year":2652,"level":72.9,"reference":68},{"year":2653,"level":78.9,"reference":80},{"year":2654,"level":85.9,"reference":84},{"year":2655,"level":90,"reference":85},{"year":2656,"level":93,"reference":95},{"year":2657,"level":94.6,"reference":99}]},{"id":"haishen","seasons":72,"decisions":119,"hunts":9,"level":96.3183,"power":3092,"ended":true,"checkpoints":[{"year":2640,"level":11.8,"reference":19.5},{"year":2641,"level":20.7,"reference":22.7},{"year":2642,"level":28.4,"reference":25.8},{"year":2643,"level":31.8,"reference":29},{"year":2644,"level":34.3,"reference":36},{"year":2645,"level":41,"reference":43},{"year":2646,"level":44.5,"reference":46.2},{"year":2647,"level":48,"reference":49.4},{"year":2648,"level":55.3,"reference":52.6},{"year":2649,"level":59.2,"reference":55.8},{"year":2650,"level":63.1,"reference":59},{"year":2651,"level":68.6,"reference":66},{"year":2652,"level":71.9,"reference":68},{"year":2653,"level":74.9,"reference":80},{"year":2654,"level":84,"reference":84},{"year":2655,"level":87.1,"reference":85},{"year":2656,"level":92.9,"reference":95},{"year":2657,"level":96.3,"reference":99}]},{"id":"shenjiang","seasons":96,"decisions":154,"hunts":9,"level":99,"power":6037,"ended":false,"checkpoints":[{"year":2638,"level":14.9,"reference":13.2},{"year":2639,"level":16.8,"reference":16.3},{"year":2640,"level":22.5,"reference":19.5},{"year":2641,"level":24.5,"reference":22.7},{"year":2642,"level":29.2,"reference":25.8},{"year":2643,"level":32.3,"reference":29},{"year":2644,"level":35.1,"reference":36},{"year":2645,"level":37.2,"reference":43},{"year":2646,"level":41.4,"reference":46.2},{"year":2647,"level":46.1,"reference":49.4},{"year":2648,"level":48.2,"reference":52.6},{"year":2649,"level":53.1,"reference":55.8},{"year":2650,"level":55.8,"reference":59},{"year":2651,"level":65.5,"reference":66},{"year":2652,"level":70,"reference":68},{"year":2653,"level":73.9,"reference":80},{"year":2654,"level":79.2,"reference":84},{"year":2655,"level":85.9,"reference":85},{"year":2656,"level":92.7,"reference":95},{"year":2657,"level":93.9,"reference":99},{"year":2658,"level":99,"reference":99},{"year":2659,"level":99,"reference":99},{"year":2660,"level":99,"reference":99},{"year":2661,"level":99,"reference":99}]}]
+✔ Tang Chen has one 99-level / 5600 baseline in shalu, duel and faction views (33.437459ms)
+✔ unmet equipment gate never records a loss, injury or spent action (14.065291ms)
+✔ eligible numerical domination wins against every named opponent, no hidden gate (113.826333ms)
+✔ gods exceed all titled tiers and support labels cannot impersonate full NPC power (23.872166ms)
+✔ early god and elder lake scenes do not force sixth ring or subordinate role (36.704417ms)
+✔ claimed flower is absent from all future story variants, even after consumption and reload (30.811375ms)
+✔ controlled and allied factions use diplomacy instead of replaying hostile canonical armies (21.642041ms)
+✔ all ten origins: every main scene under ordinary, elder, divine and territorial rule (2515.136041ms)
+✔ resolved contextual scenes retain their presented narrative in results and after reload (22.775167ms)
+✔ ten origins play successive seasons with real decisions, training and hunts (24132.559667ms)
+ℹ tests 129
+ℹ suites 0
+ℹ pass 128
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28258.608875
+
+✖ failing tests:
+
+test at test-cross-state.mjs:34:1
+✖ junior faction members cannot sign continent-wide orders in changed storylines (10.099458ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(e.contextual)
+  
+      at TestContext.<anonymous> (file:///private/tmp/douluo-qa/test-cross-state.mjs:34:206)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

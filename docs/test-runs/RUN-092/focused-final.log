@@ -1,0 +1,35 @@
+resource-dependent scenes executed 53
+neutral origin chapters checked 102
+✔ M28 preserves independent hunt before and after flower consumption (22.119959ms)
+✔ all origins × all stolen resource branches retain interactive choices (41.50875ms)
+✔ individual support → core → adult romance → rift → dark → negotiated peace (16.533958ms)
+✔ relationship prerequisites and duplicate callbacks are enforced (10.201917ms)
+✔ one lost resource does not force blackening and fair competition is persistent (6.742084ms)
+✔ all source story IDs and ending rewards unchanged (11.592209ms)
+✔ saved auto-skipped chapter reopens, settled choices do not (7.298291ms)
+✔ independent resource visibility ignores another event using the same canon chapter (8.899458ms)
+✔ current partners never defend Tang San, safe companion cannot be hunted (8.151042ms)
+✔ known-dead Xiao Wu stays absent in revived-resource narratives (7.2985ms)
+✔ ten origins retain all unmodified source stories in neutral world (88.645916ms)
+✔ blackened Tang San cannot recover stolen items, skills or god seats (7.737917ms)
+Cross-state audit {"mainChapters":102,"factionChapters":66,"scenarios":99240,"choices":279781,"levels":[35,60,78,95,100],"affiliations":12,"resources":["none","garden","spider","orca"],"stances":["neutral","ally","dead","ruler"],"limits":"State-derived scene and rule checks; not exhaustive sequences of all choices."}
+✔ same-year choice determines the next branch; skipped alternative never replays (52.11475ms)
+✔ same-year canonical chronology runs reunion before sacrifice and divine war (10.229541ms)
+✔ unmet prerequisites are deferred, not silently consumed (10.189125ms)
+✔ current allegiance replaces birth restrictions and mutually exclusive route flags (9.417208ms)
+✔ unresolved views and choice conditions follow live state; settled views remain immutable (8.288416ms)
+✔ claimed resources match alternate names, and dead owners cannot falsely recover levels (7.677959ms)
+✔ titled showdown is an actual combat gate and rank does not become a junior errand (16.793333ms)
+✔ saved master and protected Xiaowu are not declared dead or reduced to remains (15.769125ms)
+✔ all origins and faction chapters crossed with level, affiliation, opportunity and stance (4437.575875ms)
+✔ legacy pending branches migrate without replaying already completed history (15.206958ms)
+✔ Tangmen and Shrek share a faction; slain leaders cannot revive through diplomatic fallback (7.627625ms)
+✔ junior faction members cannot sign continent-wide orders in changed storylines (6.56575ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4664.041708

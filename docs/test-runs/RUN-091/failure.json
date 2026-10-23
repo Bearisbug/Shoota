@@ -1,0 +1,13 @@
+{
+  "pass": false,
+  "failedStep": "保存后刷新",
+  "error": "TypeError: Cannot read properties of undefined (reading waitForFunction)",
+  "passedChecks": [
+    "地穴魔蛛领取蛛丝",
+    "加入与合作真实点击",
+    "两类弹窗四尺寸布局",
+    "决裂与黑化实际点击"
+  ],
+  "cause": "刷新后读取iframe早于平台创建iframe",
+  "source": "本轮浏览器工具实际输出的失败摘要"
+}

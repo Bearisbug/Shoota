@@ -1,0 +1,72 @@
+{
+  "checks": [
+    {
+      "name": "before screenshot M28",
+      "choices": "向相关势力呈报新的情报\n随联络人查访，协助无关人员撤离\n记下各方态度，暂不卷入争端"
+    },
+    {
+      "name": "M28 real click and reward",
+      "pass": true
+    },
+    {
+      "name": "join and cooperation actual buttons",
+      "pass": true
+    },
+    {
+      "name": "rift dark saved through platform reload",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "layout": [
+    {
+      "name": "M28",
+      "w": 320,
+      "documentOverflow": false,
+      "bad": []
+    },
+    {
+      "name": "M28",
+      "w": 390,
+      "documentOverflow": false,
+      "bad": []
+    },
+    {
+      "name": "M28",
+      "w": 768,
+      "documentOverflow": false,
+      "bad": []
+    },
+    {
+      "name": "M28",
+      "w": 1440,
+      "documentOverflow": false,
+      "bad": []
+    },
+    {
+      "name": "route",
+      "w": 320,
+      "documentOverflow": false,
+      "bad": []
+    },
+    {
+      "name": "route",
+      "w": 390,
+      "documentOverflow": false,
+      "bad": []
+    },
+    {
+      "name": "route",
+      "w": 768,
+      "documentOverflow": false,
+      "bad": []
+    },
+    {
+      "name": "route",
+      "w": 1440,
+      "documentOverflow": false,
+      "bad": []
+    }
+  ],
+  "pass": true
+}

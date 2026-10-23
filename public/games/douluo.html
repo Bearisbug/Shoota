@@ -1101,7 +1101,8 @@ const OPPORTUNITY_REPLACEMENTS={
  t_c_bingcao:'师门收集的温脉灵芝与培元药浴',t_c_dixue:'万年囚木藤魂环',t_c_qicai:'宗门收藏的万年幻目兽头骨',t_c_lieyang:'火属性灵芝与火山淬体',t_c_lanyin:'万年青木鹿腿骨',t_c_haotian:'宗门珍藏的疗伤灵药',t_c_jingying:'万年灵目兽头骨',t_c_xuelong:'百年补血参',t_c_shenwang:'千年培元参',t_c_shenghun:'普通养魂草',t_c_mozhu3w:'万年石甲蛛魂环',t_c_hanxin:'庚辛城的精炼玄铁',t_c_ruanjia:'工匠重制的玄铁护甲',t_c_langdao:'万年疾风狼腿骨',t_c_mojing:'近海鲸类魂兽的普通本源',t_c_zizhenzhu:'海商提供的航路与补给',t_c_qiankun:'海岛遗迹的潮汐灵珠',t_c_xiehu:'万年海潮鲨魂环',t_c_baimu:'万年裂地虎魂环',t_c_yihuang:'万年重甲蚁魂环',t_c_mojingwang:'深海沉晶与万年海兽本源'
 };
 function opportunityReplacement(o){return o.replacement||OPPORTUNITY_REPLACEMENTS[o.id]||'师门提供的普通修炼资源'}
-function opportunityStory(e,list){
+function opportunityStory(e,list){return opportunityBranch(e,list)}
+function legacyOpportunitySummary(e,list){
  const dead=xiaowuIrreversible(),loss=list.map(o=>`「${o.name}」仍归你；${Object.entries(o.loss).map(([n,v])=>`${n}较原路线仍低 ${Math.max(0,v-opportunityRecovered(o,n))} 级`).join('、')}`).join('。');
  return Object.assign({},e,{title:(e.title||e.name)+' · 机缘余波',echo:null,contextual:true,passiveOpportunity:true,text:`${loss}${loss?'。\n':''}${dead?'小舞已在此前的冲突中身亡，依赖其献祭或复活的旧定局不再发生。':'原定机缘的归属已改变，原主的替代修行会作为情报自动记入本季纪事，不再要求你交涉或交换资源。'}`,choices:[]});
 }
@@ -1126,11 +1127,12 @@ function clearLegacyRecoveryPrompts(){
 function shrekRoster(){
  const y=year(),names=['唐三','小舞','戴沐白','宁荣荣','奥斯卡','马红俊','朱竹清'];
  if(y<=2651)names.push('弗兰德','赵无极');else if(y<2656)names.push('大明','二明');
- return names.filter(n=>npcPresent(n)).map(n=>({n,lv:n==='大明'||n==='二明'?91:npcLevel(n),p:n==='大明'||n==='二明'?2800:npcPower(npcLevel(n))}));
+ return names.filter(n=>npcPresent(n)&&!shrekSupport().includes(n)&&!(n==='小舞'&&shrekHistory().romance)).map(n=>({n,lv:n==='大明'||n==='二明'?91:npcLevel(n),p:n==='大明'||n==='二明'?2800:npcPower(npcLevel(n))}));
 }
 function shrekKillPower(roster){const others=roster.filter(x=>x.n!=='小舞').sort((a,b)=>b.p-a.p);return Math.round((Math.max(2800,...roster.map(x=>x.p))+others.reduce((sum,x)=>sum+x.p*.22,0))*1.3)}
 function shrekHuntBlock(on){
  const r=R();if(!npcPresent('小舞')||!rareAlive(rareIndividual('柔骨兔')))return '小舞已不在此世，不能重复猎取';
+ if(shrekHistory().romance||shrekSupport().includes('小舞'))return '小舞正与你同行，不能同时把她当作猎魂目标';
  if(r.god)return '神位已成，不再猎取普通魂环';
  if(!ringSlotOpen(on,r))return '没有已开放的魂环槽位';
  const block=ringAbsorbBlock({on,ring:{beast:'柔骨兔·小舞',years:100000,kind:'控',on}});if(block)return block;
@@ -1159,7 +1161,7 @@ function markCanon(c,src){ if(!c) return; const r=R(); r.canonBy=r.canonBy||{}; 
 function canonTaken(c,src){ if(!c) return false; const r=R(); const by=(r.canonBy||{})[c]; return !!by&&by!==src }
 function packHasCanon(c){ return !!c&&P().nodes.some(n=>n.canon===c) }
 function tooLow(t){ const r=R(); return t.tier!=="神"&&tMin(t)<r.lv-35 }
-function treasNow(){const r=R(),y=year();return TREAS.filter(t=>rareStoryAvailable(t)&&t.yearMin<=y&&t.yearMax>=y&&!r.treasDone.includes(t.id)&&known(t)&&r.lv>=tMin(t)&&!tooLow(t)&&!canonTaken(t.canon,"t"))}
+function treasNow(){const r=R(),y=year();return TREAS.filter(t=>rareStoryAvailable(t)&&t.yearMin<=y&&t.yearMax>=y&&!r.treasDone.includes(t.id)&&known(t)&&r.lv>=tMin(t)&&!tooLow(t))}
 function offsetOf(n,y){const r=R();return (r.world.offset||[]).filter(o=>o.n===n&&o.y<=y).reduce((a,o)=>a+o.v,0)}
 function wevNow(){const r=R(),y=year();return WEV.filter(w=>rareStoryAvailable(w)&&w.yearMin<=y&&w.yearMax>=y&&r.lv>=w.lv&&!r.treasDone.includes(w.id)&&!canonTaken(w.canon,"w")&&!packHasCanon(w.canon)&&!(myFac()&&myFac().nodes.some(n=>n.canon===w.canon))&&w.choices.some(c=>needOKc(c)[0]&&choiceAllowed(c,{text:w.text})))}
 function evMaxNeed(e){let m=0; for(const c of e.choices||[]) if(isFight(c)) m=Math.max(m,c.battle?battlePower(c.battle):c.need.战力); return m}
@@ -1316,6 +1318,7 @@ function applyStoryFlags(flags,out){
 }
 function apply(d){
   const r=R(),out=[]; if(!d) return out;
+  if(d.shrekStory){const why=shrekRouteBlock(d.shrekStory.key);if(why)return [{t:why,up:false}]}
   if(d.uniqueReward){r.world.uniqueRewards=r.world.uniqueRewards||{};if(r.world.uniqueRewards[d.uniqueReward])return [{t:"本次机缘奖励已结算",up:false}];r.world.uniqueRewards[d.uniqueReward]=true;}
   if(d.opportunity&&opportunityLedger()[d.opportunity.id])return [{t:"此机缘已被取得，不能重复获得",up:false}];
   if(d.xiaowuHunt){const why=shrekHuntBlock(d.ring?.on||1);if(why)return [{t:why,up:false}] }
@@ -1354,6 +1357,7 @@ function apply(d){
     out.push({t:had?(had.state==="vessel"?`空武魂觉醒：${had.name} → ${WHN[i]}「${nw.name}」（${nw.tier}）`:`${WHN[i]}进化：${had.name} → ${nw.name}（${nw.tier}）`):(nw.state==="vessel"?`${WHN[i]}位被撑开：${nw.name}（空武魂，待融合）`:`获得${WHN[i]}：${nw.name}（${nw.tier}）`),up:true}) }
   if(d.iceFusion)grantIceEmpressRewards(iceEmpressSlot(r),out);
   if(d.world){ const w=d.world;if(w.npcAlive)r.world.npcAlive=Object.assign(r.world.npcAlive||{},w.npcAlive);if(w.npcGods)r.world.npcGods=Object.assign(r.world.npcGods||{},w.npcGods); for(const[k,v] of Object.entries(w.offset||{})) if(v){ r.world.offset.push({n:k,v,y:year()}); out.push({t:`${k} 原著等级 ${v>0?"+":""}${v}`,up:false}) } Object.assign(r.world.news,w.news||{}); if(w.note){ r.world.notes.push({y:year(),t:w.note}); out.push({t:"原著改变："+w.note,up:false}) } }
+  if(d.shrekStory)applyShrekStory(d.shrekStory,out);
   return out;
 }
 function addLevel(x){
@@ -1543,6 +1547,7 @@ function sealedRingModal(){
 
 /* ============ resolve choices ============ */
 function resolveChoice(c,forced){
+  if(c.win?.d?.shrekStory){const why=shrekRouteBlock(c.win.d.shrekStory.key);if(why)return {ok:false,text:why,ds:[],chance:false};}
   if(c.cond&&!condOK(c.cond))return {ok:false,text:"前置条件已改变，此项安排不再执行。",ds:[],chance:false};
   if((c.cond||c.battle||c.nonCombat||c.shrekHunt)&&forced!==false){const[ok,why]=needOKc(c);if(!ok)return {ok:false,text:"条件尚未满足："+why,ds:[],chance:false}}
   const r=R();
@@ -1572,6 +1577,7 @@ function actions(){
     ...(r.lv>=93&&!(r.godQ&&r.godQ.done)?[{id:"god",n:r.godQ?`神考·${GOD_TRIALS[r.godQ.step].n}`:"踏上成神之路",d:r.godQ?`第 ${r.godQ.step+1} 考 · ${godRequirementHint(r.godQ.step>=8)}`:godRequirementHint(false),hot:true}]:[]),
     {id:"charm",n:"交际",d:"赴宴、讲学、行侠，广结善缘"},
     {id:"bond",n:"结交",d:"去见一位故人"},
+    ...(shrekRouteAvailable()?[{id:"shrekroute",n:"史莱克·改写人生",d:shrekHistory().joined?`核心、伙伴与唐三·${shrekHistory().tang}`:"走访史莱克，争取自己的位置",hot:true}]:[]),
     {id:"campaign",n:"势力图与宗门事务",d:r.lv<30?"查看各方疆域、关系与最高战力":`代表${campaignName(campaignSide())} · 护境、通商、争夺据点`,hot:r.lv>=30},
     ...(r.org?[{id:"org",n:`经营「${r.org.name}」`,d:`声势 ${orgPow()} · 领地 ${r.org.terr.length}`,hot:true}]:((r.fac&&r.fac.id==="zili")||(r.lv>=55&&r.fame>=40)?[{id:"found",n:r.fac?.id==="zili"?"完成立派":r.fac?"另立门户":"自立门户",d:r.fac?.id==="zili"?"立起山门，选择宗门名字（800 金魂币）":r.fac?`脱离${myFac().name}，开宗立派`:"开宗立派，与天下争地",dis:r.coins<800}]:[])),
     {id:"seek",n:"寻访机缘",d:tn?`${tn} 处机缘正当时`:"眼下无处可去",dis:!tn,hot:tn>0},
@@ -1603,6 +1609,7 @@ function doAction(id){
   if(id==="world") return worldModal();
   if(id==="duel") return duelModal();
   if(id==="bond") return bondModal();
+  if(id==="shrekroute")return shrekRouteModal();
   if(id==="train"){ const g=trainGain(r,m); if(r.lv>=cap(r)-0.001&&mainRings(r).length<9&&r.lv<99){ normalizeProgressionBank(r);const held=Math.min(pacedLevelGain(g,r),Math.max(0,6-r.bank)); r.bank+=held; txt="瓶颈未破，魂力暂存体内（最多 6 级）。可先经营门庭或处理时局。"; ds=[{t:`积压魂力 +${held.toFixed(2)}`,up:held>0}] } else { const b=r.lv; addLevel(g); txt=["你闭关修炼，魂力在经脉里一圈圈流转。","清晨借紫气打坐，魂力略有精进。","一整季都在修炼，进境平稳。"][Math.floor(rnd()*3)]; ds=[{t:`等级 +${(r.lv-b).toFixed(2)}`,up:true}] } }
   if(id==="body"){ const v=Math.round((3+(rnd()<.5?1:0))*md("body")); ds=apply({体魄:v,伤势:5}); if(p.id==="qibao"){ r.x.sword+=2; ds.push({t:"剑意 +2",up:true}) } txt="负重、搏击、冷水，筋骨一点点被磨出来。" }
   if(id==="charm"){ const d={魅力:2+(rnd()<.5?1:0),名望:1}; const pool=Object.keys(r.bonds); if(pool.length&&rnd()<.4){ const k=pool[Math.floor(rnd()*pool.length)]; d.bonds={[k]:3} } ds=apply(d); txt=["你在城里最大的酒楼请了一桌客，散席时好几个人主动递来了名帖。","你应邀去一所初级学院讲了一堂课，台下的孩子听得眼睛发亮。","你在路上替一队商旅赶走了劫匪，没有留名，名声却传开了。","你学着宗门里的长辈待人接物，说话做事越来越有分寸。"][Math.floor(rnd()*4)] }
@@ -9766,7 +9773,7 @@ function regionModal(){
 function explore(g){
   if(g.id==="shalu") return shaluModal();
   const r=R(); const y=year(); const tierF=1+g.min/25; let ds=[],txt="";
-  const here=TREAS.filter(t=>g.kw.test(t.place||"")&&t.yearMin<=y&&t.yearMax>=y&&!r.treasDone.includes(t.id)&&r.lv>=tMin(t)&&!tooLow(t)&&!canonTaken(t.canon,"t"));
+  const here=TREAS.filter(t=>g.kw.test(t.place||"")&&t.yearMin<=y&&t.yearMax>=y&&!r.treasDone.includes(t.id)&&r.lv>=tMin(t)&&!tooLow(t));
   const luck=rnd()*100+r.a.气运*.5;
   if(here.length&&(luck>55||here.some(t=>known(t)))){ const t=here.find(t=>known(t))||here[Math.floor(rnd()*here.length)]; if(!r.heard.includes(t.id)) r.heard.push(t.id); r.ap--; save(); return treasureModalFree(t) }
   if(luck>92&&r.rings.length&&r.lv>=30){ ds=[]; ringUp({target:"lowest",mul:1.6},ds); ds=ds.concat(apply({精神:2})); txt=`${g.n}深处有一口古泉，你把魂环浸进泉眼，最弱的那一环蜕变了。` }
@@ -10012,7 +10019,7 @@ function campaignPeak(id){
   for(const m of r.org.members){if((!DUEL_DB[m.n]&&!m.lv)||!npcPresent(m.n))continue;const live=campaignNpcInfo(m.n,m.lv||70),savedLv=m.lv||0,lv=live?live.lv:savedLv,p=live?live.p:Math.max(m.combat||0,savedLv?npcPower(savedLv):(m.pow||0));if(p>0)pool.push({n:m.n,lv:lv||70,p})}
  }else {
   const f=CAMPAIGN_FACTIONS.find(x=>x.id===id);
-  for(const [n,fallback] of (f?f.leaders:[])){if(r.org&&r.org.members.some(m=>m.n===n))continue;const info=campaignNpcInfo(n,fallback);if(info)pool.push(info)}
+  for(const [n,fallback] of (f?f.leaders:[])){if(n==='唐三'&&shrekHistory().core)continue;if(r.org&&r.org.members.some(m=>m.n===n))continue;const info=campaignNpcInfo(n,fallback);if(info)pool.push(info)}
   if(campaignSide()===id)pool.push({n:r.name,lv:Math.floor(r.lv),p:power()});
  }
  return pool.sort((a,b)=>b.p-a.p)[0]||{n:"遗部守备统领",lv:60,p:npcPower(60)};
@@ -10304,7 +10311,7 @@ function challengerFor(r){ if(r.lv<45) return null; const ch=Math.min(.2,.05+r.f
   return {k:"duel",id:"duel_"+x.n,x,stake,ev:{title:`${x.n}的战书`,text:t+`\n\n${x.w} · ${x.lv}级 · ${STYLE_N[x.st]||""} · 绝招「${x.ult}」`,
     choices:[{t:"化干戈为玉帛",hint:"不打，交个朋友",need:{魅力:50},win:{text:`你请${x.n}喝了一夜的酒。天亮时，战书被他自己撕了。`,d:{名望:3,bonds:{[x.n]:15}}}},{t:"接战",hint:stake?`赌斗：赢了拿走一块${BONE_T[stake.ti].n}魂骨，输了赔 ${fmtC(stake.pay)} 金魂币`:"三局两胜",duel:1},{t:"避而不战",hint:"江湖上会有怯战的说法",win:{text:"你没有应战。江湖上很快有了你怯战的说法。",d:{名望:-4}}}]}} }
 function bondModal(){
-  const r=R(); const names=Object.keys(r.bonds).sort((a,b)=>r.bonds[b]-r.bonds[a]);
+  const r=R(); const names=Object.keys(r.bonds).filter(n=>npcPresent(n)).sort((a,b)=>r.bonds[b]-r.bonds[a]);
   const m=el(`<div class="modal" role="dialog" aria-modal="true"><div class="box"><div class="sec-t">结交</div><h3>去见谁？</h3>
   <div class="opts">${names.length?names.map(n=>`<button class="opt" data-n="${esc(n)}"><span class="t">${esc(n)}</span><span class="m">人情 <b class="num">${r.bonds[n]}</b></span></button>`).join(""):`<p class="dim">你还不认识谁。</p>`}</div><button class="btn" data-x>算了</button></div></div>`);
   m.querySelector("[data-x]").onclick=()=>m.remove();
@@ -10463,6 +10470,133 @@ function fitStory(){ if(!NARROW.matches&&!document.querySelector(".tx.fit")) ret
   tx.style.maxHeight=Math.max(tx.offsetHeight-over,120)+"px";
   const end=()=>tx.classList.toggle("end",tx.scrollTop+tx.clientHeight>=tx.scrollHeight-4); tx.onscroll=end; end() }
 let fitT=0; if(typeof addEventListener==="function") addEventListener("resize",()=>{clearTimeout(fitT);fitT=setTimeout(fitStory,120)}); if(document.fonts) document.fonts.ready.then(fitStory);
+/* Alternate Shrek history. These branches are game adaptations, not canon assertions. */
+const SHREK_PEERS=['小舞','戴沐白','宁荣荣','奥斯卡','马红俊','朱竹清'];
+function shrekHistory(){const w=R().world;return w.shrekHistory||(w.shrekHistory={version:1,joined:false,core:false,partners:{},cooperation:{},rescues:0,romance:false,tang:'竞争',settled:{},lastBreakAt:null})}
+function shrekSupport(){const s=shrekHistory();return SHREK_PEERS.filter(n=>s.partners[n]&&npcPresent(n)&&(R().bonds[n]||0)>=20)}
+function tangLosses(){return Object.values(opportunityLedger()).filter(o=>o.loss?.唐三>0)}
+function shrekTension(){const s=shrekHistory();return tangLosses().length+(s.core?2:0)+(s.romance?2:0)+(s.provoked?2:0)}
+function shrekRouteAvailable(){return year()>=2643&&R().lv>=30}
+function shrekRouteSummary(){const s=shrekHistory();return `史莱克核心：${s.core?R().name:'唐三'} · 唐三：${npcPresent('唐三')?s.tang:'已故'}\n支持你的伙伴：${shrekSupport().join('、')||'尚无'}\n小舞：${!npcPresent('小舞')?'已不在世':s.romance?'与你互许心意':'自主选择同行与感情'}`}
+function shrekChoice(t,key,d,text,need){return {t,contextual:true,nonCombat:true,need,win:{text,d:{...d,shrekStory:{key,label:t}}}}}
+function shrekRouteBlock(key){
+ const r=R(),s=shrekHistory();if(!shrekRouteAvailable())return '30级、2643年后才可走访史莱克';
+ if(key==='join')return s.joined?'你已加入这条同行路线':'';
+ if(!s.joined)return '先接受同行邀请';
+ if(key.startsWith('train:')||key.startsWith('support:')){const n=key.split(':')[1];if(!SHREK_PEERS.includes(n)||!npcPresent(n))return '这位伙伴无法到场';if(key.startsWith('support:')&&(s.partners[n]||(s.cooperation[n]||0)<2||(r.bonds[n]||0)<40))return '需要两次合作、人情40，且尚未表态';}
+ if(key==='core'&&(!npcPresent('弗兰德')||s.core||shrekSupport().length<4||(r.bonds.弗兰德||0)<30))return '需要四位伙伴支持、弗兰德人情30';
+ if(['protect','romance','respect'].includes(key)&&!npcPresent('小舞'))return '小舞已无法到场';
+ if(key==='romance'&&(s.romance||age()<18||year()<2649||s.rescues<2||(r.bonds.小舞||0)<70))return '双方成年、两次保护、小舞人情70后才可互许心意';
+ if(['rift','rival','peace','dark','intervene','face','mercy'].includes(key)&&!npcPresent('唐三'))return '唐三已不在世，不能继续这场对话';
+ if(['rift','rival','peace'].includes(key)&&((s.settled.rift&&shrekTension()<=(s.riftTension||0))||!['竞争','和解'].includes(s.tang)||shrekTension()<4))return '尚未发生新的公开质问';
+ if(['dark','intervene'].includes(key)&&(s.tang!=='决裂'||r.t<(s.lastBreakAt??r.t)+3||s.settled.dark))return '决裂之后尚未出现新的追索';
+ if(['face','mercy'].includes(key)&&(s.tang!=='黑化'||s.settled.duel))return '目前没有未解决的追索战';
+ return '';
+}
+function applyShrekStory(spec,out){
+ const s=shrekHistory(),r=R(),k=spec.key;
+ if(k==='join'){s.joined=true; if(!r.org){r.fac={id:'shilaike',rank:0,merit:0};r.facDone=[];}r.bonds.弗兰德=Math.max(0,r.bonds.弗兰德||0);SHREK_PEERS.forEach(n=>{if(npcPresent(n)&&r.bonds[n]==null)r.bonds[n]=0});}
+ if(k.startsWith('train:')){const n=k.split(':')[1];s.cooperation[n]=(s.cooperation[n]||0)+1;}
+ if(k.startsWith('support:'))s.partners[k.split(':')[1]]=true;
+ if(k==='core')s.core=true;
+ if(k==='protect')s.rescues++;
+ if(k==='romance'){s.romance=true;r.flags=[...new Set([...r.flags,'xiaowu_safe'])]}
+ if(k==='respect')s.respected=true;
+ if(['rift','rival','peace'].includes(k)){s.settled.rift=true;s.tang=k==='rift'?'决裂':k==='peace'?'和解':'竞争';if(k==='rift'){s.lastBreakAt=r.t;s.provoked=true;}s.riftTension=shrekTension();}
+ if(['dark','intervene'].includes(k)){s.settled.dark=true;s.tang=k==='dark'?'黑化':'和解';}
+ if(k==='face'||k==='mercy'){s.settled.duel=true;s.tang=k==='mercy'?'和解':'敌对';}
+ out.push({t:'史莱克世界线：'+s.tang,up:k!=='rift'&&k!=='dark'});
+ r.world.notes.push({y:year(),t:`史莱克改写：${spec.label||k}，核心为${s.core?r.name:'唐三'}，唐三${s.tang}`});
+}
+function shrekRouteEvent(){
+ const r=R(),s=shrekHistory();let choices=[];
+ if(!s.joined)choices=[shrekChoice(r.org?'接受邀请，以外援身份同行':'接受同行邀请，正式加入史莱克','join',{},r.org?'弗兰德把你的名字写进同行名册。你保留宗门职责，以外援身份参与队伍事务，今后由你自己赢得每个人的信任。':'弗兰德把你的名字写进队伍名册。你从原任势力离任，今后由你自己赢得每个人的信任。')];
+ else{
+  for(const n of SHREK_PEERS.filter(n=>npcPresent(n))){
+   choices.push(shrekChoice(`与${n}协作历练（${s.cooperation[n]||0}/2）`,'train:'+n,{金魂币:-120,bonds:{[n]:12,弗兰德:4}},`${n}与你练习掩护、接应与撤退。你承担了补给，两人把背后交给对方，弗兰德记下这次配合。`,{金魂币:120}));
+   if(!s.partners[n])choices.push(shrekChoice(`请${n}自主选择支持你`,'support:'+n,{},`${n}回顾与你并肩的经历，决定支持你。这个决定不要求其余伙伴同意，也不抹去与唐三的旧情。`));
+  }
+  choices.push(shrekChoice('接受伙伴推举，成为史莱克核心','core',{名望:5},'弗兰德主持队内表态。支持你的伙伴把指挥位置交给你，未表态的人保留意见。唐三交出战术册，但没有就此成为你的部下。'));
+  if(npcPresent('小舞')){
+   choices.push(shrekChoice('保护小舞的秘密，陪她避开猎捕','protect',{金魂币:-200,bonds:{小舞:12},flags:['xiaowu_safe']},'你没有把她的身份当作筹码，而是与她一道安排避开猎魂者的路线。她记得这一次保护。',{金魂币:200}));
+   choices.push(shrekChoice('向小舞表明心意，听她自己的回答','romance',{bonds:{小舞:10,唐三:-15}},'小舞认真想过这些年共同经历的选择，决定与你并肩。她亲自向唐三说明心意，不再维持原先的恋人承诺。唐三的失落并不会替她作出决定。'));
+   choices.push(shrekChoice('尊重小舞，只做并肩的朋友','respect',{bonds:{小舞:3}},'你告诉小舞，不必用感情报答相助。她松了一口气，友谊继续，感情关系没有被你替她决定。'));
+  }
+ }
+ return {title:'史莱克 · 另一位核心',text:shrekRouteSummary()+'\n\n每次合作或决定消耗本季一事。同行不等于忠诚；争取支持需要两次合作与人情40，核心还需四位伙伴支持和弗兰德人情30。',choices};
+}
+function shrekCrisisEvent(){
+ const r=R(),s=shrekHistory();if(!s.joined||!npcPresent('唐三'))return null;
+ const lost=tangLosses().map(x=>'「'+x.name+'」').join('、')||'原来的队内位置';
+ if(['竞争','和解'].includes(s.tang)&&(!s.settled.rift||shrekTension()>(s.riftTension||0))&&shrekTension()>=4)return {title:'唐三的质问',text:`训练场散去后，唐三把你留在原地。${lost}已不再属于他，${s.core?'伙伴也已推举你担任核心':'队内的信任开始分流'}。${s.romance?'小舞已亲自告诉他，她选择与你同行。':''}\n「这些事，你早就知道会怎样，对吗？」他仍保留自己的传承和意志，接下来如何相处，还没有定局。`,choices:[
+ shrekChoice('公开划清界限，拒绝再退让','rift',{bonds:{唐三:-25}},'唐三收起战术册，离开共同驻地。他没有带走已经选择支持你的伙伴，临走只留下重逢之约。'),
+ shrekChoice('约定公平竞争，各走自己的修炼路','rival',{bonds:{唐三:5}},'唐三不愿认输，却接受今后以各自所得公平竞争。你们没有成为挚友，也没有立下血仇。'),
+ shrekChoice('承担补给，坐下来谈清旧事','peace',{金魂币:-500,bonds:{唐三:15}},'你付出一批补给作为和谈诚意。唐三接受不再追索已经归属明确的机缘，双方约定不把同伴卷入争夺。独有魂技与神位没有凭空归还。',{金魂币:500})]};
+ if(s.tang==='决裂'&&!s.settled.dark&&r.t>=(s.lastBreakAt??r.t)+3)return {title:'旧友的暗路',text:'唐三离队后追查被夺机缘的去向，连续失落又遭当面对立，他开始把旧友也当作可以利用的筹码。一封追索战书送到史莱克，信中列着你的行踪。他得到的是情报与决心，失去的仙草、八蛛矛和神位没有因此重生。',choices:[
+ shrekChoice('承认他已走向黑暗，准备应对追索','dark',{bonds:{唐三:-20}},'唐三拒绝导师劝告，开始以报复为目标行动。你向伙伴展示战书，让每个人自行决定去留。'),
+ shrekChoice('带着补给去见他，为旧友留一条退路','intervene',{金魂币:-800,bonds:{唐三:20}},'你没有羞辱他，也没有许诺归还不存在的东西。唐三在旧友与追索之间停了下来，接受分开修炼、停止牵连同伴。',{金魂币:800})]};
+ if(s.tang==='黑化'&&!s.settled.duel){const foe={n:'唐三',lv:npcLevel('唐三'),power:npcPower(npcLevel('唐三'))};return {title:'核心之争 · 旧友来战',text:`唐三独自拦住你的去路。支持你的伙伴没有被强制编进他的阵营。这一次对手为当前${foe.lv}级的唐三，他只能使用自己实际保留的力量。`,choices:[
+ {t:'接下追索战，胜后让他退去',contextual:true,battle:foe,win:{text:'你赢下此战，唐三负伤退走。争夺暂时结束，旧怨仍在，但不会重复结算这一战的奖励。',d:{shrekStory:{key:'face'},名望:6}},lose:{text:'你输掉这一战，退回营地疗伤。伙伴没有因此被夺走，关键机缘也未被重复发放；准备后可再应战。',d:{伤势:25}}},
+ shrekChoice('以停战补给换取最后一次对话','mercy',{金魂币:-1200,bonds:{唐三:15}},'你们逐条划清旧账与边界，唐三放下追索战书。伙伴与小舞仍保有自己的决定，原物与神位没有易主。',{金魂币:1200})]};}
+ return null;
+}
+function shrekRouteModal(){
+ const r=R();if(r.ap<=0)return;const e=shrekCrisisEvent()||shrekRouteEvent();
+ let resolving=false;
+ const m=el(`<div class="modal" role="dialog" aria-modal="true"><div class="box"><div class="sec-t">改写人生 · 史莱克</div><h3>${esc(e.title)}</h3><div class="tx ps">${paras(esc(e.text))}</div><div class="opts">${e.choices.map((c,i)=>{const why=shrekRouteBlock(c.win?.d?.shrekStory?.key)||(!needOKc(c)[0]?needOKc(c)[1]:'');return `<button class="opt" data-route="${i}" ${why?'disabled':''}><span class="t">${esc(c.t)}</span>${why?`<span class="m">${esc(why)}</span>`:''}</button>`}).join('')}</div><button class="btn" data-close>返回</button></div></div>`);
+ m.querySelector('[data-close]').onclick=()=>m.remove();
+ m.querySelectorAll('[data-route]').forEach(b=>b.onclick=()=>{const c=e.choices[+b.dataset.route],why=shrekRouteBlock(c.win?.d?.shrekStory?.key);if(resolving||r.ap<=0||why||!needOKc(c)[0])return toast(why||'行动或条件不足');resolving=true;b.disabled=true;const finish=res=>{r.ap--;r.actLog.push({n:e.title,txt:res.text,ds:res.ds});save();m.querySelector('.box').innerHTML=`<h3>${esc(e.title)}</h3><div class="tx">${paras(esc(res.text))}</div>${deltas(res.ds)}<button class="btn pri" data-close>继续</button>`;m.querySelector('[data-close]').onclick=()=>{m.remove();render()}};if(isFight(c)){m.remove();fightThen(c,{title:e.title,text:e.text},win=>{document.body.appendChild(m);finish(resolveChoice(c,win))})}else finish(resolveChoice(c));});
+ document.body.appendChild(m);
+}
+const SHREK_CHAPTERS={
+ M19:['皇斗战前','玉天恒的队伍仍等在斗魂台另一端。核心换了人，谁先诱敌、谁留作接应，需要你重新安排。','玉天恒'],
+ M38:['决赛的指挥席','武魂殿黄金一代挡在决赛场上。唐三不再替全队决定战术，已经支持你的伙伴把指挥权交给你。','胡列娜'],
+ M50:['五年之约的新座次','重聚的长桌旁，每位伙伴都要重新介绍这几年的道路。过去的核心不再自动坐在主位。'],
+ M52:['星湖的护送计划','星湖附近出现猎捕者的踪迹。小舞的去留由她决定，护送路线和掩护由同行者共同商定，不再预定向唐三献祭。'],
+ M61:['海岛上的新来客','海岛守护者要求来客逐一说明来意。你可以代表愿意同行的伙伴提出考验请求，唐三有自己的修炼道路。'],
+ M82:['嘉陵关的军议','嘉陵关的军报摊在桌上。你代表如今的队伍决定救援、交涉与守备，旧日以唐三为中心的调令需要重订。'],
+ M83:['关前的抉择','战线上的伤员和援军都在等候指令。你不能让伙伴为了重演旧日神战而送命，是否出战取决于如今的敌我与力量。'],
+ M84:['重逢与救援','旧友传来求援的消息。谁愿意赶去，谁选择留下守护营地，应由当下关系决定，不能预定死而复生。'],
+ M85:['新史的落款','战事落幕，史莱克的伙伴逐一写下自己的去向。你能决定如何兑现承诺，不能替所有人写同一个结局。']
+};
+function shrekChapter(e){
+ const r=R(),s=shrekHistory(),a=SHREK_CHAPTERS[e.canon];if(!s.core||!a||!(/唐三|史莱克|小舞|七怪/.test(e.text||'')))return null;
+ const key='branch_'+e.id,alive=shrekSupport(),news={};news[e.canon]=`${a[0]}由${r.name}与${alive.join('、')||'到场者'}共同作出决定，唐三${s.tang}`;
+ const common={flags:[key],world:{news,note:news[e.canon]}};
+ let choices=[{t:'主持安排，承担补给与护送',contextual:true,nonCombat:true,need:{金魂币:200},win:{text:'你承担补给费用，与到场的伙伴逐一敲定分工。没有人被当作预定的牺牲品。',d:{...common,金魂币:-200,名望:3,bonds:Object.fromEntries(alive.map(n=>[n,3]))}}},{t:'听取不同意见，各自决定是否同行',contextual:true,nonCombat:true,win:{text:'意见被记入会谈记录。愿意同行的人留下，不愿参加的人也没有被当成叛徒。',d:{...common,悟性:2}}}];
+ if(a[2]&&npcPresent(a[2]))choices.unshift({t:'带队应战，检验新的配合',contextual:true,sparring:true,battle:{n:a[2],lv:npcLevel(a[2]),power:npcPower(npcLevel(a[2]))},win:{text:'你与愿意支持的伙伴完成新的配合，赢下这一次对阵。胜负由实际力量决定，没有复制唐三原来的独有魂技。',d:{...common,名望:6}},lose:{text:'这一次配合仍有破绽，你们负伤退下，留下复盘的机会。',d:{...common,伤势:15}}});
+ return {...e,title:a[0],echo:null,contextual:true,text:a[1]+'\n\n'+shrekRouteSummary(),choices};
+}
+function opportunityBranch(e,list){
+ const r=R(),key=e.canon||e.id,ids=list.map(o=>o.id),names=list.map(o=>'「'+o.name+'」').join('、');
+ let scene,options;
+ if(xiaowuIrreversible()&&/小舞|柔骨兔/.test(e.text||'')){
+  scene='小舞已在此前身亡，旧日的同行、献祭和复活都失去了前提。星湖的幸存者要求说明真相，唐三留下的旧怨也不能靠一株药草抹平。';
+  options=[['向幸存者说明经过，承担善后费用','你公开说明经过，支付安置费用。死亡没有被改写，幸存者也没有被迫原谅你。',{金魂币:-300,名望:2}],['保存证词，面对仍未了结的旧怨','证词被留存，旧怨仍在。你没有假借献祭再领一次奖励。',{悟性:2}]];
+ }else if(key==='M39'){
+  scene='决赛场外，小舞失去了遮掩气息的相思断肠红。守卫尚未合围，她必须决定是否离开，你也必须决定怎样对待这份秘密。';
+  options=[['先掩护小舞离开赛场','你引开追查者，小舞从后门离开。没有护身花替她挡下风险，这次安全来自真实的护送。',{伤势:8,bonds:{小舞:10,唐三:5},flags:['xiaowu_safe','flower_divergence','lake_treaty']}],['把身份疑报交给现场守卫','守卫开始追查。小舞提前退出赛场，唐三记住了你的选择。',{bonds:{唐三:-12,小舞:-15},flags:['flower_divergence']}],['提醒双方风险，让她自行决定去留','小舞听完消息后选择先离城。你没有把她的身份当作交换条件。',{bonds:{小舞:4},flags:['xiaowu_safe','flower_divergence']}]];
+ }else if(['M19','M35','M37','M38'].includes(key)){
+  scene=`斗魂与大赛仍在进行，但${names}已经易主。原来的组合技缺少了前提，场边的教练正在重排对位，守卫也在核查进出路线。输赢必须用现有魂技重新争取。`;
+  options=[['协助重排战术，承担训练补给','你为重新配合提供补给。队伍改练普通控制与接应，没有凭空补回八蛛矛或仙草增幅。',{金魂币:-200,bonds:{唐三:5},名望:2}],['保留所得，公开约定公平竞争','你承认机缘已归自己，也接受由赛场决定胜负。对方会用现有魂技应战。',{名望:2,bonds:{唐三:-3}}],['勘查进出路线，保护非参赛人员','你查明一条安全撤离路线，赛场的胜负没有被你提前决定。',{精神:2}]];
+ }else if(ids.some(id=>['t_c_xuelong','t_c_shenwang','t_c_shenghun'].includes(id))){
+  scene=`救治所需的${names}已不在原来的去处。医者说明普通药材只能温养，不能代替复活条件；寻找新办法需要时间，而不是宣告小舞已经复生。`;
+  options=[['支付医者费用，维持救治并寻找新办法','医者接手温养与查访。没有消耗你已取得的唯一药草，也没有宣告复活成功。',{金魂币:-300,bonds:{唐三:5},flags:['revival_search']}],['坦白资源已不在此处，停止无效追索','你明确告知药草去向，救治改为维持现状，复活仍未完成。',{悟性:2,flags:['revival_search']}]];
+ }else if(ids.some(id=>['t_c_hanxin','t_c_ruanjia','t_c_banjing'].includes(id))){
+  scene=`工坊的订料清单少了${names}。原定暗器或护甲无法照旧完成，工匠摆出普通材料的图样，要求先说明新的用途与费用。`;
+  options=[['自付费用，试制普通材料的替代件','工匠收下工料费，做出一件普通样品。它没有原本珍材的独有性能。',{金魂币:-200,悟性:3}],['改为维修现有装备，保留珍材归属','你们将现有装备修好，旧订单暂停，没有重复生成稀有材料。',{精神:2}]];
+ }else if(['M61','M63','M65','M67','M80','M84'].includes(key)||ids.some(id=>/qiankun|mojing|xiehu|zizhenzhu/.test(id))){
+  scene=`海路上的局势已变：${names}归属明确。守护者重新核对来客能使用的力量与航路，考验不会因为旧日记载就直接判定完成。`;
+  options=[['准备补给，亲自查访新的航路','你支付补给，带回海况记录。考验仍需本人完成，被夺走的传承没有回到原主身上。',{金魂币:-200,精神:3}],['守住所得，约定各走各的考验','各方承认现有归属，分开寻找自己的出路。你没有替别人领取神位。',{名望:2,悟性:1}]];
+ }else{
+  scene=`${e.title||e.name}的当事人得知${names}已经易主。原定修行缺少具体材料，导师提出用「${list.map(opportunityReplacement).join('、')}」慢慢补足根基；这些替代物不能恢复独有魂技。眼前要决定由谁承担补给与追索的代价。`;
+  options=[['承担查访补给，帮助寻找普通替代资源','你支付查访费用并说明资源去向。后续修行仍按实际年份与损失计算，独有能力没有自动恢复。',{金魂币:-150,bonds:{唐三:3},悟性:2}],['坚持当前归属，留下公开的交涉记录','你维护自己的机缘归属，也接受当事人今后挑战。此事留下了明确记录，没有被直接跳过。',{名望:2,bonds:{唐三:-3}}]];
+ }
+ const dead=Object.entries(r.world.npcAlive||{}).filter(([,alive])=>alive===false).map(([n])=>n);
+ const choices=options.map(([t,text,d],i)=>{for(const n of dead)if(d.bonds)delete d.bonds[n];return {t,contextual:true,nonCombat:true,need:d.金魂币<0?{金魂币:-d.金魂币}:undefined,win:{text,d:{...d,flags:[...(d.flags||[]),'resolved_'+key],world:{news:e.canon?{[e.canon]:`${e.title||e.name}：${text}`}:{},note:`${e.title||e.name}：${t}`}}}}});
+ return {...e,title:(e.title||e.name)+' · 新的去路',echo:null,contextual:true,passiveOpportunity:false,text:scene,choices};
+}
+
 /* Plot views are derived from current world state, including old saves and pending events.
    Never rewrite shared source data or already-settled choice records. */
 function npcPresent(n){
@@ -10477,7 +10611,7 @@ function npcPresent(n){
  if(n==="小舞"&&year()>=2656&&!r.flags.some(f=>["lake_treaty","xiaowu_safe"].includes(f))&&["t_c_xuelong","t_c_shenwang","t_c_shenghun"].some(id=>opportunityLedger()[id]))return false;
  return !(e&&e.dead&&e.dead<year());
 }
-function canonNews(c){const r=R();if(r.world.news[c.id])return "【改写】"+r.world.news[c.id];
+function canonNews(c){const r=R();if(shrekHistory().core&&SHREK_CHAPTERS[c.id]&&!r.world.news[c.id])return '【改写】'+SHREK_CHAPTERS[c.id][1]+' 史莱克核心为'+r.name+'，唐三'+shrekHistory().tang+'。';if(r.world.news[c.id])return "【改写】"+r.world.news[c.id];
  if(xiaowuIrreversible()&&/小舞|柔骨兔/.test(c.event+" "+c.result))return "【改写】小舞已在此前冲突中被你猎杀，献祭与复活的旧定局不再发生。";
  const lost=opportunityConflicts({id:c.id,canon:c.id,text:c.event+" "+c.result});if(lost.length)return "【改写】"+lost.map(o=>o.name+"已被你取走").join("、")+"；相关人物失去原有资源，改寻替代成长。";
  if(playerHasFlower()&&/相思断肠红|红花/.test(c.event+" "+c.result))return "【改写】相思断肠红已被你取走，小舞没有凭空获得护身花；身份风波另有走向。";
@@ -10503,11 +10637,11 @@ function storyOpposition(e){
  return [...new Set([...sides].filter(sd=>sd.startsWith("门人:")||ownTargets.has(sd)||sd!==campaignSide()&&factionAtPeace(sd)).map(sd=>sd.replace(/^门人:/,"")))];
 }
 function storyContext(e){
- const r=R(),raw=JSON.stringify(e),authority=storyAuthority(),friendly=storyOpposition(e),reasons=[];
+ const r=R(),raw=(e.text||''),authority=storyAuthority(),friendly=storyOpposition(e),reasons=[];
  if(r.god)reasons.push(`你已登临${godName()||"神位"}，这场旧事须由你亲自裁定`);
  if(friendly.length)reasons.push(`${friendly.join("、")}已归入本方秩序或与你结盟`);
  if(playerHasFlower()&&/相思断肠红|红花落地|一朵红花/.test(raw))reasons.push("相思断肠红已由你取走，小舞没有这朵护身仙花");
- if(authority&&/不起眼的执事|你每日提着食盒|你是今年新进的执事|你就被编进|奉白金主教|替.*跑腿|领补贴|排着长队|学徒|你被调去.*执事|月关喊你|你在.*听候差遣/.test(e.text||""))reasons.push(`你如今是${authority}，来人带来的是议事呈报`);
+ if(authority&&/不起眼的执事|你每日提着食盒|你是今年新进的执事|你就被编进|奉白金主教|替.*跑腿|领补贴|排着长队|学徒|你被调去.*执事|月关喊你|你在.*听候差遣|你随月关|教皇在殿里等你/.test(e.text||""))reasons.push(`你如今是${authority}，来人带来的是议事呈报`);
  return {authority,friendly,reasons};
 }
 const STORY_ORIGIN_ROLE={wuhun:"教皇殿与长老殿都等着你的表态，胡列娜希望你先看清人命的代价",landian:"龙脊山的族人与流散在外的玉家子弟，将他们的去留交到你手中",beast:"星湖的魂兽与城中的人类，都在试探你能否给两族留下一条活路",qiangu:"千古家的光暗两脉终于能坐到同一张桌前，族人希望由你定下边界",shalu:"血城中有人仍把杀戮当作唯一秩序，也有人盼你带他们走出去",qibao:"七宝的商路、弟子和工匠等待一份能真正执行的安排",huangshi:"东宫旧人与新朝重臣各递来一份奏报，你必须决定让谁承担责任",xingluo:"戴家的族老与边关将领各有主张，城中的百姓只盼战火止息",haishen:"圣柱守护者和远海岛民把航道图铺在你面前，潮汐之外还有许多人等待回航",shenjiang:"工坊与前线送来同一份伤亡名单，匠人希望自己的作品用于保护生者"};
@@ -10541,9 +10675,23 @@ function contextualStory(e,context){
   effects=[{名望:2,legacy:"治理"},{金魂币:-100,名望:3,legacy:"守护"},{merit:8,legacy:"治理"}];
  }
  if(!storyAuthority()){
-  scene=`${e.title}的旧计划已经改变。${myFac()?myFac().name+'派来联络人':'各方联络人'}向你说明新局势。你眼下能做的是传递情报、协助撤离与联络，尚不能代各方签署停战令。`;
-  actions=['向相关势力呈报新的情报','随联络人查访，协助无关人员撤离','记下各方态度，暂不卷入争端'];effects=[{名望:2,legacy:'担当'},{精神:1,legacy:'守护'},{悟性:1}];
+  if(e.canon==='M51'){
+   scene='猎魂行动的情报传到驻地，你能决定是否冒险送出预警。你没有权力撤销任何一方的军令，但提前抵达的消息可能救下尚未撤离的人。';
+   actions=['冒险向七宝与蓝电两宗送出预警','留下照应伤员，帮助族人撤离','只记录情报，暂不介入行动'];
+   effects=[{伤势:8,flags:['warned_qibao','warned_landian'],名望:3},{伤势:5,名望:2},{悟性:1}];
+  }else if(e.canon==='M52'){
+   scene=npcPresent('小舞')?'星湖附近出现猎捕者。小舞没有按旧计划献祭，你可以护送她离开，也可以向自己的同僚传话。你无法代各方签署停战令。':'星湖留下了旧战的痕迹，小舞已经不在世。你能探访幸存者，不能要求她再次献祭。';
+   actions=npcPresent('小舞')?['冒险护送小舞离开星湖','向同行者说明停猎与撤离的安排','退出争端，不追索魂环']:['探访幸存者，记录星湖旧案','帮助安置撤离者','留下记录，离开星湖'];
+   effects=npcPresent('小舞')?[{伤势:10,bonds:{小舞:8},flags:['xiaowu_safe']},{名望:2},{悟性:1}]:[{悟性:2},{名望:2},{精神:1}];
+  }else if(e.canon==='M56'){
+   scene='宫门封闭，宫变的双方仍有疑虑。你可以传递证词或引导无关人员离开，但无权替皇室决定继承人。';
+   actions=['把证词交给能核实身份的人','冒险引导宫中无关人员离开','守住驻地，不介入继承之争'];effects=[{悟性:2},{伤势:5,名望:3},{精神:1}];
+  }else{
+   scene=`${e.title}发生了变化。${context.reasons.join('；')}。当事人仍在争论原定行动是否继续，你可以表达自己的立场，但无权代其他势力作出承诺。`;
+   actions=['陈述亲历事实，反对按失实情报行动','保护到场者，拒绝旧命令中的敌对安排','保留意见，让各方自行决定'];effects=[{悟性:2},{精神:2,名望:1},{悟性:1}];
+  }
  }
+
  const dead=Object.keys(r.world.npcAlive||{}).filter(n=>r.world.npcAlive[n]===false&&JSON.stringify(e).includes(n));
  if(dead.length)scene=`${dead.join('、')}已经身亡。旧计划中的直接会面和交手取消，幸存者递来的文书涉及遗属安置、追责与后续秩序。`;
  const choices=actions.map((t,i)=>{const d=structuredClone(effects[i]);for(const n of dead){if(d.bonds)delete d.bonds[n];if(d.world?.npcAlive)delete d.world.npcAlive[n]}d.flags=[...(d.flags||[]),"resolved_"+key];d.world=Object.assign({},d.world,{news:e.canon?{[e.canon]:`${e.title}：${r.name}${t}，旧定局因当前身份与盟约而改写`}:{},note:`${e.title}：${t}`});if(context.friendly.length)d.campaign={other:context.friendly[0],relation:4,treaty:i===0&&storyAuthority()?1:0};return {t,contextual:true,nonCombat:true,need:d.金魂币<0?{金魂币:-d.金魂币}:undefined,win:{text:`${t}的安排开始落实。${base}。这一次，各方按新的约定行动。`,d}}});
@@ -10555,7 +10703,7 @@ function storyStateConflicts(e,main){
  if(r.flags.includes('lougao_alive')&&/楼高死|楼高.*殉|师父.*死在/.test(raw))reasons.push('楼高已被你救下，不能再照旧宣告殉炉');
  if(e.canon==='M85'&&factionAtPeace('武魂殿')&&/武魂帝国.*不存在|武魂殿.*覆灭/.test(raw))reasons.push('武魂殿仍在本方秩序之中，战后清算必须依当前归属处理');
  const birth=CAMPAIGN_ORIGINS[r.id],current=campaignSide();
- if(main&&(r.org||r.fac&&birth&&birth!==current)&&/武魂殿|教皇|宗门|皇室|殿下|大祭司|唐门|嘉陵|城头/.test(e.text||''))reasons.push(`你如今代表${r.org?.name||myFac()?.name||current}，原出身的军令不能再直接调遣你`);
+ if(main&&(r.org||r.fac&&birth&&birth!==current)&&/奉.*(?:命|令)|你被调去|你就被编进|你每日提着食盒|你在.*听候差遣|你随月关|教皇在殿里等你/.test(e.text||''))reasons.push(`你如今代表${r.org?.name||myFac()?.name||current}，原出身的军令不能再直接调遣你`);
  if(main&&/唐三.*成神|唐三成了神|唐三战死又复活/.test(e.text||'')&&npcLevel('唐三')<100)reasons.push('唐三尚未登临神位，旧定神战与复苏的消息尚未发生');
  return reasons;
 }
@@ -10582,12 +10730,14 @@ function adaptStory(source,q){
  let e=structuredClone(source);if(e.passiveOpportunity||q?.src==='replacement')return Object.assign(e,{contextual:true,passiveOpportunity:true,choices:[]});e.title=e.title||e.name;const r=R(),ctx=storyContext(e),key=e.canon||e.id;
  const main=q&&(q.k==="node"||q.k==="fnode"),resource=!!T_BY[e.id],raw=JSON.stringify(e);
  if(resource)e=adaptTreasureParticipants(e);
+ if(!resource){const branch=shrekChapter(e);if(branch)return branch;}
  const lost=opportunityConflicts(e);if((!resource&&xiaowuIrreversible()&&/小舞|柔骨兔/.test(raw))||lost.length)return opportunityStory(e,lost);
  const stateReasons=resource?[]:storyStateConflicts(e,main);if(stateReasons.length){ctx.reasons.push(...stateReasons);return contextualStory(e,ctx)}
- const ceased=key==="M52"&&(r.flags.includes("lake_treaty")||!npcPresent("小舞"));
+ const ceased=key==="M52"&&(r.flags.includes("lake_treaty")||r.flags.includes("xiaowu_safe")||!npcPresent("小舞"));
  const historical=/领补贴|长队|不起眼的执事|你每日提着食盒|你是今年新进的执事|你就被编进|奉白金主教|月关喊你/.test(e.text||"");
  const divineConflict=r.godQ?.done&&((e.id==="n_angel"&&r.godQ.k==="angel")||(e.id==="n_rakshasa"&&r.godQ.k==="luocha"));
- const livingShift=playerHasFlower()&&/相思断肠红|红花落地|一朵红花/.test(raw);
+ const livingShift=!resource&&playerHasFlower()&&/相思断肠红|红花落地|一朵红花/.test(e.text||'');
+ if(livingShift)return opportunityBranch(e,[]);
  if(divineConflict||(main&&r.god)||(!resource&&ctx.friendly.length)||livingShift||ceased||ctx.authority&&historical){
   if(ceased)ctx.reasons.push("星湖旧事已有结果，本次只议后续善后");
   return contextualStory(e,ctx);
@@ -10612,8 +10762,8 @@ function evById(q){if(q.done&&q.view)return q.view;if(q.k==="shrek"&&!q.done)ret
 
 /* ---- 本季：一次只摆一张事件卡；事件处理完才轮到行动 ---- */
 const Q_FLAG={node:["关键","#8c2a1a"],fnode:["势力","#2f5c9a"],ev:["事件","#3d7a45"],ev2:["机缘","#7a4aa8"],ring:["魂环","#7a4aa8"],duel:["战书","#7a1410"],godwar:["神战","#7a1410"],orgwar:["战事","#7a1410"],godend:["成神","#9a6c00"],unify:["霸业","#9a6c00"]};
-const ACT_GROUP={hunt:"外出",seek:"外出",world:"外出",travel:"外出",arena:"外出",duel:"外出",charm:"人事",bond:"人事",fac:"人事",join:"人事",found:"人事",org:"人事",work:"营生",heal:"营生"};
-const ACT_IC={train:"ring",sp:"flame",sp2:"spark",sp3:"spark",body:"dumbbell",mind:"eye",read:"book",god:"crown",hunt:"paw",seek:"gem",world:"pagoda",travel:"mountain",arena:"sword",duel:"sword",charm:"cup",bond:"heart",fac:"flag",join:"gate",found:"castle",org:"castle",work:"coin",heal:"cross"};
+const ACT_GROUP={shrekroute:"人事",hunt:"外出",seek:"外出",world:"外出",travel:"外出",arena:"外出",duel:"外出",charm:"人事",bond:"人事",fac:"人事",join:"人事",found:"人事",org:"人事",work:"营生",heal:"营生"};
+const ACT_IC={shrekroute:"heart",train:"ring",sp:"flame",sp2:"spark",sp3:"spark",body:"dumbbell",mind:"eye",read:"book",god:"crown",hunt:"paw",seek:"gem",world:"pagoda",travel:"mountain",arena:"sword",duel:"sword",charm:"cup",bond:"heart",fac:"flag",join:"gate",found:"castle",org:"castle",work:"coin",heal:"cross"};
 function storyNodeSource(q){return q.k==='node'?P().nodes.find(n=>n.id===q.id):q.k==='fnode'?(F_BY[q.facId||R().fac?.id]?.nodes||[]).find(n=>n.id===q.id):null}
 function storyNodeSettled(n,kind){const done=kind==='node'?R().nodesDone:(R().facDone||[]),nodes=kind==='node'?P().nodes:(myFac()?.nodes||[]);return done.includes(n.id)||!!(n.canon&&nodes.some(x=>x.canon===n.canon&&done.includes(x.id)))}
 function migrateStoryQueue(){
@@ -10627,7 +10777,16 @@ function migrateStoryQueue(){
   let at=r.queue.indexOf(q)+1;for(const v of variants)if(!r.queue.some(x=>x.k===q.k&&x.id===v.id))r.queue.splice(at++,0,{k:q.k,id:v.id,facId:q.facId});
  }
 }
+function recoverSuppressedChapters(){
+ const r=R();if(r.storyRecoveryVersion===1)return;r.storyRecoveryVersion=1;
+ for(const q of r.queue||[]){if(!['node','fnode'].includes(q.k)||!q.passiveOpportunity||q.pick)continue;
+  const n=storyNodeSource(q);if(!n)continue;
+  const key=q.k==='node'?'nodesDone':'facDone';r[key]=(r[key]||[]).filter(id=>id!==q.id);
+  delete q.view;delete q.text;delete q.ds;q.done=false;q.ack=false;q.passiveOpportunity=false;
+ }
+}
 function refreshStoryQueue(){
+ recoverSuppressedChapters();
  migrateUnification();migrateStoryQueue();clearLegacyRecoveryPrompts();const r=R();for(const q of r.queue){if(q.done&&!q.skipped&&['node','fnode'].includes(q.k)&&(!q.facId||q.facId===r.fac?.id)){const list=q.k==='node'?r.nodesDone:(r.facDone||(r.facDone=[]));if(!list.includes(q.id))list.push(q.id)}
   if(q.ack||q.done)continue;
   const n=storyNodeSource(q);if(['node','fnode'].includes(q.k)&&(!n||q.facId&&q.facId!==r.fac?.id||n&&storyNodeSettled(n,q.k)||n&&!condOK(n.cond))){q.ack=true;q.done=true;q.skipped=true;continue}
@@ -10676,6 +10835,7 @@ function actPanel(rec){ const r=R(); const A=actions(); const G=["修行","外�
 function seasonLog(){ const r=R(); const L=r.queue.filter(q=>q.ack&&q.done&&!q.passiveOpportunity).map(q=>{ const e=evById(q); return {n:e?nm(e.title):"",txt:q.text||"",ds:q.ds||[]} }).concat(r.actLog); if(!L.length) return "";
   return `<section class="panel"><header class="ph"><h2>本季纪事</h2></header><div class="alog">${L.slice().reverse().map(a=>`<div><b>${esc(a.n)}</b>${a.txt?`<p>${esc(nm(a.txt))}</p>`:""}${deltas(a.ds)}</div>`).join("")}</div></section>` }
 function tabSeason(){ const r=R(); const q=curQ(); let h=virtues();
+  if(shrekHistory().joined)h+=`<section class="paper notice"><h3>史莱克 · 你的世界线</h3><p>${paras(esc(shrekRouteSummary()))}</p>${shrekCrisisEvent()?`<p class="bad">${esc(shrekCrisisEvent().title)} · 本季行动中处理</p>`:""}</section>`;
   if(q) h+=storyCard(q,r.queue.indexOf(q)); else { const rec=recAction(); h+=notice(rec)+actPanel(rec) }
   return h+seasonLog() }
 function wireSeason(){
@@ -10906,6 +11066,7 @@ function finish(){
     end=gen }
   if(pe.k==="time"&&r.chronicleEnd)end=r.chronicleEnd;
   if(pe.k==="end"&&!/^__/.test(pe.id||"")&&!r.endChoiceConfirmed&&!r.settled&&!/你死|你.*(?:死去|战死|自尽)|同归于尽|灰飞烟灭|以身殉|力竭而亡/.test(end.text||""))return chapterModal(end);
+  if(shrekHistory().joined){end=structuredClone(end);end.afterlife=[...(end.afterlife||[]),shrekRouteSummary()];}
   captureAchievements(end);
   if(!r.settled){ r.settled=true; const e=S.meta.endings[p.id]=S.meta.endings[p.id]||[]; if(!e.includes(end.id)) e.push(end.id); for(const a of r.altered) S.meta.altered[a]=(S.meta.altered[a]||0)+1; r.endRec=end; save() }
   portrait(r.endRec||end);

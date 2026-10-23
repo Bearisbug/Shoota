@@ -1,0 +1,52 @@
+{
+  "case": "M28花草误拦猎魂",
+  "expected": "地穴魔蛛战斗与魂环奖励仍在",
+  "actual": [
+    "向相关势力呈报新的情报",
+    "随联络人查访，协助无关人员撤离",
+    "记下各方态度，暂不卷入争端"
+  ],
+  "pass": false
+}
+{
+  "case": "主线被动跳过",
+  "affected": 5,
+  "pass": false,
+  "examples": [
+    {
+      "pack": "wuhun",
+      "id": "n02_final",
+      "title": "圆月与蓝银",
+      "passive": true,
+      "choices": 0
+    },
+    {
+      "pack": "beast",
+      "id": "n_red_flower",
+      "title": "红花落地",
+      "passive": true,
+      "choices": 0
+    },
+    {
+      "pack": "qibao",
+      "id": "n_ambush",
+      "title": "场边的剑",
+      "passive": true,
+      "choices": 0
+    },
+    {
+      "pack": "huangshi",
+      "id": "n_snow",
+      "title": "雪崩",
+      "passive": true,
+      "choices": 0
+    },
+    {
+      "pack": "haishen",
+      "id": "n_orca_court",
+      "title": "虎鲸王庭",
+      "passive": true,
+      "choices": 0
+    }
+  ]
+}
