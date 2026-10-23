@@ -1,0 +1,8 @@
+{
+  "a17": 1.0375,
+  "a23": 1.0375,
+  "ratio": 1,
+  "expected": "23岁同条件经验不超过17岁的30%",
+  "pass": false,
+  "hasLifestyle": false
+}

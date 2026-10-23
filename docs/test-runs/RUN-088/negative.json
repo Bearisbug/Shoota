@@ -1,0 +1,16 @@
+[
+  {
+    "name": "age slowdown",
+    "anchor": "a===23?.23:a===24?.13",
+    "baseline": true,
+    "mutant": false,
+    "pass": true
+  },
+  {
+    "name": "lifestyle regression",
+    "anchor": "p.r[k]-2",
+    "baseline": true,
+    "mutant": false,
+    "pass": true
+  }
+]

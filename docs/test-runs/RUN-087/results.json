@@ -1,0 +1,203 @@
+{
+  "results": [
+    {
+      "name": "age, event, individual and potential gradients",
+      "ages": [
+        [
+          17,
+          0.41759375
+        ],
+        [
+          21,
+          0.22967656250000001
+        ],
+        [
+          23,
+          0.0960465625
+        ],
+        [
+          24,
+          0.0542871875
+        ],
+        [
+          27,
+          0.0062639062499999995
+        ]
+      ],
+      "tiers": [
+        [
+          "常规赛",
+          0.41759375
+        ],
+        [
+          "季后赛",
+          0.9545
+        ],
+        [
+          "MSI 总决赛",
+          1.43175
+        ],
+        [
+          "世界赛瑞士轮",
+          1.73003125
+        ],
+        [
+          "世界赛八强赛",
+          2.147625
+        ],
+        [
+          "世界赛总决赛",
+          2.7441875
+        ]
+      ],
+      "slow": 1.163296875,
+      "fast": 3.87765625,
+      "near": 0.46531874999999995,
+      "pot": 75,
+      "ovr": 75,
+      "pass": true
+    },
+    {
+      "name": "young lifestyle decline distinct from temporary form",
+      "pass": true,
+      "old": 92,
+      "declined": 91,
+      "late": {
+        "baseSame": true,
+        "form": -3
+      },
+      "event": {
+        "id": "fixture:slack",
+        "pid": 51,
+        "kind": "slack",
+        "text": "反复训练松懈，操作、对线和稳定能力下降：OVR 92 → 91。"
+      }
+    },
+    {
+      "name": "rest restores form without undoing permanent decline",
+      "pass": true
+    },
+    {
+      "name": "temporary form affects actual match simulation",
+      "pass": true,
+      "delta": 1.5
+    },
+    {
+      "name": "real series trigger, once-only processing and cooldown",
+      "pass": true,
+      "event": {
+        "id": "2027:100007:54",
+        "pid": 54,
+        "kind": "slack",
+        "text": "训练投入下降，状态 -2；持续松懈可能损失基础能力。"
+      },
+      "same": true,
+      "cooled": true
+    },
+    {
+      "name": "event reload persists exact effect",
+      "pass": true
+    },
+    {
+      "name": "talk once improves discipline",
+      "pass": true
+    },
+    {
+      "name": "old save experience migration idempotent",
+      "pass": true,
+      "xp": 4
+    },
+    {
+      "name": "full season growth and offseason potential ceiling",
+      "pass": true,
+      "events": 12,
+      "loops": 65,
+      "end": [
+        {
+          "name": "Bin",
+          "age": 24,
+          "delta": 0
+        },
+        {
+          "name": "Xun",
+          "age": 25,
+          "delta": 0
+        },
+        {
+          "name": "knight",
+          "age": 27,
+          "delta": 0
+        },
+        {
+          "name": "Viper",
+          "age": 27,
+          "delta": 0
+        },
+        {
+          "name": "ON",
+          "age": 24,
+          "delta": 1
+        },
+        {
+          "name": "Flandre",
+          "age": 29,
+          "delta": 0
+        },
+        {
+          "name": "Wenbo",
+          "age": 22,
+          "delta": 0
+        }
+      ],
+      "breached": 0
+    },
+    {
+      "name": "season-scale differentiated progression",
+      "pass": true,
+      "rows": [
+        {
+          "age": 17,
+          "drive": 90,
+          "regular": 4,
+          "total": 17
+        },
+        {
+          "age": 17,
+          "drive": 35,
+          "regular": 2,
+          "total": 9
+        },
+        {
+          "age": 23,
+          "drive": 90,
+          "regular": 0,
+          "total": 3
+        },
+        {
+          "age": 24,
+          "drive": 90,
+          "regular": 0,
+          "total": 2
+        }
+      ]
+    },
+    {
+      "name": "layout 320 light home",
+      "pass": true,
+      "w": 320,
+      "sw": 320,
+      "error": false,
+      "text": true
+    },
+    {
+      "name": "layout 320 light roster",
+      "pass": false,
+      "w": 320,
+      "sw": 320,
+      "error": false,
+      "text": false
+    }
+  ],
+  "error": "Error: layout 320 light roster{\"pass\":false,\"w\":320,\"sw\":320,\"error\":false,\"text\":false}\n    at ck (file:///private/tmp/lol-growth-test2.mjs:2:938)\n    at file:///private/tmp/lol-growth-test2.mjs:13:802",
+  "errors": []
+}

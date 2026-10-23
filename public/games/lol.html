@@ -393,7 +393,7 @@ const BADGES={
  rock:{n:'稳如磐石',d:'稳定 ≥ 85：发挥波动减半',t:p=>p.r.con>=85},
  jgl:{n:'野区霸主',d:'打野且运营 ≥ 86：全队前期 +0.8',t:p=>p.pos==='JNG'&&p.r.mac>=86},
  vision:{n:'视野大师',d:'辅助且运营 ≥ 86：全队前后期各 +0.3',t:p=>p.pos==='SUP'&&p.r.mac>=86},
- rising:{n:'新星',d:'21 岁以下且潜力高出 8：比赛经验 +30%，成长更快',t:p=>age(p)<=21&&p.pot-p.ovr>=8},
+ rising:{n:'新星',d:'21 岁以下且潜力高出 8：比赛经验 +15%，成长仍受年龄与投入影响',t:p=>age(p)<=21&&p.pot-p.ovr>=8},
  vet:{n:'老将',d:'27 岁以上且 OVR ≥ 80：季后赛和世界赛 +1',t:p=>age(p)>=27&&p.ovr>=80},
  legend:{n:'传奇',d:'27 岁以上的明星选手：大赛中全队 +0.8',t:p=>p.star&&age(p)>=27},
 };
@@ -511,7 +511,7 @@ function makePlayer(name,pos,nat,by,ovr,tid,res,gen){
   p.star=STARS.has(name);
   p.c={amt:Math.max(MINSAL,r5(mv(p.ovr)*(0.85+rng()*0.3)*(p.star?1.5:1)*(name==='Faker'?1.6:1))),exp:S.season+Math.floor(rng()*3)};
   p.st={reg:emptyLine(),po:emptyLine(),wld:emptyLine()};
-  p.sty=pickStyle(p);p.bd=[];p.log=[];p.xp=0;p.sg=0;
+  p.sty=pickStyle(p);p.bd=[];p.log=[];p.xp=0;p.sg=0;development(p);
   S.players[p.id]=p;refreshBadges(p);return p;
 }
 function parseRoster(str,tid,gen){for(const row of str.split(';')){const[n,pos,nat,by,o,f]=row.split('/');makePlayer(n,pos,nat,+by,+o,tid,f==='r',gen)}}
@@ -532,7 +532,7 @@ function setAsk(p){const a=age(p);p.ask=Math.max(MINSAL,r5(mv(p.ovr)*(0.95+rnd()
 
 function newGame(userTid){
   if(LV?.raf)cancelAnimationFrame(LV.raf);LIVE=null;LV=null;UI.recent=null;
-  S={clubVersion:1,legendDraft:{done:false,pos:null,revealed:{},selected:null},v:2,ev:2,nv:1,pv:1,labs:[],season:2027,phase:'REG',day:0,userTid,teams:{},players:{},nextPid:1,nextGid:1,nextSid:1,games:{},news:[],hist:[],hof:[],owner:[],fin:[],sched:[],po:null,wld:null,faDay:0,fired:false};
+  S={developmentVersion:1,clubVersion:1,legendDraft:{done:false,pos:null,revealed:{},selected:null},v:2,ev:2,nv:1,pv:1,labs:[],season:2027,phase:'REG',day:0,userTid,teams:{},players:{},nextPid:1,nextGid:1,nextSid:1,games:{},news:[],hist:[],hof:[],owner:[],fin:[],sched:[],po:null,wld:null,faDay:0,fired:false};
   for(const d of TEAM_DATA){
     S.teams[d.id]={id:d.id,name:d.name,lg:d.lg,color:d.color,pop:d.pop,cash:Math.round(d.pop*70),starters:{},st:null,fin:null};
     parseRoster(d.r,d.id);
@@ -903,7 +903,7 @@ class Match{
     const big=this.type!=='reg';this.pl=[];this.sd=[];
     for(const s of[0,1]){const tid=this.tid[s];const L=lineup(tid);const cm=compMods(compOf(dr.picks[s]));let te=0,tl=0;const ps=[];const tf=gauss()*TFS;
       for(const pos of POS){const p=L[pos];const R=p.r,bd=p.bd||[],se=STE[p.sty]||{};const ch=dr.picks[s][pos];const c=CHM[ch]||CHAMPS[0];
-        const off=p.pos!==pos?12:0;let form=gauss()*(100-R.con)*0.07*(bd.includes('rock')?.5:1)*(se.v||1);
+        const off=p.pos!==pos?12:0;let form=gauss()*(100-R.con)*0.07*(bd.includes('rock')?.5:1)*(se.v||1)+development(p).form;
         if(big&&bd.includes('clutch'))form+=2;if(big&&bd.includes('vet'))form+=1;
         const pf=prof(p,ch),pm=clamp((pf-75)/6,-6,4),tm=(c.tier-3)*.7;
         let ev=(R.lan*.5+R.mec*.3+R.mac*.2)-off+form+(se.e||0)+pm+tm+c.e*.9,lv=(R.tf*.45+R.mac*.35+R.mec*.2)-off+form+(se.l||0)+pm+tm+c.l*.9;
@@ -1205,6 +1205,7 @@ function finishSeries(se,type,label){
     for(const t of[w,l]){const inc=Math.round(t.pop*.8+(t===w?15:0));t.cash+=inc;t.fin.match+=inc}}
   if(isUser(se.a)||isUser(se.b)){const me=isUser(se.a)?se.a:se.b,op=me===se.a?se.b:se.a;const ms=me===se.a?se.sa:se.sb,os=me===se.a?se.sb:se.sa;
     news(`${label}：${T(me).id} ${ms}-${os} ${T(op).id}`,ms>os?'W':'L');S.review={se:JSON.parse(JSON.stringify(se)),advanced:false};}
+  developmentEvent(se.a,se);developmentEvent(se.b,se);
 }
 function playSeries(se,type,label){
   if(se.w)return se;const need=Math.ceil(se.bo/2);
@@ -1258,13 +1259,13 @@ function logGame(b,type,label,gid){
     const win=(q[2]===0?b.a:b.b)===b.w?1:0;
     p.log.push([gid,type[0],q[2]===0?b.b:b.a,win,q[4],q[5],q[6],q[7],q[8],b.dur,q[10],tk[q[2]],q[11],b.gn,li]);
     if(p.st)p.st[type].tk+=tk[q[2]];
-    const a=age(p);
-    if(a<=24&&p.ovr<p.pot){p.xp=(p.xp||0)+(type==='reg'?1:2)*((p.bd||[]).includes('rising')?1.3:1)*devMult(p.tid);const need=a<=20?6:a<=22?8:11;if(p.xp>=need){p.xp-=need;growOne(p)}}}
+    applyExperience(p,type,label,q[10]);}
   for(const si of[0,1]){const t=T(si===0?b.a:b.b);if(!t.log)t.log=[];t.log.push([gid,type[0],si===0?b.b:b.a,(si===0?b.a:b.b)===b.w?1:0,tk[si],tk[1-si],b.dur,b.gn,li])}
 }
 function growOne(p){
+  if(p.ovr>=p.pot)return;
   const keys=ATTR.map(a=>a[0]);const old=p.ovr;const n=(p.bd||[]).includes('rising')?6:5;
-  for(let i=0;i<n;i++){const k=keys[wpick(keys,x=>Math.max(1,100-p.r[x]))];p.r[k]=Math.min(99,p.r[k]+1)}
+  for(let i=0;i<n;i++){const k=keys[wpick(keys,x=>Math.max(1,100-p.r[x]))];const before=p.r[k];p.r[k]=Math.min(99,p.r[k]+1);if(calcOvr(p.r)>p.pot)p.r[k]=before}
   p.ovr=calcOvr(p.r);p.peak=Math.max(p.peak,p.ovr);p.pot=Math.max(p.pot,p.ovr);p.sg=(p.sg||0)+p.ovr-old;
   if(p.ovr>old&&p.tid===S.userTid)news(`${p.name} 在比赛中成长：OVR ${old} → ${p.ovr}`,'W');
   refreshBadges(p);
@@ -1347,14 +1348,14 @@ function toResign(){
   for(const p of Object.values(S.players)){
     if(p.tid==='RET')continue;
     const a=ns-p.by;
-    let base=a<=19?4.5:a<=21?3.5:a<=23?2:a<=25?.8:a<=27?0:a<=29?-.6:a<=31?-1.1:a<=33?-1.8:-3;
+    let base=a<=19?.9:a<=21?.45:a<=22?.2:a<=24?.06:a<=27?0:a<=29?-.6:a<=31?-1.1:a<=33?-1.8:-3;
     const gp=p.st?p.st.reg.g+p.st.po.g+p.st.wld.g:0;
-    if(base>0)base*=clamp((p.pot-p.ovr)/5,.3,1.6)*(gp>=40?1:gp>=20?.75:gp>=5?.55:.35)*devMult(p.tid);
+    if(base>0)base*=clamp((p.pot-p.ovr)/12,0,1)*(gp>=40?.8:gp>=20?.6:gp>=5?.4:.2)*devMult(p.tid)*development(p).learning*(.35+development(p).drive/100);
     if(base<0)base*=(p.ovr>=88?.4:p.ovr>=84?.6:1)*(p.star?.7:1);
-    const d=base+gauss()*(a>=25?1:1.6);const old=p.ovr;
-    for(const[k]of ATTR){let x=d+gauss()*(a>=25?.8:1.3);if(k==='mec'&&a>=29)x-=.5;if(k==='mac'&&a>=24)x+=.4;p.r[k]=clamp(Math.round(p.r[k]+x),25,99)}
+    const d=base+clamp(gauss(),-1,1)*(a>=25?.35:.4);const old=p.ovr,ceiling=Math.max(p.ovr,p.pot);
+    for(const[k]of ATTR){let x=d+clamp(gauss(),-1,1)*.3;if(k==='mec'&&a>=29)x-=.4;if(k==='mac'&&a>=24)x+=.15;const before=p.r[k];p.r[k]=clamp(Math.round(p.r[k]+x),25,99);if(calcOvr(p.r)>ceiling)p.r[k]=before}
     p.ovr=calcOvr(p.r);p.peak=Math.max(p.peak,p.ovr);
-    p.pot=Math.max(p.ovr,a>=25?p.pot:Math.round(p.pot+gauss()*1.5));
+    p.pot=Math.max(p.ovr,p.pot);
     p.dlt=p.ovr-old;
     // 退役
     let pr=0;if(a>=31)pr=.06+(a-31)*.1+(p.ovr<78?.25:0);else if(a>=27&&p.ovr<72)pr=.3;else if(p.ovr<60&&a>=23)pr=.4;
@@ -1363,10 +1364,8 @@ function toResign(){
       if(p.peak>=85)S.hof.unshift({name:p.name,pos:p.pos,peak:p.peak,s:ns-1,aw:p.aw.length});
       if(S.teams[was]){news(`${p.name}（${was}）宣布退役`,isUser(was)?'L':'')}}
   }
-  {const act=Object.values(S.players).filter(p=>p.tid!=='RET').sort((a,b)=>b.ovr-a.ovr).slice(0,110);const mean=act.reduce((s,p)=>s+p.ovr,0)/act.length;const sh=clamp(Math.round((80.5-mean)*.8),0,3);
-   if(sh)for(const p of Object.values(S.players)){if(p.tid==='RET')continue;if(sh<0&&ns-p.by>24)continue;for(const[k]of ATTR)p.r[k]=clamp(p.r[k]+sh,25,99);const o=p.ovr;p.ovr=calcOvr(p.r);p.dlt=(p.dlt||0)+p.ovr-o;p.pot=Math.max(p.ovr,p.pot+sh);p.peak=Math.max(p.peak,p.ovr)}}
   for(const p of Object.values(S.players)){if(p.tid==='RET')continue;const old=(p.bd||[]).slice();refreshBadges(p,ns);if(p.tid===S.userTid)for(const b of p.bd)if(!old.includes(b))news(`${p.name} 获得徽章「${BADGES[b].n}」`,'W')}
-  for(const p of roster(S.userTid))if(p.dlt)news(`${p.name} 休赛期成长 ${p.dlt>0?'+':''}${p.dlt}（OVR ${p.ovr}）`,p.dlt>0?'W':'L');
+  for(const p of roster(S.userTid))if(p.dlt)news(`${p.name} 休赛期能力变化 ${p.dlt>0?'+':''}${p.dlt}（OVR ${p.ovr}）`,p.dlt>0?'W':'L');
   for(const p of Object.values(S.players))if(p.tid===S.userTid&&p.c.exp<=S.season){p.mood=gauss()*.15}
   for(const t of Object.values(S.teams))autoStarters(t,true);
   S.phase='RESIGN';
@@ -1966,6 +1965,7 @@ function pHome(){
   const o=S.owner[S.owner.length-1];const pr=payroll(u.id);
   return`<section class="hero">${tb(u.id,true)}<div><h1>${esc(u.name)}</h1><div class="muted">${u.lg} · 人气 ${u.pop} · 战力 ${teamRating(u.id)}</div></div>
     <div class="stat-row" style="margin-left:auto"><div><b>${u.st.sw}-${u.st.sl}</b><span>大场战绩</span></div><div><b>${u.st.gw}-${u.st.gl}</b><span>小场</span></div><div><b>#${rank}</b><span>${u.lg} 排名</span></div><div><b>${money(u.cash)}</b><span>俱乐部资金</span></div></div></section>
+  ${developmentCard()}
   <div class="grid">
     <div class="card"><h3>下一场</h3>${opp?`<div class="row" style="gap:14px">${tb(u.id)}<b class="num">${teamRating(u.id)}</b><span class="muted">vs</span><b class="num">${teamRating(opp)}</b>${tb(opp)}<span class="chip">BO${nx.se.bo}</span></div>
       <div class="small muted">${esc(T(opp).name)} · ${T(opp).st&&T(opp).lg===u.lg?`${T(opp).st.sw}-${T(opp).st.sl}`:''}${nx.d!=null?` · 第 ${nx.d+1} 轮`:''}</div>${opponentIntel(opp)}${userPending()&&userPending().se===nx.se?'<div class="row"><button class="btn pri" data-a="act" data-k="match">进入比赛日</button><span class="small muted">BP、战术和小地图直播</span></div>':''}`:`<div class="muted">${S.phase==='REG'?'本赛季没有剩余比赛':offseason()?'休赛期：处理合同和转会':'本阶段没有你的比赛'}</div>`}</div>
@@ -1989,11 +1989,11 @@ function pTeam(tid){
   return`<section class="hero">${tb(tid,true)}<div><h1>${esc(t.name)}</h1><div class="muted">${LGN[t.lg]} · 人气 ${t.pop}${coachOf(tid)?` · 主教练 ${esc(coachOf(tid).name)}（BP ${coachOf(tid).dr} / 战术 ${coachOf(tid).tc} / 培养 ${coachOf(tid).dv}）`:''}${HONORS[tid]?' · 2026：'+HONORS[tid].join('、'):''}</div></div>
     <div class="stat-row" style="margin-left:auto"><div><b>${teamRating(tid)}</b><span>综合战力</span></div><div><b>${Math.round(ca.e/5)}</b><span>前期</span></div><div><b>${Math.round(ca.l/5)}</b><span>后期</span></div><div><b>${pct(chemOf(tid))}</b><span>默契</span></div><div><b>${money(payroll(tid))}</b><span>薪资总额</span></div></div></section>
   ${mine?`<div class="sec"><h3>首发阵容</h3><div class="row">${POS.map(pos=>`<label class="field">${PCN[pos]}<select id="st-${pos}" data-a="setst" data-pos="${pos}">${ro.map(p=>`<option value="${p.id}" ${L[pos].id===p.id?'selected':''}>${esc(p.name)}（${PCN[p.pos]} ${p.ovr}）</option>`).join('')}</select></label>`).join('')}
-    <button class="btn" data-a="autost">自动排首发</button></div><div class="note">非本位能力 −12。24 岁以下的选手每打一局都积累经验（季后赛和国际赛翻倍），攒够就当场成长，主教练的培养能力越强长得越快；替补在休赛期成长很慢。风格和徽章会直接影响比赛模拟，把鼠标停在上面看效果。</div></div>`:
+    <button class="btn" data-a="autost">自动排首发</button></div><div class="note">非本位能力 −12。常规赛经验较少，大型赛事成长更快；23至24岁明显放缓。投入、个人效率与剩余潜力决定成长，生活剧情可影响状态，反复松懈会损失能力。风格和徽章会直接影响比赛模拟，把鼠标停在上面看效果。投入、状态和生活剧情均为游戏设定，不代表现实经历。</div></div>`:
     `<div class="row">${['REG','RESIGN','FA'].includes(S.phase)?`<button class="btn pri" data-a="tradewith" data-id="${tid}">与 ${t.id} 发起交易</button>`:''}</div>`}
-  <div class="wrap-x"><table class="tbl"><thead><tr><th></th><th>选手</th><th>位置</th><th>风格</th><th>徽章</th><th>国籍/赛区</th><th class="n">年龄</th><th class="n">OVR</th><th class="n">POT</th><th class="n">本季成长</th>${ATTR.map(a=>`<th class="n">${a[1]}</th>`).join('')}<th class="n">年薪</th><th class="n">到期</th><th class="n">身价</th>${mine?'<th></th>':''}</tr></thead><tbody>
+  <div class="wrap-x"><table class="tbl"><thead><tr><th></th><th>选手</th><th>位置</th><th>风格</th><th>徽章</th><th>国籍/赛区</th><th class="n">年龄</th><th class="n">OVR</th><th class="n">POT</th><th>投入 / 状态</th><th class="n">本季变化</th>${ATTR.map(a=>`<th class="n">${a[1]}</th>`).join('')}<th class="n">年薪</th><th class="n">到期</th><th class="n">身价</th>${mine?'<th></th>':''}</tr></thead><tbody>
     ${ro.map(p=>`<tr class="${sids.has(p.id)?'':'dim'}"><td>${sids.has(p.id)?'<span class="chip acc">首发</span>':''}</td><td>${pl(p)}${p.star?' <span class="chip gold">明星</span>':''}</td><td>${posb(p.pos)}</td><td>${styChip(p)}</td><td>${bdChips(p)||'<span class="muted small">-</span>'}</td><td>${NAT[p.nat]||p.nat}${p.res?'·本土':''}</td>
-      <td class="n">${age(p)}</td><td class="n">${ov(p.ovr)}</td><td class="n">${p.pot}</td><td class="n ${p.sg>0?'W':''}">${p.sg>0?'+'+p.sg:'-'}</td>${ATTR.map(a=>`<td class="n">${p.r[a[0]]}</td>`).join('')}<td class="n">${money(p.c.amt)}</td><td class="n">${p.c.exp}${resign&&p.c.exp<=S.season?' <span class="chip gold">到期</span>':''}</td>
+      <td class="n">${age(p)}</td><td class="n">${ov(p.ovr)}</td><td class="n">${p.pot}</td><td>${development(p).drive}/100 ${formChip(p)}</td><td class="n ${p.sg>0?'W':p.sg<0?'L':''}">${p.sg>0?'+':''}${p.sg||0}</td>${ATTR.map(a=>`<td class="n">${p.r[a[0]]}</td>`).join('')}<td class="n">${money(p.c.amt)}</td><td class="n">${p.c.exp}${resign&&p.c.exp<=S.season?' <span class="chip gold">到期</span>':''}</td>
       <td class="n">${money(tradeValue(p))}</td>${mine?`<td><button class="btn sm warn" data-a="release" data-id="${p.id}">解约</button></td>`:''}</tr>`).join('')}
   </tbody></table></div>
   ${mine?`<div class="note">解约需支付剩余合同 50% 的违约金。签约人数不限。${T(tid).lg==='LPL'?`LPL 首发最多 2 位外援（当前 ${foreignCount(tid)}）。`:''}</div>`:''}
@@ -2195,7 +2195,7 @@ function playerModal(id){
   return`<div class="mbox" role="dialog" aria-label="${esc(p.name)}"><div class="row">${t?tb(t.id):'<span class="chip">'+(fa?'自由选手':'已退役')+'</span>'}<h2>${esc(p.name)}</h2>${posb(p.pos)}${styChip(p)}<span class="muted small">${NAT[p.nat]||p.nat} · ${age(p)} 岁${p.star?' · 明星选手':''}</span><button class="btn sm mclose" data-a="mclose">关闭</button></div>
   <div class="cols2"><div class="sec"><div class="stat-row"><div><b>${p.ovr}</b><span>OVR</span></div><div><b>${p.pot}</b><span>潜力</span></div><div><b>${money(fa?p.ask:p.c.amt)}</b><span>${fa?'要价/年':'年薪'}</span></div><div><b>${fa?p.askY+' 年':p.c.exp}</b><span>${fa?'期望年限':'合同到期'}</span></div>${tv?`<div><b>${money(tv)}</b><span>${isIcon(p)?'买断价（队魂）':isCore(p)?'买断价（核心）':'买断价'}</span></div>`:''}</div>
     ${ATTR.map(([k,l])=>`<div class="meter"><span>${l}</span><div class="bar ${p.r[k]>=90?'gold':''}"><i style="width:${p.r[k]}%"></i></div><span class="num">${p.r[k]}</span></div>`).join('')}
-    ${age(p)<=24&&p.ovr<p.pot?`<div class="small muted">本季比赛成长 ${p.sg>0?'+'+p.sg:'0'} · 经验 ${Math.floor(p.xp||0)}/${age(p)<=20?6:age(p)<=22?8:11} 局（季后赛、世界赛经验翻倍）</div>`:''}</div>
+    ${developmentPanel(p)}</div>
   <div class="sec"><h3>风格</h3><div class="small">${p.sty?`<b>${styInfo(p.sty)[1]}</b> · ${esc(styInfo(p.sty)[2])}`:'-'}</div>
     <h3>徽章</h3>${(p.bd||[]).length?`<div class="list">${p.bd.map(b=>`<div><span class="chip gold">${BADGES[b].n}</span><span class="grow small muted">${esc(BADGES[b].d)}</span></div>`).join('')}</div>`:'<div class="muted small">暂无徽章。属性达标后自动获得。</div>'}
     <h3>荣誉</h3>${p.aw.length?`<div class="row">${p.aw.slice().reverse().map(a=>`<span class="chip gold">${esc(a)}</span>`).join('')}</div>`:'<div class="muted small">暂无</div>'}
@@ -2232,6 +2232,7 @@ document.addEventListener('click',ev=>{
   const a=el.dataset.a,id=el.dataset.id;
   if(['setst','schedday','trteam','trcash','trsel','adec','lauto','fanat','plnat','trcin'].includes(a))return;
   ev.preventDefault();
+  if(a==='devevent'){resolveDevelopment(id,el.dataset.choice);return}
   if(a.startsWith('legend')){legendAction(a,id);return}
   if(a.startsWith('sponsor')){negotiateSponsor(id,a.replace('sponsor',''),el.dataset.mode);return}
   switch(a){
@@ -2277,7 +2278,7 @@ document.addEventListener('click',ev=>{
     case'dotrade':doTrade();save();render();break;
     case'trclear':UI.tm=[];UI.tt=[];UI.cash=0;render();break;
     case'copy':{const ta=document.getElementById('exp');const done=()=>toast('已复制存档');try{navigator.clipboard.writeText(ta.value).then(done,()=>{ta.select();toast('已选中，请手动复制')})}catch(e){ta.select();toast('已选中，请手动复制')}break}
-    case'import':{try{const o=JSON.parse(document.getElementById('imp').value);if(!o||o.v!==2||!o.teams)throw 0;S=o;LIVE=null;migrate();migrate2();migrateClub();save();R={p:S.review?'review':'home'};render();toast('存档已载入')}catch(e){toast('存档格式不对，请粘贴完整的导出文本')}break}
+    case'import':{try{const o=JSON.parse(document.getElementById('imp').value);if(!o||o.v!==2||!o.teams)throw 0;S=o;LIVE=null;migrate();migrate2();migrateClub();migrateDevelopment();save();R={p:S.review?'review':'home'};render();toast('存档已载入')}catch(e){toast('存档格式不对，请粘贴完整的导出文本')}break}
     case'newask':UI.confirmNew=true;render();break;
     case'newcancel':UI.confirmNew=false;render();break;
     case'newconfirm':UI.confirmNew=false;S=null;try{localStorage.removeItem(KEY)}catch(e){}render();break;
@@ -2346,6 +2347,34 @@ function pFinance(){const t=T(S.userTid),f=financeDefaults(t),x=financeTotals(t)
  <section class="card"><h2>选手合同 · ${roster(t.id).length} 人</h2><div class="list">${roster(t.id).map(p=>`<div>${posb(p.pos)}<span class="grow">${pl(p)}</span><span>${money(p.c.amt)}/年 · 至 ${p.c.exp}</span></div>`).join('')}</div></section>
  ${S.fin.length?`<section class="sec"><h2>历年收支</h2><div class="wrap-x"><table class="tbl"><thead><tr><th>赛季</th><th>商业收入</th><th>比赛与奖金</th><th>经营净收益</th><th>季末现金</th></tr></thead><tbody>${S.fin.slice().reverse().map(r=>`<tr><td>${r.s}</td><td>${money(r.spon)}</td><td>${money(r.match+r.prize)}</td><td>${money(r.profit)}</td><td>${money(r.cash)}</td></tr>`).join('')}</tbody></table></div></section>`:''}`}
 
+/* 所有投入差异及生活事件均为游戏模拟，不代表真人经历或评价。 */
+function development(p){if(!p.dev){const n=hashStr(p.name+':development')>>>0;p.dev={learning:.75+(n%51)/100,drive:55+((n>>>8)%36),form:0,formRounds:0,cooldown:0,slack:0,history:[]}}return p.dev}
+function ageGrowth(a){return a<=17?1:a<=19?.9:a===20?.75:a===21?.55:a===22?.4:a===23?.23:a===24?.13:a<=26?.05:.015}
+function eventExperience(type,label=''){if(type==='reg')return .35;if(type==='po')return .8;if(/MSI/.test(label))return 1.2;if(/总决赛/.test(label))return 2.3;if(/八强|半决赛/.test(label))return 1.8;return 1.45}
+function growthXP(p,type,label,rating=7){if(p.ovr>=p.pot)return 0;const d=development(p),gap=clamp((p.pot-p.ovr)/12,.12,1);return eventExperience(type,label)*ageGrowth(age(p))*d.learning*(.35+d.drive/100)*gap*devMult(p.tid)*clamp(rating/7,.65,1.2)*((p.bd||[]).includes('rising')?1.15:1)}
+function applyExperience(p,type,label,rating){const gain=growthXP(p,type,label,rating);p.xp=(p.xp||0)+gain;if(p.xp>=8&&p.ovr<p.pot){p.xp-=8;growOne(p)}return gain}
+function rememberDevelopment(p,text){const d=development(p);d.history.unshift({season:S.season,text});d.history=d.history.slice(0,6)}
+function applyLifestyle(p,kind){const d=development(p),old=p.ovr;let text='';
+ if(kind==='late'){d.form=-3;d.formRounds=2;d.drive=clamp(d.drive-3,20,100);text='聚餐晚归，休息不足：短期状态 -3，持续两场系列赛。'}
+ else if(kind==='slack'){d.slack++;d.drive=clamp(d.drive-10,20,100);d.form=-2;d.formRounds=2;if(d.slack>=2){for(const k of['mec','lan','con'])p.r[k]=Math.max(25,p.r[k]-2);p.ovr=calcOvr(p.r);p.sg=(p.sg||0)+p.ovr-old;text=`反复训练松懈，操作、对线和稳定能力下降：OVR ${old} → ${p.ovr}。`}else text='训练投入下降，状态 -2；持续松懈可能损失基础能力。'}
+ else if(kind==='fatigue'){d.form=-3;d.formRounds=2;text='训练透支，需要恢复：短期状态 -3，持续两场系列赛。'}
+ else {d.drive=clamp(d.drive+5,20,100);d.form=1;d.formRounds=2;if(p.ovr<p.pot)p.xp=Math.min(7.99,(p.xp||0)+ageGrowth(age(p)));text='主动加练，训练投入 +5；积累少量经验，短期状态 +1。'}
+ d.cooldown=4;rememberDevelopment(p,text);refreshBadges(p);return text}
+function developmentEvent(tid,se){const t=T(tid);if(t.devLastSeries===se.id)return;t.devLastSeries=se.id;const ro=roster(tid);for(const p of ro){const d=development(p);if(d.formRounds>0&&--d.formRounds===0)d.form=0;if(d.cooldown>0)d.cooldown--}
+ if((isUser(tid)&&S.devEvent)||rnd()>=.24)return;const eligible=ro.filter(p=>development(p).cooldown===0);if(!eligible.length)return;
+ const p=pick(eligible),d=development(p),z=rnd();const kind=z<.25?'late':z<.45?'fatigue':z<(.45+(100-d.drive)/170)?'slack':'grind';const text=applyLifestyle(p,kind);
+ if(isUser(tid)){S.devEvent={id:`${S.season}:${se.id}:${p.id}`,pid:p.id,kind,text};news(`游戏剧情 · ${p.name}：${text}`,kind==='grind'?'W':'L')}
+}
+function resolveDevelopment(id,choice){const e=S.devEvent;if(!e||e.id!==id||!['talk','train','rest'].includes(choice))return;const p=P(e.pid);if(!p||p.tid!==S.userTid){S.devEvent=null;save();render();return}const d=development(p);let note;
+ if(choice==='talk'){d.drive=clamp(d.drive+6,20,100);d.slack=Math.max(0,d.slack-1);note='经理谈话：投入 +6，降低持续松懈风险。'}
+ else if(choice==='train'){d.drive=clamp(d.drive+3,20,100);if(p.ovr<p.pot)p.xp=Math.min(7.99,(p.xp||0)+ageGrowth(age(p)));d.form=clamp(d.form-1,-5,3);d.formRounds=Math.max(d.formRounds,1);note='专项训练：投入 +3，积累年龄对应经验，但短期状态 -1。'}
+ else{d.form=0;d.formRounds=0;note='安排休息：恢复短期状态，已损失的基础能力仍需重新训练。'}
+ rememberDevelopment(p,note);S.devEvent=null;save();render();toast(note)}
+function formChip(p){const d=development(p);return`<span class="chip ${d.form<0?'':'acc'}" title="游戏状态，不改变基础OVR">状态 ${d.form>0?'+':''}${d.form}${d.formRounds?' · '+d.formRounds+'场':''}</span>`}
+function developmentPanel(p){const d=development(p);return`<section class="sec"><h3>成长与状态</h3><div class="row"><span>训练投入 ${d.drive}/100</span><span>学习效率 ×${d.learning.toFixed(2)}</span>${formChip(p)}</div><p class="small muted">${age(p)} 岁 · 年龄成长系数 ×${ageGrowth(age(p))} · 经验 ${(p.xp||0).toFixed(1)}/8 · 本季能力变化 ${(p.sg||0)>0?'+':''}${p.sg||0}。大型赛事经验更高，接近潜力时减速。</p>${d.history.length?`<div class="list small">${d.history.map(x=>`<div>${x.season} · ${esc(x.text)}</div>`).join('')}</div>`:''}<p class="small muted">学习效率、投入及生活剧情均为游戏设定，不代表选手的现实经历。</p></section>`}
+function developmentCard(){const e=S.devEvent;if(!e)return'';const p=P(e.pid);if(!p)return'';return`<section class="card"><h3>队内动态 · 游戏剧情</h3><h2>${esc(p.name)}</h2><p>${esc(e.text)}</p><div class="row">${formChip(p)}<span>训练投入 ${development(p).drive}/100</span></div><div class="row"><button class="btn" data-a="devevent" data-id="${e.id}" data-choice="talk">谈话 · 投入 +6</button><button class="btn" data-a="devevent" data-id="${e.id}" data-choice="train">专项训练 · 经验积累</button><button class="btn pri" data-a="devevent" data-id="${e.id}" data-choice="rest">休息 · 恢复状态</button></div><p class="small muted">专项训练会短暂增加疲劳。剧情仅发生在本局模拟中。</p></section>`}
+function migrateDevelopment(){if(!S||S.developmentVersion===1)return;for(const p of Object.values(S.players)){development(p);const oldNeed=age(p)<=20?6:age(p)<=22?8:11;p.xp=Math.min(7.99,Math.max(0,p.xp||0)/oldNeed*8)}S.developmentVersion=1;save()}
+
 /* ================= 启动 ================= */
 function migrate(){if(!S||S.ev===2)return;for(const p of Object.values(S.players)){const f=mv(p.ovr)/mvOld(p.ovr);if(p.c)p.c.amt=Math.max(MINSAL,r5(p.c.amt*f));if(p.ask)p.ask=Math.max(MINSAL,r5(p.ask*f))}for(const t of Object.values(S.teams))t.cash=Math.round(t.cash*.58);S.ev=2;save()}
 function migrate2(){if(!S)return;let ch=false;
@@ -2357,7 +2386,7 @@ function migrate2(){if(!S)return;let ch=false;
     if(S.po&&S.po.LCK&&!S.po.LCK.tpl){if(S.phase==='PO')startPlayoffs();else{S.yr.splits[3]={};for(const lg of['LCK','LPL']){const b=S.po[lg];const pl_=b.place||b.seeds||[];S.yr.splits[3][lg]={c:pl_[0],r:pl_[1],fmvp:'-',place:pl_}}}}
     ch=true}
   if(ch)save()}
-function start(data){S=(data&&data.S)||load();migrate();migrate2();migrateClub();if(data&&data.R)R=data.R;if(S?.review)R={p:'review'};else if(S?.legendDraft&&!S.legendDraft.done&&S.legendDraft.pos)R={p:'legend'};render()}
+function start(data){S=(data&&data.S)||load();migrate();migrate2();migrateClub();migrateDevelopment();if(data&&data.R)R=data.R;if(S?.review)R={p:'review'};else if(S?.legendDraft&&!S.legendDraft.done&&S.legendDraft.pos)R={p:'legend'};render()}
 if(window.claude&&window.claude.hot&&window.claude.hot.snapshot)window.claude.hot.snapshot(()=>({S,R}));
 window.claude?.hot?.ready?window.claude.hot.ready(start):start(window.claude?.hot?.data??{});
 </script>

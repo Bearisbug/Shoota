@@ -1,0 +1,88 @@
+{
+  "results": [
+    {
+      "name": "age, event, individual and potential gradients",
+      "ages": [
+        [
+          17,
+          0.41759375
+        ],
+        [
+          21,
+          0.22967656250000001
+        ],
+        [
+          23,
+          0.0960465625
+        ],
+        [
+          24,
+          0.0542871875
+        ],
+        [
+          27,
+          0.0062639062499999995
+        ]
+      ],
+      "tiers": [
+        [
+          "常规赛",
+          0.41759375
+        ],
+        [
+          "季后赛",
+          0.9545
+        ],
+        [
+          "MSI 总决赛",
+          1.43175
+        ],
+        [
+          "世界赛瑞士轮",
+          1.73003125
+        ],
+        [
+          "世界赛八强赛",
+          2.147625
+        ],
+        [
+          "世界赛总决赛",
+          2.7441875
+        ]
+      ],
+      "slow": 1.163296875,
+      "fast": 3.87765625,
+      "near": 0.46531874999999995,
+      "pot": 75,
+      "ovr": 75,
+      "pass": true
+    },
+    {
+      "name": "young lifestyle decline distinct from temporary form",
+      "pass": true,
+      "old": 92,
+      "declined": 91,
+      "late": {
+        "baseSame": true,
+        "form": -3
+      },
+      "event": {
+        "id": "fixture:slack",
+        "pid": 51,
+        "kind": "slack",
+        "text": "反复训练松懈，操作、对线和稳定能力下降：OVR 92 → 91。"
+      }
+    },
+    {
+      "name": "rest restores form without undoing permanent decline",
+      "pass": true
+    },
+    {
+      "name": "temporary form affects actual match simulation",
+      "pass": false,
+      "delta": 4.340789890498002
+    }
+  ],
+  "error": "Error: temporary form affects actual match simulation{\"pass\":false,\"delta\":4.340789890498002}\n    at ck (file:///private/tmp/lol-growth-test.mjs:2:641)\n    at file:///private/tmp/lol-growth-test.mjs:5:515",
+  "errors": []
+}
