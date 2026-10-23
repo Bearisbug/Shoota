@@ -967,7 +967,7 @@ function fairSalary(ovr, age) {
   return r1(clamp(b, MINSAL, MAXSAL));
 }
 const faAsk = p => r1(clamp(mktSal(p) * p.askMult, MINSAL, maxFrac(p) * CAP));
-const pname = p => (p.rev ? p.ln + ' ' + p.fn : p.fn + ' ' + p.ln) + (p.tag ? `（${p.tag}）` : '');
+const pname = p => (p.rev ? p.ln + ' ' + p.fn : p.fn + ' ' + p.ln) + (p.leg ? '（传奇）' : p.tag ? `（${p.tag}）` : '');
 const players = () => Object.values(S.players);
 function roster(tid) {
   if (!CACHE.ro) { CACHE.ro = {}; for (const p of players()) { const k = p.gl != null && p.gl === p.tid && p.tid >= 0 ? 'g' + p.tid : p.tid; (CACHE.ro[k] = CACHE.ro[k] || []).push(p); } }
@@ -2854,7 +2854,7 @@ const LEGENDS = {
     note: '新秀年就是最佳新秀级别的控卫，成长最快（约 3 年到巅峰），但天花板比其他人略低。' },
 };
 const LEGKEYS = ['lbj', 'kd', 'curry', 'harden', 'kyrie', 'russ', 'kawhi', 'kobe', 'yao', 'cp3'];
-const legTag = k => `${LEGENDS[k].yr} 新秀`;
+const legTag = k => '传奇';
 const legName = L => L.rev ? `${L.ln} ${L.fn}` : `${L.fn} ${L.ln}`; // Yao Ming: family name first
 // deterministic attribute sets so the pick screen shows exactly what you get
 function legAttrs(k) {
@@ -3167,7 +3167,7 @@ const plink = p => `<a class="pl" data-act="player" data-id="${p.id}">${esc(pnam
 const cardTier = p => p.leg ? 'lg' : (d => d >= 93 ? 'am' : d >= 87 ? 'di' : d >= 80 ? 'go' : d >= 70 ? 'si' : 'br')(disp(p.ovr));
 function starCard(p, cls = '') {
   const t = p.tid >= 0 ? team(p.tid) : null;
-  return `<span class="pcard pc-${cardTier(p)}${cls ? ' ' + cls : ''}" style="--pt:${t ? t.color : '#3a4752'}"><b class="pco">${disp(p.ovr)}</b><i class="pcp">${p.pos}</i><span class="pcn">${esc(p.ln)}</span><span class="pct">${p.leg ? LEGENDS[p.leg].yr + ' 新秀' : t ? t.abbr : '自由球员'}</span></span>`;
+  return `<span class="pcard pc-${cardTier(p)}${cls ? ' ' + cls : ''}" style="--pt:${t ? t.color : '#3a4752'}"><b class="pco">${disp(p.ovr)}</b><i class="pcp">${p.pos}</i><span class="pcn">${esc(p.ln)}</span><span class="pct">${p.leg ? '传奇' : t ? t.abbr : '自由球员'}</span></span>`;
 }
 // dark team colours get lifted toward white so lines / labels stay visible on the dark UI
 function teamHi(hex) {
