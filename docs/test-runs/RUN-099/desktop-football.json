@@ -1,0 +1,42 @@
+[
+  {
+    "id": "football-manager",
+    "label": "opening-1366x768",
+    "width": 1366,
+    "height": 718,
+    "scroll": 1366,
+    "text": "rt Verbruggen\n伯恩茅斯\n实力 77\n中游\nAFC Bournemouth\n核心 Michele Di Gregorio\n埃弗顿\n实力 76\n中游\nEverton\n核心 Jordan Pickford\n布伦特福德\n实力 76\n中游\nBrentford\n核心 Caoimhín Kelleher\n富勒姆\n实力 76\n中游\nFulham\n核心 Bernd Leno\n桑德兰\n实力 75\n中游\nSunderland\n核心 Granit Xhaka\n利兹联\n实力 74\n中游\nLeeds United\n核心 James Trafford\n伊普斯维奇\n实力 73\n中游\nIpswich Town\n核心 Daizen Maeda\n考文垂\n实力 72\n中游\nCoventry City\n核心 Ethan Pinnock\n赫尔城\n实力 71\n保级\nHull City\n核心 Hidemasa Morita"
+  },
+  {
+    "id": "football-manager",
+    "label": "home-1366x768",
+    "width": 1366,
+    "height": 718,
+    "scroll": 1366,
+    "text": " 万\n\n赛季结束时完成目标会大幅提升信心；信心低于 15 会被解雇。\n\n积分榜\n完整\n#\t球队\t赛\t净\t分\n1\tARS 阿森纳\t0\t0\t0\n2\tAVL 阿斯顿维拉\t0\t0\t0\n3\tEVE 埃弗顿\t0\t0\t0\n4\tBOU 伯恩茅斯\t0\t0\t0\n5\tBHA 布莱顿\t0\t0\t0\n6\tBRE 布伦特福德\t0\t0\t0\n7\tFUL 富勒姆\t0\t0\t0\n消息\n全部\n传奇新星加盟 第1周\n埃德温·范德萨（Edwin van der Sar）以 18 岁的传奇新星身份加盟，签约 5 年至 2031 年夏，周薪 €1.3万/周，转会费为零。\n名单说明 第1周\n各队核心球员为真实球员（外籍原文名、中国球员中文名），其余位置由各国姓名池补位，能力与身价均为游戏设定。\n欢迎上任 第1周\n董事会任命你为阿森纳主教练。本季目标：夺得联赛冠军。转会窗口开放至第 3 周。\n★\n埃德温·范德萨 · 18 岁传奇新星，五年签约"
+  },
+  {
+    "id": "football-manager",
+    "label": "squad-1366x768",
+    "width": 1366,
+    "height": 718,
+    "scroll": 1366,
+    "text": "\nMadueke\n边锋\n熟练\n胜任\n生疏\n不适合\n球员名单\n20 人入选\n替补席\n9/9\nGustav Jensen\n门将\n⠿\nMartin Ødegaard\n前腰\n⠿\nViktor Gyökeres\n中锋\n⠿\nFacundo Sosa\n后腰\n⠿\nEberechi Eze\n前腰\n⠿\nIker Ortega\n中锋\n⠿\nEzri Konsa\n中后卫\n⠿\nPiero Hincapié\n中后卫\n⠿\nThéo Lefebvre\n边后卫\n⠿\n未入选\n5\nBamba Mbaye\n门将\n⠿\nEdwin van der Sar\n门将\n⠿\nEmiliano Ruiz\n边后卫\n⠿\nLeandro Ruiz\n中场\n⠿\nMohamed Coulibaly\n边锋\n⠿\n\n拖到场上设为首发 · 两边名单可互换 · 点姓名看资料\n\n队长 · Martin Ødegaard\n★\n埃德温·范德萨 · 18 岁传奇新星，五年签约"
+  },
+  {
+    "id": "football-manager",
+    "label": "restored-1366x768",
+    "width": 1366,
+    "height": 718,
+    "scroll": 1366,
+    "text": "0\n4\tBOU 伯恩茅斯\t0\t0\t0\n5\tBHA 布莱顿\t0\t0\t0\n6\tBRE 布伦特福德\t0\t0\t0\n7\tFUL 富勒姆\t0\t0\t0\n消息\n全部\n报价 第4周\n报价：国际米兰 出价 €4,880万 求购 Viktor Gyökeres\n报价 第4周\n报价：切尔西 出价 €4,080万 求购 Jurriën Timber\n转会 第4周\n转会：Serhou Guirassy 从多特蒙德加盟巴塞罗那（€3,080万）；David Raum 从RB莱比锡加盟波尔图（€1,580万）\n转会 第3周\n转会：Alexis Saelemaekers 从AC米兰加盟尤文图斯（€1,320万）；Denis Zakaria 从摩纳哥加盟亚特兰大（€930万）；Reece James 从切尔西加盟国际米兰（€3,240万）\n报价 第2周\n报价：巴列卡诺 出价 €2,120万 求购 Piero Hincapié"
+  },
+  {
+    "id": "football-manager",
+    "tag": "1366x768",
+    "saveKeys": [
+      "shoota_football_manager_v1_auto"
+    ],
+    "errors": []
+  }
+]

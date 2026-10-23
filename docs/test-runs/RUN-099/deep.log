@@ -1,0 +1,23 @@
+PASS airline-empire 390x844
+PASS rental-empire 390x844
+entactions [
+  { text: '工作台', action: 'tab:home' },
+  { text: '作品', action: 'tab:works' },
+  { text: '榜单', action: 'tab:chart' },
+  { text: '人脉', action: 'tab:people' },
+  { text: '我', action: 'tab:me' },
+  {
+    text: '老周 · 抽成 20%跟我，三个月让全网认识你。代价是——别太要面子。每月多 1 个邀约 · 买热搜五折',
+    action: 'agent:0'
+  },
+  {
+    text: '林见夏 · 抽成 12%我不保证爆红，但保证你每一步都站得住。心态恢复 +50% · 塌房损失减半',
+    action: 'agent:1'
+  },
+  {
+    text: '小鹿 · 抽成 8%我没资源，但我只有你一个艺人。抽成最低！抽成仅 8% · 和你一起成长',
+    action: 'agent:2'
+  }
+]
+PASS entertainment-career 390x844
+PASS football-manager 390x844

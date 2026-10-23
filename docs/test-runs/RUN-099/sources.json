@@ -1,0 +1,39 @@
+[
+  {
+    "id": "entertainment-career",
+    "source": "/Users/leizhang/Documents/shoota/parallel-starlight/v2/index.html",
+    "sourceSha256": "e8edc0abf8ab970e8538a73f564df076c97e9d3d4120afd09e87d076026fbf15",
+    "sha256": "e8edc0abf8ab970e8538a73f564df076c97e9d3d4120afd09e87d076026fbf15",
+    "bytes": 7630643,
+    "beforeWhitespaceSha256": "1e817cd0bc9b7572126482617f4fd8d418191c55534b05bd338aa3a7ca0d45e1"
+  },
+  {
+    "id": "football-manager",
+    "source": "/Users/leizhang/Documents/ChatGPT/shoota/football-ui-fix/portrait-audit-20261024/index.html",
+    "sourceSha256": "468da2c78f7e251adc990cc4973eda0536928ef73b0f0ed17fe0abd5f3e11df3",
+    "sha256": "468da2c78f7e251adc990cc4973eda0536928ef73b0f0ed17fe0abd5f3e11df3",
+    "bytes": 434921
+  },
+  {
+    "id": "airline-empire",
+    "source": "/Users/leizhang/Documents/ChatGPT/shoota/云际航空.html",
+    "sourceSha256": "ac30d64d2faa826b1d9360b1e53641efa18c998a197a7f7ee5e6ad4e35adc259",
+    "sha256": "0d343555aff7c01ff3164206f623f0165fd60d328ce43dbd6ef77017632e0d12",
+    "bytes": 1000106
+  },
+  {
+    "id": "rental-empire",
+    "source": "/Users/leizhang/Documents/ChatGPT/shoota/脚踩神州，拳打一嗨.html",
+    "sourceSha256": "da9634fa7b4d87db50ecdd45f59ad586d06f921df388b45a566f90b0adfabaa6",
+    "sha256": "da9634fa7b4d87db50ecdd45f59ad586d06f921df388b45a566f90b0adfabaa6",
+    "bytes": 316395,
+    "beforeWrapSha256": "1470f52a33e69b9563a13a5ce0a3c9c806b4cb6edcacc771ff07ed82d047ca9a"
+  },
+  {
+    "id": "lol",
+    "source": "/Users/leizhang/Documents/shoota/games/01-本地最新/LOL电竞经理【最新·2026-10-24_0208】.html",
+    "sourceSha256": "0e9fa8b9b771f67e769d6dbda21c6fcff6638faa5c1b2c609196b7a31ac9ee9f",
+    "sha256": "0e9fa8b9b771f67e769d6dbda21c6fcff6638faa5c1b2c609196b7a31ac9ee9f",
+    "bytes": 275681
+  }
+]

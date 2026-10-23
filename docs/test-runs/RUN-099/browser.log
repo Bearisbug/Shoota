@@ -1,0 +1,58 @@
+PASS airline-empire 360x640
+PASS rental-empire 360x640
+entactions [
+  { text: '工作台', action: 'tab:home' },
+  { text: '作品', action: 'tab:works' },
+  { text: '榜单', action: 'tab:chart' },
+  { text: '人脉', action: 'tab:people' },
+  { text: '我', action: 'tab:me' },
+  { text: '开始新的生活无需消耗精力即时处理', action: 'ch:0' }
+]
+PASS entertainment-career 360x640
+PASS football-manager 360x640
+PASS airline-empire 390x844
+PASS rental-empire 390x844
+entactions [
+  { text: '工作台', action: 'tab:home' },
+  { text: '作品', action: 'tab:works' },
+  { text: '榜单', action: 'tab:chart' },
+  { text: '人脉', action: 'tab:people' },
+  { text: '我', action: 'tab:me' },
+  { text: '开始新的生活无需消耗精力即时处理', action: 'ch:0' }
+]
+PASS entertainment-career 390x844
+PASS football-manager 390x844
+PASS airline-empire 844x390
+PASS rental-empire 844x390
+entactions [
+  { text: '工作台', action: 'tab:home' },
+  { text: '作品', action: 'tab:works' },
+  { text: '榜单', action: 'tab:chart' },
+  { text: '人脉', action: 'tab:people' },
+  { text: '我', action: 'tab:me' },
+  { text: '开始新的生活无需消耗精力即时处理', action: 'ch:0' }
+]
+PASS entertainment-career 844x390
+PASS football-manager 844x390
+PASS airline-empire 1366x768
+PASS rental-empire 1366x768
+entactions [
+  { text: '工作台', action: 'tab:home' },
+  { text: '作品', action: 'tab:works' },
+  { text: '榜单', action: 'tab:chart' },
+  { text: '人脉', action: 'tab:people' },
+  { text: '我', action: 'tab:me' },
+  { text: '开始新的生活无需消耗精力即时处理', action: 'ch:0' }
+]
+PASS entertainment-career 1366x768
+locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.tabbar [data-go=squad]').visible().first()[22m
+
+    at click (/private/tmp/five-browse.mjs:4:79)
+    at /private/tmp/five-browse.mjs:11:249 {
+  log: [
+    "  - waiting for locator('.tabbar [data-go=squad]').visible().first()"
+  ],
+  name: 'TimeoutError'
+}

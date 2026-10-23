@@ -543,6 +543,187 @@ html, body { width:100%; overflow:hidden; }
  .with-deck .legend-toolbar .btn { padding:0 8px; font-size:11px; }
 }
 
+/* Side-by-side tactics editor, including portrait touch screens. */
+.tactics-layout { display:grid; grid-template-columns:minmax(0, 1.65fr) minmax(260px, 1fr); gap:14px; align-items:start; }
+.lineup-editor { min-width:0; }
+.lineup-editor > .bd { padding:10px; }
+.tactics-page > .page-heading { display:none; }
+.lineup-controls { display:flex; align-items:center; gap:6px; min-width:0; }
+.lineup-controls select { width:96px; min-width:0; min-height:44px; font-size:13px; }
+.lineup-controls .btn { padding:4px 6px; }
+.lineup-workspace { --pitch-height:480px; display:grid; grid-template-columns:minmax(0, 1fr) 160px; gap:10px; align-items:start; }
+.lineup-field, .lineup-bench { min-width:0; }
+.lineup-label { display:flex; justify-content:space-between; align-items:center; height:26px; margin:0 0 6px; font-size:12px; color:var(--muted); }
+.lineup-field .tboard { height:var(--pitch-height); max-width:none; aspect-ratio:auto; }
+.lineup-field .tp { touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
+.lineup-bench .tb-bench { height:var(--pitch-height); overflow-y:auto; overscroll-behavior:contain; scrollbar-width:thin; display:flex; flex-direction:column; gap:6px; padding:2px 3px; }
+.lineup-bench .bp { flex:none; grid-template-columns:minmax(0, 1fr) 30px; gap:4px; padding:6px; min-width:0; min-height:78px; touch-action:pan-y; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
+.lineup-bench .bp .nm { grid-column:1/-1; white-space:normal; overflow-wrap:anywhere; font-size:12px; line-height:1.25; }
+.bench-stats { display:flex; align-items:center; flex-wrap:wrap; gap:4px; min-width:0; }
+.bench-stats .ov { font-size:12px; }
+.bench-health { display:block; color:var(--muted); font-size:10px; }
+.drag-handle { display:grid; place-items:center; width:30px; min-height:44px; grid-column:2; grid-row:2/4; border-radius:5px; background:rgba(255,255,255,.06); color:var(--muted); font-size:20px; touch-action:none; cursor:grab; }
+.lineup-editor .tb-hint { margin-top:10px; line-height:1.5; }
+.lineup-field .tb-key { gap:3px 8px; font-size:10px; }
+.tp-role-popover { position:fixed; z-index:96; width:232px; max-width:calc(100vw - 16px); padding:10px; background:#17232b; border:1px solid #527567; border-radius:12px; box-shadow:0 12px 40px #0009; }
+.tp-role-heading { display:flex; align-items:center; gap:6px; margin-bottom:8px; }
+.tp-role-heading div { flex:1; min-width:0; }
+.tp-role-heading strong { display:block; font-size:13px; overflow-wrap:anywhere; }
+.tp-role-heading small { display:block; font-size:11px; color:var(--muted); margin-top:3px; }
+.tp-role-heading button { flex:none; width:36px; min-height:44px; border:0; background:none; color:var(--muted); font-size:24px; cursor:pointer; }
+.tp-role-popover .role-pick button { min-height:44px; font-size:13px; }
+.tp-role-popover .role-pick button.on::before { content:'✓'; color:var(--accent); }
+.tp-role-popover .role-pick button span:first-of-type { flex:1; }
+.tp-role-popover p { font-size:11px; margin:8px 0 0; color:var(--muted); }
+.tp-drag-ghost { position:fixed; z-index:120; pointer-events:none; max-width:190px; padding:8px 12px; border:1px solid #80ecaa; border-radius:8px; color:#fff; background:#143326; box-shadow:0 6px 20px #0008; font-size:12px; transform:translate(-50%, -130%); }
+body.tp-dragging { user-select:none; -webkit-user-select:none; cursor:grabbing; }
+.lineup-workspace .drag-source { opacity:.4; }
+.lineup-workspace .drop { filter:brightness(1.3); }
+@media(max-width:1100px) { .tactics-layout { grid-template-columns:minmax(0, 1fr); } }
+@media(max-width:600px) {
+  .lineup-editor > .bd { padding:7px; }
+  .lineup-workspace { --pitch-height:clamp(360px, 56dvh, 460px); grid-template-columns:minmax(0, 1fr) 100px; gap:6px; }
+  .lineup-field .tp { width:44px; min-height:54px; gap:1px; }
+  .lineup-field .tp-sh { width:28px; height:28px; font-size:12px; }
+  .lineup-field .tp-nm { max-width:48px; font-size:9px; padding:1px 2px; }
+  .lineup-field .tp-ro { max-width:48px; font-size:9px; white-space:nowrap; }
+  .lineup-field .tp-cd { width:23px; height:2px; }
+  .lineup-bench .bp { padding:5px; grid-template-columns:minmax(0, 1fr) 26px; }
+  .lineup-bench .bp .nm { font-size:11px; }
+  .drag-handle { width:26px; }
+  .lineup-label { font-size:11px; }
+  .lineup-label small { font-size:10px; }
+}
+@media(max-width:350px) { .lineup-workspace { grid-template-columns:minmax(0, 1fr) 88px; gap:5px; } }
+
+.lineup-editor .roster-groups { display:flex; flex-direction:column; height:var(--pitch-height); gap:8px; }
+.roster-group { display:flex; flex-direction:column; min-height:0; flex:3; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#101a21; }
+.roster-group + .roster-group { flex:2; }
+.roster-group-title { display:flex; align-items:center; justify-content:space-between; gap:3px; width:100%; min-height:32px; flex:none; border:0; border-bottom:1px solid var(--line); background:#1c2c35; color:var(--fg); font-size:11px; padding:5px; cursor:pointer; }
+.roster-group-title span { color:var(--muted); }
+.roster-list { min-height:0; flex:1; overflow-y:auto; overscroll-behavior:contain; scrollbar-width:thin; padding:3px; display:flex; flex-direction:column; gap:5px; }
+.lineup-bench .bp { position:relative; display:grid; flex:none; grid-template-columns:minmax(0,1fr) 26px; gap:2px; min-height:62px; padding:4px; border:1px solid var(--line); border-radius:4px; background:var(--panel); color:var(--fg); }
+.lineup-bench .bp.sel { border-color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent); }
+.lineup-bench .bp .roster-name { display:block; grid-column:1/-1; min-height:28px; width:100%; padding:0; border:0; border-radius:0; background:none; color:var(--fg); text-align:left; white-space:normal; overflow-wrap:anywhere; font-size:12px; line-height:1.25; cursor:pointer; }
+.roster-position { font-size:10px; color:var(--muted); align-self:center; }
+.roster-position small { display:block; font-size:10px; }
+.lineup-bench .drag-handle { grid-row:2; width:26px; min-height:32px; border:0; padding:0; font-size:20px; }
+.bp[data-unavailable="true"] .drag-handle { opacity:.25; }
+.roster-empty { font-size:11px; line-height:1.5; padding:10px 3px; color:var(--muted); }
+.roster-list.drop, .roster-group-title.drop { background:#274f3c; outline:2px solid var(--accent); outline-offset:-2px; }
+.captain-settings { margin-top:12px; padding:10px; }
+.captain-settings summary { cursor:pointer; color:var(--muted); font-size:12px; }
+.captain-settings .row { margin-top:10px; }
+.captain-settings select { min-width:0; flex:1; }
+.pregame-heading { padding:2px 0 8px; font-size:13px; }
+.preparing .top .go { display:none; }
+.pregame-heading small { display:block; color:var(--muted); font-size:11px; line-height:1.5; margin-top:4px; }
+.pregame-actions { position:sticky; bottom:-16px; z-index:5; display:flex; gap:8px; padding:8px 0; background:var(--rail); }
+.pregame-actions .primary { flex:1; }
+.tp-role-heading .roster-profile { padding:0; border:0; width:auto; min-height:32px; font-size:13px; background:none; text-align:left; color:var(--fg); }
+.lineup-field .tp-nm[data-act="player"] { cursor:pointer; }
+@media(max-width:600px) {
+ .preparing .lineup-workspace { --pitch-height:clamp(300px, calc(100dvh - 324px), 460px); }
+ .lineup-editor > .hd h2 { font-size:11px; letter-spacing:0; }
+ .lineup-controls { gap:4px; }
+ .lineup-controls select { width:88px; }
+ .lineup-bench .bp .roster-name { font-size:11px; }
+ .lineup-workspace { grid-template-columns:minmax(0,1fr) 104px; }
+}
+@media(max-width:350px) { .lineup-workspace { grid-template-columns:minmax(0,1fr) 94px; } }
+
+/* Wide screens: a bounded pitch with two equal roster columns. */
+.lineup-workspace { grid-template-columns:minmax(240px, 320px) minmax(0, 1fr); gap:14px; }
+.lineup-editor .roster-groups { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.roster-group, .roster-group + .roster-group { min-width:0; }
+.tactics-layout { grid-template-columns:minmax(0, 1fr); }
+.tactics-layout > .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.lineup-editor { max-width:1000px; }
+.lineup-editor .lineup-field .tp { width:48px; }
+.lineup-editor .lineup-field .tp-nm { max-width:54px; }
+.roster-list { scroll-padding:4px; }
+.lineup-bench .bp .roster-name { min-height:32px; font-size:13px; }
+.lineup-bench .drag-handle { width:32px; min-height:36px; }
+.lineup-bench .bp { grid-template-columns:minmax(0,1fr) 32px; }
+.lineup-label small { white-space:nowrap; }
+@media(max-width:600px) {
+ .roster-screen .top .go { display:none; }
+ .preparing .top { display:none; }
+ .lineup-editor > .hd { gap:4px; }
+ .lineup-editor > .hd h2 { font-size:11px; }
+ .lineup-controls select { width:86px; }
+ .lineup-controls .btn { padding:4px; }
+ .lineup-editor > .bd { padding:6px; }
+ .lineup-workspace, .preparing .lineup-workspace {
+   --editor-space:calc(100dvh - 280px);
+   --pitch-height:clamp(180px, calc(var(--editor-space) * .58), 290px);
+   display:flex; flex-direction:column; gap:6px;
+ }
+ .lineup-field, .lineup-bench { width:100%; }
+ .lineup-field .lineup-label { max-width:270px; margin:0 auto 4px; height:20px; }
+ .lineup-field .tboard { max-width:270px; }
+ .lineup-field .tb-key { display:none; }
+ .lineup-editor .lineup-field .tp { width:40px; min-height:36px; gap:0; }
+ .lineup-field .tp-sh { width:25px; height:25px; font-size:11px; }
+ .lineup-editor .lineup-field .tp-nm { max-width:48px; font-size:9px; }
+ .lineup-field .tp-ro, .lineup-field .tp-cd { display:none; }
+ .lineup-bench > .lineup-label { display:none; }
+ .lineup-editor .roster-groups { height:clamp(96px, calc(var(--editor-space) - var(--pitch-height)), 230px); gap:6px; }
+ .roster-group-title { min-height:28px; padding:4px 7px; font-size:12px; }
+ .lineup-bench .bp { grid-template-columns:minmax(0,1fr) 34px; grid-template-rows:auto auto; min-height:50px; padding:4px; }
+ .lineup-bench .bp .roster-name { grid-column:1; min-height:24px; font-size:12px; }
+ .lineup-bench .drag-handle { grid-column:2; grid-row:1/3; width:34px; min-height:44px; }
+ .roster-position { grid-column:1; font-size:10px; }
+ .lineup-editor .tb-hint { margin-top:5px; font-size:10px; line-height:1.4; }
+ .pregame-heading { padding-bottom:6px; font-size:12px; }
+ .pregame-heading small { display:none; }
+ .pregame-actions { padding:6px 0; }
+ .tactics-layout > .grid { grid-template-columns:minmax(0,1fr); }
+}
+
+.formation-toolbar { display:flex; align-items:center; gap:8px; min-width:0; margin:0 0 8px; }
+.formation-toolbar label { display:flex; align-items:center; gap:8px; flex:1; min-width:0; color:var(--muted); font-size:12px; }
+.formation-toolbar select { min-width:0; flex:1; min-height:44px; font-size:16px; }
+.formation-toolbar .btn { flex:none; min-height:44px; }
+.lineup-editor .lineup-field .tp-ro { white-space:nowrap; }
+@media(min-width:601px) { .lineup-bench { padding-top:52px; } }
+@media(max-width:860px) {
+ html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+ #app, #app:not(.bare) { height:var(--browser-height,100dvh); }
+ .overlay { top:var(--browser-top,0px); bottom:auto; height:var(--browser-height,100dvh); }
+ .go { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(0,1fr); gap:4px; margin:0; padding:0; overflow:visible; }
+ .go .btn { min-width:0; padding:4px; font-size:12px; white-space:normal; text-align:center; }
+ input[type=text], input[type=search], input[type=number], input[type=email], textarea, select,
+ .lineup-controls select, .formation-toolbar select { font-size:16px; }
+ .dialog:not(.match) > .ft { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .dialog:not(.match) > .ft > .btn:last-child:nth-child(odd) { grid-column:1/-1; }
+ .dialog > .ft .btn { font-size:12px; line-height:1.35; }
+ .dialog.match > .ft { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch; }
+ .dialog.match .mx-ctrl { grid-column:1/-1; display:grid; grid-template-columns:44px minmax(0,1fr) minmax(0,1fr); width:100%; gap:6px; margin:0 !important; }
+ .dialog.match .mx-ctrl .seg { min-width:0; display:flex; }
+ .dialog.match .mx-ctrl .seg button { flex:1; min-width:0; padding:3px; font-size:11px; }
+ .dialog.match .mx-ctrl > .btn { min-width:0; padding:4px; }
+ .dialog.match #mt-close { grid-column:1/-1; }
+ .dialog.match .mx-pitch { max-height:min(42dvh,300px); }
+ .tbl-wrap { -webkit-overflow-scrolling:touch; }
+ .tbl-tools details>div { max-width:calc(100vw - 32px); }
+ .filters { gap:8px; }
+ .filters .fld input, .filters .fld select { width:100% !important; }
+ nav.rail.open { max-height:calc(var(--browser-height,100dvh) - 72px - env(safe-area-inset-bottom)); }
+ .tp-role-popover { max-height:calc(var(--browser-height,100dvh) - 24px); overflow-y:auto; overscroll-behavior:contain; }
+ #toast { max-width:calc(100vw - 24px); overflow-wrap:anywhere; }
+ .legend-actions .btn { white-space:normal; line-height:1.35; }
+}
+@media(max-width:600px) {
+ .formation-toolbar { max-width:270px; margin:0 auto 6px; }
+ .formation-toolbar label { font-size:12px; }
+ .formation-toolbar .btn { min-width:52px; }
+ .lineup-editor > .hd { min-height:32px; }
+ .lineup-editor .roster-groups { min-height:96px; }
+ .lineup-editor .tb-hint { padding-bottom:2px; }
+ .pregame-actions { bottom:-8px; padding-bottom:max(6px,env(safe-area-inset-bottom)); }
+}
+
 </style></head>
 <body><div id="app"></div><div id="modal-root"></div><div id="toast" role="status" aria-live="polite"></div><input id="import-file" type="file" accept=".json,application/json" hidden><script>/* 名单数据容器与补位姓名池。真实球员见 data/*.js；补位球员由姓名池按国籍稳定生成，为游戏设定。 */
 var FOOTBALL_DATA = { leagues: [] };
@@ -4149,7 +4330,7 @@ var UI = (function () {
       const p = o.xi[i], [x, y] = slotPct(o.form, i), r = FB.roleOf(s, o.roles && o.roles[i]);
       const k = 's' + i, f = p ? FB.fit(p.pos, s) : 0, cond = p ? Math.round(p.cond == null ? 100 : p.cond) : 0;
       const form = p && p.form > 1 ? '<b class="tp-fm up" aria-label="状态火热">▲</b>' : p && p.form < -1 ? '<b class="tp-fm dn" aria-label="状态低迷">▼</b>' : '';
-      return `<button type="button" class="tp t${p ? fitTier(f) : 0}${o.sel === k ? ' sel' : ''}${p && p.id === o.me ? ' me' : ''}" data-act="${o.edit ? 'tp' : p ? 'player' : ''}" data-k="${k}" ${p ? `data-id="${E(p.id)}"` : ''} ${o.edit ? 'draggable="true"' : ''} style="left:${x}%;top:${y}%" aria-label="${E(FB.POS[s])}${p ? ' ' + E(p.n) + ' 总评 ' + p.ovr + ' 位置适配 ' + Math.round(f * 100) + '% 体能 ' + cond : ' 空缺'}"><span class="tp-sh">${p ? Math.round(p.ovr * f) : '+'}${form}</span><span class="tp-nm">${p ? E(shortName(p)) : '空缺'}</span><span class="tp-ro">${E(r[1])}</span>${p ? `<i class="tp-cd ${cond < 70 ? 'lo' : ''}"><i style="width:${cond}%"></i></i>` : ''}</button>`;
+      return `<button type="button" class="tp t${p ? fitTier(f) : 0}${o.sel === k ? ' sel' : ''}${p && p.id === o.me ? ' me' : ''}" data-act="${o.edit ? 'tp' : p ? 'player' : ''}" data-k="${k}" ${p ? `data-id="${E(p.id)}"` : ''} ${o.edit ? 'aria-haspopup="dialog"' : ''} style="left:${x}%;top:${o.edit && s === 'CB' ? Math.min(y,75) : y}%" aria-label="${E(FB.POS[s])}${p ? ' ' + E(p.n) + ' 总评 ' + p.ovr + ' 位置适配 ' + Math.round(f * 100) + '% 体能 ' + cond : ' 空缺'}"><span class="tp-sh">${p ? (o.simple ? E(s) : Math.round(p.ovr * f)) : '+'}${form}</span><span class="tp-nm" ${o.edit && p ? `data-act="player" data-id="${E(p.id)}"` : ''}>${p ? E(shortName(p)) : '空缺'}</span><span class="tp-ro">${E(r[1])}</span>${p && !o.simple ? `<i class="tp-cd ${cond < 70 ? 'lo' : ''}"><i style="width:${cond}%"></i></i>` : ''}</button>`;
     }).join('');
     return `<div class="tboard" style="--kit:${E(c.color || '#3fbf6f')};--kit2:${E(c.color2 || '#0b1a12')}">${PITCH_LINES}${tokens}</div><div class="tb-key"><span><i class="k1"></i>熟练</span><span><i class="k2"></i>胜任</span><span><i class="k3"></i>生疏</span><span><i class="k4"></i>不适合</span></div>`;
   }
@@ -4626,7 +4807,7 @@ var UI = (function () {
   }
 
   /* ---------- 存取 ---------- */
-  function snapshot() { myCaptain(); return { v: GAME_VERSION, pop: state.pop, popHistory: state.popHistory, loanFame: state.loanFame, fans: state.fans, loans: state.loans, club: state.club, captains: state.captains || {}, captainModes: state.captainModes || {}, mgr: state.mgr, board: state.board, inbox: state.inbox, games: state.games, tactic: state.tactic, lineup: state.lineup, youth: state.youth, fac: state.fac, fin: state.fin, offers: state.offers, listed: state.listed, shortlist: state.shortlist, history: state.history, fired: state.fired, w: FB.pack(state.w) }; }
+  function snapshot() { myCaptain(); return { v: GAME_VERSION, pop: state.pop, popHistory: state.popHistory, loanFame: state.loanFame, fans: state.fans, loans: state.loans, club: state.club, captains: state.captains || {}, captainModes: state.captainModes || {}, mgr: state.mgr, board: state.board, inbox: state.inbox, games: state.games, tactic: state.tactic, lineup: state.lineup, matchBench: state.matchBench, youth: state.youth, fac: state.fac, fin: state.fin, offers: state.offers, listed: state.listed, shortlist: state.shortlist, history: state.history, fired: state.fired, w: FB.pack(state.w) }; }
   function restore(o) { const s = Object.assign({}, o); s.w = FB.unpack(o.w); FB.rebuildIndex(s.w); if (s.pop == null) s.pop = initPop(s.w.clubs[s.club]); if (s.fans == null) s.fans = Math.round(s.pop * 3); if (!s.loans) s.loans = []; s.tactic = Object.assign({ press: 3, line: 3, tempo: 3, width: 3, roles: [] }, s.tactic); return s; }
   function meta() { const c = club(); return { club: c.name, lg: lgName(c.lg), season: seasonLabel(), week: state.w.week + 1, mgr: state.mgr.name, pos: FB.position(state.w, c.id) }; }
   function persist() { if (!state) return; const r = SAVE.write('auto', snapshot(), meta()); ui.saveOK = r.ok; if (!r.ok) ui.saveErr = r.err; }
@@ -4872,7 +5053,15 @@ var UI = (function () {
       const locked = {}; state.lineup.ids.forEach((id, i) => { if (id) { const p = w.players[id]; if (p && p.club === c.id && FB.available(w, p, w.week)) locked[i] = id; } });
       opts.locked = locked;
     }
-    return FB.pickLineup(w, c.id, opts);
+    const lu = FB.pickLineup(w, c.id, opts);
+    if (Array.isArray(state.matchBench)) {
+      const used = new Set(lu.xi.map(p=>p.id));
+      lu.bench = state.matchBench.map(id=>w.players[id]).filter(p=>{
+        if (!p || p.club !== c.id || used.has(p.id) || !FB.available(w,p,w.week)) return false;
+        used.add(p.id); return true;
+      }).slice(0,9);
+    }
+    return lu;
   }
 
   function myTactic() { const t = state.tactic; return { style: t.style, press: t.press || 3, line: t.line || 3, tempo: t.tempo || 3, width: t.width || 3 }; }
@@ -4881,10 +5070,11 @@ var UI = (function () {
 
   /* ---------- 推进一周 ---------- */
   function myFixture() { return FB.weekFixtures(W(), [state.club])[0] || null; }
-  function advance(watch) {
+  function advance(watch, confirmed = false) {
     if (ui.busy || state.fired) return;
     const fx = myFixture();
     if (!fx) return finishWeek(null, null);
+    if (!confirmed) { ui.pregame={watch:!!watch,key:fixtureKey(fx)}; ui.tpSel=''; view='pregame'; render(); $('main').scrollTop=0; return; }
     const w = W(), lg = w.leagues[fx.lg];
     const isHome = fx.home === state.club, opp = isHome ? fx.away : fx.home;
     const mine = myLineup(), theirs = FB.pickLineup(w, opp);
@@ -5118,7 +5308,7 @@ var UI = (function () {
     for (const L of state.loans.slice()) returnLoan(L, null);
     club().human = false;
     state.club = id; state.pop = initPop(w.clubs[id]); state.fans = Math.round(state.pop * 3); w.clubs[id].human = true;
-    state.tactic = { formation: w.clubs[id].formation, style: 'balanced', press: 3, line: 3, tempo: 3, width: 3, roles: [] }; state.lineup = null; state.fired = false; state.offers = []; state.listed = []; state.shortlist = [];
+    state.tactic = { formation: w.clubs[id].formation, style: 'balanced', press: 3, line: 3, tempo: 3, width: 3, roles: [] }; state.lineup = null; state.matchBench = null; state.fired = false; state.offers = []; state.listed = []; state.shortlist = [];
     Object.assign(state.board, boardTarget(w, id), { conf: 55 });
     news('新的挑战', `你接手了${w.clubs[id].name}。目标：${state.board.text}。`, 'board');
     closeModal(true); view = 'home'; persist(); render();
@@ -5217,22 +5407,24 @@ var UI = (function () {
   }
 
   /* ---------- 渲染 ---------- */
-  const titles = { popularity: ['俱乐部人气', '球迷与商业影响力'], home: ['总览', '本周事务、赛季目标与最新赛果'], squad: ['阵容', '球员能力、状态、合同与赛季数据'], tactics: ['战术', '阵型、风格与首发名单'], fixtures: ['赛程', '本队赛程与历史比赛'], leagues: ['联赛', '九个联赛的积分榜、射手榜与球队'], market: ['转会', '搜索球员、报价、处理求购'], youth: ['青训', '青训营、新星海外锻炼与设施'], finance: ['财务', '收入、支出与设施投资'], history: ['荣誉', '执教履历'], inbox: ['消息', '新闻与通知'], settings: ['存档 · 规则', '存档位、导入导出与模拟说明'] };
+  const titles = { pregame: ['赛前排阵','确认本场首发和比赛替补'], popularity: ['俱乐部人气', '球迷与商业影响力'], home: ['总览', '本周事务、赛季目标与最新赛果'], squad: ['阵容', '拖动设置首发和比赛名单，点姓名查看资料'], tactics: ['战术', '阵型、风格与首发名单'], fixtures: ['赛程', '本队赛程与历史比赛'], leagues: ['联赛', '九个联赛的积分榜、射手榜与球队'], market: ['转会', '搜索球员、报价、处理求购'], youth: ['青训', '青训营、新星海外锻炼与设施'], finance: ['财务', '收入、支出与设施投资'], history: ['荣誉', '执教履历'], inbox: ['消息', '新闻与通知'], settings: ['存档 · 规则', '存档位、导入导出与模拟说明'] };
   function render() {
+    hideRolePopover();
     const app = $('#app');
     if (!state) { app.className = 'bare'; app.innerHTML = ui.legendStep && legendDraft ? legendPick() : splash(); return; }
-    app.className = '';
+    app.className = view === 'pregame' ? 'preparing roster-screen' : ['squad','tactics'].includes(view) ? 'roster-screen' : '';
     const prior = $('main') ? $('main').scrollTop : 0;
     const w = W(), c = club(), fx = myFixture();
     const unread = state.inbox.filter(x => !x.read).length;
     const nav = (id, label, badge) => `<button type="button" class="rail-link ${view === id ? 'on' : ''}" data-go="${id}">${label}${badge ? `<span class="badge">${badge}</span>` : ''}</button>`;
-    const content = ({ popularity: popularityView, home: homeView, squad: squadView, tactics: tacticsView, fixtures: fixturesView, leagues: leaguesView, market: marketView, youth: youthView, finance: financeView, history: historyView, inbox: inboxView, settings: settingsView }[view] || homeView)();
+    const content = ({ popularity: popularityView, home: homeView, pregame: pregameView, squad: squadView, tactics: tacticsView, fixtures: fixturesView, leagues: leaguesView, market: marketView, youth: youthView, finance: financeView, history: historyView, inbox: inboxView, settings: settingsView }[view] || homeView)();
     const opp = fx ? club(fx.home === c.id ? fx.away : fx.home) : null;
     app.innerHTML = `<header class="top"><button type="button" class="btn small ghost mobile-nav" data-act="menu" aria-label="打开导航">☰</button><div class="brand"><b>绿茵</b>经理 <b>${FB.START_YEAR + w.season}</b></div><div class="club">${crest(c)}<div><div class="nm">${E(c.name)}</div><div class="sub">${E(lgName(c.lg))} · 第 ${FB.position(w, c.id)} 名 · 主教练 ${E(state.mgr.name)}</div></div></div><div class="when"><b>${FB.phaseName(w.week)} · 第 ${w.week + 1} / 52 周</b>${seasonLabel()} · ${FB.dateText(w.season, w.week)}${FB.inWindow(w.week) ? ' · <span class="acc">' + FB.windowName(w.week) + '</span>' : ''}</div><div class="go">${state.fired ? btn('查看工作邀请', 'jobs', 'primary') : fx ? btn('观看比赛 ▸', 'watch', 'primary') + btn('快速模拟', 'sim', '') : btn('继续 ▸', 'sim', 'primary')}${btn('到下场比赛', 'skip', 'ghost', fx || state.fired ? 'disabled' : '')}${btn('💾 存档', 'slots', 'ghost')}</div></header>
       ${ui.mobile ? '<button type="button" class="moreback" data-act="menu" aria-label="收起更多菜单"></button>' : ''}<nav class="rail ${ui.mobile ? 'open' : ''}" aria-label="经理导航"><div class="grp">球队</div>${nav('home', '总览')}${nav('squad', '阵容')}${nav('tactics', '战术')}${nav('fixtures', '赛程')}${nav('youth', '青训', state.youth.prospects.length)}<div class="grp">俱乐部</div>${nav('market', '转会', state.offers.length)}${nav('finance', '财务')}${nav('popularity', '★ 人气')}${nav('inbox', '消息', unread)}<div class="grp">足球世界</div>${nav('leagues', '联赛')}${nav('history', '荣誉')}<div class="grp">系统</div>${nav('settings', '存档 · 规则')}<div class="rail-summary"><div>${E(c.name)}</div><div class="dim">余额 ${money(c.balance)}</div><div style="margin:6px 0 2px">董事会信心</div>${bar(state.board.conf, 100, state.board.conf < 30 ? 'bad' : state.board.conf < 50 ? 'warn' : '')}<div class="dim" style="margin-top:8px">${ui.saveOK ? '进度已自动保存' : E(ui.saveErr || '存储不可用，请导出备份')}</div></div></nav>
-      <main id="view"><div class="page-heading"><h1 class="h1">${titles[view][0]}</h1><p class="lede">${titles[view][1]}${opp && view === 'home' ? ` · 本周对手 ${E(opp.name)}` : ''}</p></div>${!ui.saveOK ? `<div class="note bad" style="margin-bottom:12px">自动保存失败：${E(ui.saveErr || '')} ${btn('导出当前进度', 'export', 'small')}</div>` : ''}${content}</main><nav class="tabbar" aria-label="主要页面">${[['home', '总览'], ['tactics', '战术'], ['squad', '阵容'], ['market', '转会', state.offers.length]].map(([id, l, b]) => `<button type="button" data-go="${id}" class="${view === id ? 'on' : ''}">${l}${b ? `<span class="badge">${b}</span>` : ''}</button>`).join('')}<button type="button" data-act="menu" aria-expanded="${ui.mobile}" aria-label="更多页面" class="${ui.mobile ? 'on' : ''}">更多${unread ? `<span class="badge">${unread}</span>` : ''}</button></nav>`;
+      <main id="view" class="${['tactics','squad','pregame'].includes(view) ? 'tactics-page' : ''}"><div class="page-heading"><h1 class="h1">${titles[view][0]}</h1><p class="lede">${titles[view][1]}${opp && view === 'home' ? ` · 本周对手 ${E(opp.name)}` : ''}</p></div>${!ui.saveOK ? `<div class="note bad" style="margin-bottom:12px">自动保存失败：${E(ui.saveErr || '')} ${btn('导出当前进度', 'export', 'small')}</div>` : ''}${content}</main><nav class="tabbar" aria-label="主要页面">${[['home', '总览'], ['tactics', '战术'], ['squad', '阵容'], ['market', '转会', state.offers.length]].map(([id, l, b]) => `<button type="button" data-go="${id}" class="${view === id ? 'on' : ''}">${l}${b ? `<span class="badge">${b}</span>` : ''}</button>`).join('')}<button type="button" data-act="menu" aria-expanded="${ui.mobile}" aria-label="更多页面" class="${ui.mobile ? 'on' : ''}">更多${unread ? `<span class="badge">${unread}</span>` : ''}</button></nav>`;
     UI.enhanceTables($('main'));
     $('main').scrollTop = prior;
+    fitRosterEditor();
   }
 
   function popularityView() {
@@ -5269,16 +5461,59 @@ var UI = (function () {
       ${card('消息', state.inbox.slice(0, 5).map(n => `<div style="padding:6px 0;border-bottom:1px solid var(--line)"><div class="small"><b>${E(n.t)}</b> <span class="dim">第${n.wk + 1}周</span></div><div class="small muted">${E(n.b)}</div></div>`).join('') || empty('暂无消息'), { right: btn('全部', 'go-inbox', 'small ghost') })}</div></div>`;
   }
 
+  function fitRosterEditor() {
+    const main=$('main'), workspace=$('.lineup-workspace');
+    if (!main || !workspace) return;
+    if (innerWidth > 600) {workspace.style.removeProperty('--editor-space');return;}
+    const height=selector=>$(selector)?.offsetHeight || 0;
+    const top=workspace.getBoundingClientRect().top-main.getBoundingClientRect().top+main.scrollTop;
+    const space=main.clientHeight-top-height('.formation-toolbar')-height('.lineup-field .lineup-label')-height('.lineup-editor .tb-hint')-height('.pregame-actions')-42;
+    workspace.style.setProperty('--editor-space',Math.max(276,Math.floor(space))+'px');
+  }
+  function fitBrowserViewport() {
+    const vv=window.visualViewport;
+    if(vv && Math.abs(vv.scale-1)>.05) return; // Preserve native pinch zoom.
+    document.documentElement.style.setProperty('--browser-height',Math.floor(vv?.height || innerHeight)+'px');
+    document.documentElement.style.setProperty('--browser-top',(vv?.offsetTop || 0)+'px');
+    fitRosterEditor(); positionRolePopover();
+    requestAnimationFrame(()=>{
+      const active=document.activeElement;
+      if(!active?.matches('input,textarea,select'))return;
+      const r=active.getBoundingClientRect(), top=vv?.offsetTop || 0, bottom=top+(vv?.height || innerHeight);
+      if(r.bottom>bottom || r.top<top)active.scrollIntoView({block:'nearest',inline:'nearest'});
+    });
+  }
+  window.addEventListener('resize',fitBrowserViewport);
+  window.visualViewport?.addEventListener('resize',fitBrowserViewport);
+  window.visualViewport?.addEventListener('scroll',fitBrowserViewport);
+  fitBrowserViewport();
+  const rosterResize = new ResizeObserver(()=>fitRosterEditor());
+  rosterResize.observe(document.getElementById('app'));
+  window.addEventListener('resize',fitRosterEditor);
+  window.visualViewport?.addEventListener('resize',fitRosterEditor);
+
+  // Shared editor: the squad, tactics and every pre-match screen use one roster.
+  function lineupEditor() {
+    const lu = myLineup(), form = state.tactic.formation, xs = bySlot(lu), sel = ui.tpSel || '';
+    const on = new Set(lu.xi.map(p => p.id)), subs = new Set(lu.bench.map(p => p.id));
+    const reserves = mySquad().filter(p => !on.has(p.id) && !subs.has(p.id)).sort((a,b) => FB.POS_ORDER.indexOf(a.pos)-FB.POS_ORDER.indexOf(b.pos) || a.n.localeCompare(b.n));
+    const row = (p, group) => {
+      const ok = FB.available(W(),p,W().week), k = 'b:' + p.id;
+      return `<div class="bp${sel === k ? ' sel' : ''}" data-act="tp" data-k="${E(k)}" data-group="${group}" data-unavailable="${!ok}"><button type="button" class="nm roster-name" data-act="player" data-id="${E(p.id)}" aria-label="查看 ${E(p.n)} 的球员资料">${E(p.n)}</button><span class="roster-position">${E(FB.POS[p.pos])}${!ok ? `<small class="warn">${p.inj > 0 ? '受伤' : p.ban > 0 ? '停赛' : '外出'}</small>` : ''}</span><button type="button" class="drag-handle" data-drag-handle data-act="tp" data-k="${E(k)}" ${ok ? '' : 'disabled'} aria-label="选择或拖动 ${E(p.n)}">⠿</button></div>`;
+    };
+    const group = (name,key,players,emptyText) => `<section class="roster-group"><button type="button" class="roster-group-title" data-act="roster-zone" data-drop-k="${key}" aria-label="${key === 'bench' ? '将选中球员加入替补席' : '将选中球员移出比赛名单'}"><b>${name}</b><span>${players.length}${key === 'bench' ? '/9' : ''}</span></button><div class="roster-list" data-roster="${key}" data-drop-k="${key}" tabindex="0" aria-label="${name}名单，可滚动">${players.map(p=>row(p,key)).join('') || `<div class="roster-empty">${emptyText}</div>`}</div></section>`;
+    return card('首发与比赛名单', `<div class="lineup-workspace"><div class="lineup-field"><div class="formation-toolbar"><label><span>阵型</span><select data-pick="form" aria-label="阵型">${Object.keys(FB.FORMATIONS).map(f=>`<option ${f===form?'selected':''}>${f}</option>`).join('')}</select></label>${btn('自动','lineup-auto','small ghost','aria-label="自动安排首发和替补"')}</div><div class="lineup-label"><b>首发 ${lu.xi.length}/11</b><small>拖入球员设为首发</small></div>${UI.tacticBoard({form,xi:xs,roles:bySlot(lu,'roles'),sel,club:club(),edit:true,simple:true})}</div><aside class="lineup-bench" aria-label="比赛替补与未入选球员"><div class="lineup-label"><b>球员名单</b><small>${lu.xi.length + lu.bench.length} 人入选</small></div><div class="roster-groups">${group('替补席','bench',lu.bench,'拖入球员加入替补')}${group('未入选','reserve',reserves,'所有球员均已入选')}</div></aside></div><p class="tb-hint">${sel ? '点另一名球员交换，或点名单标题调整归属' : '拖到场上设为首发 · 两边名单可互换 · 点姓名看资料'}</p>`, {cls:'lineup-editor',right: view !== 'pregame' && myFixture() ? btn('赛前','watch','small primary') : ''});
+  }
   function squadView() {
-    const w = W(), sq = mySquad().slice();
-    const sorters = { pos: (a, b) => FB.POS_ORDER.indexOf(a.pos) - FB.POS_ORDER.indexOf(b.pos) || b.ovr - a.ovr, ovr: (a, b) => b.ovr - a.ovr, age: (a, b) => ageOf(a) - ageOf(b), value: (a, b) => FB.valueOf(b, w) - FB.valueOf(a, w), g: (a, b) => b.s.g - a.s.g || b.s.a - a.s.a, cy: (a, b) => a.cy - b.cy };
-    sq.sort(sorters[ui.squadSort] || sorters.pos);
-    const xi = new Set(myLineup().xi.map(p => p.id));
-    const yearEnd = FB.START_YEAR + w.season + 1;
-    const total = sq.reduce((s, p) => s + p.wage, 0);
-    const captain = myCaptain(sq);
-    return `${captainNotice()}<label class="row" style="margin-bottom:10px"><span class="small muted">队长</span><select data-pick="captain" aria-label="选择球队队长" style="flex:1;max-width:280px">${!captain ? '<option value="" selected disabled>请选择队长</option>' : ''}${sq.map(p=>`<option value="${E(p.id)}" ${p.id === captain?.id ? 'selected' : ''}>${E(p.n)} · ${E(FB.POS[p.pos])}</option>`).join('')}</select></label><div class="row" style="margin-bottom:10px"><span class="small muted">排序</span>${seg('squad-sort', [['pos', '位置'], ['ovr', '总评'], ['age', '年龄'], ['value', '身价'], ['g', '进球'], ['cy', '合同']], ui.squadSort)}<span class="small muted" style="margin-left:auto">${sq.length} 人 · 周薪总额 ${wage(total)}</span></div>
-      ${card('一线队', `<div class="tbl-wrap"><table class="t"><thead><tr><th>位置</th><th>球员</th><th class="n">年龄</th><th>国籍</th><th class="c">总评</th><th>潜力</th><th>风格</th><th>徽章</th><th class="n">体能</th><th>状态</th><th class="n">出场</th><th class="n">进球</th><th class="n">助攻</th><th class="n">评分</th><th class="n">身价</th><th class="n">周薪</th><th class="n">合同</th><th></th></tr></thead><tbody>${sq.map(p => `<tr><td>${posChip(p.pos)}</td><td>${plLink(p)}${xi.has(p.id) ? ' <span class="tag acc">首发</span>' : ''}${state.listed.includes(p.id) ? ' <span class="tag warn">挂牌</span>' : ''}</td><td class="n">${ageOf(p)}</td><td>${E(nat(p.nat))}</td><td class="c">${ovBadge(p.ovr)}</td><td>${stars(p.pot)}</td><td class="small">${E(FB.styleOf(p)[1])}</td><td>${UI.badgeSummary(p, 2)}</td><td class="n">${Math.round(p.cond)}</td><td>${p.inj > 0 ? `<span class="bad">伤 ${p.inj}周</span>` : p.ban > 0 ? '<span class="warn">停赛</span>' : (p.form > 1 ? '<span class="good">火热</span>' : p.form < -1 ? '<span class="muted">低迷</span>' : '正常')}</td><td class="n">${p.s.ap}</td><td class="n">${p.s.g}</td><td class="n">${p.s.a}</td><td class="n">${p.s.ap ? (p.s.rs / p.s.ap).toFixed(2) : '—'}</td><td class="n">${money(FB.valueOf(p, w))}</td><td class="n">${wage(p.wage)}</td><td class="n ${p.cy <= yearEnd ? 'warn' : ''}">${p.cy}</td><td>${p.cy <= yearEnd + 1 ? btn('续约', 'renew', 'small ghost', `data-id="${E(p.id)}"`) : ''}</td></tr>`).join('')}</tbody></table></div>`, { flush: true })}`;
+    const sq = mySquad(), captain = myCaptain(sq);
+    return `${captainNotice()}${lineupEditor()}<details class="card captain-settings"><summary>队长 · ${captain ? E(captain.n) : '未指定'}</summary><label class="row"><span>选择队长</span><select data-pick="captain" aria-label="选择球队队长">${!captain ? '<option value="" selected disabled>请选择队长</option>' : ''}${sq.map(p=>`<option value="${E(p.id)}" ${p.id===captain?.id?'selected':''}>${E(p.n)}</option>`).join('')}</select></label></details>`;
+  }
+  function fixtureKey(fx) { return fx ? [W().season,W().week,fx.home,fx.away].join(':') : ''; }
+  function pregameView() {
+    const fx = myFixture();
+    if (!fx) return empty('本周没有待进行的比赛');
+    const other = club(fx.home === state.club ? fx.away : fx.home);
+    return `<div class="pregame-heading"><div><b>赛前排阵 · ${fx.home === state.club ? '主场' : '客场'}对 ${E(other.name)}</b><small>首发 11 人，替补最多 9 人；未入选球员不会进入本场比赛。</small></div></div>${lineupEditor()}<div class="pregame-actions">${btn('返回阵容','pregame-back','ghost')}${btn(ui.pregame?.watch ? '确认阵容 · 开始比赛' : '确认阵容 · 快速模拟','pregame-start','primary')}</div>`;
   }
 
   function slotXY(form, i) {
@@ -5291,21 +5526,10 @@ var UI = (function () {
     return [x, y];
   }
   function tacticsView() {
-    const w = W(), lu = myLineup(), form = state.tactic.formation, t = state.tactic;
-    const slots = FB.FORMATIONS[form], xs = bySlot(lu), rs = bySlot(lu, 'roles'), sel = ui.tpSel || '';
-    const onIds = new Set(lu.xi.map(p => p.id));
-    const selSlot = /^s\d+$/.test(sel) ? +sel.slice(1) : -1;
-    const rest = mySquad().filter(q => !onIds.has(q.id)).sort((a, b) => FB.POS_ORDER.indexOf(a.pos) - FB.POS_ORDER.indexOf(b.pos) || b.ovr - a.ovr);
-    const bench = rest.map(q => { const ok = FB.available(w, q, w.week), f = selSlot >= 0 ? FB.fit(q.pos, slots[selSlot]) : 1; return `<button type="button" class="bp${sel === 'b:' + q.id ? ' sel' : ''}" data-act="tp" data-k="b:${E(q.id)}" ${ok ? 'draggable="true"' : 'disabled'} aria-label="${E(q.n)} ${q.pos} 总评 ${q.ovr}">${posChip(q.pos)}<span class="nm">${E(q.n)}</span>${ovBadge(Math.round(q.ovr * f))}<span class="n">${q.inj > 0 ? '伤' : q.ban > 0 ? '停' : Math.round(q.cond)}</span></button>`; }).join('');
-    let side = '';
-    if (selSlot >= 0) {
-      const s0 = slots[selSlot], p = xs[selSlot], cur = FB.roleOf(s0, rs[selSlot]);
-      side = card(`${FB.POS[s0]} · 角色`, `${p ? `<div class="spread" style="margin-bottom:6px">${plLink(p)}<span class="small muted">适配 ${Math.round(FB.fit(p.pos, s0) * 100)}% · 体能 ${Math.round(p.cond)}</span></div>` : ''}<div class="role-pick">${FB.ROLE_LIST[s0].map(r => `<button type="button" class="${r[0] === cur[0] ? 'on' : ''}" data-act="role" data-slot="${selSlot}" data-v="${r[0]}"><span>${E(r[1])}</span><span class="du ${E(r[2].slice(0, 1))}">${E(r[2])}</span></button>`).join('')}</div><p class="small muted" style="margin:6px 0 0">${roleNote(cur)}</p>`, { right: btn('完成', 'tp-clear', 'small ghost') });
-    }
+    const lu = myLineup(), t = state.tactic;
     const st = FB.sideStrength({ tactic: myTactic(), on: lu.xi.map((p, i) => ({ p, slot: lu.slotOf[i], role: FB.roleOf(lu.slotOf[i], lu.roles[i]), base: p.ovr * FB.fit(p.pos, lu.slotOf[i]), cond: p.cond, bl: FB.badgeMap(p) })) });
     const instr = FB.INSTR.map(([k, l, names]) => `<span class="small muted">${l}</span>${seg('ins-' + k, names.map((n, i) => [i + 1, n]), t[k] || 3)}`).join('');
-    return `<div class="grid g-main"><div class="grid">${card('首发站位', `<label class="row" style="margin-bottom:6px"><span class="small muted">阵型</span><select data-pick="form" aria-label="阵型">${Object.keys(FB.FORMATIONS).map(f => `<option ${f === form ? 'selected' : ''}>${f}</option>`).join('')}</select></label>${UI.tacticBoard({ form, xi: xs, roles: rs, sel, club: club(), edit: true })}<p class="tb-hint">${sel ? '点另一个位置或替补完成交换 · 再点一次取消' : '点球员再点另一人互换位置 · 电脑上可直接拖动'}</p>`, { right: state.lineup ? btn('恢复自动', 'lineup-auto', 'small ghost') : tag('自动最佳') })}${side}
-      ${card(`替补与预备队 · ${rest.length}`, `<div class="tb-bench">${bench || '<span class="small muted">没有其他球员</span>'}</div>`)}</div>
+    return `<div class="tactics-layout">${lineupEditor()}
       <div class="grid">${card('风格', `${seg('style', Object.entries(FB.STYLES).map(([k, v]) => [k, v.name]), t.style)}<p class="small muted" style="margin:6px 0 0">${styleNote(t.style)}</p>`)}${card('球队指令', `<div class="instr">${instr}</div><p class="small muted" style="margin:6px 0 0">${instrNote(t)}</p>`)}${card('阵容强度', `<div class="kv"><span>进攻</span><span>${Math.round(st.att)}</span><span>中场</span><span>${Math.round(st.mid)}</span><span>防守</span><span>${Math.round(st.def)}</span><span>门将</span><span>${Math.round(st.gk)}</span></div>`)}${card('首发徽章', teamBadges(lu.xi))}</div></div>`;
   }
   function roleNote(r) { const f = r[3] || {}, out = []; if (f.sh > 1) out.push('射门更多'); if (f.sh < 1) out.push('射门更少'); if (f.as > 1) out.push('助攻更多'); if (f.as < 1) out.push('助攻更少'); if (f.df > 1) out.push('防守更强'); if (f.df < 1) out.push('防守变弱'); if (f.md > 1) out.push('中场更稳'); if (f.tk > 1) out.push('抢断更多'); if (f.head > 1) out.push('头球更多'); if (f.sweep) out.push('出击清道'); return out.length ? out.join(' · ') : '标准职责，没有偏向。'; }
@@ -5410,26 +5634,159 @@ var UI = (function () {
     return [1, 2, 3].map(i => { const m = SAVE.meta(i); return `<div class="spread" style="padding:8px 0;border-bottom:1px solid var(--line)"><div><b>存档位 ${i}</b><div class="small muted">${m ? (m.broken ? '<span class="bad">存档损坏，无法读取</span>' : `${E(m.club)} · ${E(m.lg)} · ${E(m.season)} 第 ${m.week} 周 · 第 ${m.pos} 名 · ${new Date(m.t).toLocaleString('zh-CN')}`) : '空'}</div></div><div class="row">${state ? btn(m ? '覆盖保存' : '保存当前', 'save-slot', 'small', `data-slot="${i}"`) : ''}${m && !m.broken ? btn('加载', 'load-slot', 'small ghost', `data-slot="${i}"`) : ''}${m ? btn('清空', 'clear-slot', 'small danger', `data-slot="${i}"`) : ''}</div></div>`; }).join('');
   }
 
-  /* ---------- 战术板：点选互换 / 拖放 ---------- */
-  function tpTap(k) {
+  /* ---------- 战术板：就近选角色，触屏与鼠标拖动 ---------- */
+  function hideRolePopover(clear = false) {
+    $('#tp-role-popover')?.remove();
+    if (clear) {
+      ui.tpSel = '';
+      document.querySelectorAll('.lineup-workspace .sel').forEach(el => el.classList.remove('sel'));
+    }
+  }
+  function positionRolePopover() {
+    const pop = $('#tp-role-popover'), anchor = document.querySelector('.lineup-field .tp.sel');
+    if (!pop || !anchor) return;
+    const a = anchor.getBoundingClientRect(), main = $('main').getBoundingClientRect();
+    const vv=window.visualViewport, visibleTop=vv?.offsetTop || 0, visibleBottom=visibleTop+(vv?.height || innerHeight);
+    const top = Math.max(visibleTop + 8, main.top + 4), bottom = Math.min(visibleBottom - 8, main.bottom - 4);
+    if (a.bottom < top || a.top > bottom) return hideRolePopover(true);
+    pop.style.maxHeight=Math.max(120,bottom-top)+'px';
+    const w = pop.offsetWidth, h = pop.offsetHeight;
+    let x = a.right + 8, y = a.top + a.height / 2 - h / 2;
+    if (x + w > innerWidth - 8) {
+      if (a.left - 8 - w >= 8) x = a.left - w - 8;
+      else { x = a.left + a.width / 2 - w / 2; y = a.top - h - 8 >= top ? a.top - h - 8 : a.bottom + 8; }
+    }
+    pop.style.left = Math.max(8, Math.min(innerWidth - w - 8, x)) + 'px';
+    pop.style.top = Math.max(top, Math.min(bottom - h, y)) + 'px';
+  }
+  function showRolePopover(focus = false) {
+    hideRolePopover();
+    if (!/^s\d+$/.test(ui.tpSel || '')) return;
+    const i = +ui.tpSel.slice(1), lu = myLineup(), s = FB.FORMATIONS[state.tactic.formation][i];
+    const p = bySlot(lu)[i], cur = FB.roleOf(s, bySlot(lu, 'roles')[i]);
+    const pop = document.createElement('div');
+    pop.id = 'tp-role-popover'; pop.className = 'tp-role-popover';
+    pop.setAttribute('role', 'dialog'); pop.setAttribute('aria-label', '选择球员角色');
+    pop.innerHTML = `<div class="tp-role-heading"><div><strong>${p ? `<button type="button" class="roster-profile" data-act="player" data-id="${E(p.id)}">${E(p.n)}</button>` : '空缺位置'}</strong><small>${E(FB.POS[s])} · 选择角色${p ? ' · 适配 ' + Math.round(FB.fit(p.pos,s)*100) + '%' : ''}</small></div><button type="button" data-act="tp-clear" aria-label="关闭角色选择">×</button></div><div class="role-pick">${FB.ROLE_LIST[s].map(r => `<button type="button" class="${r[0] === cur[0] ? 'on' : ''}" aria-pressed="${r[0] === cur[0]}" data-act="role" data-slot="${i}" data-v="${r[0]}"><span>${E(r[1])}</span><span class="du ${E(r[2].slice(0,1))}">${E(r[2])}</span></button>`).join('')}</div><p>也可以点另一名球员，直接交换站位</p>`;
+    document.body.append(pop); positionRolePopover();
+    if (focus) pop.querySelector('.role-pick button.on')?.focus({preventScroll:true});
+  }
+  function renderTactics(focus = false) {
+    const scroll = [...document.querySelectorAll('[data-roster]')].map(el=>[el.dataset.roster,el.scrollTop]);
+    render();
+    for (const [key,y] of scroll) { const el=document.querySelector('[data-roster="'+key+'"]'); if(el)el.scrollTop=y; }
+    showRolePopover(focus);
+  }
+  function tpTap(k, keyboard = false) {
     const cur = ui.tpSel || '';
-    if (!cur || (cur.startsWith('b:') && k.startsWith('b:'))) { ui.tpSel = k; return render(); }
-    if (cur === k) { ui.tpSel = ''; return render(); }
-    tpSwap(cur, k); ui.tpSel = ''; render();
+    if (!cur || (cur !== k && cur.startsWith('b:') && k.startsWith('b:') && !canTpSwap(cur,k))) { ui.tpSel = k; return renderTactics(keyboard); }
+    if (cur === k) { ui.tpSel = ''; return renderTactics(); }
+    tpSwap(cur, k); ui.tpSel = ''; renderTactics();
   }
-  function tpSwap(a, b) {
-    const form = state.tactic.formation, ids = bySlot(myLineup()).map(p => p ? p.id : null);
-    if (a.startsWith('s') && b.startsWith('s')) { const i = +a.slice(1), j = +b.slice(1); [ids[i], ids[j]] = [ids[j], ids[i]]; }
-    else if (a.startsWith('s') || b.startsWith('s')) { const sk = a.startsWith('s') ? a : b, bk = sk === a ? b : a; ids[+sk.slice(1)] = bk.slice(2); }
-    else return;
-    state.lineup = { formation: form, ids }; persist();
+  function rosterState() {
+    const lu = myLineup();
+    return { ids:bySlot(lu).map(p=>p?.id || null), bench:lu.bench.map(p=>p.id) };
   }
-  let dragK = '';
-  document.addEventListener('dragstart', e => { const t = e.target.closest && e.target.closest('[data-act="tp"]'); if (!t) return; dragK = t.dataset.k; e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', dragK); });
-  document.addEventListener('dragover', e => { const t = e.target.closest && e.target.closest('[data-act="tp"]'); if (!t || !dragK || t.dataset.k === dragK) return; e.preventDefault(); document.querySelectorAll('.drop').forEach(x => x !== t && x.classList.remove('drop')); t.classList.add('drop'); });
-  document.addEventListener('dragleave', e => { const t = e.target.closest && e.target.closest('[data-act="tp"]'); if (t && !t.contains(e.relatedTarget)) t.classList.remove('drop'); });
-  document.addEventListener('drop', e => { const t = e.target.closest && e.target.closest('[data-act="tp"]'); if (!t || !dragK) return; e.preventDefault(); const k = t.dataset.k; if (k !== dragK && (k.startsWith('s') || dragK.startsWith('s'))) { tpSwap(dragK, k); ui.tpSel = ''; } dragK = ''; render(); });
-  document.addEventListener('dragend', () => { dragK = ''; document.querySelectorAll('.drop').forEach(x => x.classList.remove('drop')); });
+  function setFormation(form) {
+    const manual = !!state.lineup || Array.isArray(state.matchBench), current = myLineup();
+    state.tactic.formation=form; state.tactic.roles=[]; club().formation=form; ui.tpSel='';
+    if (manual) {
+      const next=FB.pickLineup(W(),state.club,{formation:form,pool:current.xi});
+      const ids=FB.FORMATIONS[form].map(()=>null); next.xi.forEach((p,i)=>{ids[next.idx[i]]=p.id;});
+      state.lineup={formation:form,ids}; state.matchBench=current.bench.map(p=>p.id);
+    } else state.lineup=null;
+    persist(); render();
+  }
+  function canTpSwap(a,b) {
+    if (!state || !a || !b || a === b) return false;
+    const {ids,bench} = rosterState();
+    const slot = k => /^s\d+$/.test(k) && +k.slice(1) < ids.length;
+    const off = k => k.startsWith('b:') && mySquad().some(p=>p.id===k.slice(2) && FB.available(W(),p,W().week) && !ids.includes(p.id));
+    if (slot(a) && slot(b)) return !!(ids[+a.slice(1)] || ids[+b.slice(1)]);
+    if ((slot(a) && off(b)) || (slot(b) && off(a))) return true;
+    if (off(a) && off(b)) return bench.includes(a.slice(2)) !== bench.includes(b.slice(2));
+    if (off(a) && b === 'bench') return bench.length < 9 && !bench.includes(a.slice(2));
+    if (off(a) && b === 'reserve') return bench.includes(a.slice(2));
+    return false;
+  }
+  function tpSwap(a,b) {
+    if (!canTpSwap(a,b)) return false;
+    const {ids,bench} = rosterState();
+    if (a.startsWith('s') && b.startsWith('s')) {
+      const i=+a.slice(1),j=+b.slice(1); [ids[i],ids[j]]=[ids[j],ids[i]];
+    } else if (a.startsWith('s') || /^s\d+$/.test(b)) {
+      const sk=a.startsWith('s')?a:b, bk=sk===a?b:a, i=+sk.slice(1), pid=bk.slice(2), n=bench.indexOf(pid), old=ids[i];
+      ids[i]=pid;
+      if(n>=0) { if(old)bench[n]=old; else bench.splice(n,1); }
+    } else if (b === 'bench') bench.push(a.slice(2));
+    else if (b === 'reserve') bench.splice(bench.indexOf(a.slice(2)),1);
+    else { const x=a.slice(2),y=b.slice(2),n=bench.indexOf(x); if(n>=0)bench[n]=y; else bench[bench.indexOf(y)]=x; }
+    state.lineup={formation:state.tactic.formation,ids}; state.matchBench=bench; persist(); return true;
+  }
+  function rosterZone(k) {
+    if (!ui.tpSel) return toast(k === 'bench' ? '把未入选球员拖到这里；替补满员时，拖到一名替补身上交换' : '把替补拖到这里，即可移出比赛名单');
+    if (!tpSwap(ui.tpSel,k)) return toast(k === 'bench' ? '替补最多 9 人，请与一名替补交换' : '请先选择一名替补球员');
+    ui.tpSel=''; renderTactics();
+  }
+
+  let tpDrag = null, tpIgnoreClickUntil = 0;
+  function finishTpDrag() {
+    const d = tpDrag; tpDrag = null;
+    if (d?.el.hasPointerCapture(d.pointerId)) d.el.releasePointerCapture(d.pointerId);
+    $('#tp-drag-ghost')?.remove(); document.body.classList.remove('tp-dragging');
+    document.querySelectorAll('.drag-source, .drop').forEach(el => el.classList.remove('drag-source', 'drop'));
+    if (d?.active) tpIgnoreClickUntil = Date.now() + 450;
+    return d;
+  }
+  document.addEventListener('dragstart', e => { if (e.target.closest?.('[data-act="tp"]')) e.preventDefault(); });
+  document.addEventListener('pointerdown', e => {
+    if (!e.isPrimary || e.button !== 0) return;
+    const el = e.target.closest('.bp, .lineup-field .tp');
+    if (!el || el.disabled || el.dataset.unavailable === 'true' || (el.classList.contains('tp') && !el.dataset.id)) return;
+    tpDrag = { el, key:el.dataset.k, x:e.clientX, y:e.clientY, pointerId:e.pointerId, active:false,
+      scrollable:e.pointerType === 'touch' && el.classList.contains('bp') && !e.target.closest('[data-drag-handle]') };
+    // Capture only once dragging starts, preserving normal name-button clicks.
+  });
+  document.addEventListener('pointermove', e => {
+    const d = tpDrag; if (!d || d.pointerId !== e.pointerId) return;
+    const dx = e.clientX - d.x, dy = e.clientY - d.y;
+    if (!d.active) {
+      if (Math.hypot(dx,dy) < 8) return;
+      if (d.scrollable && Math.abs(dy) > Math.abs(dx)) return void finishTpDrag();
+      d.active = true; d.el.setPointerCapture(e.pointerId); hideRolePopover(true); document.body.classList.add('tp-dragging'); d.el.classList.add('drag-source');
+      const ghost = document.createElement('div'); ghost.id = 'tp-drag-ghost'; ghost.className = 'tp-drag-ghost';
+      ghost.textContent = d.el.classList.contains('bp') ? d.el.querySelector('.nm').textContent : W().players[d.el.dataset.id]?.n || '';
+      document.body.append(ghost);
+    }
+    e.preventDefault();
+    const ghost = $('#tp-drag-ghost'); ghost.style.left = e.clientX + 'px'; ghost.style.top = e.clientY + 'px';
+    const target = document.elementFromPoint(e.clientX, e.clientY)?.closest('.bp, .lineup-field .tp, [data-drop-k]');
+    document.querySelectorAll('.drop').forEach(el => el.classList.remove('drop'));
+    d.target = target && !target.disabled && canTpSwap(d.key, target.dataset.k || target.dataset.dropK) ? target : null;
+    d.target?.classList.add('drop');
+  }, {passive:false});
+  document.addEventListener('pointerup', e => {
+    if (!tpDrag || e.pointerId !== tpDrag.pointerId) return;
+    const d = finishTpDrag();
+    if (!d.active) return;
+    if (d.target) tpSwap(d.key, d.target.dataset.k || d.target.dataset.dropK);
+    ui.tpSel = ''; renderTactics();
+  });
+  document.addEventListener('pointercancel', () => finishTpDrag());
+  document.addEventListener('lostpointercapture', e => { if (tpDrag?.pointerId === e.pointerId && e.target === tpDrag.el) finishTpDrag(); });
+  window.addEventListener('blur', () => finishTpDrag());
+  document.addEventListener('click', e => {
+    if (Date.now() < tpIgnoreClickUntil) { e.preventDefault(); e.stopImmediatePropagation(); return; }
+    if (!e.target.closest('#tp-role-popover, [data-act="tp"], [data-act="roster-zone"]')) hideRolePopover(true);
+  }, true);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && (tpDrag || $('#tp-role-popover') || ui.tpSel)) {
+      const anchor = document.querySelector('.lineup-field .tp.sel'); finishTpDrag(); hideRolePopover(true); anchor?.focus({preventScroll:true});
+    }
+  });
+  document.addEventListener('scroll', e => { if (e.target.matches?.('main')) positionRolePopover(); }, true);
+  window.addEventListener('resize', positionRolePopover);
+
 
   /* ---------- 事件 ---------- */
   document.addEventListener('click', e => {
@@ -5438,7 +5795,7 @@ var UI = (function () {
       const k = segB.dataset.seg, v = segB.dataset.v;
       if (k === 'pick-lg') { ui.pickLg = v; ui.pickClub = null; return render(); }
       if (k === 'squad-sort') { ui.squadSort = v; return render(); }
-      if (k === 'form') { state.tactic.formation = v; state.tactic.roles = []; state.lineup = null; ui.tpSel = ''; club().formation = v; persist(); return render(); }
+      if (k === 'form') return setFormation(v);
       if (k.startsWith('ins-')) { state.tactic[k.slice(4)] = +v; persist(); return render(); }
       if (k === 'style') { state.tactic.style = v; club().style = v; persist(); return render(); }
       if (k === 'lg') { ui.lg = v; return render(); }
@@ -5480,6 +5837,22 @@ var UI = (function () {
         if(!state)break;ui.legendStep=false;legendDraft=null;render();
         UI.celebrate(p.cn+' · 18 岁传奇新星，五年签约');break;
       }
+      case 'roster-zone': rosterZone(a.dataset.dropK); break;
+      case 'roster-focus': {
+        const p=W().players[id]; if(!p || !FB.available(W(),p,W().week)) {toast('该球员暂不可出场');break;}
+        closeModal(); if(!['squad','tactics','pregame'].includes(view))view='squad'; ui.tpSel='b:'+id; renderTactics(); toast('点一个场上位置，把这名球员设为首发');break;
+      }
+      case 'roster-membership': {
+        const lu=myLineup(), target=lu.bench.some(p=>p.id===id)?'reserve':'bench';
+        if(tpSwap('b:'+id,target)){closeModal();renderTactics();}
+        else if(target==='bench' && FB.available(W(),W().players[id],W().week)) {closeModal();if(!['squad','tactics','pregame'].includes(view))view='squad';ui.tpSel='b:'+id;renderTactics();toast('替补席已满，点一名替补与他交换');}
+        else toast('该球员暂不可进入比赛名单'); break;
+      }
+      case 'pregame-back': ui.pregame=null;ui.tpSel='';view='squad';render();break;
+      case 'pregame-start': {
+        const pre=ui.pregame; if(!pre || pre.key!==fixtureKey(myFixture())){toast('赛程已变化，请重新进入赛前准备');break;}
+        ui.pregame=null;ui.tpSel='';view='squad';render();advance(pre.watch,true);break;
+      }
       case 'watch': advance(true); break;
       case 'sim': advance(false); break;
       case 'skip': { let g = 0; while (!myFixture() && !state.fired && g++ < 60 && W().week < 51) { finishWeek(null, null); closeModal(true); } break; }
@@ -5491,7 +5864,7 @@ var UI = (function () {
       case 'go-leagues': view = 'leagues'; ui.lg = club().lg; render(); break;
       case 'go-inbox': view = 'inbox'; render(); break;
       case 'game': { const g = state.games[+a.dataset.i]; if (g) openModal(UI.matchRecordHtml(W(), g.rec, null), { title: `${lgName(g.lg)} 第 ${g.r + 1} 轮`, size: 'wide' }); break; }
-      case 'player': { const p = W().players[id]; if (!p) break; const mine = p.club === state.club, pro = p.yt; openModal(UI.playerHtml(W(), p), { title: '球员详情', size: 'wide', footer: mine ? btn('续约', 'renew', 'ghost', `data-id="${E(id)}"`) + btn(state.listed.includes(id) ? '取消挂牌' : '挂牌出售', 'toggle-list', 'ghost', `data-id="${E(id)}"`) + btn('解约', 'release', 'danger', `data-id="${E(id)}"`) : pro ? '' : btn(state.shortlist.includes(id) ? '移出观察名单' : '加入观察名单', 'shortlist', 'ghost', `data-id="${E(id)}"`) + btn(p.club ? '报价' : '签约', 'bid', 'primary', `data-id="${E(id)}"`) }); break; }
+      case 'player': { hideRolePopover(true); const p = W().players[id]; if (!p) break; const mine = p.club === state.club, pro = p.yt; openModal(UI.playerHtml(W(), p), { title: '球员详情', size: 'wide', footer: mine ? (myLineup().xi.some(x=>x.id===p.id) ? '' : btn('设为首发','roster-focus','ghost',`data-id="${E(p.id)}"`) + btn(myLineup().bench.some(x=>x.id===p.id) ? '移出比赛名单' : '加入替补席','roster-membership','ghost',`data-id="${E(p.id)}"`)) + btn('续约', 'renew', 'ghost', `data-id="${E(id)}"`) + btn(state.listed.includes(id) ? '取消挂牌' : '挂牌出售', 'toggle-list', 'ghost', `data-id="${E(id)}"`) + btn('解约', 'release', 'danger', `data-id="${E(id)}"`) : pro ? '' : btn(state.shortlist.includes(id) ? '移出观察名单' : '加入观察名单', 'shortlist', 'ghost', `data-id="${E(id)}"`) + btn(p.club ? '报价' : '签约', 'bid', 'primary', `data-id="${E(id)}"`) }); break; }
       case 'club': clubModal(id); break;
       case 'bid': closeModal(true); bidDialog(id); break;
       case 'bid-go': submitBid(id); break;
@@ -5508,10 +5881,10 @@ var UI = (function () {
       case 'loan-pick': loanDialog(id); break;
       case 'loan-go': sendLoan(id, a.dataset.host, a.dataset.half === '1'); break;
       case 'loan-back': { const L = state.loans.find(x => x.pid === id); if (L) confirmBox(`提前召回 ${E(W().players[id].n)}？`, '召回', () => { returnLoan(L, null); persist(); render(); }); break; }
-      case 'lineup-auto': state.lineup = null; ui.tpSel = ''; persist(); render(); break;
-      case 'tp': tpTap(a.dataset.k); break;
-      case 'tp-clear': ui.tpSel = ''; render(); break;
-      case 'role': { const i = +a.dataset.slot; state.tactic.roles = FB.FORMATIONS[state.tactic.formation].map((x, k) => state.tactic.roles[k] || null); state.tactic.roles[i] = a.dataset.v; persist(); render(); break; }
+      case 'lineup-auto': state.matchBench = null; state.lineup = null; ui.tpSel = ''; persist(); render(); break;
+      case 'tp': tpTap(a.dataset.k, e.detail === 0); break;
+      case 'tp-clear': { const anchor = document.querySelector('.lineup-field .tp.sel'); hideRolePopover(true); anchor?.focus({preventScroll:true}); break; }
+      case 'role': { const i = +a.dataset.slot; state.tactic.roles = FB.FORMATIONS[state.tactic.formation].map((x, k) => state.tactic.roles[k] || null); state.tactic.roles[i] = a.dataset.v; ui.tpSel = ''; persist(); renderTactics(); document.querySelector('.lineup-field [data-k="s' + i + '"]')?.focus({preventScroll:true}); break; }
       case 'youth-sign': { const w = W(), p = w.players[id]; if (mySquad().length >= 32) { toast('阵容已满 32 人'); break; } p.yt = 0; delete p.yt; FB.movePlayer(w, p, state.club); p.wage = Math.max(.3, FB.wageFor(p.ovr, club().lg, ageOf(p)) * .5); p.cy = FB.START_YEAR + w.season + 4; state.youth.prospects = state.youth.prospects.filter(x => x !== id); news('青训签约', `${p.n} 签下首份职业合同。`, ''); persist(); render(); break; }
       case 'youth-drop': delete W().players[id]; state.youth.prospects = state.youth.prospects.filter(x => x !== id); persist(); render(); break;
       case 'fac': { const k = a.dataset.k, lvl = state.fac[k], cost = Math.round(4 * lvl * FB.LEAGUE_META[club().lg].money * 10) / 10; if (club().balance < cost) { toast('余额不足'); break; } confirmBox(`花费 ${money(cost)} 升级${k === 'train' ? '训练' : '青训'}设施？`, '升级', () => { club().balance -= cost; state.fin.fac += cost; state.fac[k]++; persist(); render(); }); break; }
@@ -5530,7 +5903,7 @@ var UI = (function () {
       if (p && p.club === state.club) { state.captains = state.captains || {}; state.captains[state.club] = p.id; state.captainModes = state.captainModes || {}; state.captainModes[state.club] = 'manual'; persist(); render(); toast('已任命 ' + p.n + ' 为队长'); }
       return;
     }
-    if (e.target.matches('select[data-pick="form"]') && state) { const v = e.target.value; state.tactic.formation = v; state.tactic.roles = []; state.lineup = null; ui.tpSel = ''; club().formation = v; persist(); return render(); }
+    if (e.target.matches('select[data-pick="form"]') && state) { return setFormation(e.target.value); }
     const s = e.target.closest('select[data-slot]');
     if (s && state) {
       const i = +s.dataset.slot, form = state.tactic.formation;
