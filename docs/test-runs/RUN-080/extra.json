@@ -1,0 +1,174 @@
+[
+  {
+    "name": "watch explicitly starts",
+    "pass": true
+  },
+  {
+    "name": "watched series review",
+    "pass": true,
+    "data": {
+      "final": true,
+      "review": true,
+      "stage": "post",
+      "route": "review"
+    }
+  },
+  {
+    "findings": {
+      "vals": [
+        {
+          "n": "Gogoing",
+          "shown": 76,
+          "actual": 76
+        },
+        {
+          "n": "CaoMei",
+          "shown": 74,
+          "actual": 74
+        },
+        {
+          "n": "Letme",
+          "shown": 78,
+          "actual": 78
+        },
+        {
+          "n": "Clearlove",
+          "shown": 76,
+          "actual": 76
+        },
+        {
+          "n": "Mlxg",
+          "shown": 74,
+          "actual": 74
+        },
+        {
+          "n": "LoveLing",
+          "shown": 78,
+          "actual": 78
+        },
+        {
+          "n": "Misaya",
+          "shown": 76,
+          "actual": 76
+        },
+        {
+          "n": "Cool",
+          "shown": 74,
+          "actual": 74
+        },
+        {
+          "n": "GodV",
+          "shown": 78,
+          "actual": 78
+        },
+        {
+          "n": "Uzi",
+          "shown": 76,
+          "actual": 76
+        },
+        {
+          "n": "WeiXiao",
+          "shown": 74,
+          "actual": 74
+        },
+        {
+          "n": "san",
+          "shown": 78,
+          "actual": 78
+        },
+        {
+          "n": "fzzf",
+          "shown": 76,
+          "actual": 76
+        },
+        {
+          "n": "Pyl",
+          "shown": 74,
+          "actual": 74
+        },
+        {
+          "n": "Tabe",
+          "shown": 78,
+          "actual": 78
+        },
+        {
+          "n": "MaRin",
+          "shown": 76,
+          "actual": 76
+        },
+        {
+          "n": "Flame",
+          "shown": 74,
+          "actual": 74
+        },
+        {
+          "n": "Shy",
+          "shown": 78,
+          "actual": 78
+        },
+        {
+          "n": "Bengi",
+          "shown": 76,
+          "actual": 76
+        },
+        {
+          "n": "Ambition",
+          "shown": 74,
+          "actual": 74
+        },
+        {
+          "n": "Score",
+          "shown": 78,
+          "actual": 78
+        },
+        {
+          "n": "PawN",
+          "shown": 76,
+          "actual": 76
+        },
+        {
+          "n": "Easyhoon",
+          "shown": 74,
+          "actual": 74
+        },
+        {
+          "n": "Kuro",
+          "shown": 78,
+          "actual": 78
+        },
+        {
+          "n": "Bang",
+          "shown": 76,
+          "actual": 76
+        },
+        {
+          "n": "imp",
+          "shown": 74,
+          "actual": 74
+        },
+        {
+          "n": "PraY",
+          "shown": 78,
+          "actual": 78
+        },
+        {
+          "n": "MadLife",
+          "shown": 76,
+          "actual": 76
+        },
+        {
+          "n": "Wolf",
+          "shown": 74,
+          "actual": 74
+        },
+        {
+          "n": "GorillA",
+          "shown": 78,
+          "actual": 78
+        }
+      ],
+      "coach": true,
+      "released": true
+    }
+  }
+]

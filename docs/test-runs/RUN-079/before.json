@@ -1,0 +1,10 @@
+{
+  "match": {
+    "stage": "live",
+    "route": "match",
+    "pending": true,
+    "hasPregame": false
+  },
+  "homeHasSalaryCap": true,
+  "observed": "进入比赛日即live，缺少赛前确认"
+}

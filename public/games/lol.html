@@ -352,6 +352,15 @@ body{margin:0}.shell,.sec,.cols2>*{min-width:0}.nav{scrollbar-width:none}.nav::-
 @media(hover:none){.tcard:hover{border-color:var(--line)}.btn:hover{filter:none}.nav a:hover{background:transparent}.nav a.on{background:var(--acc-soft)}}
 @media(prefers-reduced-motion:reduce){.flash{animation:none}}
 
+
+/* Responsive management surfaces: tables scroll internally, names stay readable. */
+body{margin:0}.grid{grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr))}
+.main,.sec,.card,.row>.grow{min-width:0}.field{min-width:0;max-width:100%}.field select{min-width:0;max-width:100%}.tbl th,.tbl td{white-space:nowrap;word-break:normal;overflow-wrap:normal}
+.legend-positions{display:flex;gap:8px;flex-wrap:wrap}.legend-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.legend-card{min-height:270px;justify-content:space-between;border-top:3px solid var(--gold)}.legend-card.selected{outline:2px solid var(--acc);background:var(--acc-soft)}
+.legend-back{font-family:var(--fd);font-size:42px;color:var(--gold)}.legend-card h2{overflow-wrap:anywhere;font-size:24px}
+.list .grow{overflow-wrap:anywhere}.legend-positions .btn,.legend-card .btn{min-height:44px}
+@media(max-width:600px){.top{position:relative}.play{width:100%}.play .btn{flex:1;white-space:normal;min-height:44px}.main{padding:16px 12px calc(72px + env(safe-area-inset-bottom));gap:16px}.legend-grid{grid-template-columns:1fr}.legend-card{min-height:210px}.card{padding:14px 12px}.hero{flex-wrap:wrap}.pre-row{flex-wrap:wrap}.pre-row select{min-width:0;max-width:100%}.pre-ch{width:100%}.cols2{grid-template-columns:minmax(0,1fr)}.mx-head{flex-wrap:wrap}.btn{min-height:40px}.kv{grid-template-columns:minmax(0,1fr) auto}.stat-row{flex-wrap:wrap}select{max-width:100%}}
 </style>
 </head>
 <body>
@@ -373,7 +382,8 @@ const NATW=[['KR',30],['CN',28],['VN',7],['TW',5],['FR',4],['ES',3],['DE',3],['D
 const REGN={EU:['FR','ES','DE','DK','PL','SE','GR','TR'],NA:['US','CA'],PCS:['TW','VN']};
 function rollNat(region){if(region&&REGN[region])return pick(REGN[region]);if(region)return region;return NATW[wpick(NATW,x=>x[1])][0]}
 const LGN={LCK:'LCK',LPL:'LPL',EU:'LEC',NA:'LCS',PCS:'LCP'};
-const CAP=5000, MINSAL=30, MAXR=8, TAXR=0.5;
+const MINSAL=30;
+const LEGENDS=[{"name": "Gogoing", "pos": "TOP", "region": "CN", "nat": "CN", "ovr": 76, "pot": 98}, {"name": "CaoMei", "pos": "TOP", "region": "CN", "nat": "CN", "ovr": 74, "pot": 97}, {"name": "Letme", "pos": "TOP", "region": "CN", "nat": "CN", "ovr": 78, "pot": 99}, {"name": "Clearlove", "pos": "JNG", "region": "CN", "nat": "CN", "ovr": 76, "pot": 98}, {"name": "Mlxg", "pos": "JNG", "region": "CN", "nat": "CN", "ovr": 74, "pot": 97}, {"name": "LoveLing", "pos": "JNG", "region": "CN", "nat": "CN", "ovr": 78, "pot": 99}, {"name": "Misaya", "pos": "MID", "region": "CN", "nat": "CN", "ovr": 76, "pot": 98}, {"name": "Cool", "pos": "MID", "region": "CN", "nat": "CN", "ovr": 74, "pot": 97}, {"name": "GodV", "pos": "MID", "region": "CN", "nat": "CN", "ovr": 78, "pot": 99}, {"name": "Uzi", "pos": "BOT", "region": "CN", "nat": "CN", "ovr": 76, "pot": 98}, {"name": "WeiXiao", "pos": "BOT", "region": "CN", "nat": "CN", "ovr": 74, "pot": 97}, {"name": "san", "pos": "BOT", "region": "CN", "nat": "CN", "ovr": 78, "pot": 99}, {"name": "fzzf", "pos": "SUP", "region": "CN", "nat": "CN", "ovr": 76, "pot": 98}, {"name": "Pyl", "pos": "SUP", "region": "CN", "nat": "CN", "ovr": 74, "pot": 97}, {"name": "Tabe", "pos": "SUP", "region": "CN", "nat": "HK", "ovr": 78, "pot": 99}, {"name": "MaRin", "pos": "TOP", "region": "KR", "nat": "KR", "ovr": 76, "pot": 98}, {"name": "Flame", "pos": "TOP", "region": "KR", "nat": "KR", "ovr": 74, "pot": 97}, {"name": "Shy", "pos": "TOP", "region": "KR", "nat": "KR", "ovr": 78, "pot": 99}, {"name": "Bengi", "pos": "JNG", "region": "KR", "nat": "KR", "ovr": 76, "pot": 98}, {"name": "Ambition", "pos": "JNG", "region": "KR", "nat": "KR", "ovr": 74, "pot": 97}, {"name": "Score", "pos": "JNG", "region": "KR", "nat": "KR", "ovr": 78, "pot": 99}, {"name": "PawN", "pos": "MID", "region": "KR", "nat": "KR", "ovr": 76, "pot": 98}, {"name": "Easyhoon", "pos": "MID", "region": "KR", "nat": "KR", "ovr": 74, "pot": 97}, {"name": "Kuro", "pos": "MID", "region": "KR", "nat": "KR", "ovr": 78, "pot": 99}, {"name": "Bang", "pos": "BOT", "region": "KR", "nat": "KR", "ovr": 76, "pot": 98}, {"name": "imp", "pos": "BOT", "region": "KR", "nat": "KR", "ovr": 74, "pot": 97}, {"name": "PraY", "pos": "BOT", "region": "KR", "nat": "KR", "ovr": 78, "pot": 99}, {"name": "MadLife", "pos": "SUP", "region": "KR", "nat": "KR", "ovr": 76, "pot": 98}, {"name": "Wolf", "pos": "SUP", "region": "KR", "nat": "KR", "ovr": 74, "pot": 97}, {"name": "GorillA", "pos": "SUP", "region": "KR", "nat": "KR", "ovr": 78, "pot": 99}];
 const BADGES={
  lane:{n:'对线压制',d:'对线 ≥ 88：前期对线 +1.5',t:p=>p.r.lan>=88},
  mech:{n:'操作怪',d:'操作 ≥ 90：团战 +1，击杀机会 +30%',t:p=>p.r.mec>=90},
@@ -521,7 +531,8 @@ function genRookie(region,pos){
 function setAsk(p){const a=age(p);p.ask=Math.max(MINSAL,r5(mv(p.ovr)*(0.95+rnd()*0.25)*(p.star?1.5:1)));p.askY=a<=23?ri(2,3):ri(1,2)}
 
 function newGame(userTid){
-  S={v:2,ev:2,nv:1,pv:1,labs:[],season:2027,phase:'REG',day:0,userTid,teams:{},players:{},nextPid:1,nextGid:1,nextSid:1,games:{},news:[],hist:[],hof:[],owner:[],fin:[],sched:[],po:null,wld:null,faDay:0,fired:false};
+  if(LV?.raf)cancelAnimationFrame(LV.raf);LIVE=null;LV=null;UI.recent=null;
+  S={clubVersion:1,legendDraft:{done:false,pos:null,revealed:{},selected:null},v:2,ev:2,nv:1,pv:1,labs:[],season:2027,phase:'REG',day:0,userTid,teams:{},players:{},nextPid:1,nextGid:1,nextSid:1,games:{},news:[],hist:[],hof:[],owner:[],fin:[],sched:[],po:null,wld:null,faDay:0,fired:false};
   for(const d of TEAM_DATA){
     S.teams[d.id]={id:d.id,name:d.name,lg:d.lg,color:d.color,pop:d.pop,cash:Math.round(d.pop*70),starters:{},st:null,fin:null};
     parseRoster(d.r,d.id);
@@ -540,8 +551,8 @@ const SPLITN={1:'春季赛',2:'夏季赛',3:'秋季赛'};
 const splitName=n=>SPLITN[n||S.split||1];
 function initSeason(){
   for(const p of Object.values(S.players)){p.st={reg:emptyLine(),po:emptyLine(),wld:emptyLine()};p.log=[];p.sg=0}
-  S.labs=[];
-  for(const t of Object.values(S.teams)){t.yst={sw:0,sl:0,gw:0,gl:0};t.fin={spon:0,match:0,prize:0,sal:0,tax:0};t.log=[]}
+  S.labs=[];S.lastReview=null;S.review=null;
+  for(const t of Object.values(S.teams)){t.yst={sw:0,sl:0,gw:0,gl:0};t.fin=null;financeDefaults(t);t.log=[]}
   S.yr={splits:{},msi:null};S.msi=null;S.wld=null;S.po=null;
   startSplit(1);
 }
@@ -566,6 +577,7 @@ function playDay(){
   if(S.phase!=='REG')return;
   const day=S.sched[S.day];
   for(const se of day)if(!se.w)playSeries(se,'reg',`${splitName()}第 ${S.day+1} 轮`);
+  for(const tid of new Set(day.flatMap(se=>[se.a,se.b])))payRound(T(tid));
   S.day++;
   if(S.day>=S.sched.length)startPlayoffs();
 }
@@ -651,18 +663,19 @@ function news(txt,tag){S.news.unshift({s:S.season,txt,tag:tag||''});if(S.news.le
 function autoStarters(t,keep){
   if(!isUser(t.id))keep=false;
   const ro=roster(t.id);const used=new Set();const st={};
-  if(keep)for(const pos of POS){const p=P(t.starters[pos]);if(p&&p.tid===t.id&&!used.has(p.id)){st[pos]=p.id;used.add(p.id)}}
+  const eligible=p=>t.lg!=='LPL'||!isImport(p)||Object.values(st).map(P).filter(isImport).length<2;
+  if(keep)for(const pos of POS){const p=P(t.starters[pos]);if(p&&p.tid===t.id&&!used.has(p.id)&&eligible(p)){st[pos]=p.id;used.add(p.id)}}
   for(const pos of POS){if(st[pos])continue;
-    const nat=ro.filter(p=>p.pos===pos&&!used.has(p.id)).sort((a,b)=>b.ovr-a.ovr)[0];
+    const nat=ro.filter(p=>p.pos===pos&&!used.has(p.id)&&eligible(p)).sort((a,b)=>b.ovr-a.ovr)[0];
     if(nat){st[pos]=nat.id;used.add(nat.id)}}
   for(const pos of POS){if(st[pos])continue;
-    const any=ro.filter(p=>!used.has(p.id)).sort((a,b)=>b.ovr-a.ovr)[0];
+    const any=ro.filter(p=>!used.has(p.id)&&eligible(p)).sort((a,b)=>b.ovr-a.ovr)[0];
     if(any){st[pos]=any.id;used.add(any.id)}}
   t.starters=st;
 }
 function lineup(tid){
   const t=T(tid);const L={};const used=new Set();let bad=false;
-  for(const pos of POS){const p=P(t.starters[pos]);if(!p||p.tid!==tid||used.has(p.id)){bad=true;break}used.add(p.id);L[pos]=p}
+  for(const pos of POS){const p=P(t.starters[pos]);if(!p||p.tid!==tid||used.has(p.id)||(t.lg==='LPL'&&foreignCount(tid)>2)){bad=true;break}used.add(p.id);L[pos]=p}
   if(bad){autoStarters(t,true);return lineup2(tid)}
   return L;
 }
@@ -672,10 +685,11 @@ const isStarter=p=>{const t=S.teams[p.tid];return !!t&&Object.values(t.starters)
 function eff(p,pos){return p.pos===pos?p.ovr:p.ovr-12}
 function teamRating(tid){const L=lineup(tid);return Math.round(POS.reduce((s,pos)=>s+PW[pos]*eff(L[pos],pos),0)/5)}
 function chemOf(tid){const L=lineup(tid);return POS.reduce((s,pos)=>s+Math.min(L[pos].ten||0,2)/2,0)/5}
+const isImport=p=>p&&!['CN','TW','HK'].includes(p.nat)&&!p.res;
 function foreignCount(tid,extra=[],minus=[]){
   const t=T(tid);if(t.lg!=='LPL')return 0;
-  const ids=new Set(roster(tid).map(p=>p.id));minus.forEach(i=>ids.delete(i));extra.forEach(i=>ids.add(i));
-  return [...ids].map(P).filter(p=>!['CN','TW','HK'].includes(p.nat)&&!p.res).length;
+  const ids=new Set(Object.values(T(tid).starters));minus.forEach(i=>ids.delete(i));extra.forEach(i=>ids.add(i));
+  return [...ids].map(P).filter(isImport).length;
 }
 
 /* ================= 比赛模拟 ================= */
@@ -1184,12 +1198,13 @@ function recordGame(se,box,type,label){
   logGame(box,type,label,keep?box.id:0);
 }
 function finishSeries(se,type,label){
+  if(se.w)return;
   se.lab=label;if((isUser(se.a)||isUser(se.b))&&UI.recent)UI.recent.push(se);
   se.w=se.sa>se.sb?se.a:se.b;se.l=se.w===se.a?se.b:se.a;
   if(type==='reg'){const w=T(se.w),l=T(se.l);w.st.sw++;l.st.sl++;w.st.str=w.st.str>0?w.st.str+1:1;l.st.str=l.st.str<0?l.st.str-1:-1;
     for(const t of[w,l]){const inc=Math.round(t.pop*.8+(t===w?15:0));t.cash+=inc;t.fin.match+=inc}}
   if(isUser(se.a)||isUser(se.b)){const me=isUser(se.a)?se.a:se.b,op=me===se.a?se.b:se.a;const ms=me===se.a?se.sa:se.sb,os=me===se.a?se.sb:se.sa;
-    news(`${label}：${T(me).id} ${ms}-${os} ${T(op).id}`,ms>os?'W':'L')}
+    news(`${label}：${T(me).id} ${ms}-${os} ${T(op).id}`,ms>os?'W':'L');S.review={se:JSON.parse(JSON.stringify(se)),advanced:false};}
 }
 function playSeries(se,type,label){
   if(se.w)return se;const need=Math.ceil(se.bo/2);
@@ -1269,6 +1284,7 @@ function seriesMVP(se){
   let best=null,bv=-1;for(const id in tally){const v=tally[id][0]/tally[id][1];if(v>bv){bv=v;best=+id}}return best;
 }
 function finishSeason(){
+  if(S.hist.some(h=>h.s===S.season))return;
   const W=S.wld,s=S.season;
   const fin=W.ko[2][0];
   const wPrize=[700,350,180,180];[fin.w,fin.l,...W.ko[1].map(x=>x.l)].forEach((id,i)=>{T(id).cash+=wPrize[i];T(id).fin.prize+=wPrize[i]});
@@ -1290,7 +1306,7 @@ function finishSeason(){
   const pscore=(n,id,lg)=>{const sp=S.yr.splits[n];if(!sp||!sp[lg])return -.6;const i=sp[lg].place.indexOf(id);return i===0?1:i===1?.7:i>=2&&i<=3?.4:i>=0?.1:-.6};
   for(const t of Object.values(S.teams)){
     if(!['LCK','LPL'].includes(t.lg)){t.cash+=500;continue}
-    const c=coachOf(t.id);const sp_=Math.round(t.pop*t.pop*.45),sal=payroll(t.id),ops=600+(c?c.sal:0),tax=Math.round(Math.max(0,sal-CAP)*TAXR);t.fin.spon=sp_;t.fin.sal=sal+ops;t.fin.tax=tax;t.cash+=sp_-sal-ops-tax;
+    settleFinance(t);
     const y=yrec(t),wp=y.sw/Math.max(1,y.sw+y.sl);let d=(wp-.5)*12;
     if(sp3[t.lg]&&sp3[t.lg].place[0]===t.id)d+=4;if(t.id===fin.w)d+=8;if(W.teams.some(x=>x.t===t.id))d+=2;
     t.pop=clamp(Math.round(t.pop+d),30,100);
@@ -1301,7 +1317,7 @@ function finishSeason(){
     let ps=([1,2,3].reduce((a,n)=>a+pscore(n,u.id,u.lg),0))/3;
     if(S.yr.msi){if(S.yr.msi.c===u.id)ps+=.4;else if(S.yr.msi.place.includes(u.id))ps+=.1}
     const wt=W.teams.find(x=>x.t===u.id);if(u.id===fin.w)ps+=1;else if(wt&&wt.w===3)ps+=.3;else if(wt)ps+=.1;
-    const f=u.fin,profit=f.spon+f.match+f.prize-f.sal-(f.tax||0);
+    const f=u.fin,profit=financeTotals(u).profit;
     const o={s,w:clamp((wp-.5)*2.4,-1,1),p:clamp(ps,-1,1),m:clamp(profit/2000+.2,-1,1),profit};o.tot=(o.w+o.p+o.m)/3;S.owner.push(o);
     S.fin.push({s,spon:f.spon,match:f.match,prize:f.prize,sal:f.sal,tax:f.tax||0,profit,cash:u.cash});
     const pl=n=>{const sp=S.yr.splits[n];const i=sp&&sp[u.lg]?sp[u.lg].place.indexOf(u.id):-1;return i>=0?`第${i+1}`:'未进'};
@@ -1369,7 +1385,7 @@ function resign(pid,years){
 }
 function release(pid){
   const p=P(pid);const left=Math.max(1,p.c.exp-S.season+(offseason()?0:1));const cost=r5(p.c.amt*.5*left);
-  const t=T(p.tid);t.cash-=cost;p.tid='FA';setAsk(p);p.ten=0;autoStarters(t,true);
+  const t=T(p.tid);financeDefaults(t).severance+=cost;t.cash-=cost;p.tid='FA';setAsk(p);p.ten=0;autoStarters(t,true);
   news(`${t.id} 与 ${p.name} 解约，支付违约金 ${money(cost)}`);
 }
 function toFA(){
@@ -1378,7 +1394,7 @@ function toFA(){
     for(const p of roster(t.id)){if(p.c.exp>S.season)continue;
       if(isUser(t.id)){p.tid='FA';setAsk(p);p.ten=0;news(`${p.name} 合同到期，进入自由市场`);continue}
       if(!['LCK','LPL'].includes(t.lg)){if(!p.star&&rnd()<.3){p.tid='FA';setAsk(p);p.ten=0;if(p.ovr>=76)news(`${p.name}（${t.id}，${NAT[p.nat]||p.nat}）合同到期，进入自由市场`)}else p.c={amt:p.c.amt,exp:S.season+ri(1,3)};continue}
-      const{ask}=resignAsk(p);const keep=(p.ovr>=72||(isStarter(p)&&p.ovr>=68))&&payroll(t.id)+ask-p.c.amt<=CAP*(p.ovr>=80?1.35:1.1)&&rnd()<.85;
+      const{ask}=resignAsk(p);const keep=(p.ovr>=72||(isStarter(p)&&p.ovr>=68))&&payroll(t.id)+ask-p.c.amt<=Math.max(0,t.cash)+baseIncome(t)&&rnd()<.85;
       if(keep)p.c={amt:ask,exp:S.season+ri(1,3)};else{p.tid='FA';setAsk(p);p.ten=0;if(p.ovr>=80)news(`${p.name} 与 ${t.id} 合同到期，成为自由选手`)}}
     autoStarters(t,true);
   }
@@ -1390,9 +1406,9 @@ function toFA(){
 function aiFA(prob,force){
   const teams=shuffle(Object.values(S.teams).filter(t=>['LCK','LPL'].includes(t.lg)&&!isUser(t.id)));
   for(const t of teams){
-    const ro=roster(t.id);if(ro.length>=MAXR)continue;
+    const ro=roster(t.id);
     const need=POS.filter(pos=>!ro.some(p=>p.pos===pos));
-    const room=CAP-payroll(t.id);
+    const room=Math.max(0,t.cash)+baseIncome(t)-annualCost(t);
     const fas=roster('FA').filter(p=>foreignCount(t.id,[p.id])<=2||t.lg!=='LPL');
     let target=null;
     if(need.length){const pos=need[0];target=fas.filter(p=>p.pos===pos&&(p.ask<=room||p.ask<=MINSAL*2)).sort((a,b)=>b.ovr-a.ovr)[0];
@@ -1404,6 +1420,7 @@ function aiFA(prob,force){
   }
 }
 function signPlayer(p,tid,amt,years){
+  if(!p||p.tid!=='FA'||!Number.isFinite(amt)||amt<MINSAL||!Number.isInteger(years)||years<1||years>3)return false;
   p.tid=tid;p.c={amt,exp:contractExp(years)};p.ten=0;delete p.ask;delete p.askY;autoStarters(T(tid),true);
   if(isUser(tid)||p.ovr>=78)news(`${T(tid).id} 签下 ${p.name}（${PCN[p.pos]}，OVR ${p.ovr}），${years} 年 ${money(amt)}/年`,isUser(tid)?'W':'');
 }
@@ -1416,7 +1433,6 @@ function startSeason(){
   for(let i=0;i<4;i++){aiFA(1,i===3);decayAsks(.9)}
   for(const t of Object.values(S.teams)){
     if(!['LCK','LPL'].includes(t.lg)){for(const pos of POS)if(!roster(t.id).some(p=>p.pos===pos)){const g=genRookie(t.lg==='EU'?'EU':t.lg==='NA'?'NA':'PCS',pos);g.tid=t.id;g.c={amt:MINSAL,exp:S.season+2};g.ovr=Math.max(g.ovr,70)}}
-    let ro=roster(t.id);while(ro.length>MAXR&&!isUser(t.id)){const w=ro.sort((a,b)=>a.ovr-b.ovr)[0];w.tid='FA';setAsk(w);ro=roster(t.id)}
     autoStarters(t,true)}
   S.season++;
   for(const p of Object.values(S.players)){if(S.teams[p.tid])p.ten=(p.ten||0)+1;delete p.dlt;if(p.tid!=='RET')refreshBadges(p)}
@@ -1447,7 +1463,7 @@ const cq=(tid,k)=>{const c=coachOf(tid);return c?c[k]:75};
 function devMult(tid){return S.teams[tid]?.75+(cq(tid,'dv')-60)/40*.5:1}
 function dropCoach(c){if(!c)return;if(!c.real&&/教练组$/.test(c.name))delete S.coaches[c.id];else c.tid='FA'}
 function hireCoach(id){const c=S.coaches[id],u=T(S.userTid);if(!c||c.tid!=='FA')return;const fee=r5(c.sal*.5);if(u.cash<fee)return toast('资金不足以支付签约费');
-  dropCoach(coachOf(u.id));c.tid=u.id;u.coach=c.id;u.cash-=fee;news(`${u.id} 聘请 ${c.name} 担任主教练（签约费 ${money(fee)}，年薪 ${money(c.sal)}）`,'W');toast(`已聘请 ${c.name}`)}
+  dropCoach(coachOf(u.id));c.tid=u.id;u.coach=c.id;u.cash-=fee;financeDefaults(u).coachFees+=fee;news(`${u.id} 聘请 ${c.name} 担任主教练（签约费 ${money(fee)}，年薪 ${money(c.sal)}）`,'W');toast(`已聘请 ${c.name}`)}
 function aiCoachMarket(){const fa=Object.values(S.coaches).filter(c=>c.tid==='FA').sort((a,b)=>covr(b)-covr(a));
   for(const t of shuffle(Object.values(S.teams).filter(t=>['LCK','LPL'].includes(t.lg)&&!isUser(t.id)))){const cur=coachOf(t.id),best=fa[0];
     if(best&&cur&&covr(best)>=covr(cur)+4&&rnd()<.35){dropCoach(cur);best.tid=t.id;t.coach=best.id;fa.shift();if(S.coaches[cur.id])fa.push(cur);if(covr(best)>=80)news(`${t.id} 换帅：${best.name} 出任主教练`)}}
@@ -1461,7 +1477,7 @@ function pCoach(){const u=T(S.userTid),c=coachOf(u.id);
   const fa=Object.values(S.coaches).filter(x=>x.tid==='FA').sort((a,b)=>covr(b)-covr(a));
   const all=Object.values(S.teams).map(t=>[t,coachOf(t.id)]).filter(x=>x[1]).sort((a,b)=>covr(b[1])-covr(a[1]));
   return`<div class="sec"><h2>教练</h2><div class="grid"><div class="card"><h3>我的主教练</h3>${c?`<div class="row"><b style="font-size:18px">${esc(c.name)}</b><span class="chip">${NAT[c.nat]||c.nat}</span><span class="chip acc">综合 ${covr(c)}</span></div>
-    ${meter('BP 能力',c.dr)}${meter('战术指挥',c.tc)}${meter('选手培养',c.dv)}<div class="small muted">年薪 ${money(c.sal)}（计入运营支出，不占工资帽）</div>`:'<div class="muted">暂无</div>'}</div>
+    ${meter('BP 能力',c.dr)}${meter('战术指挥',c.tc)}${meter('选手培养',c.dv)}<div class="small muted">年薪 ${money(c.sal)}（计入运营支出）</div>`:'<div class="muted">暂无</div>'}</div>
   <div class="card"><h3>教练能力的作用</h3><ul class="cn"><li>BP 能力：决定 BP 质量。能力越高，越会禁掉对方的招牌英雄、选本方熟练的英雄、拿克制对位，失误越少。</li><li>战术指挥：比赛中全队战力加成（75 为基准，每高 10 点约 +0.6），AI 战术安排更合理。</li><li>选手培养：年轻选手的比赛经验和休赛期成长倍率（60 约 ×0.75，100 约 ×1.25）。</li></ul></div></div></div>
   <div class="sec"><div class="sec-h"><h2>教练市场</h2><span class="muted small">聘请需支付半年薪作为签约费，现任主教练会离队</span></div>
   ${fa.length?`<div class="wrap-x"><table class="tbl"><thead><tr><th>教练</th><th>国籍</th><th class="n">BP</th><th class="n">战术</th><th class="n">培养</th><th class="n">综合</th><th class="n">年薪</th><th class="n">签约费</th><th></th></tr></thead><tbody>
@@ -1490,18 +1506,12 @@ function evalTrade(){
   if(!['REG','RESIGN','FA'].includes(S.phase))out.errs.push('季后赛与世界赛期间交易窗口关闭');
   if(!give.length&&!get.length)out.errs.push('选择要交易的选手');
   const myN=roster(me).length-give.length+get.length,otN=roster(ot).length-get.length+give.length;
-  if(myN>MAXR)out.errs.push(`交易后你的阵容超过 ${MAXR} 人`);
-  if(otN>MAXR)out.errs.push(`交易后对方阵容超过 ${MAXR} 人`);
   if(otN<3)out.errs.push('对方交易后人数太少，不会接受');
-  if(foreignCount(me,get.map(p=>p.id),give.map(p=>p.id))>2)out.errs.push('LPL 外援名额上限为 2 人');
-  if(foreignCount(ot,give.map(p=>p.id),get.map(p=>p.id))>2)out.errs.push('对方外援名额将超过 2 人');
   if(cash>T(me).cash)out.errs.push('俱乐部资金不足以支付转会费');
   if(cash<0||cin<0)out.errs.push('转会费不能为负数');
   if(cin>T(ot).cash)out.errs.push(`对方资金不足（现有 ${money(T(ot).cash)}）`);
   const sin=get.reduce((s,p)=>s+p.c.amt,0),sout=give.reduce((s,p)=>s+p.c.amt,0);
   out.sin=sin;out.sout=sout;out.after=payroll(me)-sout+sin;
-  if(out.after>CAP&&sin>sout*1.25+10)out.errs.push(`超出工资帽 ${money(CAP)}：引进薪资不能超过送出薪资的 125%`);
-  if(['LCK','LPL'].includes(T(ot).lg)&&payroll(ot)-sin+sout>CAP*1.15&&sout>sin*1.25+10)out.errs.push('对方会超出工资帽，接不下这份薪水');
   const vin=Math.round(give.reduce((s,p)=>s+tradeValue(p)*.9,0)+cash),vout=get.reduce((s,p)=>s+buyout(p),0);
   let needPen=0;const otL=lineup(ot);for(const p of get){if(otL[p.pos].id!==p.id)continue;const repl=[...roster(ot).filter(q=>!UI.tt.includes(q.id)),...give,...roster('FA')].filter(q=>q.pos===p.pos).sort((a,b)=>b.ovr-a.ovr)[0];const drop=p.ovr-(repl?repl.ovr:50);if(drop>2)needPen+=tradeValue(p)*Math.min(.4,drop*.03)}
   out.vin=vin;out.vout=Math.round(vout+needPen+cin);out.diff=Math.round(vin-(vout+needPen+cin)*1.05);out.ok=!out.errs.length&&out.diff>=0;
@@ -1517,7 +1527,7 @@ function doTrade(){
   const e=evalTrade();if(!e||!e.ok)return;
   const me=S.userTid,ot=UI.tradeT;
   for(const p of e.give){p.tid=ot;p.ten=0}for(const p of e.get){p.tid=me;p.ten=0}
-  T(me).cash+=e.cin-e.cash;T(ot).cash+=e.cash-e.cin;
+  T(me).cash+=e.cin-e.cash;T(ot).cash+=e.cash-e.cin;financeDefaults(T(me)).transferIn+=e.cin;T(me).fin.transferOut+=e.cash;financeDefaults(T(ot)).transferIn+=e.cash;T(ot).fin.transferOut+=e.cin;
   aiRefill(ot);autoStarters(T(me),true);autoStarters(T(ot),true);
   news(`交易完成：${me} 送出 ${e.give.map(p=>p.name).join('、')||'无'}${e.cash?` + ${money(e.cash)}转会费`:''}，从 ${ot} 得到 ${e.get.map(p=>p.name).join('、')||'无'}${e.cin?` + ${money(e.cin)}转会费`:''}`,'W');
   UI.tm=[];UI.tt=[];UI.cash=0;UI.cin=0;toast('交易完成');
@@ -1549,41 +1559,46 @@ const phaseName=()=>({REG:`${splitName()} · 第 ${Math.min(S.day+1,S.sched.leng
 const phRoute=()=>({REG:'home',PO:'playoffs',MSI:'msi',WLD:'worlds',DONE:'summary'}[S.phase]||'home');
 
 function actions(){
+  if(S.review)return [['review','查看整场复盘']];
+  if(R.p==='legend'&&!draftState().done)return [];
+  if(R.p==='match'&&LIVE)return [];
   const pd=userPending();const mx=pd?[['match',LIVE&&LIVE.se===pd.se&&LIVE.stage!=='pre'?'回到比赛':'比赛日：'+pd.label.replace('常规赛','')]]:[];
   return mx.concat(actions0())}
 function actions0(){
   switch(S.phase){
-    case'REG':return[['day','模拟本轮'],['week','模拟 5 轮'],['reg','至本赛段常规赛结束']];
-    case'PO':return[['po1','模拟本轮季后赛'],['poall','至季后赛结束']];
-    case'MSI':return[['msi1','模拟本轮 MSI'],['msiall','至 MSI 结束']];
-    case'WLD':return[['w1',S.wld.stage==='swiss'?`瑞士轮 R${S.wld.rounds.length+1}`:'下一轮淘汰赛'],['wall','至世界赛结束']];
+    case'REG':return[['day','快速模拟本轮']];
+    case'PO':return[['po1','快速模拟本轮']];
+    case'MSI':return[['msi1','快速模拟本轮']];
+    case'WLD':return[['w1','快速模拟本轮']];
     case'DONE':return[['off','进入休赛期']];
     case'RESIGN':return[['tofa','进入自由市场']];
     case'FA':return[['fad','推进一天'],['newsea',`开始 ${S.season+1} 赛季`]];
   }return[];
 }
 function doAct(k){
+  if(S.review){R={p:'review'};render();return}
+  if(['match','day','week','reg','po1','poall','msi1','msiall','w1','wall'].includes(k)&&POS.some(pos=>!lineup(S.userTid)[pos].id)){toast('请先安排完整的五人首发，LPL 首发最多两位外援');return}
   const ph0=S.phase;UI.recent=[];
   if(k==='match'){R={p:'match'};render();window.scrollTo(0,0);return}
   if(['day','week','reg','po1','poall','msi1','msiall','w1','wall'].includes(k)){LIVE=null;if(LV&&LV.raf){cancelAnimationFrame(LV.raf);LV.raf=0}}
   if(['day','week','reg'].includes(k)&&roster(S.userTid).length<5){toast('阵容不足 5 人，先去自由市场签约');return}
   if(k==='day')playDay();
-  else if(k==='week'){for(let i=0;i<5&&S.phase==='REG';i++)playDay()}
-  else if(k==='reg'){while(S.phase==='REG')playDay()}
+  else if(k==='week'){for(let i=0;i<5&&S.phase==='REG'&&!UI.recent.length;i++)playDay()}
+  else if(k==='reg'){while(S.phase==='REG'&&!UI.recent.length)playDay()}
   else if(k==='po1')playPORound();
-  else if(k==='poall'){while(S.phase==='PO')playPORound()}
+  else if(k==='poall'){while(S.phase==='PO'&&!UI.recent.length)playPORound()}
   else if(k==='msi1')playMSIRound();
-  else if(k==='msiall'){while(S.phase==='MSI')playMSIRound()}
+  else if(k==='msiall'){while(S.phase==='MSI'&&!UI.recent.length)playMSIRound()}
   else if(k==='w1')playWorldsRound();
-  else if(k==='wall'){while(S.phase==='WLD')playWorldsRound()}
+  else if(k==='wall'){while(S.phase==='WLD'&&!UI.recent.length)playWorldsRound()}
   else if(k==='off')toResign();
   else if(k==='tofa')toFA();
   else if(k==='fad')faDay();
   else if(k==='newsea'){if(!startSeason())return}
   if(S.phase!==ph0&&['REG','PO','MSI','WLD','DONE'].includes(S.phase))R={p:phRoute()};
   if(k==='off')R={p:'resign'};if(k==='tofa')R={p:'fa'};if(k==='newsea')R={p:'home'};
-  save();render();
-  if(UI.recent&&UI.recent.length)openModal(seriesReport(UI.recent.slice().reverse()));UI.recent=null;
+  if(S.review){S.review.advanced=true;R={p:'review'}}
+  save();render();UI.recent=null;
 }
 
 /* ================= 比赛日界面 ================= */
@@ -1607,9 +1622,9 @@ function mxHead(L,gn){const se=L.se,u=S.userTid,opp=se.a===u?se.b:se.a;const ms=
   return`<div class="mx-head">${tb(u,true)}<b class="mx-score num">${ms} : ${os}</b>${tb(opp,true)}<div class="grow"><b>${esc(L.label)}</b><div class="small muted">BO${se.bo} · 第 ${gn||liveGN(L)} 局 · ${esc(T(u).name)} vs ${esc(T(opp).name)}</div></div>
     ${(se.used||[]).length?`<div class="small muted mx-used">Fearless 已用：${se.used.map(c=>esc(c)).join('、')}</div>`:''}</div>`}
 const tacSeg=(L,k,act)=>`<div class="field"><span>${{tempo:'节奏',focus:'资源重心',late:'中后期打法'}[k]}</span><div class="seg">${Object.entries(TACN[k]).map(([v,l])=>`<button data-a="${act}" data-k="${k}" data-v="${v}" class="${L.tac[k]===v?'on':''}" title="${esc(TACD[v])}">${l}</button>`).join('')}</div></div>`;
-function pMatch(){const L=liveGet();
+function pMatch(){if(S.review)return pReview();const L=liveGet();
   if(!L)return`<div class="sec"><h2>比赛日</h2><p class="muted">当前没有你的比赛。</p><a data-a="go" data-p="home">返回主页</a></div>`;
-  if(L.stage==='pre'||L.stage==='bp'||L.stage==='ready'){autoBP(L);startLive(true)}
+  if(L.stage==='pre'||L.stage==='bp'||L.stage==='ready')return pPre(L);
   if(L.stage==='live')return pLive(L);return pPost(L)}
 function pPre(L){
   const tids=liveTids(L),us=isUser(tids[0])?0:1,opp=tids[1-us];const used=new Set(L.se.used||[]);
@@ -1624,7 +1639,7 @@ function pPre(L){
   <div class="card"><h3>阵营</h3>${canPickSide(L)?`<div class="small muted">上一局失利，由你选边</div><div class="seg"><button data-a="pside" data-v="0" class="${L.sidePick===0?'on':''}">蓝色方 · 一选</button><button data-a="pside" data-v="1" class="${L.sidePick===1?'on':''}">红色方 · 最后一手</button></div>`:`<div>本局你是 <b>${us===0?'蓝色方':'红色方'}</b>，${us===0?'拥有第一手选择':'拥有最后一手 Counter 位'}。</div>`}
     <label class="row small"><input type="checkbox" id="adec" data-a="adec" ${L.autoDec?'checked':''}> 比赛决策全部交给教练组（不停在决策节点，直接出结果）</label></div>
   </div>
-  <div class="row"><button class="btn pri" data-a="bpgo">开始 BP</button><button class="btn" data-a="qgame">快速模拟本局</button><button class="btn" data-a="qseries">快速模拟剩余比赛</button></div>`;
+  <div class="row"><button class="btn pri" data-a="bpgo">观看比赛（教练 BP）</button><button class="btn" data-a="qgame">快速模拟本局</button><button class="btn" data-a="qseries">快速模拟剩余比赛</button></div>`;
 }
 function bpLs(L){const t=liveTids(L);return[lineup(t[0]),lineup(t[1])]}
 function compBars(pk,Ls,s){const o=compOf(pk),cm=compMods(o);const n=Object.keys(pk).length;if(!n)return'<div class="small muted">还没有选人</div>';
@@ -1711,13 +1726,14 @@ function bpUser(ch){const L=LIVE,d=L.dr;if(!d||d.step>=20)return;const us=isUser
     d.picks[s][pos]=ch;L.bpRole=null}
   d.step++;render();bpTick()}
 function startLive(noRender){const L=LIVE;const tids=liveTids(L),us=isUser(tids[0])?0:1;const tac=[null,null];tac[us]={...L.tac};S.utac={...L.tac};
-  L.us=us;L.m=new Match(tids[0],tids[1],L.dr,{type:L.type,gn:liveGN(L),user:us,tac,auto:false});L.stage='live';lvReset();if(!noRender)render()}
-function afterGame(box){const L=LIVE;recordGame(L.se,box,L.type,L.label);L.box=box;L.m=null;L.dr=null;const need=Math.ceil(L.se.bo/2);
+  L.us=us;L.m=new Match(tids[0],tids[1],L.dr,{type:L.type,gn:liveGN(L),user:us,tac,auto:L.autoDec});L.stage='live';lvReset();if(!noRender)render()}
+function afterGame(box){const L=LIVE;if(!L||L.final||L.se.w)return;recordGame(L.se,box,L.type,L.label);L.box=box;L.m=null;L.dr=null;const need=Math.ceil(L.se.bo/2);
   if(L.se.sa>=need||L.se.sb>=need){finishSeries(L.se,L.type,L.label);L.final=true}
-  L.stage='post';save()}
-function completeRound(){LIVE=null;const ph=S.phase;
-  if(ph==='REG')playDay();else if(ph==='PO')playPORound();else if(ph==='MSI')playMSIRound();else if(ph==='WLD')playWorldsRound();
-  R={p:S.phase!==ph?phRoute():(ph==='REG'?'home':phRoute())};save();render();window.scrollTo(0,0)}
+  L.stage='post';if(L.final)R={p:'review'};save()}
+function completeRound(){const q=S.review;if(!q)return;LIVE=null;
+  if(LV?.raf)cancelAnimationFrame(LV.raf);LV=null;
+  if(!q.advanced){if(S.phase==='REG')playDay();else if(S.phase==='PO')playPORound();else if(S.phase==='MSI')playMSIRound();else if(S.phase==='WLD')playWorldsRound()}
+  S.lastReview=q;S.review=null;R={p:'home'};save();render();window.scrollTo(0,0)}
 function pPost(L){const b=L.box;const u=S.userTid,us=b.a===u?0:1,win=b.w===u;
   const k=[0,1].map(s=>b.ps.filter(r=>r[2]===s).reduce((a,r)=>a+r[5],0)),g=[0,1].map(s=>b.ps.filter(r=>r[2]===s).reduce((a,r)=>a+r[9],0));const mvp=b.ps.find(r=>r[11]);
   const row=r=>`<tr class="${r[11]?'me':''}"><td>${posb(r[3])} ${esc(r[1])}</td><td>${chIco(r[4],1)} ${esc(r[4])}</td><td class="n">${r[5]}/${r[6]}/${r[7]}</td><td class="n">${gkda(r[5],r[6],r[7])}</td><td class="n">${r[8]}</td><td class="n">${r[9].toFixed(1)}k</td><td class="n">${r[10].toFixed(1)}</td></tr>`;
@@ -1897,10 +1913,10 @@ function lvSkip(){const M=LIVE.m;M.auto=true;if(M.pending)M.decide(M.aiChoice(M.
 function render(){
   const app=document.getElementById('app');
   if(!S){app.innerHTML=startScreen();return}
-  if(S.fired){app.innerHTML=firedScreen();return}
+  if(S.fired&&!S.review){app.innerHTML=firedScreen();return}
   const u=T(S.userTid);
-  const nav=[['home','主页','HQ'],...(userPending()?[['match','比赛日','LIVE']]:[]),['roster','阵容','ROSTER'],['sched','赛程','SCHED'],['stand','积分榜','TABLE'],['playoffs','季后赛','PO'],['msi','MSI','MSI'],['worlds','世界赛','WORLDS'],
-    ['players','选手库','PLAYERS'],['coach','教练','COACH'],['trade','交易','TRADE'],['fa','自由市场','FA'],...(S.phase==='RESIGN'?[['resign','续约','CONTRACT']]:[]),['finance','财务','FIN'],['summary','赛季总结','AWARDS'],['history','历史','HIST'],['save','存档','SAVE']];
+  const nav=[['home','主页','HQ'],...(S.review?[['review','整场复盘','REVIEW']]:[]),...(userPending()?[['match','比赛日','LIVE']]:[]),['roster','阵容','ROSTER'],['sched','赛程','SCHED'],['stand','积分榜','TABLE'],['playoffs','季后赛','PO'],['msi','MSI','MSI'],['worlds','世界赛','WORLDS'],
+    ['players','选手库','PLAYERS'],['coach','教练','COACH'],['trade','交易','TRADE'],['fa','自由市场','FA'],...(S.phase==='RESIGN'?[['resign','续约','CONTRACT']]:[]),['finance','收支与赞助','FIN'],['summary','赛季总结','AWARDS'],['history','历史','HIST'],['save','存档','SAVE']];
   const pageHtml=page();
   const acts=actions();
   app.innerHTML=`<header class="top"><div class="brand">峡谷经理<small>LOL GM</small></div>
@@ -1912,7 +1928,7 @@ function render(){
 }
 function page(){
   try{switch(R.p){
-    case'home':return pHome();case'roster':return pTeam(S.userTid);case'team':return pTeam(R.a);case'sched':return pSched();
+    case'review':return pReview();case'legend':return pLegend();case'home':return pHome();case'roster':return pTeam(S.userTid);case'team':return pTeam(R.a);case'sched':return pSched();
     case'stand':return pStand();case'playoffs':return pPlayoffs();case'worlds':return pWorlds();case'players':return pPlayers();
     case'trade':return pTrade();case'fa':return pFA();case'resign':return pResign();case'finance':return pFinance();
     case'match':return pMatch();case'msi':return pMSI();case'coach':return pCoach();case'summary':return pSummary();case'history':return pHistory();case'save':return pSave();case'game':return pGame(R.a);
@@ -1940,7 +1956,7 @@ function firedScreen(){
 }
 function nextSeries(){
   const pd=userPending();if(pd)return{se:pd.se,d:S.phase==='REG'?S.day:null};
-  if(S.phase==='REG'){for(let d=S.day;d<S.sched.length;d++){const se=S.sched[d].find(s=>isUser(s.a)||isUser(s.b));if(se)return{se,d}}}
+  if(S.phase==='REG'){for(let d=S.day;d<S.sched.length;d++){const se=S.sched[d].find(s=>!s.w&&(isUser(s.a)||isUser(s.b)));if(se)return{se,d}}}
   return null;
 }
 function pHome(){
@@ -1952,13 +1968,14 @@ function pHome(){
     <div class="stat-row" style="margin-left:auto"><div><b>${u.st.sw}-${u.st.sl}</b><span>大场战绩</span></div><div><b>${u.st.gw}-${u.st.gl}</b><span>小场</span></div><div><b>#${rank}</b><span>${u.lg} 排名</span></div><div><b>${money(u.cash)}</b><span>俱乐部资金</span></div></div></section>
   <div class="grid">
     <div class="card"><h3>下一场</h3>${opp?`<div class="row" style="gap:14px">${tb(u.id)}<b class="num">${teamRating(u.id)}</b><span class="muted">vs</span><b class="num">${teamRating(opp)}</b>${tb(opp)}<span class="chip">BO${nx.se.bo}</span></div>
-      <div class="small muted">${esc(T(opp).name)} · ${T(opp).st&&T(opp).lg===u.lg?`${T(opp).st.sw}-${T(opp).st.sl}`:''}${nx.d!=null?` · 第 ${nx.d+1} 轮`:''}</div>${userPending()&&userPending().se===nx.se?'<div class="row"><button class="btn pri" data-a="act" data-k="match">进入比赛日</button><span class="small muted">BP、战术和小地图直播</span></div>':''}`:`<div class="muted">${S.phase==='REG'?'本赛季没有剩余比赛':offseason()?'休赛期：处理合同和转会':'本阶段没有你的比赛'}</div>`}</div>
+      <div class="small muted">${esc(T(opp).name)} · ${T(opp).st&&T(opp).lg===u.lg?`${T(opp).st.sw}-${T(opp).st.sl}`:''}${nx.d!=null?` · 第 ${nx.d+1} 轮`:''}</div>${opponentIntel(opp)}${userPending()&&userPending().se===nx.se?'<div class="row"><button class="btn pri" data-a="act" data-k="match">进入比赛日</button><span class="small muted">BP、战术和小地图直播</span></div>':''}`:`<div class="muted">${S.phase==='REG'?'本赛季没有剩余比赛':offseason()?'休赛期：处理合同和转会':'本阶段没有你的比赛'}</div>`}</div>
     <div class="card"><h3>首发阵容</h3><div class="list">${POS.map(pos=>{const p=L[pos];return`<div>${posb(pos)}<span class="grow">${pl(p)}${p.pos!==pos&&p.id?' <span class="chip">非本位</span>':''}</span>${ov(p.ovr)}</div>`}).join('')}</div>
       <div class="small muted">默契 ${pct(chemOf(u.id))} · 进入阵容页调整首发</div></div>
-    <div class="card"><h3>近期战报</h3>${recent.length?`<div class="list">${recent.map(n=>`<div><span class="${n.tag}">${n.tag==='W'?'胜':'负'}</span><span class="grow">${esc(n.txt)}</span></div>`).join('')}</div>`:'<div class="muted small">还没有比赛。点右上角“下一轮”开打。</div>'}</div>
+    <div class="card"><h3>近期战报</h3>${recent.length?`<div class="list">${recent.map(n=>`<div><span class="${n.tag}">${n.tag==='W'?'胜':'负'}</span><span class="grow">${esc(n.txt)}</span></div>`).join('')}</div>`:'<div class="muted small">还没有比赛。先查看下一场对手，再进入赛前准备。</div>'}</div>
     <div class="card"><h3>老板评价</h3>${o?['w','p','m'].map(k=>`<div class="meter"><span>${{w:'常规赛',p:'季后赛',m:'财务'}[k]}</span><div class="bar ${o[k]<0?'warn':''}"><i style="width:${(o[k]+1)*50}%"></i></div><span class="num">${o[k].toFixed(2)}</span></div>`).join('')+`<div class="small muted">${S.owner.length>=3&&o.tot<0?'连续不达标可能被解雇':'评价按最近三个赛季平均计算'}</div>`:'<div class="small muted">首个赛季结束后，老板会从常规赛、季后赛和财务三方面评价你。</div>'}</div>
-    <div class="card"><h3>工资帽</h3><div class="row"><b class="num">${money(pr)}</b><span class="muted small">/ ${money(CAP)}</span></div><div class="bar ${pr>CAP?'warn':''}"><i style="width:${Math.min(100,pr/CAP*100)}%"></i></div>
-      <div class="small muted">超出工资帽的部分要交 50% 奢侈税，同时只能签底薪自由选手，交易引进薪资不能超过送出的 125%。</div></div>
+    ${financeCard()}
+    ${!draftState().done?'<div class="card"><h3>传奇新生</h3><p>先选位置，再选一位 17 岁退役传奇加入。</p><button class="btn" data-a="go" data-p="legend">开启传奇招募</button></div>':''}
+    ${S.lastReview?'<div class="card"><h3>上一场复盘</h3><button class="btn" data-a="go" data-p="review">回看整场表现</button></div>':''}
     <div class="card"><h3>${u.lg} 积分榜</h3><div class="list">${st.slice(0,6).map((t,i)=>`<div><span class="num muted" style="width:18px">${i+1}</span>${tb(t.id)}<span class="grow">${esc(t.name)}</span><span class="num">${t.st.sw}-${t.st.sl}</span></div>`).join('')}</div><a data-a="go" data-p="stand" class="small">完整积分榜 →</a></div>
   </div>
   <div class="sec"><h3>联盟动态</h3><div class="list">${S.news.slice(0,12).map(n=>`<div><span class="chip ${n.tag==='gold'?'gold':''}">${n.s}</span><span class="grow">${esc(n.txt)}</span></div>`).join('')}</div></div>`;
@@ -1979,7 +1996,7 @@ function pTeam(tid){
       <td class="n">${age(p)}</td><td class="n">${ov(p.ovr)}</td><td class="n">${p.pot}</td><td class="n ${p.sg>0?'W':''}">${p.sg>0?'+'+p.sg:'-'}</td>${ATTR.map(a=>`<td class="n">${p.r[a[0]]}</td>`).join('')}<td class="n">${money(p.c.amt)}</td><td class="n">${p.c.exp}${resign&&p.c.exp<=S.season?' <span class="chip gold">到期</span>':''}</td>
       <td class="n">${money(tradeValue(p))}</td>${mine?`<td><button class="btn sm warn" data-a="release" data-id="${p.id}">解约</button></td>`:''}</tr>`).join('')}
   </tbody></table></div>
-  ${mine?`<div class="note">解约需支付剩余合同 50% 的违约金。阵容上限 ${MAXR} 人。${T(tid).lg==='LPL'?`LPL 外援上限 2 人（当前 ${foreignCount(tid)}）。`:''}</div>`:''}
+  ${mine?`<div class="note">解约需支付剩余合同 50% 的违约金。签约人数不限。${T(tid).lg==='LPL'?`LPL 首发最多 2 位外援（当前 ${foreignCount(tid)}）。`:''}</div>`:''}
   <div class="sec"><div class="sec-h"><h2>本季数据汇总</h2><span class="muted small">常规赛 + 季后赛 + 世界赛</span></div>${teamStatsHtml(tid)}</div>
   <div class="sec"><h2>逐局记录</h2>${teamLogHtml(tid)}</div>`;
 }
@@ -2081,44 +2098,35 @@ function pTrade(){
     <div class="note">可以和 LEC、LCS、LCP 的海外队伍交易，比如从 G2 买 Caps。也可以把选手卖给对方换转会费：在下方填“对方支付给你”的金额。身价就是买断费，按能力、潜力、明星效应和剩余合同年限计算。对方核心选手（队内前二且 OVR ≥ 84）要价 ×1.3，效力超过一年的老牌明星是“队魂”，要价 ×2.5，挖走对方首发且没有同位置补偿还会再加价。你送出的选手对方按九折计价，整体还要多给 5%。季后赛和世界赛期间交易窗口关闭。</div></div>
   ${ot?`<div class="cols2"><div class="sec"><h3>你送出 · ${me}</h3>${col(me,UI.tm,'tm')}<label class="field">你支付的转会费（万元）<input type="number" id="trc" min="0" step="10" value="${UI.cash||0}" data-a="trcash"></label></div>
     <div class="sec"><h3>你得到 · ${ot}</h3>${col(ot,UI.tt,'tt')}<label class="field">对方支付给你的转会费（万元，对方现有 ${money(T(ot).cash)}）<input type="number" id="trci" min="0" step="10" value="${UI.cin||0}" data-a="trcin"></label></div></div>
-    ${e?`<div class="card"><div class="row"><span>对方得到价值 <b class="num">${money(e.vin)}</b></span><span>对方付出价值 <b class="num">${money(Math.round(e.vout))}</b></span><span class="muted">交易后你的薪资 ${money(e.after)} / ${money(CAP)}</span></div>
+    ${e?`<div class="card"><div class="row"><span>对方得到价值 <b class="num">${money(e.vin)}</b></span><span>对方付出价值 <b class="num">${money(Math.round(e.vout))}</b></span><span class="muted">交易后你的薪资 ${money(e.after)}</span></div>
       <div class="verdict ${e.ok?'ok':'no'}">${e.errs.length?e.errs.join('；'):e.ok?`${T(ot).name} 愿意接受这笔交易。`:`${T(ot).name} 拒绝：还差约 ${money(-e.diff)} 的价值。`}</div>
       <div class="row"><button class="btn pri" data-a="dotrade" ${e.ok?'':'disabled'}>确认交易</button><button class="btn" data-a="trclear">清空</button></div></div>`:''}`:'<div class="muted">先选择一支交易对象。</div>'}`;
 }
 function pFA(){
-  const all=roster('FA');const u=T(S.userTid);const room=CAP-payroll(u.id);
+  const all=roster('FA');const u=T(S.userTid);
   const cnt_={};for(const p of all)cnt_[p.nat]=(cnt_[p.nat]||0)+1;const nats=Object.keys(cnt_).sort((a,b)=>cnt_[b]-cnt_[a]);
   const fas=all.filter(p=>(UI.faNat==='ALL'||p.nat===UI.faNat)&&(UI.faPos==='ALL'||p.pos===UI.faPos)&&p.pot>=UI.faPot);
   const val={ovr:p=>p.ovr,pot:p=>p.pot,gap:p=>p.pot-p.ovr,age:p=>age(p),ask:p=>p.ask}[UI.faSort]||(p=>p.pot);
   fas.sort((a,b)=>(val(a)-val(b))*UI.faDir||b.ovr-a.ovr);
   const th=(k,l)=>`<th class="n s" data-a="fasort" data-k="${k}">${l}${UI.faSort===k?(UI.faDir<0?' ↓':' ↑'):''}</th>`;
   const seg=(key,opts)=>`<div class="seg">${opts.map(([v,l])=>`<button data-a="faf" data-f="${key}" data-v="${v}" class="${String(UI[key])===String(v)?'on':''}">${l}</button>`).join('')}</div>`;
-  return`<div class="sec"><div class="sec-h"><h2>自由市场</h2><span class="muted small">${all.length} 名自由选手，筛选后 ${fas.length} 名 · 工资帽空间 ${money(room)} · 阵容 ${roster(u.id).length}/${MAXR}</span></div>
+  return`<div class="sec"><div class="sec-h"><h2>自由市场</h2><span class="muted small">${all.length} 名自由选手，筛选后 ${fas.length} 名 · 年薪总额 ${money(payroll(u.id))} · 阵容 ${roster(u.id).length} 人</span></div>
     <div class="row"><label class="field">国籍<select id="fanat" data-a="fanat"><option value="ALL">全部国籍</option>${nats.map(n=>`<option value="${n}" ${UI.faNat===n?'selected':''}>${NAT[n]||n}（${cnt_[n]}）</option>`).join('')}</select></label>
     ${seg('faPos',[['ALL','全部'],...POS.map(p=>[p,PCN[p]])])}${seg('faPot',[[0,'全部潜力'],[80,'潜力 80+'],[85,'潜力 85+'],[90,'潜力 90+']])}</div>
-    <div class="note">选手按要价签约，点表头可以排序。工资帽空间不足时只能签要价不超过 ${money(MINSAL)} 的底薪选手。LPL 外援上限 2 人（中国台湾、中国香港选手不算外援）。新秀来自世界各地，偶尔会出现潜力 90+ 的天才。${S.phase==='FA'?'AI 球队会在每个自由市场日抢人。':'赛季中也能签人。'}</div>
+    <div class="note">选手按要价签约，点表头可以排序。签约人数和薪资不限，请在收支页评估资金。LPL 首发外援上限 2 人（中国台湾、中国香港选手不算外援）。新秀来自世界各地，偶尔会出现潜力 90+ 的天才。${S.phase==='FA'?'AI 球队会在每个自由市场日抢人。':'赛季中也能签人。'}</div>
     <div class="wrap-x tall"><table class="tbl"><thead><tr><th>选手</th><th>位置</th><th>国籍</th><th>风格 / 徽章</th><th>来源</th>${th('age','年龄')}${th('ovr','OVR')}${th('pot','POT')}${th('gap','成长空间')}${ATTR.map(a=>`<th class="n">${a[1]}</th>`).join('')}${th('ask','要价/年')}<th class="n">年限</th><th></th></tr></thead><tbody>
-    ${fas.map(p=>{const can=roster(u.id).length<MAXR&&(p.ask<=room||p.ask<=MINSAL)&&foreignCount(u.id,[p.id])<=2;
+    ${fas.map(p=>{const can=p.tid==='FA';
       return`<tr><td>${pl(p)}</td><td>${posb(p.pos)}</td><td>${NAT[p.nat]||p.nat}</td><td>${styChip(p)} ${bdChips(p)}</td><td class="small">${p.cl?'LCK CL':p.gen?'新秀':'自由选手'}</td><td class="n">${age(p)}</td><td class="n">${ov(p.ovr)}</td><td class="n">${p.pot>=90?`<b class="W">${p.pot}</b>`:p.pot}</td><td class="n">${p.pot-p.ovr>0?'+'+(p.pot-p.ovr):'-'}</td>${ATTR.map(a=>`<td class="n">${p.r[a[0]]}</td>`).join('')}<td class="n">${money(p.ask)}</td><td class="n">${p.askY} 年</td>
       <td><button class="btn sm ${can?'pri':''}" data-a="sign" data-id="${p.id}" ${can?'':'disabled'}>签约</button></td></tr>`}).join('')||'<tr><td colspan="20" class="muted">没有符合条件的选手</td></tr>'}</tbody></table></div></div>`;
 }
 function pResign(){
   const ex=roster(S.userTid).filter(p=>p.c.exp<=S.season);
   return`<div class="sec"><div class="sec-h"><h2>续约谈判</h2><span class="muted small">合同到期 ${ex.length} 人 · 进入自由市场时未续约的选手会离队</span></div>
-  <div class="note">续约意愿取决于本季胜率、是否首发和俱乐部人气。签 1 年要价略高；年轻选手签 3 年也要更多。续约不受工资帽限制。</div>
+  <div class="note">续约意愿取决于本季胜率、是否首发和俱乐部人气。签 1 年要价略高；年轻选手签 3 年也要更多。全部合同年薪计入俱乐部支出。</div>
   ${ex.length?`<div class="wrap-x"><table class="tbl"><thead><tr><th>选手</th><th>位置</th><th class="n">年龄</th><th class="n">OVR</th><th class="n">POT</th><th class="n">本季成长</th><th class="n">当前年薪</th><th>意愿</th><th class="n">要价/年</th><th></th></tr></thead><tbody>
   ${ex.map(p=>{const{ask,mood,willing}=resignAsk(p);return`<tr><td>${pl(p)}</td><td>${posb(p.pos)}</td><td class="n">${age(p)}</td><td class="n">${ov(p.ovr)}</td><td class="n">${p.pot}</td><td class="n ${p.dlt>0?'W':p.dlt<0?'L':''}">${p.dlt>0?'+':''}${p.dlt||0}</td><td class="n">${money(p.c.amt)}</td>
     <td>${willing?(mood>.7?'<span class="chip acc">很想留下</span>':mood>.4?'<span class="chip">愿意谈</span>':'<span class="chip">犹豫</span>'):'<span class="chip L">拒绝续约</span>'}</td><td class="n">${willing?money(ask):'-'}</td>
     <td>${willing?[1,2,3].map(y=>`<button class="btn sm" data-a="resign" data-id="${p.id}" data-y="${y}">${y} 年</button>`).join(' '):''} <button class="btn sm warn" data-a="release" data-id="${p.id}">放弃</button></td></tr>`}).join('')}</tbody></table></div>`:'<div class="muted">没有合同到期的选手。点右上角进入自由市场。</div>'}</div>`;
-}
-function pFinance(){
-  const u=T(S.userTid);const ro=roster(u.id).sort((a,b)=>b.c.amt-a.c.amt);const f=u.fin;
-  return`<div class="sec"><h2>财务</h2><div class="stat-row"><div><b>${money(u.cash)}</b><span>俱乐部资金</span></div><div><b>${money(payroll(u.id))}</b><span>薪资总额</span></div><div><b>${money(CAP)}</b><span>工资帽</span></div><div><b>${u.pop}</b><span>人气</span></div></div></div>
-  <div class="grid"><div class="card"><h3>本季收支</h3><dl class="kv"><dt>比赛收入</dt><dd>${money(f.match)}</dd><dt>奖金</dt><dd>${money(f.prize)}</dd><dt>赞助（赛季末结算）</dt><dd>${f.spon?money(f.spon):'约 '+money(u.pop*u.pop*.45)}</dd><dt>薪资+运营（赛季末结算）</dt><dd>${f.sal?money(f.sal):'约 '+money(payroll(u.id)+600)}</dd><dt>奢侈税</dt><dd>${f.tax?money(f.tax):'约 '+money(Math.max(0,payroll(u.id)-CAP)*TAXR)}</dd></dl>
-    <div class="small muted">比赛收入按人气发放，胜场额外加成。赞助额 ≈ 人气² × 0.45 万。薪资超出工资帽的部分要交 50% 奢侈税。</div></div>
-  <div class="card"><h3>合同</h3><div class="list">${ro.map(p=>`<div>${posb(p.pos)}<span class="grow">${pl(p)}</span><span class="num">${money(p.c.amt)}</span><span class="muted small">至 ${p.c.exp}</span></div>`).join('')}</div></div></div>
-  ${S.fin.length?`<div class="sec"><h3>历年账目</h3><div class="wrap-x"><table class="tbl"><thead><tr><th>赛季</th><th class="n">赞助</th><th class="n">比赛</th><th class="n">奖金</th><th class="n">支出</th><th class="n">利润</th><th class="n">老板评价</th></tr></thead><tbody>
-  ${S.fin.slice().reverse().map(r=>{const o=S.owner.find(x=>x.s===r.s);return`<tr><td class="num">${r.s}</td><td class="n">${money(r.spon)}</td><td class="n">${money(r.match)}</td><td class="n">${money(r.prize)}</td><td class="n">${money(r.sal+(r.tax||0))}</td><td class="n ${r.profit>=0?'W':'L'}">${money(r.profit)}</td><td class="n">${o?o.tot.toFixed(2):'-'}</td></tr>`}).join('')}</tbody></table></div></div>`:''}`;
 }
 function pSummary(){
   const H=S.hist.find(h=>h.s===S.season);
@@ -2179,7 +2187,7 @@ function pGame(id){
 function playerModal(id){
   const p=P(id);if(!p)return'';const mine=p.tid===S.userTid;const fa=p.tid==='FA';const t=S.teams[p.tid];
   const st=p.st||{reg:emptyLine(),po:emptyLine(),wld:emptyLine()};
-  const room=CAP-payroll(S.userTid);const canSign=fa&&roster(S.userTid).length<MAXR&&(p.ask<=room||p.ask<=MINSAL)&&foreignCount(S.userTid,[p.id])<=2;
+  const canSign=fa;
   const sumRow=([n,s])=>`<tr class="${n==='合计'?'tot':''}"><td>${n}</td><td class="n">${s.g}</td><td class="n">${s.g?`${s.w}-${s.g-s.w}`:'-'}</td><td class="n">${s.k} / ${s.d} / ${s.a}</td><td class="n"><b>${kda(s)}</b></td><td class="n">${avg(s,'k')}/${avg(s,'d')}/${avg(s,'a')}</td><td class="n">${kpf(s)}</td><td class="n">${csm(s)}</td><td class="n">${rtf(s)}</td><td class="n">${s.mvp}</td></tr>`;
   const log=(p.log||[]).slice().reverse();
   const career=p.car.slice().reverse();
@@ -2191,7 +2199,7 @@ function playerModal(id){
   <div class="sec"><h3>风格</h3><div class="small">${p.sty?`<b>${styInfo(p.sty)[1]}</b> · ${esc(styInfo(p.sty)[2])}`:'-'}</div>
     <h3>徽章</h3>${(p.bd||[]).length?`<div class="list">${p.bd.map(b=>`<div><span class="chip gold">${BADGES[b].n}</span><span class="grow small muted">${esc(BADGES[b].d)}</span></div>`).join('')}</div>`:'<div class="muted small">暂无徽章。属性达标后自动获得。</div>'}
     <h3>荣誉</h3>${p.aw.length?`<div class="row">${p.aw.slice().reverse().map(a=>`<span class="chip gold">${esc(a)}</span>`).join('')}</div>`:'<div class="muted small">暂无</div>'}
-    ${fa?`<div class="row"><span class="small">${money(p.ask)} × ${p.askY} 年</span><button class="btn pri" data-a="sign" data-id="${p.id}" ${canSign?'':'disabled'}>签下</button></div>${canSign?'':'<div class="small muted">阵容已满、工资帽空间不足或外援超限</div>'}`:''}
+    ${fa?`<div class="row"><span class="small">${money(p.ask)} × ${p.askY} 年</span><button class="btn pri" data-a="sign" data-id="${p.id}" ${canSign?'':'disabled'}>签下</button></div>${canSign?'':'<div class="small muted">该选手当前不可签约</div>'}`:''}
     ${t&&!mine&&['REG','RESIGN','FA'].includes(S.phase)?`<button class="btn" data-a="tradefor" data-id="${p.id}">加入交易</button>`:''}</div></div>
   <div class="sec"><h3>${S.season} 赛季汇总</h3><div class="wrap-x"><table class="tbl"><thead><tr><th>阶段</th><th class="n">局数</th><th class="n">胜-负</th><th class="n">总 K / D / A</th><th class="n">KDA</th><th class="n">场均 K/D/A</th><th class="n">参团率</th><th class="n">分均补刀</th><th class="n">评分</th><th class="n">MVP</th></tr></thead><tbody>
     ${[['常规赛',st.reg],['季后赛',st.po],['国际赛（MSI+世界赛）',st.wld],['合计',sumLines(st.reg,st.po,st.wld)]].map(sumRow).join('')}</tbody></table></div></div>
@@ -2200,7 +2208,7 @@ function playerModal(id){
   <div class="sec"><h3>生涯数据</h3>${career.length?`<div class="wrap-x"><table class="tbl"><thead><tr><th>赛季</th><th>队伍</th><th class="n">局数</th><th class="n">胜率</th><th class="n">总 K / D / A</th><th class="n">KDA</th><th class="n">场均 K/D/A</th><th class="n">评分</th><th class="n">季后赛</th><th class="n">世界赛</th></tr></thead><tbody>
     ${career.map(c=>{const s=sumLines(c.reg,c.po,c.wld);return`<tr><td class="num">${c.s}</td><td>${tb(c.t)}</td><td class="n">${s.g}</td><td class="n">${s.g?pct(s.w/s.g):'-'}</td><td class="n">${s.k} / ${s.d} / ${s.a}</td><td class="n"><b>${kda(s)}</b></td><td class="n">${avg(s,'k')}/${avg(s,'d')}/${avg(s,'a')}</td><td class="n">${rtf(s)}</td><td class="n">${c.po.g?`${c.po.w}-${c.po.g-c.po.w}`:'-'}</td><td class="n">${c.wld.g?`${c.wld.w}-${c.wld.g-c.wld.w}`:'-'}</td></tr>`}).join('')}</tbody></table></div>`:'<div class="muted small">完整赛季结束后记录。</div>'}</div></div>`;
 }
-function seriesReport(list){const u=S.userTid;
+function seriesReport(list,inline=false){const u=S.userTid;
   const one=(se,open)=>{const opp=se.a===u?se.b:se.a,ms=se.a===u?se.sa:se.sb,os=se.a===u?se.sb:se.sa,win=ms>os;
     const boxes=se.gids.map(g=>S.games[g]).filter(Boolean);
     const rows=boxes.map(b=>{const us=b.a===u?0:1;const k=[0,1].map(x=>b.ps.filter(r=>r[2]===x).reduce((a,r)=>a+r[5],0));const mv=b.ps.find(r=>r[11]);
@@ -2212,7 +2220,7 @@ function seriesReport(list){const u=S.userTid;
     const head=`<span class="chip ${win?'acc':''}">${win?'胜':'负'}</span><b>${esc(se.lab||'')}</b>${tb(u)}<b class="num">${ms} : ${os}</b>${tb(opp)}`;
     return open?`<div class="sec"><div class="row">${head}</div>${body}</div>`:`<details class="card"><summary class="row">${head}</summary>${body}</details>`};
   const w=list.filter(se=>(se.a===u?se.sa:se.sb)>(se.a===u?se.sb:se.sa)).length;
-  return`<div class="mbox" role="dialog" aria-label="战报"><div class="row"><h2>战报</h2><span class="muted small">${list.length} 场系列赛 · ${w} 胜 ${list.length-w} 负</span><button class="btn sm mclose" data-a="mclose">关闭</button></div>${list.map((se,i)=>one(se,i===0)).join('')}</div>`}
+  return`<div class="${inline?'sec':'mbox'}" ${inline?'':'role="dialog" aria-label="战报"'}><div class="row"><h2>战报</h2><span class="muted small">${list.length} 场系列赛 · ${w} 胜 ${list.length-w} 负</span>${inline?'':'<button class="btn sm mclose" data-a="mclose">关闭</button>'}</div>${list.map((se,i)=>one(se,i===0)).join('')}</div>`}
 function openModal(html){const m=document.getElementById('modal');m.innerHTML=html;m.hidden=!html}
 function closeModal(){openModal('')}
 
@@ -2224,15 +2232,17 @@ document.addEventListener('click',ev=>{
   const a=el.dataset.a,id=el.dataset.id;
   if(['setst','schedday','trteam','trcash','trsel','adec','lauto','fanat','plnat','trcin'].includes(a))return;
   ev.preventDefault();
+  if(a.startsWith('legend')){legendAction(a,id);return}
+  if(a.startsWith('sponsor')){negotiateSponsor(id,a.replace('sponsor',''),el.dataset.mode);return}
   switch(a){
     case'lgsel':UI.lg=el.dataset.lg;render();break;
-    case'newgame':newGame(id);R={p:'home'};save();render();break;
+    case'newgame':newGame(id);R={p:'legend'};save();render();break;
     case'rehire':S.userTid=id;S.owner=[];S.fired=false;news(`你接手了 ${T(id).name}`,'gold');R={p:'home'};save();render();break;
     case'go':closeModal();R={p:el.dataset.p};render();window.scrollTo(0,0);break;
     case'act':doAct(el.dataset.k);break;
     case'ptac':LIVE.tac[el.dataset.k]=el.dataset.v;S.utac={...LIVE.tac};LIVE.pred=null;render();break;
     case'pside':LIVE.sidePick=+el.dataset.v;render();break;
-    case'bpgo':autoBP(LIVE);render();window.scrollTo(0,0);break;
+    case'bpgo':if(!LIVE||LIVE.stage!=='pre')break;autoBP(LIVE);startLive();window.scrollTo(0,0);break;
     case'hirec':hireCoach(+id);save();render();break;
     case'fasort':{const k=el.dataset.k;if(UI.faSort===k)UI.faDir*=-1;else{UI.faSort=k;UI.faDir=k==='age'||k==='ask'?1:-1}render();break}
     case'faf':UI[el.dataset.f]=el.dataset.f==='faPot'?+el.dataset.v:el.dataset.v;render();break;
@@ -2243,9 +2253,9 @@ document.addEventListener('click',ev=>{
     case'bpai1':{const d=LIVE.dr;const us=isUser(liveTids(LIVE)[0])?0:1;if(d.step<20&&DSEQ[d.step][1]===us){aiDraftStep(d,bpLs(LIVE),.6);render();bpTick()}break}
     case'bpaiall':{const Ls=bpLs(LIVE);clearTimeout(bpTick.t);while(LIVE.dr.step<20)aiDraftStep(LIVE.dr,Ls);LIVE.stage='ready';render();break}
     case'mgo':startLive();window.scrollTo(0,0);break;
-    case'qgame':afterGame(quickGame(LIVE.se,LIVE.type,{side:LIVE.sidePick,tac:LIVE.tac}));render();window.scrollTo(0,0);break;
-    case'qseries':{const L=LIVE;while(!L.final){L.stage='pre';afterGame(quickGame(L.se,L.type,{side:L.sidePick,tac:L.tac}))}render();window.scrollTo(0,0);break}
-    case'mnext':LIVE.stage='pre';LIVE.box=null;render();window.scrollTo(0,0);break;
+    case'qgame':if(!LIVE||LIVE.final||LIVE.stage==='post')break;afterGame(quickGame(LIVE.se,LIVE.type,{side:LIVE.sidePick,tac:LIVE.tac}));render();window.scrollTo(0,0);break;
+    case'qseries':{const L=LIVE;if(!L||L.final)break;while(!L.final){L.stage='pre';afterGame(quickGame(L.se,L.type,{side:L.sidePick,tac:L.tac}))}render();window.scrollTo(0,0);break}
+    case'mnext':if(!LIVE||LIVE.final)break;LIVE.stage='pre';LIVE.box=null;render();window.scrollTo(0,0);break;
     case'mfinish':completeRound();break;
     case'lskip':lvSkip();break;
     case'ltac':{const M=LIVE.m;M.sd[LIVE.us].tac[el.dataset.k]=el.dataset.v;LIVE.tac[el.dataset.k]=el.dataset.v;S.utac={...LIVE.tac};el.parentNode.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b===el));toast('战术调整：'+TACN[el.dataset.k][el.dataset.v]);break}
@@ -2259,9 +2269,7 @@ document.addEventListener('click',ev=>{
     case'autost':autoStarters(T(S.userTid));save();render();toast('已按能力排好首发');break;
     case'release':{const p=P(+id);if(el.dataset.c){release(+id);save();render()}else{el.dataset.c='1';el.textContent=`确认（违约金 ${money(r5(p.c.amt*.5*Math.max(1,p.c.exp-S.season+(offseason()?0:1))))}）`}break}
     case'resign':resign(+id,+el.dataset.y);break;
-    case'sign':{const p=P(+id);const u=T(S.userTid);const room=CAP-payroll(u.id);
-      if(roster(u.id).length>=MAXR)return toast('阵容已满');if(p.ask>room&&p.ask>MINSAL)return toast('工资帽空间不足');if(foreignCount(u.id,[p.id])>2)return toast('外援名额已满');
-      signPlayer(p,u.id,p.ask,p.askY);closeModal();save();render();toast(`签下 ${p.name}`);break}
+    case'sign':{const p=P(+id);if(!p||p.tid!=='FA')break;signPlayer(p,S.userTid,p.ask,p.askY);closeModal();save();render();toast(`签下 ${p.name}`);break}
     case'plsort':{const k=el.dataset.k;if(UI.plSort===k)UI.plDir*=-1;else{UI.plSort=k;UI.plDir=k==='age'?1:-1}render();break}
     case'plf':UI[el.dataset.f]=el.dataset.v;render();break;
     case'tradewith':UI.tradeT=id;UI.tm=[];UI.tt=[];UI.cash=0;UI.cin=0;R={p:'trade'};render();break;
@@ -2269,7 +2277,7 @@ document.addEventListener('click',ev=>{
     case'dotrade':doTrade();save();render();break;
     case'trclear':UI.tm=[];UI.tt=[];UI.cash=0;render();break;
     case'copy':{const ta=document.getElementById('exp');const done=()=>toast('已复制存档');try{navigator.clipboard.writeText(ta.value).then(done,()=>{ta.select();toast('已选中，请手动复制')})}catch(e){ta.select();toast('已选中，请手动复制')}break}
-    case'import':{try{const o=JSON.parse(document.getElementById('imp').value);if(!o||o.v!==2||!o.teams)throw 0;S=o;save();R={p:'home'};render();toast('存档已载入')}catch(e){toast('存档格式不对，请粘贴完整的导出文本')}break}
+    case'import':{try{const o=JSON.parse(document.getElementById('imp').value);if(!o||o.v!==2||!o.teams)throw 0;S=o;LIVE=null;migrate();migrate2();migrateClub();save();R={p:S.review?'review':'home'};render();toast('存档已载入')}catch(e){toast('存档格式不对，请粘贴完整的导出文本')}break}
     case'newask':UI.confirmNew=true;render();break;
     case'newcancel':UI.confirmNew=false;render();break;
     case'newconfirm':UI.confirmNew=false;S=null;try{localStorage.removeItem(KEY)}catch(e){}render();break;
@@ -2277,7 +2285,7 @@ document.addEventListener('click',ev=>{
 });
 document.addEventListener('change',ev=>{
   const el=ev.target;const a=el.dataset&&el.dataset.a;if(!a)return;
-  if(a==='setst'){const u=T(S.userTid);const pos=el.dataset.pos,pid=+el.value;for(const k of POS)if(u.starters[k]===pid&&k!==pos)u.starters[k]=u.starters[pos];u.starters[pos]=pid;save();render()}
+  if(a==='setst'){const u=T(S.userTid),before={...T(S.userTid).starters};const pos=el.dataset.pos,pid=+el.value;for(const k of POS)if(u.starters[k]===pid&&k!==pos)u.starters[k]=u.starters[pos];u.starters[pos]=pid;if(foreignCount(u.id)>2){u.starters=before;toast('LPL 首发最多两位外援')}save();render()}
   else if(a==='schedday'){UI.schedDay=+el.value;render()}
   else if(a==='fanat'){UI.faNat=el.value;render()}
   else if(a==='plnat'){UI.plNat=el.value;render()}
@@ -2290,6 +2298,54 @@ document.addEventListener('change',ev=>{
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
+/* 经营与开局：所有现金只在明确的结算动作中变动。 */
+const SPONSORS=[{id:'gear',name:'星曜外设',kind:'设备伙伴',factor:1},{id:'drink',name:'跃动饮品',kind:'饮品伙伴',factor:.8},{id:'stream',name:'云端直播',kind:'直播伙伴',factor:1.2}];
+const roundMoney=n=>Math.round(n*100)/100;
+const annualRounds=t=>3*(leagueTeams(t.lg).length-1);
+const annualCost=t=>payroll(t.id)+600+(coachOf(t.id)?.sal||0);
+const baseIncome=t=>Math.round(t.pop*t.pop*.45);
+function financeDefaults(t){t.fin=Object.assign({spon:0,match:0,prize:0,sal:0,tax:0,wages:0,ops:0,rounds:0,legacyDue:0,transferIn:0,transferOut:0,coachFees:0,severance:0,settled:false},t.fin||{});t.sponsors=t.sponsors||{};return t.fin}
+function financeTotals(t){const f=financeDefaults(t),income=f.spon+f.match+f.prize+f.transferIn,expense=f.sal+f.tax+f.transferOut+f.coachFees+f.severance;
+ const due=Object.values(t.sponsors).filter(d=>d.season===S.season&&d.signed&&!d.settled).reduce((a,d)=>a+d.amount-d.paid,0);
+ const remaining=f.settled?0:Math.max(0,annualRounds(t)-f.rounds)/annualRounds(t)*annualCost(t)+f.legacyDue;
+ const projected=t.cash+due+(f.settled?0:baseIncome(t))-remaining;
+ return{income,expense,due,remaining,projected,profit:income-expense}}
+function payRound(t){const f=financeDefaults(t);if(f.settled)return;const n=annualRounds(t),w=roundMoney(payroll(t.id)/n),o=roundMoney((600+(coachOf(t.id)?.sal||0))/n);t.cash=roundMoney(t.cash-w-o);f.wages+=w;f.ops+=o;f.sal+=w+o;f.rounds++}
+function sponsorOffer(id){const t=T(S.userTid),spec=SPONSORS.find(x=>x.id===id);if(!spec)return null;financeDefaults(t);
+ let d=t.sponsors[id];if(!d||d.season!==S.season){const base=Math.round(t.pop*t.pop*.055*spec.factor);d=t.sponsors[id]={season:S.season,round:0,base,amount:base,bonus:0,paid:0,signed:false,settled:false,mode:'safe'};save()}return d}
+function negotiateSponsor(id,action,mode){if(offseason())return toast('新赛季开始后可以签订新赞助');const d=sponsorOffer(id);if(!d||d.signed)return;
+ if(action==='mode'){d.mode=mode==='performance'?'performance':'safe';d.amount=Math.round(d.base*(d.mode==='safe'?1:.7)*(1+d.round*.06));d.bonus=d.mode==='safe'?0:Math.round(d.base*.7)}
+ else if(action==='raise'&&d.round<2){d.round++;d.amount=Math.round(d.base*(d.mode==='safe'?1:.7)*(1+d.round*.06));toast(d.round===2?'对方接受最终报价，不再加价':'对方接受加价，可再谈一轮')}
+ else if(action==='accept'){d.signed=true;d.paid=roundMoney(d.amount*.2);const t=T(S.userTid);t.cash+=d.paid;t.fin.spon+=d.paid;news(`${SPONSORS.find(x=>x.id===id).name}签约：保底 ${money(d.amount)}，首款 ${money(d.paid)}`,'W')}
+ save();render()}
+function settleFinance(t){const f=financeDefaults(t);if(f.settled)return;const due=f.legacyDue+Math.max(0,annualRounds(t)-f.rounds)/annualRounds(t)*annualCost(t);t.cash-=due;f.sal+=due;f.legacyDue=0;f.rounds=annualRounds(t);
+ const base=baseIncome(t);t.cash+=base;f.spon+=base;
+ for(const d of Object.values(t.sponsors)){if(d.season!==S.season||!d.signed||d.settled)continue;const y=t.yst||t.st;const achieved=(y.sw+y.sl)>0&&y.sw/(y.sw+y.sl)>=.6;const pay=d.amount-d.paid+(achieved?d.bonus:0);t.cash+=pay;f.spon+=pay;d.paid+=pay;d.achieved=achieved;d.settled=true}
+ f.settled=true;t.cash=roundMoney(t.cash)}
+function migrateClub(){if(!S||S.clubVersion===1)return;for(const t of Object.values(S.teams)){const f=financeDefaults(t);if(!['LCK','LPL'].includes(t.lg))continue;const n=annualRounds(t)/3;const elapsed=S.phase==='REG'?((S.split||1)-1)*n+Math.min(S.day,n):S.phase==='PO'?(S.split||1)*n:S.phase==='MSI'?2*n:3*n;f.rounds=elapsed;f.settled=offseason();f.legacyDue=f.settled?0:Math.max(0,annualCost(t)*elapsed/(3*n)-f.sal)}S.clubVersion=1;S.legendDraft=S.legendDraft||{done:false,pos:null,revealed:{},selected:null};save()}
+function draftState(){return S.legendDraft||(S.legendDraft={done:false,pos:null,revealed:{},selected:null})}
+function pLegend(){const d=draftState();if(d.done)return`<div class="card"><h2>传奇招募已结束</h2><p>本存档只能招募一位传奇。</p><button class="btn" data-a="go" data-p="home">回到主页</button></div>`;
+ const region=T(S.userTid).lg==='LPL'?'CN':'KR';const cards=LEGENDS.filter(p=>p.region===region&&p.pos===d.pos);
+ return`<section class="sec"><h3>传奇新生 · ${region==='CN'?'中国':'韩国'}</h3><h1>一张卡，开启新的生涯</h1><p>先选位置，再翻开该位置的三张卡。整次开局只能选择一位传奇；原有阵容保留。</p><div class="legend-positions">${POS.map(pos=>`<button class="btn ${d.pos===pos?'pri':''}" data-a="legendpos" data-id="${pos}" aria-pressed="${d.pos===pos}">${PCN[pos]}</button>`).join('')}</div></section>
+ ${d.pos?`<div class="legend-grid">${cards.map((p,i)=>{const seen=d.revealed[p.name],sel=d.selected===p.name;return`<article class="card legend-card ${sel?'selected':''}">${seen?`<span class="chip gold">退役传奇 · ${PCN[p.pos]}</span><h2>${esc(p.name)}</h2><p>17 岁 · ${NAT[p.nat]}</p><div class="stat-row"><div><b>${p.ovr}</b><span>初始能力</span></div><div><b>${p.pot}</b><span>成长潜力</span></div></div><p class="small muted">新秀合同：${money(100)}/年 · 3 年</p><button class="btn ${sel?'pri':''}" data-a="legendpick" data-id="${p.name}" aria-pressed="${sel}">${sel?'已选择':'选择这位选手'}</button>`:`<span class="legend-back" aria-hidden="true">${PCN[p.pos]}</span><h2>传奇卡 ${i+1}</h2><button class="btn" data-a="legendreveal" data-id="${p.name}">翻开卡牌 ${i+1}</button>`}</article>`}).join('')}</div>`:'<div class="card"><h2>选择你想补强的位置</h2><p class="muted">上单、打野、中单、下路、辅助，每个位置都有三位候选传奇。</p></div>'}
+ <div class="row"><button class="btn pri" data-a="legendconfirm" ${d.selected?'':'disabled'}>确认招募${d.selected?' '+esc(d.selected):''}（仅一位）</button><button class="btn" data-a="legendskip">跳过，沿用原阵容</button></div><p class="small muted">退役身份为人物资料；17 岁、能力、潜力和合同均为游戏设定。出场和教练培养会带来成长。</p>`}
+function legendAction(a,id){const d=draftState();if(d.done)return;const region=T(S.userTid).lg==='LPL'?'CN':'KR';const candidate=LEGENDS.find(p=>p.name===id&&p.region===region&&p.pos===d.pos);
+ if(a==='legendpos'&&POS.includes(id)){d.pos=id;d.selected=null}
+ else if(a==='legendreveal'&&candidate)d.revealed[id]=true;
+ else if(a==='legendpick'&&candidate&&d.revealed[id])d.selected=id;
+ else if(a==='legendconfirm'){const q=LEGENDS.find(p=>p.name===d.selected&&p.region===region&&p.pos===d.pos);if(!q||!d.revealed[q.name])return;const p=makePlayer(q.name,q.pos,q.nat,S.season-17,q.ovr,S.userTid,false,false);p.pot=q.pot;p.c={amt:100,exp:S.season+2};p.legend=true;refreshBadges(p);d.done=true;d.playerId=p.id;news(`17 岁的 ${p.name} 加入俱乐部，可在阵容页安排首发。`,'gold');R={p:'home'}}
+ else if(a==='legendskip'){d.done=true;d.skipped=true;R={p:'home'}}save();render()}
+function pReview(){const q=S.review||S.lastReview;if(!q)return'<div class="card">暂无整场复盘</div>';return`<section class="sec"><h1>整场复盘</h1><p class="muted">${esc(q.se.lab||'系列赛')}已结束。查看整场表现后，返回主页准备下一场。</p></section>${seriesReport([q.se],true)}<div class="row">${S.review?'<button class="btn pri" data-a="mfinish">确认复盘，回到主页</button>':'<button class="btn" data-a="go" data-p="home">回到主页</button>'}</div>`}
+function opponentIntel(id){const l=lineup(id);return`<div class="list opponent-intel">${POS.map(pos=>{const p=l[pos];return`<div>${posb(pos)}<span class="grow">${pl(p)}<span class="small muted"> · ${p.id?age(p)+' 岁':''} ${styChip(p)}</span></span>${ov(p.ovr)}</div>`}).join('')}</div>`}
+function financeCard(){const t=T(S.userTid),x=financeTotals(t);return`<div class="card"><h3>俱乐部经营</h3><div class="stat-row"><div><b>${money(x.income)}</b><span>本季已到账</span></div><div><b>${money(x.expense)}</b><span>本季已支出</span></div></div><div class="row"><span>预计季末现金</span><b class="num ${x.projected<0?'L':'W'}">${money(x.projected)}</b></div><a data-a="go" data-p="finance">收入明细与赞助谈判 →</a></div>`}
+function pFinance(){const t=T(S.userTid),f=financeDefaults(t),x=financeTotals(t);return`<section class="sec"><h3>${S.season} · 俱乐部经营</h3><h1>收入与支出</h1><div class="stat-row"><div><b>${money(t.cash)}</b><span>可用现金</span></div><div><b>${money(x.income)}</b><span>已到账收入</span></div><div><b>${money(x.expense)}</b><span>已付支出</span></div><div><b class="${x.projected<0?'L':'W'}">${money(x.projected)}</b><span>预计季末现金</span></div></div>${x.projected<0?'<p class="L">预计资金不足：增加赞助收入，或调整高薪合同。签约仍由你决定。</p>':''}</section>
+ <div class="grid"><div class="card"><h2>收入明细</h2><dl class="kv"><dt>比赛收入</dt><dd>${money(f.match)}</dd><dt>赛事奖金</dt><dd>${money(f.prize)}</dd><dt>商业分成与赞助到账</dt><dd>${money(f.spon)}</dd><dt>转会收入</dt><dd>${money(f.transferIn)}</dd><dt>待收赞助保底尾款</dt><dd>${money(x.due)}</dd><dt>待收基础商业分成（估算）</dt><dd>${money(f.settled?0:baseIncome(t))}</dd></dl></div>
+ <div class="card"><h2>支出明细</h2><dl class="kv"><dt>选手全年合同薪资</dt><dd>${money(payroll(t.id))}</dd><dt>教练与运营年费</dt><dd>${money(annualCost(t)-payroll(t.id))}</dd><dt>薪资与运营已付</dt><dd>${money(f.sal)}</dd><dt>剩余薪资与运营（估算）</dt><dd>${money(x.remaining)}</dd><dt>转会支出</dt><dd>${money(f.transferOut)}</dd><dt>教练签约费</dt><dd>${money(f.coachFees)}</dd><dt>解约金</dt><dd>${money(f.severance)}</dd>${f.tax?`<dt>旧版本已付税款</dt><dd>${money(f.tax)}</dd>`:''}</dl></div></div>
+ <p class="small muted">薪资、教练和运营费用按常规赛轮次分摊；签约人数不限。预测按当前阵容和人气，包含已签保底、基础商业分成，未计未来比赛收入、奖金和成绩分成。${f.legacyDue?'旧档尚未结算的薪资会在季末支付。':''}</p>
+ <section class="sec"><h2>赞助谈判</h2><p class="muted">三类独立合作，每类每季可签一份。签约到账 20%，尾款季末支付；成绩方案需全年常规赛胜率达到 60%。合作商为游戏虚构。</p>${offseason()?'<p class="note">本季合同已结算，新赛季开始后可重新谈判。</p>':''}<div class="grid">${SPONSORS.map(spec=>{const d=sponsorOffer(spec.id);return`<div class="card"><span class="chip">${spec.kind}</span><h2>${spec.name}</h2>${d.signed?`<span class="W">${d.settled?'已结算':'已签约'}</span><dl class="kv"><dt>保底金额</dt><dd>${money(d.amount)}</dd><dt>达标奖金</dt><dd>${money(d.bonus)}</dd><dt>已到账</dt><dd>${money(d.paid)}</dd><dt>剩余保底</dt><dd>${money(d.settled?0:d.amount-d.paid)}</dd></dl>`:`<div class="row">${[['safe','保底方案'],['performance','成绩方案']].map(([v,n])=>`<button class="btn ${d.mode===v?'pri':''}" data-a="sponsormode" data-id="${spec.id}" data-mode="${v}" ${offseason()?'disabled':''}>${n}</button>`).join('')}</div><dl class="kv"><dt>保底金额</dt><dd>${money(d.amount)}</dd><dt>达标奖金</dt><dd>${money(d.bonus)}</dd></dl><p class="small muted">已谈 ${d.round}/2 轮 · ${d.round===2?'最终报价':'每轮争取保底加价 6%'}</p><div class="row"><button class="btn" data-a="sponsorraise" data-id="${spec.id}" ${d.round>=2||offseason()?'disabled':''}>争取加价</button><button class="btn pri" data-a="sponsoraccept" data-id="${spec.id}" ${offseason()?'disabled':''}>接受并签约</button></div>`}</div>`}).join('')}</div></section>
+ <section class="card"><h2>选手合同 · ${roster(t.id).length} 人</h2><div class="list">${roster(t.id).map(p=>`<div>${posb(p.pos)}<span class="grow">${pl(p)}</span><span>${money(p.c.amt)}/年 · 至 ${p.c.exp}</span></div>`).join('')}</div></section>
+ ${S.fin.length?`<section class="sec"><h2>历年收支</h2><div class="wrap-x"><table class="tbl"><thead><tr><th>赛季</th><th>商业收入</th><th>比赛与奖金</th><th>经营净收益</th><th>季末现金</th></tr></thead><tbody>${S.fin.slice().reverse().map(r=>`<tr><td>${r.s}</td><td>${money(r.spon)}</td><td>${money(r.match+r.prize)}</td><td>${money(r.profit)}</td><td>${money(r.cash)}</td></tr>`).join('')}</tbody></table></div></section>`:''}`}
+
 /* ================= 启动 ================= */
 function migrate(){if(!S||S.ev===2)return;for(const p of Object.values(S.players)){const f=mv(p.ovr)/mvOld(p.ovr);if(p.c)p.c.amt=Math.max(MINSAL,r5(p.c.amt*f));if(p.ask)p.ask=Math.max(MINSAL,r5(p.ask*f))}for(const t of Object.values(S.teams))t.cash=Math.round(t.cash*.58);S.ev=2;save()}
 function migrate2(){if(!S)return;let ch=false;
@@ -2301,7 +2357,7 @@ function migrate2(){if(!S)return;let ch=false;
     if(S.po&&S.po.LCK&&!S.po.LCK.tpl){if(S.phase==='PO')startPlayoffs();else{S.yr.splits[3]={};for(const lg of['LCK','LPL']){const b=S.po[lg];const pl_=b.place||b.seeds||[];S.yr.splits[3][lg]={c:pl_[0],r:pl_[1],fmvp:'-',place:pl_}}}}
     ch=true}
   if(ch)save()}
-function start(data){S=(data&&data.S)||load();migrate();migrate2();if(data&&data.R)R=data.R;render()}
+function start(data){S=(data&&data.S)||load();migrate();migrate2();migrateClub();if(data&&data.R)R=data.R;if(S?.review)R={p:'review'};else if(S?.legendDraft&&!S.legendDraft.done&&S.legendDraft.pos)R={p:'legend'};render()}
 if(window.claude&&window.claude.hot&&window.claude.hot.snapshot)window.claude.hot.snapshot(()=>({S,R}));
 window.claude?.hot?.ready?window.claude.hot.ready(start):start(window.claude?.hot?.data??{});
 </script>

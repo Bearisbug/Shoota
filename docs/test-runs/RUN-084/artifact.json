@@ -1,0 +1,7 @@
+{
+  "baseCommit": "3c047384561550bb1a91eafb1368b5a538ea43eb",
+  "game": "lol",
+  "bytes": 253852,
+  "sha256": "289f3fe598ae87741e3b05ed576084a7ec732eef8317435c526b31aee79da175",
+  "rule": "position first, reveal three, recruit exactly one"
+}

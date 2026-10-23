@@ -1,0 +1,116 @@
+{
+  "results": [
+    {
+      "name": "actual previous-release save migration",
+      "pass": true,
+      "legacyDue": 403.6363636363636
+    },
+    {
+      "name": "old save skip and no extra player",
+      "pass": true
+    },
+    {
+      "name": "trade accounting",
+      "pass": true
+    },
+    {
+      "name": "lineup import cap separate from signing",
+      "pass": true
+    },
+    {
+      "name": "fresh game clears stale live result",
+      "pass": true
+    },
+    {
+      "name": "final review visible if fired, new season clears old recap",
+      "pass": true
+    },
+    {
+      "name": "negative pregame-autostart",
+      "pass": true,
+      "baseline": true,
+      "mutated": false,
+      "anchor": "if(L.stage==='pre'||L.stage==='bp'||L.stage==='ready')return pPre(L);"
+    },
+    {
+      "name": "negative duplicate-legend",
+      "pass": true,
+      "baseline": true,
+      "mutated": false,
+      "anchor": "function legendAction(a,id){const d=draftState();if(d.done)return;"
+    },
+    {
+      "name": "negative double-sponsor",
+      "pass": true,
+      "baseline": true,
+      "mutated": false,
+      "anchor": "if(!d||d.signed)return;"
+    },
+    {
+      "name": "layout 320 home",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "layout 320 finance",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "layout 320 legend",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "footer button reachable 320",
+      "pass": true,
+      "button": 647.15625,
+      "nav": 794
+    },
+    {
+      "name": "layout 320 match",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "layout 320 roster",
+      "pass": false,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        },
+        {
+          "class": "wrap-x",
+          "reachable": true
+        }
+      ]
+    }
+  ],
+  "error": "Error: layout 320 roster{\"pass\":false,\"failures\":[],\"scrolls\":[{\"class\":\"nav\",\"reachable\":true},{\"class\":\"wrap-x\",\"reachable\":true}]}\n    at ck (file:///private/tmp/lol-final-check.mjs:2:386)\n    at file:///private/tmp/lol-final-check.mjs:22:137"
+}

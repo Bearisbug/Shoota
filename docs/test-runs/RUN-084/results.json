@@ -1,0 +1,390 @@
+[
+  {
+    "name": "actual previous-release save migration",
+    "pass": true,
+    "legacyDue": 403.6363636363636
+  },
+  {
+    "name": "old save skip and no extra player",
+    "pass": true
+  },
+  {
+    "name": "trade accounting",
+    "pass": true
+  },
+  {
+    "name": "lineup import cap separate from signing",
+    "pass": true
+  },
+  {
+    "name": "fresh game clears stale live result",
+    "pass": true
+  },
+  {
+    "name": "final review visible if fired, new season clears old recap",
+    "pass": true
+  },
+  {
+    "name": "negative pregame-autostart",
+    "pass": true,
+    "baseline": true,
+    "mutated": false,
+    "anchor": "if(L.stage==='pre'||L.stage==='bp'||L.stage==='ready')return pPre(L);"
+  },
+  {
+    "name": "negative duplicate-legend",
+    "pass": true,
+    "baseline": true,
+    "mutated": false,
+    "anchor": "function legendAction(a,id){const d=draftState();if(d.done)return;"
+  },
+  {
+    "name": "negative double-sponsor",
+    "pass": true,
+    "baseline": true,
+    "mutated": false,
+    "anchor": "if(!d||d.signed)return;"
+  },
+  {
+    "name": "layout 320 home",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 320 finance",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 320 legend",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "footer button reachable 320",
+    "pass": true,
+    "button": 647.15625,
+    "nav": 794
+  },
+  {
+    "name": "layout 320 match",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 320 roster",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      },
+      {
+        "class": "wrap-x",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 320 fa",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      },
+      {
+        "class": "wrap-x tall",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 320 review",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      },
+      {
+        "class": "wrap-x",
+        "reachable": true
+      },
+      {
+        "class": "wrap-x",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 390 home",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 390 finance",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 390 legend",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "footer button reachable 390",
+    "pass": true,
+    "button": 697.3125,
+    "nav": 794
+  },
+  {
+    "name": "layout 390 match",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 390 roster",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      },
+      {
+        "class": "wrap-x",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 390 fa",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      },
+      {
+        "class": "wrap-x tall",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 390 review",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      },
+      {
+        "class": "wrap-x",
+        "reachable": true
+      },
+      {
+        "class": "wrap-x",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 768 home",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 768 finance",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 768 legend",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "footer button reachable 768",
+    "pass": true,
+    "button": 707.6875,
+    "nav": 60
+  },
+  {
+    "name": "layout 768 match",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 768 roster",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      },
+      {
+        "class": "wrap-x",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 768 fa",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      },
+      {
+        "class": "wrap-x tall",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 768 review",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "nav",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 1440 home",
+    "pass": true,
+    "failures": [],
+    "scrolls": []
+  },
+  {
+    "name": "layout 1440 finance",
+    "pass": true,
+    "failures": [],
+    "scrolls": []
+  },
+  {
+    "name": "layout 1440 legend",
+    "pass": true,
+    "failures": [],
+    "scrolls": []
+  },
+  {
+    "name": "footer button reachable 1440",
+    "pass": true,
+    "button": 635.390625,
+    "nav": 48
+  },
+  {
+    "name": "layout 1440 match",
+    "pass": true,
+    "failures": [],
+    "scrolls": []
+  },
+  {
+    "name": "layout 1440 roster",
+    "pass": true,
+    "failures": [],
+    "scrolls": [
+      {
+        "class": "wrap-x",
+        "reachable": true
+      }
+    ]
+  },
+  {
+    "name": "layout 1440 fa",
+    "pass": true,
+    "failures": [],
+    "scrolls": []
+  },
+  {
+    "name": "layout 1440 review",
+    "pass": true,
+    "failures": [],
+    "scrolls": []
+  }
+]

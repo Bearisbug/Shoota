@@ -1,0 +1,667 @@
+[
+  {
+    "name": "five positions, no immediate signup",
+    "pass": true
+  },
+  {
+    "name": "3 cards per position",
+    "pass": true
+  },
+  {
+    "name": "draft selection survives reload",
+    "pass": true
+  },
+  {
+    "name": "one legend only, idempotent",
+    "pass": true,
+    "data": {
+      "n": 8,
+      "ps": [
+        {
+          "name": "Uzi",
+          "age": 17,
+          "pot": 98
+        }
+      ]
+    }
+  },
+  {
+    "name": "pregame no autostart",
+    "pass": true
+  },
+  {
+    "name": "quick series enters recap",
+    "pass": true
+  },
+  {
+    "name": "review survives reload",
+    "pass": true
+  },
+  {
+    "name": "review ack once returns home opponent 5",
+    "pass": true,
+    "data": {
+      "day": 1,
+      "route": "home",
+      "same": true,
+      "opponents": 5
+    }
+  },
+  {
+    "name": "bulk stops after one series",
+    "pass": true,
+    "data": {
+      "delta": 1,
+      "advanced": true,
+      "review": true
+    }
+  },
+  {
+    "name": "sponsor quote persists",
+    "pass": true
+  },
+  {
+    "name": "sponsor upfront once",
+    "pass": true
+  },
+  {
+    "name": "unlimited signup, round ledger, sponsor settlement",
+    "pass": true,
+    "data": {
+      "count": 12,
+      "payroll": 24185,
+      "cashMatches": true,
+      "paid": 1167.28,
+      "settledOnce": true,
+      "tax": 0,
+      "bonus": 672,
+      "tFin": {
+        "spon": 69.2,
+        "match": 267,
+        "prize": 0,
+        "sal": 1167.28,
+        "tax": 0,
+        "wages": 1093.18,
+        "ops": 74.1,
+        "rounds": 3,
+        "legacyDue": 0,
+        "transferIn": 0,
+        "transferOut": 0,
+        "coachFees": 0,
+        "severance": 0,
+        "settled": false
+      }
+    }
+  },
+  {
+    "name": "old save migration without deductions",
+    "pass": true,
+    "data": {
+      "cashSame": true,
+      "rosterSame": true,
+      "due": 2272.7272727272725,
+      "eligible": true
+    }
+  },
+  {
+    "name": "full season transitions and balanced finances",
+    "pass": true,
+    "data": {
+      "phase": "DONE",
+      "phases": {
+        "REG": 33,
+        "PO": 14,
+        "MSI": 4,
+        "WLD": 6
+      },
+      "loops": 65,
+      "ledger": [],
+      "same": true,
+      "rounds": 33,
+      "expected": 33,
+      "finite": true
+    }
+  },
+  {
+    "name": "all tournament review routes",
+    "pass": true,
+    "data": {
+      "phase": "DONE",
+      "phases": {
+        "REG": 33,
+        "PO": 14,
+        "MSI": 4,
+        "WLD": 6
+      },
+      "loops": 65,
+      "ledger": [],
+      "same": true,
+      "rounds": 33,
+      "expected": 33,
+      "finite": true
+    }
+  },
+  {
+    "name": "new season reset",
+    "pass": true,
+    "data": {
+      "season": 2028,
+      "oldYear": 2027,
+      "rounds": 0,
+      "settled": false
+    }
+  },
+  {
+    "name": "Korean one-card draft",
+    "pass": true
+  },
+  {
+    "name": "responsive 320 light legend",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 light home",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 light finance",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 light roster",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 light fa",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 light match",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 light review",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 dark legend",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 dark home",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 dark finance",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 dark roster",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 dark fa",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 dark match",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 320 dark review",
+    "pass": true,
+    "data": {
+      "width": 320,
+      "scroll": 320,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 light legend",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 light home",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 light finance",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 light roster",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 light fa",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 light match",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 light review",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 dark legend",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 dark home",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 dark finance",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 dark roster",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 dark fa",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 dark match",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 390 dark review",
+    "pass": true,
+    "data": {
+      "width": 390,
+      "scroll": 390,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 light legend",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 light home",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 light finance",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 light roster",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 light fa",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 light match",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 light review",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 dark legend",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 dark home",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 dark finance",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 dark roster",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 dark fa",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 dark match",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 768 dark review",
+    "pass": true,
+    "data": {
+      "width": 768,
+      "scroll": 768,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 light legend",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 light home",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 light finance",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 light roster",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 light fa",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 light match",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 light review",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 dark legend",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 dark home",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 dark finance",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 dark roster",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 dark fa",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 dark match",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "responsive 1440 dark review",
+    "pass": true,
+    "data": {
+      "width": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  },
+  {
+    "name": "no browser runtime errors",
+    "pass": true,
+    "data": []
+  }
+]

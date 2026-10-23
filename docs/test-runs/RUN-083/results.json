@@ -1,0 +1,172 @@
+{
+  "results": [
+    {
+      "name": "actual previous-release save migration",
+      "pass": true,
+      "legacyDue": 403.6363636363636
+    },
+    {
+      "name": "old save skip and no extra player",
+      "pass": true
+    },
+    {
+      "name": "trade accounting",
+      "pass": true
+    },
+    {
+      "name": "lineup import cap separate from signing",
+      "pass": true
+    },
+    {
+      "name": "fresh game clears stale live result",
+      "pass": true
+    },
+    {
+      "name": "final review visible if fired, new season clears old recap",
+      "pass": true
+    },
+    {
+      "name": "negative pregame-autostart",
+      "pass": true,
+      "baseline": true,
+      "mutated": false,
+      "anchor": "if(L.stage==='pre'||L.stage==='bp'||L.stage==='ready')return pPre(L);"
+    },
+    {
+      "name": "negative duplicate-legend",
+      "pass": true,
+      "baseline": true,
+      "mutated": false,
+      "anchor": "function legendAction(a,id){const d=draftState();if(d.done)return;"
+    },
+    {
+      "name": "negative double-sponsor",
+      "pass": true,
+      "baseline": true,
+      "mutated": false,
+      "anchor": "if(!d||d.signed)return;"
+    },
+    {
+      "name": "layout 320 home",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "layout 320 finance",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "layout 320 legend",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "footer button reachable 320",
+      "pass": true,
+      "button": 647.15625,
+      "nav": 794
+    },
+    {
+      "name": "layout 320 match",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "layout 320 roster",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        },
+        {
+          "class": "wrap-x",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "layout 320 fa",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        },
+        {
+          "class": "wrap-x tall",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "layout 320 review",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        },
+        {
+          "class": "wrap-x",
+          "reachable": true
+        },
+        {
+          "class": "wrap-x",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "layout 390 home",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "name": "layout 390 finance",
+      "pass": true,
+      "failures": [],
+      "scrolls": [
+        {
+          "class": "nav",
+          "reachable": true
+        }
+      ]
+    }
+  ],
+  "error": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\n    at /private/tmp/lol-final-check3.mjs:23:170"
+}
