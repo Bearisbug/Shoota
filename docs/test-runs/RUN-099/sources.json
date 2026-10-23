@@ -17,9 +17,10 @@
   {
     "id": "airline-empire",
     "source": "/Users/leizhang/Documents/ChatGPT/shoota/云际航空.html",
-    "sourceSha256": "ac30d64d2faa826b1d9360b1e53641efa18c998a197a7f7ee5e6ad4e35adc259",
-    "sha256": "0d343555aff7c01ff3164206f623f0165fd60d328ce43dbd6ef77017632e0d12",
-    "bytes": 1000106
+    "sourceSha256": "10c8f63f814ca9d0abeae15a2194ba54814b6d9166a1444dcf925d1497181e09",
+    "sha256": "10c8f63f814ca9d0abeae15a2194ba54814b6d9166a1444dcf925d1497181e09",
+    "bytes": 1031118,
+    "previousSnapshotSha256": "0d343555aff7c01ff3164206f623f0165fd60d328ce43dbd6ef77017632e0d12"
   },
   {
     "id": "rental-empire",
