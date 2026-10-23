@@ -1,0 +1,30 @@
+{
+  "initial": "LCK · 10 队",
+  "stats": [
+    {
+      "name": "Uzi",
+      "pos": "BOT",
+      "region": "CN",
+      "nat": "CN",
+      "ovr": 76,
+      "pot": 98
+    },
+    {
+      "name": "WeiXiao",
+      "pos": "BOT",
+      "region": "CN",
+      "nat": "CN",
+      "ovr": 74,
+      "pot": 97
+    },
+    {
+      "name": "san",
+      "pos": "BOT",
+      "region": "CN",
+      "nat": "CN",
+      "ovr": 78,
+      "pot": 99
+    }
+  ],
+  "hasFlip": 0
+}

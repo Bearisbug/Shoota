@@ -1,0 +1,509 @@
+{
+  "results": [
+    "平台刷新恢复翻卡与选中",
+    "平台刷新恢复签约仪式且不重复领取",
+    "30位传奇实际签约数值年龄与唯一性",
+    "招募后比赛复盘返回主页"
+  ],
+  "matrix": [
+    {
+      "name": "Gogoing",
+      "ovr": 76,
+      "pot": 98,
+      "expected": 76,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "CaoMei",
+      "ovr": 74,
+      "pot": 97,
+      "expected": 74,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Letme",
+      "ovr": 78,
+      "pot": 99,
+      "expected": 78,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Clearlove",
+      "ovr": 76,
+      "pot": 98,
+      "expected": 76,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Mlxg",
+      "ovr": 74,
+      "pot": 97,
+      "expected": 74,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "LoveLing",
+      "ovr": 78,
+      "pot": 99,
+      "expected": 78,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Misaya",
+      "ovr": 76,
+      "pot": 98,
+      "expected": 76,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Cool",
+      "ovr": 74,
+      "pot": 97,
+      "expected": 74,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "GodV",
+      "ovr": 78,
+      "pot": 99,
+      "expected": 78,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Uzi",
+      "ovr": 80,
+      "pot": 99,
+      "expected": 80,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "WeiXiao",
+      "ovr": 78,
+      "pot": 97,
+      "expected": 78,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "san",
+      "ovr": 74,
+      "pot": 94,
+      "expected": 74,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "fzzf",
+      "ovr": 76,
+      "pot": 98,
+      "expected": 76,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Pyl",
+      "ovr": 74,
+      "pot": 97,
+      "expected": 74,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Tabe",
+      "ovr": 78,
+      "pot": 99,
+      "expected": 78,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "MaRin",
+      "ovr": 76,
+      "pot": 98,
+      "expected": 76,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Flame",
+      "ovr": 74,
+      "pot": 97,
+      "expected": 74,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Shy",
+      "ovr": 78,
+      "pot": 99,
+      "expected": 78,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Bengi",
+      "ovr": 76,
+      "pot": 98,
+      "expected": 76,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Ambition",
+      "ovr": 74,
+      "pot": 97,
+      "expected": 74,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Score",
+      "ovr": 78,
+      "pot": 99,
+      "expected": 78,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "PawN",
+      "ovr": 76,
+      "pot": 98,
+      "expected": 76,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Easyhoon",
+      "ovr": 74,
+      "pot": 97,
+      "expected": 74,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Kuro",
+      "ovr": 78,
+      "pot": 99,
+      "expected": 78,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Bang",
+      "ovr": 76,
+      "pot": 98,
+      "expected": 76,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "imp",
+      "ovr": 74,
+      "pot": 97,
+      "expected": 74,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "PraY",
+      "ovr": 78,
+      "pot": 99,
+      "expected": 78,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "MadLife",
+      "ovr": 76,
+      "pot": 98,
+      "expected": 76,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "Wolf",
+      "ovr": 74,
+      "pot": 97,
+      "expected": 74,
+      "age": 17,
+      "one": true
+    },
+    {
+      "name": "GorillA",
+      "ovr": 78,
+      "pot": 99,
+      "expected": 78,
+      "age": 17,
+      "one": true
+    }
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "theme": "dark",
+      "route": "home",
+      "w": 320,
+      "scroll": 320,
+      "error": false
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "route": "finance",
+      "w": 320,
+      "scroll": 320,
+      "error": false
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "route": "roster",
+      "w": 320,
+      "scroll": 320,
+      "error": false
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "route": "legend",
+      "w": 320,
+      "scroll": 320,
+      "error": false
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "route": "home",
+      "w": 320,
+      "scroll": 320,
+      "error": false
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "route": "finance",
+      "w": 320,
+      "scroll": 320,
+      "error": false
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "route": "roster",
+      "w": 320,
+      "scroll": 320,
+      "error": false
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "route": "legend",
+      "w": 320,
+      "scroll": 320,
+      "error": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "route": "home",
+      "w": 390,
+      "scroll": 390,
+      "error": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "route": "finance",
+      "w": 390,
+      "scroll": 390,
+      "error": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "route": "roster",
+      "w": 390,
+      "scroll": 390,
+      "error": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "route": "legend",
+      "w": 390,
+      "scroll": 390,
+      "error": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "route": "home",
+      "w": 390,
+      "scroll": 390,
+      "error": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "route": "finance",
+      "w": 390,
+      "scroll": 390,
+      "error": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "route": "roster",
+      "w": 390,
+      "scroll": 390,
+      "error": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "route": "legend",
+      "w": 390,
+      "scroll": 390,
+      "error": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "route": "home",
+      "w": 768,
+      "scroll": 768,
+      "error": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "route": "finance",
+      "w": 768,
+      "scroll": 768,
+      "error": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "route": "roster",
+      "w": 768,
+      "scroll": 768,
+      "error": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "route": "legend",
+      "w": 768,
+      "scroll": 768,
+      "error": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "route": "home",
+      "w": 768,
+      "scroll": 768,
+      "error": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "route": "finance",
+      "w": 768,
+      "scroll": 768,
+      "error": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "route": "roster",
+      "w": 768,
+      "scroll": 768,
+      "error": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "route": "legend",
+      "w": 768,
+      "scroll": 768,
+      "error": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "route": "home",
+      "w": 1440,
+      "scroll": 1440,
+      "error": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "route": "finance",
+      "w": 1440,
+      "scroll": 1440,
+      "error": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "route": "roster",
+      "w": 1440,
+      "scroll": 1440,
+      "error": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "route": "legend",
+      "w": 1440,
+      "scroll": 1440,
+      "error": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "route": "home",
+      "w": 1440,
+      "scroll": 1440,
+      "error": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "route": "finance",
+      "w": 1440,
+      "scroll": 1440,
+      "error": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "route": "roster",
+      "w": 1440,
+      "scroll": 1440,
+      "error": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "route": "legend",
+      "w": 1440,
+      "scroll": 1440,
+      "error": false
+    }
+  ],
+  "errors": []
+}

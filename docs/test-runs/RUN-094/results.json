@@ -1,0 +1,40 @@
+{
+  "checks": [
+    "默认LPL且入口排第一",
+    "翻牌中段为3D变换",
+    "Uzi80/99高于san74/94",
+    "选中Uzi高亮并启用确认",
+    "刷新保留选中且不重复揭晓动画"
+  ],
+  "layouts": [],
+  "errors": [],
+  "midTransform": "matrix3d(-0.239894, 0, -0.970799, 0, 0, 1, 0, 0, 0.970799, 0, -0.239894, 0, 0, 0, 0, 1)",
+  "ratings": [
+    {
+      "name": "Uzi",
+      "pos": "BOT",
+      "region": "CN",
+      "nat": "CN",
+      "ovr": 80,
+      "pot": 99
+    },
+    {
+      "name": "WeiXiao",
+      "pos": "BOT",
+      "region": "CN",
+      "nat": "CN",
+      "ovr": 78,
+      "pot": 97
+    },
+    {
+      "name": "san",
+      "pos": "BOT",
+      "region": "CN",
+      "nat": "CN",
+      "ovr": 74,
+      "pot": 94
+    }
+  ],
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: dark320三卡并排且没有溢出\n    at check (file:///private/tmp/lol-draft-check.mjs:3:31)\n    at file:///private/tmp/lol-draft-check.mjs:18:3"
+}
