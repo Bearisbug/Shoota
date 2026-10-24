@@ -1,0 +1,66 @@
+{
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '关闭', exact: true })\u001b[22m\n\n    at /Users/leizhang/Documents/shoota/tmp/wt-portrait/docs/test-runs/RUN-103/management-check.mjs:17:605",
+  "results": [
+    {
+      "tag": "320x568",
+      "label": "fleet",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "scrollY": 0,
+      "button": {
+        "y": 215,
+        "bottom": 259,
+        "x": 232,
+        "right": 302
+      }
+    },
+    {
+      "tag": "320x568",
+      "label": "batch",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "scrollY": 0,
+      "button": {
+        "y": 447.01898193359375,
+        "bottom": 491.01898193359375,
+        "x": 162,
+        "right": 287
+      }
+    },
+    {
+      "tag": "320x568",
+      "label": "branches",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "scrollY": 0,
+      "button": {
+        "y": 165,
+        "bottom": 209,
+        "x": 232,
+        "right": 302
+      }
+    },
+    {
+      "tag": "320x568",
+      "label": "regions",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "320x568",
+      "label": "network",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "scrollY": 0,
+      "button": null
+    }
+  ],
+  "errors": []
+}

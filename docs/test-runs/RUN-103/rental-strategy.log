@@ -1,0 +1,24 @@
+Atomic bulk purchase, strategy application, cleaning reconciliation, repeat customers: PASS
+{
+  market: {
+    rate: 206.8,
+    cleaning: 338,
+    insurance: 752,
+    profit: -478.79199999999764,
+    repeat: 0.0814
+  },
+  reputation: {
+    rate: 263.20000000000005,
+    cleaning: 885,
+    insurance: 1762.5,
+    profit: -3628.051999999996,
+    repeat: 0.095565
+  },
+  loyalty: {
+    rate: 232.744,
+    cleaning: 533.3333333333333,
+    insurance: 1222,
+    profit: -755.5013333333336,
+    repeat: 0.107825
+  }
+}

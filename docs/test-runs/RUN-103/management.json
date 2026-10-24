@@ -1,0 +1,929 @@
+{
+  "results": [
+    {
+      "tag": "320x568",
+      "label": "fleet",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "scrollY": 0,
+      "button": {
+        "y": 215,
+        "bottom": 259,
+        "x": 232,
+        "right": 302
+      }
+    },
+    {
+      "tag": "320x568",
+      "label": "batch",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "scrollY": 0,
+      "button": {
+        "y": 447.01861572265625,
+        "bottom": 491.01861572265625,
+        "x": 162,
+        "right": 287
+      }
+    },
+    {
+      "tag": "320x568",
+      "label": "branches",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "scrollY": 0,
+      "button": {
+        "y": 165,
+        "bottom": 209,
+        "x": 232,
+        "right": 302
+      }
+    },
+    {
+      "tag": "320x568",
+      "label": "regions",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "320x568",
+      "label": "network",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "320x568",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "360x640",
+      "label": "fleet",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "scrollY": 0,
+      "button": {
+        "y": 215,
+        "bottom": 259,
+        "x": 272,
+        "right": 342
+      }
+    },
+    {
+      "tag": "360x640",
+      "label": "batch",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "scrollY": 0,
+      "button": {
+        "y": 466.2851867675781,
+        "bottom": 510.2851867675781,
+        "x": 202,
+        "right": 327
+      }
+    },
+    {
+      "tag": "360x640",
+      "label": "branches",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "scrollY": 0,
+      "button": {
+        "y": 165,
+        "bottom": 209,
+        "x": 272,
+        "right": 342
+      }
+    },
+    {
+      "tag": "360x640",
+      "label": "regions",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "360x640",
+      "label": "network",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "360x640",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "390x600",
+      "label": "fleet",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "scrollY": 0,
+      "button": {
+        "y": 215,
+        "bottom": 259,
+        "x": 302,
+        "right": 372
+      }
+    },
+    {
+      "tag": "390x600",
+      "label": "batch",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "scrollY": 0,
+      "button": {
+        "y": 446.0190124511719,
+        "bottom": 490.0190124511719,
+        "x": 232,
+        "right": 357
+      }
+    },
+    {
+      "tag": "390x600",
+      "label": "branches",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "scrollY": 0,
+      "button": {
+        "y": 165,
+        "bottom": 209,
+        "x": 302,
+        "right": 372
+      }
+    },
+    {
+      "tag": "390x600",
+      "label": "regions",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "390x600",
+      "label": "network",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "390x600",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "390x844",
+      "label": "fleet",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "scrollY": 0,
+      "button": {
+        "y": 256,
+        "bottom": 300,
+        "x": 302,
+        "right": 372
+      }
+    },
+    {
+      "tag": "390x844",
+      "label": "batch",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "scrollY": 0,
+      "button": {
+        "y": 568.2849731445312,
+        "bottom": 612.2849731445312,
+        "x": 232,
+        "right": 357
+      }
+    },
+    {
+      "tag": "390x844",
+      "label": "branches",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "scrollY": 0,
+      "button": {
+        "y": 206,
+        "bottom": 250,
+        "x": 302,
+        "right": 372
+      }
+    },
+    {
+      "tag": "390x844",
+      "label": "regions",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "390x844",
+      "label": "network",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "390x844",
+      "label": "text200",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "scrollY": 0,
+      "button": {
+        "y": 373.78125,
+        "bottom": 424.78125,
+        "x": 254,
+        "right": 372
+      }
+    },
+    {
+      "tag": "390x844",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "430x932",
+      "label": "fleet",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "scrollY": 0,
+      "button": {
+        "y": 256,
+        "bottom": 300,
+        "x": 342,
+        "right": 412
+      }
+    },
+    {
+      "tag": "430x932",
+      "label": "batch",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "scrollY": 0,
+      "button": {
+        "y": 600.2540893554688,
+        "bottom": 644.2540893554688,
+        "x": 272,
+        "right": 397
+      }
+    },
+    {
+      "tag": "430x932",
+      "label": "branches",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "scrollY": 0,
+      "button": {
+        "y": 206,
+        "bottom": 250,
+        "x": 342,
+        "right": 412
+      }
+    },
+    {
+      "tag": "430x932",
+      "label": "regions",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "430x932",
+      "label": "network",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "430x932",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "844x390",
+      "label": "fleet",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "scrollY": 0,
+      "button": {
+        "y": 113,
+        "bottom": 157,
+        "x": 758,
+        "right": 824
+      }
+    },
+    {
+      "tag": "844x390",
+      "label": "batch",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "scrollY": 23,
+      "button": {
+        "y": 272.40924072265625,
+        "bottom": 316.40924072265625,
+        "x": 531,
+        "right": 656
+      }
+    },
+    {
+      "tag": "844x390",
+      "label": "branches",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "scrollY": 0,
+      "button": {
+        "y": 163,
+        "bottom": 207,
+        "x": 742,
+        "right": 824
+      }
+    },
+    {
+      "tag": "844x390",
+      "label": "regions",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "844x390",
+      "label": "network",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "844x390",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "768x1024",
+      "label": "fleet",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "scrollY": 0,
+      "button": {
+        "y": 256,
+        "bottom": 300,
+        "x": 680,
+        "right": 750
+      }
+    },
+    {
+      "tag": "768x1024",
+      "label": "batch",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "scrollY": 0,
+      "button": {
+        "y": 645.7534790039062,
+        "bottom": 689.7534790039062,
+        "x": 608,
+        "right": 733
+      }
+    },
+    {
+      "tag": "768x1024",
+      "label": "branches",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "scrollY": 0,
+      "button": {
+        "y": 206,
+        "bottom": 250,
+        "x": 680,
+        "right": 750
+      }
+    },
+    {
+      "tag": "768x1024",
+      "label": "regions",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "768x1024",
+      "label": "network",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "768x1024",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "1366x768",
+      "label": "fleet",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "scrollY": 0,
+      "button": {
+        "y": 263.078125,
+        "bottom": 307.078125,
+        "x": 1246,
+        "right": 1328
+      }
+    },
+    {
+      "tag": "1366x768",
+      "label": "batch",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "scrollY": 0,
+      "button": {
+        "y": 515.550048828125,
+        "bottom": 559.550048828125,
+        "x": 792,
+        "right": 917
+      }
+    },
+    {
+      "tag": "1366x768",
+      "label": "branches",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "scrollY": 0,
+      "button": {
+        "y": 265.078125,
+        "bottom": 309.078125,
+        "x": 1246,
+        "right": 1328
+      }
+    },
+    {
+      "tag": "1366x768",
+      "label": "regions",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "1366x768",
+      "label": "network",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "1366x768",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "1440x900",
+      "label": "fleet",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "scrollY": 0,
+      "button": {
+        "y": 263.078125,
+        "bottom": 307.078125,
+        "x": 1320,
+        "right": 1402
+      }
+    },
+    {
+      "tag": "1440x900",
+      "label": "batch",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "scrollY": 0,
+      "button": {
+        "y": 581.5499267578125,
+        "bottom": 625.5499267578125,
+        "x": 829,
+        "right": 954
+      }
+    },
+    {
+      "tag": "1440x900",
+      "label": "branches",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "scrollY": 0,
+      "button": {
+        "y": 265.078125,
+        "bottom": 309.078125,
+        "x": 1320,
+        "right": 1402
+      }
+    },
+    {
+      "tag": "1440x900",
+      "label": "regions",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "1440x900",
+      "label": "network",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "1440x900",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "799x800",
+      "label": "fleet",
+      "w": 799,
+      "h": 750,
+      "sw": 799,
+      "scrollY": 0,
+      "button": {
+        "y": 256,
+        "bottom": 300,
+        "x": 711,
+        "right": 781
+      }
+    },
+    {
+      "tag": "799x800",
+      "label": "batch",
+      "w": 799,
+      "h": 750,
+      "sw": 799,
+      "scrollY": 0,
+      "button": {
+        "y": 533.487548828125,
+        "bottom": 577.487548828125,
+        "x": 623.5,
+        "right": 748.5
+      }
+    },
+    {
+      "tag": "799x800",
+      "label": "branches",
+      "w": 799,
+      "h": 750,
+      "sw": 799,
+      "scrollY": 0,
+      "button": {
+        "y": 206,
+        "bottom": 250,
+        "x": 711,
+        "right": 781
+      }
+    },
+    {
+      "tag": "799x800",
+      "label": "regions",
+      "w": 799,
+      "h": 750,
+      "sw": 799,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "799x800",
+      "label": "network",
+      "w": 799,
+      "h": 750,
+      "sw": 799,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "799x800",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "800x800",
+      "label": "fleet",
+      "w": 800,
+      "h": 750,
+      "sw": 800,
+      "scrollY": 0,
+      "button": {
+        "y": 256,
+        "bottom": 300,
+        "x": 712,
+        "right": 782
+      }
+    },
+    {
+      "tag": "800x800",
+      "label": "batch",
+      "w": 800,
+      "h": 750,
+      "sw": 800,
+      "scrollY": 0,
+      "button": {
+        "y": 533.4872436523438,
+        "bottom": 577.4872436523438,
+        "x": 624,
+        "right": 749
+      }
+    },
+    {
+      "tag": "800x800",
+      "label": "branches",
+      "w": 800,
+      "h": 750,
+      "sw": 800,
+      "scrollY": 0,
+      "button": {
+        "y": 206,
+        "bottom": 250,
+        "x": 712,
+        "right": 782
+      }
+    },
+    {
+      "tag": "800x800",
+      "label": "regions",
+      "w": 800,
+      "h": 750,
+      "sw": 800,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "800x800",
+      "label": "network",
+      "w": 800,
+      "h": 750,
+      "sw": 800,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "800x800",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "801x800",
+      "label": "fleet",
+      "w": 801,
+      "h": 750,
+      "sw": 801,
+      "scrollY": 0,
+      "button": {
+        "y": 263.078125,
+        "bottom": 307.078125,
+        "x": 697,
+        "right": 779
+      }
+    },
+    {
+      "tag": "801x800",
+      "label": "batch",
+      "w": 801,
+      "h": 750,
+      "sw": 801,
+      "scrollY": 0,
+      "button": {
+        "y": 531.8157958984375,
+        "bottom": 575.8157958984375,
+        "x": 509.5,
+        "right": 634.5
+      }
+    },
+    {
+      "tag": "801x800",
+      "label": "branches",
+      "w": 801,
+      "h": 750,
+      "sw": 801,
+      "scrollY": 0,
+      "button": {
+        "y": 265.078125,
+        "bottom": 309.078125,
+        "x": 697,
+        "right": 779
+      }
+    },
+    {
+      "tag": "801x800",
+      "label": "regions",
+      "w": 801,
+      "h": 750,
+      "sw": 801,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "801x800",
+      "label": "network",
+      "w": 801,
+      "h": 750,
+      "sw": 801,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "801x800",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "1000x800",
+      "label": "fleet",
+      "w": 1000,
+      "h": 750,
+      "sw": 1000,
+      "scrollY": 0,
+      "button": {
+        "y": 263.078125,
+        "bottom": 307.078125,
+        "x": 896,
+        "right": 978
+      }
+    },
+    {
+      "tag": "1000x800",
+      "label": "batch",
+      "w": 1000,
+      "h": 750,
+      "sw": 1000,
+      "scrollY": 0,
+      "button": {
+        "y": 531.5501708984375,
+        "bottom": 575.5501708984375,
+        "x": 609,
+        "right": 734
+      }
+    },
+    {
+      "tag": "1000x800",
+      "label": "branches",
+      "w": 1000,
+      "h": 750,
+      "sw": 1000,
+      "scrollY": 0,
+      "button": {
+        "y": 265.078125,
+        "bottom": 309.078125,
+        "x": 896,
+        "right": 978
+      }
+    },
+    {
+      "tag": "1000x800",
+      "label": "regions",
+      "w": 1000,
+      "h": 750,
+      "sw": 1000,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "1000x800",
+      "label": "network",
+      "w": 1000,
+      "h": 750,
+      "sw": 1000,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "1000x800",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    },
+    {
+      "tag": "1001x800",
+      "label": "fleet",
+      "w": 1001,
+      "h": 750,
+      "sw": 1001,
+      "scrollY": 0,
+      "button": {
+        "y": 263.078125,
+        "bottom": 307.078125,
+        "x": 897,
+        "right": 979
+      }
+    },
+    {
+      "tag": "1001x800",
+      "label": "batch",
+      "w": 1001,
+      "h": 750,
+      "sw": 1001,
+      "scrollY": 0,
+      "button": {
+        "y": 531.5496215820312,
+        "bottom": 575.5496215820312,
+        "x": 609.5,
+        "right": 734.5
+      }
+    },
+    {
+      "tag": "1001x800",
+      "label": "branches",
+      "w": 1001,
+      "h": 750,
+      "sw": 1001,
+      "scrollY": 0,
+      "button": {
+        "y": 265.078125,
+        "bottom": 309.078125,
+        "x": 897,
+        "right": 979
+      }
+    },
+    {
+      "tag": "1001x800",
+      "label": "regions",
+      "w": 1001,
+      "h": 750,
+      "sw": 1001,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "1001x800",
+      "label": "network",
+      "w": 1001,
+      "h": 750,
+      "sw": 1001,
+      "scrollY": 0,
+      "button": null
+    },
+    {
+      "tag": "1001x800",
+      "editsAndPaging": true,
+      "monthAndCashUnchanged": true
+    }
+  ],
+  "errors": []
+}
