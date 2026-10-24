@@ -1,0 +1,23 @@
+[
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "invalidFrequencyNoMutation": true,
+    "focusedInputReducedHeight": true,
+    "rotationPreservesDraft": true
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "invalidFrequencyNoMutation": true,
+    "focusedInputReducedHeight": true,
+    "rotationPreservesDraft": true
+  },
+  {
+    "emptyConnectionsReturn": true
+  }
+]

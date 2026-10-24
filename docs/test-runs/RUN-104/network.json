@@ -1,0 +1,3374 @@
+{
+  "results": [
+    {
+      "tag": "360x640",
+      "step": "summary",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 116.71875,
+          "bottom": 160.71875,
+          "right": 101,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 101,
+          "y": 116.71875,
+          "bottom": 160.71875,
+          "right": 180,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 180,
+          "y": 116.71875,
+          "bottom": 160.71875,
+          "right": 259,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 259,
+          "y": 116.71875,
+          "bottom": 160.71875,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 502.359375,
+          "bottom": 546.359375,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "360x640",
+      "step": "hubs",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 101,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 101,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 180,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 180,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 259,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 259,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 22,
+          "y": 441.203125,
+          "bottom": 485.203125,
+          "right": 80,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 280,
+          "y": 441.203125,
+          "bottom": 485.203125,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 493.203125,
+          "bottom": 537.203125,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "360x640",
+      "step": "flows",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 101,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 101,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 180,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 180,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 259,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 259,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 22,
+          "y": 441.203125,
+          "bottom": 485.203125,
+          "right": 80,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 280,
+          "y": 441.203125,
+          "bottom": 485.203125,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 493.203125,
+          "bottom": 537.203125,
+          "right": 92,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 100,
+          "y": 493.203125,
+          "bottom": 537.203125,
+          "right": 215,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 223,
+          "y": 493.203125,
+          "bottom": 537.203125,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "360x640",
+      "step": "expand",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 91.09375,
+          "bottom": 135.09375,
+          "right": 101,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 101,
+          "y": 91.09375,
+          "bottom": 135.09375,
+          "right": 180,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 180,
+          "y": 91.09375,
+          "bottom": 135.09375,
+          "right": 259,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 259,
+          "y": 91.09375,
+          "bottom": 135.09375,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 22,
+          "y": 476,
+          "bottom": 520,
+          "right": 80,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 280,
+          "y": 476,
+          "bottom": 520,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 528,
+          "bottom": 572,
+          "right": 153.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 161.5,
+          "y": 528,
+          "bottom": 572,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "360x640",
+      "step": "settled-restored",
+      "network": {
+        "cities": 6,
+        "transferPax": 756,
+        "plannedTransferPax": 844,
+        "transferRevenue": 5.691285000000002,
+        "missedConnections": 88,
+        "journeys": 9320
+      }
+    },
+    {
+      "tag": "390x844",
+      "step": "summary",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 218.71875,
+          "bottom": 262.71875,
+          "right": 110.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 110.5,
+          "y": 218.71875,
+          "bottom": 262.71875,
+          "right": 195,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 195,
+          "y": 218.71875,
+          "bottom": 262.71875,
+          "right": 279.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 279.5,
+          "y": 218.71875,
+          "bottom": 262.71875,
+          "right": 364,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 607.359375,
+          "bottom": 651.359375,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "390x844",
+      "step": "hubs",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 227.890625,
+          "bottom": 271.890625,
+          "right": 110.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 110.5,
+          "y": 227.890625,
+          "bottom": 271.890625,
+          "right": 195,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 195,
+          "y": 227.890625,
+          "bottom": 271.890625,
+          "right": 279.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 279.5,
+          "y": 227.890625,
+          "bottom": 271.890625,
+          "right": 364,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 24,
+          "y": 546.203125,
+          "bottom": 590.203125,
+          "right": 89,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 301,
+          "y": 546.203125,
+          "bottom": 590.203125,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 598.203125,
+          "bottom": 642.203125,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "390x844",
+      "step": "flows",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 227.890625,
+          "bottom": 271.890625,
+          "right": 110.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 110.5,
+          "y": 227.890625,
+          "bottom": 271.890625,
+          "right": 195,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 195,
+          "y": 227.890625,
+          "bottom": 271.890625,
+          "right": 279.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 279.5,
+          "y": 227.890625,
+          "bottom": 271.890625,
+          "right": 364,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 24,
+          "y": 546.203125,
+          "bottom": 590.203125,
+          "right": 89,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 301,
+          "y": 546.203125,
+          "bottom": 590.203125,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 598.203125,
+          "bottom": 642.203125,
+          "right": 101.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 109.328125,
+          "y": 598.203125,
+          "bottom": 642.203125,
+          "right": 233.671875,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 241.671875,
+          "y": 598.203125,
+          "bottom": 642.203125,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "390x844",
+      "step": "expand",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 172.796875,
+          "bottom": 216.796875,
+          "right": 110.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 110.5,
+          "y": 172.796875,
+          "bottom": 216.796875,
+          "right": 195,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 195,
+          "y": 172.796875,
+          "bottom": 216.796875,
+          "right": 279.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 279.5,
+          "y": 172.796875,
+          "bottom": 216.796875,
+          "right": 364,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 24,
+          "y": 601.296875,
+          "bottom": 645.296875,
+          "right": 89,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 301,
+          "y": 601.296875,
+          "bottom": 645.296875,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 653.296875,
+          "bottom": 697.296875,
+          "right": 167.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 175.5,
+          "y": 653.296875,
+          "bottom": 697.296875,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "390x844",
+      "step": "text200",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 175.1875,
+          "bottom": 235.78125,
+          "right": 110.5,
+          "height": 60.59375,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 110.5,
+          "y": 175.1875,
+          "bottom": 235.78125,
+          "right": 195,
+          "height": 60.59375,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 195,
+          "y": 175.1875,
+          "bottom": 235.78125,
+          "right": 279.5,
+          "height": 60.59375,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 279.5,
+          "y": 175.1875,
+          "bottom": 235.78125,
+          "right": 364,
+          "height": 60.59375,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 718.609375,
+          "bottom": 775,
+          "right": 366,
+          "height": 56.390625,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "390x844",
+      "step": "settled-restored",
+      "network": {
+        "cities": 6,
+        "transferPax": 756,
+        "plannedTransferPax": 844,
+        "transferRevenue": 5.691285000000002,
+        "missedConnections": 88,
+        "journeys": 9320
+      }
+    },
+    {
+      "tag": "430x932",
+      "step": "summary",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 273.921875,
+          "bottom": 317.921875,
+          "right": 120.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 120.5,
+          "y": 273.921875,
+          "bottom": 317.921875,
+          "right": 215,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 215,
+          "y": 273.921875,
+          "bottom": 317.921875,
+          "right": 309.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 309.5,
+          "y": 273.921875,
+          "bottom": 317.921875,
+          "right": 404,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 640.171875,
+          "bottom": 684.171875,
+          "right": 406,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "430x932",
+      "step": "hubs",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 271.890625,
+          "bottom": 315.890625,
+          "right": 120.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 120.5,
+          "y": 271.890625,
+          "bottom": 315.890625,
+          "right": 215,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 215,
+          "y": 271.890625,
+          "bottom": 315.890625,
+          "right": 309.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 309.5,
+          "y": 271.890625,
+          "bottom": 315.890625,
+          "right": 404,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 24,
+          "y": 590.203125,
+          "bottom": 634.203125,
+          "right": 89,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 341,
+          "y": 590.203125,
+          "bottom": 634.203125,
+          "right": 406,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 642.203125,
+          "bottom": 686.203125,
+          "right": 406,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "430x932",
+      "step": "flows",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 271.890625,
+          "bottom": 315.890625,
+          "right": 120.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 120.5,
+          "y": 271.890625,
+          "bottom": 315.890625,
+          "right": 215,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 215,
+          "y": 271.890625,
+          "bottom": 315.890625,
+          "right": 309.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 309.5,
+          "y": 271.890625,
+          "bottom": 315.890625,
+          "right": 404,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 24,
+          "y": 590.203125,
+          "bottom": 634.203125,
+          "right": 89,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 341,
+          "y": 590.203125,
+          "bottom": 634.203125,
+          "right": 406,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 642.203125,
+          "bottom": 686.203125,
+          "right": 114.65625,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 122.65625,
+          "y": 642.203125,
+          "bottom": 686.203125,
+          "right": 260.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 268.328125,
+          "y": 642.203125,
+          "bottom": 686.203125,
+          "right": 406,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "430x932",
+      "step": "expand",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 216.796875,
+          "bottom": 260.796875,
+          "right": 120.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 120.5,
+          "y": 216.796875,
+          "bottom": 260.796875,
+          "right": 215,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 215,
+          "y": 216.796875,
+          "bottom": 260.796875,
+          "right": 309.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 309.5,
+          "y": 216.796875,
+          "bottom": 260.796875,
+          "right": 404,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 24,
+          "y": 645.296875,
+          "bottom": 689.296875,
+          "right": 89,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 341,
+          "y": 645.296875,
+          "bottom": 689.296875,
+          "right": 406,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 697.296875,
+          "bottom": 741.296875,
+          "right": 187.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 195.5,
+          "y": 697.296875,
+          "bottom": 741.296875,
+          "right": 406,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "844x390",
+      "step": "summary",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 70,
+          "y": 81,
+          "bottom": 125,
+          "right": 246,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 246,
+          "y": 81,
+          "bottom": 125,
+          "right": 422,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 422,
+          "y": 81,
+          "bottom": 125,
+          "right": 598,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 598,
+          "y": 81,
+          "bottom": 125,
+          "right": 774,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 68,
+          "y": 280,
+          "bottom": 324,
+          "right": 776,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "844x390",
+      "step": "hubs",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 70,
+          "y": 81,
+          "bottom": 125,
+          "right": 246,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 246,
+          "y": 81,
+          "bottom": 125,
+          "right": 422,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 422,
+          "y": 81,
+          "bottom": 125,
+          "right": 598,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 598,
+          "y": 81,
+          "bottom": 125,
+          "right": 774,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 68,
+          "y": 280,
+          "bottom": 324,
+          "right": 133,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 353,
+          "y": 280,
+          "bottom": 324,
+          "right": 418,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 426,
+          "y": 280,
+          "bottom": 324,
+          "right": 776,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "844x390",
+      "step": "flows",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 70,
+          "y": 81,
+          "bottom": 125,
+          "right": 246,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 246,
+          "y": 81,
+          "bottom": 125,
+          "right": 422,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 422,
+          "y": 81,
+          "bottom": 125,
+          "right": 598,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 598,
+          "y": 81,
+          "bottom": 125,
+          "right": 774,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 68,
+          "y": 280,
+          "bottom": 324,
+          "right": 133,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 353,
+          "y": 280,
+          "bottom": 324,
+          "right": 418,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 426,
+          "y": 280,
+          "bottom": 324,
+          "right": 506,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 514,
+          "y": 280,
+          "bottom": 324,
+          "right": 641,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 649,
+          "y": 280,
+          "bottom": 324,
+          "right": 776,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "844x390",
+      "step": "expand",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 70,
+          "y": 81,
+          "bottom": 125,
+          "right": 246,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 246,
+          "y": 81,
+          "bottom": 125,
+          "right": 422,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 422,
+          "y": 81,
+          "bottom": 125,
+          "right": 598,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 598,
+          "y": 81,
+          "bottom": 125,
+          "right": 774,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 68,
+          "y": 280,
+          "bottom": 324,
+          "right": 133,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 353,
+          "y": 280,
+          "bottom": 324,
+          "right": 418,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 426,
+          "y": 280,
+          "bottom": 324,
+          "right": 573.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 581.5,
+          "y": 280,
+          "bottom": 324,
+          "right": 776,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "844x390",
+      "step": "settled-restored",
+      "network": {
+        "cities": 6,
+        "transferPax": 756,
+        "plannedTransferPax": 844,
+        "transferRevenue": 5.691285000000002,
+        "missedConnections": 88,
+        "journeys": 9320
+      }
+    },
+    {
+      "tag": "768x1024",
+      "step": "summary",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 98,
+          "y": 354.65625,
+          "bottom": 398.65625,
+          "right": 224.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 246.5,
+          "y": 354.65625,
+          "bottom": 398.65625,
+          "right": 373,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 395,
+          "y": 354.65625,
+          "bottom": 398.65625,
+          "right": 521.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 543.5,
+          "y": 354.65625,
+          "bottom": 398.65625,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 98,
+          "y": 674.5625,
+          "bottom": 718.5625,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "768x1024",
+      "step": "hubs",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 98,
+          "y": 318.453125,
+          "bottom": 362.453125,
+          "right": 224.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 246.5,
+          "y": 318.453125,
+          "bottom": 362.453125,
+          "right": 373,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 395,
+          "y": 318.453125,
+          "bottom": 362.453125,
+          "right": 521.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 543.5,
+          "y": 318.453125,
+          "bottom": 362.453125,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 98,
+          "y": 658.765625,
+          "bottom": 702.765625,
+          "right": 172,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 596,
+          "y": 658.765625,
+          "bottom": 702.765625,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 98,
+          "y": 710.765625,
+          "bottom": 754.765625,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "768x1024",
+      "step": "flows",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 98,
+          "y": 318.453125,
+          "bottom": 362.453125,
+          "right": 224.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 246.5,
+          "y": 318.453125,
+          "bottom": 362.453125,
+          "right": 373,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 395,
+          "y": 318.453125,
+          "bottom": 362.453125,
+          "right": 521.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 543.5,
+          "y": 318.453125,
+          "bottom": 362.453125,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 98,
+          "y": 658.765625,
+          "bottom": 702.765625,
+          "right": 172,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 596,
+          "y": 658.765625,
+          "bottom": 702.765625,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 98,
+          "y": 710.765625,
+          "bottom": 754.765625,
+          "right": 250.65625,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 258.65625,
+          "y": 710.765625,
+          "bottom": 754.765625,
+          "right": 460.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 468.328125,
+          "y": 710.765625,
+          "bottom": 754.765625,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "768x1024",
+      "step": "expand",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 98,
+          "y": 263.359375,
+          "bottom": 307.359375,
+          "right": 224.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 246.5,
+          "y": 263.359375,
+          "bottom": 307.359375,
+          "right": 373,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 395,
+          "y": 263.359375,
+          "bottom": 307.359375,
+          "right": 521.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 543.5,
+          "y": 263.359375,
+          "bottom": 307.359375,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 98,
+          "y": 713.859375,
+          "bottom": 757.859375,
+          "right": 172,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 596,
+          "y": 713.859375,
+          "bottom": 757.859375,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 98,
+          "y": 765.859375,
+          "bottom": 809.859375,
+          "right": 355.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 363.5,
+          "y": 765.859375,
+          "bottom": 809.859375,
+          "right": 670,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "1366x768",
+      "step": "summary",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 397,
+          "y": 226.65625,
+          "bottom": 270.65625,
+          "right": 523.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 545.5,
+          "y": 226.65625,
+          "bottom": 270.65625,
+          "right": 672,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 694,
+          "y": 226.65625,
+          "bottom": 270.65625,
+          "right": 820.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 842.5,
+          "y": 226.65625,
+          "bottom": 270.65625,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 397,
+          "y": 546.5625,
+          "bottom": 590.5625,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "1366x768",
+      "step": "hubs",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 397,
+          "y": 190.453125,
+          "bottom": 234.453125,
+          "right": 523.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 545.5,
+          "y": 190.453125,
+          "bottom": 234.453125,
+          "right": 672,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 694,
+          "y": 190.453125,
+          "bottom": 234.453125,
+          "right": 820.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 842.5,
+          "y": 190.453125,
+          "bottom": 234.453125,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 397,
+          "y": 530.765625,
+          "bottom": 574.765625,
+          "right": 471,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 895,
+          "y": 530.765625,
+          "bottom": 574.765625,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 397,
+          "y": 582.765625,
+          "bottom": 626.765625,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "1366x768",
+      "step": "flows",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 397,
+          "y": 190.453125,
+          "bottom": 234.453125,
+          "right": 523.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 545.5,
+          "y": 190.453125,
+          "bottom": 234.453125,
+          "right": 672,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 694,
+          "y": 190.453125,
+          "bottom": 234.453125,
+          "right": 820.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 842.5,
+          "y": 190.453125,
+          "bottom": 234.453125,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 397,
+          "y": 530.765625,
+          "bottom": 574.765625,
+          "right": 471,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 895,
+          "y": 530.765625,
+          "bottom": 574.765625,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 397,
+          "y": 582.765625,
+          "bottom": 626.765625,
+          "right": 549.65625,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 557.65625,
+          "y": 582.765625,
+          "bottom": 626.765625,
+          "right": 759.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 767.328125,
+          "y": 582.765625,
+          "bottom": 626.765625,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "1366x768",
+      "step": "expand",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 397,
+          "y": 135.359375,
+          "bottom": 179.359375,
+          "right": 523.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 545.5,
+          "y": 135.359375,
+          "bottom": 179.359375,
+          "right": 672,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 694,
+          "y": 135.359375,
+          "bottom": 179.359375,
+          "right": 820.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 842.5,
+          "y": 135.359375,
+          "bottom": 179.359375,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 397,
+          "y": 585.859375,
+          "bottom": 629.859375,
+          "right": 471,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 895,
+          "y": 585.859375,
+          "bottom": 629.859375,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 397,
+          "y": 637.859375,
+          "bottom": 681.859375,
+          "right": 654.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 662.5,
+          "y": 637.859375,
+          "bottom": 681.859375,
+          "right": 969,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "1366x768",
+      "step": "settled-restored",
+      "network": {
+        "cities": 6,
+        "transferPax": 756,
+        "plannedTransferPax": 844,
+        "transferRevenue": 5.691285000000002,
+        "missedConnections": 88,
+        "journeys": 9320
+      }
+    },
+    {
+      "tag": "1440x900",
+      "step": "summary",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 434,
+          "y": 292.65625,
+          "bottom": 336.65625,
+          "right": 560.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 582.5,
+          "y": 292.65625,
+          "bottom": 336.65625,
+          "right": 709,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 731,
+          "y": 292.65625,
+          "bottom": 336.65625,
+          "right": 857.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 879.5,
+          "y": 292.65625,
+          "bottom": 336.65625,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 434,
+          "y": 612.5625,
+          "bottom": 656.5625,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "1440x900",
+      "step": "hubs",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 434,
+          "y": 256.453125,
+          "bottom": 300.453125,
+          "right": 560.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 582.5,
+          "y": 256.453125,
+          "bottom": 300.453125,
+          "right": 709,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 731,
+          "y": 256.453125,
+          "bottom": 300.453125,
+          "right": 857.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 879.5,
+          "y": 256.453125,
+          "bottom": 300.453125,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 434,
+          "y": 596.765625,
+          "bottom": 640.765625,
+          "right": 508,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 932,
+          "y": 596.765625,
+          "bottom": 640.765625,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 434,
+          "y": 648.765625,
+          "bottom": 692.765625,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "1440x900",
+      "step": "flows",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 434,
+          "y": 256.453125,
+          "bottom": 300.453125,
+          "right": 560.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 582.5,
+          "y": 256.453125,
+          "bottom": 300.453125,
+          "right": 709,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 731,
+          "y": 256.453125,
+          "bottom": 300.453125,
+          "right": 857.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 879.5,
+          "y": 256.453125,
+          "bottom": 300.453125,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 434,
+          "y": 596.765625,
+          "bottom": 640.765625,
+          "right": 508,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 932,
+          "y": 596.765625,
+          "bottom": 640.765625,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 434,
+          "y": 648.765625,
+          "bottom": 692.765625,
+          "right": 586.65625,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 594.65625,
+          "y": 648.765625,
+          "bottom": 692.765625,
+          "right": 796.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 804.328125,
+          "y": 648.765625,
+          "bottom": 692.765625,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "1440x900",
+      "step": "expand",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 434,
+          "y": 201.359375,
+          "bottom": 245.359375,
+          "right": 560.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 582.5,
+          "y": 201.359375,
+          "bottom": 245.359375,
+          "right": 709,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 731,
+          "y": 201.359375,
+          "bottom": 245.359375,
+          "right": 857.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 879.5,
+          "y": 201.359375,
+          "bottom": 245.359375,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 434,
+          "y": 651.859375,
+          "bottom": 695.859375,
+          "right": 508,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 932,
+          "y": 651.859375,
+          "bottom": 695.859375,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 434,
+          "y": 703.859375,
+          "bottom": 747.859375,
+          "right": 691.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 699.5,
+          "y": 703.859375,
+          "bottom": 747.859375,
+          "right": 1006,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "320x568",
+      "step": "summary",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 91,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 91,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 160,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 160,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 229,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 229,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 456,
+          "bottom": 500,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "320x568",
+      "step": "hubs",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 91,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 91,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 160,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 160,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 229,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 229,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 22,
+          "y": 404,
+          "bottom": 448,
+          "right": 80,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 240,
+          "y": 404,
+          "bottom": 448,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 456,
+          "bottom": 500,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "320x568",
+      "step": "flows",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 91,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 91,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 160,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 160,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 229,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 229,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 22,
+          "y": 404,
+          "bottom": 448,
+          "right": 80,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 240,
+          "y": 404,
+          "bottom": 448,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 456,
+          "bottom": 500,
+          "right": 78.65625,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 86.65625,
+          "y": 456,
+          "bottom": 500,
+          "right": 188.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 196.328125,
+          "y": 456,
+          "bottom": 500,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "320x568",
+      "step": "expand",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 91,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 91,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 160,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 160,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 229,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 229,
+          "y": 109.09375,
+          "bottom": 153.09375,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 22,
+          "y": 404,
+          "bottom": 448,
+          "right": 80,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 240,
+          "y": 404,
+          "bottom": 448,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 456,
+          "bottom": 500,
+          "right": 133.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 141.5,
+          "y": 456,
+          "bottom": 500,
+          "right": 298,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "390x600",
+      "step": "summary",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 96.71875,
+          "bottom": 140.71875,
+          "right": 110.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 110.5,
+          "y": 96.71875,
+          "bottom": 140.71875,
+          "right": 195,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 195,
+          "y": 96.71875,
+          "bottom": 140.71875,
+          "right": 279.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 279.5,
+          "y": 96.71875,
+          "bottom": 140.71875,
+          "right": 364,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 485.359375,
+          "bottom": 529.359375,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "390x600",
+      "step": "hubs",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 105.890625,
+          "bottom": 149.890625,
+          "right": 110.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 110.5,
+          "y": 105.890625,
+          "bottom": 149.890625,
+          "right": 195,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 195,
+          "y": 105.890625,
+          "bottom": 149.890625,
+          "right": 279.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 279.5,
+          "y": 105.890625,
+          "bottom": 149.890625,
+          "right": 364,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 24,
+          "y": 424.203125,
+          "bottom": 468.203125,
+          "right": 89,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 301,
+          "y": 424.203125,
+          "bottom": 468.203125,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 476.203125,
+          "bottom": 520.203125,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "390x600",
+      "step": "flows",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 105.890625,
+          "bottom": 149.890625,
+          "right": 110.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 110.5,
+          "y": 105.890625,
+          "bottom": 149.890625,
+          "right": 195,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 195,
+          "y": 105.890625,
+          "bottom": 149.890625,
+          "right": 279.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 279.5,
+          "y": 105.890625,
+          "bottom": 149.890625,
+          "right": 364,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 24,
+          "y": 424.203125,
+          "bottom": 468.203125,
+          "right": 89,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 301,
+          "y": 424.203125,
+          "bottom": 468.203125,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 476.203125,
+          "bottom": 520.203125,
+          "right": 101.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 109.328125,
+          "y": 476.203125,
+          "bottom": 520.203125,
+          "right": 233.671875,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 241.671875,
+          "y": 476.203125,
+          "bottom": 520.203125,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "390x600",
+      "step": "expand",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 26,
+          "y": 95.09375,
+          "bottom": 139.09375,
+          "right": 110.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 110.5,
+          "y": 95.09375,
+          "bottom": 139.09375,
+          "right": 195,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 195,
+          "y": 95.09375,
+          "bottom": 139.09375,
+          "right": 279.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 279.5,
+          "y": 95.09375,
+          "bottom": 139.09375,
+          "right": 364,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 24,
+          "y": 435,
+          "bottom": 479,
+          "right": 89,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 301,
+          "y": 435,
+          "bottom": 479,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 24,
+          "y": 487,
+          "bottom": 531,
+          "right": 167.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 175.5,
+          "y": 487,
+          "bottom": 531,
+          "right": 366,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "700x800",
+      "step": "summary",
+      "w": 700,
+      "h": 751,
+      "sw": 700,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 56,
+          "y": 240.09375,
+          "bottom": 284.09375,
+          "right": 203,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 203,
+          "y": 240.09375,
+          "bottom": 284.09375,
+          "right": 350,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 350,
+          "y": 240.09375,
+          "bottom": 284.09375,
+          "right": 497,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 497,
+          "y": 240.09375,
+          "bottom": 284.09375,
+          "right": 644,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 54,
+          "y": 542,
+          "bottom": 586,
+          "right": 646,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "700x800",
+      "step": "hubs",
+      "w": 700,
+      "h": 751,
+      "sw": 700,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 56,
+          "y": 217.078125,
+          "bottom": 261.078125,
+          "right": 203,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 203,
+          "y": 217.078125,
+          "bottom": 261.078125,
+          "right": 350,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 350,
+          "y": 217.078125,
+          "bottom": 261.078125,
+          "right": 497,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 497,
+          "y": 217.078125,
+          "bottom": 261.078125,
+          "right": 644,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 54,
+          "y": 513,
+          "bottom": 557,
+          "right": 119,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 581,
+          "y": 513,
+          "bottom": 557,
+          "right": 646,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 54,
+          "y": 565,
+          "bottom": 609,
+          "right": 646,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "700x800",
+      "step": "flows",
+      "w": 700,
+      "h": 751,
+      "sw": 700,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 56,
+          "y": 217.078125,
+          "bottom": 261.078125,
+          "right": 203,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 203,
+          "y": 217.078125,
+          "bottom": 261.078125,
+          "right": 350,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 350,
+          "y": 217.078125,
+          "bottom": 261.078125,
+          "right": 497,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 497,
+          "y": 217.078125,
+          "bottom": 261.078125,
+          "right": 644,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 54,
+          "y": 513,
+          "bottom": 557,
+          "right": 119,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 581,
+          "y": 513,
+          "bottom": 557,
+          "right": 646,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 54,
+          "y": 565,
+          "bottom": 609,
+          "right": 214.65625,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 222.65625,
+          "y": 565,
+          "bottom": 609,
+          "right": 430.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 438.328125,
+          "y": 565,
+          "bottom": 609,
+          "right": 646,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "700x800",
+      "step": "expand",
+      "w": 700,
+      "h": 751,
+      "sw": 700,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 56,
+          "y": 161.984375,
+          "bottom": 205.984375,
+          "right": 203,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 203,
+          "y": 161.984375,
+          "bottom": 205.984375,
+          "right": 350,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 350,
+          "y": 161.984375,
+          "bottom": 205.984375,
+          "right": 497,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 497,
+          "y": 161.984375,
+          "bottom": 205.984375,
+          "right": 644,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 54,
+          "y": 568.09375,
+          "bottom": 612.09375,
+          "right": 119,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 581,
+          "y": 568.09375,
+          "bottom": 612.09375,
+          "right": 646,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 54,
+          "y": 620.09375,
+          "bottom": 664.09375,
+          "right": 322.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 330.5,
+          "y": 620.09375,
+          "bottom": 664.09375,
+          "right": 646,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "701x800",
+      "step": "summary",
+      "w": 701,
+      "h": 751,
+      "sw": 701,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 64.5,
+          "y": 243.15625,
+          "bottom": 287.15625,
+          "right": 191,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 213,
+          "y": 243.15625,
+          "bottom": 287.15625,
+          "right": 339.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 361.5,
+          "y": 243.15625,
+          "bottom": 287.15625,
+          "right": 488,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 510,
+          "y": 243.15625,
+          "bottom": 287.15625,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 64.5,
+          "y": 563.0625,
+          "bottom": 607.0625,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "701x800",
+      "step": "hubs",
+      "w": 701,
+      "h": 751,
+      "sw": 701,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 64.5,
+          "y": 206.953125,
+          "bottom": 250.953125,
+          "right": 191,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 213,
+          "y": 206.953125,
+          "bottom": 250.953125,
+          "right": 339.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 361.5,
+          "y": 206.953125,
+          "bottom": 250.953125,
+          "right": 488,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 510,
+          "y": 206.953125,
+          "bottom": 250.953125,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 64.5,
+          "y": 547.265625,
+          "bottom": 591.265625,
+          "right": 138.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 562.5,
+          "y": 547.265625,
+          "bottom": 591.265625,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 64.5,
+          "y": 599.265625,
+          "bottom": 643.265625,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "701x800",
+      "step": "flows",
+      "w": 701,
+      "h": 751,
+      "sw": 701,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 64.5,
+          "y": 206.953125,
+          "bottom": 250.953125,
+          "right": 191,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 213,
+          "y": 206.953125,
+          "bottom": 250.953125,
+          "right": 339.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 361.5,
+          "y": 206.953125,
+          "bottom": 250.953125,
+          "right": 488,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 510,
+          "y": 206.953125,
+          "bottom": 250.953125,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 64.5,
+          "y": 547.265625,
+          "bottom": 591.265625,
+          "right": 138.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 562.5,
+          "y": 547.265625,
+          "bottom": 591.265625,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 64.5,
+          "y": 599.265625,
+          "bottom": 643.265625,
+          "right": 217.15625,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 225.15625,
+          "y": 599.265625,
+          "bottom": 643.265625,
+          "right": 426.828125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 434.828125,
+          "y": 599.265625,
+          "bottom": 643.265625,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "701x800",
+      "step": "expand",
+      "w": 701,
+      "h": 751,
+      "sw": 701,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 64.5,
+          "y": 151.859375,
+          "bottom": 195.859375,
+          "right": 191,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 213,
+          "y": 151.859375,
+          "bottom": 195.859375,
+          "right": 339.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 361.5,
+          "y": 151.859375,
+          "bottom": 195.859375,
+          "right": 488,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 510,
+          "y": 151.859375,
+          "bottom": 195.859375,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 64.5,
+          "y": 602.359375,
+          "bottom": 646.359375,
+          "right": 138.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 562.5,
+          "y": 602.359375,
+          "bottom": 646.359375,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 64.5,
+          "y": 654.359375,
+          "bottom": 698.359375,
+          "right": 322,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 330,
+          "y": 654.359375,
+          "bottom": 698.359375,
+          "right": 636.5,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

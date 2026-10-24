@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "name": "云际航空",
+  "base": "URC",
+  "date": "2026-03-09",
+  "week": 1,
+  "cash": 1000,
+  "debt": 0,
+  "facilities": [],
+  "hangars": [],
+  "rep": 56,
+  "service": {
+    "cabin": 1,
+    "meal": 1,
+    "staff": 1,
+    "lounge": 0
+  },
+  "fleet": [
+    {
+      "id": 1,
+      "model": "A350-1000",
+      "condition": 100,
+      "mode": "buy",
+      "delivery": 0,
+      "maintenance": 0,
+      "age": 0,
+      "base": "URC",
+      "cabin": {
+        "economy": 375,
+        "business": 0,
+        "first": 0,
+        "pitch": 30
+      }
+    },
+    {
+      "id": 2,
+      "model": "A350-1000",
+      "condition": 100,
+      "mode": "buy",
+      "delivery": 0,
+      "maintenance": 0,
+      "age": 0,
+      "base": "URC",
+      "cabin": {
+        "economy": 375,
+        "business": 0,
+        "first": 0,
+        "pitch": 30
+      }
+    },
+    {
+      "id": 3,
+      "model": "A350-1000",
+      "condition": 100,
+      "mode": "buy",
+      "delivery": 0,
+      "maintenance": 0,
+      "age": 0,
+      "base": "URC",
+      "cabin": {
+        "economy": 375,
+        "business": 0,
+        "first": 0,
+        "pitch": 30
+      }
+    },
+    {
+      "id": 4,
+      "model": "A350-1000",
+      "condition": 100,
+      "mode": "buy",
+      "delivery": 0,
+      "maintenance": 0,
+      "age": 0,
+      "base": "URC",
+      "cabin": {
+        "economy": 375,
+        "business": 0,
+        "first": 0,
+        "pitch": 30
+      }
+    },
+    {
+      "id": 5,
+      "model": "A380-800",
+      "condition": 100,
+      "mode": "buy",
+      "delivery": 0,
+      "maintenance": 0,
+      "age": 0,
+      "base": "URC",
+      "cabin": {
+        "economy": 555,
+        "business": 0,
+        "first": 0,
+        "pitch": 30
+      }
+    },
+    {
+      "id": 6,
+      "model": "A350-1000",
+      "condition": 100,
+      "mode": "buy",
+      "delivery": 0,
+      "maintenance": 0,
+      "age": 0,
+      "base": "URC",
+      "cabin": {
+        "economy": 375,
+        "business": 0,
+        "first": 0,
+        "pitch": 30
+      }
+    }
+  ],
+  "nextId": 200,
+  "routes": [
+    {
+      "id": 101,
+      "from": "URC",
+      "to": "AAT",
+      "plane": 1,
+      "freq": 7,
+      "price": 1.3,
+      "active": true,
+      "schedule": [
+        {
+          "day": 0,
+          "departure": 1080
+        },
+        {
+          "day": 1,
+          "departure": 1080
+        },
+        {
+          "day": 2,
+          "departure": 1080
+        },
+        {
+          "day": 3,
+          "departure": 1080
+        },
+        {
+          "day": 4,
+          "departure": 1080
+        },
+        {
+          "day": 5,
+          "departure": 1080
+        },
+        {
+          "day": 6,
+          "departure": 1080
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "from": "URC",
+      "to": "PEK",
+      "plane": 2,
+      "freq": 7,
+      "price": 1.3,
+      "active": true,
+      "schedule": [
+        {
+          "day": 0,
+          "departure": 420
+        },
+        {
+          "day": 1,
+          "departure": 420
+        },
+        {
+          "day": 2,
+          "departure": 420
+        },
+        {
+          "day": 3,
+          "departure": 420
+        },
+        {
+          "day": 4,
+          "departure": 420
+        },
+        {
+          "day": 5,
+          "departure": 420
+        },
+        {
+          "day": 6,
+          "departure": 420
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "from": "URC",
+      "to": "PVG",
+      "plane": 3,
+      "freq": 7,
+      "price": 1.3,
+      "active": true,
+      "schedule": [
+        {
+          "day": 0,
+          "departure": 420
+        },
+        {
+          "day": 1,
+          "departure": 420
+        },
+        {
+          "day": 2,
+          "departure": 420
+        },
+        {
+          "day": 3,
+          "departure": 420
+        },
+        {
+          "day": 4,
+          "departure": 420
+        },
+        {
+          "day": 5,
+          "departure": 420
+        },
+        {
+          "day": 6,
+          "departure": 420
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "from": "URC",
+      "to": "TFU",
+      "plane": 4,
+      "freq": 7,
+      "price": 1.3,
+      "active": true,
+      "schedule": [
+        {
+          "day": 0,
+          "departure": 420
+        },
+        {
+          "day": 1,
+          "departure": 420
+        },
+        {
+          "day": 2,
+          "departure": 420
+        },
+        {
+          "day": 3,
+          "departure": 420
+        },
+        {
+          "day": 4,
+          "departure": 420
+        },
+        {
+          "day": 5,
+          "departure": 420
+        },
+        {
+          "day": 6,
+          "departure": 420
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "from": "URC",
+      "to": "CPT",
+      "plane": 5,
+      "freq": 3,
+      "price": 1.3,
+      "active": true,
+      "schedule": [
+        {
+          "day": 0,
+          "departure": 1080
+        },
+        {
+          "day": 2,
+          "departure": 1080
+        },
+        {
+          "day": 4,
+          "departure": 1080
+        }
+      ]
+    }
+  ],
+  "hubs": [
+    {
+      "code": "URC",
+      "level": 1
+    }
+  ],
+  "license": true,
+  "licenseDue": 0,
+  "seed": 64264,
+  "events": [],
+  "pending": null,
+  "log": [
+    {
+      "week": 1,
+      "text": "云际航空创立。启动现金 2,000 万元，已接收全新自有 Airbus A320neo 与 Boeing 737-8 各一架，两条国内航线进入运营。",
+      "type": "good"
+    }
+  ],
+  "history": [],
+  "totalPassengers": 0,
+  "profitStreak": 0,
+  "won": false,
+  "bankrupt": false,
+  "missions": [],
+  "lastReport": null,
+  "policy": "balanced",
+  "marketing": 0,
+  "fuelHedge": 0,
+  "reliable": 94
+}

@@ -1,0 +1,303 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 2\n\n    at file:///Users/leizhang/Documents/shoota/tmp/wt-portrait/docs/test-runs/RUN-104/network-browser.mjs:11:460",
+  "results": [
+    {
+      "tag": "360x640",
+      "step": "summary",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 116.71875,
+          "bottom": 160.71875,
+          "right": 101,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 101,
+          "y": 116.71875,
+          "bottom": 160.71875,
+          "right": 180,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 180,
+          "y": 116.71875,
+          "bottom": 160.71875,
+          "right": 259,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 259,
+          "y": 116.71875,
+          "bottom": 160.71875,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 502.359375,
+          "bottom": 546.359375,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "360x640",
+      "step": "hubs",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 101,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 101,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 180,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 180,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 259,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 259,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 22,
+          "y": 441.203125,
+          "bottom": 485.203125,
+          "right": 80,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 280,
+          "y": 441.203125,
+          "bottom": 485.203125,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 493.203125,
+          "bottom": 537.203125,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "360x640",
+      "step": "flows",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 101,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 101,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 180,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 180,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 259,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 259,
+          "y": 125.890625,
+          "bottom": 169.890625,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 22,
+          "y": 441.203125,
+          "bottom": 485.203125,
+          "right": 80,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 280,
+          "y": 441.203125,
+          "bottom": 485.203125,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 493.203125,
+          "bottom": 537.203125,
+          "right": 92,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "前段航线",
+          "x": 100,
+          "y": 493.203125,
+          "bottom": 537.203125,
+          "right": 215,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "后段航线",
+          "x": 223,
+          "y": 493.203125,
+          "bottom": 537.203125,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "tag": "360x640",
+      "step": "expand",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "buttons": [
+        {
+          "text": "概览",
+          "x": 22,
+          "y": 91.09375,
+          "bottom": 135.09375,
+          "right": 101,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "枢纽",
+          "x": 101,
+          "y": 91.09375,
+          "bottom": 135.09375,
+          "right": 180,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "客流",
+          "x": 180,
+          "y": 91.09375,
+          "bottom": 135.09375,
+          "right": 259,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "扩张",
+          "x": 259,
+          "y": 91.09375,
+          "bottom": 135.09375,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "上一页",
+          "x": 22,
+          "y": 476,
+          "bottom": 520,
+          "right": 80,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "下一页",
+          "x": 280,
+          "y": 476,
+          "bottom": 520,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "返回",
+          "x": 22,
+          "y": 528,
+          "bottom": 572,
+          "right": 153.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "text": "查看机队",
+          "x": 161.5,
+          "y": 528,
+          "bottom": 572,
+          "right": 338,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
