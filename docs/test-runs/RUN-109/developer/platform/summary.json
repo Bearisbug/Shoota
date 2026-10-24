@@ -1,0 +1,42 @@
+{
+  "checks": 102,
+  "badLayout": [],
+  "hostFilesChanged": [],
+  "coreLoops": [
+    {
+      "size": [
+        360,
+        640
+      ],
+      "upgradeUnchanged": true,
+      "reloadUnchanged": true
+    },
+    {
+      "size": [
+        390,
+        844
+      ],
+      "upgradeUnchanged": true,
+      "reloadUnchanged": true
+    },
+    {
+      "size": [
+        844,
+        390
+      ],
+      "upgradeUnchanged": true,
+      "reloadUnchanged": true
+    },
+    {
+      "size": [
+        1366,
+        768
+      ],
+      "upgradeUnchanged": true,
+      "reloadUnchanged": true
+    }
+  ],
+  "draftPreserved": true,
+  "htmlSHA256": "a9c974e546aea8ba6c59cb3ad861eb13f8c5228e4fc9324421524c107db08f12",
+  "zipSHA256": "50d731dc03d54c3f2c55f1ca528284f0f0f998d88857edaa43e6e65bd9d8c994"
+}

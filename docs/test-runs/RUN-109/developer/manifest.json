@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-25",
+  "html": "/Users/leizhang/Documents/ChatGPT/shoota/云际航空.html",
+  "html_sha256": "a9c974e546aea8ba6c59cb3ad861eb13f8c5228e4fc9324421524c107db08f12",
+  "zip": "/Users/leizhang/Documents/ChatGPT/shoota/云际航空-离线版.zip",
+  "zip_sha256": "50d731dc03d54c3f2c55f1ca528284f0f0f998d88857edaa43e6e65bd9d8c994",
+  "sources": {
+    "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/dist/data.js": "d33dfb9d34b882b4721c12ba61ba096a9f5cc533d11404bf66b68ca4e56d5775",
+    "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/dist/engine.js": "a734bfd9c64d00c10502e52d35c480e012d06d8650f42fcba178c929973fa61c",
+    "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/dist/app.js": "35525349428fc668328f68a4d45bcd4bddb00c2d6f76930c1b2d42cd69ae40e7",
+    "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/dist/style.css": "1cd678009ff982038cf86adde5a0a2b4c86c9724950f3d70bdb8bac7c5dc7905"
+  },
+  "tests": {
+    "passed": 149,
+    "failed": 0
+  },
+  "browser_viewports": [
+    "360x640",
+    "390x844",
+    "844x390",
+    "1366x768",
+    "320x568",
+    "700x700",
+    "701x700"
+  ],
+  "deployed": false
+}

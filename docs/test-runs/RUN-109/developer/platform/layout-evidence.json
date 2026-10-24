@@ -1,0 +1,3130 @@
+[
+  {
+    "label": "setup-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "新存档",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "从这里，写下航司的名字。",
+      "footer": {
+        "h": 63,
+        "w": 340,
+        "x": 10,
+        "y": 510.0234375
+      },
+      "main": "航空经营模拟  经营总览本机自动存档2026.01.05W01经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "home-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "新存档",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.01.05W01经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "quality-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:39",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 63,
+        "w": 340,
+        "x": 10,
+        "y": 518
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.05W01经营下一周快进",
+      "overflow": false,
+      "score": "30.3 / 100游戏综合排名 #152",
+      "selected": "品质得分",
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "scale-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:39",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 63,
+        "w": 340,
+        "x": 10,
+        "y": 518
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.05W01经营下一周快进",
+      "overflow": false,
+      "score": "30.3 / 100游戏综合排名 #152",
+      "selected": "规模得分",
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "profile-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:39",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 63,
+        "w": 340,
+        "x": 10,
+        "y": 518
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.05W01经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "upgrade-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:39",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级客舱体验",
+      "footer": {
+        "h": 63,
+        "w": 340,
+        "x": 10,
+        "y": 352.2890625
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.01.05W01经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "upgrade-keeps-score-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:39",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 63,
+        "w": 340,
+        "x": 10,
+        "y": 518
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.05W01经营下一周快进",
+      "overflow": false,
+      "score": "30.3 / 100游戏综合排名 #152",
+      "selected": "品质得分",
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "settlement-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:39",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 1 周 · 经营简报",
+      "footer": {
+        "h": 63,
+        "w": 340,
+        "x": 10,
+        "y": 518
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.12W02经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "delay-reputation-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:39",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 1 周 · 经营简报",
+      "footer": {
+        "h": 63,
+        "w": 340,
+        "x": 10,
+        "y": 518
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.12W02经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "reload-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.01.12W02经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "home-390x844",
+    "frame": {
+      "h": 795,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      390,
+      844
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.01.12W02经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        390,
+        795
+      ]
+    }
+  },
+  {
+    "label": "quality-390x844",
+    "frame": {
+      "h": 795,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      390,
+      844
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 65,
+        "w": 370,
+        "x": 10,
+        "y": 652.828125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.12W02经营下一周快进",
+      "overflow": false,
+      "score": "30.7 / 100游戏综合排名 #152",
+      "selected": "品质得分",
+      "viewport": [
+        390,
+        795
+      ]
+    }
+  },
+  {
+    "label": "scale-390x844",
+    "frame": {
+      "h": 795,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      390,
+      844
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 65,
+        "w": 370,
+        "x": 10,
+        "y": 652.828125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.12W02经营下一周快进",
+      "overflow": false,
+      "score": "30.7 / 100游戏综合排名 #152",
+      "selected": "规模得分",
+      "viewport": [
+        390,
+        795
+      ]
+    }
+  },
+  {
+    "label": "profile-390x844",
+    "frame": {
+      "h": 795,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      390,
+      844
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 65,
+        "w": 370,
+        "x": 10,
+        "y": 720
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.12W02经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        390,
+        795
+      ]
+    }
+  },
+  {
+    "label": "upgrade-390x844",
+    "frame": {
+      "h": 795,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      390,
+      844
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级客舱体验",
+      "footer": {
+        "h": 65,
+        "w": 370,
+        "x": 10,
+        "y": 456.2890625
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.01.12W02经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        390,
+        795
+      ]
+    }
+  },
+  {
+    "label": "settlement-390x844",
+    "frame": {
+      "h": 795,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:40",
+    "viewport": [
+      390,
+      844
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 2 周 · 经营简报",
+      "footer": {
+        "h": 65,
+        "w": 370,
+        "x": 10,
+        "y": 720
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.19W03经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        390,
+        795
+      ]
+    }
+  },
+  {
+    "label": "home-844x390",
+    "frame": {
+      "h": 339.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      390
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.01.19W03经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        340
+      ]
+    }
+  },
+  {
+    "label": "quality-844x390",
+    "frame": {
+      "h": 339.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      390
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 61,
+        "w": 820,
+        "x": 12,
+        "y": 271
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.19W03经营下一周快进",
+      "overflow": false,
+      "score": "31.3 / 100游戏综合排名 #152",
+      "selected": "品质得分",
+      "viewport": [
+        844,
+        340
+      ]
+    }
+  },
+  {
+    "label": "scale-844x390",
+    "frame": {
+      "h": 339.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      390
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 61,
+        "w": 820,
+        "x": 12,
+        "y": 271
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.19W03经营下一周快进",
+      "overflow": false,
+      "score": "31.3 / 100游戏综合排名 #152",
+      "selected": "规模得分",
+      "viewport": [
+        844,
+        340
+      ]
+    }
+  },
+  {
+    "label": "profile-844x390",
+    "frame": {
+      "h": 339.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      390
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 61,
+        "w": 820,
+        "x": 12,
+        "y": 271
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.19W03经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        844,
+        340
+      ]
+    }
+  },
+  {
+    "label": "upgrade-844x390",
+    "frame": {
+      "h": 339.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      390
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级客舱体验",
+      "footer": {
+        "h": 61,
+        "w": 740,
+        "x": 52,
+        "y": 215.1953125
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.01.19W03经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        340
+      ]
+    }
+  },
+  {
+    "label": "settlement-844x390",
+    "frame": {
+      "h": 339.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:40",
+    "viewport": [
+      844,
+      390
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "杭州 · 区域开发与交通协同",
+      "footer": null,
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.01.26W04处理待办快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        340
+      ]
+    }
+  },
+  {
+    "label": "settlement-844x390",
+    "frame": {
+      "h": 339.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      844,
+      390
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 4 周 · 经营简报",
+      "footer": {
+        "h": 61,
+        "w": 740,
+        "x": 52,
+        "y": 271
+      },
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.02W05经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        340
+      ]
+    }
+  },
+  {
+    "label": "home-1366x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1366,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.02W05经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1366,
+        718
+      ]
+    }
+  },
+  {
+    "label": "quality-1366x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1366,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 273,
+        "y": 541.3125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.02W05经营下一周快进",
+      "overflow": false,
+      "score": "32.8 / 100游戏综合排名 #152",
+      "selected": "品质得分",
+      "viewport": [
+        1366,
+        718
+      ]
+    }
+  },
+  {
+    "label": "scale-1366x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1366,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 273,
+        "y": 541.3125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.02W05经营下一周快进",
+      "overflow": false,
+      "score": "32.8 / 100游戏综合排名 #152",
+      "selected": "规模得分",
+      "viewport": [
+        1366,
+        718
+      ]
+    }
+  },
+  {
+    "label": "profile-1366x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1366,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "寰宇蓝天航空平台验收",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 273,
+        "y": 625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.02W05经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        1366,
+        718
+      ]
+    }
+  },
+  {
+    "label": "upgrade-1366x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1366,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级客舱体验",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 373,
+        "y": 414.1953125
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.02W05经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1366,
+        718
+      ]
+    }
+  },
+  {
+    "label": "settlement-1366x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      1366,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 373,
+        "y": 625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1366,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-430x932",
+    "frame": {
+      "h": 883,
+      "w": 430,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      430,
+      932
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 65,
+        "w": 410,
+        "x": 10,
+        "y": 808
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        430,
+        883
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-768x1024",
+    "frame": {
+      "h": 973.75,
+      "w": 768,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      768,
+      1024
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 74,
+        "y": 878.984375
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        768,
+        974
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-1440x900",
+    "frame": {
+      "h": 849.75,
+      "w": 1440,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      1440,
+      900
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 410,
+        "y": 757
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1440,
+        850
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-320x568",
+    "frame": {
+      "h": 519,
+      "w": 320,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      320,
+      568
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 63,
+        "w": 300,
+        "x": 10,
+        "y": 446
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        320,
+        519
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-390x600",
+    "frame": {
+      "h": 551,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      390,
+      600
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 65,
+        "w": 370,
+        "x": 10,
+        "y": 476
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        390,
+        551
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-700x700",
+    "frame": {
+      "h": 651,
+      "w": 700,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      700,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 65,
+        "w": 620,
+        "x": 40,
+        "y": 576
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        700,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-701x700",
+    "frame": {
+      "h": 651,
+      "w": 701,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      701,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 40.5,
+        "y": 558
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        701,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-1100x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1100,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      1100,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 240,
+        "y": 625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1100,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-1101x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1101,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      1101,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 240.5,
+        "y": 625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1101,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-844x549",
+    "frame": {
+      "h": 498.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      844,
+      549
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 61,
+        "w": 740,
+        "x": 52,
+        "y": 430
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        499
+      ]
+    }
+  },
+  {
+    "label": "matrix-settlement-844x550",
+    "frame": {
+      "h": 499.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:41",
+    "viewport": [
+      844,
+      550
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "第 5 周 · 经营简报",
+      "footer": {
+        "h": 61,
+        "w": 740,
+        "x": 52,
+        "y": 431
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        500
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-430x932",
+    "frame": {
+      "h": 883,
+      "w": 430,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      430,
+      932
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        430,
+        883
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-768x1024",
+    "frame": {
+      "h": 973.75,
+      "w": 768,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      768,
+      1024
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        768,
+        974
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-1440x900",
+    "frame": {
+      "h": 849.75,
+      "w": 1440,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1440,
+      900
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1440,
+        850
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-320x568",
+    "frame": {
+      "h": 519,
+      "w": 320,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      320,
+      568
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        320,
+        519
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-390x600",
+    "frame": {
+      "h": 551,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      390,
+      600
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        390,
+        551
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-700x700",
+    "frame": {
+      "h": 651,
+      "w": 700,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      700,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        700,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-701x700",
+    "frame": {
+      "h": 651,
+      "w": 701,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      701,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        701,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-1100x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1100,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1100,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1100,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-1101x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1101,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1101,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1101,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-844x549",
+    "frame": {
+      "h": 498.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      549
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        499
+      ]
+    }
+  },
+  {
+    "label": "matrix-home-844x550",
+    "frame": {
+      "h": 499.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      550
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  经营总览本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        500
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-430x932",
+    "frame": {
+      "h": 883,
+      "w": 430,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      430,
+      932
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 65,
+        "w": 410,
+        "x": 10,
+        "y": 696.828125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        430,
+        883
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-430x932",
+    "frame": {
+      "h": 883,
+      "w": 430,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      430,
+      932
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 65,
+        "w": 410,
+        "x": 10,
+        "y": 696.828125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        430,
+        883
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-430x932",
+    "frame": {
+      "h": 883,
+      "w": 430,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      430,
+      932
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 65,
+        "w": 410,
+        "x": 10,
+        "y": 808
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        430,
+        883
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-768x1024",
+    "frame": {
+      "h": 973.75,
+      "w": 768,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      768,
+      1024
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 728,
+        "x": 20,
+        "y": 681.3125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        768,
+        974
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-768x1024",
+    "frame": {
+      "h": 973.75,
+      "w": 768,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      768,
+      1024
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 728,
+        "x": 20,
+        "y": 678.9140625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        768,
+        974
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-768x1024",
+    "frame": {
+      "h": 973.75,
+      "w": 768,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      768,
+      1024
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 728,
+        "x": 20,
+        "y": 881
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        768,
+        974
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-1440x900",
+    "frame": {
+      "h": 849.75,
+      "w": 1440,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1440,
+      900
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 310,
+        "y": 607.3125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        1440,
+        850
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-1440x900",
+    "frame": {
+      "h": 849.75,
+      "w": 1440,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1440,
+      900
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 310,
+        "y": 616.9140625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        1440,
+        850
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-1440x900",
+    "frame": {
+      "h": 849.75,
+      "w": 1440,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1440,
+      900
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 310,
+        "y": 757
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        1440,
+        850
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-320x568",
+    "frame": {
+      "h": 519,
+      "w": 320,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      320,
+      568
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 63,
+        "w": 300,
+        "x": 10,
+        "y": 446
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        320,
+        519
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-320x568",
+    "frame": {
+      "h": 519,
+      "w": 320,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      320,
+      568
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 63,
+        "w": 300,
+        "x": 10,
+        "y": 446
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        320,
+        519
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-320x568",
+    "frame": {
+      "h": 519,
+      "w": 320,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      320,
+      568
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 63,
+        "w": 300,
+        "x": 10,
+        "y": 446
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        320,
+        519
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-390x600",
+    "frame": {
+      "h": 551,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      390,
+      600
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 65,
+        "w": 370,
+        "x": 10,
+        "y": 476
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        390,
+        551
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-390x600",
+    "frame": {
+      "h": 551,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      390,
+      600
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 65,
+        "w": 370,
+        "x": 10,
+        "y": 476
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        390,
+        551
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-390x600",
+    "frame": {
+      "h": 551,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      390,
+      600
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 65,
+        "w": 370,
+        "x": 10,
+        "y": 476
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        390,
+        551
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-700x700",
+    "frame": {
+      "h": 651,
+      "w": 700,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      700,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 65,
+        "w": 680,
+        "x": 10,
+        "y": 568.234375
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        700,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-700x700",
+    "frame": {
+      "h": 651,
+      "w": 700,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      700,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 65,
+        "w": 680,
+        "x": 10,
+        "y": 568.234375
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        700,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-700x700",
+    "frame": {
+      "h": 651,
+      "w": 700,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      700,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 65,
+        "w": 680,
+        "x": 10,
+        "y": 576
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        700,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-701x700",
+    "frame": {
+      "h": 651,
+      "w": 701,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      701,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 661,
+        "x": 20,
+        "y": 544.4140625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        701,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-701x700",
+    "frame": {
+      "h": 651,
+      "w": 701,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      701,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 661,
+        "x": 20,
+        "y": 551.609375
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        701,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-701x700",
+    "frame": {
+      "h": 651,
+      "w": 701,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      701,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 661,
+        "x": 20,
+        "y": 558
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        701,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-1100x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1100,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1100,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 140,
+        "y": 541.3125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        1100,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-1100x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1100,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1100,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 140,
+        "y": 550.9140625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        1100,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-1100x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1100,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1100,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 140,
+        "y": 625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        1100,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-1101x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1101,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1101,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 140.5,
+        "y": 541.3125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        1101,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-1101x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1101,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1101,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 140.5,
+        "y": 550.9140625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        1101,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-1101x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1101,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1101,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 140.5,
+        "y": 625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        1101,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-844x549",
+    "frame": {
+      "h": 498.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      549
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 61,
+        "w": 820,
+        "x": 12,
+        "y": 404.1953125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        844,
+        499
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-844x549",
+    "frame": {
+      "h": 498.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      549
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 61,
+        "w": 820,
+        "x": 12,
+        "y": 413.7890625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        844,
+        499
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-844x549",
+    "frame": {
+      "h": 498.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      549
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 61,
+        "w": 820,
+        "x": 12,
+        "y": 430
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        844,
+        499
+      ]
+    }
+  },
+  {
+    "label": "matrix-quality-844x550",
+    "frame": {
+      "h": 499.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      550
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 61,
+        "w": 820,
+        "x": 12,
+        "y": 404.6953125
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "品质得分",
+      "viewport": [
+        844,
+        500
+      ]
+    }
+  },
+  {
+    "label": "matrix-scale-844x550",
+    "frame": {
+      "h": 499.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      550
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 61,
+        "w": 820,
+        "x": 12,
+        "y": 414.2890625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "score": "99.2 / 100游戏综合排名 #1",
+      "selected": "规模得分",
+      "viewport": [
+        844,
+        500
+      ]
+    }
+  },
+  {
+    "label": "matrix-profile-844x550",
+    "frame": {
+      "h": 499.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      550
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 61,
+        "w": 820,
+        "x": 12,
+        "y": 431
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        844,
+        500
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-430x932",
+    "frame": {
+      "h": 883,
+      "w": 430,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      430,
+      932
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 65,
+        "w": 410,
+        "x": 10,
+        "y": 500.2890625
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        430,
+        883
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-768x1024",
+    "frame": {
+      "h": 973.75,
+      "w": 768,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      768,
+      1024
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 74,
+        "y": 542.1953125
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        768,
+        974
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-1440x900",
+    "frame": {
+      "h": 849.75,
+      "w": 1440,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1440,
+      900
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 410,
+        "y": 480.1953125
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1440,
+        850
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-320x568",
+    "frame": {
+      "h": 519,
+      "w": 320,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      320,
+      568
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 63,
+        "w": 300,
+        "x": 10,
+        "y": 328.890625
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        320,
+        519
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-390x600",
+    "frame": {
+      "h": 551,
+      "w": 390,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      390,
+      600
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 65,
+        "w": 370,
+        "x": 10,
+        "y": 334.2890625
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        390,
+        551
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-700x700",
+    "frame": {
+      "h": 651,
+      "w": 700,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      700,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 65,
+        "w": 620,
+        "x": 40,
+        "y": 371.6953125
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        700,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-701x700",
+    "frame": {
+      "h": 651,
+      "w": 701,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      701,
+      700
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 40.5,
+        "y": 380.6953125
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        701,
+        651
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-1100x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1100,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1100,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 240,
+        "y": 414.1953125
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1100,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-1101x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1101,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1101,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 73,
+        "w": 620,
+        "x": 240.5,
+        "y": 414.1953125
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1101,
+        718
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-844x549",
+    "frame": {
+      "h": 498.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      549
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 61,
+        "w": 740,
+        "x": 52,
+        "y": 294.6953125
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        499
+      ]
+    }
+  },
+  {
+    "label": "matrix-upgrade-844x550",
+    "frame": {
+      "h": 499.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      550
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "升级机上餐饮",
+      "footer": {
+        "h": 61,
+        "w": 740,
+        "x": 52,
+        "y": 295.1953125
+      },
+      "main": "航空经营模拟  旅客服务本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        500
+      ]
+    }
+  },
+  {
+    "label": "international-last-page",
+    "frame": {
+      "h": 717.75,
+      "w": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1366,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1366,
+        718
+      ]
+    }
+  },
+  {
+    "label": "ranking-empty-result",
+    "frame": {
+      "h": 717.75,
+      "w": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1366,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "footer": null,
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1366,
+        718
+      ]
+    }
+  },
+  {
+    "label": "new-airline-profile",
+    "frame": {
+      "h": 717.75,
+      "w": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1366,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "阿塞拜疆航空",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 273,
+        "y": 625
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        1366,
+        718
+      ]
+    }
+  },
+  {
+    "label": "route-draft-360x640",
+    "frame": {
+      "h": 591,
+      "w": 360,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      360,
+      640
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "调整航线计划",
+      "footer": {
+        "h": 63,
+        "w": 340,
+        "x": 10,
+        "y": 518
+      },
+      "main": "航空经营模拟  航线网络本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        360,
+        591
+      ]
+    }
+  },
+  {
+    "label": "route-draft-844x390",
+    "frame": {
+      "h": 339.75,
+      "w": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      844,
+      390
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "调整航线计划",
+      "footer": {
+        "h": 61,
+        "w": 820,
+        "x": 12,
+        "y": 271
+      },
+      "main": "航空经营模拟  航线网络本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        844,
+        340
+      ]
+    }
+  },
+  {
+    "label": "route-draft-1366x768",
+    "frame": {
+      "h": 717.75,
+      "w": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "hostOverflow": false,
+    "saved": "已读取存档",
+    "viewport": [
+      1366,
+      768
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "调整航线计划",
+      "footer": {
+        "h": 73,
+        "w": 820,
+        "x": 273,
+        "y": 625
+      },
+      "main": "航空经营模拟  航线网络本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "viewport": [
+        1366,
+        718
+      ]
+    }
+  },
+  {
+    "label": "profile-end-320x568",
+    "frame": {
+      "h": 519,
+      "w": 320,
+      "x": 0,
+      "y": 49
+    },
+    "hostOverflow": false,
+    "saved": "已存档 01:47",
+    "viewport": [
+      320,
+      568
+    ],
+    "inner": {
+      "bodyScroll": false,
+      "dialog": "新加坡航空",
+      "footer": {
+        "h": 63,
+        "w": 300,
+        "x": 10,
+        "y": 446
+      },
+      "main": "航空经营模拟  航司排行榜本机自动存档2026.02.09W06经营下一周快进",
+      "overflow": false,
+      "selected": "航司资料",
+      "viewport": [
+        320,
+        519
+      ]
+    }
+  }
+]

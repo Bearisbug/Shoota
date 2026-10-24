@@ -1,0 +1,203 @@
+{
+  "setupBefore": [
+    [
+      "name",
+      "寰宇蓝天航空平台验收"
+    ],
+    [
+      "province",
+      "浙江省"
+    ],
+    [
+      "base",
+      "HGH"
+    ]
+  ],
+  "setupLandscape": [
+    [
+      "name",
+      "寰宇蓝天航空平台验收"
+    ],
+    [
+      "province",
+      "浙江省"
+    ],
+    [
+      "base",
+      "HGH"
+    ]
+  ],
+  "routeDraft": [
+    [
+      "from",
+      "HGH"
+    ],
+    [
+      "country",
+      "中国"
+    ],
+    [
+      "to",
+      "CAN"
+    ],
+    [
+      "viaCountry",
+      ""
+    ],
+    [
+      "via",
+      ""
+    ],
+    [
+      "stopMinutes",
+      "90"
+    ],
+    [
+      "plane",
+      "1"
+    ],
+    [
+      "freq",
+      "8"
+    ],
+    [
+      "price",
+      "0.85"
+    ]
+  ],
+  "draftRotation": [
+    {
+      "size": {
+        "width": 360,
+        "height": 640
+      },
+      "values": [
+        [
+          "from",
+          "HGH"
+        ],
+        [
+          "country",
+          "中国"
+        ],
+        [
+          "to",
+          "CAN"
+        ],
+        [
+          "viaCountry",
+          ""
+        ],
+        [
+          "via",
+          ""
+        ],
+        [
+          "stopMinutes",
+          "90"
+        ],
+        [
+          "plane",
+          "1"
+        ],
+        [
+          "freq",
+          "8"
+        ],
+        [
+          "price",
+          "0.85"
+        ]
+      ]
+    },
+    {
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "values": [
+        [
+          "from",
+          "HGH"
+        ],
+        [
+          "country",
+          "中国"
+        ],
+        [
+          "to",
+          "CAN"
+        ],
+        [
+          "viaCountry",
+          ""
+        ],
+        [
+          "via",
+          ""
+        ],
+        [
+          "stopMinutes",
+          "90"
+        ],
+        [
+          "plane",
+          "1"
+        ],
+        [
+          "freq",
+          "8"
+        ],
+        [
+          "price",
+          "0.85"
+        ]
+      ]
+    },
+    {
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "values": [
+        [
+          "from",
+          "HGH"
+        ],
+        [
+          "country",
+          "中国"
+        ],
+        [
+          "to",
+          "CAN"
+        ],
+        [
+          "viaCountry",
+          ""
+        ],
+        [
+          "via",
+          ""
+        ],
+        [
+          "stopMinutes",
+          "90"
+        ],
+        [
+          "plane",
+          "1"
+        ],
+        [
+          "freq",
+          "8"
+        ],
+        [
+          "price",
+          "0.85"
+        ]
+      ]
+    }
+  ],
+  "routesAfterCancel": "NETWORK PLANNING\n航线运营\n\n按机场、运力与市场规划你的网络。\n\n枢纽分析\n展开全景\n自动定价：关\n开通航线\n航线运营\n全球地图\n2 项 · 第 1 / 1 页\n上一页\n下一页\n杭州 ⇄ 广州\n运营中\n\nHGH ⇄ CAN · 直飞 · 每周 7 次往返\n\nAirbus A320neo · B-YS001\n\n预计客座率 98% · 周贡献 +109 万\n\n本地 2469 · 转机 0 人次 / 周\n\n调整班次 / 配机\n时刻表\n更多操作\n杭州 ⇄ 重庆\n运营中\n\nHGH ⇄ CKG · 直飞 · 每周 7 次往返\n\nBoeing 737-8 · B-YS004\n\n预计客座率 98% · 周贡献 +138 万\n\n本地 2442 · 转机 0 人次 / 周\n\n调整班次 / 配机\n时刻表\n更多操作\n寰宇蓝天航空平台验收 · 中国民营航空公司 · 全球综合排名 #152\n经营与外交剧情为模拟设定 · 非实时航空数据"
+}

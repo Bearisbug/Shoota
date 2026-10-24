@@ -1,0 +1,15 @@
+{
+  "source": "previous frozen ac2206fbc07c engine generated fixture",
+  "browserImport": "not verified: filechooser timeout in IAB and Chrome",
+  "fieldsPreserved": true,
+  "beforeScore": 32.6,
+  "afterUpgradeScore": 32.6,
+  "repBefore": 57.50437687500001,
+  "upgradeDidNotChangeScore": true,
+  "weeklySettlement": {
+    "week": 3,
+    "profit": 1.1436958358974358,
+    "pax": 3960
+  },
+  "roundtrip": true
+}
