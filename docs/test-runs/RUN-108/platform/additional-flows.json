@@ -1,0 +1,33 @@
+{
+  "ranking": {
+    "pages": 16,
+    "items": 125,
+    "emptyQuery": "无此航司QA",
+    "singleQuery": "阿联酋航空",
+    "singleItems": 1
+  },
+  "rotation": {
+    "draftFrequency": 8,
+    "cancelledFrequency": 7
+  },
+  "batch": {
+    "startWeek": 5,
+    "endWeek": 10,
+    "weeks": 5,
+    "pausedForStory": "杭州 · 丝路空中走廊合作",
+    "cashStart": 2497,
+    "cashEnd": 3485,
+    "profit": 988
+  },
+  "advisor": {
+    "start": 3,
+    "afterRead": 2,
+    "afterPrice": 1,
+    "afterRefresh": 2,
+    "persisted": "Boeing 737-8：重新分配舱位",
+    "newSuggestion": "HGH ⇄ CKG：调整票价",
+    "completedPrice": "HGH ⇄ CAN",
+    "immediateReload": "平台700ms存档窗口内立即刷新一次回退；稳定存档后恢复正确"
+  },
+  "importFixture": "文件选择器未触发，工具等待超时，未载入；使用真实经营存档完成队列验证"
+}

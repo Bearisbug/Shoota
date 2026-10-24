@@ -1,0 +1,13 @@
+{
+  "artifact": "ac2206fbc07c4b00a18ed30a3e3baa8f4cad3f33d7897cc287855f3b6342b9c6",
+  "url": "http://127.0.0.1:8899/#play-airline-empire",
+  "browser": "Google Chrome native browser tab",
+  "screenshotPixels": [
+    2205,
+    1115
+  ],
+  "flow": "New local save → route map → zoom in → native mouse drag [1150,850] to [1380,900]",
+  "result": "Map visibly pans; week remains W01, cash 2000万, routes 2; no route edit opens",
+  "status": "passed",
+  "limitations": "Desktop native mouse only; physical mobile touch/pinch not verified"
+}

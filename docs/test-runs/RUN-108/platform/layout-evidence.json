@@ -1,0 +1,2292 @@
+[
+  {
+    "label": "home-360x640",
+    "body": "可用现金2000 万可用于运营与扩张的现金在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑56.0/100可靠性 94.0%",
+    "date": "2026.01.05W01",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": null,
+    "height": 591,
+    "map": null,
+    "modal": null,
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "edit-360x640",
+    "date": "2026.01.05W01",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 518
+    },
+    "height": 591,
+    "map": null,
+    "modal": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 10
+    },
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "finance-360x640",
+    "body": "可用现金2000 万人民币实时现金余额上周营业收入—人民币完成一周经营后生成上周净利润—人民币扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.01.05W01",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": {
+      "bottom": 496.03125,
+      "left": 10,
+      "right": 350,
+      "top": 433.03125
+    },
+    "height": 591,
+    "map": null,
+    "modal": {
+      "bottom": 496.03125,
+      "left": 10,
+      "right": 350,
+      "top": 94.9609375
+    },
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "report-360x640",
+    "body": "可用现金2143 万周利润 +142 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑56.3/100可靠性 96.2%",
+    "date": "2026.01.12W02",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 518
+    },
+    "height": 591,
+    "map": null,
+    "modal": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 10
+    },
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "defect-full-repayment-remainder-before",
+    "body": "可用现金2143 万人民币实时现金余额上周营业收入349 万人民币4,059 人次 · 26 个单程航班上周净利润+142 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债1.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.01.12W02",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": null,
+    "height": 591,
+    "map": null,
+    "modal": null,
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "defect-full-repayment-remainder-after",
+    "body": "可用现金2142 万人民币实时现金余额上周营业收入349 万人民币4,059 人次 · 26 个单程航班上周净利润+142 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.01.12W02",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": null,
+    "height": 591,
+    "map": null,
+    "modal": null,
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "map-360x640",
+    "body": "可用现金2142 万周利润 +142 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑56.3/100可靠性 96.2%",
+    "date": "2026.01.12W02",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": null,
+    "height": 591,
+    "map": {
+      "bottom": 477,
+      "left": 12,
+      "right": 348,
+      "top": 171
+    },
+    "modal": null,
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "restored-360x640",
+    "body": "可用现金2142 万周利润 +142 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑56.3/100可靠性 96.2%",
+    "date": "2026.01.12W02",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": null,
+    "height": 591,
+    "map": null,
+    "modal": null,
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "map-360x640-final",
+    "body": "可用现金2142 万周利润 +142 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑56.3/100可靠性 96.2%",
+    "date": "2026.01.12W02",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": null,
+    "height": 591,
+    "map": {
+      "bottom": 438,
+      "left": 12,
+      "right": 348,
+      "top": 171
+    },
+    "modal": null,
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "home-390x844",
+    "body": "可用现金2142 万周利润 +142 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑56.3/100可靠性 96.2%",
+    "date": "2026.01.12W02",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": null,
+    "height": 795,
+    "map": {
+      "bottom": 617.1953125,
+      "left": 16,
+      "right": 374,
+      "top": 173
+    },
+    "modal": null,
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "edit-390x844",
+    "date": "2026.01.12W02",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 785,
+      "left": 10,
+      "right": 380,
+      "top": 720
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 785,
+      "left": 10,
+      "right": 380,
+      "top": 10
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "finance-390x844",
+    "body": "可用现金2142 万人民币实时现金余额上周营业收入349 万人民币4,059 人次 · 26 个单程航班上周净利润+142 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.01.12W02",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 602.03125,
+      "left": 10,
+      "right": 380,
+      "top": 537.03125
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 602.03125,
+      "left": 10,
+      "right": 380,
+      "top": 192.9609375
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "settlement-390x844",
+    "body": "可用现金2257 万周利润 +115 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑56.7/100可靠性 97.9%",
+    "date": "2026.01.19W03",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 734.015625,
+      "left": 10,
+      "right": 380,
+      "top": 669.015625
+    },
+    "height": 795,
+    "map": {
+      "bottom": 617.1953125,
+      "left": 16,
+      "right": 374,
+      "top": 173
+    },
+    "modal": {
+      "bottom": 734.015625,
+      "left": 10,
+      "right": 380,
+      "top": 60.9765625
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "map-390x844",
+    "body": "可用现金2257 万周利润 +115 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑56.7/100可靠性 97.9%",
+    "date": "2026.01.19W03",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": null,
+    "height": 795,
+    "map": {
+      "bottom": 617.1953125,
+      "left": 16,
+      "right": 374,
+      "top": 173
+    },
+    "modal": null,
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "restored-390x844",
+    "body": "可用现金2257 万周利润 +115 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑56.7/100可靠性 97.9%",
+    "date": "2026.01.19W03",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": null,
+    "height": 795,
+    "map": null,
+    "modal": null,
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "home-844x390",
+    "body": "可用现金2257 万周利润 +115 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑56.7/100可靠性 97.9%",
+    "date": "2026.01.19W03",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": null,
+    "height": 340,
+    "map": null,
+    "modal": null,
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "edit-844x390",
+    "date": "2026.01.19W03",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": {
+      "bottom": 332,
+      "left": 12,
+      "right": 832,
+      "top": 271
+    },
+    "height": 340,
+    "map": null,
+    "modal": {
+      "bottom": 332,
+      "left": 12,
+      "right": 832,
+      "top": 8
+    },
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "finance-844x390",
+    "body": "可用现金2257 万人民币实时现金余额上周营业收入309 万人民币3,586 人次 · 24 个单程航班上周净利润+115 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.01.19W03",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": {
+      "bottom": 332,
+      "left": 52,
+      "right": 792,
+      "top": 271
+    },
+    "height": 340,
+    "map": null,
+    "modal": {
+      "bottom": 332,
+      "left": 52,
+      "right": 792,
+      "top": 8
+    },
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "settlement-844x390",
+    "body": "可用现金2371 万周利润 +114 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.1/100可靠性 92.3%",
+    "date": "2026.01.26W04",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": null,
+    "height": 340,
+    "map": null,
+    "modal": {
+      "bottom": 332,
+      "left": 52,
+      "right": 792,
+      "top": 8
+    },
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "map-844x390",
+    "body": "可用现金2371 万周利润 +114 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.3/100可靠性 92.3%",
+    "date": "2026.01.26W04",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": null,
+    "height": 340,
+    "map": {
+      "bottom": 355,
+      "left": 90,
+      "right": 640,
+      "top": 117
+    },
+    "modal": null,
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "restored-844x390",
+    "body": "可用现金2371 万周利润 +114 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.3/100可靠性 92.3%",
+    "date": "2026.01.26W04",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": null,
+    "height": 340,
+    "map": null,
+    "modal": null,
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "home-1366x768",
+    "body": "可用现金2371 万周利润 +114 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.3/100可靠性 92.3%",
+    "date": "2026.01.26W04",
+    "dock": null,
+    "footer": null,
+    "height": 718,
+    "map": null,
+    "modal": null,
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "edit-1366x768",
+    "date": "2026.01.26W04",
+    "dock": null,
+    "footer": {
+      "bottom": 698,
+      "left": 273,
+      "right": 1093,
+      "top": 625
+    },
+    "height": 718,
+    "map": null,
+    "modal": {
+      "bottom": 698,
+      "left": 273,
+      "right": 1093,
+      "top": 20
+    },
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "finance-1366x768",
+    "body": "可用现金2371 万人民币实时现金余额上周营业收入318 万人民币3,700 人次 · 26 个单程航班上周净利润+114 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.01.26W04",
+    "dock": null,
+    "footer": {
+      "bottom": 573.0078125,
+      "left": 373,
+      "right": 993,
+      "top": 500.0078125
+    },
+    "height": 718,
+    "map": null,
+    "modal": {
+      "bottom": 573.0078125,
+      "left": 373,
+      "right": 993,
+      "top": 144.984375
+    },
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "settlement-1366x768",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 698,
+      "left": 373,
+      "right": 993,
+      "top": 625
+    },
+    "height": 718,
+    "map": null,
+    "modal": {
+      "bottom": 698,
+      "left": 373,
+      "right": 993,
+      "top": 20
+    },
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "map-1366x768",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 718,
+    "map": {
+      "bottom": 1028.578125,
+      "left": 254,
+      "right": 1336,
+      "top": 594.578125
+    },
+    "modal": null,
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "restored-1366x768",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 718,
+    "map": null,
+    "modal": null,
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "matrix-home-360x640",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": null,
+    "height": 591,
+    "map": null,
+    "modal": null,
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "matrix-map-360x640",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": null,
+    "height": 591,
+    "map": {
+      "bottom": 438,
+      "left": 12,
+      "right": 348,
+      "top": 171
+    },
+    "modal": null,
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "matrix-edit-360x640",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 518
+    },
+    "height": 591,
+    "map": null,
+    "modal": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 10
+    },
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "matrix-finance-360x640",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": {
+      "bottom": 496.03125,
+      "left": 10,
+      "right": 350,
+      "top": 433.03125
+    },
+    "height": 591,
+    "map": null,
+    "modal": {
+      "bottom": 496.03125,
+      "left": 10,
+      "right": 350,
+      "top": 94.9609375
+    },
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "matrix-home-390x844",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": null,
+    "height": 795,
+    "map": null,
+    "modal": null,
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "matrix-map-390x844",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": null,
+    "height": 795,
+    "map": {
+      "bottom": 617.1953125,
+      "left": 16,
+      "right": 374,
+      "top": 173
+    },
+    "modal": null,
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "matrix-edit-390x844",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 785,
+      "left": 10,
+      "right": 380,
+      "top": 720
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 785,
+      "left": 10,
+      "right": 380,
+      "top": 10
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "matrix-finance-390x844",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 602.03125,
+      "left": 10,
+      "right": 380,
+      "top": 537.03125
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 602.03125,
+      "left": 10,
+      "right": 380,
+      "top": 192.9609375
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "matrix-home-430x932",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 821,
+      "left": 0,
+      "right": 430,
+      "top": 759
+    },
+    "footer": null,
+    "height": 883,
+    "map": null,
+    "modal": null,
+    "rootWidth": 430,
+    "visualWidth": 430,
+    "width": 430
+  },
+  {
+    "label": "matrix-map-430x932",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 821,
+      "left": 0,
+      "right": 430,
+      "top": 759
+    },
+    "footer": null,
+    "height": 883,
+    "map": {
+      "bottom": 705.1953125,
+      "left": 16,
+      "right": 414,
+      "top": 173
+    },
+    "modal": null,
+    "rootWidth": 430,
+    "visualWidth": 430,
+    "width": 430
+  },
+  {
+    "label": "matrix-edit-430x932",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 821,
+      "left": 0,
+      "right": 430,
+      "top": 759
+    },
+    "footer": {
+      "bottom": 843.078125,
+      "left": 10,
+      "right": 420,
+      "top": 778.078125
+    },
+    "height": 883,
+    "map": null,
+    "modal": {
+      "bottom": 843.078125,
+      "left": 10,
+      "right": 420,
+      "top": 39.921875
+    },
+    "rootWidth": 430,
+    "visualWidth": 430,
+    "width": 430
+  },
+  {
+    "label": "matrix-finance-430x932",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 821,
+      "left": 0,
+      "right": 430,
+      "top": 759
+    },
+    "footer": {
+      "bottom": 646.03125,
+      "left": 10,
+      "right": 420,
+      "top": 581.03125
+    },
+    "height": 883,
+    "map": null,
+    "modal": {
+      "bottom": 646.03125,
+      "left": 10,
+      "right": 420,
+      "top": 236.9609375
+    },
+    "rootWidth": 430,
+    "visualWidth": 430,
+    "width": 430
+  },
+  {
+    "label": "matrix-home-844x390",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": null,
+    "height": 340,
+    "map": null,
+    "modal": null,
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "matrix-map-844x390",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": null,
+    "height": 340,
+    "map": {
+      "bottom": 355,
+      "left": 90,
+      "right": 640,
+      "top": 117
+    },
+    "modal": null,
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "matrix-edit-844x390",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": {
+      "bottom": 332,
+      "left": 12,
+      "right": 832,
+      "top": 271
+    },
+    "height": 340,
+    "map": null,
+    "modal": {
+      "bottom": 332,
+      "left": 12,
+      "right": 832,
+      "top": 8
+    },
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "matrix-finance-844x390",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": {
+      "bottom": 332,
+      "left": 52,
+      "right": 792,
+      "top": 271
+    },
+    "height": 340,
+    "map": null,
+    "modal": {
+      "bottom": 332,
+      "left": 52,
+      "right": 792,
+      "top": 8
+    },
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "matrix-home-768x1024",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 974,
+    "map": null,
+    "modal": null,
+    "rootWidth": 768,
+    "visualWidth": 768,
+    "width": 768
+  },
+  {
+    "label": "matrix-map-768x1024",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 974,
+    "map": {
+      "bottom": 1017.828125,
+      "left": 102,
+      "right": 746,
+      "top": 583.828125
+    },
+    "modal": null,
+    "rootWidth": 768,
+    "visualWidth": 768,
+    "width": 768
+  },
+  {
+    "label": "matrix-edit-768x1024",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 874.0078125,
+      "left": 20,
+      "right": 748,
+      "top": 801.0078125
+    },
+    "height": 974,
+    "map": null,
+    "modal": {
+      "bottom": 874.0078125,
+      "left": 20,
+      "right": 748,
+      "top": 99.9921875
+    },
+    "rootWidth": 768,
+    "visualWidth": 768,
+    "width": 768
+  },
+  {
+    "label": "matrix-finance-768x1024",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 701.0078125,
+      "left": 74,
+      "right": 694,
+      "top": 628.0078125
+    },
+    "height": 974,
+    "map": null,
+    "modal": {
+      "bottom": 701.0078125,
+      "left": 74,
+      "right": 694,
+      "top": 272.984375
+    },
+    "rootWidth": 768,
+    "visualWidth": 768,
+    "width": 768
+  },
+  {
+    "label": "matrix-home-1366x768",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 718,
+    "map": null,
+    "modal": null,
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "matrix-map-1366x768",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 718,
+    "map": {
+      "bottom": 1028.578125,
+      "left": 254,
+      "right": 1336,
+      "top": 594.578125
+    },
+    "modal": null,
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "matrix-edit-1366x768",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 698,
+      "left": 273,
+      "right": 1093,
+      "top": 625
+    },
+    "height": 718,
+    "map": null,
+    "modal": {
+      "bottom": 698,
+      "left": 273,
+      "right": 1093,
+      "top": 20
+    },
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "matrix-finance-1366x768",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 573.0078125,
+      "left": 373,
+      "right": 993,
+      "top": 500.0078125
+    },
+    "height": 718,
+    "map": null,
+    "modal": {
+      "bottom": 573.0078125,
+      "left": 373,
+      "right": 993,
+      "top": 144.984375
+    },
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "matrix-home-1440x900",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 850,
+    "map": null,
+    "modal": null,
+    "rootWidth": 1440,
+    "visualWidth": 1440,
+    "width": 1440
+  },
+  {
+    "label": "matrix-map-1440x900",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 850,
+    "map": {
+      "bottom": 1028.578125,
+      "left": 254,
+      "right": 1410,
+      "top": 594.578125
+    },
+    "modal": null,
+    "rootWidth": 1440,
+    "visualWidth": 1440,
+    "width": 1440
+  },
+  {
+    "label": "matrix-edit-1440x900",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 803.2578125,
+      "left": 310,
+      "right": 1130,
+      "top": 730.2578125
+    },
+    "height": 850,
+    "map": null,
+    "modal": {
+      "bottom": 803.2578125,
+      "left": 310,
+      "right": 1130,
+      "top": 46.7421875
+    },
+    "rootWidth": 1440,
+    "visualWidth": 1440,
+    "width": 1440
+  },
+  {
+    "label": "matrix-finance-1440x900",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 639.0078125,
+      "left": 410,
+      "right": 1030,
+      "top": 566.0078125
+    },
+    "height": 850,
+    "map": null,
+    "modal": {
+      "bottom": 639.0078125,
+      "left": 410,
+      "right": 1030,
+      "top": 210.984375
+    },
+    "rootWidth": 1440,
+    "visualWidth": 1440,
+    "width": 1440
+  },
+  {
+    "label": "matrix-home-320x568",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 457,
+      "left": 0,
+      "right": 320,
+      "top": 395
+    },
+    "footer": null,
+    "height": 519,
+    "map": null,
+    "modal": null,
+    "rootWidth": 320,
+    "visualWidth": 320,
+    "width": 320
+  },
+  {
+    "label": "matrix-map-320x568",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 457,
+      "left": 0,
+      "right": 320,
+      "top": 395
+    },
+    "footer": null,
+    "height": 519,
+    "map": {
+      "bottom": 442.1953125,
+      "left": 12,
+      "right": 308,
+      "top": 171
+    },
+    "modal": null,
+    "rootWidth": 320,
+    "visualWidth": 320,
+    "width": 320
+  },
+  {
+    "label": "matrix-edit-320x568",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 457,
+      "left": 0,
+      "right": 320,
+      "top": 395
+    },
+    "footer": {
+      "bottom": 509,
+      "left": 10,
+      "right": 310,
+      "top": 446
+    },
+    "height": 519,
+    "map": null,
+    "modal": {
+      "bottom": 509,
+      "left": 10,
+      "right": 310,
+      "top": 10
+    },
+    "rootWidth": 320,
+    "visualWidth": 320,
+    "width": 320
+  },
+  {
+    "label": "matrix-finance-320x568",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 457,
+      "left": 0,
+      "right": 320,
+      "top": 395
+    },
+    "footer": {
+      "bottom": 498.6328125,
+      "left": 10,
+      "right": 310,
+      "top": 435.6328125
+    },
+    "height": 519,
+    "map": null,
+    "modal": {
+      "bottom": 498.6328125,
+      "left": 10,
+      "right": 310,
+      "top": 20.3671875
+    },
+    "rootWidth": 320,
+    "visualWidth": 320,
+    "width": 320
+  },
+  {
+    "label": "matrix-home-390x600",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 489,
+      "left": 0,
+      "right": 390,
+      "top": 427
+    },
+    "footer": null,
+    "height": 551,
+    "map": null,
+    "modal": null,
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "matrix-map-390x600",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 489,
+      "left": 0,
+      "right": 390,
+      "top": 427
+    },
+    "footer": null,
+    "height": 551,
+    "map": {
+      "bottom": 419,
+      "left": 16,
+      "right": 374,
+      "top": 173
+    },
+    "modal": null,
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "matrix-edit-390x600",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 489,
+      "left": 0,
+      "right": 390,
+      "top": 427
+    },
+    "footer": {
+      "bottom": 541,
+      "left": 10,
+      "right": 380,
+      "top": 476
+    },
+    "height": 551,
+    "map": null,
+    "modal": {
+      "bottom": 541,
+      "left": 10,
+      "right": 380,
+      "top": 10
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "matrix-finance-390x600",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 489,
+      "left": 0,
+      "right": 390,
+      "top": 427
+    },
+    "footer": {
+      "bottom": 480.03125,
+      "left": 10,
+      "right": 380,
+      "top": 415.03125
+    },
+    "height": 551,
+    "map": null,
+    "modal": {
+      "bottom": 480.03125,
+      "left": 10,
+      "right": 380,
+      "top": 70.9609375
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "matrix-home-700x800",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 689,
+      "left": 0,
+      "right": 700,
+      "top": 627
+    },
+    "footer": null,
+    "height": 751,
+    "map": null,
+    "modal": null,
+    "rootWidth": 700,
+    "visualWidth": 700,
+    "width": 700
+  },
+  {
+    "label": "matrix-map-700x800",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 689,
+      "left": 0,
+      "right": 700,
+      "top": 627
+    },
+    "footer": null,
+    "height": 751,
+    "map": {
+      "bottom": 573.1953125,
+      "left": 16,
+      "right": 684,
+      "top": 173
+    },
+    "modal": null,
+    "rootWidth": 700,
+    "visualWidth": 700,
+    "width": 700
+  },
+  {
+    "label": "matrix-edit-700x800",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 689,
+      "left": 0,
+      "right": 700,
+      "top": 627
+    },
+    "footer": {
+      "bottom": 741,
+      "left": 10,
+      "right": 690,
+      "top": 676
+    },
+    "height": 751,
+    "map": null,
+    "modal": {
+      "bottom": 741,
+      "left": 10,
+      "right": 690,
+      "top": 10
+    },
+    "rootWidth": 700,
+    "visualWidth": 700,
+    "width": 700
+  },
+  {
+    "label": "matrix-finance-700x800",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 689,
+      "left": 0,
+      "right": 700,
+      "top": 627
+    },
+    "footer": {
+      "bottom": 567.4375,
+      "left": 40,
+      "right": 660,
+      "top": 502.4375
+    },
+    "height": 751,
+    "map": null,
+    "modal": {
+      "bottom": 567.4375,
+      "left": 40,
+      "right": 660,
+      "top": 183.5625
+    },
+    "rootWidth": 700,
+    "visualWidth": 700,
+    "width": 700
+  },
+  {
+    "label": "matrix-home-701x800",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 751,
+    "map": null,
+    "modal": null,
+    "rootWidth": 701,
+    "visualWidth": 701,
+    "width": 701
+  },
+  {
+    "label": "matrix-map-701x800",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 751,
+    "map": {
+      "bottom": 1055.625,
+      "left": 102,
+      "right": 679,
+      "top": 621.625
+    },
+    "modal": null,
+    "rootWidth": 701,
+    "visualWidth": 701,
+    "width": 701
+  },
+  {
+    "label": "matrix-edit-701x800",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 731,
+      "left": 20,
+      "right": 681,
+      "top": 658
+    },
+    "height": 751,
+    "map": null,
+    "modal": {
+      "bottom": 731,
+      "left": 20,
+      "right": 681,
+      "top": 20
+    },
+    "rootWidth": 701,
+    "visualWidth": 701,
+    "width": 701
+  },
+  {
+    "label": "matrix-finance-701x800",
+    "body": "可用现金2497 万人民币实时现金余额上周营业收入340 万人民币3,956 人次 · 28 个单程航班上周净利润+126 万人民币↗ 扣除租金、薪酬、总部费用与利息融资负债0.0 万人民币银行授信 + 飞机抵押贷款",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 589.5078125,
+      "left": 40.5,
+      "right": 660.5,
+      "top": 516.5078125
+    },
+    "height": 751,
+    "map": null,
+    "modal": {
+      "bottom": 589.5078125,
+      "left": 40.5,
+      "right": 660.5,
+      "top": 161.484375
+    },
+    "rootWidth": 701,
+    "visualWidth": 701,
+    "width": 701
+  },
+  {
+    "label": "matrix-report-360x640",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 518
+    },
+    "height": 591,
+    "map": null,
+    "modal": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 10
+    },
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "matrix-report-390x844",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 785,
+      "left": 10,
+      "right": 380,
+      "top": 720
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 785,
+      "left": 10,
+      "right": 380,
+      "top": 10
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "matrix-report-430x932",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 821,
+      "left": 0,
+      "right": 430,
+      "top": 759
+    },
+    "footer": {
+      "bottom": 873,
+      "left": 10,
+      "right": 420,
+      "top": 808
+    },
+    "height": 883,
+    "map": null,
+    "modal": {
+      "bottom": 873,
+      "left": 10,
+      "right": 420,
+      "top": 10
+    },
+    "rootWidth": 430,
+    "visualWidth": 430,
+    "width": 430
+  },
+  {
+    "label": "matrix-report-844x390",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": {
+      "bottom": 332,
+      "left": 52,
+      "right": 792,
+      "top": 271
+    },
+    "height": 340,
+    "map": null,
+    "modal": {
+      "bottom": 332,
+      "left": 52,
+      "right": 792,
+      "top": 8
+    },
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "matrix-report-768x1024",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 906.7890625,
+      "left": 74,
+      "right": 694,
+      "top": 833.7890625
+    },
+    "height": 974,
+    "map": null,
+    "modal": {
+      "bottom": 906.7890625,
+      "left": 74,
+      "right": 694,
+      "top": 67.203125
+    },
+    "rootWidth": 768,
+    "visualWidth": 768,
+    "width": 768
+  },
+  {
+    "label": "matrix-report-1366x768",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 698,
+      "left": 373,
+      "right": 993,
+      "top": 625
+    },
+    "height": 718,
+    "map": null,
+    "modal": {
+      "bottom": 698,
+      "left": 373,
+      "right": 993,
+      "top": 20
+    },
+    "rootWidth": 1366,
+    "visualWidth": 1366,
+    "width": 1366
+  },
+  {
+    "label": "matrix-report-1440x900",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 830,
+      "left": 410,
+      "right": 1030,
+      "top": 757
+    },
+    "height": 850,
+    "map": null,
+    "modal": {
+      "bottom": 830,
+      "left": 410,
+      "right": 1030,
+      "top": 20
+    },
+    "rootWidth": 1440,
+    "visualWidth": 1440,
+    "width": 1440
+  },
+  {
+    "label": "matrix-report-320x568",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 457,
+      "left": 0,
+      "right": 320,
+      "top": 395
+    },
+    "footer": {
+      "bottom": 509,
+      "left": 10,
+      "right": 310,
+      "top": 446
+    },
+    "height": 519,
+    "map": null,
+    "modal": {
+      "bottom": 509,
+      "left": 10,
+      "right": 310,
+      "top": 10
+    },
+    "rootWidth": 320,
+    "visualWidth": 320,
+    "width": 320
+  },
+  {
+    "label": "matrix-report-390x600",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 489,
+      "left": 0,
+      "right": 390,
+      "top": 427
+    },
+    "footer": {
+      "bottom": 541,
+      "left": 10,
+      "right": 380,
+      "top": 476
+    },
+    "height": 551,
+    "map": null,
+    "modal": {
+      "bottom": 541,
+      "left": 10,
+      "right": 380,
+      "top": 10
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "matrix-report-700x800",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 689,
+      "left": 0,
+      "right": 700,
+      "top": 627
+    },
+    "footer": {
+      "bottom": 741,
+      "left": 40,
+      "right": 660,
+      "top": 676
+    },
+    "height": 751,
+    "map": null,
+    "modal": {
+      "bottom": 741,
+      "left": 40,
+      "right": 660,
+      "top": 10
+    },
+    "rootWidth": 700,
+    "visualWidth": 700,
+    "width": 700
+  },
+  {
+    "label": "matrix-report-701x800",
+    "body": "可用现金2497 万周利润 +126 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑57.6/100可靠性 96.4%",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": {
+      "bottom": 731,
+      "left": 40.5,
+      "right": 660.5,
+      "top": 658
+    },
+    "height": 751,
+    "map": null,
+    "modal": {
+      "bottom": 731,
+      "left": 40.5,
+      "right": 660.5,
+      "top": 20
+    },
+    "rootWidth": 701,
+    "visualWidth": 701,
+    "width": 701
+  },
+  {
+    "label": "ranking-last-page",
+    "body": "你的综合排名#125/ 125与国内外主要航司同场竞技综合得分38.8/ 100规模、服务、口碑、可靠性与盈利航司资料库124家国内运输航司与国际知名品牌连续盈利4周持续盈利为综合评分提供加分",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 751,
+    "map": null,
+    "modal": null,
+    "rootWidth": 701,
+    "visualWidth": 701,
+    "width": 701
+  },
+  {
+    "label": "ranking-empty",
+    "body": "你的综合排名#125/ 125与国内外主要航司同场竞技综合得分38.8/ 100规模、服务、口碑、可靠性与盈利航司资料库124家国内运输航司与国际知名品牌连续盈利4周持续盈利为综合评分提供加分",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 751,
+    "map": null,
+    "modal": null,
+    "rootWidth": 701,
+    "visualWidth": 701,
+    "width": 701
+  },
+  {
+    "label": "ranking-single",
+    "body": "你的综合排名#125/ 125与国内外主要航司同场竞技综合得分38.8/ 100规模、服务、口碑、可靠性与盈利航司资料库124家国内运输航司与国际知名品牌连续盈利4周持续盈利为综合评分提供加分",
+    "date": "2026.02.02W05",
+    "dock": null,
+    "footer": null,
+    "height": 751,
+    "map": null,
+    "modal": null,
+    "rootWidth": 701,
+    "visualWidth": 701,
+    "width": 701
+  },
+  {
+    "label": "airline-detail-360x640",
+    "body": "你的综合排名#125/ 125与国内外主要航司同场竞技综合得分38.8/ 100规模、服务、口碑、可靠性与盈利航司资料库124家国内运输航司与国际知名品牌连续盈利4周持续盈利为综合评分提供加分",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 518
+    },
+    "height": 591,
+    "map": null,
+    "modal": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 10
+    },
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "ranking-single-exact",
+    "body": "你的综合排名#125/ 125与国内外主要航司同场竞技综合得分38.8/ 100规模、服务、口碑、可靠性与盈利航司资料库124家国内运输航司与国际知名品牌连续盈利4周持续盈利为综合评分提供加分",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": null,
+    "height": 591,
+    "map": null,
+    "modal": null,
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "rotation-edit-landscape",
+    "date": "2026.02.02W05",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": {
+      "bottom": 332,
+      "left": 12,
+      "right": 832,
+      "top": 271
+    },
+    "height": 340,
+    "map": null,
+    "modal": {
+      "bottom": 332,
+      "left": 12,
+      "right": 832,
+      "top": 8
+    },
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "batch-policy-paused",
+    "date": "2026.02.23W08",
+    "dock": {
+      "bottom": 529,
+      "left": 0,
+      "right": 360,
+      "top": 467
+    },
+    "footer": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 518
+    },
+    "height": 591,
+    "map": null,
+    "modal": {
+      "bottom": 581,
+      "left": 10,
+      "right": 350,
+      "top": 10
+    },
+    "rootWidth": 360,
+    "visualWidth": 360,
+    "width": 360
+  },
+  {
+    "label": "silk-road-story-landscape",
+    "date": "2026.02.23W08",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": null,
+    "height": 340,
+    "map": null,
+    "modal": {
+      "bottom": 332,
+      "left": 52,
+      "right": 792,
+      "top": 8
+    },
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "batch-five-complete",
+    "date": "2026.03.09W10",
+    "dock": {
+      "bottom": 328,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375
+    },
+    "footer": {
+      "bottom": 332,
+      "left": 12,
+      "right": 832,
+      "top": 271
+    },
+    "height": 340,
+    "map": null,
+    "modal": {
+      "bottom": 332,
+      "left": 12,
+      "right": 832,
+      "top": 8
+    },
+    "rootWidth": 844,
+    "visualWidth": 844,
+    "width": 844
+  },
+  {
+    "label": "advisor-3-before",
+    "body": "可用现金3485 万周利润 +206 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑59.3/100可靠性 96.4%",
+    "date": "2026.03.09W10",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 622.328125
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 107.671875
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "advisor-2-after-first",
+    "body": "可用现金3485 万周利润 +206 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑59.3/100可靠性 96.4%",
+    "date": "2026.03.09W10",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 622.328125
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 107.671875
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "advisor-1-after-price",
+    "body": "可用现金3485 万周利润 +206 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑59.3/100可靠性 96.4%",
+    "date": "2026.03.09W10",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 622.328125
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 107.671875
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "advisor-remaining-restored",
+    "body": "可用现金3485 万周利润 +206 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑59.3/100可靠性 96.4%",
+    "date": "2026.03.09W10",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 622.328125
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 107.671875
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "advisor-action-complete-one-remains",
+    "body": "可用现金3485 万周利润 +206 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑59.3/100可靠性 96.4%",
+    "date": "2026.03.09W10",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 622.328125
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 107.671875
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "advisor-final-restored",
+    "body": "可用现金3485 万周利润 +206 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑59.3/100可靠性 96.4%",
+    "date": "2026.03.09W10",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 622.328125
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 107.671875
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "advisor-restored-new-suggestion",
+    "body": "可用现金3485 万周利润 +206 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑59.3/100可靠性 96.4%",
+    "date": "2026.03.09W10",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 622.328125
+    },
+    "height": 795,
+    "map": null,
+    "modal": {
+      "bottom": 687.328125,
+      "left": 10,
+      "right": 380,
+      "top": 107.671875
+    },
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "international-license-gate",
+    "date": "2026.03.09W10",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": null,
+    "height": 795,
+    "map": null,
+    "modal": null,
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  },
+  {
+    "label": "final-map-drag-390x844",
+    "body": "可用现金3485 万周利润 +206 万在役飞机2架0 架待交付运营航线2条覆盖 3 座机场旅客口碑59.3/100可靠性 96.4%",
+    "date": "2026.03.09W10",
+    "dock": {
+      "bottom": 733,
+      "left": 0,
+      "right": 390,
+      "top": 671
+    },
+    "footer": null,
+    "height": 795,
+    "map": {
+      "bottom": 617.1953125,
+      "left": 16,
+      "right": 374,
+      "top": 173
+    },
+    "modal": null,
+    "rootWidth": 390,
+    "visualWidth": 390,
+    "width": 390
+  }
+]
