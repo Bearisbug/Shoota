@@ -1,0 +1,243 @@
+{
+  "error": "frame.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#mobile-view') to be visible\u001b[22m\n\u001b[2m    63 × locator resolved to hidden <select id=\"mobile-view\" aria-label=\"切换功能页面\">…</select>\u001b[22m\n\n    at /Users/leizhang/Documents/shoota/tmp/wt-portrait/docs/test-runs/RUN-102/airline-routes.mjs:6:526",
+  "results": [
+    {
+      "tag": "320x568",
+      "label": "routes",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "save": null
+    },
+    {
+      "tag": "320x568",
+      "label": "edit",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "modal": 300,
+      "save": {
+        "x": 142,
+        "y": 456,
+        "right": 298,
+        "bottom": 500,
+        "height": 44
+      }
+    },
+    {
+      "tag": "320x568",
+      "label": "fleet-routes",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "modal": 300,
+      "save": null
+    },
+    {
+      "tag": "320x568",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "360x640",
+      "label": "routes",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "save": null
+    },
+    {
+      "tag": "360x640",
+      "label": "edit",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "modal": 340,
+      "save": {
+        "x": 142,
+        "y": 528,
+        "right": 338,
+        "bottom": 572,
+        "height": 44
+      }
+    },
+    {
+      "tag": "360x640",
+      "label": "fleet-routes",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "modal": 340,
+      "save": null
+    },
+    {
+      "tag": "360x640",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "390x600",
+      "label": "routes",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "save": null
+    },
+    {
+      "tag": "390x600",
+      "label": "edit",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "modal": 370,
+      "save": {
+        "x": 157,
+        "y": 487,
+        "right": 366,
+        "bottom": 531,
+        "height": 44
+      }
+    },
+    {
+      "tag": "390x600",
+      "label": "fleet-routes",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "modal": 370,
+      "save": null
+    },
+    {
+      "tag": "390x600",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "390x844",
+      "label": "routes",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "save": null
+    },
+    {
+      "tag": "390x844",
+      "label": "edit",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "modal": 370,
+      "save": {
+        "x": 157,
+        "y": 731,
+        "right": 366,
+        "bottom": 775,
+        "height": 44
+      }
+    },
+    {
+      "tag": "390x844",
+      "label": "text200",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "modal": 370,
+      "save": {
+        "x": 222,
+        "y": 682.21875,
+        "right": 366,
+        "bottom": 775,
+        "height": 92.78125
+      }
+    },
+    {
+      "tag": "390x844",
+      "label": "fleet-routes",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "modal": 370,
+      "save": null
+    },
+    {
+      "tag": "390x844",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "430x932",
+      "label": "routes",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "save": null
+    },
+    {
+      "tag": "430x932",
+      "label": "edit",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "modal": 410,
+      "save": {
+        "x": 157,
+        "y": 789.046875,
+        "right": 406,
+        "bottom": 833.046875,
+        "height": 44
+      }
+    },
+    {
+      "tag": "430x932",
+      "label": "fleet-routes",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "modal": 410,
+      "save": null
+    },
+    {
+      "tag": "430x932",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "844x390",
+      "label": "routes",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "save": null
+    },
+    {
+      "tag": "844x390",
+      "label": "edit",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "modal": 820,
+      "save": {
+        "x": 161,
+        "y": 280,
+        "right": 816,
+        "bottom": 324,
+        "height": 44
+      }
+    },
+    {
+      "tag": "844x390",
+      "label": "fleet-routes",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "modal": 740,
+      "save": null
+    },
+    {
+      "tag": "844x390",
+      "saveConfirmed": true,
+      "noCharge": true
+    }
+  ],
+  "errors": []
+}

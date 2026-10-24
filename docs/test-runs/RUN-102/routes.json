@@ -1,0 +1,427 @@
+{
+  "results": [
+    {
+      "tag": "320x568",
+      "label": "routes",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "save": null
+    },
+    {
+      "tag": "320x568",
+      "label": "edit",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "modal": 300,
+      "save": {
+        "x": 142,
+        "y": 456,
+        "right": 298,
+        "bottom": 500,
+        "height": 44
+      }
+    },
+    {
+      "tag": "320x568",
+      "label": "fleet-routes",
+      "w": 320,
+      "h": 519,
+      "sw": 320,
+      "modal": 300,
+      "save": null
+    },
+    {
+      "tag": "320x568",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "360x640",
+      "label": "routes",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "save": null
+    },
+    {
+      "tag": "360x640",
+      "label": "edit",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "modal": 340,
+      "save": {
+        "x": 142,
+        "y": 528,
+        "right": 338,
+        "bottom": 572,
+        "height": 44
+      }
+    },
+    {
+      "tag": "360x640",
+      "label": "fleet-routes",
+      "w": 360,
+      "h": 591,
+      "sw": 360,
+      "modal": 340,
+      "save": null
+    },
+    {
+      "tag": "360x640",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "390x600",
+      "label": "routes",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "save": null
+    },
+    {
+      "tag": "390x600",
+      "label": "edit",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "modal": 370,
+      "save": {
+        "x": 157,
+        "y": 487,
+        "right": 366,
+        "bottom": 531,
+        "height": 44
+      }
+    },
+    {
+      "tag": "390x600",
+      "label": "fleet-routes",
+      "w": 390,
+      "h": 551,
+      "sw": 390,
+      "modal": 370,
+      "save": null
+    },
+    {
+      "tag": "390x600",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "390x844",
+      "label": "routes",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "save": null
+    },
+    {
+      "tag": "390x844",
+      "label": "edit",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "modal": 370,
+      "save": {
+        "x": 157,
+        "y": 731,
+        "right": 366,
+        "bottom": 775,
+        "height": 44
+      }
+    },
+    {
+      "tag": "390x844",
+      "label": "text200",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "modal": 370,
+      "save": {
+        "x": 222,
+        "y": 682.21875,
+        "right": 366,
+        "bottom": 775,
+        "height": 92.78125
+      }
+    },
+    {
+      "tag": "390x844",
+      "label": "fleet-routes",
+      "w": 390,
+      "h": 795,
+      "sw": 390,
+      "modal": 370,
+      "save": null
+    },
+    {
+      "tag": "390x844",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "430x932",
+      "label": "routes",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "save": null
+    },
+    {
+      "tag": "430x932",
+      "label": "edit",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "modal": 410,
+      "save": {
+        "x": 157,
+        "y": 789.046875,
+        "right": 406,
+        "bottom": 833.046875,
+        "height": 44
+      }
+    },
+    {
+      "tag": "430x932",
+      "label": "fleet-routes",
+      "w": 430,
+      "h": 883,
+      "sw": 430,
+      "modal": 410,
+      "save": null
+    },
+    {
+      "tag": "430x932",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "844x390",
+      "label": "routes",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "save": null
+    },
+    {
+      "tag": "844x390",
+      "label": "edit",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "modal": 820,
+      "save": {
+        "x": 161,
+        "y": 280,
+        "right": 816,
+        "bottom": 324,
+        "height": 44
+      }
+    },
+    {
+      "tag": "844x390",
+      "label": "fleet-routes",
+      "w": 844,
+      "h": 340,
+      "sw": 844,
+      "modal": 740,
+      "save": null
+    },
+    {
+      "tag": "844x390",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "768x1024",
+      "label": "routes",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "save": null
+    },
+    {
+      "tag": "768x1024",
+      "label": "edit",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "modal": 728,
+      "save": {
+        "x": 608,
+        "y": 815.984375,
+        "right": 724,
+        "bottom": 859.984375,
+        "height": 44
+      }
+    },
+    {
+      "tag": "768x1024",
+      "label": "fleet-routes",
+      "w": 768,
+      "h": 974,
+      "sw": 768,
+      "modal": 620,
+      "save": null
+    },
+    {
+      "tag": "768x1024",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "1366x768",
+      "label": "routes",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "save": null
+    },
+    {
+      "tag": "1366x768",
+      "label": "edit",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "modal": 820,
+      "save": {
+        "x": 953,
+        "y": 640,
+        "right": 1069,
+        "bottom": 684,
+        "height": 44
+      }
+    },
+    {
+      "tag": "1366x768",
+      "label": "fleet-routes",
+      "w": 1366,
+      "h": 718,
+      "sw": 1366,
+      "modal": 620,
+      "save": null
+    },
+    {
+      "tag": "1366x768",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "1440x900",
+      "label": "routes",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "save": null
+    },
+    {
+      "tag": "1440x900",
+      "label": "edit",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "modal": 820,
+      "save": {
+        "x": 990,
+        "y": 745.234375,
+        "right": 1106,
+        "bottom": 789.234375,
+        "height": 44
+      }
+    },
+    {
+      "tag": "1440x900",
+      "label": "fleet-routes",
+      "w": 1440,
+      "h": 850,
+      "sw": 1440,
+      "modal": 620,
+      "save": null
+    },
+    {
+      "tag": "1440x900",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "700x800",
+      "label": "routes",
+      "w": 700,
+      "h": 751,
+      "sw": 700,
+      "save": null
+    },
+    {
+      "tag": "700x800",
+      "label": "edit",
+      "w": 700,
+      "h": 751,
+      "sw": 700,
+      "modal": 680,
+      "save": {
+        "x": 157,
+        "y": 687,
+        "right": 676,
+        "bottom": 731,
+        "height": 44
+      }
+    },
+    {
+      "tag": "700x800",
+      "label": "fleet-routes",
+      "w": 700,
+      "h": 751,
+      "sw": 700,
+      "modal": 620,
+      "save": null
+    },
+    {
+      "tag": "700x800",
+      "saveConfirmed": true,
+      "noCharge": true
+    },
+    {
+      "tag": "701x800",
+      "label": "routes",
+      "w": 701,
+      "h": 751,
+      "sw": 701,
+      "save": null
+    },
+    {
+      "tag": "701x800",
+      "label": "edit",
+      "w": 701,
+      "h": 751,
+      "sw": 701,
+      "modal": 661,
+      "save": {
+        "x": 541,
+        "y": 673,
+        "right": 657,
+        "bottom": 717,
+        "height": 44
+      }
+    },
+    {
+      "tag": "701x800",
+      "label": "fleet-routes",
+      "w": 701,
+      "h": 751,
+      "sw": 701,
+      "modal": 620,
+      "save": null
+    },
+    {
+      "tag": "701x800",
+      "saveConfirmed": true,
+      "noCharge": true
+    }
+  ],
+  "errors": []
+}
