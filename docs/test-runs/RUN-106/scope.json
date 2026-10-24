@@ -1,0 +1,11 @@
+{
+  "base": "28920019fc3421cf89edbe88ed5ff1d746c431a7",
+  "changed": [
+    "docs/DESIGN.md",
+    "docs/TEST.md",
+    "public/games/rental-empire.html",
+    "public/index.html"
+  ],
+  "publicChange": "rental only, catalog byte size only",
+  "sha256": "71ca331f886e05357c68a8ea75c386cf8a440dd1f3dc38573ab96db9fab56b33"
+}

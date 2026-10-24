@@ -1,0 +1,18 @@
+{
+  "sha256": "71ca331f886e05357c68a8ea75c386cf8a440dd1f3dc38573ab96db9fab56b33",
+  "bytes": 343448,
+  "source": {
+    "rental-empire/dist/app.js": "87eeb0e3ec4c33a703ecc16b230c7e880eb331011a932b301ebd924904d9d1c1",
+    "rental-empire/dist/engine.js": "23248b9d12490db43d1479a205eb7a8f5b12937aef63c0948a5570bebc215931",
+    "rental-empire/dist/geography.js": "3a8a390ef5be82c878dc01ea978bf560965c15b9cdee76768a8de8e859c59a3b",
+    "rental-empire/dist/index.html": "fb22f8639c709cdbaee8ca27d7a7a1e80939c5cf43917413629ce571c099977a",
+    "rental-empire/dist/management.css": "337b974097b38e4e7d710478460afa5d2a72203850a1cdafe861f213e79aba30",
+    "rental-empire/dist/management.js": "82941d3ea5dd8b929c2bd56762c39d2fe7507c90333e1402e7fd0123efe2f6f5",
+    "rental-empire/dist/models.js": "7046f94232453765ddc6e67271c007a05aaa9bbf78e18d69d6e653bed2bec647",
+    "rental-empire/dist/style.css": "172e040b12c2e45250c61d4706e35d05a1450f5904887306591953869f4436e1"
+  },
+  "singleFileMatchesSource": true,
+  "zipContainsIdenticalGame": true,
+  "scriptBlocksUnchanged": 5,
+  "platformIndexSha256": "ea45d1dc5a50c05910ef1cbde33006c06145db1ea1ab0bad3c52a350913ed2a7"
+}

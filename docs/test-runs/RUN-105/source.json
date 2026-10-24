@@ -1,0 +1,12 @@
+{
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/脚踩神州，拳打一嗨.html",
+  "sha256": "8d037aa2c0e997b44974612fb3d3d29d1cea6715fdebc7355a691dec5d7e985c",
+  "bytes": 343448,
+  "previousSha256": "ac0f64e523040b71afd2a47135966b5e244e50fbd995df70e1a41a89dbe962bf",
+  "sameScriptsAsProduction": true,
+  "changes": [
+    "管理列表高度为分页和底栏留空",
+    "桌面门店操作单列并按宽度重排"
+  ],
+  "capturedAt": "2026-10-24T20:21:42.229318+08:00"
+}

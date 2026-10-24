@@ -1,0 +1,640 @@
+[
+  {
+    "state": "batch",
+    "viewport": [
+      360,
+      640
+    ],
+    "buttons": [
+      {
+        "bottom": 510.3671875,
+        "text": "取消",
+        "top": 466.3671875
+      },
+      {
+        "bottom": 510.3671875,
+        "text": "应用到已选车辆",
+        "top": 466.3671875
+      }
+    ],
+    "height": 591,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      390,
+      844
+    ],
+    "buttons": [
+      {
+        "bottom": 612.3671875,
+        "text": "取消",
+        "top": 568.3671875
+      },
+      {
+        "bottom": 612.3671875,
+        "text": "应用到已选车辆",
+        "top": 568.3671875
+      }
+    ],
+    "height": 795,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      430,
+      932
+    ],
+    "buttons": [
+      {
+        "bottom": 644.34375,
+        "text": "取消",
+        "top": 600.34375
+      },
+      {
+        "bottom": 644.34375,
+        "text": "应用到已选车辆",
+        "top": 600.34375
+      }
+    ],
+    "height": 883,
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      844,
+      390
+    ],
+    "buttons": [
+      {
+        "bottom": 316,
+        "text": "取消",
+        "top": 272
+      },
+      {
+        "bottom": 316,
+        "text": "应用到已选车辆",
+        "top": 272
+      }
+    ],
+    "height": 340,
+    "scrollWidth": 844,
+    "width": 844
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      768,
+      1024
+    ],
+    "buttons": [
+      {
+        "bottom": 689.84375,
+        "text": "取消",
+        "top": 645.84375
+      },
+      {
+        "bottom": 689.84375,
+        "text": "应用到已选车辆",
+        "top": 645.84375
+      }
+    ],
+    "height": 974,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      1366,
+      768
+    ],
+    "buttons": [
+      {
+        "bottom": 558.3984375,
+        "text": "取消",
+        "top": 514.3984375
+      },
+      {
+        "bottom": 558.3984375,
+        "text": "应用到已选车辆",
+        "top": 514.3984375
+      }
+    ],
+    "height": 718,
+    "scrollWidth": 1366,
+    "width": 1366
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      1440,
+      900
+    ],
+    "buttons": [
+      {
+        "bottom": 624.3984375,
+        "text": "取消",
+        "top": 580.3984375
+      },
+      {
+        "bottom": 624.3984375,
+        "text": "应用到已选车辆",
+        "top": 580.3984375
+      }
+    ],
+    "height": 850,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      320,
+      568
+    ],
+    "buttons": [
+      {
+        "bottom": 491.1328125,
+        "text": "取消",
+        "top": 447.1328125
+      },
+      {
+        "bottom": 491.1328125,
+        "text": "应用到已选车辆",
+        "top": 447.1328125
+      }
+    ],
+    "height": 519,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      390,
+      600
+    ],
+    "buttons": [
+      {
+        "bottom": 490.3671875,
+        "text": "取消",
+        "top": 446.3671875
+      },
+      {
+        "bottom": 490.3671875,
+        "text": "应用到已选车辆",
+        "top": 446.3671875
+      }
+    ],
+    "height": 551,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      799,
+      800
+    ],
+    "buttons": [
+      {
+        "bottom": 577.84375,
+        "text": "取消",
+        "top": 533.84375
+      },
+      {
+        "bottom": 577.84375,
+        "text": "应用到已选车辆",
+        "top": 533.84375
+      }
+    ],
+    "height": 750,
+    "scrollWidth": 799,
+    "width": 799
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      801,
+      800
+    ],
+    "buttons": [
+      {
+        "bottom": 574.3984375,
+        "text": "取消",
+        "top": 530.3984375
+      },
+      {
+        "bottom": 574.3984375,
+        "text": "应用到已选车辆",
+        "top": 530.3984375
+      }
+    ],
+    "height": 750,
+    "scrollWidth": 801,
+    "width": 801
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      360,
+      640
+    ],
+    "height": 591,
+    "rects": [
+      {
+        "bottom": 591,
+        "cls": "nav",
+        "id": "",
+        "top": 526
+      },
+      {
+        "bottom": 516,
+        "cls": "management",
+        "id": "",
+        "top": 113
+      },
+      {
+        "bottom": 259,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 215
+      },
+      {
+        "bottom": 516,
+        "cls": "list-pager",
+        "id": "",
+        "top": 472
+      }
+    ],
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      390,
+      844
+    ],
+    "height": 795,
+    "rects": [
+      {
+        "bottom": 795,
+        "cls": "nav",
+        "id": "",
+        "top": 730
+      },
+      {
+        "bottom": 721,
+        "cls": "management",
+        "id": "",
+        "top": 154
+      },
+      {
+        "bottom": 300,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 256
+      },
+      {
+        "bottom": 721,
+        "cls": "list-pager",
+        "id": "",
+        "top": 677
+      }
+    ],
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      430,
+      932
+    ],
+    "height": 883,
+    "rects": [
+      {
+        "bottom": 883,
+        "cls": "nav",
+        "id": "",
+        "top": 818
+      },
+      {
+        "bottom": 809,
+        "cls": "management",
+        "id": "",
+        "top": 154
+      },
+      {
+        "bottom": 300,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 256
+      },
+      {
+        "bottom": 809,
+        "cls": "list-pager",
+        "id": "",
+        "top": 765
+      }
+    ],
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      844,
+      390
+    ],
+    "height": 340,
+    "rects": [
+      {
+        "bottom": 325.6796875,
+        "cls": "nav",
+        "id": "",
+        "top": 74.796875
+      },
+      {
+        "bottom": 362.25,
+        "cls": "management",
+        "id": "",
+        "top": 112.25
+      },
+      {
+        "bottom": 156.25,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 112.25
+      },
+      {
+        "bottom": 362.25,
+        "cls": "list-pager",
+        "id": "",
+        "top": 318.25
+      }
+    ],
+    "scrollWidth": 844,
+    "width": 844
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      768,
+      1024
+    ],
+    "height": 974,
+    "rects": [
+      {
+        "bottom": 974,
+        "cls": "nav",
+        "id": "",
+        "top": 898.6015625
+      },
+      {
+        "bottom": 900.7578125,
+        "cls": "management",
+        "id": "",
+        "top": 154.7578125
+      },
+      {
+        "bottom": 300.7578125,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 256.7578125
+      },
+      {
+        "bottom": 900.7578125,
+        "cls": "list-pager",
+        "id": "",
+        "top": 856.7578125
+      }
+    ],
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      1366,
+      768
+    ],
+    "height": 718,
+    "rects": [
+      {
+        "bottom": 568.171875,
+        "cls": "nav",
+        "id": "",
+        "top": 155.296875
+      },
+      {
+        "bottom": 703.59375,
+        "cls": "management",
+        "id": "",
+        "top": 210.59375
+      },
+      {
+        "bottom": 306.59375,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 262.59375
+      },
+      {
+        "bottom": 703.59375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 659.59375
+      }
+    ],
+    "scrollWidth": 1366,
+    "width": 1366
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      1440,
+      900
+    ],
+    "height": 850,
+    "rects": [
+      {
+        "bottom": 576.484375,
+        "cls": "nav",
+        "id": "",
+        "top": 155.296875
+      },
+      {
+        "bottom": 835.59375,
+        "cls": "management",
+        "id": "",
+        "top": 210.59375
+      },
+      {
+        "bottom": 306.59375,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 262.59375
+      },
+      {
+        "bottom": 835.59375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 791.59375
+      }
+    ],
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      320,
+      568
+    ],
+    "height": 519,
+    "rects": [
+      {
+        "bottom": 519,
+        "cls": "nav",
+        "id": "",
+        "top": 430.3671875
+      },
+      {
+        "bottom": 473.734375,
+        "cls": "management",
+        "id": "",
+        "top": 113.734375
+      },
+      {
+        "bottom": 259.734375,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 215.734375
+      },
+      {
+        "bottom": 473.734375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 429.734375
+      }
+    ],
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      390,
+      600
+    ],
+    "height": 551,
+    "rects": [
+      {
+        "bottom": 551,
+        "cls": "nav",
+        "id": "",
+        "top": 486
+      },
+      {
+        "bottom": 476,
+        "cls": "management",
+        "id": "",
+        "top": 113
+      },
+      {
+        "bottom": 259,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 215
+      },
+      {
+        "bottom": 476,
+        "cls": "list-pager",
+        "id": "",
+        "top": 432
+      }
+    ],
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      799,
+      800
+    ],
+    "height": 750,
+    "rects": [
+      {
+        "bottom": 750,
+        "cls": "nav",
+        "id": "",
+        "top": 685
+      },
+      {
+        "bottom": 676,
+        "cls": "management",
+        "id": "",
+        "top": 154
+      },
+      {
+        "bottom": 300,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 256
+      },
+      {
+        "bottom": 676,
+        "cls": "list-pager",
+        "id": "",
+        "top": 632
+      }
+    ],
+    "scrollWidth": 799,
+    "width": 799
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      801,
+      800
+    ],
+    "height": 750,
+    "rects": [
+      {
+        "bottom": 571.578125,
+        "cls": "nav",
+        "id": "",
+        "top": 155.296875
+      },
+      {
+        "bottom": 735.59375,
+        "cls": "management",
+        "id": "",
+        "top": 210.59375
+      },
+      {
+        "bottom": 306.59375,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 262.59375
+      },
+      {
+        "bottom": 735.59375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 691.59375
+      }
+    ],
+    "scrollWidth": 801,
+    "width": 801
+  }
+]

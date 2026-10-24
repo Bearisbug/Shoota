@@ -1,0 +1,1469 @@
+[
+  {
+    "state": "fleet",
+    "viewport": [
+      360,
+      640
+    ],
+    "draft": "310",
+    "height": 591,
+    "rects": [
+      {
+        "bottom": 591,
+        "cls": "nav",
+        "id": "",
+        "top": 526
+      },
+      {
+        "bottom": 516,
+        "cls": "management",
+        "id": "",
+        "top": 113
+      },
+      {
+        "bottom": 259,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 215
+      },
+      {
+        "bottom": 516,
+        "cls": "list-pager",
+        "id": "",
+        "top": 472
+      }
+    ],
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      390,
+      844
+    ],
+    "draft": "310",
+    "height": 795,
+    "rects": [
+      {
+        "bottom": 795,
+        "cls": "nav",
+        "id": "",
+        "top": 730
+      },
+      {
+        "bottom": 707,
+        "cls": "management",
+        "id": "",
+        "top": 154
+      },
+      {
+        "bottom": 300,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 256
+      },
+      {
+        "bottom": 707,
+        "cls": "list-pager",
+        "id": "",
+        "top": 663
+      }
+    ],
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      430,
+      932
+    ],
+    "draft": "310",
+    "height": 883,
+    "rects": [
+      {
+        "bottom": 883,
+        "cls": "nav",
+        "id": "",
+        "top": 818
+      },
+      {
+        "bottom": 795,
+        "cls": "management",
+        "id": "",
+        "top": 154
+      },
+      {
+        "bottom": 300,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 256
+      },
+      {
+        "bottom": 795,
+        "cls": "list-pager",
+        "id": "",
+        "top": 751
+      }
+    ],
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      844,
+      390
+    ],
+    "draft": "310",
+    "height": 340,
+    "rects": [
+      {
+        "bottom": 312.4765625,
+        "cls": "nav",
+        "id": "",
+        "top": 74.796875
+      },
+      {
+        "bottom": 330.9140625,
+        "cls": "management",
+        "id": "",
+        "top": 112.9140625
+      },
+      {
+        "bottom": 156.9140625,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 112.9140625
+      },
+      {
+        "bottom": 330.9140625,
+        "cls": "list-pager",
+        "id": "",
+        "top": 286.9140625
+      }
+    ],
+    "scrollWidth": 844,
+    "width": 844
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      768,
+      1024
+    ],
+    "draft": "310",
+    "height": 974,
+    "rects": [
+      {
+        "bottom": 974,
+        "cls": "nav",
+        "id": "",
+        "top": 898.890625
+      },
+      {
+        "bottom": 886.734375,
+        "cls": "management",
+        "id": "",
+        "top": 154.734375
+      },
+      {
+        "bottom": 300.734375,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 256.734375
+      },
+      {
+        "bottom": 886.734375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 842.734375
+      }
+    ],
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      1366,
+      768
+    ],
+    "draft": "310",
+    "height": 718,
+    "rects": [
+      {
+        "bottom": 563.484375,
+        "cls": "nav",
+        "id": "",
+        "top": 155.296875
+      },
+      {
+        "bottom": 703.59375,
+        "cls": "management",
+        "id": "",
+        "top": 210.59375
+      },
+      {
+        "bottom": 306.59375,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 262.59375
+      },
+      {
+        "bottom": 703.59375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 659.59375
+      }
+    ],
+    "scrollWidth": 1366,
+    "width": 1366
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      1440,
+      900
+    ],
+    "draft": "310",
+    "height": 850,
+    "rects": [
+      {
+        "bottom": 576.953125,
+        "cls": "nav",
+        "id": "",
+        "top": 155.296875
+      },
+      {
+        "bottom": 835.59375,
+        "cls": "management",
+        "id": "",
+        "top": 210.59375
+      },
+      {
+        "bottom": 306.59375,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 262.59375
+      },
+      {
+        "bottom": 835.59375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 791.59375
+      }
+    ],
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      320,
+      568
+    ],
+    "draft": "310",
+    "height": 519,
+    "rects": [
+      {
+        "bottom": 519,
+        "cls": "nav",
+        "id": "",
+        "top": 430.1953125
+      },
+      {
+        "bottom": 473.7421875,
+        "cls": "management",
+        "id": "",
+        "top": 113.7421875
+      },
+      {
+        "bottom": 259.7421875,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 215.7421875
+      },
+      {
+        "bottom": 473.7421875,
+        "cls": "list-pager",
+        "id": "",
+        "top": 429.7421875
+      }
+    ],
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      390,
+      600
+    ],
+    "draft": "310",
+    "height": 551,
+    "rects": [
+      {
+        "bottom": 551,
+        "cls": "nav",
+        "id": "",
+        "top": 484.7734375
+      },
+      {
+        "bottom": 476.0390625,
+        "cls": "management",
+        "id": "",
+        "top": 113.0390625
+      },
+      {
+        "bottom": 259.0390625,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 215.0390625
+      },
+      {
+        "bottom": 476.0390625,
+        "cls": "list-pager",
+        "id": "",
+        "top": 432.0390625
+      }
+    ],
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      799,
+      800
+    ],
+    "draft": "310",
+    "height": 750,
+    "rects": [
+      {
+        "bottom": 750,
+        "cls": "nav",
+        "id": "",
+        "top": 685
+      },
+      {
+        "bottom": 662,
+        "cls": "management",
+        "id": "",
+        "top": 154
+      },
+      {
+        "bottom": 300,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 256
+      },
+      {
+        "bottom": 662,
+        "cls": "list-pager",
+        "id": "",
+        "top": 618
+      }
+    ],
+    "scrollWidth": 799,
+    "width": 799
+  },
+  {
+    "state": "fleet",
+    "viewport": [
+      801,
+      800
+    ],
+    "draft": "310",
+    "height": 750,
+    "rects": [
+      {
+        "bottom": 573.453125,
+        "cls": "nav",
+        "id": "",
+        "top": 155.296875
+      },
+      {
+        "bottom": 735.59375,
+        "cls": "management",
+        "id": "",
+        "top": 210.59375
+      },
+      {
+        "bottom": 306.59375,
+        "cls": "primary",
+        "id": "saveFleetEdits",
+        "top": 262.59375
+      },
+      {
+        "bottom": 735.59375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 691.59375
+      }
+    ],
+    "scrollWidth": 801,
+    "width": 801
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      360,
+      640
+    ],
+    "draft": "reputation",
+    "height": 591,
+    "rects": [
+      {
+        "bottom": 591,
+        "cls": "nav",
+        "id": "",
+        "top": 526
+      },
+      {
+        "bottom": 516,
+        "cls": "management",
+        "id": "",
+        "top": 113
+      },
+      {
+        "bottom": 209,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 165
+      },
+      {
+        "bottom": 516,
+        "cls": "list-pager",
+        "id": "",
+        "top": 472
+      }
+    ],
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      390,
+      844
+    ],
+    "draft": "reputation",
+    "height": 795,
+    "rects": [
+      {
+        "bottom": 795,
+        "cls": "nav",
+        "id": "",
+        "top": 730
+      },
+      {
+        "bottom": 707,
+        "cls": "management",
+        "id": "",
+        "top": 154
+      },
+      {
+        "bottom": 250,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 206
+      },
+      {
+        "bottom": 707,
+        "cls": "list-pager",
+        "id": "",
+        "top": 663
+      }
+    ],
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      430,
+      932
+    ],
+    "draft": "reputation",
+    "height": 883,
+    "rects": [
+      {
+        "bottom": 883,
+        "cls": "nav",
+        "id": "",
+        "top": 818
+      },
+      {
+        "bottom": 795,
+        "cls": "management",
+        "id": "",
+        "top": 154
+      },
+      {
+        "bottom": 250,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 206
+      },
+      {
+        "bottom": 795,
+        "cls": "list-pager",
+        "id": "",
+        "top": 751
+      }
+    ],
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      844,
+      390
+    ],
+    "draft": "reputation",
+    "height": 340,
+    "rects": [
+      {
+        "bottom": 313.7265625,
+        "cls": "nav",
+        "id": "",
+        "top": 74.796875
+      },
+      {
+        "bottom": 330.8515625,
+        "cls": "management",
+        "id": "",
+        "top": 112.8515625
+      },
+      {
+        "bottom": 206.8515625,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 162.8515625
+      },
+      {
+        "bottom": 330.8515625,
+        "cls": "list-pager",
+        "id": "",
+        "top": 286.8515625
+      }
+    ],
+    "scrollWidth": 844,
+    "width": 844
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      768,
+      1024
+    ],
+    "draft": "reputation",
+    "height": 974,
+    "rects": [
+      {
+        "bottom": 974,
+        "cls": "nav",
+        "id": "",
+        "top": 896.4375
+      },
+      {
+        "bottom": 886.9140625,
+        "cls": "management",
+        "id": "",
+        "top": 154.9140625
+      },
+      {
+        "bottom": 250.9140625,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 206.9140625
+      },
+      {
+        "bottom": 886.9140625,
+        "cls": "list-pager",
+        "id": "",
+        "top": 842.9140625
+      }
+    ],
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      1366,
+      768
+    ],
+    "draft": "reputation",
+    "height": 718,
+    "rects": [
+      {
+        "bottom": 577.296875,
+        "cls": "nav",
+        "id": "",
+        "top": 155.296875
+      },
+      {
+        "bottom": 703.59375,
+        "cls": "management",
+        "id": "",
+        "top": 210.59375
+      },
+      {
+        "bottom": 308.59375,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 264.59375
+      },
+      {
+        "bottom": 703.59375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 659.59375
+      }
+    ],
+    "scrollWidth": 1366,
+    "width": 1366
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      1440,
+      900
+    ],
+    "draft": "reputation",
+    "height": 850,
+    "rects": [
+      {
+        "bottom": 577.296875,
+        "cls": "nav",
+        "id": "",
+        "top": 155.296875
+      },
+      {
+        "bottom": 835.59375,
+        "cls": "management",
+        "id": "",
+        "top": 210.59375
+      },
+      {
+        "bottom": 308.59375,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 264.59375
+      },
+      {
+        "bottom": 835.59375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 791.59375
+      }
+    ],
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      320,
+      568
+    ],
+    "draft": "reputation",
+    "height": 519,
+    "rects": [
+      {
+        "bottom": 519,
+        "cls": "nav",
+        "id": "",
+        "top": 430.0390625
+      },
+      {
+        "bottom": 473.7421875,
+        "cls": "management",
+        "id": "",
+        "top": 113.7421875
+      },
+      {
+        "bottom": 209.7421875,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 165.7421875
+      },
+      {
+        "bottom": 473.7421875,
+        "cls": "list-pager",
+        "id": "",
+        "top": 429.7421875
+      }
+    ],
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      390,
+      600
+    ],
+    "draft": "reputation",
+    "height": 551,
+    "rects": [
+      {
+        "bottom": 551,
+        "cls": "nav",
+        "id": "",
+        "top": 484.8359375
+      },
+      {
+        "bottom": 476.0390625,
+        "cls": "management",
+        "id": "",
+        "top": 113.0390625
+      },
+      {
+        "bottom": 209.0390625,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 165.0390625
+      },
+      {
+        "bottom": 476.0390625,
+        "cls": "list-pager",
+        "id": "",
+        "top": 432.0390625
+      }
+    ],
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      799,
+      800
+    ],
+    "draft": "reputation",
+    "height": 750,
+    "rects": [
+      {
+        "bottom": 750,
+        "cls": "nav",
+        "id": "",
+        "top": 685
+      },
+      {
+        "bottom": 662,
+        "cls": "management",
+        "id": "",
+        "top": 154
+      },
+      {
+        "bottom": 250,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 206
+      },
+      {
+        "bottom": 662,
+        "cls": "list-pager",
+        "id": "",
+        "top": 618
+      }
+    ],
+    "scrollWidth": 799,
+    "width": 799
+  },
+  {
+    "state": "branches",
+    "viewport": [
+      801,
+      800
+    ],
+    "draft": "reputation",
+    "height": 750,
+    "rects": [
+      {
+        "bottom": 568.765625,
+        "cls": "nav",
+        "id": "",
+        "top": 155.296875
+      },
+      {
+        "bottom": 735.59375,
+        "cls": "management",
+        "id": "",
+        "top": 210.59375
+      },
+      {
+        "bottom": 308.1247863769531,
+        "cls": "primary",
+        "id": "saveBranchEdits",
+        "top": 264.1247863769531
+      },
+      {
+        "bottom": 735.59375,
+        "cls": "list-pager",
+        "id": "",
+        "top": 691.59375
+      }
+    ],
+    "scrollWidth": 801,
+    "width": 801
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      360,
+      640
+    ],
+    "buttons": [
+      {
+        "bottom": 573,
+        "text": "详细报告",
+        "top": 529
+      },
+      {
+        "bottom": 573,
+        "text": "前往 2月 →",
+        "top": 529
+      }
+    ],
+    "height": 591,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      390,
+      844
+    ],
+    "buttons": [
+      {
+        "bottom": 705.046875,
+        "text": "详细报告",
+        "top": 661.046875
+      },
+      {
+        "bottom": 705.046875,
+        "text": "前往 2月 →",
+        "top": 661.046875
+      }
+    ],
+    "height": 795,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      430,
+      932
+    ],
+    "buttons": [
+      {
+        "bottom": 749.046875,
+        "text": "详细报告",
+        "top": 705.046875
+      },
+      {
+        "bottom": 749.046875,
+        "text": "前往 2月 →",
+        "top": 705.046875
+      }
+    ],
+    "height": 883,
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      844,
+      390
+    ],
+    "buttons": [
+      {
+        "bottom": 316,
+        "text": "详细报告",
+        "top": 272
+      },
+      {
+        "bottom": 316,
+        "text": "前往 2月 →",
+        "top": 272
+      }
+    ],
+    "height": 340,
+    "scrollWidth": 844,
+    "width": 844
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      768,
+      1024
+    ],
+    "buttons": [
+      {
+        "bottom": 794.546875,
+        "text": "详细报告",
+        "top": 750.546875
+      },
+      {
+        "bottom": 794.546875,
+        "text": "前往 2月 →",
+        "top": 750.546875
+      }
+    ],
+    "height": 974,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      1366,
+      768
+    ],
+    "buttons": [
+      {
+        "bottom": 660.59375,
+        "text": "详细报告",
+        "top": 616.59375
+      },
+      {
+        "bottom": 660.59375,
+        "text": "前往 2月 →",
+        "top": 616.59375
+      }
+    ],
+    "height": 718,
+    "scrollWidth": 1366,
+    "width": 1366
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      1440,
+      900
+    ],
+    "buttons": [
+      {
+        "bottom": 726.59375,
+        "text": "详细报告",
+        "top": 682.59375
+      },
+      {
+        "bottom": 726.59375,
+        "text": "前往 2月 →",
+        "top": 682.59375
+      }
+    ],
+    "height": 850,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      320,
+      568
+    ],
+    "buttons": [
+      {
+        "bottom": 501,
+        "text": "详细报告",
+        "top": 457
+      },
+      {
+        "bottom": 501,
+        "text": "前往 2月 →",
+        "top": 457
+      }
+    ],
+    "height": 519,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      390,
+      600
+    ],
+    "buttons": [
+      {
+        "bottom": 533,
+        "text": "详细报告",
+        "top": 489
+      },
+      {
+        "bottom": 533,
+        "text": "前往 2月 →",
+        "top": 489
+      }
+    ],
+    "height": 551,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      799,
+      800
+    ],
+    "buttons": [
+      {
+        "bottom": 682.546875,
+        "text": "详细报告",
+        "top": 638.546875
+      },
+      {
+        "bottom": 682.546875,
+        "text": "前往 2月 →",
+        "top": 638.546875
+      }
+    ],
+    "height": 750,
+    "scrollWidth": 799,
+    "width": 799
+  },
+  {
+    "state": "settlement",
+    "viewport": [
+      801,
+      800
+    ],
+    "buttons": [
+      {
+        "bottom": 676.59375,
+        "text": "详细报告",
+        "top": 632.59375
+      },
+      {
+        "bottom": 676.59375,
+        "text": "前往 2月 →",
+        "top": 632.59375
+      }
+    ],
+    "height": 750,
+    "scrollWidth": 801,
+    "width": 801
+  },
+  {
+    "state": "core-month",
+    "viewport": [
+      390,
+      844
+    ],
+    "ax": "Browser tab: 10, Title: \"shoota 游戏平台\", URL: \"http://127.0.0.1:8775/#play-rental-empire\".\n1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8775/#play-rental-empire\n\t2 container\n\t\t3 link Description: shoota 首页, Value: 127.0.0.1:8775/#store\n\t\t4 container 主导航\n\t\t\t5 link Description: 商店, Value: 127.0.0.1:8775/#store\n\t\t\t6 link Description: 游戏库, Value: 127.0.0.1:8775/#library\n\t\t\t7 link Description: 存档, Value: 127.0.0.1:8775/#backup\n\t\t8 text 搜索游戏\n\t\t9 search text field (settable) 搜索游戏, ID: q\n\t\t10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand\n\t11 container player\n\t\t12 button 退出游戏, ID: pExit\n\t\t13 text 脚踩神州，拳打一嗨\n\t\t21 text 已存档 20:31\n\t\t22 text 本次 3 分钟\n\t\t16 button 全屏, ID: pFull\n\t\t17 container 脚踩神州，拳打一嗨\n\t\t\t20 AXWebArea 脚踩神州，拳打一嗨, URL: about:srcdoc\n\t\t\t\t23 container modal\n\t\t\t\t\t24 text 月度经营纪要\n\t\t\t\t\t25 text 02\n\t\t\t\t\t26 text 2026 / 第 2 个月\n\t\t\t\t\t27 heading 调整方向，下月再出发。, Value: 2\n\t\t\t\t\t\t28 text 调整方向，下月再出发。\n\t\t\t\t\t29 text 本月经营净利润\n\t\t\t\t\t30 text −¥452\n\t\t\t\t\t31 text 较上月 +¥2,730\n\t\t\t\t\t32 text 本月营收\n\t\t\t\t\t33 text ¥19,971\n\t\t\t\t\t34 text 净现金流\n\t\t\t\t\t35 text ¥2,603\n\t\t\t\t\t36 text 车队出租率\n\t\t\t\t\t37 text 76.7%\n\t\t\t\t\t38 text 期末可用现金\n\t\t\t\t\t39 text ¥644,882\n\t\t\t\t\t40 button (collapsed) 经理汇报 · 2 条动态, Secondary Actions: Expand\n\t\t\t\t\t\t41 text 经理汇报 · 2 条动态\n\t\t\t\t\t42 text 净利润含折旧；净现金流含还本。采购、扩店与融资不计入营收。\n\t\t\t\t\t43 container\n\t\t\t\t\t\t44 button 详细报告\n\t\t\t\t\t\t45 button 前往 3月 →\n\nThe focused UI element is 40 button (collapsed) 经理汇报 · 2 条动态, Secondary Actions: Expand"
+  },
+  {
+    "state": "core-next",
+    "viewport": [
+      390,
+      844
+    ],
+    "ax": "Browser tab: 10, Title: \"shoota 游戏平台\", URL: \"http://127.0.0.1:8775/#play-rental-empire\".\n1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8775/#play-rental-empire\n\t2 container\n\t\t3 link Description: shoota 首页, Value: 127.0.0.1:8775/#store\n\t\t4 container 主导航\n\t\t\t5 link Description: 商店, Value: 127.0.0.1:8775/#store\n\t\t\t6 link Description: 游戏库, Value: 127.0.0.1:8775/#library\n\t\t\t7 link Description: 存档, Value: 127.0.0.1:8775/#backup\n\t\t8 text 搜索游戏\n\t\t9 search text field (settable) 搜索游戏, ID: q\n\t\t10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand\n\t11 container player\n\t\t12 button 退出游戏, ID: pExit\n\t\t13 text 脚踩神州，拳打一嗨\n\t\t23 text 已存档 20:31\n\t\t22 text 本次 3 分钟\n\t\t16 button 全屏, ID: pFull\n\t\t17 container 脚踩神州，拳打一嗨\n\t\t\t20 AXWebArea 脚踩神州，拳打一嗨, URL: about:srcdoc\n\t\t\t\t24 container app\n\t\t\t\t\t25 container\n\t\t\t\t\t\t26 button 经营总览\n\t\t\t\t\t\t27 button 市场与竞争\n\t\t\t\t\t\t28 button 基础采购\n\t\t\t\t\t\t29 button 我的车队\n\t\t\t\t\t\t30 button ••• 更多\n\t\t\t\t\t\t\t31 text •••\n\t\t\t\t\t\t\t32 text 更多\n\t\t\t\t\t33 container\n\t\t\t\t\t\t34 text 最终验收租车　/　\n\t\t\t\t\t\t35 button 公司与存档\n\t\t\t\t\t\t36 text YOUR RENTAL EMPIRE\n\t\t\t\t\t\t37 heading 我的车队, Value: 1\n\t\t\t\t\t\t\t38 text 我的车队\n\t\t\t\t\t\t39 text 2026 年 3 月\n\t\t\t\t\t\t40 button 结算本月　→\n\t\t\t\t\t\t41 pop up button (collapsed, settable) Description: 车队门店筛选, Value: 全部门店, Secondary Actions: Expand\n\t\t\t\t\t\t\t42 menu\n\t\t\t\t\t\t\t\t43 (selected) 全部门店\n\t\t\t\t\t\t\t\t44 成都\n\t\t\t\t\t\t45 text field (settable) 搜索车队\n\t\t\t\t\t\t46 checkbox (settable, integer) Description: 全选筛选结果, Value: 0\n\t\t\t\t\t\t47 button 已选 0 · 清空, ID: fleetSelected\n\t\t\t\t\t\t48 button 批量设置\n\t\t\t\t\t\t49 button 调拨\n\t\t\t\t\t\t50 button (disabled) 保存修改, ID: saveFleetEdits\n\t\t\t\t\t\t51 tab group 车队编辑项目\n\t\t\t\t\t\t\t52 tab (selected, settable, boolean) 日租金, Value: 1\n\t\t\t\t\t\t\t53 tab (selectable, settable, boolean) 本月折扣, Value: 0\n\t\t\t\t\t\t\t54 tab (selectable, settable, boolean) 保险, Value: 0\n\t\t\t\t\t\t\t55 button ＋ 采购\n\t\t\t\t\t\t56 text 直接改列表，统一保存；可跨页勾选。价格为折扣前日租。\n\t\t\t\t\t\t57 container 车辆清单\n\t\t\t\t\t\t\t58 checkbox (settable, integer) Description: 选择车辆 1, Value: 0\n\t\t\t\t\t\t\t59 text 比亚迪 秦 PLUS DM-i\n\t\t\t\t\t\t\t60 text #1 · 成都 · 46.7%\n\t\t\t\t\t\t\t61 text 轿车 · 5座 · 1100km\n\t\t\t\t\t\t\t62 button 详情 / 出售\n\t\t\t\t\t\t\t63 stepper (settable, integer) Description: 车辆 1 日租金, Value: 301\n\t\t\t\t\t\t\t64 checkbox (settable, integer) Description: 选择车辆 2, Value: 0\n\t\t\t\t\t\t\t65 text 比亚迪 秦 PLUS DM-i\n\t\t\t\t\t\t\t66 text #2 · 成都 · 60.0%\n\t\t\t\t\t\t\t67 text 轿车 · 5座 · 1100km\n\t\t\t\t\t\t\t68 button 详情 / 出售\n\t\t\t\t\t\t\t69 stepper (settable, integer) Description: 车辆 2 日租金, Value: 263\n\t\t\t\t\t\t\t70 checkbox (settable, integer) Description: 选择车辆 3, Value: 0\n\t\t\t\t\t\t\t71 text 比亚迪 海豚\n\t\t\t\t\t\t\t72 text #3 · 成都 · 63.3%\n\t\t\t\t\t\t\t73 text 轿车 · 5座 · 420km\n\t\t\t\t\t\t\t74 button 详情 / 出售\n\t\t\t\t\t\t\t75 stepper (settable, integer) Description: 车辆 3 日租金, Value: 305\n\t\t\t\t\t\t76 text 共 3 项 · 1/1 页\n\t\t\t\t\t\t77 button (disabled) 上一页清单\n\t\t\t\t\t\t78 button (disabled) 下一页清单\n\t\t\t\t79 text 车辆设置已保存\n\nThe focused UI element is 20 AXWebArea 脚踩神州，拳打一嗨, URL: about:srcdoc"
+  },
+  {
+    "state": "core-month",
+    "viewport": [
+      844,
+      390
+    ],
+    "ax": "Browser tab: 10, Title: \"shoota 游戏平台\", URL: \"http://127.0.0.1:8775/#play-rental-empire\".\n1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8775/#play-rental-empire\n\t2 container\n\t\t3 link Description: shoota 首页, Value: 127.0.0.1:8775/#store\n\t\t4 container 主导航\n\t\t\t5 link Description: 商店, Value: 127.0.0.1:8775/#store\n\t\t\t6 link Description: 游戏库, Value: 127.0.0.1:8775/#library\n\t\t\t7 link Description: 存档, Value: 127.0.0.1:8775/#backup\n\t\t8 text 搜索游戏\n\t\t9 search text field (settable) 搜索游戏, ID: q\n\t\t10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand\n\t11 container player\n\t\t12 button 退出游戏, ID: pExit\n\t\t13 text 脚踩神州，拳打一嗨\n\t\t23 text 已存档 20:31\n\t\t22 text 本次 3 分钟\n\t\t16 button 全屏, ID: pFull\n\t\t17 container 脚踩神州，拳打一嗨\n\t\t\t20 AXWebArea 脚踩神州，拳打一嗨, URL: about:srcdoc\n\t\t\t\t24 container modal\n\t\t\t\t\t25 text 月度经营纪要\n\t\t\t\t\t26 text 03\n\t\t\t\t\t27 text 2026 / 第 3 个月\n\t\t\t\t\t28 text MONTHLY REVIEW\n\t\t\t\t\t29 heading 调整方向，下月再出发。, Value: 2\n\t\t\t\t\t\t30 text 调整方向，下月再出发。\n\t\t\t\t\t31 text 本月经营净利润\n\t\t\t\t\t32 text −¥4,208\n\t\t\t\t\t33 text 较上月 −¥3,756\n\t\t\t\t\t34 text 本月营收\n\t\t\t\t\t35 text ¥15,635\n\t\t\t\t\t36 text 净现金流\n\t\t\t\t\t37 text −¥1,153\n\t\t\t\t\t38 text 车队出租率\n\t\t\t\t\t39 text 60.0%\n\t\t\t\t\t40 text 期末可用现金\n\t\t\t\t\t41 text ¥643,729\n\t\t\t\t\t42 button (collapsed) 经理汇报 · 1 条动态, Secondary Actions: Expand\n\t\t\t\t\t\t43 text 经理汇报 · 1 条动态\n\t\t\t\t\t44 text 净利润含折旧；净现金流含还本。采购、扩店与融资不计入营收。\n\t\t\t\t\t45 container\n\t\t\t\t\t\t46 button 详细报告\n\t\t\t\t\t\t47 button 前往 4月 →\n\nThe focused UI element is 42 button (collapsed) 经理汇报 · 1 条动态, Secondary Actions: Expand"
+  },
+  {
+    "state": "core-next",
+    "viewport": [
+      844,
+      390
+    ],
+    "ax": "Browser tab: 10, Title: \"shoota 游戏平台\", URL: \"http://127.0.0.1:8775/#play-rental-empire\".\n1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8775/#play-rental-empire\n\t2 container\n\t\t3 link Description: shoota 首页, Value: 127.0.0.1:8775/#store\n\t\t4 container 主导航\n\t\t\t5 link Description: 商店, Value: 127.0.0.1:8775/#store\n\t\t\t6 link Description: 游戏库, Value: 127.0.0.1:8775/#library\n\t\t\t7 link Description: 存档, Value: 127.0.0.1:8775/#backup\n\t\t8 text 搜索游戏\n\t\t9 search text field (settable) 搜索游戏, ID: q\n\t\t10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand\n\t11 container player\n\t\t12 button 退出游戏, ID: pExit\n\t\t13 text 脚踩神州，拳打一嗨\n\t\t23 text 已存档 20:31\n\t\t22 text 本次 3 分钟\n\t\t16 button 全屏, ID: pFull\n\t\t17 container 脚踩神州，拳打一嗨\n\t\t\t20 AXWebArea 脚踩神州，拳打一嗨, URL: about:srcdoc\n\t\t\t\t24 container app\n\t\t\t\t\t25 container\n\t\t\t\t\t\t26 text ↗\n\t\t\t\t\t\t27 container 脚踩神州，拳打一嗨\n\t\t\t\t\t\t\t28 text 脚踩神州 拳打一嗨\n\t\t\t\t\t\t29 button 经营总览\n\t\t\t\t\t\t30 button 市场与竞争\n\t\t\t\t\t\t31 button 基础采购\n\t\t\t\t\t\t32 button 我的车队\n\t\t\t\t\t\t33 button ••• 更多\n\t\t\t\t\t\t\t34 text •••\n\t\t\t\t\t\t\t35 text 更多\n\t\t\t\t\t36 container\n\t\t\t\t\t\t37 text 最终验收租车　/　\n\t\t\t\t\t\t38 text 我的车队\n\t\t\t\t\t\t39 text 本地自动存档\n\t\t\t\t\t\t40 button 公司与存档\n\t\t\t\t\t\t41 heading 我的车队, Value: 1\n\t\t\t\t\t\t\t42 text 我的车队\n\t\t\t\t\t\t43 text 2026 年 4 月\n\t\t\t\t\t\t44 button 结算本月　→\n\t\t\t\t\t\t45 pop up button (collapsed, settable) Description: 车队门店筛选, Value: 全部门店, Secondary Actions: Expand\n\t\t\t\t\t\t\t46 menu\n\t\t\t\t\t\t\t\t47 (selected) 全部门店\n\t\t\t\t\t\t\t\t48 成都\n\t\t\t\t\t\t49 text field (settable) 搜索车队\n\t\t\t\t\t\t50 checkbox (settable, integer) Description: 全选筛选结果, Value: 0\n\t\t\t\t\t\t51 button 已选 0 · 清空, ID: fleetSelected\n\t\t\t\t\t\t52 button 批量设置\n\t\t\t\t\t\t53 button 调拨\n\t\t\t\t\t\t54 button (disabled) 保存修改, ID: saveFleetEdits\n\t\t\t\t\t\t55 container 车辆清单\n\t\t\t\t\t\t\t56 checkbox (settable, integer) Description: 选择车辆 1, Value: 0\n\t\t\t\t\t\t\t57 text 比亚迪 秦 PLUS DM-i\n\t\t\t\t\t\t\t58 text #1 · 成都 · 46.7%\n\t\t\t\t\t\t\t59 text 轿车 · 5座 · 1100km\n\t\t\t\t\t\t\t60 stepper (settable, integer) Description: 车辆 1 日租金, Value: 302\n\t\t\t\t\t\t\t61 pop up button (collapsed, settable) Description: 车辆 1 本月折扣, Value: 原价, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t62 menu\n\t\t\t\t\t\t\t\t\t63 (selected) 原价\n\t\t\t\t\t\t\t\t\t64 9.5折\n\t\t\t\t\t\t\t\t\t65 9折\n\t\t\t\t\t\t\t\t\t66 8.5折\n\t\t\t\t\t\t\t\t\t67 8折\n\t\t\t\t\t\t\t\t\t68 7折\n\t\t\t\t\t\t\t69 pop up button (collapsed, settable) Description: 车辆 1 保险, Value: 安心尊享, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t70 menu\n\t\t\t\t\t\t\t\t\t71 基础保障\n\t\t\t\t\t\t\t\t\t72 全面保障\n\t\t\t\t\t\t\t\t\t73 (selected) 安心尊享\n\t\t\t\t\t\t\t74 button 详情\n\t\t\t\t\t\t\t75 checkbox (settable, integer) Description: 选择车辆 2, Value: 0\n\t\t\t\t\t\t\t76 text 比亚迪 秦 PLUS DM-i\n\t\t\t\t\t\t\t77 text #2 · 成都 · 60.0%\n\t\t\t\t\t\t\t78 text 轿车 · 5座 · 1100km\n\t\t\t\t\t\t\t79 stepper (settable, integer) Description: 车辆 2 日租金, Value: 263\n\t\t\t\t\t\t\t80 pop up button (collapsed, settable) Description: 车辆 2 本月折扣, Value: 原价, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t81 menu\n\t\t\t\t\t\t\t\t\t82 (selected) 原价\n\t\t\t\t\t\t\t\t\t83 9.5折\n\t\t\t\t\t\t\t\t\t84 9折\n\t\t\t\t\t\t\t\t\t85 8.5折\n\t\t\t\t\t\t\t\t\t86 8折\n\t\t\t\t\t\t\t\t\t87 7折\n\t\t\t\t\t\t\t88 pop up button (collapsed, settable) Description: 车辆 2 保险, Value: 安心尊享, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t89 menu\n\t\t\t\t\t\t\t\t\t90 基础保障\n\t\t\t\t\t\t\t\t\t91 全面保障\n\t\t\t\t\t\t\t\t\t92 (selected) 安心尊享\n\t\t\t\t\t\t\t93 button 详情\n\t\t\t\t\t\t\t94 checkbox (settable, integer) Description: 选择车辆 3, Value: 0\n\t\t\t\t\t\t\t95 text 比亚迪 海豚\n\t\t\t\t\t\t\t96 text #3 · 成都 · 63.3%\n\t\t\t\t\t\t\t97 text 轿车 · 5座 · 420km\n\t\t\t\t\t\t\t98 stepper (settable, integer) Description: 车辆 3 日租金, Value: 305\n\t\t\t\t\t\t\t99 pop up button (collapsed, settable) Description: 车辆 3 本月折扣, Value: 原价, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t100 menu\n\t\t\t\t\t\t\t\t\t101 (selected) 原价\n\t\t\t\t\t\t\t\t\t102 9.5折\n\t\t\t\t\t\t\t\t\t103 9折\n\t\t\t\t\t\t\t\t\t104 8.5折\n\t\t\t\t\t\t\t\t\t105 8折\n\t\t\t\t\t\t\t\t\t106 7折\n\t\t\t\t\t\t\t107 pop up button (collapsed, settable) Description: 车辆 3 保险, Value: 安心尊享, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t108 menu\n\t\t\t\t\t\t\t\t\t109 基础保障\n\t\t\t\t\t\t\t\t\t110 全面保障\n\t\t\t\t\t\t\t\t\t111 (selected) 安心尊享\n\t\t\t\t\t\t\t112 button 详情\n\t\t\t\t\t\t113 text 共 3 项 · 1/1 页\n\t\t\t\t\t\t114 button (disabled) 上一页清单\n\t\t\t\t\t\t115 button (disabled) 下一页清单\n\t\t\t\t\t\t116 text 最终验收租车 · 脚踩神州，拳打一嗨 2.3\n\t\t\t\t\t\t117 text 城市名称参考公开行政区划，协同区为公司经营分组。市场份额、车辆属性、价格与事件均为游戏参数，非实时市场统计。\n\t\t\t\t118 text 车辆设置已保存\n\nThe focused UI element is 20 AXWebArea 脚踩神州，拳打一嗨, URL: about:srcdoc"
+  },
+  {
+    "state": "core-month",
+    "viewport": [
+      1366,
+      768
+    ],
+    "ax": "Browser tab: 10, Title: \"shoota 游戏平台\", URL: \"http://127.0.0.1:8775/#play-rental-empire\".\n1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8775/#play-rental-empire\n\t2 container\n\t\t3 link Description: shoota 首页, Value: 127.0.0.1:8775/#store\n\t\t4 container 主导航\n\t\t\t5 link Description: 商店, Value: 127.0.0.1:8775/#store\n\t\t\t6 link Description: 游戏库, Value: 127.0.0.1:8775/#library\n\t\t\t7 link Description: 存档, Value: 127.0.0.1:8775/#backup\n\t\t8 text 搜索游戏\n\t\t9 search text field (settable) 搜索游戏, ID: q\n\t\t10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand\n\t11 container player\n\t\t12 button 退出游戏, ID: pExit\n\t\t13 text 脚踩神州，拳打一嗨\n\t\t21 text 已存档 20:31\n\t\t22 text 本次 3 分钟\n\t\t16 button 全屏, ID: pFull\n\t\t17 container 脚踩神州，拳打一嗨\n\t\t\t20 AXWebArea 脚踩神州，拳打一嗨, URL: about:srcdoc\n\t\t\t\t23 container modal\n\t\t\t\t\t24 text 月度经营纪要\n\t\t\t\t\t25 text 04\n\t\t\t\t\t26 text 2026 / 第 4 个月\n\t\t\t\t\t27 text MONTHLY REVIEW\n\t\t\t\t\t28 heading 调整方向，下月再出发。, Value: 2\n\t\t\t\t\t\t29 text 调整方向，下月再出发。\n\t\t\t\t\t30 text 本月经营净利润\n\t\t\t\t\t31 text −¥4,193\n\t\t\t\t\t32 text 较上月 +¥15\n\t\t\t\t\t33 text 本月营收\n\t\t\t\t\t34 text ¥15,650\n\t\t\t\t\t35 text 净现金流\n\t\t\t\t\t36 text −¥1,138\n\t\t\t\t\t37 text 车队出租率\n\t\t\t\t\t38 text 60.0%\n\t\t\t\t\t39 text 期末可用现金\n\t\t\t\t\t40 text ¥642,592\n\t\t\t\t\t41 button (collapsed) 经理汇报 · 3 条动态, Secondary Actions: Expand\n\t\t\t\t\t\t42 text 经理汇报 · 3 条动态\n\t\t\t\t\t43 text 净利润含折旧；净现金流含还本。采购、扩店与融资不计入营收。\n\t\t\t\t\t44 container\n\t\t\t\t\t\t45 button 详细报告\n\t\t\t\t\t\t46 button 前往 5月 →\n\nThe focused UI element is 41 button (collapsed) 经理汇报 · 3 条动态, Secondary Actions: Expand"
+  },
+  {
+    "state": "core-next",
+    "viewport": [
+      1366,
+      768
+    ],
+    "ax": "Browser tab: 10, Title: \"shoota 游戏平台\", URL: \"http://127.0.0.1:8775/#play-rental-empire\".\n1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8775/#play-rental-empire\n\t2 container\n\t\t3 link Description: shoota 首页, Value: 127.0.0.1:8775/#store\n\t\t4 container 主导航\n\t\t\t5 link Description: 商店, Value: 127.0.0.1:8775/#store\n\t\t\t6 link Description: 游戏库, Value: 127.0.0.1:8775/#library\n\t\t\t7 link Description: 存档, Value: 127.0.0.1:8775/#backup\n\t\t8 text 搜索游戏\n\t\t9 search text field (settable) 搜索游戏, ID: q\n\t\t10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand\n\t11 container player\n\t\t12 button 退出游戏, ID: pExit\n\t\t13 text 脚踩神州，拳打一嗨\n\t\t21 text 已存档 20:31\n\t\t22 text 本次 3 分钟\n\t\t16 button 全屏, ID: pFull\n\t\t17 container 脚踩神州，拳打一嗨\n\t\t\t20 AXWebArea 脚踩神州，拳打一嗨, URL: about:srcdoc\n\t\t\t\t23 container app\n\t\t\t\t\t24 container\n\t\t\t\t\t\t25 text ↗\n\t\t\t\t\t\t26 container 脚踩神州，拳打一嗨\n\t\t\t\t\t\t\t27 text 脚踩神州 拳打一嗨\n\t\t\t\t\t\t28 text RENTAL EMPIRE 你的租车事业\n\t\t\t\t\t\t29 button 经营总览\n\t\t\t\t\t\t30 button 市场与竞争\n\t\t\t\t\t\t31 button 基础采购\n\t\t\t\t\t\t32 button 我的车队\n\t\t\t\t\t\t33 button 门店与经理\n\t\t\t\t\t\t34 button 经营日历\n\t\t\t\t\t\t35 button 资本与回报\n\t\t\t\t\t\t36 button 经营报告\n\t\t\t\t\t\t37 text 393 个市场\n\t\t\t\t\t\t38 text 34 个省级区域 · 77 个品牌 最 最终验收租车 1 家门店 · 创始人\n\t\t\t\t\t\t39 button 玩法与数据说明 ↗\n\t\t\t\t\t40 container\n\t\t\t\t\t\t41 text 最终验收租车　/　\n\t\t\t\t\t\t42 text 我的车队\n\t\t\t\t\t\t43 text 本地自动存档\n\t\t\t\t\t\t44 button 公司与存档\n\t\t\t\t\t\t45 text YOUR RENTAL EMPIRE\n\t\t\t\t\t\t46 heading 我的车队, Value: 1\n\t\t\t\t\t\t\t47 text 我的车队\n\t\t\t\t\t\t48 text 定日租金、做促销，让每一辆车找到合适的生意。\n\t\t\t\t\t\t49 text 2026 年 5 月\n\t\t\t\t\t\t50 button 结算本月　→\n\t\t\t\t\t\t51 pop up button (collapsed, settable) Description: 车队门店筛选, Value: 全部门店, Secondary Actions: Expand\n\t\t\t\t\t\t\t52 menu\n\t\t\t\t\t\t\t\t53 (selected) 全部门店\n\t\t\t\t\t\t\t\t54 成都\n\t\t\t\t\t\t55 text field (settable) 搜索车队\n\t\t\t\t\t\t56 checkbox (settable, integer) Description: 全选筛选结果, Value: 0\n\t\t\t\t\t\t57 button 已选 0 · 清空, ID: fleetSelected\n\t\t\t\t\t\t58 button 批量设置\n\t\t\t\t\t\t59 button 调拨\n\t\t\t\t\t\t60 button (disabled) 保存修改, ID: saveFleetEdits\n\t\t\t\t\t\t61 text 直接改列表，统一保存；可跨页勾选。价格为折扣前日租。\n\t\t\t\t\t\t62 container 车辆清单\n\t\t\t\t\t\t\t63 container\n\t\t\t\t\t\t\t\t64 text 选择 车辆 / 门店 / 出租率 日租金 本月折扣 保险 详情\n\t\t\t\t\t\t\t65 checkbox (settable, integer) Description: 选择车辆 1, Value: 0\n\t\t\t\t\t\t\t66 text 比亚迪 秦 PLUS DM-i\n\t\t\t\t\t\t\t67 text #1 · 成都 · 63.3%\n\t\t\t\t\t\t\t68 text 轿车 · 5座 · 1100km\n\t\t\t\t\t\t\t69 stepper (settable, integer) Description: 车辆 1 日租金, Value: 303\n\t\t\t\t\t\t\t70 pop up button (collapsed, settable) Description: 车辆 1 本月折扣, Value: 原价, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t71 menu\n\t\t\t\t\t\t\t\t\t72 (selected) 原价\n\t\t\t\t\t\t\t\t\t73 9.5折\n\t\t\t\t\t\t\t\t\t74 9折\n\t\t\t\t\t\t\t\t\t75 8.5折\n\t\t\t\t\t\t\t\t\t76 8折\n\t\t\t\t\t\t\t\t\t77 7折\n\t\t\t\t\t\t\t78 pop up button (collapsed, settable) Description: 车辆 1 保险, Value: 安心尊享, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t79 menu\n\t\t\t\t\t\t\t\t\t80 基础保障\n\t\t\t\t\t\t\t\t\t81 全面保障\n\t\t\t\t\t\t\t\t\t82 (selected) 安心尊享\n\t\t\t\t\t\t\t83 button 详情\n\t\t\t\t\t\t\t84 checkbox (settable, integer) Description: 选择车辆 2, Value: 0\n\t\t\t\t\t\t\t85 text 比亚迪 秦 PLUS DM-i\n\t\t\t\t\t\t\t86 text #2 · 成都 · 80.0%\n\t\t\t\t\t\t\t87 text 轿车 · 5座 · 1100km\n\t\t\t\t\t\t\t88 stepper (settable, integer) Description: 车辆 2 日租金, Value: 263\n\t\t\t\t\t\t\t89 pop up button (collapsed, settable) Description: 车辆 2 本月折扣, Value: 原价, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t90 menu\n\t\t\t\t\t\t\t\t\t91 (selected) 原价\n\t\t\t\t\t\t\t\t\t92 9.5折\n\t\t\t\t\t\t\t\t\t93 9折\n\t\t\t\t\t\t\t\t\t94 8.5折\n\t\t\t\t\t\t\t\t\t95 8折\n\t\t\t\t\t\t\t\t\t96 7折\n\t\t\t\t\t\t\t97 pop up button (collapsed, settable) Description: 车辆 2 保险, Value: 安心尊享, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t98 menu\n\t\t\t\t\t\t\t\t\t99 基础保障\n\t\t\t\t\t\t\t\t\t100 全面保障\n\t\t\t\t\t\t\t\t\t101 (selected) 安心尊享\n\t\t\t\t\t\t\t102 button 详情\n\t\t\t\t\t\t\t103 checkbox (settable, integer) Description: 选择车辆 3, Value: 0\n\t\t\t\t\t\t\t104 text 比亚迪 海豚\n\t\t\t\t\t\t\t105 text #3 · 成都 · 83.3%\n\t\t\t\t\t\t\t106 text 轿车 · 5座 · 420km\n\t\t\t\t\t\t\t107 stepper (settable, integer) Description: 车辆 3 日租金, Value: 305\n\t\t\t\t\t\t\t108 pop up button (collapsed, settable) Description: 车辆 3 本月折扣, Value: 原价, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t109 menu\n\t\t\t\t\t\t\t\t\t110 (selected) 原价\n\t\t\t\t\t\t\t\t\t111 9.5折\n\t\t\t\t\t\t\t\t\t112 9折\n\t\t\t\t\t\t\t\t\t113 8.5折\n\t\t\t\t\t\t\t\t\t114 8折\n\t\t\t\t\t\t\t\t\t115 7折\n\t\t\t\t\t\t\t116 pop up button (collapsed, settable) Description: 车辆 3 保险, Value: 安心尊享, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t117 menu\n\t\t\t\t\t\t\t\t\t118 基础保障\n\t\t\t\t\t\t\t\t\t119 全面保障\n\t\t\t\t\t\t\t\t\t120 (selected) 安心尊享\n\t\t\t\t\t\t\t121 button 详情\n\t\t\t\t\t\t122 text 共 3 项 · 1/1 页\n\t\t\t\t\t\t123 button (disabled) 上一页清单\n\t\t\t\t\t\t124 button (disabled) 下一页清单\n\t\t\t\t\t\t125 text 最终验收租车 · 脚踩神州，拳打一嗨 2.3\n\t\t\t\t\t\t126 text 城市名称参考公开行政区划，协同区为公司经营分组。市场份额、车辆属性、价格与事件均为游戏参数，非实时市场统计。\n\t\t\t\t127 text 车辆设置已保存\n\nThe focused UI element is 20 AXWebArea 脚踩神州，拳打一嗨, URL: about:srcdoc"
+  },
+  {
+    "state": "home",
+    "viewport": [
+      360,
+      640
+    ],
+    "height": 591,
+    "scrollWidth": 360,
+    "text": "经营总览\n市场与竞争\n基础采购\n我的车队\n•••\n更多\n最终验收租车　/　\n公司与存档\n经营总览\n2026 年 5 月\n结算本月　→\n你的事业 · 第 5 个月\n初具规模\n组建 5 辆车的车队\n3 / 5　→\n可用现金\n¥642,592\n预计月净利润\n−¥682\n城市业绩\n本月简报\n成长路线\n竞争策略\nTOP 10 · 在营城市\n\n1 座城市 · 3 辆车 · 按净利润排名\n\n本月预计\n上月实际\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 360
+  },
+  {
+    "state": "home",
+    "viewport": [
+      390,
+      844
+    ],
+    "height": 795,
+    "scrollWidth": 390,
+    "text": "经营总览\n市场与竞争\n基础采购\n我的车队\n•••\n更多\n最终验收租车　/　\n公司与存档\nYOUR RENTAL EMPIRE\n经营总览\n2026 年 5 月\n结算本月　→\n你的事业 · 第 5 个月\n初具规模\n组建 5 辆车的车队\n3 / 5　→\n可用现金\n¥642,592\n创始人持股 100.0%\n预计月净利润\n−¥682\n本月预计营收 ¥19,704\n城市业绩\n本月简报\n成长路线\n竞争策略\nYOUR STRONGEST MARKETS\nTOP 10 · 在营城市\n\n1 座城市 · 3 辆车 · 按净利润排名\n\n本月预计\n上月实际\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 390
+  },
+  {
+    "state": "home",
+    "viewport": [
+      430,
+      932
+    ],
+    "height": 883,
+    "scrollWidth": 430,
+    "text": "经营总览\n市场与竞争\n基础采购\n我的车队\n•••\n更多\n最终验收租车　/　\n公司与存档\nYOUR RENTAL EMPIRE\n经营总览\n2026 年 5 月\n结算本月　→\n你的事业 · 第 5 个月\n初具规模\n组建 5 辆车的车队\n3 / 5　→\n可用现金\n¥642,592\n创始人持股 100.0%\n预计月净利润\n−¥682\n本月预计营收 ¥19,704\n城市业绩\n本月简报\n成长路线\n竞争策略\nYOUR STRONGEST MARKETS\nTOP 10 · 在营城市\n\n1 座城市 · 3 辆车 · 按净利润排名\n\n本月预计\n上月实际\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 430
+  },
+  {
+    "state": "home",
+    "viewport": [
+      844,
+      390
+    ],
+    "height": 340,
+    "scrollWidth": 844,
+    "text": "↗\n脚踩神州\n拳打一嗨\n经营总览\n市场与竞争\n基础采购\n我的车队\n•••\n更多\n最终验收租车　/　经营总览\n本地自动存档\n公司与存档\n经营总览\n2026 年 5 月\n结算本月　→\n可用现金\n¥642,592\n预计月净利润\n−¥682\n城市业绩\n本月简报\n成长路线\n竞争策略\nTOP 10 · 在营城市\n本月预计\n上月实际\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 844
+  },
+  {
+    "state": "home",
+    "viewport": [
+      768,
+      1024
+    ],
+    "height": 974,
+    "scrollWidth": 768,
+    "text": "经营总览\n市场与竞争\n基础采购\n我的车队\n•••\n更多\n最终验收租车　/　\n公司与存档\nYOUR RENTAL EMPIRE\n经营总览\n2026 年 5 月\n结算本月　→\n你的事业 · 第 5 个月\n初具规模\n组建 5 辆车的车队\n3 / 5　→\n可用现金\n¥642,592\n创始人持股 100.0%\n预计月净利润\n−¥682\n本月预计营收 ¥19,704\n城市业绩\n本月简报\n成长路线\n竞争策略\nYOUR STRONGEST MARKETS\nTOP 10 · 在营城市\n\n1 座城市 · 3 辆车 · 按净利润排名\n\n本月预计\n上月实际\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 768
+  },
+  {
+    "state": "home",
+    "viewport": [
+      1366,
+      768
+    ],
+    "height": 718,
+    "scrollWidth": 1366,
+    "text": "↗\n脚踩神州\n拳打一嗨\nRENTAL EMPIRE\n你的租车事业\n经营总览\n市场与竞争\n基础采购\n我的车队\n门店与经理\n经营日历\n资本与回报\n经营报告\n393 个市场\n34 个省级区域 · 77 个品牌\n最\n最终验收租车\n1 家门店 · 创始人\n玩法与数据说明 ↗\n最终验收租车　/　经营总览\n本地自动存档\n公司与存档\n经营总览\n\n每一座城市，都在为你的下一步积累力量。\n\n2026 年 5 月\n结算本月　→\n↗\n你的事业 · 第 5 个月\n初具规模\n\n选择适合本地需求的车型，为下一步扩张打好基础。\n\n组建 5 辆车的车队\n3 / 5　→\n可用现金\n¥642,592\n创始人持股 100.0%\n预计月净利润\n−¥682\n本月预计营收 ¥19,704\n经营版图\n1 座城市\n3 辆车 · 0 个区域办公室\n全国市场份额\n0.002%\n按出租车日加权 · 模拟市场\n城市业绩\n本月简报\n成长路线\n竞争策略\nYOUR STRONGEST MARKETS\nTOP 10 · 在营城市\n\n1 座城市 · 3 辆车 · 按净利润排名\n\n本月预计\n上月实际\n城市 / 负责人\n车辆\n月营收\n净利润\n市占率\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 1366
+  },
+  {
+    "state": "home",
+    "viewport": [
+      1440,
+      900
+    ],
+    "height": 850,
+    "scrollWidth": 1440,
+    "text": "↗\n脚踩神州\n拳打一嗨\nRENTAL EMPIRE\n你的租车事业\n经营总览\n市场与竞争\n基础采购\n我的车队\n门店与经理\n经营日历\n资本与回报\n经营报告\n393 个市场\n34 个省级区域 · 77 个品牌\n最\n最终验收租车\n1 家门店 · 创始人\n玩法与数据说明 ↗\n最终验收租车　/　经营总览\n本地自动存档\n公司与存档\n经营总览\n\n每一座城市，都在为你的下一步积累力量。\n\n2026 年 5 月\n结算本月　→\n↗\n你的事业 · 第 5 个月\n初具规模\n\n选择适合本地需求的车型，为下一步扩张打好基础。\n\n组建 5 辆车的车队\n3 / 5　→\n可用现金\n¥642,592\n创始人持股 100.0%\n预计月净利润\n−¥682\n本月预计营收 ¥19,704\n经营版图\n1 座城市\n3 辆车 · 0 个区域办公室\n全国市场份额\n0.002%\n按出租车日加权 · 模拟市场\n城市业绩\n本月简报\n成长路线\n竞争策略\nYOUR STRONGEST MARKETS\nTOP 10 · 在营城市\n\n1 座城市 · 3 辆车 · 按净利润排名\n\n本月预计\n上月实际\n城市 / 负责人\n车辆\n月营收\n净利润\n市占率\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 1440
+  },
+  {
+    "state": "home",
+    "viewport": [
+      320,
+      568
+    ],
+    "height": 519,
+    "scrollWidth": 320,
+    "text": "经营总览\n市场与竞争\n基础采购\n我的车队\n•••\n更多\n最终验收租车　/　\n公司与存档\n经营总览\n2026 年 5 月\n结算本月　→\n你的事业 · 第 5 个月\n初具规模\n组建 5 辆车的车队\n3 / 5　→\n可用现金\n¥642,592\n预计月净利润\n−¥682\n城市业绩\n本月简报\n成长路线\n竞争策略\nTOP 10 · 在营城市\n\n1 座城市 · 3 辆车 · 按净利润排名\n\n本月预计\n上月实际\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 320
+  },
+  {
+    "state": "home",
+    "viewport": [
+      390,
+      600
+    ],
+    "height": 551,
+    "scrollWidth": 390,
+    "text": "经营总览\n市场与竞争\n基础采购\n我的车队\n•••\n更多\n最终验收租车　/　\n公司与存档\n经营总览\n2026 年 5 月\n结算本月　→\n你的事业 · 第 5 个月\n初具规模\n组建 5 辆车的车队\n3 / 5　→\n可用现金\n¥642,592\n预计月净利润\n−¥682\n城市业绩\n本月简报\n成长路线\n竞争策略\nTOP 10 · 在营城市\n\n1 座城市 · 3 辆车 · 按净利润排名\n\n本月预计\n上月实际\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 390
+  },
+  {
+    "state": "home",
+    "viewport": [
+      799,
+      800
+    ],
+    "height": 750,
+    "scrollWidth": 799,
+    "text": "经营总览\n市场与竞争\n基础采购\n我的车队\n•••\n更多\n最终验收租车　/　\n公司与存档\nYOUR RENTAL EMPIRE\n经营总览\n2026 年 5 月\n结算本月　→\n你的事业 · 第 5 个月\n初具规模\n组建 5 辆车的车队\n3 / 5　→\n可用现金\n¥642,592\n创始人持股 100.0%\n预计月净利润\n−¥682\n本月预计营收 ¥19,704\n城市业绩\n本月简报\n成长路线\n竞争策略\nYOUR STRONGEST MARKETS\nTOP 10 · 在营城市\n\n1 座城市 · 3 辆车 · 按净利润排名\n\n本月预计\n上月实际\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 799
+  },
+  {
+    "state": "home",
+    "viewport": [
+      801,
+      800
+    ],
+    "height": 750,
+    "scrollWidth": 801,
+    "text": "↗\n脚踩神州\n拳打一嗨\nRENTAL EMPIRE\n你的租车事业\n经营总览\n市场与竞争\n基础采购\n我的车队\n门店与经理\n经营日历\n资本与回报\n经营报告\n393 个市场\n34 个省级区域 · 77 个品牌\n最\n最终验收租车\n1 家门店 · 创始人\n玩法与数据说明 ↗\n最终验收租车　/　经营总览\n本地自动存档\n公司与存档\n经营总览\n\n每一座城市，都在为你的下一步积累力量。\n\n2026 年 5 月\n结算本月　→\n你的事业 · 第 5 个月\n初具规模\n\n选择适合本地需求的车型，为下一步扩张打好基础。\n\n组建 5 辆车的车队\n3 / 5　→\n可用现金\n¥642,592\n创始人持股 100.0%\n预计月净利润\n−¥682\n本月预计营收 ¥19,704\n经营版图\n1 座城市\n3 辆车 · 0 个区域办公室\n全国市场份额\n0.002%\n按出租车日加权 · 模拟市场\n城市业绩\n本月简报\n成长路线\n竞争策略\nYOUR STRONGEST MARKETS\nTOP 10 · 在营城市\n\n1 座城市 · 3 辆车 · 按净利润排名\n\n本月预计\n上月实际\n城市 / 负责人\n车辆\n月营收\n净利润\n市占率\n01\n成都\n经理 刘一鸣\n3 辆\n¥19,704\n−¥682\n0.146%\n本月预测 · 点击城市查看市场\n管理门店 ↗",
+    "width": 801
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      360,
+      640
+    ],
+    "buttons": [
+      {
+        "bottom": 510.3671875,
+        "text": "取消",
+        "top": 466.3671875
+      },
+      {
+        "bottom": 510.3671875,
+        "text": "应用到已选车辆",
+        "top": 466.3671875
+      }
+    ],
+    "height": 591,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      390,
+      844
+    ],
+    "buttons": [
+      {
+        "bottom": 612.3671875,
+        "text": "取消",
+        "top": 568.3671875
+      },
+      {
+        "bottom": 612.3671875,
+        "text": "应用到已选车辆",
+        "top": 568.3671875
+      }
+    ],
+    "height": 795,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      430,
+      932
+    ],
+    "buttons": [
+      {
+        "bottom": 644.34375,
+        "text": "取消",
+        "top": 600.34375
+      },
+      {
+        "bottom": 644.34375,
+        "text": "应用到已选车辆",
+        "top": 600.34375
+      }
+    ],
+    "height": 883,
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      844,
+      390
+    ],
+    "buttons": [
+      {
+        "bottom": 316,
+        "text": "取消",
+        "top": 272
+      },
+      {
+        "bottom": 316,
+        "text": "应用到已选车辆",
+        "top": 272
+      }
+    ],
+    "height": 340,
+    "scrollWidth": 844,
+    "width": 844
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      768,
+      1024
+    ],
+    "buttons": [
+      {
+        "bottom": 689.84375,
+        "text": "取消",
+        "top": 645.84375
+      },
+      {
+        "bottom": 689.84375,
+        "text": "应用到已选车辆",
+        "top": 645.84375
+      }
+    ],
+    "height": 974,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      1366,
+      768
+    ],
+    "buttons": [
+      {
+        "bottom": 558.3984375,
+        "text": "取消",
+        "top": 514.3984375
+      },
+      {
+        "bottom": 558.3984375,
+        "text": "应用到已选车辆",
+        "top": 514.3984375
+      }
+    ],
+    "height": 718,
+    "scrollWidth": 1366,
+    "width": 1366
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      1440,
+      900
+    ],
+    "buttons": [
+      {
+        "bottom": 624.3984375,
+        "text": "取消",
+        "top": 580.3984375
+      },
+      {
+        "bottom": 624.3984375,
+        "text": "应用到已选车辆",
+        "top": 580.3984375
+      }
+    ],
+    "height": 850,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      320,
+      568
+    ],
+    "buttons": [
+      {
+        "bottom": 491.1328125,
+        "text": "取消",
+        "top": 447.1328125
+      },
+      {
+        "bottom": 491.1328125,
+        "text": "应用到已选车辆",
+        "top": 447.1328125
+      }
+    ],
+    "height": 519,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      390,
+      600
+    ],
+    "buttons": [
+      {
+        "bottom": 490.3671875,
+        "text": "取消",
+        "top": 446.3671875
+      },
+      {
+        "bottom": 490.3671875,
+        "text": "应用到已选车辆",
+        "top": 446.3671875
+      }
+    ],
+    "height": 551,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      799,
+      800
+    ],
+    "buttons": [
+      {
+        "bottom": 577.84375,
+        "text": "取消",
+        "top": 533.84375
+      },
+      {
+        "bottom": 577.84375,
+        "text": "应用到已选车辆",
+        "top": 533.84375
+      }
+    ],
+    "height": 750,
+    "scrollWidth": 799,
+    "width": 799
+  },
+  {
+    "state": "batch",
+    "viewport": [
+      801,
+      800
+    ],
+    "buttons": [
+      {
+        "bottom": 574.3984375,
+        "text": "取消",
+        "top": 530.3984375
+      },
+      {
+        "bottom": 574.3984375,
+        "text": "应用到已选车辆",
+        "top": 530.3984375
+      }
+    ],
+    "height": 750,
+    "scrollWidth": 801,
+    "width": 801
+  }
+]

@@ -1,0 +1,6 @@
+Market ceilings, empty-outpost exclusion, mature networks, rival response, acquisition atomicity and fleet bulk edits: PASS
+{
+  singleCity20Cars: { days: 220.99999999999994, profit: -234674.59669291342 },
+  singleCity100Cars: { days: 221.00000000000026, profit: -351450.1616728038 },
+  networkCeiling: 1307
+}
