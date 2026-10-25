@@ -1,0 +1,15 @@
+{
+  "sha256": "a09fa33db195f4bb7c23ca7a6ae15e8404a7b9bef4c8a64d4e799039a235400d",
+  "types": {
+    "legacy": "historical revision save, long Chinese airline name",
+    "pair": "two aircraft, same route, same departure times",
+    "empty": "no routes",
+    "fail": "intentionally infeasible weekly hours",
+    "summary": "generated prior weekly report",
+    "delay180": "synthetic report boundary 180 minutes; no shortage rows",
+    "delay181": "synthetic report boundary 181 minutes; no shortage rows",
+    "timezone": "LAX-base Monday departure",
+    "crossweek": "HGH-base Monday departure; LAX return on prior local Sunday"
+  },
+  "storage": "only localhost:8915 indexedDB changju/kv/local|airline-empire"
+}

@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "name": "天山丝路国际航空长名称验收",
+  "base": "HGH",
+  "date": "2026-01-05",
+  "week": 1,
+  "cash": 998.934,
+  "debt": 0,
+  "facilities": [],
+  "hangars": [
+    {
+      "code": "HGH",
+      "level": 3,
+      "delivery": 0,
+      "contracts": []
+    }
+  ],
+  "rep": 56,
+  "service": {
+    "cabin": 1,
+    "meal": 1,
+    "staff": 1,
+    "lounge": 0
+  },
+  "fleet": [
+    {
+      "id": 1,
+      "model": "A320neo",
+      "condition": 100,
+      "mode": "buy",
+      "delivery": 0,
+      "age": 0,
+      "maintenance": 0,
+      "cabin": {
+        "economy": 156,
+        "business": 12,
+        "first": 0,
+        "pitch": 30
+      },
+      "base": "HGH",
+      "delayCarry": 0
+    },
+    {
+      "id": 4,
+      "model": "A350-900",
+      "condition": 100,
+      "mode": "buy",
+      "delivery": 0,
+      "age": 0,
+      "maintenance": 0,
+      "cabin": {
+        "economy": 265,
+        "business": 36,
+        "first": 8,
+        "pitch": 30
+      },
+      "base": "HGH",
+      "delayCarry": 0
+    }
+  ],
+  "nextId": 5,
+  "routes": [
+    {
+      "id": 2,
+      "from": "HGH",
+      "to": "CAN",
+      "plane": 1,
+      "freq": 7,
+      "price": 1,
+      "active": true,
+      "last": null,
+      "schedule": [
+        {
+          "day": 0,
+          "departure": 495,
+          "turnaround": 45
+        },
+        {
+          "day": 1,
+          "departure": 420,
+          "turnaround": 45
+        },
+        {
+          "day": 2,
+          "departure": 420,
+          "turnaround": 45
+        },
+        {
+          "day": 3,
+          "departure": 420,
+          "turnaround": 45
+        },
+        {
+          "day": 4,
+          "departure": 420,
+          "turnaround": 45
+        },
+        {
+          "day": 5,
+          "departure": 420,
+          "turnaround": 45
+        },
+        {
+          "day": 6,
+          "departure": 420,
+          "turnaround": 45
+        }
+      ],
+      "autoSpacing": 60
+    },
+    {
+      "id": 3,
+      "from": "HGH",
+      "to": "CAN",
+      "plane": 4,
+      "freq": 7,
+      "price": 1,
+      "active": true,
+      "last": null,
+      "schedule": null,
+      "autoSpacing": 60
+    }
+  ],
+  "hubs": [
+    {
+      "code": "HGH",
+      "level": 1
+    }
+  ],
+  "license": false,
+  "licenseDue": 0,
+  "seed": 64264,
+  "events": [],
+  "pending": null,
+  "log": [
+    {
+      "week": 1,
+      "text": "航线手动时刻已保存，其他自动班次会避让已锁定的时间。",
+      "type": "info"
+    },
+    {
+      "week": 1,
+      "text": "A350-900 客舱已配置：经济 265 / 商务 36 / 头等 8，下一次周结算生效。",
+      "type": "info"
+    },
+    {
+      "week": 1,
+      "text": "A320neo 客舱已配置：经济 156 / 商务 12 / 头等 0，下一次周结算生效。",
+      "type": "info"
+    },
+    {
+      "week": 1,
+      "text": "已联动重排 2 架飞机及其在营航线；同方向自动班次至少间隔 60 分钟，稀疏班次拉开安排。",
+      "type": "info"
+    },
+    {
+      "week": 1,
+      "text": "云际航空创立。启动现金 2,000 万元，已接收全新自有 Airbus A320neo 与 Boeing 737-8 各一架，两条国内航线进入运营。",
+      "type": "good"
+    }
+  ],
+  "history": [],
+  "totalPassengers": 0,
+  "profitStreak": 0,
+  "won": false,
+  "bankrupt": false,
+  "missions": [],
+  "lastReport": null,
+  "policy": "balanced",
+  "marketing": 0,
+  "fuelHedge": 0,
+  "reliable": 94,
+  "delayPolicy": {
+    "mode": "rebook",
+    "budget": 1
+  },
+  "companyNews": [],
+  "adviceInbox": [],
+  "adviceSeen": {},
+  "advicePrompted": {},
+  "advicePresented": {},
+  "rankPassed": [],
+  "networkNewsSeen": [],
+  "baseInfluence": 0,
+  "autoPricing": false,
+  "serviceExperience": 15,
+  "saveRevision": 2
+}

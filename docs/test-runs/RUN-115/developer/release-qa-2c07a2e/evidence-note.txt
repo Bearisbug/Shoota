@@ -1,0 +1,1 @@
+Final browser run begins at 1440-dense-calendar then 1440-double-confirm-after, after restarting preview service to serve 8125e7bab8a1. The screenshot helper retained its prior output directory; final-run records and images were copied to this directory. No previous-version image is counted as final evidence. Pre-fix failure screenshots remain at parent release e6ec727e447c.
