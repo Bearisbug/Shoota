@@ -1,0 +1,12 @@
+{
+  "airport-pages.json": {
+    "pages": 108,
+    "ranks": 429,
+    "continuous_unique": true
+  },
+  "airline-pages.json": {
+    "pages": 38,
+    "ranks": 152,
+    "continuous_unique": true
+  }
+}

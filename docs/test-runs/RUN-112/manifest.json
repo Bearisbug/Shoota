@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-25",
+  "html_sha256": "caf0ce212571150f4d77d30157e767a78a1e24074fbd6c878a40b437a6994775",
+  "zip_sha256": "5c0d30560f7399e0a3bbb829f11c82c25778e48cf35817464911b01730326796",
+  "html_bytes": 1204022,
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-caf0ce212571/source",
+  "html": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-caf0ce212571/云际航空.html",
+  "zip": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-caf0ce212571/云际航空-离线版.zip",
+  "previous_html_sha256": "8a97cea207acd990f09adae731b1f5d1b1346f7e038b62dee605feb82bec4a8f",
+  "tests": {
+    "passed": 206,
+    "failed": 0
+  },
+  "platform_head": "2a0e5adb5937234120acf5abb823a195487ad3d7",
+  "responsive_status": "desktop_emulation_verified_physical_mobile_pending",
+  "save_compatibility": "no schema changes; isolated legacy and normal exit/reentry verified",
+  "published": false,
+  "report": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/responsive-qa/2026-10-25-caf0ce212571/report.md"
+}

@@ -1,0 +1,37 @@
+{
+  "skybound-save-v1": {
+    "name": "历史存档验证航司",
+    "week": 18,
+    "cash": 456.78,
+    "debt": 123.45,
+    "fleet": [
+      {
+        "id": 1,
+        "delivery": 0
+      },
+      {
+        "id": 4,
+        "delivery": 0
+      }
+    ],
+    "routes": [
+      {
+        "id": 2,
+        "plane": 1,
+        "freq": 7,
+        "from": "URC",
+        "to": "CAN"
+      },
+      {
+        "id": 3,
+        "plane": 4,
+        "freq": 7,
+        "from": "URC",
+        "to": "CKG"
+      }
+    ]
+  },
+  "skybound-save-backup-v1": null,
+  "skybound-save-upgrade-backup-v1": null,
+  "skybound-save-unreadable-v1": null
+}
