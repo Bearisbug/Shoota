@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-25",
+  "html_sha256": "d6adb983a238e9dc03a25f697845f563f53307e9d36fc0b487b0226d68fcd24c",
+  "zip_sha256": "eea15a6ed6dbc291c86974e642b41bdbbec0775ce780be38a9949c2f32d8067c",
+  "html": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-d6adb983a238/云际航空.html",
+  "zip": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-d6adb983a238/云际航空-离线版.zip",
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-d6adb983a238/source",
+  "tests": {
+    "passed": 219,
+    "failed": 0
+  },
+  "browser_status": "desktop IAB seven-viewports and core flows verified; real phones, keyboard/safe areas and 200% text pending",
+  "published": false,
+  "test_fixture_manifest": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-d6adb983a238/test-fixtures-manifest.json",
+  "frozen_source_tests": {
+    "passed": 219,
+    "failed": 0,
+    "log": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-d6adb983a238/evidence/frozen-tests.txt"
+  },
+  "release_qa_report": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-d6adb983a238/evidence/release-qa-6acc675/report.md",
+  "platform_baseline": "6acc67517025f15511f81756290808a9bb2e7712"
+}

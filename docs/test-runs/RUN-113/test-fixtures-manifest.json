@@ -1,0 +1,12 @@
+[
+  {
+    "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/ranking-rework-qa/platform/legacy-fixture.json",
+    "frozen": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-d6adb983a238/source/output/ranking-rework-qa/platform/legacy-fixture.json",
+    "sha256": "4708b10f6fa8b2dffd21345a4349685fd086305d901ee7d8bdb8552f204bf8ef"
+  },
+  {
+    "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/operations-qa/fixture-save.json",
+    "frozen": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-25-d6adb983a238/source/output/operations-qa/fixture-save.json",
+    "sha256": "1f1a2871e86fb36c057e7df5e973050131371383e905066844962a739725272a"
+  }
+]

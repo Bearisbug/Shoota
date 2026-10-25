@@ -1,0 +1,16 @@
+{
+  "html_unchanged": true,
+  "zip_unchanged": true,
+  "root_html_matches": true,
+  "observations": 67,
+  "horizontal_overflow": false,
+  "browser_errors": [],
+  "ranking_pagination": {
+    "unique_rows": 152,
+    "continuous": true
+  },
+  "airport_pagination": {
+    "unique_rows": 429,
+    "continuous": true
+  }
+}
