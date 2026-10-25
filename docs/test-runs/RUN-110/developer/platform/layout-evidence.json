@@ -1,0 +1,2173 @@
+[
+  {
+    "name": "edit-360x640",
+    "dock": {
+      "bottom": 529,
+      "height": 62,
+      "left": 0,
+      "right": 360,
+      "top": 467,
+      "width": 360,
+      "x": 0,
+      "y": 467
+    },
+    "footer": {
+      "bottom": 581,
+      "height": 63,
+      "left": 10,
+      "right": 350,
+      "top": 518,
+      "width": 340,
+      "x": 10,
+      "y": 518
+    },
+    "height": 591,
+    "modal": {
+      "bottom": 581,
+      "height": 571,
+      "left": 10,
+      "right": 350,
+      "top": 10,
+      "width": 340,
+      "x": 10,
+      "y": 10
+    },
+    "rootHeight": 591,
+    "rootWidth": 360,
+    "title": "调整航线计划",
+    "week": "2026.01.12W02",
+    "width": 360
+  },
+  {
+    "name": "settlement-360x640",
+    "dock": {
+      "bottom": 529,
+      "height": 62,
+      "left": 0,
+      "right": 360,
+      "top": 467,
+      "width": 360,
+      "x": 0,
+      "y": 467
+    },
+    "footer": {
+      "bottom": 548.1875,
+      "height": 63,
+      "left": 10,
+      "right": 350,
+      "top": 485.1875,
+      "width": 340,
+      "x": 10,
+      "y": 485.1875
+    },
+    "height": 591,
+    "modal": {
+      "bottom": 548.1875,
+      "height": 505.375,
+      "left": 10,
+      "right": 350,
+      "top": 42.8125,
+      "width": 340,
+      "x": 10,
+      "y": 42.8125
+    },
+    "rootHeight": 591,
+    "rootWidth": 360,
+    "title": "第 2 周 · 经营简报",
+    "week": "2026.01.19W03",
+    "width": 360
+  },
+  {
+    "name": "details-360x640",
+    "dock": {
+      "bottom": 529,
+      "height": 62,
+      "left": 0,
+      "right": 360,
+      "top": 467,
+      "width": 360,
+      "x": 0,
+      "y": 467
+    },
+    "footer": {
+      "bottom": 581,
+      "height": 63,
+      "left": 10,
+      "right": 350,
+      "top": 518,
+      "width": 340,
+      "x": 10,
+      "y": 518
+    },
+    "height": 591,
+    "modal": {
+      "bottom": 581,
+      "height": 571,
+      "left": 10,
+      "right": 350,
+      "top": 10,
+      "width": 340,
+      "x": 10,
+      "y": 10
+    },
+    "rootHeight": 591,
+    "rootWidth": 360,
+    "title": "第 2 周 · 经营简报",
+    "week": "2026.01.19W03",
+    "width": 360
+  },
+  {
+    "name": "home-390x844",
+    "dock": {
+      "bottom": 733,
+      "height": 62,
+      "left": 0,
+      "right": 390,
+      "top": 671,
+      "width": 390,
+      "x": 0,
+      "y": 671
+    },
+    "height": 795,
+    "rootHeight": 795,
+    "rootWidth": 390,
+    "week": "2026.01.12W02",
+    "width": 390
+  },
+  {
+    "name": "edit-390x844",
+    "dock": {
+      "bottom": 733,
+      "height": 62,
+      "left": 0,
+      "right": 390,
+      "top": 671,
+      "width": 390,
+      "x": 0,
+      "y": 671
+    },
+    "footer": {
+      "bottom": 785,
+      "height": 65,
+      "left": 10,
+      "right": 380,
+      "top": 720,
+      "width": 370,
+      "x": 10,
+      "y": 720
+    },
+    "height": 795,
+    "modal": {
+      "bottom": 785,
+      "height": 775,
+      "left": 10,
+      "right": 380,
+      "top": 10,
+      "width": 370,
+      "x": 10,
+      "y": 10
+    },
+    "rootHeight": 795,
+    "rootWidth": 390,
+    "title": "调整航线计划",
+    "week": "2026.01.12W02",
+    "width": 390
+  },
+  {
+    "name": "settlement-390x844",
+    "dock": {
+      "bottom": 733,
+      "height": 62,
+      "left": 0,
+      "right": 390,
+      "top": 671,
+      "width": 390,
+      "x": 0,
+      "y": 671
+    },
+    "footer": {
+      "bottom": 654.1875,
+      "height": 65,
+      "left": 10,
+      "right": 380,
+      "top": 589.1875,
+      "width": 370,
+      "x": 10,
+      "y": 589.1875
+    },
+    "height": 795,
+    "modal": {
+      "bottom": 654.1875,
+      "height": 513.375,
+      "left": 10,
+      "right": 380,
+      "top": 140.8125,
+      "width": 370,
+      "x": 10,
+      "y": 140.8125
+    },
+    "rootHeight": 795,
+    "rootWidth": 390,
+    "title": "第 2 周 · 经营简报",
+    "week": "2026.01.19W03",
+    "width": 390
+  },
+  {
+    "name": "details-390x844",
+    "dock": {
+      "bottom": 733,
+      "height": 62,
+      "left": 0,
+      "right": 390,
+      "top": 671,
+      "width": 390,
+      "x": 0,
+      "y": 671
+    },
+    "footer": {
+      "bottom": 678.921875,
+      "height": 65,
+      "left": 10,
+      "right": 380,
+      "top": 613.921875,
+      "width": 370,
+      "x": 10,
+      "y": 613.921875
+    },
+    "height": 795,
+    "modal": {
+      "bottom": 678.921875,
+      "height": 562.8515625,
+      "left": 10,
+      "right": 380,
+      "top": 116.0703125,
+      "width": 370,
+      "x": 10,
+      "y": 116.0703125
+    },
+    "rootHeight": 795,
+    "rootWidth": 390,
+    "title": "第 2 周 · 经营简报",
+    "week": "2026.01.19W03",
+    "width": 390
+  },
+  {
+    "name": "home-844x390",
+    "dock": {
+      "bottom": 328,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 157.2109375
+    },
+    "height": 340,
+    "rootHeight": 340,
+    "rootWidth": 844,
+    "week": "2026.01.12W02",
+    "width": 844
+  },
+  {
+    "name": "edit-844x390",
+    "dock": {
+      "bottom": 328,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 157.2109375
+    },
+    "footer": {
+      "bottom": 332,
+      "height": 61,
+      "left": 12,
+      "right": 832,
+      "top": 271,
+      "width": 820,
+      "x": 12,
+      "y": 271
+    },
+    "height": 340,
+    "modal": {
+      "bottom": 332,
+      "height": 324,
+      "left": 12,
+      "right": 832,
+      "top": 8,
+      "width": 820,
+      "x": 12,
+      "y": 8
+    },
+    "rootHeight": 340,
+    "rootWidth": 844,
+    "title": "调整航线计划",
+    "week": "2026.01.12W02",
+    "width": 844
+  },
+  {
+    "name": "settlement-844x390",
+    "dock": {
+      "bottom": 328,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 157.2109375
+    },
+    "footer": {
+      "bottom": 332,
+      "height": 61,
+      "left": 12,
+      "right": 832,
+      "top": 271,
+      "width": 820,
+      "x": 12,
+      "y": 271
+    },
+    "height": 340,
+    "modal": {
+      "bottom": 332,
+      "height": 324,
+      "left": 12,
+      "right": 832,
+      "top": 8,
+      "width": 820,
+      "x": 12,
+      "y": 8
+    },
+    "rootHeight": 340,
+    "rootWidth": 844,
+    "title": "第 2 周 · 经营简报",
+    "week": "2026.01.19W03",
+    "width": 844
+  },
+  {
+    "name": "details-844x390",
+    "dock": {
+      "bottom": 328,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 157.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 157.2109375
+    },
+    "footer": {
+      "bottom": 332,
+      "height": 61,
+      "left": 12,
+      "right": 832,
+      "top": 271,
+      "width": 820,
+      "x": 12,
+      "y": 271
+    },
+    "height": 340,
+    "modal": {
+      "bottom": 332,
+      "height": 324,
+      "left": 12,
+      "right": 832,
+      "top": 8,
+      "width": 820,
+      "x": 12,
+      "y": 8
+    },
+    "rootHeight": 340,
+    "rootWidth": 844,
+    "title": "第 2 周 · 经营简报",
+    "week": "2026.01.19W03",
+    "width": 844
+  },
+  {
+    "name": "home-1366x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "height": 718,
+    "rootHeight": 718,
+    "rootWidth": 1366,
+    "week": "2026.01.12W02",
+    "width": 1366
+  },
+  {
+    "name": "edit-1366x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 698,
+      "height": 73,
+      "left": 273,
+      "right": 1093,
+      "top": 625,
+      "width": 820,
+      "x": 273,
+      "y": 625
+    },
+    "height": 718,
+    "modal": {
+      "bottom": 698,
+      "height": 678,
+      "left": 273,
+      "right": 1093,
+      "top": 20,
+      "width": 820,
+      "x": 273,
+      "y": 20
+    },
+    "rootHeight": 718,
+    "rootWidth": 1366,
+    "title": "调整航线计划",
+    "week": "2026.01.12W02",
+    "width": 1366
+  },
+  {
+    "name": "settlement-1366x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 641.359375,
+      "height": 73,
+      "left": 273,
+      "right": 1093,
+      "top": 568.359375,
+      "width": 820,
+      "x": 273,
+      "y": 568.359375
+    },
+    "height": 718,
+    "modal": {
+      "bottom": 641.359375,
+      "height": 564.7265625,
+      "left": 273,
+      "right": 1093,
+      "top": 76.6328125,
+      "width": 820,
+      "x": 273,
+      "y": 76.6328125
+    },
+    "rootHeight": 718,
+    "rootWidth": 1366,
+    "title": "第 2 周 · 经营简报",
+    "week": "2026.01.19W03",
+    "width": 1366
+  },
+  {
+    "name": "details-1366x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 661.5,
+      "height": 73,
+      "left": 273,
+      "right": 1093,
+      "top": 588.5,
+      "width": 820,
+      "x": 273,
+      "y": 588.5
+    },
+    "height": 718,
+    "modal": {
+      "bottom": 661.5,
+      "height": 605,
+      "left": 273,
+      "right": 1093,
+      "top": 56.5,
+      "width": 820,
+      "x": 273,
+      "y": 56.5
+    },
+    "rootHeight": 718,
+    "rootWidth": 1366,
+    "title": "第 2 周 · 经营简报",
+    "week": "2026.01.19W03",
+    "width": 1366
+  },
+  {
+    "name": "delivery-combined-360",
+    "dock": {
+      "bottom": 529,
+      "height": 62,
+      "left": 0,
+      "right": 360,
+      "top": 467,
+      "width": 360,
+      "x": 0,
+      "y": 467
+    },
+    "footer": {
+      "bottom": 557.9375,
+      "height": 63,
+      "left": 10,
+      "right": 350,
+      "top": 494.9375,
+      "width": 340,
+      "x": 10,
+      "y": 494.9375
+    },
+    "height": 591,
+    "modal": {
+      "bottom": 557.9375,
+      "height": 524.875,
+      "left": 10,
+      "right": 350,
+      "top": 33.0625,
+      "width": 340,
+      "x": 10,
+      "y": 33.0625
+    },
+    "rootHeight": 591,
+    "rootWidth": 360,
+    "title": "第 2 周 · 经营简报",
+    "week": "2026.01.19W03",
+    "width": 360
+  },
+  {
+    "name": "batch-paused-360",
+    "dock": {
+      "bottom": 529,
+      "height": 62,
+      "left": 0,
+      "right": 360,
+      "top": 467,
+      "width": 360,
+      "x": 0,
+      "y": 467
+    },
+    "footer": {
+      "bottom": 578.78125,
+      "height": 63,
+      "left": 10,
+      "right": 350,
+      "top": 515.78125,
+      "width": 340,
+      "x": 10,
+      "y": 515.78125
+    },
+    "height": 591,
+    "modal": {
+      "bottom": 578.78125,
+      "height": 566.5703125,
+      "left": 10,
+      "right": 350,
+      "top": 12.2109375,
+      "width": 340,
+      "x": 10,
+      "y": 12.2109375
+    },
+    "rootHeight": 591,
+    "rootWidth": 360,
+    "title": "等待决策 · 1/5 周",
+    "week": "2026.01.26W04",
+    "width": 360
+  },
+  {
+    "name": "batch-story-360",
+    "dock": {
+      "bottom": 529,
+      "height": 62,
+      "left": 0,
+      "right": 360,
+      "top": 467,
+      "width": 360,
+      "x": 0,
+      "y": 467
+    },
+    "height": 591,
+    "modal": {
+      "bottom": 539.6171875,
+      "height": 488.2421875,
+      "left": 10,
+      "right": 350,
+      "top": 51.375,
+      "width": 340,
+      "x": 10,
+      "y": 51.375
+    },
+    "rootHeight": 591,
+    "rootWidth": 360,
+    "title": "杭州 · 区域开发与交通协同",
+    "week": "2026.01.26W04",
+    "width": 360
+  },
+  {
+    "name": "batch-complete-360",
+    "dock": {
+      "bottom": 529,
+      "height": 62,
+      "left": 0,
+      "right": 360,
+      "top": 467,
+      "width": 360,
+      "x": 0,
+      "y": 467
+    },
+    "footer": {
+      "bottom": 541.9296875,
+      "height": 63,
+      "left": 10,
+      "right": 350,
+      "top": 478.9296875,
+      "width": 340,
+      "x": 10,
+      "y": 478.9296875
+    },
+    "height": 591,
+    "modal": {
+      "bottom": 541.9296875,
+      "height": 492.8671875,
+      "left": 10,
+      "right": 350,
+      "top": 49.0625,
+      "width": 340,
+      "x": 10,
+      "y": 49.0625
+    },
+    "rootHeight": 591,
+    "rootWidth": 360,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 360
+  },
+  {
+    "name": "matrix-summary-430x932",
+    "dock": {
+      "bottom": 821,
+      "height": 62,
+      "left": 0,
+      "right": 430,
+      "top": 759,
+      "width": 430,
+      "x": 0,
+      "y": 759
+    },
+    "footer": {
+      "bottom": 691.9296875,
+      "height": 65,
+      "left": 10,
+      "right": 420,
+      "top": 626.9296875,
+      "width": 410,
+      "x": 10,
+      "y": 626.9296875
+    },
+    "height": 883,
+    "modal": {
+      "bottom": 691.9296875,
+      "height": 500.8671875,
+      "left": 10,
+      "right": 420,
+      "top": 191.0625,
+      "width": 410,
+      "x": 10,
+      "y": 191.0625
+    },
+    "rootHeight": 883,
+    "rootWidth": 430,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 430
+  },
+  {
+    "name": "matrix-details-430x932",
+    "dock": {
+      "bottom": 821,
+      "height": 62,
+      "left": 0,
+      "right": 430,
+      "top": 759,
+      "width": 430,
+      "x": 0,
+      "y": 759
+    },
+    "footer": {
+      "bottom": 787.421875,
+      "height": 65,
+      "left": 10,
+      "right": 420,
+      "top": 722.421875,
+      "width": 410,
+      "x": 10,
+      "y": 722.421875
+    },
+    "height": 883,
+    "modal": {
+      "bottom": 787.421875,
+      "height": 691.8515625,
+      "left": 10,
+      "right": 420,
+      "top": 95.5703125,
+      "width": 410,
+      "x": 10,
+      "y": 95.5703125
+    },
+    "rootHeight": 883,
+    "rootWidth": 430,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 430
+  },
+  {
+    "name": "matrix-summary-768x1024",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 763.109375,
+      "height": 73,
+      "left": 20,
+      "right": 748,
+      "top": 690.109375,
+      "width": 728,
+      "x": 20,
+      "y": 690.109375
+    },
+    "height": 974,
+    "modal": {
+      "bottom": 763.109375,
+      "height": 552.21875,
+      "left": 20,
+      "right": 748,
+      "top": 210.890625,
+      "width": 728,
+      "x": 20,
+      "y": 210.890625
+    },
+    "rootHeight": 974,
+    "rootWidth": 768,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 768
+  },
+  {
+    "name": "matrix-details-768x1024",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 815.90625,
+      "height": 73,
+      "left": 20,
+      "right": 748,
+      "top": 742.90625,
+      "width": 728,
+      "x": 20,
+      "y": 742.90625
+    },
+    "height": 974,
+    "modal": {
+      "bottom": 815.90625,
+      "height": 657.8125,
+      "left": 20,
+      "right": 748,
+      "top": 158.09375,
+      "width": 728,
+      "x": 20,
+      "y": 158.09375
+    },
+    "rootHeight": 974,
+    "rootWidth": 768,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 768
+  },
+  {
+    "name": "matrix-summary-1440x900",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 701.109375,
+      "height": 73,
+      "left": 310,
+      "right": 1130,
+      "top": 628.109375,
+      "width": 820,
+      "x": 310,
+      "y": 628.109375
+    },
+    "height": 850,
+    "modal": {
+      "bottom": 701.109375,
+      "height": 552.21875,
+      "left": 310,
+      "right": 1130,
+      "top": 148.890625,
+      "width": 820,
+      "x": 310,
+      "y": 148.890625
+    },
+    "rootHeight": 850,
+    "rootWidth": 1440,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 1440
+  },
+  {
+    "name": "matrix-details-1440x900",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 753.90625,
+      "height": 73,
+      "left": 310,
+      "right": 1130,
+      "top": 680.90625,
+      "width": 820,
+      "x": 310,
+      "y": 680.90625
+    },
+    "height": 850,
+    "modal": {
+      "bottom": 753.90625,
+      "height": 657.8125,
+      "left": 310,
+      "right": 1130,
+      "top": 96.09375,
+      "width": 820,
+      "x": 310,
+      "y": 96.09375
+    },
+    "rootHeight": 850,
+    "rootWidth": 1440,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 1440
+  },
+  {
+    "name": "matrix-summary-320x568",
+    "dock": {
+      "bottom": 457,
+      "height": 62,
+      "left": 0,
+      "right": 320,
+      "top": 395,
+      "width": 320,
+      "x": 0,
+      "y": 395
+    },
+    "footer": {
+      "bottom": 509,
+      "height": 63,
+      "left": 10,
+      "right": 310,
+      "top": 446,
+      "width": 300,
+      "x": 10,
+      "y": 446
+    },
+    "height": 519,
+    "modal": {
+      "bottom": 509,
+      "height": 499,
+      "left": 10,
+      "right": 310,
+      "top": 10,
+      "width": 300,
+      "x": 10,
+      "y": 10
+    },
+    "rootHeight": 519,
+    "rootWidth": 320,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 320
+  },
+  {
+    "name": "matrix-details-320x568",
+    "dock": {
+      "bottom": 457,
+      "height": 62,
+      "left": 0,
+      "right": 320,
+      "top": 395,
+      "width": 320,
+      "x": 0,
+      "y": 395
+    },
+    "footer": {
+      "bottom": 509,
+      "height": 63,
+      "left": 10,
+      "right": 310,
+      "top": 446,
+      "width": 300,
+      "x": 10,
+      "y": 446
+    },
+    "height": 519,
+    "modal": {
+      "bottom": 509,
+      "height": 499,
+      "left": 10,
+      "right": 310,
+      "top": 10,
+      "width": 300,
+      "x": 10,
+      "y": 10
+    },
+    "rootHeight": 519,
+    "rootWidth": 320,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 320
+  },
+  {
+    "name": "matrix-summary-390x600",
+    "dock": {
+      "bottom": 489,
+      "height": 62,
+      "left": 0,
+      "right": 390,
+      "top": 427,
+      "width": 390,
+      "x": 0,
+      "y": 427
+    },
+    "footer": {
+      "bottom": 525.9296875,
+      "height": 65,
+      "left": 10,
+      "right": 380,
+      "top": 460.9296875,
+      "width": 370,
+      "x": 10,
+      "y": 460.9296875
+    },
+    "height": 551,
+    "modal": {
+      "bottom": 525.9296875,
+      "height": 500.8671875,
+      "left": 10,
+      "right": 380,
+      "top": 25.0625,
+      "width": 370,
+      "x": 10,
+      "y": 25.0625
+    },
+    "rootHeight": 551,
+    "rootWidth": 390,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 390
+  },
+  {
+    "name": "matrix-details-390x600",
+    "dock": {
+      "bottom": 489,
+      "height": 62,
+      "left": 0,
+      "right": 390,
+      "top": 427,
+      "width": 390,
+      "x": 0,
+      "y": 427
+    },
+    "footer": {
+      "bottom": 541,
+      "height": 65,
+      "left": 10,
+      "right": 380,
+      "top": 476,
+      "width": 370,
+      "x": 10,
+      "y": 476
+    },
+    "height": 551,
+    "modal": {
+      "bottom": 541,
+      "height": 531,
+      "left": 10,
+      "right": 380,
+      "top": 10,
+      "width": 370,
+      "x": 10,
+      "y": 10
+    },
+    "rootHeight": 551,
+    "rootWidth": 390,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 390
+  },
+  {
+    "name": "matrix-summary-700x700",
+    "dock": {
+      "bottom": 589,
+      "height": 62,
+      "left": 0,
+      "right": 700,
+      "top": 527,
+      "width": 700,
+      "x": 0,
+      "y": 527
+    },
+    "footer": {
+      "bottom": 575.9296875,
+      "height": 65,
+      "left": 10,
+      "right": 690,
+      "top": 510.9296875,
+      "width": 680,
+      "x": 10,
+      "y": 510.9296875
+    },
+    "height": 651,
+    "modal": {
+      "bottom": 575.9296875,
+      "height": 500.8671875,
+      "left": 10,
+      "right": 690,
+      "top": 75.0625,
+      "width": 680,
+      "x": 10,
+      "y": 75.0625
+    },
+    "rootHeight": 651,
+    "rootWidth": 700,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 700
+  },
+  {
+    "name": "matrix-details-700x700",
+    "dock": {
+      "bottom": 589,
+      "height": 62,
+      "left": 0,
+      "right": 700,
+      "top": 527,
+      "width": 700,
+      "x": 0,
+      "y": 527
+    },
+    "footer": {
+      "bottom": 641,
+      "height": 65,
+      "left": 10,
+      "right": 690,
+      "top": 576,
+      "width": 680,
+      "x": 10,
+      "y": 576
+    },
+    "height": 651,
+    "modal": {
+      "bottom": 641,
+      "height": 631,
+      "left": 10,
+      "right": 690,
+      "top": 10,
+      "width": 680,
+      "x": 10,
+      "y": 10
+    },
+    "rootHeight": 651,
+    "rootWidth": 700,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 700
+  },
+  {
+    "name": "matrix-summary-701x700",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 601.609375,
+      "height": 73,
+      "left": 20,
+      "right": 681,
+      "top": 528.609375,
+      "width": 661,
+      "x": 20,
+      "y": 528.609375
+    },
+    "height": 651,
+    "modal": {
+      "bottom": 601.609375,
+      "height": 552.21875,
+      "left": 20,
+      "right": 681,
+      "top": 49.390625,
+      "width": 661,
+      "x": 20,
+      "y": 49.390625
+    },
+    "rootHeight": 651,
+    "rootWidth": 701,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 701
+  },
+  {
+    "name": "matrix-details-701x700",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 631,
+      "height": 73,
+      "left": 20,
+      "right": 681,
+      "top": 558,
+      "width": 661,
+      "x": 20,
+      "y": 558
+    },
+    "height": 651,
+    "modal": {
+      "bottom": 631,
+      "height": 611,
+      "left": 20,
+      "right": 681,
+      "top": 20,
+      "width": 661,
+      "x": 20,
+      "y": 20
+    },
+    "rootHeight": 651,
+    "rootWidth": 701,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 701
+  },
+  {
+    "name": "matrix-summary-1100x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 635.109375,
+      "height": 73,
+      "left": 140,
+      "right": 960,
+      "top": 562.109375,
+      "width": 820,
+      "x": 140,
+      "y": 562.109375
+    },
+    "height": 718,
+    "modal": {
+      "bottom": 635.109375,
+      "height": 552.21875,
+      "left": 140,
+      "right": 960,
+      "top": 82.890625,
+      "width": 820,
+      "x": 140,
+      "y": 82.890625
+    },
+    "rootHeight": 718,
+    "rootWidth": 1100,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 1100
+  },
+  {
+    "name": "matrix-details-1100x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 687.90625,
+      "height": 73,
+      "left": 140,
+      "right": 960,
+      "top": 614.90625,
+      "width": 820,
+      "x": 140,
+      "y": 614.90625
+    },
+    "height": 718,
+    "modal": {
+      "bottom": 687.90625,
+      "height": 657.8125,
+      "left": 140,
+      "right": 960,
+      "top": 30.09375,
+      "width": 820,
+      "x": 140,
+      "y": 30.09375
+    },
+    "rootHeight": 718,
+    "rootWidth": 1100,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 1100
+  },
+  {
+    "name": "matrix-summary-1101x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 635.109375,
+      "height": 73,
+      "left": 140.5,
+      "right": 960.5,
+      "top": 562.109375,
+      "width": 820,
+      "x": 140.5,
+      "y": 562.109375
+    },
+    "height": 718,
+    "modal": {
+      "bottom": 635.109375,
+      "height": 552.21875,
+      "left": 140.5,
+      "right": 960.5,
+      "top": 82.890625,
+      "width": 820,
+      "x": 140.5,
+      "y": 82.890625
+    },
+    "rootHeight": 718,
+    "rootWidth": 1101,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 1101
+  },
+  {
+    "name": "matrix-details-1101x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 687.90625,
+      "height": 73,
+      "left": 140.5,
+      "right": 960.5,
+      "top": 614.90625,
+      "width": 820,
+      "x": 140.5,
+      "y": 614.90625
+    },
+    "height": 718,
+    "modal": {
+      "bottom": 687.90625,
+      "height": 657.8125,
+      "left": 140.5,
+      "right": 960.5,
+      "top": 30.09375,
+      "width": 820,
+      "x": 140.5,
+      "y": 30.09375
+    },
+    "rootHeight": 718,
+    "rootWidth": 1101,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 1101
+  },
+  {
+    "name": "matrix-summary-844x500",
+    "dock": {
+      "bottom": 438,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 267.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 267.2109375
+    },
+    "footer": {
+      "bottom": 442,
+      "height": 61,
+      "left": 12,
+      "right": 832,
+      "top": 381,
+      "width": 820,
+      "x": 12,
+      "y": 381
+    },
+    "height": 450,
+    "modal": {
+      "bottom": 442,
+      "height": 434,
+      "left": 12,
+      "right": 832,
+      "top": 8,
+      "width": 820,
+      "x": 12,
+      "y": 8
+    },
+    "rootHeight": 450,
+    "rootWidth": 844,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 844
+  },
+  {
+    "name": "matrix-details-844x500",
+    "dock": {
+      "bottom": 438,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 267.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 267.2109375
+    },
+    "footer": {
+      "bottom": 442,
+      "height": 61,
+      "left": 12,
+      "right": 832,
+      "top": 381,
+      "width": 820,
+      "x": 12,
+      "y": 381
+    },
+    "height": 450,
+    "modal": {
+      "bottom": 442,
+      "height": 434,
+      "left": 12,
+      "right": 832,
+      "top": 8,
+      "width": 820,
+      "x": 12,
+      "y": 8
+    },
+    "rootHeight": 450,
+    "rootWidth": 844,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 844
+  },
+  {
+    "name": "matrix-summary-844x501",
+    "dock": {
+      "bottom": 439,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 268.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 268.2109375
+    },
+    "footer": {
+      "bottom": 443,
+      "height": 61,
+      "left": 12,
+      "right": 832,
+      "top": 382,
+      "width": 820,
+      "x": 12,
+      "y": 382
+    },
+    "height": 451,
+    "modal": {
+      "bottom": 443,
+      "height": 435,
+      "left": 12,
+      "right": 832,
+      "top": 8,
+      "width": 820,
+      "x": 12,
+      "y": 8
+    },
+    "rootHeight": 451,
+    "rootWidth": 844,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 844
+  },
+  {
+    "name": "matrix-details-844x501",
+    "dock": {
+      "bottom": 439,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 268.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 268.2109375
+    },
+    "footer": {
+      "bottom": 443,
+      "height": 61,
+      "left": 12,
+      "right": 832,
+      "top": 382,
+      "width": 820,
+      "x": 12,
+      "y": 382
+    },
+    "height": 451,
+    "modal": {
+      "bottom": 443,
+      "height": 435,
+      "left": 12,
+      "right": 832,
+      "top": 8,
+      "width": 820,
+      "x": 12,
+      "y": 8
+    },
+    "rootHeight": 451,
+    "rootWidth": 844,
+    "title": "模拟完成 · 5/5 周",
+    "week": "2026.02.23W08",
+    "width": 844
+  },
+  {
+    "name": "matrix-edit-430x932",
+    "dock": {
+      "bottom": 821,
+      "height": 62,
+      "left": 0,
+      "right": 430,
+      "top": 759,
+      "width": 430,
+      "x": 0,
+      "y": 759
+    },
+    "footer": {
+      "bottom": 864.328125,
+      "height": 65,
+      "left": 10,
+      "right": 420,
+      "top": 799.328125,
+      "width": 410,
+      "x": 10,
+      "y": 799.328125
+    },
+    "height": 883,
+    "modal": {
+      "bottom": 864.328125,
+      "height": 845.65625,
+      "left": 10,
+      "right": 420,
+      "top": 18.671875,
+      "width": 410,
+      "x": 10,
+      "y": 18.671875
+    },
+    "rootHeight": 883,
+    "rootWidth": 430,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 430
+  },
+  {
+    "name": "matrix-edit-768x1024",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 895.2578125,
+      "height": 73,
+      "left": 20,
+      "right": 748,
+      "top": 822.2578125,
+      "width": 728,
+      "x": 20,
+      "y": 822.2578125
+    },
+    "height": 974,
+    "modal": {
+      "bottom": 895.2578125,
+      "height": 816.515625,
+      "left": 20,
+      "right": 748,
+      "top": 78.7421875,
+      "width": 728,
+      "x": 20,
+      "y": 78.7421875
+    },
+    "rootHeight": 974,
+    "rootWidth": 768,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 768
+  },
+  {
+    "name": "matrix-edit-1440x900",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 824.5078125,
+      "height": 73,
+      "left": 310,
+      "right": 1130,
+      "top": 751.5078125,
+      "width": 820,
+      "x": 310,
+      "y": 751.5078125
+    },
+    "height": 850,
+    "modal": {
+      "bottom": 824.5078125,
+      "height": 799.015625,
+      "left": 310,
+      "right": 1130,
+      "top": 25.4921875,
+      "width": 820,
+      "x": 310,
+      "y": 25.4921875
+    },
+    "rootHeight": 850,
+    "rootWidth": 1440,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 1440
+  },
+  {
+    "name": "matrix-edit-320x568",
+    "dock": {
+      "bottom": 457,
+      "height": 62,
+      "left": 0,
+      "right": 320,
+      "top": 395,
+      "width": 320,
+      "x": 0,
+      "y": 395
+    },
+    "footer": {
+      "bottom": 509,
+      "height": 63,
+      "left": 10,
+      "right": 310,
+      "top": 446,
+      "width": 300,
+      "x": 10,
+      "y": 446
+    },
+    "height": 519,
+    "modal": {
+      "bottom": 509,
+      "height": 499,
+      "left": 10,
+      "right": 310,
+      "top": 10,
+      "width": 300,
+      "x": 10,
+      "y": 10
+    },
+    "rootHeight": 519,
+    "rootWidth": 320,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 320
+  },
+  {
+    "name": "matrix-edit-390x600",
+    "dock": {
+      "bottom": 489,
+      "height": 62,
+      "left": 0,
+      "right": 390,
+      "top": 427,
+      "width": 390,
+      "x": 0,
+      "y": 427
+    },
+    "footer": {
+      "bottom": 541,
+      "height": 65,
+      "left": 10,
+      "right": 380,
+      "top": 476,
+      "width": 370,
+      "x": 10,
+      "y": 476
+    },
+    "height": 551,
+    "modal": {
+      "bottom": 541,
+      "height": 531,
+      "left": 10,
+      "right": 380,
+      "top": 10,
+      "width": 370,
+      "x": 10,
+      "y": 10
+    },
+    "rootHeight": 551,
+    "rootWidth": 390,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 390
+  },
+  {
+    "name": "matrix-edit-700x700",
+    "dock": {
+      "bottom": 589,
+      "height": 62,
+      "left": 0,
+      "right": 700,
+      "top": 527,
+      "width": 700,
+      "x": 0,
+      "y": 527
+    },
+    "footer": {
+      "bottom": 641,
+      "height": 65,
+      "left": 10,
+      "right": 690,
+      "top": 576,
+      "width": 680,
+      "x": 10,
+      "y": 576
+    },
+    "height": 651,
+    "modal": {
+      "bottom": 641,
+      "height": 631,
+      "left": 10,
+      "right": 690,
+      "top": 10,
+      "width": 680,
+      "x": 10,
+      "y": 10
+    },
+    "rootHeight": 651,
+    "rootWidth": 700,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 700
+  },
+  {
+    "name": "matrix-edit-701x700",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 631,
+      "height": 73,
+      "left": 20,
+      "right": 681,
+      "top": 558,
+      "width": 661,
+      "x": 20,
+      "y": 558
+    },
+    "height": 651,
+    "modal": {
+      "bottom": 631,
+      "height": 611,
+      "left": 20,
+      "right": 681,
+      "top": 20,
+      "width": 661,
+      "x": 20,
+      "y": 20
+    },
+    "rootHeight": 651,
+    "rootWidth": 701,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 701
+  },
+  {
+    "name": "matrix-edit-1100x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 698,
+      "height": 73,
+      "left": 140,
+      "right": 960,
+      "top": 625,
+      "width": 820,
+      "x": 140,
+      "y": 625
+    },
+    "height": 718,
+    "modal": {
+      "bottom": 698,
+      "height": 678,
+      "left": 140,
+      "right": 960,
+      "top": 20,
+      "width": 820,
+      "x": 140,
+      "y": 20
+    },
+    "rootHeight": 718,
+    "rootWidth": 1100,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 1100
+  },
+  {
+    "name": "matrix-edit-1101x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "footer": {
+      "bottom": 698,
+      "height": 73,
+      "left": 140.5,
+      "right": 960.5,
+      "top": 625,
+      "width": 820,
+      "x": 140.5,
+      "y": 625
+    },
+    "height": 718,
+    "modal": {
+      "bottom": 698,
+      "height": 678,
+      "left": 140.5,
+      "right": 960.5,
+      "top": 20,
+      "width": 820,
+      "x": 140.5,
+      "y": 20
+    },
+    "rootHeight": 718,
+    "rootWidth": 1101,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 1101
+  },
+  {
+    "name": "matrix-edit-844x500",
+    "dock": {
+      "bottom": 438,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 267.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 267.2109375
+    },
+    "footer": {
+      "bottom": 442,
+      "height": 61,
+      "left": 12,
+      "right": 832,
+      "top": 381,
+      "width": 820,
+      "x": 12,
+      "y": 381
+    },
+    "height": 450,
+    "modal": {
+      "bottom": 442,
+      "height": 434,
+      "left": 12,
+      "right": 832,
+      "top": 8,
+      "width": 820,
+      "x": 12,
+      "y": 8
+    },
+    "rootHeight": 450,
+    "rootWidth": 844,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 844
+  },
+  {
+    "name": "matrix-edit-844x501",
+    "dock": {
+      "bottom": 439,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 268.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 268.2109375
+    },
+    "footer": {
+      "bottom": 443,
+      "height": 61,
+      "left": 12,
+      "right": 832,
+      "top": 382,
+      "width": 820,
+      "x": 12,
+      "y": 382
+    },
+    "height": 451,
+    "modal": {
+      "bottom": 443,
+      "height": 435,
+      "left": 12,
+      "right": 832,
+      "top": 8,
+      "width": 820,
+      "x": 12,
+      "y": 8
+    },
+    "rootHeight": 451,
+    "rootWidth": 844,
+    "title": "调整航线计划",
+    "week": "2026.02.23W08",
+    "width": 844
+  },
+  {
+    "name": "matrix-home-360x640",
+    "dock": {
+      "bottom": 529,
+      "height": 62,
+      "left": 0,
+      "right": 360,
+      "top": 467,
+      "width": 360,
+      "x": 0,
+      "y": 467
+    },
+    "height": 591,
+    "rootHeight": 591,
+    "rootWidth": 360,
+    "week": "2026.02.23W08",
+    "width": 360
+  },
+  {
+    "name": "matrix-home-430x932",
+    "dock": {
+      "bottom": 821,
+      "height": 62,
+      "left": 0,
+      "right": 430,
+      "top": 759,
+      "width": 430,
+      "x": 0,
+      "y": 759
+    },
+    "height": 883,
+    "rootHeight": 883,
+    "rootWidth": 430,
+    "week": "2026.02.23W08",
+    "width": 430
+  },
+  {
+    "name": "matrix-home-768x1024",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "height": 974,
+    "rootHeight": 974,
+    "rootWidth": 768,
+    "week": "2026.02.23W08",
+    "width": 768
+  },
+  {
+    "name": "matrix-home-1440x900",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "height": 850,
+    "rootHeight": 850,
+    "rootWidth": 1440,
+    "week": "2026.02.23W08",
+    "width": 1440
+  },
+  {
+    "name": "matrix-home-320x568",
+    "dock": {
+      "bottom": 457,
+      "height": 62,
+      "left": 0,
+      "right": 320,
+      "top": 395,
+      "width": 320,
+      "x": 0,
+      "y": 395
+    },
+    "height": 519,
+    "rootHeight": 519,
+    "rootWidth": 320,
+    "week": "2026.02.23W08",
+    "width": 320
+  },
+  {
+    "name": "matrix-home-390x600",
+    "dock": {
+      "bottom": 489,
+      "height": 62,
+      "left": 0,
+      "right": 390,
+      "top": 427,
+      "width": 390,
+      "x": 0,
+      "y": 427
+    },
+    "height": 551,
+    "rootHeight": 551,
+    "rootWidth": 390,
+    "week": "2026.02.23W08",
+    "width": 390
+  },
+  {
+    "name": "matrix-home-700x700",
+    "dock": {
+      "bottom": 589,
+      "height": 62,
+      "left": 0,
+      "right": 700,
+      "top": 527,
+      "width": 700,
+      "x": 0,
+      "y": 527
+    },
+    "height": 651,
+    "rootHeight": 651,
+    "rootWidth": 700,
+    "week": "2026.02.23W08",
+    "width": 700
+  },
+  {
+    "name": "matrix-home-701x700",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "height": 651,
+    "rootHeight": 651,
+    "rootWidth": 701,
+    "week": "2026.02.23W08",
+    "width": 701
+  },
+  {
+    "name": "matrix-home-1100x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "height": 718,
+    "rootHeight": 718,
+    "rootWidth": 1100,
+    "week": "2026.02.23W08",
+    "width": 1100
+  },
+  {
+    "name": "matrix-home-1101x768",
+    "dock": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "height": 718,
+    "rootHeight": 718,
+    "rootWidth": 1101,
+    "week": "2026.02.23W08",
+    "width": 1101
+  },
+  {
+    "name": "matrix-home-844x500",
+    "dock": {
+      "bottom": 438,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 267.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 267.2109375
+    },
+    "height": 450,
+    "rootHeight": 450,
+    "rootWidth": 844,
+    "week": "2026.02.23W08",
+    "width": 844
+  },
+  {
+    "name": "matrix-home-844x501",
+    "dock": {
+      "bottom": 439,
+      "height": 170.7890625,
+      "left": 664,
+      "right": 834,
+      "top": 268.2109375,
+      "width": 170,
+      "x": 664,
+      "y": 268.2109375
+    },
+    "height": 451,
+    "rootHeight": 451,
+    "rootWidth": 844,
+    "week": "2026.02.23W08",
+    "width": 844
+  }
+]

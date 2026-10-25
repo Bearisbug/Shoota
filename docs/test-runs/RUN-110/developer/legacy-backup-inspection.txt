@@ -1,0 +1,29 @@
+{
+  "skybound-save-v1": {
+    "name": "历史存档验证航司",
+    "week": 18,
+    "cash": 456.78,
+    "debt": 123.45,
+    "planes": 2,
+    "routes": 2,
+    "revision": 2
+  },
+  "skybound-save-backup-v1": {
+    "name": "历史存档验证航司",
+    "week": 19,
+    "cash": 461.17865386666665,
+    "debt": 123.45,
+    "planes": 2,
+    "routes": 2,
+    "revision": 2
+  },
+  "skybound-save-upgrade-backup-v1": {
+    "name": "历史存档验证航司",
+    "week": 18,
+    "cash": 456.78,
+    "debt": 123.45,
+    "planes": 2,
+    "routes": 2
+  },
+  "skybound-save-unreadable-v1": null
+}

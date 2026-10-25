@@ -1,0 +1,149 @@
+- banner:
+  - link "shoota 首页":
+    - /url: "#store"
+  - navigation "主导航":
+    - link "商店":
+      - /url: "#store"
+    - link "游戏库":
+      - /url: "#library"
+    - link "存档":
+      - /url: "#backup"
+  - generic: 搜索游戏
+  - searchbox "搜索游戏"
+  - button "账号菜单": 玩
+- main
+- button "退出游戏":
+  - generic: 退出游戏
+- generic: 打造全球最佳航司
+- generic: 已读取存档
+- generic: 本次 0 分钟
+- button "全屏":
+  - generic: 全屏
+- iframe:
+  - complementary:
+    - strong: 打造全球最佳航司
+    - generic: SKYBOUND AIRLINES
+    - generic: AIRLINE MANAGEMENT
+    - navigation "主导航":
+      - button "经营总览":
+        - generic: 经营总览
+      - button "航线网络":
+        - generic: 航线网络
+      - button "航班排班":
+        - generic: 航班排班
+      - button "市场洞察":
+        - generic: 市场洞察
+      - button "机队管理":
+        - generic: 机队管理
+      - button "飞机采购":
+        - generic: 飞机采购
+      - button "旅客服务":
+        - generic: 旅客服务
+      - button "世界动态":
+        - generic: 世界动态
+      - button "财务中心":
+        - generic: 财务中心
+      - button "航司排行榜":
+        - generic: 航司排行榜
+      - button "公司发展":
+        - generic: 公司发展
+      - button "机库经营":
+        - generic: 机库经营
+    - generic: WORKSPACE
+    - navigation:
+      - button "存档与设置":
+        - generic: 存档与设置
+      - button "资料与规则":
+        - generic: 资料与规则
+    - strong: 下一站，世界一流。
+    - paragraph: 从第一条航线，到连接整个世界。
+    - button "经营指南":
+      - text: 经营指南
+    - generic: 历
+    - strong: 历史存档验证航司
+    - generic: 乌鲁木齐基地 · 董事长
+  - main:
+    - text: 航空经营模拟
+    - generic: 经营总览
+    - generic: 本机自动存档
+    - generic: 2026.05.04
+    - generic: W18
+    - button "经营下一周":
+      - text: 经营下一周
+    - button "连续模拟 5 周或 10 周":
+      - text: 快进
+    - text: 历史存档验证航司 · FLIGHT OPERATIONS
+    - heading "让每一次起飞，都有远方。" [level=1]
+    - paragraph: "乌鲁木齐始发 · 全球排名 #152 · 你的天空，正在延伸"
+    - button "致有蓝天梦的人":
+      - text: 致有蓝天梦的人
+    - text: URC
+    - generic: 43.91° N
+    - text: 可用现金
+    - text: 4.57 亿
+    - emphasis
+    - generic: 可用于运营与扩张的现金
+    - text: 在役飞机
+    - text: "2"
+    - emphasis: 架
+    - generic: 0 架待交付
+    - text: 运营航线
+    - text: "2"
+    - emphasis: 条
+    - generic: 覆盖 3 座机场
+    - text: 旅客口碑
+    - text: "56.0"
+    - emphasis: /100
+    - generic: 可靠性 94.0%
+    - navigation "经营调整":
+      - button "航线":
+        - text: 航线
+      - button "排班":
+        - text: 排班
+      - button "采购":
+        - text: 采购
+      - button "服务":
+        - text: 服务
+      - button "顾问":
+        - text: 顾问
+    - tablist "运营总览分区":
+      - tab "本周运营" [selected]
+      - tab "航线地图"
+      - tab "世界动态"
+    - heading "本周起飞计划" [level=2]
+    - button "完整排班":
+      - text: 完整排班
+    - time:
+      - text: 07:00
+      - generic: 周一
+    - strong: URC → CAN
+    - generic: 乌鲁木齐至广州 · Airbus A320neo
+    - generic: 已计划
+    - time:
+      - text: 07:00
+      - generic: 周一
+    - strong: URC → CKG
+    - generic: 乌鲁木齐至重庆 · Boeing 737-8
+    - generic: 已计划
+    - time:
+      - text: 11:25
+      - generic: 周一
+    - strong: CKG → URC
+    - generic: 重庆至乌鲁木齐 · Boeing 737-8
+    - generic: 已计划
+    - complementary:
+      - heading "运营简报" [level=2]
+      - generic: W18
+      - heading "本周航班计划已准备" [level=3]
+      - paragraph: 2 条在营航线 · 28 个计划航段
+      - button "检查排班":
+        - text: 检查排班
+      - heading "为下一程做准备" [level=3]
+      - paragraph: 比较市场需求，再决定下一条航线。
+      - button "寻找机会":
+        - text: 寻找机会
+      - button "查看经营周报":
+        - text: 查看经营周报
+    - generic: "历史存档验证航司 · 中国民营航空公司 · 全球综合排名 #152"
+    - generic: 经营与外交剧情为模拟设定 · 非实时航空数据
+  - status

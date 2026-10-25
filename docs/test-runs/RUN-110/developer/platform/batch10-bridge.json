@@ -1,0 +1,349 @@
+{
+  "skybound-save-v1": {
+    "name": "云际航空",
+    "week": 12,
+    "cash": 1012.0534963743588,
+    "debt": 0,
+    "fleet": [
+      {
+        "id": 1,
+        "delivery": 0
+      },
+      {
+        "id": 4,
+        "delivery": 0
+      },
+      {
+        "id": 20,
+        "delivery": 0
+      },
+      {
+        "id": 21,
+        "delivery": 0
+      }
+    ],
+    "routes": [
+      {
+        "id": 2,
+        "plane": 1,
+        "freq": 7,
+        "from": "HGH",
+        "to": "CAN"
+      },
+      {
+        "id": 3,
+        "plane": 4,
+        "freq": 7,
+        "from": "HGH",
+        "to": "CKG"
+      }
+    ],
+    "revision": 2,
+    "simulation": {
+      "target": 10,
+      "completed": 10,
+      "startWeek": 2,
+      "startDate": "2026-01-12",
+      "startCash": 1000,
+      "startRep": 56,
+      "revenue": 37.68275899999999,
+      "cost": 25.629262625641026,
+      "profit": 12.053496374358973,
+      "pax": 43637,
+      "flights": 280,
+      "rows": [
+        {
+          "week": 2,
+          "date": "2026-01-12",
+          "revenue": 3.2164989999999998,
+          "cost": 2.1269221333333332,
+          "profit": 1.0895768666666665,
+          "pax": 3744,
+          "flights": 28
+        },
+        {
+          "week": 3,
+          "date": "2026-01-19",
+          "revenue": 3.2174449999999997,
+          "cost": 2.488014148717949,
+          "profit": 0.7294308512820509,
+          "pax": 3745,
+          "flights": 28
+        },
+        {
+          "week": 4,
+          "date": "2026-01-26",
+          "revenue": 3.3865689999999997,
+          "cost": 2.501172164102564,
+          "profit": 0.8853968358974358,
+          "pax": 3942,
+          "flights": 28
+        },
+        {
+          "week": 5,
+          "date": "2026-02-02",
+          "revenue": 4.2285449999999996,
+          "cost": 2.5706571794871795,
+          "profit": 1.65788782051282,
+          "pax": 4911,
+          "flights": 28
+        },
+        {
+          "week": 6,
+          "date": "2026-02-09",
+          "revenue": 4.2285449999999996,
+          "cost": 2.639358194871795,
+          "profit": 1.5891868051282048,
+          "pax": 4911,
+          "flights": 28
+        },
+        {
+          "week": 7,
+          "date": "2026-02-16",
+          "revenue": 4.2285449999999996,
+          "cost": 2.5517792102564103,
+          "profit": 1.6767657897435893,
+          "pax": 4911,
+          "flights": 28
+        },
+        {
+          "week": 8,
+          "date": "2026-02-23",
+          "revenue": 4.179353,
+          "cost": 3.1250548256410253,
+          "profit": 1.0542981743589745,
+          "pax": 4685,
+          "flights": 28
+        },
+        {
+          "week": 9,
+          "date": "2026-03-02",
+          "revenue": 4.2145589999999995,
+          "cost": 2.6254512410256408,
+          "profit": 1.5891077589743587,
+          "pax": 4893,
+          "flights": 28
+        },
+        {
+          "week": 10,
+          "date": "2026-03-09",
+          "revenue": 3.390961,
+          "cost": 2.502598256410256,
+          "profit": 0.8883627435897439,
+          "pax": 3947,
+          "flights": 28
+        },
+        {
+          "week": 11,
+          "date": "2026-03-16",
+          "revenue": 3.391738,
+          "cost": 2.498255271794872,
+          "profit": 0.8934827282051283,
+          "pax": 3948,
+          "flights": 28
+        }
+      ],
+      "status": "complete",
+      "reason": "pending",
+      "maintenanceCost": 0,
+      "maintenanceCount": 0,
+      "endCash": 1012.0534963743588,
+      "endRep": 56.376912316394176,
+      "endDate": "2026-03-23"
+    }
+  },
+  "skybound-save-backup-v1": {
+    "name": "云际航空",
+    "week": 12,
+    "cash": 1012.0534963743588,
+    "debt": 0,
+    "fleet": [
+      {
+        "id": 1,
+        "delivery": 0
+      },
+      {
+        "id": 4,
+        "delivery": 0
+      },
+      {
+        "id": 20,
+        "delivery": 0
+      },
+      {
+        "id": 21,
+        "delivery": 0
+      }
+    ],
+    "routes": [
+      {
+        "id": 2,
+        "plane": 1,
+        "freq": 7,
+        "from": "HGH",
+        "to": "CAN"
+      },
+      {
+        "id": 3,
+        "plane": 4,
+        "freq": 7,
+        "from": "HGH",
+        "to": "CKG"
+      }
+    ],
+    "revision": 2,
+    "simulation": {
+      "target": 10,
+      "completed": 10,
+      "startWeek": 2,
+      "startDate": "2026-01-12",
+      "startCash": 1000,
+      "startRep": 56,
+      "revenue": 37.68275899999999,
+      "cost": 25.629262625641026,
+      "profit": 12.053496374358973,
+      "pax": 43637,
+      "flights": 280,
+      "rows": [
+        {
+          "week": 2,
+          "date": "2026-01-12",
+          "revenue": 3.2164989999999998,
+          "cost": 2.1269221333333332,
+          "profit": 1.0895768666666665,
+          "pax": 3744,
+          "flights": 28
+        },
+        {
+          "week": 3,
+          "date": "2026-01-19",
+          "revenue": 3.2174449999999997,
+          "cost": 2.488014148717949,
+          "profit": 0.7294308512820509,
+          "pax": 3745,
+          "flights": 28
+        },
+        {
+          "week": 4,
+          "date": "2026-01-26",
+          "revenue": 3.3865689999999997,
+          "cost": 2.501172164102564,
+          "profit": 0.8853968358974358,
+          "pax": 3942,
+          "flights": 28
+        },
+        {
+          "week": 5,
+          "date": "2026-02-02",
+          "revenue": 4.2285449999999996,
+          "cost": 2.5706571794871795,
+          "profit": 1.65788782051282,
+          "pax": 4911,
+          "flights": 28
+        },
+        {
+          "week": 6,
+          "date": "2026-02-09",
+          "revenue": 4.2285449999999996,
+          "cost": 2.639358194871795,
+          "profit": 1.5891868051282048,
+          "pax": 4911,
+          "flights": 28
+        },
+        {
+          "week": 7,
+          "date": "2026-02-16",
+          "revenue": 4.2285449999999996,
+          "cost": 2.5517792102564103,
+          "profit": 1.6767657897435893,
+          "pax": 4911,
+          "flights": 28
+        },
+        {
+          "week": 8,
+          "date": "2026-02-23",
+          "revenue": 4.179353,
+          "cost": 3.1250548256410253,
+          "profit": 1.0542981743589745,
+          "pax": 4685,
+          "flights": 28
+        },
+        {
+          "week": 9,
+          "date": "2026-03-02",
+          "revenue": 4.2145589999999995,
+          "cost": 2.6254512410256408,
+          "profit": 1.5891077589743587,
+          "pax": 4893,
+          "flights": 28
+        },
+        {
+          "week": 10,
+          "date": "2026-03-09",
+          "revenue": 3.390961,
+          "cost": 2.502598256410256,
+          "profit": 0.8883627435897439,
+          "pax": 3947,
+          "flights": 28
+        },
+        {
+          "week": 11,
+          "date": "2026-03-16",
+          "revenue": 3.391738,
+          "cost": 2.498255271794872,
+          "profit": 0.8934827282051283,
+          "pax": 3948,
+          "flights": 28
+        }
+      ],
+      "status": "complete",
+      "reason": "pending",
+      "maintenanceCost": 0,
+      "maintenanceCount": 0,
+      "endCash": 1012.0534963743588,
+      "endRep": 56.376912316394176,
+      "endDate": "2026-03-23"
+    }
+  },
+  "skybound-save-upgrade-backup-v1": {
+    "name": "云际航空",
+    "week": 2,
+    "cash": 1000,
+    "debt": 0,
+    "fleet": [
+      {
+        "id": 1,
+        "delivery": 0
+      },
+      {
+        "id": 4,
+        "delivery": 0
+      },
+      {
+        "id": 20,
+        "delivery": 1
+      },
+      {
+        "id": 21,
+        "delivery": 1
+      }
+    ],
+    "routes": [
+      {
+        "id": 2,
+        "plane": 1,
+        "freq": 7,
+        "from": "HGH",
+        "to": "CAN"
+      },
+      {
+        "id": 3,
+        "plane": 4,
+        "freq": 7,
+        "from": "HGH",
+        "to": "CKG"
+      }
+    ]
+  },
+  "skybound-save-unreadable-v1": null
+}
