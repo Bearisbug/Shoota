@@ -1,0 +1,37 @@
+{
+  "version": "2026-10-26-8318f2446986",
+  "html": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-8318f2446986/云际航空.html",
+  "htmlSha256": "8318f24469868b7010ef525f64859df176d942b1b9eb26c8e40b65ffa08b4be8",
+  "zip": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-8318f2446986/云际航空-离线版.zip",
+  "zipSha256": "83158f2a24b89a9bfb64dccb6b3f171656a9981cbe112393ac44c73416e338bb",
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-8318f2446986/source",
+  "sourceManifestSha256": "2cf952f7eec9b955d23004d7745c67a70b4da40a559ad13148b6bd267f00ae24",
+  "tests": {
+    "pass": 241,
+    "fail": 0
+  },
+  "published": false,
+  "platformAcceptance": {
+    "report": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-8318f2446986/evidence/platform-acceptance/report.md",
+    "platformBaseline": "7fe1b1e",
+    "desktopIframeMatrix": "passed",
+    "coreFlowViewports": [
+      "360x640",
+      "390x844",
+      "844x390",
+      "1366x768"
+    ],
+    "tests": {
+      "pass": 241,
+      "fail": 0
+    },
+    "unverified": [
+      "real iOS Safari",
+      "real Android Chrome",
+      "software keyboard and safe areas",
+      "200% system text",
+      "reduced motion",
+      "online staging and production"
+    ]
+  }
+}
