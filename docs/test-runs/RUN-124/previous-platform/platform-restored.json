@@ -1,0 +1,22 @@
+{
+  "keys": [
+    "skybound-save-v1"
+  ],
+  "encoding": "skybound-packed-1",
+  "chars": 809591,
+  "week": 8,
+  "date": "2026-02-23",
+  "name": "云际航空",
+  "cash": 99995.69827374234,
+  "fleet": 400,
+  "routes": 401,
+  "ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "version": 1,
+  "saveRevision": 4
+}

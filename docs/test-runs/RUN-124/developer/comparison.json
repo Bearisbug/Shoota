@@ -1,0 +1,7 @@
+{
+  "baselineMs": 286903.625041,
+  "candidateMs": 8737.709125000001,
+  "speedup": 32.83510825739464,
+  "allSuggestionFieldsExactlyEqual": true,
+  "browserAnalysisMs": 6781
+}

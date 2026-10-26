@@ -1,0 +1,18 @@
+[
+  {
+    "name": "before",
+    "fleetOverviewMs": 190.14,
+    "quoteValidateMs": 147.01,
+    "quoteForecastMs": 300.88,
+    "advanceMs": 498.02,
+    "saveValidateMs": 254.52
+  },
+  {
+    "name": "after",
+    "fleetOverviewMs": 31.97,
+    "quoteValidateMs": 26.53,
+    "quoteForecastMs": 64.67,
+    "advanceMs": 95.67,
+    "saveValidateMs": 46.49
+  }
+]

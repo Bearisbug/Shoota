@@ -1,0 +1,13 @@
+{
+  "htmlSha256": "b56dd5f133ab7462e8c6a99acac79ed3379f378c61350d4e58c6945a51b079ca",
+  "bytes": 1352625,
+  "zipSha256": "0bfd5b785e930d9c7e82b05f51af5e53dd1bae1ddce09603b2c0bb3993af16ae",
+  "rebuiltIdentical": true,
+  "workingSourceMatches": true,
+  "tests": {
+    "pass": 284,
+    "fail": 0
+  },
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-b56dd5f133ab",
+  "status": "final_build_verified"
+}

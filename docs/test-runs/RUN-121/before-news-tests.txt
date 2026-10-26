@@ -1,0 +1,59 @@
+✔ development news precedes operating warnings in every briefing source (2.029083ms)
+✔ multiweek operating reports share one page without dropping their route details or repeating seen messages (0.439833ms)
+✔ settlement opens development news before the operation list (0.764708ms)
+✔ manual advisor excludes news already displayed, including legacy records and stale inbox copies (0.622ms)
+✖ reopening the actual advisor uses unread messages and preserves news not yet displayed (8.853042ms)
+✖ reopened weekly report rebuilds unread news but tab changes keep the current reading position (26.537875ms)
+✔ many historical news items cannot fill the suggestion limit and hide a new delivery (0.180125ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 5
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 96.422625
+
+✖ failing tests:
+
+test at ../../../../../private/tmp/airline-globe-release/before-news/tests/briefing-priority.test.cjs:18:1
+✖ reopening the actual advisor uses unread messages and preserves news not yet displayed (8.853042ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!c.advisorItems.some(n=>n.key==='rank-1'))
+  
+      at TestContext.<anonymous> (/private/tmp/airline-globe-release/before-news/tests/briefing-priority.test.cjs:22:26)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/airline-globe-release/before-news/tests/briefing-priority.test.cjs:25:1
+✖ reopened weekly report rebuilds unread news but tab changes keep the current reading position (26.537875ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!body.includes('排名提升'))
+  
+      at TestContext.<anonymous> (/private/tmp/airline-globe-release/before-news/tests/briefing-priority.test.cjs:31:47)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

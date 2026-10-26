@@ -1,0 +1,120 @@
+{
+  "keys": [
+    "skybound-save-v1",
+    "skybound-save-backup-v1",
+    "skybound-save-upgrade-backup-v1"
+  ],
+  "encoding": "JSON",
+  "chars": 268805,
+  "week": 7,
+  "date": "2026-02-16",
+  "name": "经营助手与换新接续验收",
+  "cash": 99862.88743378693,
+  "fleet": 8,
+  "routes": 9,
+  "ids": [
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "version": 1,
+  "saveRevision": 4,
+  "fleetPolicy": {
+    "years": 12,
+    "leadMonths": 6
+  },
+  "planes": [
+    {
+      "id": 4,
+      "delivery": 0
+    },
+    {
+      "id": 5,
+      "delivery": 0
+    },
+    {
+      "id": 6,
+      "delivery": 0
+    },
+    {
+      "id": 7,
+      "delivery": 0
+    },
+    {
+      "id": 8,
+      "delivery": 0
+    },
+    {
+      "id": 9,
+      "delivery": 0
+    },
+    {
+      "id": 10,
+      "delivery": 0
+    },
+    {
+      "id": 18,
+      "delivery": 0,
+      "replaceYears": 10
+    }
+  ],
+  "routePlans": [
+    {
+      "id": 2,
+      "plane": 18,
+      "freq": 7,
+      "active": true
+    },
+    {
+      "id": 3,
+      "plane": 4,
+      "freq": 7,
+      "active": true
+    },
+    {
+      "id": 11,
+      "plane": 5,
+      "freq": 7,
+      "active": true
+    },
+    {
+      "id": 12,
+      "plane": 6,
+      "freq": 7,
+      "active": true
+    },
+    {
+      "id": 13,
+      "plane": 7,
+      "freq": 7,
+      "active": true
+    },
+    {
+      "id": 14,
+      "plane": 8,
+      "freq": 7,
+      "active": true
+    },
+    {
+      "id": 15,
+      "plane": 9,
+      "freq": 7,
+      "active": true
+    },
+    {
+      "id": 16,
+      "plane": 18,
+      "freq": 5,
+      "active": true
+    },
+    {
+      "id": 17,
+      "plane": 4,
+      "freq": 5,
+      "active": true
+    }
+  ],
+  "replacementProceeds": 111.66792864062501
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "version": "before-perf",
+    "timeoutSeconds": 25,
+    "partial": "b'{\"ms\":0.002125000000006594}\\n'"
+  },
+  {
+    "version": "candidate",
+    "timeoutSeconds": 25,
+    "partial": "b'{\"ms\":0.0025419999999911624}\\n'"
+  }
+]
