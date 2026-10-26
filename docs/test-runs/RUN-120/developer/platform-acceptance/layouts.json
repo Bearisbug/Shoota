@@ -1,0 +1,2777 @@
+[
+  {
+    "label": "360x640-purchase",
+    "actions": [
+      {
+        "bottom": 519.4296875,
+        "disabled": false,
+        "height": 44,
+        "text": "再考虑一下",
+        "width": 82,
+        "x": 22,
+        "y": 475.4296875
+      },
+      {
+        "bottom": 519.4296875,
+        "disabled": false,
+        "height": 44,
+        "text": "确认购买全新",
+        "width": 226,
+        "x": 112,
+        "y": 475.4296875
+      }
+    ],
+    "height": 591,
+    "inputs": [
+      {
+        "name": "quantity",
+        "value": "3"
+      }
+    ],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "购买全新 COMAC C909",
+    "width": 360
+  },
+  {
+    "label": "390x844-purchase",
+    "actions": [
+      {
+        "bottom": 624.4296875,
+        "disabled": false,
+        "height": 44,
+        "text": "再考虑一下",
+        "width": 91,
+        "x": 24,
+        "y": 580.4296875
+      },
+      {
+        "bottom": 624.4296875,
+        "disabled": false,
+        "height": 44,
+        "text": "确认购买全新",
+        "width": 243,
+        "x": 123,
+        "y": 580.4296875
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "quantity",
+        "value": "3"
+      }
+    ],
+    "modalScrollWidth": 370,
+    "modalWidth": 370,
+    "rootWidth": 390,
+    "scrollTop": 0,
+    "title": "购买全新 COMAC C909",
+    "width": 390
+  },
+  {
+    "label": "430x932-purchase",
+    "actions": [
+      {
+        "bottom": 668.4296875,
+        "disabled": false,
+        "height": 44,
+        "text": "再考虑一下",
+        "width": 91,
+        "x": 24,
+        "y": 624.4296875
+      },
+      {
+        "bottom": 668.4296875,
+        "disabled": false,
+        "height": 44,
+        "text": "确认购买全新",
+        "width": 283,
+        "x": 123,
+        "y": 624.4296875
+      }
+    ],
+    "height": 883,
+    "inputs": [
+      {
+        "name": "quantity",
+        "value": "3"
+      }
+    ],
+    "modalScrollWidth": 410,
+    "modalWidth": 410,
+    "rootWidth": 430,
+    "scrollTop": 0,
+    "title": "购买全新 COMAC C909",
+    "width": 430
+  },
+  {
+    "label": "844x390-purchase",
+    "actions": [
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "再考虑一下",
+        "width": 91,
+        "x": 98,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "确认购买全新",
+        "width": 549,
+        "x": 197,
+        "y": 280
+      }
+    ],
+    "height": 340,
+    "inputs": [
+      {
+        "name": "quantity",
+        "value": "3"
+      }
+    ],
+    "modalScrollWidth": 680,
+    "modalWidth": 680,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "购买全新 COMAC C909",
+    "width": 844
+  },
+  {
+    "label": "768x1024-purchase",
+    "actions": [
+      {
+        "bottom": 736.609375,
+        "disabled": false,
+        "height": 44,
+        "text": "再考虑一下",
+        "width": 102,
+        "x": 444,
+        "y": 692.609375
+      },
+      {
+        "bottom": 736.609375,
+        "disabled": false,
+        "height": 44,
+        "text": "确认购买全新",
+        "width": 116,
+        "x": 554,
+        "y": 692.609375
+      }
+    ],
+    "height": 974,
+    "inputs": [
+      {
+        "name": "quantity",
+        "value": "3"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 768,
+    "scrollTop": 0,
+    "title": "购买全新 COMAC C909",
+    "width": 768
+  },
+  {
+    "label": "1366x768-purchase",
+    "actions": [
+      {
+        "bottom": 608.609375,
+        "disabled": false,
+        "height": 44,
+        "text": "再考虑一下",
+        "width": 102,
+        "x": 743,
+        "y": 564.609375
+      },
+      {
+        "bottom": 608.609375,
+        "disabled": false,
+        "height": 44,
+        "text": "确认购买全新",
+        "width": 116,
+        "x": 853,
+        "y": 564.609375
+      }
+    ],
+    "height": 718,
+    "inputs": [
+      {
+        "name": "quantity",
+        "value": "3"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 1366,
+    "scrollTop": 0,
+    "title": "购买全新 COMAC C909",
+    "width": 1366
+  },
+  {
+    "label": "1440x900-purchase",
+    "actions": [
+      {
+        "bottom": 674.609375,
+        "disabled": false,
+        "height": 44,
+        "text": "再考虑一下",
+        "width": 102,
+        "x": 780,
+        "y": 630.609375
+      },
+      {
+        "bottom": 674.609375,
+        "disabled": false,
+        "height": 44,
+        "text": "确认购买全新",
+        "width": 116,
+        "x": 890,
+        "y": 630.609375
+      }
+    ],
+    "height": 850,
+    "inputs": [
+      {
+        "name": "quantity",
+        "value": "3"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 1440,
+    "scrollTop": 0,
+    "title": "购买全新 COMAC C909",
+    "width": 1440
+  },
+  {
+    "label": "360x640-story",
+    "actions": [],
+    "height": 591,
+    "inputs": [],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "杭州 · 区域开发与交通协同",
+    "width": 360
+  },
+  {
+    "label": "390x844-story",
+    "actions": [],
+    "height": 795,
+    "inputs": [],
+    "modalScrollWidth": 370,
+    "modalWidth": 370,
+    "rootWidth": 390,
+    "scrollTop": 0,
+    "title": "杭州 · 区域开发与交通协同",
+    "width": 390
+  },
+  {
+    "label": "430x932-story",
+    "actions": [],
+    "height": 883,
+    "inputs": [],
+    "modalScrollWidth": 410,
+    "modalWidth": 410,
+    "rootWidth": 430,
+    "scrollTop": 0,
+    "title": "杭州 · 区域开发与交通协同",
+    "width": 430
+  },
+  {
+    "label": "844x390-story",
+    "actions": [],
+    "height": 340,
+    "inputs": [],
+    "modalScrollWidth": 740,
+    "modalWidth": 740,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "杭州 · 区域开发与交通协同",
+    "width": 844
+  },
+  {
+    "label": "768x1024-story",
+    "actions": [],
+    "height": 974,
+    "inputs": [],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 768,
+    "scrollTop": 0,
+    "title": "杭州 · 区域开发与交通协同",
+    "width": 768
+  },
+  {
+    "label": "1366x768-story",
+    "actions": [],
+    "height": 718,
+    "inputs": [],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 1366,
+    "scrollTop": 0,
+    "title": "杭州 · 区域开发与交通协同",
+    "width": 1366
+  },
+  {
+    "label": "1440x900-story",
+    "actions": [],
+    "height": 850,
+    "inputs": [],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 1440,
+    "scrollTop": 0,
+    "title": "杭州 · 区域开发与交通协同",
+    "width": 1440
+  },
+  {
+    "label": "360x640-report",
+    "actions": [
+      {
+        "bottom": 569.78125,
+        "disabled": false,
+        "height": 44,
+        "text": "返回经营",
+        "width": 70,
+        "x": 22,
+        "y": 525.78125
+      },
+      {
+        "bottom": 569.78125,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 238,
+        "x": 100,
+        "y": 525.78125
+      }
+    ],
+    "height": 591,
+    "inputs": [],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "模拟完成 · 5/5 周",
+    "width": 360
+  },
+  {
+    "label": "390x844-report",
+    "actions": [
+      {
+        "bottom": 674.78125,
+        "disabled": false,
+        "height": 44,
+        "text": "返回经营",
+        "width": 78,
+        "x": 24,
+        "y": 630.78125
+      },
+      {
+        "bottom": 674.78125,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 256,
+        "x": 110,
+        "y": 630.78125
+      }
+    ],
+    "height": 795,
+    "inputs": [],
+    "modalScrollWidth": 370,
+    "modalWidth": 370,
+    "rootWidth": 390,
+    "scrollTop": 0,
+    "title": "模拟完成 · 5/5 周",
+    "width": 390
+  },
+  {
+    "label": "430x932-report",
+    "actions": [
+      {
+        "bottom": 718.78125,
+        "disabled": false,
+        "height": 44,
+        "text": "返回经营",
+        "width": 78,
+        "x": 24,
+        "y": 674.78125
+      },
+      {
+        "bottom": 718.78125,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 296,
+        "x": 110,
+        "y": 674.78125
+      }
+    ],
+    "height": 883,
+    "inputs": [],
+    "modalScrollWidth": 410,
+    "modalWidth": 410,
+    "rootWidth": 430,
+    "scrollTop": 0,
+    "title": "模拟完成 · 5/5 周",
+    "width": 430
+  },
+  {
+    "label": "844x390-report",
+    "actions": [
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "返回经营",
+        "width": 78,
+        "x": 28,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 702,
+        "x": 114,
+        "y": 280
+      }
+    ],
+    "height": 340,
+    "inputs": [],
+    "modalScrollWidth": 820,
+    "modalWidth": 820,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "模拟完成 · 5/5 周",
+    "width": 844
+  },
+  {
+    "label": "768x1024-report",
+    "actions": [
+      {
+        "bottom": 785.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "返回经营",
+        "width": 88,
+        "x": 505,
+        "y": 741.9609375
+      },
+      {
+        "bottom": 785.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 123,
+        "x": 601,
+        "y": 741.9609375
+      }
+    ],
+    "height": 974,
+    "inputs": [],
+    "modalScrollWidth": 728,
+    "modalWidth": 728,
+    "rootWidth": 768,
+    "scrollTop": 0,
+    "title": "模拟完成 · 5/5 周",
+    "width": 768
+  },
+  {
+    "label": "1366x768-report",
+    "actions": [
+      {
+        "bottom": 657.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "返回经营",
+        "width": 88,
+        "x": 850,
+        "y": 613.9609375
+      },
+      {
+        "bottom": 657.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 123,
+        "x": 946,
+        "y": 613.9609375
+      }
+    ],
+    "height": 718,
+    "inputs": [],
+    "modalScrollWidth": 820,
+    "modalWidth": 820,
+    "rootWidth": 1366,
+    "scrollTop": 0,
+    "title": "模拟完成 · 5/5 周",
+    "width": 1366
+  },
+  {
+    "label": "1440x900-report",
+    "actions": [
+      {
+        "bottom": 723.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "返回经营",
+        "width": 88,
+        "x": 887,
+        "y": 679.9609375
+      },
+      {
+        "bottom": 723.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 123,
+        "x": 983,
+        "y": 679.9609375
+      }
+    ],
+    "height": 850,
+    "inputs": [],
+    "modalScrollWidth": 820,
+    "modalWidth": 820,
+    "rootWidth": 1440,
+    "scrollTop": 0,
+    "title": "模拟完成 · 5/5 周",
+    "width": 1440
+  },
+  {
+    "label": "360x640-overview",
+    "actions": [
+      {
+        "bottom": 520.5,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 110,
+        "x": 157.875,
+        "y": 476.5
+      },
+      {
+        "bottom": 520.5,
+        "disabled": false,
+        "height": 44,
+        "text": "快进 5 周",
+        "width": 74.125,
+        "x": 273.875,
+        "y": 476.5
+      }
+    ],
+    "height": 591,
+    "inputs": [
+      {
+        "name": "mobile-view",
+        "value": "<redacted>"
+      }
+    ],
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "width": 360
+  },
+  {
+    "label": "390x844-overview",
+    "actions": [
+      {
+        "bottom": 724.5,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 110,
+        "x": 183.875,
+        "y": 680.5
+      },
+      {
+        "bottom": 724.5,
+        "disabled": false,
+        "height": 44,
+        "text": "快进 5 周",
+        "width": 74.125,
+        "x": 299.875,
+        "y": 680.5
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "mobile-view",
+        "value": "<redacted>"
+      }
+    ],
+    "rootWidth": 390,
+    "scrollTop": 0,
+    "width": 390
+  },
+  {
+    "label": "430x932-overview",
+    "actions": [
+      {
+        "bottom": 812.5,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 110,
+        "x": 223.875,
+        "y": 768.5
+      },
+      {
+        "bottom": 812.5,
+        "disabled": false,
+        "height": 44,
+        "text": "快进 5 周",
+        "width": 74.125,
+        "x": 339.875,
+        "y": 768.5
+      }
+    ],
+    "height": 883,
+    "inputs": [
+      {
+        "name": "mobile-view",
+        "value": "<redacted>"
+      }
+    ],
+    "rootWidth": 430,
+    "scrollTop": 0,
+    "width": 430
+  },
+  {
+    "label": "844x390-overview",
+    "actions": [
+      {
+        "bottom": 265,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 144,
+        "x": 677,
+        "y": 221
+      },
+      {
+        "bottom": 315,
+        "disabled": false,
+        "height": 44,
+        "text": "快进 5 周",
+        "width": 144,
+        "x": 677,
+        "y": 271
+      }
+    ],
+    "height": 340,
+    "inputs": [
+      {
+        "name": "mobile-view",
+        "value": "<redacted>"
+      }
+    ],
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "width": 844
+  },
+  {
+    "label": "768x1024-overview",
+    "actions": [
+      {
+        "bottom": 53.5,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 150,
+        "x": 487.921875,
+        "y": 9.5
+      },
+      {
+        "bottom": 53.5,
+        "disabled": false,
+        "height": 44,
+        "text": "快进 5 周",
+        "width": 105.078125,
+        "x": 644.921875,
+        "y": 9.5
+      }
+    ],
+    "height": 974,
+    "inputs": [],
+    "rootWidth": 768,
+    "scrollTop": 0,
+    "width": 768
+  },
+  {
+    "label": "1366x768-overview",
+    "actions": [
+      {
+        "bottom": 53.5,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 150,
+        "x": 1073.921875,
+        "y": 9.5
+      },
+      {
+        "bottom": 53.5,
+        "disabled": false,
+        "height": 44,
+        "text": "快进 5 周",
+        "width": 105.078125,
+        "x": 1230.921875,
+        "y": 9.5
+      }
+    ],
+    "height": 718,
+    "inputs": [],
+    "rootWidth": 1366,
+    "scrollTop": 0,
+    "width": 1366
+  },
+  {
+    "label": "1440x900-overview",
+    "actions": [
+      {
+        "bottom": 53.5,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 150,
+        "x": 1147.921875,
+        "y": 9.5
+      },
+      {
+        "bottom": 53.5,
+        "disabled": false,
+        "height": 44,
+        "text": "快进 5 周",
+        "width": 105.078125,
+        "x": 1304.921875,
+        "y": 9.5
+      }
+    ],
+    "height": 850,
+    "inputs": [],
+    "rootWidth": 1440,
+    "scrollTop": 0,
+    "width": 1440
+  },
+  {
+    "label": "360-lease",
+    "actions": [
+      {
+        "bottom": 540.6796875,
+        "disabled": false,
+        "height": 44,
+        "text": "再考虑一下",
+        "width": 82,
+        "x": 22,
+        "y": 496.6796875
+      },
+      {
+        "bottom": 540.6796875,
+        "disabled": false,
+        "height": 44,
+        "text": "确认租赁",
+        "width": 226,
+        "x": 112,
+        "y": 496.6796875
+      }
+    ],
+    "height": 591,
+    "inputs": [
+      {
+        "name": "quantity",
+        "value": "2"
+      },
+      {
+        "name": "lease-lessor",
+        "value": "skybridge"
+      }
+    ],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "租赁 COMAC C909",
+    "width": 360
+  },
+  {
+    "label": "360-real-delivery-first",
+    "actions": [
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 46,
+        "x": 22,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 70,
+        "x": 76,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "安排飞机",
+        "width": 184,
+        "x": 154,
+        "y": 528
+      }
+    ],
+    "height": 591,
+    "inputs": [],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "经营顾问",
+    "width": 360
+  },
+  {
+    "label": "844-used-purchase",
+    "actions": [
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "再考虑一下",
+        "width": 91,
+        "x": 98,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "确认购买二手",
+        "width": 549,
+        "x": 197,
+        "y": 280
+      }
+    ],
+    "height": 340,
+    "inputs": [
+      {
+        "name": "quantity",
+        "value": "2"
+      }
+    ],
+    "modalScrollWidth": 680,
+    "modalWidth": 680,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "购买二手 COMAC C909",
+    "width": 844
+  },
+  {
+    "label": "844-delivery-after-choice",
+    "actions": [
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 52,
+        "x": 68,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 78,
+        "x": 128,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "安排飞机",
+        "width": 562,
+        "x": 214,
+        "y": 280
+      }
+    ],
+    "height": 340,
+    "inputs": [],
+    "modalScrollWidth": 740,
+    "modalWidth": 740,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "经营顾问",
+    "width": 844
+  },
+  {
+    "label": "1366-keyboard-purchase",
+    "actions": [
+      {
+        "bottom": 608.609375,
+        "disabled": false,
+        "height": 44,
+        "text": "再考虑一下",
+        "width": 102,
+        "x": 743,
+        "y": 564.609375
+      },
+      {
+        "bottom": 608.609375,
+        "disabled": false,
+        "height": 44,
+        "text": "确认购买全新",
+        "width": 116,
+        "x": 853,
+        "y": 564.609375
+      }
+    ],
+    "height": 718,
+    "inputs": [
+      {
+        "name": "quantity",
+        "value": "4"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 1366,
+    "scrollTop": 0,
+    "title": "购买全新 Embraer E190-E2",
+    "width": 1366
+  },
+  {
+    "label": "1366-multiweek-operations",
+    "actions": [
+      {
+        "bottom": 637.6484375,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 60,
+        "x": 675,
+        "y": 593.6484375
+      },
+      {
+        "bottom": 637.6484375,
+        "disabled": false,
+        "height": 44,
+        "text": "延误保障",
+        "width": 109,
+        "x": 743,
+        "y": 593.6484375
+      },
+      {
+        "bottom": 637.6484375,
+        "disabled": false,
+        "height": 44,
+        "text": "安排航线",
+        "width": 109,
+        "x": 860,
+        "y": 593.6484375
+      }
+    ],
+    "height": 718,
+    "inputs": [],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 1366,
+    "scrollTop": 0,
+    "title": "延误保障与运力清单",
+    "width": 1366
+  },
+  {
+    "label": "1366-reloaded-purchase",
+    "actions": [
+      {
+        "bottom": 53.5,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 150,
+        "x": 1073.921875,
+        "y": 9.5
+      },
+      {
+        "bottom": 53.5,
+        "disabled": false,
+        "height": 44,
+        "text": "快进 5 周",
+        "width": 105.078125,
+        "x": 1230.921875,
+        "y": 9.5
+      }
+    ],
+    "height": 718,
+    "inputs": [],
+    "rootWidth": 1366,
+    "scrollTop": 0,
+    "width": 1366
+  },
+  {
+    "label": "360x640-route-selection",
+    "actions": [
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 46,
+        "x": 22,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "下一步",
+        "width": 262,
+        "x": 76,
+        "y": 528
+      }
+    ],
+    "height": 591,
+    "inputs": [
+      {
+        "name": "from",
+        "value": "HGH"
+      },
+      {
+        "name": "country",
+        "value": "俄罗斯"
+      },
+      {
+        "name": "to",
+        "value": "VVO"
+      },
+      {
+        "name": "plane",
+        "value": "20"
+      }
+    ],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 360
+  },
+  {
+    "label": "390x844-route-selection",
+    "actions": [
+      {
+        "bottom": 703.890625,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 52,
+        "x": 24,
+        "y": 659.890625
+      },
+      {
+        "bottom": 703.890625,
+        "disabled": false,
+        "height": 44,
+        "text": "下一步",
+        "width": 282,
+        "x": 84,
+        "y": 659.890625
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "from",
+        "value": "HGH"
+      },
+      {
+        "name": "country",
+        "value": "俄罗斯"
+      },
+      {
+        "name": "to",
+        "value": "VVO"
+      },
+      {
+        "name": "plane",
+        "value": "20"
+      }
+    ],
+    "modalScrollWidth": 370,
+    "modalWidth": 370,
+    "rootWidth": 390,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 390
+  },
+  {
+    "label": "430x932-route-selection",
+    "actions": [
+      {
+        "bottom": 747.890625,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 52,
+        "x": 24,
+        "y": 703.890625
+      },
+      {
+        "bottom": 747.890625,
+        "disabled": false,
+        "height": 44,
+        "text": "下一步",
+        "width": 322,
+        "x": 84,
+        "y": 703.890625
+      }
+    ],
+    "height": 883,
+    "inputs": [
+      {
+        "name": "from",
+        "value": "HGH"
+      },
+      {
+        "name": "country",
+        "value": "俄罗斯"
+      },
+      {
+        "name": "to",
+        "value": "VVO"
+      },
+      {
+        "name": "plane",
+        "value": "20"
+      }
+    ],
+    "modalScrollWidth": 410,
+    "modalWidth": 410,
+    "rootWidth": 430,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 430
+  },
+  {
+    "label": "844x390-route-selection",
+    "actions": [
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 52,
+        "x": 28,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "下一步",
+        "width": 728,
+        "x": 88,
+        "y": 280
+      }
+    ],
+    "height": 340,
+    "inputs": [
+      {
+        "name": "from",
+        "value": "HGH"
+      },
+      {
+        "name": "country",
+        "value": "俄罗斯"
+      },
+      {
+        "name": "to",
+        "value": "VVO"
+      },
+      {
+        "name": "plane",
+        "value": "20"
+      }
+    ],
+    "modalScrollWidth": 820,
+    "modalWidth": 820,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 844
+  },
+  {
+    "label": "768x1024-route-selection",
+    "actions": [
+      {
+        "bottom": 769.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 60,
+        "x": 561,
+        "y": 725.9609375
+      },
+      {
+        "bottom": 769.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "下一步",
+        "width": 95,
+        "x": 629,
+        "y": 725.9609375
+      }
+    ],
+    "height": 974,
+    "inputs": [
+      {
+        "name": "from",
+        "value": "HGH"
+      },
+      {
+        "name": "country",
+        "value": "俄罗斯"
+      },
+      {
+        "name": "to",
+        "value": "VVO"
+      },
+      {
+        "name": "plane",
+        "value": "20"
+      }
+    ],
+    "modalScrollWidth": 728,
+    "modalWidth": 728,
+    "rootWidth": 768,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 768
+  },
+  {
+    "label": "1366x768-route-selection",
+    "actions": [
+      {
+        "bottom": 641.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 60,
+        "x": 906,
+        "y": 597.9609375
+      },
+      {
+        "bottom": 641.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "下一步",
+        "width": 95,
+        "x": 974,
+        "y": 597.9609375
+      }
+    ],
+    "height": 718,
+    "inputs": [
+      {
+        "name": "from",
+        "value": "HGH"
+      },
+      {
+        "name": "country",
+        "value": "俄罗斯"
+      },
+      {
+        "name": "to",
+        "value": "VVO"
+      },
+      {
+        "name": "plane",
+        "value": "20"
+      }
+    ],
+    "modalScrollWidth": 820,
+    "modalWidth": 820,
+    "rootWidth": 1366,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 1366
+  },
+  {
+    "label": "1440x900-route-selection",
+    "actions": [
+      {
+        "bottom": 707.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 60,
+        "x": 943,
+        "y": 663.9609375
+      },
+      {
+        "bottom": 707.9609375,
+        "disabled": false,
+        "height": 44,
+        "text": "下一步",
+        "width": 95,
+        "x": 1011,
+        "y": 663.9609375
+      }
+    ],
+    "height": 850,
+    "inputs": [
+      {
+        "name": "from",
+        "value": "HGH"
+      },
+      {
+        "name": "country",
+        "value": "俄罗斯"
+      },
+      {
+        "name": "to",
+        "value": "VVO"
+      },
+      {
+        "name": "plane",
+        "value": "20"
+      }
+    ],
+    "modalScrollWidth": 820,
+    "modalWidth": 820,
+    "rootWidth": 1440,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 1440
+  },
+  {
+    "label": "360x640-route-quote",
+    "actions": [
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 46,
+        "x": 22,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 58,
+        "x": 76,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "支付并开通航线",
+        "width": 196,
+        "x": 142,
+        "y": 528
+      }
+    ],
+    "height": 591,
+    "inputs": [
+      {
+        "name": "freq",
+        "value": "3"
+      },
+      {
+        "name": "price",
+        "value": "1"
+      }
+    ],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 360
+  },
+  {
+    "label": "390x844-route-quote",
+    "actions": [
+      {
+        "bottom": 775,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 52,
+        "x": 24,
+        "y": 731
+      },
+      {
+        "bottom": 775,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 84,
+        "y": 731
+      },
+      {
+        "bottom": 775,
+        "disabled": false,
+        "height": 44,
+        "text": "支付并开通航线",
+        "width": 209,
+        "x": 157,
+        "y": 731
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "freq",
+        "value": "3"
+      },
+      {
+        "name": "price",
+        "value": "1"
+      }
+    ],
+    "modalScrollWidth": 370,
+    "modalWidth": 370,
+    "rootWidth": 390,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 390
+  },
+  {
+    "label": "430x932-route-quote",
+    "actions": [
+      {
+        "bottom": 830.1796875,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 52,
+        "x": 24,
+        "y": 786.1796875
+      },
+      {
+        "bottom": 830.1796875,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 84,
+        "y": 786.1796875
+      },
+      {
+        "bottom": 830.1796875,
+        "disabled": false,
+        "height": 44,
+        "text": "支付并开通航线",
+        "width": 249,
+        "x": 157,
+        "y": 786.1796875
+      }
+    ],
+    "height": 883,
+    "inputs": [
+      {
+        "name": "freq",
+        "value": "3"
+      },
+      {
+        "name": "price",
+        "value": "1"
+      }
+    ],
+    "modalScrollWidth": 410,
+    "modalWidth": 410,
+    "rootWidth": 430,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 430
+  },
+  {
+    "label": "844x390-route-quote",
+    "actions": [
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 52,
+        "x": 28,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 88,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "支付并开通航线",
+        "width": 655,
+        "x": 161,
+        "y": 280
+      }
+    ],
+    "height": 340,
+    "inputs": [
+      {
+        "name": "freq",
+        "value": "3"
+      },
+      {
+        "name": "price",
+        "value": "1"
+      }
+    ],
+    "modalScrollWidth": 820,
+    "modalWidth": 820,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 844
+  },
+  {
+    "label": "768x1024-route-quote",
+    "actions": [
+      {
+        "bottom": 847.7578125,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 60,
+        "x": 444,
+        "y": 803.7578125
+      },
+      {
+        "bottom": 847.7578125,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 74,
+        "x": 512,
+        "y": 803.7578125
+      },
+      {
+        "bottom": 847.7578125,
+        "disabled": false,
+        "height": 44,
+        "text": "支付并开通航线",
+        "width": 130,
+        "x": 594,
+        "y": 803.7578125
+      }
+    ],
+    "height": 974,
+    "inputs": [
+      {
+        "name": "freq",
+        "value": "3"
+      },
+      {
+        "name": "price",
+        "value": "1"
+      }
+    ],
+    "modalScrollWidth": 728,
+    "modalWidth": 728,
+    "rootWidth": 768,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 768
+  },
+  {
+    "label": "1366x768-route-quote",
+    "actions": [
+      {
+        "bottom": 684,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 60,
+        "x": 789,
+        "y": 640
+      },
+      {
+        "bottom": 684,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 74,
+        "x": 857,
+        "y": 640
+      },
+      {
+        "bottom": 684,
+        "disabled": false,
+        "height": 44,
+        "text": "支付并开通航线",
+        "width": 130,
+        "x": 939,
+        "y": 640
+      }
+    ],
+    "height": 718,
+    "inputs": [
+      {
+        "name": "freq",
+        "value": "3"
+      },
+      {
+        "name": "price",
+        "value": "1"
+      }
+    ],
+    "modalScrollWidth": 820,
+    "modalWidth": 820,
+    "rootWidth": 1366,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 1366
+  },
+  {
+    "label": "1440x900-route-quote",
+    "actions": [
+      {
+        "bottom": 777.0078125,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 60,
+        "x": 826,
+        "y": 733.0078125
+      },
+      {
+        "bottom": 777.0078125,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 74,
+        "x": 894,
+        "y": 733.0078125
+      },
+      {
+        "bottom": 777.0078125,
+        "disabled": false,
+        "height": 44,
+        "text": "支付并开通航线",
+        "width": 130,
+        "x": 976,
+        "y": 733.0078125
+      }
+    ],
+    "height": 850,
+    "inputs": [
+      {
+        "name": "freq",
+        "value": "3"
+      },
+      {
+        "name": "price",
+        "value": "1"
+      }
+    ],
+    "modalScrollWidth": 820,
+    "modalWidth": 820,
+    "rootWidth": 1440,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 1440
+  },
+  {
+    "label": "844-stopover",
+    "actions": [
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "取消",
+        "width": 52,
+        "x": 28,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 88,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "下一步",
+        "width": 655,
+        "x": 161,
+        "y": 280
+      }
+    ],
+    "height": 340,
+    "inputs": [
+      {
+        "name": "viaCountry",
+        "value": "俄罗斯"
+      },
+      {
+        "name": "via",
+        "value": "OVB"
+      },
+      {
+        "name": "stopMinutes",
+        "value": "90"
+      }
+    ],
+    "modalScrollWidth": 820,
+    "modalWidth": 820,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "开通一条新航线",
+    "width": 844
+  },
+  {
+    "label": "390-vvo-timetable",
+    "actions": [
+      {
+        "bottom": 658.71875,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 52,
+        "x": 24,
+        "y": 614.71875
+      },
+      {
+        "bottom": 658.71875,
+        "disabled": false,
+        "height": 44,
+        "text": "管理舱位",
+        "width": 99,
+        "x": 84,
+        "y": 614.71875
+      },
+      {
+        "bottom": 658.71875,
+        "disabled": false,
+        "height": 44,
+        "text": "调整时刻",
+        "width": 175,
+        "x": 191,
+        "y": 614.71875
+      }
+    ],
+    "height": 795,
+    "inputs": [],
+    "modalScrollWidth": 370,
+    "modalWidth": 370,
+    "rootWidth": 390,
+    "scrollTop": 0,
+    "title": "航班详情",
+    "width": 390
+  },
+  {
+    "label": "390-russia-market-last",
+    "actions": [
+      {
+        "bottom": 724.5,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 110,
+        "x": 183.875,
+        "y": 680.5
+      },
+      {
+        "bottom": 724.5,
+        "disabled": false,
+        "height": 44,
+        "text": "快进 5 周",
+        "width": 74.125,
+        "x": 299.875,
+        "y": 680.5
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "mobile-view",
+        "value": "<redacted>"
+      },
+      {
+        "name": "insight-base",
+        "value": "HGH"
+      },
+      {
+        "name": "insight-country",
+        "value": "俄罗斯"
+      },
+      {
+        "name": "insight-sort",
+        "value": "gap"
+      }
+    ],
+    "rootWidth": 390,
+    "scrollTop": 0,
+    "width": 390
+  },
+  {
+    "label": "390-reloaded-routes",
+    "actions": [
+      {
+        "bottom": 724.5,
+        "disabled": false,
+        "height": 44,
+        "text": "经营下一周",
+        "width": 110,
+        "x": 183.875,
+        "y": 680.5
+      },
+      {
+        "bottom": 724.5,
+        "disabled": false,
+        "height": 44,
+        "text": "快进 5 周",
+        "width": 74.125,
+        "x": 299.875,
+        "y": 680.5
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "mobile-view",
+        "value": "<redacted>"
+      }
+    ],
+    "rootWidth": 390,
+    "scrollTop": 0,
+    "width": 390
+  },
+  {
+    "label": "320x568-new-game",
+    "actions": [
+      {
+        "bottom": 500,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 58,
+        "x": 22,
+        "y": 456
+      },
+      {
+        "bottom": 500,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 210,
+        "x": 88,
+        "y": 456
+      }
+    ],
+    "height": 519,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 300,
+    "modalWidth": 300,
+    "rootWidth": 320,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 320
+  },
+  {
+    "label": "390x600-new-game",
+    "actions": [
+      {
+        "bottom": 531,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 24,
+        "y": 487
+      },
+      {
+        "bottom": 531,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 269,
+        "x": 97,
+        "y": 487
+      }
+    ],
+    "height": 551,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 370,
+    "modalWidth": 370,
+    "rootWidth": 390,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 390
+  },
+  {
+    "label": "599x844-new-game",
+    "actions": [
+      {
+        "bottom": 658.2265625,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 24,
+        "y": 614.2265625
+      },
+      {
+        "bottom": 658.2265625,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 478,
+        "x": 97,
+        "y": 614.2265625
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 579,
+    "modalWidth": 579,
+    "rootWidth": 599,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 599
+  },
+  {
+    "label": "600x844-new-game",
+    "actions": [
+      {
+        "bottom": 658.2265625,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 24,
+        "y": 614.2265625
+      },
+      {
+        "bottom": 658.2265625,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 479,
+        "x": 97,
+        "y": 614.2265625
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 580,
+    "modalWidth": 580,
+    "rootWidth": 600,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 600
+  },
+  {
+    "label": "601x844-new-game",
+    "actions": [
+      {
+        "bottom": 658.2265625,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 24,
+        "y": 614.2265625
+      },
+      {
+        "bottom": 658.2265625,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 480,
+        "x": 97,
+        "y": 614.2265625
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 581,
+    "modalWidth": 581,
+    "rootWidth": 601,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 601
+  },
+  {
+    "label": "699x844-new-game",
+    "actions": [
+      {
+        "bottom": 658.2265625,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 53.5,
+        "y": 614.2265625
+      },
+      {
+        "bottom": 658.2265625,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 519,
+        "x": 126.5,
+        "y": 614.2265625
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 699,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 699
+  },
+  {
+    "label": "700x844-new-game",
+    "actions": [
+      {
+        "bottom": 658.2265625,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 54,
+        "y": 614.2265625
+      },
+      {
+        "bottom": 658.2265625,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 519,
+        "x": 127,
+        "y": 614.2265625
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 700,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 700
+  },
+  {
+    "label": "701x844-new-game",
+    "actions": [
+      {
+        "bottom": 690.3046875,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 74,
+        "x": 417.5,
+        "y": 646.3046875
+      },
+      {
+        "bottom": 690.3046875,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 137,
+        "x": 499.5,
+        "y": 646.3046875
+      }
+    ],
+    "height": 795,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 701,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 701
+  },
+  {
+    "label": "959x768-new-game",
+    "actions": [
+      {
+        "bottom": 651.8046875,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 74,
+        "x": 546.5,
+        "y": 607.8046875
+      },
+      {
+        "bottom": 651.8046875,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 137,
+        "x": 628.5,
+        "y": 607.8046875
+      }
+    ],
+    "height": 718,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 959,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 959
+  },
+  {
+    "label": "960x768-new-game",
+    "actions": [
+      {
+        "bottom": 651.8046875,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 74,
+        "x": 547,
+        "y": 607.8046875
+      },
+      {
+        "bottom": 651.8046875,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 137,
+        "x": 629,
+        "y": 607.8046875
+      }
+    ],
+    "height": 718,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 960,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 960
+  },
+  {
+    "label": "961x768-new-game",
+    "actions": [
+      {
+        "bottom": 651.8046875,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 74,
+        "x": 547.5,
+        "y": 607.8046875
+      },
+      {
+        "bottom": 651.8046875,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 137,
+        "x": 629.5,
+        "y": 607.8046875
+      }
+    ],
+    "height": 718,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 961,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 961
+  },
+  {
+    "label": "844x549-new-game",
+    "actions": [
+      {
+        "bottom": 483,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 68,
+        "y": 439
+      },
+      {
+        "bottom": 483,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 635,
+        "x": 141,
+        "y": 439
+      }
+    ],
+    "height": 499,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 740,
+    "modalWidth": 740,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 844
+  },
+  {
+    "label": "844x550-new-game",
+    "actions": [
+      {
+        "bottom": 484,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 65,
+        "x": 68,
+        "y": 440
+      },
+      {
+        "bottom": 484,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 635,
+        "x": 141,
+        "y": 440
+      }
+    ],
+    "height": 500,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 740,
+    "modalWidth": 740,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 844
+  },
+  {
+    "label": "844x551-new-game",
+    "actions": [
+      {
+        "bottom": 467,
+        "disabled": false,
+        "height": 44,
+        "text": "上一步",
+        "width": 74,
+        "x": 489,
+        "y": 423
+      },
+      {
+        "bottom": 467,
+        "disabled": false,
+        "height": 44,
+        "text": "查看首航计划 ",
+        "width": 137,
+        "x": 571,
+        "y": 423
+      }
+    ],
+    "height": 501,
+    "inputs": [
+      {
+        "name": "name",
+        "value": "蓝天梦想Skybound成都航空"
+      },
+      {
+        "name": "province",
+        "value": "四川省"
+      },
+      {
+        "name": "base",
+        "value": "CTU"
+      }
+    ],
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "从这里，写下航司的名字。",
+    "width": 844
+  },
+  {
+    "label": "360-new-game-settled",
+    "actions": [
+      {
+        "bottom": 559.7265625,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 46,
+        "x": 22,
+        "y": 515.7265625
+      },
+      {
+        "bottom": 559.7265625,
+        "disabled": false,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 70,
+        "x": 76,
+        "y": 515.7265625
+      },
+      {
+        "bottom": 559.7265625,
+        "disabled": false,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 184,
+        "x": 154,
+        "y": 515.7265625
+      }
+    ],
+    "height": 591,
+    "inputs": [],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "经营顾问",
+    "width": 360
+  },
+  {
+    "label": "360-long-ranking",
+    "actions": [
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 46,
+        "x": 22,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 70,
+        "x": 76,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 184,
+        "x": 154,
+        "y": 528
+      }
+    ],
+    "height": 591,
+    "inputs": [],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "经营顾问",
+    "width": 360
+  },
+  {
+    "label": "360-operation-last",
+    "actions": [
+      {
+        "bottom": 566.53125,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 46,
+        "x": 22,
+        "y": 522.53125
+      },
+      {
+        "bottom": 566.53125,
+        "disabled": false,
+        "height": 44,
+        "text": "延误保障",
+        "width": 91,
+        "x": 76,
+        "y": 522.53125
+      },
+      {
+        "bottom": 566.53125,
+        "disabled": false,
+        "height": 44,
+        "text": "安排航线",
+        "width": 163,
+        "x": 175,
+        "y": 522.53125
+      }
+    ],
+    "height": 591,
+    "inputs": [],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "延误保障与运力清单",
+    "width": 360
+  },
+  {
+    "label": "844-operation-last",
+    "actions": [
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 52,
+        "x": 68,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "延误保障",
+        "width": 99,
+        "x": 128,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "disabled": false,
+        "height": 44,
+        "text": "安排航线",
+        "width": 541,
+        "x": 235,
+        "y": 280
+      }
+    ],
+    "height": 340,
+    "inputs": [],
+    "modalScrollWidth": 740,
+    "modalWidth": 740,
+    "rootWidth": 844,
+    "scrollTop": 0,
+    "title": "延误保障与运力清单",
+    "width": 844
+  },
+  {
+    "label": "360-long-ranking-bottom",
+    "actions": [
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 46,
+        "x": 22,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 70,
+        "x": 76,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 184,
+        "x": 154,
+        "y": 528
+      }
+    ],
+    "height": 591,
+    "inputs": [],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "经营顾问",
+    "width": 360
+  },
+  {
+    "label": "360-long-ranking-bottom",
+    "actions": [
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 46,
+        "x": 22,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 70,
+        "x": 76,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 184,
+        "x": 154,
+        "y": 528
+      }
+    ],
+    "height": 591,
+    "inputs": [],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "经营顾问",
+    "width": 360
+  },
+  {
+    "label": "360-long-ranking-bottom",
+    "actions": [
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "关闭",
+        "width": 46,
+        "x": 22,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 70,
+        "x": 76,
+        "y": 528
+      },
+      {
+        "bottom": 572,
+        "disabled": false,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 184,
+        "x": 154,
+        "y": 528
+      }
+    ],
+    "height": 591,
+    "inputs": [],
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootWidth": 360,
+    "scrollTop": 0,
+    "title": "经营顾问",
+    "width": 360
+  }
+]

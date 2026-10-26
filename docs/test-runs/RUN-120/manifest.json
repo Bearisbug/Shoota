@@ -1,0 +1,18 @@
+{
+  "version": "2026-10-26-d6df70d39527",
+  "scope": "经营发展动态优先；多周运行清单合并；经营计算提速（不改经营数值）",
+  "html": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-d6df70d39527/云际航空.html",
+  "htmlSha256": "d6df70d3952729d116ab03dd6abb646d7dcae556f3a208ccf3ae0c501a411757",
+  "zip": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-d6df70d39527/云际航空-离线版.zip",
+  "zipSha256": "20e186172ce433b67bb05cfeceed20d62378f368f8d048497a69dd7208e5f05c",
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-d6df70d39527/source",
+  "sourceManifestSha256": "434edb230d840f4c511a6f962eae07fed07dfbe11ff36f240e1faf3281a84127",
+  "tests": {
+    "pass": 249,
+    "fail": 0
+  },
+  "saveCompatible": true,
+  "published": false,
+  "fullReleaseViewportAcceptance": "pending",
+  "focusedBrowserFlows": "passed; news priority, delivery, merged operating notices, 4-viewport five-week advance and 7-viewport notice checks"
+}

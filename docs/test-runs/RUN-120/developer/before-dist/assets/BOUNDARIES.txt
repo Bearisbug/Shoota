@@ -1,0 +1,4 @@
+Natural Earth Admin 0 land boundary lines, 1:110m v5.1.0. Public domain.
+https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-boundary-lines/
+https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_boundary_lines_land.zip
+Downloaded 2026-10-25; coordinates rounded to 0.001 degrees. Land boundaries only; no maritime boundaries.

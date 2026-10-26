@@ -1,0 +1,73 @@
+✖ development news precedes operating warnings in every briefing source (2.387709ms)
+✖ multiweek operating reports share one page without dropping their route details or repeating seen messages (0.152875ms)
+✖ settlement opens development news before the operation list (1.175209ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 62.620167
+
+✖ failing tests:
+
+test at airline-empire/tests/briefing-priority.test.cjs:3:1
+✖ development news precedes operating warnings in every briefing source (2.387709ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'route',
+  +   'operations',
+  -   'milestone',
+      'delivery',
+  -   'city'
+    ]
+  
+      at TestContext.<anonymous> (/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/tests/briefing-priority.test.cjs:3:108)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'route', 'operations', 'delivery' ],
+    expected: [ 'milestone', 'delivery', 'city' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at airline-empire/tests/briefing-priority.test.cjs:4:1
+✖ multiweek operating reports share one page without dropping their route details or repeating seen messages (0.152875ms)
+  TypeError [Error]: A.briefing is not a function
+      at TestContext.<anonymous> (/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/tests/briefing-priority.test.cjs:4:300)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at airline-empire/tests/briefing-priority.test.cjs:5:1
+✖ settlement opens development news before the operation list (1.175209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'operations'
+  - 'advisor'
+  
+      at TestContext.<anonymous> (/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/tests/briefing-priority.test.cjs:5:500)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'operations',
+    expected: 'advisor',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

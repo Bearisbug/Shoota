@@ -1,0 +1,19 @@
+A350 First Flight - Low pass 02.jpg
+Photographer: Don-vip
+Original: https://commons.wikimedia.org/wiki/File:A350_First_Flight_-_Low_pass_02.jpg
+License: Creative Commons Attribution-Share Alike 3.0 Unported
+https://creativecommons.org/licenses/by-sa/3.0/
+This game uses a Wikimedia-generated 1280 px thumbnail, displayed with responsive CSS cropping. The photograph and any cropped presentation remain under CC BY-SA 3.0. No endorsement is implied. The photograph is of the Airbus A350-900 prototype's first flight, not a player-owned A320neo.
+
+Aircraft cards: manufacturer logos and standardized model names; no aircraft drawings.
+World coastline: Original simplified geographic route illustration. No administrative boundaries.
+
+Manufacturer logos: trademarks of their owners, used for manufacturer identification; no partnership or endorsement implied.
+Airbus: https://www.brand.airbus.com/sites/g/files/jlcbta121/files/styles/w375/public/2021-06/logo_black.png?itok=H_VSdk86
+Boeing: https://www.boeing.com/content/dam/boeing/v2/common/boeing-logo-blue.png
+COMAC: https://www.comac.cc/images/comac_logo2.jpg
+Embraer: https://www.embraer.com/assets/images/Embraer-logo-blue.svg
+Logos displayed with preserved aspect ratio; not covered by the photograph's Creative Commons license.
+
+Land country borders: Natural Earth 1:110m Admin 0 boundary lines (public domain).
+https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-boundary-lines/

@@ -1,0 +1,15 @@
+{
+  "week": 2,
+  "fleet": 4,
+  "presented": {
+    "qa-ranking": 2,
+    "delivery-1": 2,
+    "qa-city": 2,
+    "competition-1": 2,
+    "qa-operations-1": 2,
+    "qa-operations-2": 2
+  },
+  "inbox": [
+    "hangar-capacity"
+  ]
+}

@@ -1,0 +1,268 @@
+[
+  {
+    "viewport": [
+      360,
+      640
+    ],
+    "actions": [
+      {
+        "bottom": 547.1328125,
+        "height": 44,
+        "text": "关闭",
+        "width": 46,
+        "x": 22,
+        "y": 503.1328125
+      },
+      {
+        "bottom": 547.1328125,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 70,
+        "x": 76,
+        "y": 503.1328125
+      },
+      {
+        "bottom": 547.1328125,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 184,
+        "x": 154,
+        "y": 503.1328125
+      }
+    ],
+    "height": 591,
+    "modalScrollWidth": 340,
+    "modalWidth": 340,
+    "rootScrollWidth": 360,
+    "rootWidth": 360,
+    "title": "全球综合排名提升"
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "actions": [
+      {
+        "bottom": 639.53125,
+        "height": 44,
+        "text": "关闭",
+        "width": 52,
+        "x": 24,
+        "y": 595.53125
+      },
+      {
+        "bottom": 639.53125,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 78,
+        "x": 84,
+        "y": 595.53125
+      },
+      {
+        "bottom": 639.53125,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 196,
+        "x": 170,
+        "y": 595.53125
+      }
+    ],
+    "height": 795,
+    "modalScrollWidth": 370,
+    "modalWidth": 370,
+    "rootScrollWidth": 390,
+    "rootWidth": 390,
+    "title": "全球综合排名提升"
+  },
+  {
+    "viewport": [
+      430,
+      932
+    ],
+    "actions": [
+      {
+        "bottom": 674.53125,
+        "height": 44,
+        "text": "关闭",
+        "width": 52,
+        "x": 24,
+        "y": 630.53125
+      },
+      {
+        "bottom": 674.53125,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 78,
+        "x": 84,
+        "y": 630.53125
+      },
+      {
+        "bottom": 674.53125,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 236,
+        "x": 170,
+        "y": 630.53125
+      }
+    ],
+    "height": 883,
+    "modalScrollWidth": 410,
+    "modalWidth": 410,
+    "rootScrollWidth": 430,
+    "rootWidth": 430,
+    "title": "全球综合排名提升"
+  },
+  {
+    "viewport": [
+      844,
+      390
+    ],
+    "actions": [
+      {
+        "bottom": 324,
+        "height": 44,
+        "text": "关闭",
+        "width": 52,
+        "x": 68,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 78,
+        "x": 128,
+        "y": 280
+      },
+      {
+        "bottom": 324,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 562,
+        "x": 214,
+        "y": 280
+      }
+    ],
+    "height": 340,
+    "modalScrollWidth": 740,
+    "modalWidth": 740,
+    "rootScrollWidth": 844,
+    "rootWidth": 844,
+    "title": "全球综合排名提升"
+  },
+  {
+    "viewport": [
+      768,
+      1024
+    ],
+    "actions": [
+      {
+        "bottom": 733.7578125,
+        "height": 44,
+        "text": "关闭",
+        "width": 60,
+        "x": 383,
+        "y": 689.7578125
+      },
+      {
+        "bottom": 733.7578125,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 88,
+        "x": 451,
+        "y": 689.7578125
+      },
+      {
+        "bottom": 733.7578125,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 123,
+        "x": 547,
+        "y": 689.7578125
+      }
+    ],
+    "height": 974,
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootScrollWidth": 768,
+    "rootWidth": 768,
+    "title": "全球综合排名提升"
+  },
+  {
+    "viewport": [
+      1366,
+      768
+    ],
+    "actions": [
+      {
+        "bottom": 605.7578125,
+        "height": 44,
+        "text": "关闭",
+        "width": 60,
+        "x": 682,
+        "y": 561.7578125
+      },
+      {
+        "bottom": 605.7578125,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 88,
+        "x": 750,
+        "y": 561.7578125
+      },
+      {
+        "bottom": 605.7578125,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 123,
+        "x": 846,
+        "y": 561.7578125
+      }
+    ],
+    "height": 718,
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootScrollWidth": 1366,
+    "rootWidth": 1366,
+    "title": "全球综合排名提升"
+  },
+  {
+    "viewport": [
+      1440,
+      900
+    ],
+    "actions": [
+      {
+        "bottom": 671.7578125,
+        "height": 44,
+        "text": "关闭",
+        "width": 60,
+        "x": 719,
+        "y": 627.7578125
+      },
+      {
+        "bottom": 671.7578125,
+        "height": 44,
+        "text": "经营汇总",
+        "width": 88,
+        "x": 787,
+        "y": 627.7578125
+      },
+      {
+        "bottom": 671.7578125,
+        "height": 44,
+        "text": "查看并调整",
+        "width": 123,
+        "x": 883,
+        "y": 627.7578125
+      }
+    ],
+    "height": 850,
+    "modalScrollWidth": 620,
+    "modalWidth": 620,
+    "rootScrollWidth": 1440,
+    "rootWidth": 1440,
+    "title": "全球综合排名提升"
+  }
+]

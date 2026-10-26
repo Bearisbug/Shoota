@@ -1,0 +1,37 @@
+{
+  "count": 160,
+  "pairs": 40,
+  "root": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/briefing-speed-qa/before-dist",
+  "warmup": {
+    "coldOverview": 198.643417,
+    "settlement": 604.602083,
+    "nextOverview": 37.10470899999996,
+    "total": 840.350209
+  },
+  "samples": [
+    {
+      "coldOverview": 150.28150000000005,
+      "settlement": 203.7812919999999,
+      "nextOverview": 35.99649999999997,
+      "total": 390.0592919999999
+    },
+    {
+      "coldOverview": 141.79508299999998,
+      "settlement": 186.6441659999998,
+      "nextOverview": 35.808292000000165,
+      "total": 364.24754099999996
+    },
+    {
+      "coldOverview": 159.911208,
+      "settlement": 216.66783299999997,
+      "nextOverview": 37.10258299999987,
+      "total": 413.68162399999983
+    }
+  ],
+  "median": {
+    "coldOverview": 150.28,
+    "settlement": 203.78,
+    "nextOverview": 36,
+    "total": 390.06
+  }
+}

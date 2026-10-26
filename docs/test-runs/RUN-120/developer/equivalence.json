@@ -1,0 +1,20 @@
+[
+  {
+    "aircraft": 2,
+    "weeks": 15,
+    "fullStateIdentical": true,
+    "scheduleIdentical": true
+  },
+  {
+    "aircraft": 80,
+    "weeks": 15,
+    "fullStateIdentical": true,
+    "scheduleIdentical": true
+  },
+  {
+    "aircraft": 160,
+    "weeks": 15,
+    "fullStateIdentical": true,
+    "scheduleIdentical": true
+  }
+]

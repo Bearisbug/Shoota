@@ -1,0 +1,206 @@
+[
+  {
+    "text": "阿巴坎 · Abakan International Airport（ABA） · 未开通",
+    "value": "ABA"
+  },
+  {
+    "text": "阿尔汉格尔斯克 · Talagi Airport（ARH） · 未开通",
+    "value": "ARH"
+  },
+  {
+    "text": "阿斯特拉罕 · Astrakhan Narimanovo Boris M. Kustodiev International Airport（ASF） · 未开通",
+    "value": "ASF"
+  },
+  {
+    "text": "奥伦堡 · Orenburg Central Airport（REN） · 未开通",
+    "value": "REN"
+  },
+  {
+    "text": "巴尔瑙尔 · Barnaul Gherman Titov International Airport（BAX） · 未开通",
+    "value": "BAX"
+  },
+  {
+    "text": "彼尔姆 · Perm International Airport（PEE） · 未开通",
+    "value": "PEE"
+  },
+  {
+    "text": "布拉戈维申斯克 · Ignatyevo Airport（BQS） · 未开通",
+    "value": "BQS"
+  },
+  {
+    "text": "车里雅宾斯克 · Kurchatov Chelyabinsk International Airport（CEK） · 未开通",
+    "value": "CEK"
+  },
+  {
+    "text": "赤塔 · Chita-Kadala International Airport（HTA） · 未开通",
+    "value": "HTA"
+  },
+  {
+    "text": "鄂木斯克 · Omsk Central Airport（OMS） · 未开通",
+    "value": "OMS"
+  },
+  {
+    "text": "伏尔加格勒 · Volgograd International Airport（VOG） · 未开通",
+    "value": "VOG"
+  },
+  {
+    "text": "符拉迪沃斯托克 · 符拉迪沃斯托克国际机场（VVO） · 未开通",
+    "value": "VVO"
+  },
+  {
+    "text": "格罗兹尼 · Akhmat Kadyrov Grozny International Airport（GRV） · 未开通",
+    "value": "GRV"
+  },
+  {
+    "text": "哈巴罗夫斯克 · 哈巴罗夫斯克新机场（KHV） · 未开通",
+    "value": "KHV"
+  },
+  {
+    "text": "加里宁格勒 · 赫拉布罗沃机场（KGD） · 未开通",
+    "value": "KGD"
+  },
+  {
+    "text": "喀山 · 喀山国际机场（KZN） · 未开通",
+    "value": "KZN"
+  },
+  {
+    "text": "堪察加彼得罗巴甫洛夫斯克 · 叶利佐沃机场（PKC） · 未开通",
+    "value": "PKC"
+  },
+  {
+    "text": "克拉斯诺达尔 · Krasnodar Pashkovsky International Airport（KRR） · 未开通",
+    "value": "KRR"
+  },
+  {
+    "text": "克拉斯诺亚尔斯克 · 叶梅利亚诺沃机场（KJA） · 未开通",
+    "value": "KJA"
+  },
+  {
+    "text": "克麦罗沃 · Alexei Leonov Kemerovo International Airport（KEJ） · 未开通",
+    "value": "KEJ"
+  },
+  {
+    "text": "矿水城 · Mineralnye Vody Airport（MRV） · 未开通",
+    "value": "MRV"
+  },
+  {
+    "text": "马格尼托哥尔斯克 · Magnitogorsk International Airport（MQF） · 未开通",
+    "value": "MQF"
+  },
+  {
+    "text": "马哈奇卡拉 · Makhachkala Uytash International Airport（MCX） · 未开通",
+    "value": "MCX"
+  },
+  {
+    "text": "马加丹 · Sokol Airport（GDX） · 未开通",
+    "value": "GDX"
+  },
+  {
+    "text": "摩尔曼斯克 · Emperor Nicholas II Murmansk Airport（MMK） · 未开通",
+    "value": "MMK"
+  },
+  {
+    "text": "莫斯科 · 谢列梅捷沃机场（SVO） · 未开通",
+    "value": "SVO"
+  },
+  {
+    "text": "莫斯科 · 多莫杰多沃国际机场（DME） · 未开通",
+    "value": "DME"
+  },
+  {
+    "text": "莫斯科 · 伏努科沃国际机场（VKO） · 未开通",
+    "value": "VKO"
+  },
+  {
+    "text": "莫斯科 · 茹科夫斯基国际机场（ZIA） · 未开通",
+    "value": "ZIA"
+  },
+  {
+    "text": "南萨哈林斯克 · Yuzhno-Sakhalinsk International Airport（UUS） · 未开通",
+    "value": "UUS"
+  },
+  {
+    "text": "诺里尔斯克 · Alykel International Airport（NSK） · 未开通",
+    "value": "NSK"
+  },
+  {
+    "text": "秋明 · Roshchino International Airport（TJM） · 未开通",
+    "value": "TJM"
+  },
+  {
+    "text": "萨拉托夫 · Gagarin International Airport（GSV） · 未开通",
+    "value": "GSV"
+  },
+  {
+    "text": "萨兰斯克 · Saransk International Airport（SKX） · 未开通",
+    "value": "SKX"
+  },
+  {
+    "text": "萨马拉 · 库鲁莫奇国际机场（KUF） · 未开通",
+    "value": "KUF"
+  },
+  {
+    "text": "瑟克特夫卡尔 · Syktyvkar Airport（SCW） · 未开通",
+    "value": "SCW"
+  },
+  {
+    "text": "圣彼得堡 · Pulkovo Airport（LED） · 未开通",
+    "value": "LED"
+  },
+  {
+    "text": "苏尔古特 · Surgut International Airport（SGC） · 未开通",
+    "value": "SGC"
+  },
+  {
+    "text": "索契 · 索契国际机场（AER） · 未开通",
+    "value": "AER"
+  },
+  {
+    "text": "托木斯克 · Tomsk Kamov Airport（TOF） · 未开通",
+    "value": "TOF"
+  },
+  {
+    "text": "乌法 · Ufa International Airport（UFA） · 未开通",
+    "value": "UFA"
+  },
+  {
+    "text": "乌兰乌德 · Baikal International Airport（UUD） · 未开通",
+    "value": "UUD"
+  },
+  {
+    "text": "下诺夫哥罗德 · Nizhny Novgorod / Strigino International Airport（GOJ） · 未开通",
+    "value": "GOJ"
+  },
+  {
+    "text": "下瓦尔托夫斯克 · Nizhnevartovsk Airport（NJC） · 未开通",
+    "value": "NJC"
+  },
+  {
+    "text": "新库兹涅茨克 · Spichenkovo Airport（NOZ） · 未开通",
+    "value": "NOZ"
+  },
+  {
+    "text": "新西伯利亚 · 托尔马切沃机场（OVB） · 未开通",
+    "value": "OVB"
+  },
+  {
+    "text": "雅库茨克 · 雅库茨克机场（YKS） · 未开通",
+    "value": "YKS"
+  },
+  {
+    "text": "雅罗斯拉夫尔 · Golden Ring Yaroslavl International Airport（IAR） · 未开通",
+    "value": "IAR"
+  },
+  {
+    "text": "叶卡捷琳堡 · 科利佐沃国际机场（SVX） · 未开通",
+    "value": "SVX"
+  },
+  {
+    "text": "伊尔库茨克 · 伊尔库茨克机场（IKT） · 未开通",
+    "value": "IKT"
+  },
+  {
+    "text": "伊热夫斯克 · Izhevsk Airport（IJK） · 未开通",
+    "value": "IJK"
+  }
+]

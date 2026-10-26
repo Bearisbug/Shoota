@@ -1,0 +1,47 @@
+(function(root){
+const E=root.AIR_ENGINE||(typeof require!=='undefined'?require('./engine.js'):null),D=root.AIR_DATA||(typeof require!=='undefined'?require('./data.js'):null);
+function operationNotice(s){
+ const report=s.lastReport;if(!report)return null;const groups=new Map();
+ const group=(from,to)=>{const pair=[from,to].sort(),key=pair.join('-');if(!groups.has(key))groups.set(key,{key,from:pair[0],to:pair[1],delayed:0,rebooked:0,waiting:0,refund:0,pax:0,seats:0,potential:0,frequencies:0});return groups.get(key);};
+ for(const j of report.disruption?.journeys||[]){if(!(j.delay>180))continue;const g=group(j.from,j.to);g.delayed+=j.delayedFlights||1;g.rebooked+=(j.handling?.own||0)+(j.handling?.partner||0);g.waiting+=j.handling?.waiting||0;g.refund+=j.handling?.refund||0;}
+ for(const r of report.rows||[]){if(!r.active||!r.pax)continue;const g=group(r.from,r.to);g.frequencies+=r.freq;g.pax+=r.pax;for(const c of Object.values(r.classes||{})){g.seats+=c.seats||0;g.potential+=c.potentialPax||0;}}
+ const items=[...groups.values()].filter(g=>g.delayed||(g.seats&&g.pax/g.seats>=.9&&g.potential>g.pax+20)).map(g=>({...g,week:report.week,tight:!!(g.seats&&g.pax/g.seats>=.9&&g.potential>g.pax+20)}));
+ return items.length?{key:'operations-'+report.week,type:'operations',priority:104,title:'延误保障与运力提醒',text:`第 ${report.week} 周 · ${items.length} 条航线合并提醒`,detail:'仅提醒超过 3 小时的延误及运力偏紧航线。保障策略已自动执行；增加同航路班次和剩余运力，可降低延误影响。',items}:null;
+}
+function operationList(notices){const groups=new Map();for(const n of notices)for(const item of n.items||[]){let g=groups.get(item.key);if(!g){g={...item,weekStart:item.week,delayed:0,rebooked:0,waiting:0,refund:0,tight:false,peakLoad:0};groups.set(item.key,g);}g.weekStart=Math.min(g.weekStart,item.week);g.week=Math.max(g.week,item.week);for(const k of ['delayed','rebooked','waiting','refund'])g[k]+=item[k]||0;if(item.tight&&item.pax/item.seats>=g.peakLoad){g.tight=true;g.peakLoad=item.pax/item.seats;g.peakWeek=item.week;g.frequencies=item.frequencies;}}return [...groups.values()].sort((a,b)=>b.delayed-a.delayed||a.key.localeCompare(b.key));}
+function suggestions(s,{routine=true}={}){
+ const out=(s.companyNews||[]).map(n=>({...n})),fleet=s.fleet.filter(p=>E.planeAvailable(s,p)),active=s.routes.filter(r=>r.active&&fleet.some(p=>p.id===r.plane)&&!E.effects(s,r).closed),profit=r=>E.estimate(s,r).profit;
+ const d=s.lastReport?.disruption,longDelays=(d?.journeys||[]).filter(j=>j.delay>180);if(routine&&longDelays.length)out.push({key:'disruption-'+d.week,type:'disruption',priority:105,title:`${longDelays.reduce((n,j)=>n+(j.delayedFlights||1),0)} 班延误超过 3 小时，需要关注旅客体验`,text:`${d.incidents.map(e=>e.title).join('、')||'上周晚到继续影响航班'}；保障按同航路班次密度与预算自动估算。`,detail:`已改签 ${d.rebookedOwn+d.rebookedPartner} 人、退款 ${d.refundedPax} 人，本周利润影响 ${(d.loss*100).toFixed(1)} 万。受影响旅客满意度 ${d.satisfaction.toFixed(1)}/100。可调整下周保障策略，并补充同航路运力。`});
+ const operations=operationNotice(s);if(operations)out.push(operations);
+ const notice=s.maintenanceAdvice;
+ if(notice&&s.week<=notice.week+4)out.push({key:'maintenance-'+notice.kind,type:notice.kind==='funds'?'finance':'hangar',priority:100,title:notice.kind==='funds'?'检修需要补足现金':'为自己的机队建设维修能力',text:notice.text,detail:notice.kind==='funds'?'资金不足的飞机会暂停执飞。补足现金后，下周自动尝试检修。':'自有机库建造 1,800 万、4 周启用；每级扩建增加 2 个维修位。自有检修费为外包的 60%，停场从 2 周缩短到 1 周。建设与扩建由你确认。'});
+ for(const n of (s.leaseNotices||[]).filter(n=>s.week<=n.week+4).slice(0,3))out.push({key:n.id,type:'leases',priority:110,title:n.kind==='returned'?'出租方已收回飞机':'收到出租方提前收回通知',text:`${n.lessor} · ${E.modelName(n.model)} · B-YS${String(n.plane).padStart(3,'0')}`,detail:n.kind==='returned'?`未用周租金返还 ${n.rentRefund.toFixed(3)} 百万元（${7-n.day}/7 天），押金返还 ${n.deposit.toFixed(2)} 百万元。受影响航线已暂停，等待改派飞机。`:`预计第 ${n.dueWeek} 周周${'一二三四五六日'[n.day]}收回。请提前改派航线；未使用租金按天返还，押金全额退回。`});
+ for(const r of s.routes.filter(r=>r.awaitingAircraft).slice(0,2))out.push({key:'unassigned-'+r.id,type:'route',route:r.id,priority:95,title:`${r.from} ⇄ ${r.to} 等待替代飞机`,text:'租赁飞机已被收回，航线计划为你保留。',detail:'选择同基地、航程足够且时刻可用的飞机，即可恢复运营。'});
+ for(const h of s.hubs){const used=active.filter(r=>r.from===h.code).reduce((n,r)=>n+r.freq*2,0);if(used>=h.level*180*.8)out.push({key:'capacity-'+h.code,type:'capacity',priority:90,title:`${E.ap(h.code).city}基地接近时刻上限`,text:`已使用 ${used} / ${h.level*180} 个周时刻。`,detail:`扩建投入 ${(h.level*18*100).toLocaleString()} 万，增加180个周时刻。可先减少低效班次，或前往公司发展确认扩建。`});}
+ const readyHangars=(s.hangars||[]).filter(h=>!h.delivery),readyPlanes=fleet.length;
+ if(readyPlanes>=4&&!notice&&readyHangars.reduce((n,h)=>n+h.level*2,0)<Math.ceil(readyPlanes/4))out.push({key:'hangar-capacity',type:'hangar',priority:85,title:'为扩大的机队预留维修位',text:`目前 ${readyPlanes} 架飞机在役，自有维修位 ${readyHangars.reduce((n,h)=>n+h.level*2,0)} 个。`,detail:'建议在基地新建或扩建机库，避免集中检修时全部转为外包。新建需1,800万和4周，扩建每级增加2个维修位，均由你确认。'});
+ if(!routine)return out.sort((a,b)=>b.priority-a.priority);
+ const prices=[.65,.75,.85,1,1.15,1.3,1.5,1.8];let bestPrice=null,bestPlane=null,bestCabin=null;
+ for(const r of active.slice().sort((a,b)=>profit(a)-profit(b)).slice(0,12)){
+  const old=E.estimate(s,r),p=s.fleet.find(p=>p.id===r.plane),m=E.model(p.model);const best=prices.map(price=>({price,e:E.estimate(s,{...r,price})})).sort((a,b)=>b.e.profit-a.e.profit)[0],gain=best.e.profit-old.profit;
+  if(best.price!==r.price&&gain>.03&&gain>Math.abs(old.profit)*.04&&(!bestPrice||gain>bestPrice.gain))bestPrice={key:'price-'+r.id,type:'price',route:r.id,price:best.price,priority:70,gain,title:`${r.from} ⇄ ${r.to}：调整票价`,text:`票价系数 ${Math.round(r.price*100)}% → ${Math.round(best.price*100)}%，预计每周航线贡献增加 ${(gain*100).toFixed(1)} 万。`,detail:`预计客座率 ${(old.load*100).toFixed(0)}% → ${(best.e.load*100).toFixed(0)}%，经济舱单程票价 ¥${old.fare} → ¥${best.e.fare}。比较了 8 档票价，已考虑当前节庆、竞争与客流弹性；不保证未来收益。`};
+  const candidates=fleet.filter(q=>q.id!==p.id&&E.planeBase(s,q)===r.from&&E.routeLegs(r).every(l=>l.km<=E.model(q.model).range*.94)).map(q=>({q,e:E.estimate(s,{...r,plane:q.id,schedule:null})})).sort((a,b)=>b.e.profit-a.e.profit).slice(0,4);
+  for(const c of candidates){const gain=c.e.profit-old.profit;if(gain<.04||bestPlane&&gain<=bestPlane.gain)continue;try{E.validateRoute(s,{...r,plane:c.q.id,schedule:null},r.id);}catch{continue;}const cs=E.cabinStats(E.model(c.q.model),E.cabinOf(c.q)),was=E.cabinStats(m,E.cabinOf(p));bestPlane={key:'aircraft-'+r.id,type:'aircraft',route:r.id,plane:c.q.id,priority:75,gain,title:`${r.from} ⇄ ${r.to}：改派现有机队`,text:`${E.modelName(m)} → ${E.modelName(c.q.model)}，预计每周航线贡献增加 ${(gain*100).toFixed(1)} 万。`,detail:`客舱舒适度 ${was.comfort.toFixed(0)} → ${cs.comfort.toFixed(0)}，座位 ${was.total} → ${cs.total}，预计客座率 ${(old.load*100).toFixed(0)}% → ${(c.e.load*100).toFixed(0)}%。已检查基地、逐段航程与排班冲突；两架飞机原有固定费用仍需支付。`};}
+ }
+ for(const p of fleet.filter(p=>active.some(r=>r.plane===p.id)).slice(0,12)){
+  const m=E.model(p.model),oldCabin=E.cabinOf(p),old=E.cabinStats(m,oldCabin),routes=active.filter(r=>r.plane===p.id),before=routes.reduce((n,r)=>n+profit(r),0),presets=['standard','dense','mixed',...(E.cabinRules(m).first?['flagship']:[])].map(name=>E.cabinPreset(m,name));let roomy={...oldCabin,pitch:33};roomy.economy=E.cabinStats(m,roomy).maxEconomy;presets.push(roomy);
+  for(const cabin of presets){try{E.validateCabin(m,cabin);}catch{continue;}if(JSON.stringify(cabin)===JSON.stringify(oldCabin))continue;const cs=E.cabinStats(m,cabin),copy={...s,fleet:s.fleet.map(q=>q.id===p.id?{...q,cabin}:q)},gain=routes.reduce((n,r)=>n+E.estimate(copy,r).profit,0)-before,comfortGain=cs.comfort-old.comfort,fee=E.cabinFee(p,cabin,s),score=gain+comfortGain*.008;
+   if(fee>s.cash||cs.comfort<old.comfort-3||!(gain>.03||old.comfort<70&&comfortGain>=8&&gain>-.15)||bestCabin&&score<=bestCabin.score)continue;
+   bestCabin={key:'cabin-'+p.id,type:'cabin',plane:p.id,cabin,priority:65,score,title:`${E.modelName(m)}：重新分配舱位`,text:`经济 ${cabin.economy} / 商务 ${cabin.business} / 头等 ${cabin.first}，舒适度 ${old.comfort.toFixed(0)} → ${cs.comfort.toFixed(0)}。`,detail:`该机型基础舒适度 ${m.comfort}/100；座椅间距与舱等在此基础上影响体验。改装费 ${(fee*100).toFixed(1)} 万，预计这架飞机全部在营航线周贡献${gain>=0?'增加':'减少'} ${(Math.abs(gain)*100).toFixed(1)} 万。已考虑商务/头等客流上限，不建议盲目堆高端座位。`};
+  }
+ }
+ for(const r of [bestPlane,bestPrice,bestCabin])if(r)out.push(r);
+ if(!bestPlane&&active.length&&fleet.length===1){const p=fleet[0],m=E.model(p.model);out.push({key:'fleet-planning-'+p.id,type:'market',priority:30,title:'为下一架飞机先做机型比较',text:`当前主力 ${E.modelName(m)}：基础舒适度 ${m.comfort}/100，参考航程 ${m.range.toLocaleString()} km。`,detail:'短程低需求适合较小飞机；长程与商务客流需比较宽体、航程、舒适度和高端舱需求。先查看机型参数与租赁费用，避免仅凭座位数扩张。'});}
+ return out.sort((a,b)=>b.priority-a.priority).slice(0,10);
+}
+// Merely displaying a message is enough; no acknowledgement or recurring read task.
+function presented(s,key){return s.advicePresented?.[key]!==undefined||s.adviceSeen?.[key]!==undefined||!!s.companyNews?.find(n=>n.key===key&&n.read)||(s.advicePrompted?.[key]!==undefined&&!s.adviceInbox?.some(n=>n.key===key));}
+function present(s,key){(s.advicePresented||={})[key]=s.week;s.adviceInbox=(s.adviceInbox||[]).filter(a=>a.key!==key);}
+function fresh(s){const items=[...(s.adviceInbox||[]),...suggestions(s,{routine:false})],seen=new Set();return items.filter(a=>{if(seen.has(a.key)||presented(s,a.key)||['price','aircraft','cabin','market','disruption','network'].includes(a.type))return false;seen.add(a.key);return true;}).sort((a,b)=>b.priority-a.priority);}
+const A={operationList,operationNotice,suggestions,fresh,present,presented};root.AIR_ADVISOR=A;if(typeof module!=='undefined')module.exports=A;
+})(typeof window!=='undefined'?window:globalThis);

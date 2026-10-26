@@ -1,0 +1,37 @@
+{
+  "count": 160,
+  "pairs": 40,
+  "root": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/dist",
+  "warmup": {
+    "coldOverview": 56.124750000000006,
+    "settlement": 138.84979199999998,
+    "nextOverview": 7.4293329999999855,
+    "total": 202.40387499999997
+  },
+  "samples": [
+    {
+      "coldOverview": 40.04487499999999,
+      "settlement": 94.48116700000003,
+      "nextOverview": 6.956666999999982,
+      "total": 141.482709
+    },
+    {
+      "coldOverview": 38.744708,
+      "settlement": 78.71250000000003,
+      "nextOverview": 6.387625000000014,
+      "total": 123.84483300000005
+    },
+    {
+      "coldOverview": 36.72562499999998,
+      "settlement": 81.28979199999992,
+      "nextOverview": 5.878041000000053,
+      "total": 123.89345799999995
+    }
+  ],
+  "median": {
+    "coldOverview": 38.74,
+    "settlement": 81.29,
+    "nextOverview": 6.39,
+    "total": 123.89
+  }
+}

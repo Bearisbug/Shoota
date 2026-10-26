@@ -1,0 +1,11 @@
+{
+  "htmlSha256": "d6df70d3952729d116ab03dd6abb646d7dcae556f3a208ccf3ae0c501a411757",
+  "zipSha256": "20e186172ce433b67bb05cfeceed20d62378f368f8d048497a69dd7208e5f05c",
+  "sourceManifestSha256": "434edb230d840f4c511a6f962eae07fed07dfbe11ff36f240e1faf3281a84127",
+  "allSourceFilesUnchanged": true,
+  "airportDataSameAs57e5": true,
+  "platformCommit": "040d2acb64887eeacba2b3c6463429666fd19921",
+  "platformIndexSha256": "227161a0488ed3c3fc5dca8e51c78ce0304e65667b11fc50e6919a16b9ab8e38",
+  "codeChangesThisAcceptance": false,
+  "deployedThisAcceptance": false
+}
