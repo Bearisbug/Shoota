@@ -1,0 +1,62 @@
+{
+  "root": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/dist",
+  "fixture": "80 aircraft, 5 airport pairs, 7 round trips per aircraft weekly, auto pricing, auto protection; memory-backed save (browser bridge/paint excluded)",
+  "warmup": {
+    "settlement": 500.63533399999994,
+    "notices": 1.4956250000000182,
+    "save": 4.225790999999958,
+    "repeatSave": 3.7692499999999427,
+    "total": 510.12599999999986,
+    "bytes": 469582
+  },
+  "samples": [
+    {
+      "settlement": 101.29566599999998,
+      "notices": 0.9118330000001151,
+      "save": 4.624790999999959,
+      "repeatSave": 4.083624999999984,
+      "total": 110.91591500000004,
+      "bytes": 469582
+    },
+    {
+      "settlement": 103.7244169999999,
+      "notices": 0.8887919999999667,
+      "save": 3.929875000000038,
+      "repeatSave": 3.620792000000165,
+      "total": 112.16387600000007,
+      "bytes": 469582
+    },
+    {
+      "settlement": 96.05662500000017,
+      "notices": 0.7939160000000811,
+      "save": 3.5731250000003456,
+      "repeatSave": 3.6731250000002547,
+      "total": 104.09679100000085,
+      "bytes": 469582
+    },
+    {
+      "settlement": 96.89391699999987,
+      "notices": 0.8524999999999636,
+      "save": 3.7175000000002,
+      "repeatSave": 3.787207999999737,
+      "total": 105.25112499999977,
+      "bytes": 469582
+    },
+    {
+      "settlement": 95.15304100000003,
+      "notices": 0.8550829999999223,
+      "save": 3.7737499999998363,
+      "repeatSave": 3.713459000000057,
+      "total": 103.49533299999985,
+      "bytes": 469582
+    }
+  ],
+  "median": {
+    "settlement": 96.89,
+    "notices": 0.86,
+    "save": 3.77,
+    "repeatSave": 3.71,
+    "total": 105.25,
+    "bytes": 469582
+  }
+}

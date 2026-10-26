@@ -1,0 +1,34 @@
+{
+  "version": "2026-10-26-57e5e32c91d6",
+  "scope": "全球机场429→1040；俄罗斯2→51；165个国家和地区",
+  "html": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-57e5e32c91d6/云际航空.html",
+  "htmlSha256": "57e5e32c91d64041dcafe25f1af1aabaa7841965f47338513ba677d353165ddf",
+  "zip": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-57e5e32c91d6/云际航空-离线版.zip",
+  "zipSha256": "e3650adf2961dcdbfd53dc28a593564b48f44b5a1db3d2a1168e067a398c5878",
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-26-57e5e32c91d6/source",
+  "sourceManifestSha256": "ee4ef41a747c00872838e99f19d387c4fcefc7003dca11ca5865d08b4957b3d6",
+  "tests": {
+    "pass": 246,
+    "fail": 0
+  },
+  "saveCompatible": true,
+  "published": false,
+  "fullReleaseViewportAcceptance": "desktop IAB seven viewport matrix and four core flows passed; real devices and system accessibility checks pending",
+  "focusedBrowserFlows": "passed; overseas base selector only, investment gated as expected",
+  "platformAcceptance": {
+    "baseline": "71d17e6",
+    "report": "evidence/platform-acceptance/report.md",
+    "coreBlockingDefects": 0,
+    "nonBlockingFindings": [
+      "airport search empty-state wording",
+      "airport detail return resets list to page 1"
+    ],
+    "allAirportsPaged": 1040,
+    "tests": {
+      "pass": 246,
+      "fail": 0
+    },
+    "realMobile": "pending",
+    "published": false
+  }
+}
