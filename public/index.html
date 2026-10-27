@@ -242,7 +242,12 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .pbar{display:flex;align-items:center;gap:var(--primitive-dimension-space-4);padding:calc(env(safe-area-inset-top,0px) + var(--primitive-dimension-space-2)) calc(env(safe-area-inset-right,0px) + var(--primitive-dimension-space-3)) var(--primitive-dimension-space-2) calc(env(safe-area-inset-left,0px) + var(--primitive-dimension-space-3));background:var(--semantic-color-surface-background);border-bottom:var(--semantic-layout-hairline) solid var(--semantic-color-border-subtle);flex-wrap:wrap}
 .pbar .btn{padding:var(--primitive-dimension-space-1) var(--primitive-dimension-space-3)}
 .pbar .st{color:var(--semantic-color-text-tertiary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pbar .saved{color:var(--semantic-color-text-tertiary)}
+.pbar .saved{color:var(--semantic-color-text-tertiary);background:none;border:0;padding:0;font:inherit}
+.pbar .saved:disabled{opacity:1;cursor:default}
+.pbar .saved.error{position:relative;color:var(--semantic-color-feedback-error);cursor:pointer;text-decoration:underline}
+/* Enlarge the retry hit area inside the existing bar without shrinking the game. */
+.pbar .saved.error::after{content:"";position:absolute;inset-inline:0;top:50%;height:max(44px,100%);transform:translateY(-50%)}
+@media (max-width:760px){.pbar .saved.error::after{top:auto;bottom:calc(-1 * var(--primitive-dimension-space-1));transform:none}}
 .pbar .saved.on{color:var(--semantic-color-feedback-success)}
 .pbar .num{color:var(--semantic-color-text-secondary)}
 .pstage{position:relative;background:var(--semantic-color-surface-sunken);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -368,7 +373,7 @@ h1,h2,h3{text-wrap:balance;margin:0}
     <button class="state-layer focus-ring btn" id="pExit" type="button"><span class="ico ico-back" aria-hidden="true"></span><span class="lbl">退出游戏</span></button>
     <span class="t" id="pTitle"></span>
     <span class="st" id="pStatus"></span>
-    <span class="saved" id="pSaved">存档待写入</span>
+    <button class="saved focus-ring" id="pSaved" type="button" disabled aria-live="polite">存档待写入</button>
     <span class="num" id="pTime">本次 0 分钟</span>
     <button class="state-layer focus-ring btn" id="pFull" type="button"><span class="ico ico-full" aria-hidden="true"></span><span class="lbl">全屏</span></button>
   </div>
@@ -642,12 +647,123 @@ const IDB = (() => {
       catch (e) { res(undefined); }
     }));
   }
+  // Player saves must observe the transaction, not only the individual request.
+  async function saveRequest(mode, key, value){
+    let d = await open();
+    if (!d || d === STUCK) { p = null; throw new Error('save-unavailable'); }
+    return new Promise((resolve, reject) => {
+      let tx, result, timer;
+      const fail = () => { clearTimeout(timer); p = null; reject(new Error('save-unavailable')); };
+      try {
+        tx = d.transaction('kv', mode);
+        tx.oncomplete = () => { clearTimeout(timer); resolve(result); };
+        tx.onabort = fail; tx.onerror = fail;
+        const q = mode === 'readonly' ? tx.objectStore('kv').get(key) : tx.objectStore('kv').put(value, key);
+        q.onsuccess = () => { result = q.result; };
+        timer = setTimeout(() => { try { tx.abort(); } catch (e) {} fail(); }, 5000);
+      } catch (e) { fail(); }
+    });
+  }
   return {
+    readSave:key => saveRequest('readonly', key),
+    writeSave:(key, value) => saveRequest('readwrite', key, value),
     // 卡住时重连一次，还卡住就报 'stuck'；浏览器不支持存档库时照旧用内存
     async ready(){ let d = await open(); if (d === STUCK) d = await open(); return d === STUCK ? 'stuck' : 'ok'; },
     async get(store, key){ const d = await open(); if (d === STUCK) return undefined; return d ? req(store, 'readonly', s => s.get(key)) : mem[store].get(key); },
     async put(store, val, key){ let d = await open(); if (d === STUCK) d = await open(); if (!d || d === STUCK) { mem[store].set(key ?? val.id, val); return; } return req(store, 'readwrite', s => key === undefined ? s.put(val) : s.put(val, key)); }
   };
+})();
+
+/* ───────── 存档恢复记录与串行提交（只保存本机数据） ───────── */
+const Saves = (() => {
+  const entries = new Map(), prefix = 'changju.pending.v1:';
+  const journalKey = key => prefix + encodeURIComponent(key);
+  const copy = json => JSON.parse(json);
+  const valid = value => value && typeof value === 'object' && !Array.isArray(value);
+  function notify(e, state){ e.state = state; e.listener?.(state, e); }
+  function journal(e){
+    const previous = e.raw;
+    e.raw = JSON.stringify({ v:1, token:crypto.randomUUID(), data:copy(e.json) });
+    try { localStorage.setItem(journalKey(e.key), e.raw); e.durable = true; }
+    catch (x) { e.durable = false; clearJournal(e, previous); }
+  }
+  function clearJournal(e, raw){
+    try { if (localStorage.getItem(journalKey(e.key)) === raw) localStorage.removeItem(journalKey(e.key)); }
+    catch (x) {} // A retained recovery copy is safe; never remove a newer snapshot.
+  }
+  async function load(key, fresh = false){
+    let e = entries.get(key);
+    // Reopening a clean save must see updates from another tab; pending work wins.
+    if (fresh && e?.json !== null && e && !e.dirty && !e.running) { entries.delete(key); e = null; }
+    if (!e) {
+      e = { key, json:null, committed:null, dirty:false, durable:false, running:null, timer:null, listener:null, state:'idle' };
+      entries.set(key, e);
+      e.loading = (async () => {
+        let raw = null;
+        try { raw = localStorage.getItem(journalKey(key)); } catch (x) {}
+        if (raw) {
+          const record = JSON.parse(raw);
+          if (record.v !== 1 || !valid(record.data)) throw new Error('save-recovery-invalid');
+          e.exists = true; e.json = JSON.stringify(record.data); e.raw = raw; e.dirty = true; e.durable = true;
+        } else {
+          const value = await IDB.readSave(key);
+          if (value !== undefined && !valid(value)) throw new Error('save-invalid');
+          e.exists = value !== undefined; e.json = e.committed = JSON.stringify(value || {});
+        }
+      })();
+      try { await e.loading; } catch (x) { entries.delete(key); throw x; }
+    } else await e.loading;
+    return copy(e.json);
+  }
+  function stage(key, value, listener){
+    const e = entries.get(key);
+    if (!e || e.json === null) throw new Error('save-not-loaded');
+    if (listener) e.listener = listener;
+    const json = JSON.stringify(value);
+    if (json === e.json) return e;
+    e.exists = true; e.json = json; e.dirty = true;
+    // Synchronous recovery first; timer only batches the IndexedDB transactions.
+    journal(e);
+    if (!e.running && !e.timer) e.timer = setTimeout(() => { e.timer = null; flush(key); }, 50);
+    return e;
+  }
+  function flush(key){
+    const e = entries.get(key);
+    if (!e) return Promise.resolve();
+    clearTimeout(e.timer); e.timer = null;
+    if (e.running) return e.running;
+    if (!e.dirty) return Promise.resolve();
+    e.running = (async () => {
+      while (e.dirty) {
+        const json = e.json, raw = e.raw;
+        if (json === e.committed) {
+          clearJournal(e, raw); e.dirty = false; notify(e, 'unchanged'); break;
+        }
+        // Retry the local recovery write too, for example after quota is freed.
+        if (!e.durable) journal(e);
+        const currentRaw = e.raw;
+        notify(e, 'saving');
+        try { await IDB.writeSave(key, copy(json)); }
+        catch (x) { notify(e, 'error'); break; }
+        e.committed = json;
+        if (e.json === json) {
+          e.dirty = false; clearJournal(e, currentRaw); notify(e, 'saved');
+        }
+      }
+    })().finally(() => { e.running = null; });
+    return e.running;
+  }
+  async function replace(key, value){
+    await load(key, true);
+    stage(key, value);
+    await flush(key);
+    const e = entries.get(key);
+    if (e.dirty) throw new Error('save-unavailable');
+  }
+  function watch(key, listener){ const e = entries.get(key); if (e) { e.listener = listener; if (e.dirty) flush(key); } }
+  function unsafe(){ return [...entries.values()].some(e => e.dirty && !e.durable); }
+  async function has(key){ await load(key, true); return entries.get(key).exists; }
+  return { load, stage, flush, replace, watch, unsafe, has };
 })();
 
 /* ───────── 账号 ───────── */
@@ -977,7 +1093,7 @@ ensurePlayer();
 async function packSaves(){
   const u = me(), saves = {}, stats = {};
   for (const g of allGames()) {
-    const ls = await IDB.get('kv', u.email + '|' + g.id), s = peek(g.id);
+    const ls = await Saves.load(u.email + '|' + g.id, true), s = peek(g.id);
     if ((ls && Object.keys(ls).length) || s?.seconds) { saves[g.id] = ls || {}; if (s) stats[g.id] = s; }
   }
   return { v:1, at:now(), saves, stats, wish:meta.wish[u.email] || [], achDefs:meta.achDefs };
@@ -1004,7 +1120,7 @@ async function applySaves(d){
   const u = me(), ids = Object.keys(d.saves).filter(id => findGame(id));
   meta.stats[u.email] ??= {};
   for (const id of ids) {
-    await IDB.put('kv', d.saves[id], u.email + '|' + id);
+    await Saves.replace(u.email + '|' + id, d.saves[id]);
     meta.stats[u.email][id] = d.stats?.[id] || { seconds:0, last:d.at, ach:{}, status:'' };
     if (d.achDefs?.[id]) meta.achDefs[id] = d.achDefs[id];
   }
@@ -1026,8 +1142,8 @@ async function moveIn(){
     for (const id of new Set([...Object.keys(d.saves), ...Object.keys(d.stats || {})])) {
       if (!findGame(id)) continue;
       const key = u.email + '|' + id, mine = peek(id), theirs = d.stats?.[id];
-      if ((mine || await IDB.get('kv', key)) && (theirs?.seconds || 0) <= (mine?.seconds || 0)) continue; // 留累计时长更长的那份
-      if (d.saves[id]) await IDB.put('kv', d.saves[id], key);
+      if ((mine || await Saves.has(key)) && (theirs?.seconds || 0) <= (mine?.seconds || 0)) continue; // 留累计时长更长的那份
+      if (d.saves[id]) await Saves.replace(key, d.saves[id]);
       if (theirs) meta.stats[u.email][id] = theirs;
       if (d.achDefs?.[id]) meta.achDefs[id] ??= d.achDefs[id];
     }
@@ -1043,7 +1159,10 @@ async function moveIn(){
 }
 const titles = ids => ids.map(id => '《' + esc(findGame(id).title) + '》').join('');
 async function renderBackup(){
-  const d = await packSaves(), have = Object.keys(d.saves);
+  let d;
+  try { d = await packSaves(); }
+  catch (e) { if (location.hash.slice(1) === 'backup') { $('#view').innerHTML = '<div class="page tight narrow"><h1>存档暂时读不出来</h1><p>请稍后重试，现有进度没有被替换。</p><button class="state-layer focus-ring btn" id="bkRetry" type="button">重试</button></div>'; $('#bkRetry').onclick = renderBackup; } return; }
+  const have = Object.keys(d.saves);
   const code = have.length ? await encodeSaves(d) : '';
   if (location.hash.slice(1) !== 'backup') return;
   $('#view').innerHTML = `<div class="page tight narrow">
@@ -1084,7 +1203,11 @@ async function renderBackup(){
   form.addEventListener('submit', async e => {
     e.preventDefault();
     if (pending) {
-      const n = await applySaves(pending);
+      const button = $('#bkGo'); button.disabled = true;
+      let n;
+      try { n = await applySaves(pending); }
+      catch (x) { button.disabled = false; return fail('存档尚未写入完成。请保留存档码，稍后再点「确认恢复」重试。'); }
+      button.disabled = false;
       track({ t:'restore' });
       toast(`已恢复 ${n} 款游戏的进度`); go('library'); return;
     }
@@ -1174,10 +1297,10 @@ async function openPlayer(id){
   const st = stat(id); st.last = now(); persist();
   navigator.storage?.persist?.();
   const key = u.email + '|' + id;
-  P = { gid:id, key, ls:{}, secs:0, unsent:0, timer:null, saveT:null, frame:null };
+  P = { gid:id, key, ls:{}, secs:0, unsent:0, timer:null, frame:null };
   track({ t:'start', g:id });
   $('#pTitle').textContent = g.title; $('#pStatus').textContent = st.status || ''; $('#pTime').textContent = '本次 0 分钟';
-  $('#pSaved').textContent = '读取存档…'; $('#pSaved').className = 'saved';
+  $('#pSaved').textContent = '读取存档…'; $('#pSaved').className = 'saved focus-ring'; $('#pSaved').disabled = true; $('#pSaved').title = '';
   $('#player').hidden = false; document.body.style.overflow = 'hidden';
   bootGame(g);
 }
@@ -1192,15 +1315,13 @@ function failView(title, body, acts){
 }
 // 载入游戏：任何一步卡住都给出提示与出路，不让玩家停在「正在载入」（REQ-017）
 async function bootGame(g){
-  const id = g.id, tok = P.boot = (P.boot || 0) + 1, live = () => P && P.gid === id && P.boot === tok;
+  const player = P, id = g.id, tok = player.boot = (player.boot || 0) + 1, live = () => P === player && P.boot === tok;
   const back = () => go('game-' + id);
   loadView(g);
-  if (await IDB.ready() === 'stuck') {
-    if (live()) failView('存档暂时读不出来', '本机存档库没有回应，进度没有丢。请刷新页面再试。', [['刷新页面', () => location.reload()], ['返回', back]]);
-    return;
-  }
   const prog = (got, total) => { const el = live() && $('#pProg'); if (el) el.textContent = `已下载 ${mb(got)} / 共 ${mb(total || got)}`; };
-  const [got, ls] = await Promise.all([getHtml(g, prog), IDB.get('kv', P.key)]);
+  let got, ls;
+  try { [got, ls] = await Promise.all([getHtml(g, prog), Saves.load(player.key, true)]); }
+  catch (e) { if (live()) failView('存档暂时读不出来', '为保护已有进度，暂时不能开始新游戏。请重试或稍后再来。', [['重试', () => bootGame(g)], ['返回', back]]); return; }
   if (!live()) return;
   if (got.err === 'net') { failView('网络不稳定，游戏没下载下来', '已经自动重试过一次。换个网络或稍等一会儿，再点「重试」。', [['重试', () => bootGame(g)], ['返回', back]]); return; }
   if (got.err) { failView('游戏文件读取失败', '服务器上没找到这款游戏的文件，请稍后再试。', [['重试', () => bootGame(g)], ['返回', back]]); return; }
@@ -1213,7 +1334,9 @@ async function bootGame(g){
   fr.srcdoc = inject(html, { game:{ id, title:g.title }, user:{ id:hashId(u.email), nickname:u.nickname }, storage:P.ls });
   P.frame = fr;
   $('#pStage').innerHTML = ''; $('#pStage').appendChild(fr);
-  $('#pSaved').textContent = Object.keys(P.ls).length ? '已读取存档' : '新存档';
+  player.saveLabel = Object.keys(player.ls).length ? '已读取存档' : '新存档';
+  $('#pSaved').textContent = player.saveLabel;
+  Saves.watch(player.key, (state, entry) => saveStatus(player, state, entry));
   P.timer = setInterval(() => {
     if (document.hidden || !P) return;
     P.secs += 5; const s = stat(P.gid); s.seconds = (s.seconds || 0) + 5; s.last = now();
@@ -1222,22 +1345,34 @@ async function bootGame(g){
     $('#pTime').textContent = '本次 ' + Math.floor(P.secs / 60) + ' 分钟';
   }, 5000);
 }
-function saveLs(){
-  if (!P) return;
-  clearTimeout(P.saveT); P.saveT = null;
-  const json = JSON.stringify(P.ls);
-  if (json === P.lsJson) return; // 游戏把存档原样写回、或写入后又删掉时，存档没变，顶栏不改
-  P.lsJson = json;
-  IDB.put('kv', P.ls, P.key);
-  const t = new Date(); $('#pSaved').textContent = `已存档 ${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}`; $('#pSaved').className = 'saved on';
+function saveStatus(player, state, entry){
+  if (P !== player) return;
+  const el = $('#pSaved');
+  el.disabled = state !== 'error'; el.className = 'saved focus-ring'; el.title = '';
+  if (state === 'saving') {
+    el.textContent = entry.durable ? '正在存档…' : '保存中，请勿关闭';
+  } else if (state === 'error') {
+    el.className += ' error'; el.textContent = entry.durable ? '暂存待重试' : '保存失败·重试';
+    el.title = entry.durable ? '最新进度已暂存在本机，点击重试写入存档库。' : '最新进度未保存，离开可能丢失。请点击重试，或退出游戏后导出存档码备份。';
+    if (!entry.durable) toast('最新进度还没保存，离开可能丢失。请重试，或先导出存档码。', 'bad');
+  } else if (state === 'saved') {
+    player.lsJson = entry.committed;
+    const t = new Date(); player.saveLabel = `已存档 ${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}`;
+    el.textContent = player.saveLabel; el.className += ' on';
+  } else { el.textContent = player.saveLabel; if (player.saveLabel.startsWith('已存档')) el.className += ' on'; }
 }
-function dirty(){ if (P && !P.saveT) P.saveT = setTimeout(saveLs, 700); }
+function saveLs(){
+  if (!P?.frame) return;
+  Saves.stage(P.key, P.ls);
+  return Saves.flush(P.key);
+}
+function dirty(){ if (P) Saves.stage(P.key, P.ls); }
 // 游玩时长攒在本地，满 2 分钟、切到后台、退出或关页面时上报
 function reportPlay(){ if (P && P.unsent) { track({ t:'play', g:P.gid, s:P.unsent }); P.unsent = 0; } }
 function closePlayer(){
   if (!P) { $('#player').hidden = true; document.body.style.overflow = ''; return; }
   reportPlay();
-  if (P.saveT) saveLs();
+  saveLs();
   clearInterval(P.timer); persist();
   if (P.frame) P.frame.srcdoc = '';
   P = null;
@@ -1264,7 +1399,9 @@ window.addEventListener('message', e => {
   else if (m.type === 'exit') go('game-' + P.gid);
 });
 window.addEventListener('pagehide', () => { if (P) { reportPlay(); saveLs(); persist(); } });
-document.addEventListener('visibilitychange', () => { if (document.hidden) reportPlay(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) { reportPlay(); saveLs(); } });
+window.addEventListener('beforeunload', e => { saveLs(); if (Saves.unsafe()) { e.preventDefault(); e.returnValue = ''; } });
+$('#pSaved').addEventListener('click', () => saveLs());
 $('#pExit').addEventListener('click', () => { const id = P?.gid; go(id ? 'game-' + id : 'store'); });
 $('#pFull').addEventListener('click', () => {
   const el = $('#player');

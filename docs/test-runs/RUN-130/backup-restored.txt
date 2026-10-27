@@ -1,0 +1,51 @@
+Browser tab: 3, Title: "shoota 游戏平台", URL: "http://127.0.0.1:8843/#play-one-in-billions".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 12
+~1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8843/#play-one-in-billions
++		41 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
++	42 container player
++		43 button 退出游戏, ID: pExit
++		44 text 此生
++		45 button (disabled) 已读取存档, ID: pSaved
++		46 text 本次 0 分钟
++		47 button 全屏, ID: pFull
++		48 container 此生
++			49 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc
++				50 container app
++					51 container
++						52 button 此生首页
++							53 text ı
++							54 text 此生
++							55 text  ONE IN BILLIONS
++						56 container 主要导航
++							57 button 人生收藏
++							58 button 实验室
++							59 button 关于此生
++							60 button 切换明暗
++							61 button 开启轻音乐
++					62 container
++						63 text BIRTH REGISTRY · 出生登记
++						64 heading 艾莉, Value: 1
++							65 text 艾莉
++						66 text 🇦🇴 安哥拉 · 0岁
++						67 image 出生时的家庭场景
++						68 container
++							69 text 你无法选择在哪里出生，
++							70 text 却会一步步走出自己的路。
++						71 text 03 / 在怎样的世界长大
++						72 heading 机会有门槛，人生未写定, Value: 2
++							73 text 机会有门槛，人生未写定
++						74 text 这户家庭的求学条件
++						75 text 有条件，也有门槛
++						76 text 就医的可及性
++						77 text 有条件，也有门槛
++						78 text 家庭人脉
++						79 text 资源有限
++						80 text 国家寿命观察值 · 2023
++						81 text 67.1岁
++						82 text 读书与工作可能争夺同一段时间，意外开支也更难消化。助学、技能与可靠的关系可能打开机会，但不能保证逆袭。
++						83 text 国家值来自WDI，家庭条件为游戏模型。平均寿命不是这个孩子的结局。
++						84 button ← 上一步
++						85 text 3 / 3
++						86 button 开始这一生 →
+The focused UI element is 49 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc

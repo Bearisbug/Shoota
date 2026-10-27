@@ -1,0 +1,34 @@
+[
+  {
+    "actual": {
+      "height": 640,
+      "width": 360
+    },
+    "refresh": "same person, family 2/3",
+    "exitReentry": "same person 3/3"
+  },
+  {
+    "actual": {
+      "height": 844,
+      "width": 390
+    },
+    "refresh": "same person, family 2/3",
+    "exitReentry": "same person 3/3"
+  },
+  {
+    "actual": {
+      "height": 390,
+      "width": 844
+    },
+    "refresh": "same person, family 2/3",
+    "exitReentry": "same person 3/3"
+  },
+  {
+    "actual": {
+      "height": 768,
+      "width": 1366
+    },
+    "refresh": "same person, family 2/3",
+    "exitReentry": "same person 3/3"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "baseCommit": "776a5fe47ec7a186a1032e2eda04735bcb38210c",
+  "host": {
+    "path": "public/index.html",
+    "sha256": "39e7d58cc0f850061d16272facfba99a44a1f24ea2309ff6d9e213939f4a0f3f",
+    "bytes": 125015
+  },
+  "preview": {
+    "path": "/Users/leizhang/Documents/ChatGPT/shoota/tmp/platform-save-reliability-20261028/output/save-qa/after/public/index.html",
+    "sha256": "49c08d2b4a020c8869e4d43e0728a62617dbc7a86fef8d2de1b16f8a397f40f4",
+    "onlyDifference": "local catalog adds frozen life and updates frozen airline/life byte counts"
+  },
+  "gameFilesUnchanged": true,
+  "frozenGames": {
+    "one-in-billions": {
+      "sha256": "04fb6e2f73b4d4ff5ac60c2787aed6deb502c5d112f90d34d2cce5b45f3b8c91",
+      "bytes": 435841
+    },
+    "airline-empire": {
+      "sha256": "16aaba838c19cfa1a7626397ed4e233e445a250e59cce65f285ecf26d9d6af7d",
+      "bytes": 1378006
+    }
+  },
+  "files": {
+    "public/index.html": "39e7d58cc0f850061d16272facfba99a44a1f24ea2309ff6d9e213939f4a0f3f",
+    "scripts/save-store.test.cjs": "b72d9432ea2c42a4dc460879376f87fadedbc70b36bc1b68f37618dfeb485436",
+    "scripts/save-browser-fixture.mjs": "0279b4773dd3536297e62fcfff5c3c8259d247648eee95e9362550ba334373ec"
+  }
+}

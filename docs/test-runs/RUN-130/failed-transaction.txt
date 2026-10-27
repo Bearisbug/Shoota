@@ -1,0 +1,7 @@
+Browser tab: 4, Title: "shoota 游戏平台", URL: "http://127.0.0.1:8843/faults.html#play-yike".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 14, 37
+~		13 button 暂存待重试, Help: 最新进度已暂存在本机，点击重试写入存档库。, ID: pSaved
++		37 text 本次 0 分钟
++				38 text 使事务失败
+The focused UI element is 32 button 使事务失败

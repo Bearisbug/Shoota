@@ -1,0 +1,8 @@
+Browser tab: 4, Title: "shoota 游戏平台", URL: "http://127.0.0.1:8843/faults.html#play-yike".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 38
+~		14 button (disabled) 已存档 04:17, ID: pSaved
++				22 text 当前进度：101
+~					25 text field (settable) Description: 进度值, Value: 1, ID: input
++				37 text 存档库可用
+The focused UI element is 1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8843/faults.html#play-yike

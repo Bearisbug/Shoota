@@ -1,0 +1,23 @@
+✔ accepted write is recovered before any async database operation (2.137958ms)
+✔ success waits for transaction promise; failure remains retryable (0.386792ms)
+✔ fast writes are immutable and serialized, latest snapshot wins (2.077292ms)
+✔ reentry reads newest pending save and old callbacks cannot touch another player (0.370542ms)
+✔ player and game keys stay isolated including clear (0.285375ms)
+✔ unchanged writes and temporary set-delete do not claim a new save (0.237208ms)
+✔ both stores unavailable is unsafe, retry recovers latest progress (0.265625ms)
+✔ quota on newer journal cannot leave older journal to roll back a committed save (0.391167ms)
+✔ completion does not clear a different journal snapshot (0.22225ms)
+✔ unreadable old save blocks loading instead of creating an empty save (0.286375ms)
+✔ recovery works even when database reads fail; corrupt journal is protected (0.206084ms)
+✔ restore queues behind in-flight saves and waits for its own commit (0.71075ms)
+✔ failed restore rejects and can be retried with the same payload (0.234083ms)
+✔ actual packSaves reads pending snapshots and CJ0/CJ1 formats round-trip (25.467042ms)
+✔ actual IDB request success is not commit; abort rejects; retry reopens (0.548208ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 84.803667

@@ -1,0 +1,47 @@
+Browser tab: 3, Title: "shoota 游戏平台", URL: "http://127.0.0.1:8843/#play-one-in-billions".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8843/#play-one-in-billions
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:8843/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:8843/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:8843/#library
+			7 link Description: 存档, Value: 127.0.0.1:8843/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container player
+		12 button 退出游戏, ID: pExit
+		13 text 此生
+		14 button (disabled) 已读取存档, ID: pSaved
+		15 text 本次 0 分钟
+		16 button 全屏, ID: pFull
+		17 container 此生
+			18 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc
+				19 container
+					20 text BIRTH REGISTRY · 出生登记
+					21 heading 艾莉, Value: 1
+						22 text 艾莉
+					23 text 🇦🇴 安哥拉 · 0岁
+					24 image 出生时的家庭场景
+					25 container
+						26 text 你无法选择在哪里出生，
+						27 text 却会一步步走出自己的路。
+					28 text 02 / 家庭的底色
+					29 heading 收支紧绷, Value: 2
+						30 text 收支紧绷
+					31 text 租住的小公寓
+					32 text 母亲 · 24岁
+					33 text 商店店员
+					34 text 父亲 · 37岁
+					35 text 维修学徒
+					36 text 兄弟姐妹
+					37 text 已有 2 位
+					38 text 成年起步支持
+					39 text 458 模拟单位
+					40 text 关系紧张，家人常为生活安排争执
+					41 text 家境会影响起步资金、教育资源、人脉和困难时的支持。财富不代表家人是否爱你。
+					42 button ← 上一步
+					43 text 2 / 3
+					44 button 看看成长环境 →
+
+The focused UI element is 18 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc

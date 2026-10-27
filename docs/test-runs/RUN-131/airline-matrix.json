@@ -1,0 +1,39 @@
+[
+  {
+    "actual": {
+      "height": 640,
+      "width": 360
+    },
+    "week": "W04",
+    "refresh": true,
+    "exitReentry": true
+  },
+  {
+    "actual": {
+      "height": 844,
+      "width": 390
+    },
+    "week": "W06",
+    "refresh": true,
+    "exitReentry": true
+  },
+  {
+    "actual": {
+      "height": 390,
+      "width": 844
+    },
+    "week": "W07",
+    "refresh": true,
+    "exitReentry": true,
+    "interaction": "AX click after locator-coordinate interception"
+  },
+  {
+    "actual": {
+      "height": 768,
+      "width": 1366
+    },
+    "week": "W08",
+    "refresh": true,
+    "exitReentry": true
+  }
+]

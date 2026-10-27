@@ -1,0 +1,41 @@
+Browser tab: 5, Title: "shoota 游戏平台", URL: "http://127.0.0.1:8843/faults.html#play-yike".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8843/faults.html#play-yike
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:8843/faults.html#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:8843/faults.html#store
+			6 link Description: 游戏库, Value: 127.0.0.1:8843/faults.html#library
+			7 link Description: 存档, Value: 127.0.0.1:8843/faults.html#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container player
+		12 button 退出游戏, ID: pExit
+		13 text 一克之差
+		14 button 保存失败·重试, Help: 最新进度未保存，离开可能丢失。请点击重试，或退出游戏后导出存档码备份。, ID: pSaved
+		37 text 本次 0 分钟
+		16 button 全屏, ID: pFull
+		17 container 一克之差
+			18 AXWebArea 本地存档故障夹具, URL: about:srcdoc
+				19 heading 本地存档故障夹具, Value: 1
+					20 text 本地存档故障夹具
+				21 text 只用于平台保存验收，不属于游戏。
+				38 text 当前进度：302
+				23 container 存档操作
+					24 text 存档操作
+					25 text field (settable) Description: 进度值, Value: 302, ID: input
+					26 button 写入进度, ID: write
+					27 button 连续写入100次, ID: burst
+					28 button 原样写回, ID: same
+					29 button 临时写入后删除, ID: probe
+				30 container 事务故障
+					31 text 事务故障
+					32 button 暂停事务完成
+					33 button 使事务失败
+					34 button 恢复存档库
+					35 button 禁止恢复记录, ID: quota
+					36 button 恢复临时记录, ID: unquota
+				39 text 临时恢复写入已禁止
+	40 text 最新进度还没保存，离开可能丢失。请重试，或先导出存档码。
+
+The focused UI element is 26 button 写入进度, ID: write

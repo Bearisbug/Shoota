@@ -1,0 +1,6 @@
+{
+  "beforeTransactionComplete": "已存档 04:13",
+  "claimedSnapshot": "{\"save\":\"new\"}",
+  "writes": 1,
+  "writesAfterFailedRetry": 1
+}
