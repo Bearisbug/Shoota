@@ -1,0 +1,61 @@
+{
+  "keys": [
+    "skybound-save-v1",
+    "skybound-save-backup-v1",
+    "skybound-save-upgrade-backup-v1"
+  ],
+  "encoding": "JSON",
+  "chars": 222249,
+  "week": 7,
+  "date": "2026-02-16",
+  "name": "舱位路径验收",
+  "cash": 9982.119752010958,
+  "fleet": 3,
+  "routes": 2,
+  "ids": [
+    1,
+    4,
+    5
+  ],
+  "version": 1,
+  "saveRevision": 4,
+  "fleetPolicy": {
+    "years": 25,
+    "leadMonths": 3
+  },
+  "planes": [
+    {
+      "id": 1,
+      "delivery": 0
+    },
+    {
+      "id": 4,
+      "delivery": 0
+    },
+    {
+      "id": 5,
+      "delivery": 0
+    }
+  ],
+  "routePlans": [
+    {
+      "id": 2,
+      "plane": 1,
+      "freq": 7,
+      "active": true
+    },
+    {
+      "id": 6,
+      "plane": 5,
+      "freq": 7,
+      "active": true
+    }
+  ],
+  "maintenanceBatch": {
+    "week": 6,
+    "count": 0
+  },
+  "autoMaintenance": [],
+  "maintenanceQueued": [],
+  "replacementProceeds": 0
+}

@@ -1,0 +1,363 @@
+{
+  "keys": [
+    "skybound-save-v1",
+    "skybound-save-backup-v1",
+    "skybound-save-upgrade-backup-v1"
+  ],
+  "encoding": "JSON",
+  "chars": 237932,
+  "week": 2,
+  "date": "2026-01-12",
+  "name": "客流与检修验收",
+  "cash": 9966.794342600004,
+  "fleet": 40,
+  "routes": 4,
+  "ids": [
+    1,
+    4,
+    5,
+    6,
+    7
+  ],
+  "version": 1,
+  "saveRevision": 4,
+  "fleetPolicy": {
+    "years": 25,
+    "leadMonths": 3
+  },
+  "planes": [
+    {
+      "id": 1,
+      "delivery": 0
+    },
+    {
+      "id": 4,
+      "delivery": 0
+    },
+    {
+      "id": 5,
+      "delivery": 0
+    },
+    {
+      "id": 6,
+      "delivery": 0
+    },
+    {
+      "id": 7,
+      "delivery": 0
+    },
+    {
+      "id": 8,
+      "delivery": 0
+    },
+    {
+      "id": 9,
+      "delivery": 0
+    },
+    {
+      "id": 10,
+      "delivery": 0
+    },
+    {
+      "id": 11,
+      "delivery": 0
+    },
+    {
+      "id": 12,
+      "delivery": 0
+    },
+    {
+      "id": 13,
+      "delivery": 0
+    },
+    {
+      "id": 14,
+      "delivery": 0
+    },
+    {
+      "id": 15,
+      "delivery": 0
+    },
+    {
+      "id": 16,
+      "delivery": 0
+    },
+    {
+      "id": 17,
+      "delivery": 0
+    },
+    {
+      "id": 18,
+      "delivery": 0
+    },
+    {
+      "id": 19,
+      "delivery": 0
+    },
+    {
+      "id": 20,
+      "delivery": 0
+    },
+    {
+      "id": 21,
+      "delivery": 0
+    },
+    {
+      "id": 22,
+      "delivery": 0
+    },
+    {
+      "id": 23,
+      "delivery": 0
+    },
+    {
+      "id": 24,
+      "delivery": 0
+    },
+    {
+      "id": 25,
+      "delivery": 0
+    },
+    {
+      "id": 26,
+      "delivery": 0
+    },
+    {
+      "id": 27,
+      "delivery": 0
+    },
+    {
+      "id": 28,
+      "delivery": 0
+    },
+    {
+      "id": 29,
+      "delivery": 0
+    },
+    {
+      "id": 30,
+      "delivery": 0
+    },
+    {
+      "id": 31,
+      "delivery": 0
+    },
+    {
+      "id": 32,
+      "delivery": 0
+    },
+    {
+      "id": 33,
+      "delivery": 0
+    },
+    {
+      "id": 34,
+      "delivery": 0
+    },
+    {
+      "id": 35,
+      "delivery": 0
+    },
+    {
+      "id": 36,
+      "delivery": 0
+    },
+    {
+      "id": 37,
+      "delivery": 0
+    },
+    {
+      "id": 38,
+      "delivery": 0
+    },
+    {
+      "id": 39,
+      "delivery": 0
+    },
+    {
+      "id": 40,
+      "delivery": 0
+    },
+    {
+      "id": 41,
+      "delivery": 0
+    },
+    {
+      "id": 42,
+      "delivery": 0
+    }
+  ],
+  "routePlans": [
+    {
+      "id": 2,
+      "plane": 1,
+      "freq": 1,
+      "active": true
+    },
+    {
+      "id": 3,
+      "plane": 4,
+      "freq": 1,
+      "active": true
+    },
+    {
+      "id": 43,
+      "plane": 5,
+      "freq": 7,
+      "active": true
+    },
+    {
+      "id": 44,
+      "plane": 6,
+      "freq": 7,
+      "active": true
+    }
+  ],
+  "maintenancePolicy": {
+    "weeklyLimit": 15
+  },
+  "maintenanceBatch": {
+    "week": 1,
+    "count": 15
+  },
+  "autoMaintenance": [
+    {
+      "id": 13,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 14,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 15,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 16,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 17,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 18,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 19,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 20,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 21,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 22,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 23,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 24,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 25,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 26,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    },
+    {
+      "id": 27,
+      "model": "A320neo",
+      "hangar": "HGH",
+      "fee": 1.722,
+      "weeks": 1,
+      "preventive": false
+    }
+  ],
+  "maintenanceQueued": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42
+  ],
+  "replacementProceeds": 0
+}

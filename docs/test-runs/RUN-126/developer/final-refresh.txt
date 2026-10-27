@@ -1,0 +1,162 @@
+- banner:
+  - link "shoota 首页":
+    - /url: "#store"
+  - navigation "主导航":
+    - link "商店":
+      - /url: "#store"
+    - link "游戏库":
+      - /url: "#library"
+    - link "存档":
+      - /url: "#backup"
+  - generic: 搜索游戏
+  - searchbox "搜索游戏"
+  - button "账号菜单": 玩
+- main
+- button "退出游戏":
+  - generic: 退出游戏
+- generic: 打造全球最佳航司
+- generic: 已读取存档
+- generic: 本次 0 分钟
+- button "全屏":
+  - generic: 全屏
+- iframe [active]:
+  - complementary:
+    - strong: 打造全球最佳航司
+    - generic: SKYBOUND AIRLINES
+    - generic: AIRLINE MANAGEMENT
+    - navigation "主导航":
+      - button "经营总览":
+        - generic: 经营总览
+      - button "航线网络":
+        - generic: 航线网络
+      - button "航班排班":
+        - generic: 航班排班
+      - button "市场洞察":
+        - generic: 市场洞察
+      - button "机队管理":
+        - generic: 机队管理
+      - button "飞机采购":
+        - generic: 飞机采购
+      - button "旅客服务":
+        - generic: 旅客服务
+      - button "世界动态":
+        - generic: 世界动态
+      - button "财务中心":
+        - generic: 财务中心
+      - button "航司排行榜":
+        - generic: 航司排行榜
+      - button "公司发展":
+        - generic: 公司发展
+      - button "机库经营":
+        - generic: 机库经营
+    - generic: WORKSPACE
+    - navigation:
+      - button "存档与设置":
+        - generic: 存档与设置
+      - button "资料与规则":
+        - generic: 资料与规则
+    - generic: 舱
+    - strong: 舱位路径验收
+    - generic: 杭州基地 · 董事长
+  - main:
+    - text: 航空经营模拟
+    - generic: 航线网络
+    - generic: 本机自动存档
+    - generic: 2026.01.12
+    - generic: W02
+    - button "经营下一周":
+      - text: 经营下一周
+    - button "直接连续经营 5 周":
+      - text: 快进 5 周
+    - generic: NETWORK PLANNING
+    - heading "航线运营" [level=1]
+    - paragraph: 待改派和暂停航线优先展示，便于补齐执飞计划。
+    - button "客流增长":
+      - text: 客流增长
+    - button "经营助手":
+      - text: 经营助手
+    - button "枢纽分析":
+      - text: 枢纽分析
+    - button "客流竞争":
+      - text: 客流竞争
+    - button "展开全景":
+      - text: 展开全景
+    - button "自动定价：关":
+      - text: 自动定价：关
+    - button "开通航线":
+      - text: 开通航线
+    - tablist "航网分区":
+      - tab "航线运营" [selected]
+      - tab "全球地图"
+    - paragraph: 1 条航线 · 2 个配机计划（按飞机分别管理）
+    - generic "列表分页":
+      - generic: 2 项 · 第 1 / 1 页
+      - button "上一页" [disabled]
+      - button "下一页" [disabled]
+    - article:
+      - button "调整杭州至广州航线": 杭州 ⇄ 广州
+      - generic: 运营中
+      - paragraph:
+        - text: HGH ⇄ CAN · 直飞 ·
+        - strong: 本机每周 7 次往返
+        - text: · 本线合计 14 次 / 2 架
+      - paragraph: Airbus A320neo · B-YS001
+      - paragraph: 预计客座率 29% · 周贡献 +0.7 万
+      - paragraph: 本地 685 · 转机 0 人次 / 周
+      - button "调整班次 / 配机":
+        - text: 调整班次 / 配机
+      - button "增派飞机":
+        - text: 增派飞机
+      - button "航线时刻表":
+        - text: 航线时刻表
+      - button "舱位管理":
+        - text: 舱位管理
+      - generic "更多操作"
+    - article:
+      - button "调整杭州至广州航线": 杭州 ⇄ 广州
+      - generic: 运营中
+      - paragraph:
+        - text: HGH ⇄ CAN · 直飞 ·
+        - strong: 本机每周 7 次往返
+        - text: · 本线合计 14 次 / 2 架
+      - paragraph: Airbus A350-1000 · B-YS005
+      - paragraph: 预计客座率 27% · 周贡献 −38.5 万
+      - paragraph: 本地 1410 · 转机 0 人次 / 周
+      - button "调整班次 / 配机":
+        - text: 调整班次 / 配机
+      - button "增派飞机":
+        - text: 增派飞机
+      - button "航线时刻表":
+        - text: 航线时刻表
+      - button "舱位管理":
+        - text: 舱位管理
+      - generic "更多操作"
+    - generic: "舱位路径验收 · 中国民营航空公司 · 全球综合排名 #152"
+    - generic: 经营与外交剧情为模拟设定 · 非实时航空数据
+  - dialog "HGH ⇄ CAN · 舱位管理":
+    - heading "HGH ⇄ CAN · 舱位管理" [level=2]
+    - paragraph: 一条航线的所有执飞飞机，集中管理
+    - button "关闭" [active]:
+    - paragraph: 按执飞飞机配置座位。宽体可设三舱，窄体仅商务与经济；调整会同步影响该飞机执飞的其他航线。
+    - article:
+      - heading "Airbus A320neo" [level=3]
+      - paragraph: B-YS001 · 窄体 / 支线 · 两舱
+      - generic: 经济舱 156
+      - generic: 商务舱 12
+      - paragraph: 目前仅执飞本航线
+      - button "调整这架飞机舱位":
+        - text: 调整这架飞机舱位
+    - article:
+      - heading "Airbus A350-1000" [level=3]
+      - paragraph: B-YS005 · 宽体 · 可设三舱
+      - generic: 经济舱 375
+      - generic: 商务舱 0
+      - generic: 头等舱 0
+      - paragraph: 目前仅执飞本航线
+      - button "调整这架飞机舱位":
+        - text: 调整这架飞机舱位
+    - button "上一架" [disabled]
+    - generic: 2 架 · 1/1
+    - button "下一架" [disabled]
+    - button "关闭"
+  - status

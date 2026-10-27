@@ -1,0 +1,14 @@
+[
+  {
+    "level": "error",
+    "message": "ReferenceError: cabinRoute is not defined\n    at routeCabins (about:srcdoc:3555:12)\n    at HTMLDocument.<anonymous> (about:srcdoc:3594:1465)",
+    "timestamp": "2026-10-27T07:56:55.068Z",
+    "url": "about:srcdoc"
+  },
+  {
+    "level": "error",
+    "message": "ReferenceError: cabinRoute is not defined\n    at routeCabins (about:srcdoc:3555:12)\n    at HTMLDocument.<anonymous> (about:srcdoc:3594:1465)",
+    "timestamp": "2026-10-27T07:57:10.602Z",
+    "url": "about:srcdoc"
+  }
+]

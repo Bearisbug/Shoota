@@ -1,0 +1,716 @@
+[
+  {
+    "state": "cabin-edit",
+    "width": 360,
+    "height": 640,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      360,
+      591
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 390,
+    "height": 844,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      390,
+      795
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 430,
+    "height": 932,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      430,
+      883
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 844,
+    "height": 390,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      844,
+      340
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 768,
+    "height": 1024,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      768,
+      974
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 1366,
+    "height": 768,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      1366,
+      718
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 1440,
+    "height": 900,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      1440,
+      850
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 320,
+    "height": 568,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": false
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": false
+      }
+    ],
+    "inner": [
+      320,
+      519
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 390,
+    "height": 600,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      390,
+      551
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 700,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      700,
+      751
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 701,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      701,
+      751
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 1100,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      1100,
+      750
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 1101,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      1101,
+      750
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 844,
+    "height": 550,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      844,
+      500
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 844,
+    "height": 551,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      844,
+      501
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 600,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      600,
+      751
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 601,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      601,
+      751
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 959,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      959,
+      750
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 960,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      960,
+      750
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 370,
+    "height": 700,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      370,
+      651
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 371,
+    "height": 700,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      371,
+      651
+    ],
+    "inside": true,
+    "overflow": false
+  }
+]

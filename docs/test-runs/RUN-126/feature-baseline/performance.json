@@ -1,0 +1,35 @@
+{
+  "fixture": "400 aircraft, isolated synthetic save",
+  "measurements": [
+    {
+      "weeklyMs": 313.30754199999996
+    },
+    {
+      "weeklyMs": 127.50729100000001
+    },
+    {
+      "weeklyMs": 107.56729200000007
+    },
+    {
+      "weeklyMs": 100.813625
+    },
+    {
+      "weeklyMs": 94.83795900000007
+    }
+  ],
+  "open": {
+    "elapsedMs": 678.2278329999999,
+    "items": 20,
+    "pax": 49347
+  },
+  "reinforce": {
+    "elapsedMs": 347.71020799999997,
+    "items": 0,
+    "pax": 0
+  },
+  "allDueMaintenance": {
+    "elapsedMs": 29.394000000000005,
+    "scheduled": 20,
+    "queued": 380
+  }
+}

@@ -1,0 +1,1556 @@
+[
+  {
+    "state": "cabin-edit",
+    "width": 360,
+    "height": 640,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      360,
+      591
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 390,
+    "height": 844,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      390,
+      795
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 430,
+    "height": 932,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      430,
+      883
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 844,
+    "height": 390,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      844,
+      340
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 768,
+    "height": 1024,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      768,
+      974
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 1366,
+    "height": 768,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      1366,
+      718
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 1440,
+    "height": 900,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      1440,
+      850
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 320,
+    "height": 568,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": false
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": false
+      }
+    ],
+    "inner": [
+      320,
+      519
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 390,
+    "height": 600,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      390,
+      551
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 700,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      700,
+      751
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 701,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      701,
+      751
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 1100,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      1100,
+      750
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 1101,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      1101,
+      750
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 844,
+    "height": 550,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      844,
+      500
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 844,
+    "height": 551,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      844,
+      501
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 600,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      600,
+      751
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 601,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      601,
+      751
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 959,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      959,
+      750
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 960,
+    "height": 800,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      960,
+      750
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 370,
+    "height": 700,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      370,
+      651
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "cabin-edit",
+    "width": 371,
+    "height": 700,
+    "actionVisible": true,
+    "fields": [
+      {
+        "name": "economy",
+        "value": "302",
+        "visible": true
+      },
+      {
+        "name": "business",
+        "value": "36",
+        "visible": true
+      },
+      {
+        "name": "first",
+        "value": "8",
+        "visible": true
+      },
+      {
+        "name": "pitch",
+        "value": "30",
+        "visible": true
+      }
+    ],
+    "inner": [
+      371,
+      651
+    ],
+    "inside": true,
+    "overflow": false
+  },
+  {
+    "state": "report",
+    "width": 360,
+    "height": 640,
+    "actionVisible": true,
+    "inner": [
+      360,
+      591
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 390,
+    "height": 844,
+    "actionVisible": true,
+    "inner": [
+      390,
+      795
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 430,
+    "height": 932,
+    "actionVisible": true,
+    "inner": [
+      430,
+      883
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 844,
+    "height": 390,
+    "actionVisible": true,
+    "inner": [
+      844,
+      340
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 768,
+    "height": 1024,
+    "actionVisible": true,
+    "inner": [
+      768,
+      974
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 1366,
+    "height": 768,
+    "actionVisible": true,
+    "inner": [
+      1366,
+      718
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 1440,
+    "height": 900,
+    "actionVisible": true,
+    "inner": [
+      1440,
+      850
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 320,
+    "height": 568,
+    "actionVisible": true,
+    "inner": [
+      320,
+      519
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 390,
+    "height": 600,
+    "actionVisible": true,
+    "inner": [
+      390,
+      551
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 700,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      700,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 701,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      701,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 1100,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      1100,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 1101,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      1101,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 844,
+    "height": 550,
+    "actionVisible": true,
+    "inner": [
+      844,
+      500
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 844,
+    "height": 551,
+    "actionVisible": true,
+    "inner": [
+      844,
+      501
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 600,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      600,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 601,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      601,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 959,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      959,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 960,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      960,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 370,
+    "height": 700,
+    "actionVisible": true,
+    "inner": [
+      370,
+      651
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "report",
+    "width": 371,
+    "height": 700,
+    "actionVisible": true,
+    "inner": [
+      371,
+      651
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 360,
+    "height": 640,
+    "actionVisible": true,
+    "inner": [
+      360,
+      591
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 390,
+    "height": 844,
+    "actionVisible": true,
+    "inner": [
+      390,
+      795
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 430,
+    "height": 932,
+    "actionVisible": true,
+    "inner": [
+      430,
+      883
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 844,
+    "height": 390,
+    "actionVisible": true,
+    "inner": [
+      844,
+      340
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 768,
+    "height": 1024,
+    "actionVisible": true,
+    "inner": [
+      768,
+      974
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 1366,
+    "height": 768,
+    "actionVisible": true,
+    "inner": [
+      1366,
+      718
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 1440,
+    "height": 900,
+    "actionVisible": true,
+    "inner": [
+      1440,
+      850
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 320,
+    "height": 568,
+    "actionVisible": true,
+    "inner": [
+      320,
+      519
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 390,
+    "height": 600,
+    "actionVisible": true,
+    "inner": [
+      390,
+      551
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 700,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      700,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 701,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      701,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 1100,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      1100,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 1101,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      1101,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 844,
+    "height": 550,
+    "actionVisible": true,
+    "inner": [
+      844,
+      500
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 844,
+    "height": 551,
+    "actionVisible": true,
+    "inner": [
+      844,
+      501
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 600,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      600,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 601,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      601,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 959,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      959,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 960,
+    "height": 800,
+    "actionVisible": true,
+    "inner": [
+      960,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 370,
+    "height": 700,
+    "actionVisible": true,
+    "inner": [
+      370,
+      651
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "main",
+    "width": 371,
+    "height": 700,
+    "actionVisible": true,
+    "inner": [
+      371,
+      651
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 360,
+    "height": 640,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      360,
+      591
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 390,
+    "height": 844,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      390,
+      795
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 430,
+    "height": 932,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      430,
+      883
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 844,
+    "height": 390,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      844,
+      340
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 768,
+    "height": 1024,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      768,
+      974
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 1366,
+    "height": 768,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      1366,
+      718
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 1440,
+    "height": 900,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      1440,
+      850
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 320,
+    "height": 568,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      320,
+      519
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 390,
+    "height": 600,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      390,
+      551
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 700,
+    "height": 800,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      700,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 701,
+    "height": 800,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      701,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 1100,
+    "height": 800,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      1100,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 1101,
+    "height": 800,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      1101,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 844,
+    "height": 550,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      844,
+      500
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 844,
+    "height": 551,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      844,
+      501
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 600,
+    "height": 800,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      600,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 601,
+    "height": 800,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      601,
+      751
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 959,
+    "height": 800,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      959,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 960,
+    "height": 800,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      960,
+      750
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 370,
+    "height": 700,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      370,
+      651
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  },
+  {
+    "state": "route-edit",
+    "width": 371,
+    "height": 700,
+    "actionVisible": true,
+    "freq": "8",
+    "inner": [
+      371,
+      651
+    ],
+    "inside": true,
+    "overflow": false,
+    "week": "2026.01.12W02"
+  }
+]
