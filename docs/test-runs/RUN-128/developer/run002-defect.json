@@ -1,0 +1,16 @@
+{
+  "gameSha256": "1457f2ddf56dfd5e2353123d0c9a65cd01695215598f8c798b6afec20dc63aeb",
+  "viewport": [
+    844,
+    390
+  ],
+  "iframe": [
+    844,
+    340
+  ],
+  "cardBottom": 296.890625,
+  "footerTop": 279,
+  "overlap": 17.890625,
+  "evidence": "run002-main-844x390.png",
+  "fileChooser": "Iframe chooser wait timed out; no captured error/warn. Tool capability unverified, not diagnosed as game defect."
+}

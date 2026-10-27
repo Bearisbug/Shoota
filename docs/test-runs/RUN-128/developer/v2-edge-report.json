@@ -1,0 +1,127 @@
+{
+  "checks": 2740,
+  "basic": [
+    {
+      "root": "n0",
+      "path": "righteous",
+      "turn": 154
+    },
+    {
+      "root": "n0",
+      "path": "demonic",
+      "turn": 149
+    },
+    {
+      "root": "n0",
+      "path": "free",
+      "turn": 157
+    },
+    {
+      "root": "n1",
+      "path": "righteous",
+      "turn": 121
+    },
+    {
+      "root": "n1",
+      "path": "demonic",
+      "turn": 122
+    },
+    {
+      "root": "n1",
+      "path": "free",
+      "turn": 126
+    },
+    {
+      "root": "n2",
+      "path": "righteous",
+      "turn": 131
+    },
+    {
+      "root": "n2",
+      "path": "demonic",
+      "turn": 131
+    },
+    {
+      "root": "n2",
+      "path": "free",
+      "turn": 127
+    },
+    {
+      "root": "n3",
+      "path": "righteous",
+      "turn": 146
+    },
+    {
+      "root": "n3",
+      "path": "demonic",
+      "turn": 141
+    },
+    {
+      "root": "n3",
+      "path": "free",
+      "turn": 142
+    },
+    {
+      "root": "n4",
+      "path": "righteous",
+      "turn": 150
+    },
+    {
+      "root": "n4",
+      "path": "demonic",
+      "turn": 143
+    },
+    {
+      "root": "n4",
+      "path": "free",
+      "turn": 153
+    },
+    {
+      "root": "n5",
+      "path": "righteous",
+      "turn": 160
+    },
+    {
+      "root": "n5",
+      "path": "demonic",
+      "turn": 154
+    },
+    {
+      "root": "n5",
+      "path": "free",
+      "turn": 155
+    }
+  ],
+  "bonds": [
+    {
+      "id": "healer",
+      "turn": 9,
+      "quests": 2
+    },
+    {
+      "id": "swordsman",
+      "turn": 36,
+      "quests": 2
+    },
+    {
+      "id": "merchant",
+      "turn": 9,
+      "quests": 2
+    },
+    {
+      "id": "night",
+      "turn": 9,
+      "quests": 2
+    },
+    {
+      "id": "scholar",
+      "turn": 9,
+      "quests": 2
+    },
+    {
+      "id": "guardian",
+      "turn": 36,
+      "quests": 2
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "status": "BLOCKED",
+  "date": "2026-10-27",
+  "gameSha256": "1457f2ddf56dfd5e2353123d0c9a65cd01695215598f8c798b6afec20dc63aeb",
+  "platformCommit": "6ddac865eccb8eabfb0af9995714e7fa03a480ca",
+  "reason": "Local HTTP service cannot bind in sandbox. Two completed automatic permission reviews timed out. Retry exhausted. Existing port 8769 is not serving. Browser file:// fallback blocked by URL policy.",
+  "browserAttempts": [
+    {
+      "url": "http://127.0.0.1:8786/",
+      "result": "ERR_CONNECTION_REFUSED"
+    },
+    {
+      "url": "http://127.0.0.1:8769/dist/index.html",
+      "result": "ERR_CONNECTION_REFUSED"
+    },
+    {
+      "url": "file:///private/tmp/immortal-platform-20261027/public/index.html",
+      "result": "Protocol blocked; no bypass attempted"
+    }
+  ],
+  "matrix": [
+    {
+      "viewport": "360x640",
+      "states": {
+        "main": "BLOCKED_NOT_EXECUTED",
+        "edit": "BLOCKED_NOT_EXECUTED",
+        "complex-dialog": "BLOCKED_NOT_EXECUTED",
+        "result": "BLOCKED_NOT_EXECUTED"
+      }
+    },
+    {
+      "viewport": "390x844",
+      "states": {
+        "main": "BLOCKED_NOT_EXECUTED",
+        "edit": "BLOCKED_NOT_EXECUTED",
+        "complex-dialog": "BLOCKED_NOT_EXECUTED",
+        "result": "BLOCKED_NOT_EXECUTED"
+      }
+    },
+    {
+      "viewport": "430x932",
+      "states": {
+        "main": "BLOCKED_NOT_EXECUTED",
+        "edit": "BLOCKED_NOT_EXECUTED",
+        "complex-dialog": "BLOCKED_NOT_EXECUTED",
+        "result": "BLOCKED_NOT_EXECUTED"
+      }
+    },
+    {
+      "viewport": "844x390",
+      "states": {
+        "main": "BLOCKED_NOT_EXECUTED",
+        "edit": "BLOCKED_NOT_EXECUTED",
+        "complex-dialog": "BLOCKED_NOT_EXECUTED",
+        "result": "BLOCKED_NOT_EXECUTED"
+      }
+    },
+    {
+      "viewport": "768x1024",
+      "states": {
+        "main": "BLOCKED_NOT_EXECUTED",
+        "edit": "BLOCKED_NOT_EXECUTED",
+        "complex-dialog": "BLOCKED_NOT_EXECUTED",
+        "result": "BLOCKED_NOT_EXECUTED"
+      }
+    },
+    {
+      "viewport": "1366x768",
+      "states": {
+        "main": "BLOCKED_NOT_EXECUTED",
+        "edit": "BLOCKED_NOT_EXECUTED",
+        "complex-dialog": "BLOCKED_NOT_EXECUTED",
+        "result": "BLOCKED_NOT_EXECUTED"
+      }
+    },
+    {
+      "viewport": "1440x900",
+      "states": {
+        "main": "BLOCKED_NOT_EXECUTED",
+        "edit": "BLOCKED_NOT_EXECUTED",
+        "complex-dialog": "BLOCKED_NOT_EXECUTED",
+        "result": "BLOCKED_NOT_EXECUTED"
+      }
+    }
+  ],
+  "coreFlows": {
+    "360x640": "BLOCKED_NOT_EXECUTED",
+    "390x844": "BLOCKED_NOT_EXECUTED",
+    "844x390": "BLOCKED_NOT_EXECUTED",
+    "1366x768": "BLOCKED_NOT_EXECUTED"
+  },
+  "platformNewSaveRefresh": "BLOCKED_NOT_EXECUTED",
+  "platformLegacyMigrationRefresh": "BLOCKED_NOT_EXECUTED",
+  "realMobileAnd200PercentText": "PENDING_MANUAL",
+  "gameSourceChanged": false
+}

@@ -1,0 +1,639 @@
+{
+  "build": "d6a4b12cf3ba90dd8d808f6c0d2c25399770d74dbd99c098af79d1e36f3f32fd",
+  "matrix": [
+    {
+      "kind": "main",
+      "w": 360,
+      "h": 640,
+      "overflow": [],
+      "gap": 6,
+      "hit": true,
+      "root": {
+        "h": 591,
+        "sh": 591,
+        "sw": 360,
+        "w": 360
+      }
+    },
+    {
+      "kind": "edit",
+      "w": 360,
+      "h": 640,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 591,
+        "sh": 591,
+        "sw": 360,
+        "w": 360
+      }
+    },
+    {
+      "kind": "complex",
+      "w": 360,
+      "h": 640,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 591,
+        "sh": 591,
+        "sw": 360,
+        "w": 360
+      }
+    },
+    {
+      "kind": "main",
+      "w": 390,
+      "h": 844,
+      "overflow": [],
+      "gap": 10,
+      "hit": true,
+      "root": {
+        "h": 795,
+        "sh": 795,
+        "sw": 390,
+        "w": 390
+      }
+    },
+    {
+      "kind": "edit",
+      "w": 390,
+      "h": 844,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 795,
+        "sh": 795,
+        "sw": 390,
+        "w": 390
+      }
+    },
+    {
+      "kind": "complex",
+      "w": 390,
+      "h": 844,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 795,
+        "sh": 795,
+        "sw": 390,
+        "w": 390
+      }
+    },
+    {
+      "kind": "main",
+      "w": 430,
+      "h": 932,
+      "overflow": [],
+      "gap": 10,
+      "hit": true,
+      "root": {
+        "h": 883,
+        "sh": 883,
+        "sw": 430,
+        "w": 430
+      }
+    },
+    {
+      "kind": "edit",
+      "w": 430,
+      "h": 932,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 883,
+        "sh": 883,
+        "sw": 430,
+        "w": 430
+      }
+    },
+    {
+      "kind": "complex",
+      "w": 430,
+      "h": 932,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 883,
+        "sh": 883,
+        "sw": 430,
+        "w": 430
+      }
+    },
+    {
+      "kind": "main",
+      "w": 844,
+      "h": 390,
+      "overflow": [],
+      "gap": 15.5,
+      "hit": true,
+      "root": {
+        "h": 340,
+        "sh": 340,
+        "sw": 844,
+        "w": 844
+      }
+    },
+    {
+      "kind": "edit",
+      "w": 844,
+      "h": 390,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 340,
+        "sh": 340,
+        "sw": 844,
+        "w": 844
+      }
+    },
+    {
+      "kind": "complex",
+      "w": 844,
+      "h": 390,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 340,
+        "sh": 340,
+        "sw": 844,
+        "w": 844
+      }
+    },
+    {
+      "kind": "main",
+      "w": 768,
+      "h": 1024,
+      "overflow": [],
+      "gap": 17,
+      "hit": true,
+      "root": {
+        "h": 974,
+        "sh": 974,
+        "sw": 768,
+        "w": 768
+      }
+    },
+    {
+      "kind": "edit",
+      "w": 768,
+      "h": 1024,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 974,
+        "sh": 974,
+        "sw": 768,
+        "w": 768
+      }
+    },
+    {
+      "kind": "complex",
+      "w": 768,
+      "h": 1024,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 974,
+        "sh": 974,
+        "sw": 768,
+        "w": 768
+      }
+    },
+    {
+      "kind": "main",
+      "w": 1366,
+      "h": 768,
+      "overflow": [],
+      "gap": 13,
+      "hit": true,
+      "root": {
+        "h": 718,
+        "sh": 718,
+        "sw": 1366,
+        "w": 1366
+      }
+    },
+    {
+      "kind": "edit",
+      "w": 1366,
+      "h": 768,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 718,
+        "sh": 718,
+        "sw": 1366,
+        "w": 1366
+      }
+    },
+    {
+      "kind": "complex",
+      "w": 1366,
+      "h": 768,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 718,
+        "sh": 718,
+        "sw": 1366,
+        "w": 1366
+      }
+    },
+    {
+      "kind": "main",
+      "w": 1440,
+      "h": 900,
+      "overflow": [],
+      "gap": 17,
+      "hit": true,
+      "root": {
+        "h": 850,
+        "sh": 850,
+        "sw": 1440,
+        "w": 1440
+      }
+    },
+    {
+      "kind": "edit",
+      "w": 1440,
+      "h": 900,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 850,
+        "sh": 850,
+        "sw": 1440,
+        "w": 1440
+      }
+    },
+    {
+      "kind": "complex",
+      "w": 1440,
+      "h": 900,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 850,
+        "sh": 850,
+        "sw": 1440,
+        "w": 1440
+      }
+    },
+    {
+      "kind": "result",
+      "w": 360,
+      "h": 640,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 591,
+        "sh": 591,
+        "sw": 360,
+        "w": 360
+      }
+    },
+    {
+      "kind": "result",
+      "w": 390,
+      "h": 844,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 795,
+        "sh": 795,
+        "sw": 390,
+        "w": 390
+      }
+    },
+    {
+      "kind": "result",
+      "w": 430,
+      "h": 932,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 883,
+        "sh": 883,
+        "sw": 430,
+        "w": 430
+      }
+    },
+    {
+      "kind": "result",
+      "w": 844,
+      "h": 390,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 340,
+        "sh": 340,
+        "sw": 844,
+        "w": 844
+      }
+    },
+    {
+      "kind": "result",
+      "w": 768,
+      "h": 1024,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 974,
+        "sh": 974,
+        "sw": 768,
+        "w": 768
+      }
+    },
+    {
+      "kind": "result",
+      "w": 1366,
+      "h": 768,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 718,
+        "sh": 718,
+        "sw": 1366,
+        "w": 1366
+      }
+    },
+    {
+      "kind": "result",
+      "w": 1440,
+      "h": 900,
+      "overflow": [],
+      "gap": null,
+      "hit": true,
+      "root": {
+        "h": 850,
+        "sh": 850,
+        "sw": 1440,
+        "w": 1440
+      }
+    }
+  ],
+  "flows": [
+    {
+      "w": 360,
+      "h": 640,
+      "before": "第10年 · 夏 · 青岚东境",
+      "after": "第10年 · 秋 · 青岚东境",
+      "persisted": "果决\n\n历练胜率 +12%；基础伤势 38\n\n已应用",
+      "disabled": true,
+      "resultText": "记\n第10年 · 秋 · 已记入年谱\n调息养神\n\n把长生暂放一边。山窗半开，听一季雨声。\n\n精力 +54\n本季已自动保存\n继续仙途　→",
+      "ready": true
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "before": "第10年 · 夏 · 青岚东境",
+      "after": "第10年 · 秋 · 青岚东境",
+      "persisted": "果决\n\n历练胜率 +12%；基础伤势 38\n\n已应用",
+      "disabled": true,
+      "resultText": "记\n第10年 · 秋 · 已记入年谱\n调息养神\n\n把长生暂放一边。山窗半开，听一季雨声。\n\n精力 +54\n本季已自动保存\n继续仙途　→",
+      "ready": true
+    },
+    {
+      "w": 844,
+      "h": 390,
+      "before": "第10年 · 夏 · 青岚东境",
+      "after": "第10年 · 秋 · 青岚东境",
+      "persisted": "果决\n\n历练胜率 +12%；基础伤势 38\n\n已应用",
+      "disabled": true,
+      "resultText": "第10年 · 秋 · 已记入年谱\n调息养神\n\n把长生暂放一边。山窗半开，听一季雨声。\n\n精力 +54\n本季已自动保存\n继续仙途　→",
+      "ready": true
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "before": "第10年 · 夏 · 青岚东境",
+      "after": "第10年 · 秋 · 青岚东境",
+      "persisted": "果决\n\n历练胜率 +12%；基础伤势 38\n\n已应用",
+      "disabled": true,
+      "resultText": "记\n第10年 · 秋 · 已记入年谱\n调息养神\n\n把长生暂放一边。山窗半开，听一季雨声。\n\n精力 +54\n本季已自动保存\n继续仙途　→",
+      "ready": true
+    }
+  ],
+  "extra": [
+    {
+      "kind": "stress-main",
+      "w": 360,
+      "h": 640,
+      "overflow": [],
+      "gap": 6,
+      "hit": true,
+      "root": {
+        "h": 591,
+        "sh": 591,
+        "sw": 360,
+        "w": 360
+      }
+    },
+    {
+      "kind": "stress-main",
+      "w": 844,
+      "h": 390,
+      "overflow": [],
+      "gap": 15.5,
+      "hit": true,
+      "root": {
+        "h": 340,
+        "sh": 340,
+        "sw": 844,
+        "w": 844
+      }
+    },
+    {
+      "kind": "stress-main",
+      "w": 320,
+      "h": 568,
+      "overflow": [],
+      "gap": 6,
+      "hit": true,
+      "root": {
+        "h": 519,
+        "sh": 568,
+        "sw": 320,
+        "w": 320
+      }
+    },
+    {
+      "kind": "stress-main",
+      "w": 390,
+      "h": 600,
+      "overflow": [],
+      "gap": 6,
+      "hit": true,
+      "root": {
+        "h": 551,
+        "sh": 560,
+        "sw": 390,
+        "w": 390
+      }
+    },
+    {
+      "kind": "stress-main",
+      "w": 720,
+      "h": 800,
+      "overflow": [],
+      "gap": 10,
+      "hit": true,
+      "root": {
+        "h": 751,
+        "sh": 751,
+        "sw": 720,
+        "w": 720
+      }
+    },
+    {
+      "kind": "stress-main",
+      "w": 721,
+      "h": 800,
+      "overflow": [],
+      "gap": 17,
+      "hit": true,
+      "root": {
+        "h": 751,
+        "sh": 751,
+        "sw": 721,
+        "w": 721
+      }
+    },
+    {
+      "kind": "stress-main",
+      "w": 960,
+      "h": 800,
+      "overflow": [],
+      "gap": 17,
+      "hit": true,
+      "root": {
+        "h": 750,
+        "sh": 750,
+        "sw": 960,
+        "w": 960
+      }
+    },
+    {
+      "kind": "stress-main",
+      "w": 961,
+      "h": 800,
+      "overflow": [],
+      "gap": 13,
+      "hit": true,
+      "root": {
+        "h": 750,
+        "sh": 750,
+        "sw": 961,
+        "w": 961
+      }
+    }
+  ],
+  "notes": [
+    "创建新世并行动后立即刷新，仍显示此前已存档标记，读回此前旧进度；未观察到本次操作的新已存档回执。精确间隔未计时，不能认定具体毫秒数。平台源码有700ms防抖且旧徽标不重置。后续正常持久化测试使用已读取→已存档的真实转换。"
+  ],
+  "legacy": {
+    "sameText": true,
+    "before": "第39年 · 冬\n？ 指引\n⚙ 存档\n54.8 岁 · 女修\n终章验收\n灵石\n44\n精力\n52\n气血\n100\n悟性\n38\n☯\n修行\n⌁\n游历\n♧\n天下\n♡\n羁绊\n▥\n榜单\n◇\n行囊\n终境之后 · 自选收束\n天门与人间\n\n你以化神之境走到天地边缘。你仍能选择独自远行。这一生如何收束，由你自己决定。\n\n读完来由，再决定如何回应。\n看看选择　→",
+    "after": "第39年 · 冬\n？ 指引\n⚙ 存档\n54.8 岁 · 女修\n终章验收\n灵石\n44\n精力\n52\n气血\n100\n悟性\n38\n☯\n修行\n⌁\n游历\n♧\n天下\n♡\n羁绊\n▥\n榜单\n◇\n行囊\n终境之后 · 自选收束\n天门与人间\n\n你以化神之境走到天地边缘。你仍能选择独自远行。这一生如何收束，由你自己决定。\n\n读完来由，再决定如何回应。\n看看选择　→"
+  },
+  "newSave": {
+    "sameAfterRefresh": true,
+    "sameAfterReopen": true,
+    "before": "第1年 · 夏\n？ 指引\n⚙ 存档\n18.3 岁 · 男修\n平台新档复核\n灵石\n30\n精力\n84\n气血\n100\n悟性\n25\n☯\n修行\n⌁\n游历\n♧\n天下\n♡\n羁绊\n▥\n榜单\n◇\n行囊\n记\n第1年 · 夏 · 已记入年谱\n静室修炼\n\n让心神沉入气海。修仙很慢，但每一季都不会白费。\n\n修为 +25\n精力 -16\n本季已自动保存\n继续仙途　→",
+    "after": "第1年 · 夏\n？ 指引\n⚙ 存档\n18.3 岁 · 男修\n平台新档复核\n灵石\n30\n精力\n84\n气血\n100\n悟性\n25\n☯\n修行\n⌁\n游历\n♧\n天下\n♡\n羁绊\n▥\n榜单\n◇\n行囊\n记\n第1年 · 夏 · 已记入年谱\n静室修炼\n\n让心神沉入气海。修仙很慢，但每一季都不会白费。\n\n修为 +25\n精力 -16\n本季已自动保存\n继续仙途　→"
+  },
+  "ranks": {
+    "count": 37,
+    "unique": 37,
+    "lastPage": "←\n19 / 19\n→",
+    "empty": "此条件下暂无修士。放宽年龄、地域或境界筛选再看看。"
+  },
+  "clan": {
+    "bottom": 564,
+    "buttons": [
+      {
+        "bottom": 508.6953125,
+        "text": "招收弟子"
+      },
+      {
+        "bottom": 508.6953125,
+        "text": "培养门人"
+      },
+      {
+        "bottom": 560.6953125,
+        "text": "注资 80"
+      },
+      {
+        "bottom": 560.6953125,
+        "text": "支取 60"
+      }
+    ],
+    "clientHeight": 331,
+    "scrollHeight": 331,
+    "build": {
+      "bottom": 564,
+      "buttons": [
+        {
+          "bottom": 508.6953125,
+          "text": "传功殿 0/3"
+        },
+        {
+          "bottom": 508.6953125,
+          "text": "灵田 0/3"
+        },
+        {
+          "bottom": 560.6953125,
+          "text": "炼器坊 0/3"
+        },
+        {
+          "bottom": 560.6953125,
+          "text": "护山阵 0/3"
+        }
+      ],
+      "clientHeight": 331,
+      "scrollHeight": 331
+    }
+  },
+  "longResult": {
+    "clientHeight": 315,
+    "lastText": "长提示 1 · 灵石 +999999长提示 2 · 灵石 +999999长提示 3 · 灵石 +999999长提示 4 · 灵石 +999999长提示 5 · 灵石 +999999长提示 6 · 灵石 +999999长提示 7 · 灵石 +999999长提示 8 · 灵石 +999999长提示 9 · 灵石 +999999长提示 10 · 灵石 +999999长提示 11 · 灵石 +999999长提示 12 · 灵石 +999999",
+    "scrollHeight": 2839,
+    "scrollTop": 2523.5
+  },
+  "platformBackup": {
+    "tag": "CJ1",
+    "invalidError": "这段存档码读不出来，可能复制时漏了开头或结尾。回到原设备点「复制存档码」，整段重新复制一次。",
+    "restored": true,
+    "resources": "27.3 岁 · 女修\n天地玄黄宇宙洪荒日月盈昃\n灵石\n9.9亿\n精力\n46\n气血\n100\n悟性\n9.9万",
+    "sameGameBlob": true
+  },
+  "finalComplexScroll": {
+    "clientHeight": 223,
+    "scrollHeight": 441,
+    "scrollTop": 218
+  },
+  "finalIdentity": "d6a4b12cf3ba90dd8d808f6c0d2c25399770d74dbd99c098af79d1e36f3f32fd",
+  "console": []
+}

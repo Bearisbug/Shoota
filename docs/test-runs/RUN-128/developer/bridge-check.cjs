@@ -1,0 +1,22 @@
+// Actual platform BOOT contract in an isolated VM. Not browser/IndexedDB evidence.
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),crypto=require('node:crypto'),path=require('node:path');
+const frozen=path.resolve(__dirname,'../source');
+const game=fs.existsSync(path.join(frozen,'src/engine.js'))?frozen:path.resolve(__dirname,'../../..');
+const platform=process.argv[2]||'/private/tmp/immortal-platform-20261027/public/index.html';
+const html=fs.readFileSync(platform,'utf8');
+const match=html.match(/const BOOT = `([\s\S]*?)`;/);assert(match,'actual platform BOOT found');
+const G=require(path.join(game,'src/engine.js'));require(path.join(game,'src/world.js'));require(path.join(game,'src/stories.js'));
+const legacy=fs.readFileSync(path.join(game,'tests/fixtures/late-game.json'),'utf8');
+const old=JSON.parse(legacy),messages=[];
+const context={I:{storage:{'shoota.one-thought-immortal.v1':legacy},game:{id:'one-thought-immortal'},user:{id:'qa',nickname:'QA'}},parent:{postMessage:m=>messages.push(m)}};
+context.window=context;vm.createContext(context);vm.runInContext(match[1],context);
+const state=G.parse(context.localStorage.getItem('shoota.one-thought-immortal.v1'));
+for(const key of ['name','turn','level','stones','herbs','hp','energy','xp'])assert.equal(state[key],old[key],key);
+context.localStorage.setItem('shoota.one-thought-immortal.v2',JSON.stringify(state));
+const set=messages.find(m=>m.type==='ls-set');assert.equal(set.__cj,1);assert.equal(set.k,'shoota.one-thought-immortal.v2');
+assert.equal(context.localStorage.getItem('shoota.one-thought-immortal.v1'),legacy);
+assert.deepEqual(G.parse(set.v),G.parse(context.localStorage.getItem(set.k)));
+const after={I:{storage:{[set.k]:set.v},game:{id:'one-thought-immortal'},user:{id:'qa'}},parent:{postMessage:()=>{}}};after.window=after;vm.createContext(after);vm.runInContext(match[1],after);
+assert.deepEqual(G.parse(after.localStorage.getItem(set.k)),G.parse(set.v));
+const report={type:'VM integration only',platformBootSha256:crypto.createHash('sha256').update(match[1]).digest('hex'),gameSha256:JSON.parse(fs.readFileSync(path.join(game,'output/build.json'))).sha256,migrationFields:['name','turn','level','stones','herbs','hp','energy','xp'],result:'pass',legacyPreserved:true,postMessageRoundtrip:true,notVerified:['browser iframe','parent IndexedDB persistence','refresh UI','download permissions']};
+fs.writeFileSync(path.join(__dirname,'bridge-check.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report));

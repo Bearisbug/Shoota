@@ -1,0 +1,1217 @@
+{
+  "checks": 80674,
+  "runs": 144,
+  "results": [
+    {
+      "root": "n0",
+      "path": "righteous",
+      "seed": 1,
+      "turn": 165,
+      "age": 59.25,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "righteous",
+      "seed": 2,
+      "turn": 161,
+      "age": 58.25,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "righteous",
+      "seed": 3,
+      "turn": 163,
+      "age": 58.75,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "righteous",
+      "seed": 4,
+      "turn": 141,
+      "age": 53.25,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "righteous",
+      "seed": 5,
+      "turn": 143,
+      "age": 53.75,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "righteous",
+      "seed": 6,
+      "turn": 181,
+      "age": 63.25,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "righteous",
+      "seed": 7,
+      "turn": 171,
+      "age": 60.75,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "righteous",
+      "seed": 8,
+      "turn": 170,
+      "age": 60.5,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "demonic",
+      "seed": 1,
+      "turn": 160,
+      "age": 58,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "demonic",
+      "seed": 2,
+      "turn": 157,
+      "age": 57.25,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "demonic",
+      "seed": 3,
+      "turn": 166,
+      "age": 59.5,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "demonic",
+      "seed": 4,
+      "turn": 139,
+      "age": 52.75,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "demonic",
+      "seed": 5,
+      "turn": 135,
+      "age": 51.75,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "demonic",
+      "seed": 6,
+      "turn": 178,
+      "age": 62.5,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "demonic",
+      "seed": 7,
+      "turn": 164,
+      "age": 59,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "demonic",
+      "seed": 8,
+      "turn": 168,
+      "age": 60,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "free",
+      "seed": 1,
+      "turn": 161,
+      "age": 58.25,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "free",
+      "seed": 2,
+      "turn": 159,
+      "age": 57.75,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "free",
+      "seed": 3,
+      "turn": 168,
+      "age": 60,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "free",
+      "seed": 4,
+      "turn": 140,
+      "age": 53,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "free",
+      "seed": 5,
+      "turn": 141,
+      "age": 53.25,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "free",
+      "seed": 6,
+      "turn": 176,
+      "age": 62,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "free",
+      "seed": 7,
+      "turn": 165,
+      "age": 59.25,
+      "level": 12
+    },
+    {
+      "root": "n0",
+      "path": "free",
+      "seed": 8,
+      "turn": 168,
+      "age": 60,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "righteous",
+      "seed": 1,
+      "turn": 130,
+      "age": 50.5,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "righteous",
+      "seed": 2,
+      "turn": 126,
+      "age": 49.5,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "righteous",
+      "seed": 3,
+      "turn": 134,
+      "age": 51.5,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "righteous",
+      "seed": 4,
+      "turn": 112,
+      "age": 46,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "righteous",
+      "seed": 5,
+      "turn": 106,
+      "age": 44.5,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "righteous",
+      "seed": 6,
+      "turn": 149,
+      "age": 55.25,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "righteous",
+      "seed": 7,
+      "turn": 144,
+      "age": 54,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "righteous",
+      "seed": 8,
+      "turn": 133,
+      "age": 51.25,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "demonic",
+      "seed": 1,
+      "turn": 126,
+      "age": 49.5,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "demonic",
+      "seed": 2,
+      "turn": 116,
+      "age": 47,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "demonic",
+      "seed": 3,
+      "turn": 133,
+      "age": 51.25,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "demonic",
+      "seed": 4,
+      "turn": 108,
+      "age": 45,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "demonic",
+      "seed": 5,
+      "turn": 106,
+      "age": 44.5,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "demonic",
+      "seed": 6,
+      "turn": 141,
+      "age": 53.25,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "demonic",
+      "seed": 7,
+      "turn": 135,
+      "age": 51.75,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "demonic",
+      "seed": 8,
+      "turn": 125,
+      "age": 49.25,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "free",
+      "seed": 1,
+      "turn": 126,
+      "age": 49.5,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "free",
+      "seed": 2,
+      "turn": 122,
+      "age": 48.5,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "free",
+      "seed": 3,
+      "turn": 131,
+      "age": 50.75,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "free",
+      "seed": 4,
+      "turn": 110,
+      "age": 45.5,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "free",
+      "seed": 5,
+      "turn": 109,
+      "age": 45.25,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "free",
+      "seed": 6,
+      "turn": 143,
+      "age": 53.75,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "free",
+      "seed": 7,
+      "turn": 138,
+      "age": 52.5,
+      "level": 12
+    },
+    {
+      "root": "n1",
+      "path": "free",
+      "seed": 8,
+      "turn": 130,
+      "age": 50.5,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "righteous",
+      "seed": 1,
+      "turn": 142,
+      "age": 53.5,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "righteous",
+      "seed": 2,
+      "turn": 137,
+      "age": 52.25,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "righteous",
+      "seed": 3,
+      "turn": 132,
+      "age": 51,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "righteous",
+      "seed": 4,
+      "turn": 128,
+      "age": 50,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "righteous",
+      "seed": 5,
+      "turn": 119,
+      "age": 47.75,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "righteous",
+      "seed": 6,
+      "turn": 162,
+      "age": 58.5,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "righteous",
+      "seed": 7,
+      "turn": 144,
+      "age": 54,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "righteous",
+      "seed": 8,
+      "turn": 146,
+      "age": 54.5,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "demonic",
+      "seed": 1,
+      "turn": 137,
+      "age": 52.25,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "demonic",
+      "seed": 2,
+      "turn": 133,
+      "age": 51.25,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "demonic",
+      "seed": 3,
+      "turn": 138,
+      "age": 52.5,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "demonic",
+      "seed": 4,
+      "turn": 126,
+      "age": 49.5,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "demonic",
+      "seed": 5,
+      "turn": 116,
+      "age": 47,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "demonic",
+      "seed": 6,
+      "turn": 152,
+      "age": 56,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "demonic",
+      "seed": 7,
+      "turn": 138,
+      "age": 52.5,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "demonic",
+      "seed": 8,
+      "turn": 143,
+      "age": 53.75,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "free",
+      "seed": 1,
+      "turn": 137,
+      "age": 52.25,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "free",
+      "seed": 2,
+      "turn": 133,
+      "age": 51.25,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "free",
+      "seed": 3,
+      "turn": 140,
+      "age": 53,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "free",
+      "seed": 4,
+      "turn": 126,
+      "age": 49.5,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "free",
+      "seed": 5,
+      "turn": 121,
+      "age": 48.25,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "free",
+      "seed": 6,
+      "turn": 157,
+      "age": 57.25,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "free",
+      "seed": 7,
+      "turn": 137,
+      "age": 52.25,
+      "level": 12
+    },
+    {
+      "root": "n2",
+      "path": "free",
+      "seed": 8,
+      "turn": 142,
+      "age": 53.5,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "righteous",
+      "seed": 1,
+      "turn": 149,
+      "age": 55.25,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "righteous",
+      "seed": 2,
+      "turn": 146,
+      "age": 54.5,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "righteous",
+      "seed": 3,
+      "turn": 151,
+      "age": 55.75,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "righteous",
+      "seed": 4,
+      "turn": 136,
+      "age": 52,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "righteous",
+      "seed": 5,
+      "turn": 126,
+      "age": 49.5,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "righteous",
+      "seed": 6,
+      "turn": 171,
+      "age": 60.75,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "righteous",
+      "seed": 7,
+      "turn": 159,
+      "age": 57.75,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "righteous",
+      "seed": 8,
+      "turn": 154,
+      "age": 56.5,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "demonic",
+      "seed": 1,
+      "turn": 146,
+      "age": 54.5,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "demonic",
+      "seed": 2,
+      "turn": 142,
+      "age": 53.5,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "demonic",
+      "seed": 3,
+      "turn": 156,
+      "age": 57,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "demonic",
+      "seed": 4,
+      "turn": 133,
+      "age": 51.25,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "demonic",
+      "seed": 5,
+      "turn": 121,
+      "age": 48.25,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "demonic",
+      "seed": 6,
+      "turn": 167,
+      "age": 59.75,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "demonic",
+      "seed": 7,
+      "turn": 154,
+      "age": 56.5,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "demonic",
+      "seed": 8,
+      "turn": 152,
+      "age": 56,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "free",
+      "seed": 1,
+      "turn": 146,
+      "age": 54.5,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "free",
+      "seed": 2,
+      "turn": 142,
+      "age": 53.5,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "free",
+      "seed": 3,
+      "turn": 149,
+      "age": 55.25,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "free",
+      "seed": 4,
+      "turn": 133,
+      "age": 51.25,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "free",
+      "seed": 5,
+      "turn": 127,
+      "age": 49.75,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "free",
+      "seed": 6,
+      "turn": 166,
+      "age": 59.5,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "free",
+      "seed": 7,
+      "turn": 160,
+      "age": 58,
+      "level": 12
+    },
+    {
+      "root": "n3",
+      "path": "free",
+      "seed": 8,
+      "turn": 150,
+      "age": 55.5,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "righteous",
+      "seed": 1,
+      "turn": 146,
+      "age": 54.5,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "righteous",
+      "seed": 2,
+      "turn": 144,
+      "age": 54,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "righteous",
+      "seed": 3,
+      "turn": 152,
+      "age": 56,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "righteous",
+      "seed": 4,
+      "turn": 131,
+      "age": 50.75,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "righteous",
+      "seed": 5,
+      "turn": 132,
+      "age": 51,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "righteous",
+      "seed": 6,
+      "turn": 166,
+      "age": 59.5,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "righteous",
+      "seed": 7,
+      "turn": 160,
+      "age": 58,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "righteous",
+      "seed": 8,
+      "turn": 153,
+      "age": 56.25,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "demonic",
+      "seed": 1,
+      "turn": 142,
+      "age": 53.5,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "demonic",
+      "seed": 2,
+      "turn": 141,
+      "age": 53.25,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "demonic",
+      "seed": 3,
+      "turn": 157,
+      "age": 57.25,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "demonic",
+      "seed": 4,
+      "turn": 130,
+      "age": 50.5,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "demonic",
+      "seed": 5,
+      "turn": 128,
+      "age": 50,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "demonic",
+      "seed": 6,
+      "turn": 164,
+      "age": 59,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "demonic",
+      "seed": 7,
+      "turn": 154,
+      "age": 56.5,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "demonic",
+      "seed": 8,
+      "turn": 150,
+      "age": 55.5,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "free",
+      "seed": 1,
+      "turn": 144,
+      "age": 54,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "free",
+      "seed": 2,
+      "turn": 142,
+      "age": 53.5,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "free",
+      "seed": 3,
+      "turn": 157,
+      "age": 57.25,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "free",
+      "seed": 4,
+      "turn": 130,
+      "age": 50.5,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "free",
+      "seed": 5,
+      "turn": 131,
+      "age": 50.75,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "free",
+      "seed": 6,
+      "turn": 162,
+      "age": 58.5,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "free",
+      "seed": 7,
+      "turn": 156,
+      "age": 57,
+      "level": 12
+    },
+    {
+      "root": "n4",
+      "path": "free",
+      "seed": 8,
+      "turn": 151,
+      "age": 55.75,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "righteous",
+      "seed": 1,
+      "turn": 157,
+      "age": 57.25,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "righteous",
+      "seed": 2,
+      "turn": 154,
+      "age": 56.5,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "righteous",
+      "seed": 3,
+      "turn": 165,
+      "age": 59.25,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "righteous",
+      "seed": 4,
+      "turn": 150,
+      "age": 55.5,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "righteous",
+      "seed": 5,
+      "turn": 146,
+      "age": 54.5,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "righteous",
+      "seed": 6,
+      "turn": 184,
+      "age": 64,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "righteous",
+      "seed": 7,
+      "turn": 170,
+      "age": 60.5,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "righteous",
+      "seed": 8,
+      "turn": 164,
+      "age": 59,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "demonic",
+      "seed": 1,
+      "turn": 154,
+      "age": 56.5,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "demonic",
+      "seed": 2,
+      "turn": 152,
+      "age": 56,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "demonic",
+      "seed": 3,
+      "turn": 171,
+      "age": 60.75,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "demonic",
+      "seed": 4,
+      "turn": 147,
+      "age": 54.75,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "demonic",
+      "seed": 5,
+      "turn": 141,
+      "age": 53.25,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "demonic",
+      "seed": 6,
+      "turn": 181,
+      "age": 63.25,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "demonic",
+      "seed": 7,
+      "turn": 165,
+      "age": 59.25,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "demonic",
+      "seed": 8,
+      "turn": 160,
+      "age": 58,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "free",
+      "seed": 1,
+      "turn": 154,
+      "age": 56.5,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "free",
+      "seed": 2,
+      "turn": 152,
+      "age": 56,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "free",
+      "seed": 3,
+      "turn": 170,
+      "age": 60.5,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "free",
+      "seed": 4,
+      "turn": 140,
+      "age": 53,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "free",
+      "seed": 5,
+      "turn": 143,
+      "age": 53.75,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "free",
+      "seed": 6,
+      "turn": 179,
+      "age": 62.75,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "free",
+      "seed": 7,
+      "turn": 171,
+      "age": 60.75,
+      "level": 12
+    },
+    {
+      "root": "n5",
+      "path": "free",
+      "seed": 8,
+      "turn": 161,
+      "age": 58.25,
+      "level": 12
+    }
+  ],
+  "naturalEvents": [
+    "x_toll",
+    "invitation",
+    "x_spy",
+    "x_receipt",
+    "x_root",
+    "x_auction",
+    "x_spy_return",
+    "x_famine",
+    "x_exile",
+    "vow",
+    "x_border",
+    "x_duel",
+    "x_exile_after",
+    "x_border_after",
+    "x_poison",
+    "x_founding",
+    "x_pact",
+    "x_old_home",
+    "inherit",
+    "x_sea",
+    "x_council",
+    "x_oath",
+    "war",
+    "x_heart",
+    "x_celestial",
+    "final",
+    "x_clan_dissent",
+    "x_hostage",
+    "bond:healer:0",
+    "bond:healer:1"
+  ],
+  "branchChoices": {
+    "x_toll": 3,
+    "x_receipt": 3,
+    "x_spy": 3,
+    "x_spy_return": 3,
+    "x_root": 2,
+    "x_auction": 2,
+    "x_famine": 3,
+    "x_border": 3,
+    "x_border_after": 2,
+    "x_duel": 2,
+    "x_exile": 3,
+    "x_exile_after": 3,
+    "x_poison": 3,
+    "x_pact": 3,
+    "x_founding": 2,
+    "x_clan_dissent": 3,
+    "x_hostage": 3,
+    "x_clan_return": 2,
+    "x_sea": 3,
+    "x_council": 3,
+    "x_oath": 2,
+    "x_old_home": 3,
+    "x_heart": 2,
+    "x_heir": 2,
+    "x_celestial": 2
+  }
+}

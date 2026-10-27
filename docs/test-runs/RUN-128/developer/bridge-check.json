@@ -1,0 +1,24 @@
+{
+  "type": "VM integration only",
+  "platformBootSha256": "a4d86d5cbd60ace584c574f033123acbc81721e0f89ccd586753b3c97b07ad65",
+  "gameSha256": "d6a4b12cf3ba90dd8d808f6c0d2c25399770d74dbd99c098af79d1e36f3f32fd",
+  "migrationFields": [
+    "name",
+    "turn",
+    "level",
+    "stones",
+    "herbs",
+    "hp",
+    "energy",
+    "xp"
+  ],
+  "result": "pass",
+  "legacyPreserved": true,
+  "postMessageRoundtrip": true,
+  "notVerified": [
+    "browser iframe",
+    "parent IndexedDB persistence",
+    "refresh UI",
+    "download permissions"
+  ]
+}

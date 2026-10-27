@@ -1,0 +1,1832 @@
+{
+  "build": "1ef8703a65ccc13f16599b02afd703fe7ea404e047119cf534affec3b3d0a1a0",
+  "checks": [
+    {
+      "kind": "main",
+      "w": 360,
+      "h": 640,
+      "label": "run005-main",
+      "root": {
+        "h": 591,
+        "sh": 591,
+        "sw": 360,
+        "w": 360
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 578.5,
+          "disabled": false,
+          "h": 44,
+          "right": 346,
+          "text": "开始静室修炼　→",
+          "w": 134,
+          "x": 212,
+          "y": 534.5
+        }
+      ],
+      "cardHits": [
+        {
+          "bottom": 370,
+          "hit": true,
+          "text": "静室修炼"
+        },
+        {
+          "bottom": 370,
+          "hit": true,
+          "text": "入山采药"
+        },
+        {
+          "bottom": 445,
+          "hit": true,
+          "text": "坊市谋生"
+        },
+        {
+          "bottom": 445,
+          "hit": true,
+          "text": "调息养神"
+        },
+        {
+          "bottom": 520,
+          "hit": true,
+          "text": "开炉炼丹"
+        },
+        {
+          "bottom": 520,
+          "hit": true,
+          "text": "尝试突破"
+        }
+      ],
+      "footerGap": 6,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 65,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 63
+        },
+        {
+          "sw": 52,
+          "text": "灵石86",
+          "w": 52
+        },
+        {
+          "sw": 52,
+          "text": "精力46",
+          "w": 52
+        },
+        {
+          "sw": 52,
+          "text": "气血100",
+          "w": 52
+        },
+        {
+          "sw": 53,
+          "text": "悟性45",
+          "w": 53
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "edit",
+      "w": 360,
+      "h": 640,
+      "label": "run005-edit",
+      "root": {
+        "h": 591,
+        "sh": 591,
+        "sw": 360,
+        "w": 360
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 81.5078125,
+          "disabled": false,
+          "h": 44,
+          "right": 327,
+          "text": "×",
+          "w": 41.078125,
+          "x": 285.921875,
+          "y": 37.5078125
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 471,
+        "sh": 471
+      },
+      "resourceOverflow": [
+        {
+          "sw": 65,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 63
+        },
+        {
+          "sw": 52,
+          "text": "灵石86",
+          "w": 52
+        },
+        {
+          "sw": 52,
+          "text": "精力46",
+          "w": 52
+        },
+        {
+          "sw": 52,
+          "text": "气血100",
+          "w": 52
+        },
+        {
+          "sw": 53,
+          "text": "悟性45",
+          "w": 53
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "complex",
+      "w": 360,
+      "h": 640,
+      "label": "run005-complex",
+      "root": {
+        "h": 591,
+        "sh": 591,
+        "sw": 360,
+        "w": 360
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 75,
+          "disabled": false,
+          "h": 44,
+          "right": 327,
+          "text": "×",
+          "w": 41.078125,
+          "x": 285.921875,
+          "y": 31
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 484,
+        "sh": 488
+      },
+      "resourceOverflow": [
+        {
+          "sw": 65,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 63
+        },
+        {
+          "sw": 52,
+          "text": "灵石86",
+          "w": 52
+        },
+        {
+          "sw": 52,
+          "text": "精力46",
+          "w": 52
+        },
+        {
+          "sw": 52,
+          "text": "气血100",
+          "w": 52
+        },
+        {
+          "sw": 53,
+          "text": "悟性45",
+          "w": 53
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "main",
+      "w": 390,
+      "h": 844,
+      "label": "run005-main",
+      "root": {
+        "h": 795,
+        "sh": 795,
+        "sw": 390,
+        "w": 390
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 783,
+          "disabled": false,
+          "h": 44,
+          "right": 376,
+          "text": "开始静室修炼　→",
+          "w": 134,
+          "x": 242,
+          "y": 739
+        }
+      ],
+      "cardHits": [
+        {
+          "bottom": 564,
+          "hit": true,
+          "text": "静室修炼"
+        },
+        {
+          "bottom": 564,
+          "hit": true,
+          "text": "入山采药"
+        },
+        {
+          "bottom": 641,
+          "hit": true,
+          "text": "坊市谋生"
+        },
+        {
+          "bottom": 641,
+          "hit": true,
+          "text": "调息养神"
+        },
+        {
+          "bottom": 718,
+          "hit": true,
+          "text": "开炉炼丹"
+        },
+        {
+          "bottom": 718,
+          "hit": true,
+          "text": "尝试突破"
+        }
+      ],
+      "footerGap": 10,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 70,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 70
+        },
+        {
+          "sw": 58,
+          "text": "灵石86",
+          "w": 58
+        },
+        {
+          "sw": 58,
+          "text": "精力46",
+          "w": 58
+        },
+        {
+          "sw": 58,
+          "text": "气血100",
+          "w": 58
+        },
+        {
+          "sw": 59,
+          "text": "悟性45",
+          "w": 59
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "edit",
+      "w": 390,
+      "h": 844,
+      "label": "run005-edit",
+      "root": {
+        "h": 795,
+        "sh": 795,
+        "sw": 390,
+        "w": 390
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 183.5078125,
+          "disabled": false,
+          "h": 44,
+          "right": 357,
+          "text": "×",
+          "w": 41.078125,
+          "x": 315.921875,
+          "y": 139.5078125
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 471,
+        "sh": 471
+      },
+      "resourceOverflow": [
+        {
+          "sw": 70,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 70
+        },
+        {
+          "sw": 58,
+          "text": "灵石86",
+          "w": 58
+        },
+        {
+          "sw": 58,
+          "text": "精力46",
+          "w": 58
+        },
+        {
+          "sw": 58,
+          "text": "气血100",
+          "w": 58
+        },
+        {
+          "sw": 59,
+          "text": "悟性45",
+          "w": 59
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "complex",
+      "w": 390,
+      "h": 844,
+      "label": "run005-complex",
+      "root": {
+        "h": 795,
+        "sh": 795,
+        "sw": 390,
+        "w": 390
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 175.125,
+          "disabled": false,
+          "h": 44,
+          "right": 357,
+          "text": "×",
+          "w": 41.078125,
+          "x": 315.921875,
+          "y": 131.125
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 488,
+        "sh": 488
+      },
+      "resourceOverflow": [
+        {
+          "sw": 70,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 70
+        },
+        {
+          "sw": 58,
+          "text": "灵石86",
+          "w": 58
+        },
+        {
+          "sw": 58,
+          "text": "精力46",
+          "w": 58
+        },
+        {
+          "sw": 58,
+          "text": "气血100",
+          "w": 58
+        },
+        {
+          "sw": 59,
+          "text": "悟性45",
+          "w": 59
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "main",
+      "w": 430,
+      "h": 932,
+      "label": "run005-main",
+      "root": {
+        "h": 883,
+        "sh": 883,
+        "sw": 430,
+        "w": 430
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 871,
+          "disabled": false,
+          "h": 44,
+          "right": 416,
+          "text": "开始静室修炼　→",
+          "w": 134,
+          "x": 282,
+          "y": 827
+        }
+      ],
+      "cardHits": [
+        {
+          "bottom": 652,
+          "hit": true,
+          "text": "静室修炼"
+        },
+        {
+          "bottom": 652,
+          "hit": true,
+          "text": "入山采药"
+        },
+        {
+          "bottom": 729,
+          "hit": true,
+          "text": "坊市谋生"
+        },
+        {
+          "bottom": 729,
+          "hit": true,
+          "text": "调息养神"
+        },
+        {
+          "bottom": 806,
+          "hit": true,
+          "text": "开炉炼丹"
+        },
+        {
+          "bottom": 806,
+          "hit": true,
+          "text": "尝试突破"
+        }
+      ],
+      "footerGap": 10,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 79,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 79
+        },
+        {
+          "sw": 66,
+          "text": "灵石86",
+          "w": 66
+        },
+        {
+          "sw": 66,
+          "text": "精力46",
+          "w": 66
+        },
+        {
+          "sw": 66,
+          "text": "气血100",
+          "w": 66
+        },
+        {
+          "sw": 67,
+          "text": "悟性45",
+          "w": 67
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "edit",
+      "w": 430,
+      "h": 932,
+      "label": "run005-edit",
+      "root": {
+        "h": 883,
+        "sh": 883,
+        "sw": 430,
+        "w": 430
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 227.5078125,
+          "disabled": false,
+          "h": 44,
+          "right": 397,
+          "text": "×",
+          "w": 41.078125,
+          "x": 355.921875,
+          "y": 183.5078125
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 471,
+        "sh": 471
+      },
+      "resourceOverflow": [
+        {
+          "sw": 79,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 79
+        },
+        {
+          "sw": 66,
+          "text": "灵石86",
+          "w": 66
+        },
+        {
+          "sw": 66,
+          "text": "精力46",
+          "w": 66
+        },
+        {
+          "sw": 66,
+          "text": "气血100",
+          "w": 66
+        },
+        {
+          "sw": 67,
+          "text": "悟性45",
+          "w": 67
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "complex",
+      "w": 430,
+      "h": 932,
+      "label": "run005-complex",
+      "root": {
+        "h": 883,
+        "sh": 883,
+        "sw": 430,
+        "w": 430
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 219.125,
+          "disabled": false,
+          "h": 44,
+          "right": 397,
+          "text": "×",
+          "w": 41.078125,
+          "x": 355.921875,
+          "y": 175.125
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 488,
+        "sh": 488
+      },
+      "resourceOverflow": [
+        {
+          "sw": 79,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 79
+        },
+        {
+          "sw": 66,
+          "text": "灵石86",
+          "w": 66
+        },
+        {
+          "sw": 66,
+          "text": "精力46",
+          "w": 66
+        },
+        {
+          "sw": 66,
+          "text": "气血100",
+          "w": 66
+        },
+        {
+          "sw": 67,
+          "text": "悟性45",
+          "w": 67
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "main",
+      "w": 844,
+      "h": 390,
+      "label": "run005-main",
+      "root": {
+        "h": 340,
+        "sh": 340,
+        "sw": 844,
+        "w": 844
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 330,
+          "disabled": false,
+          "h": 44,
+          "right": 826,
+          "text": "开始静室修炼　→",
+          "w": 120,
+          "x": 706,
+          "y": 286
+        }
+      ],
+      "cardHits": [
+        {
+          "bottom": 199.5,
+          "hit": true,
+          "text": "静室修炼"
+        },
+        {
+          "bottom": 199.5,
+          "hit": true,
+          "text": "入山采药"
+        },
+        {
+          "bottom": 199.5,
+          "hit": true,
+          "text": "坊市谋生"
+        },
+        {
+          "bottom": 263.5,
+          "hit": true,
+          "text": "调息养神"
+        },
+        {
+          "bottom": 263.5,
+          "hit": true,
+          "text": "开炉炼丹"
+        },
+        {
+          "bottom": 263.5,
+          "hit": true,
+          "text": "尝试突破"
+        }
+      ],
+      "footerGap": 15.5,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 96,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 96
+        },
+        {
+          "sw": 80,
+          "text": "灵石86",
+          "w": 80
+        },
+        {
+          "sw": 80,
+          "text": "精力46",
+          "w": 80
+        },
+        {
+          "sw": 80,
+          "text": "气血100",
+          "w": 80
+        },
+        {
+          "sw": 81,
+          "text": "悟性45",
+          "w": 81
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "edit",
+      "w": 844,
+      "h": 390,
+      "label": "run005-edit",
+      "root": {
+        "h": 340,
+        "sh": 340,
+        "sw": 844,
+        "w": 844
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 80,
+          "disabled": false,
+          "h": 44,
+          "right": 679,
+          "text": "×",
+          "w": 41.078125,
+          "x": 637.921875,
+          "y": 36
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 223,
+        "sh": 433
+      },
+      "resourceOverflow": [
+        {
+          "sw": 96,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 96
+        },
+        {
+          "sw": 80,
+          "text": "灵石86",
+          "w": 80
+        },
+        {
+          "sw": 80,
+          "text": "精力46",
+          "w": 80
+        },
+        {
+          "sw": 80,
+          "text": "气血100",
+          "w": 80
+        },
+        {
+          "sw": 81,
+          "text": "悟性45",
+          "w": 81
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "complex",
+      "w": 844,
+      "h": 390,
+      "label": "run005-complex",
+      "root": {
+        "h": 340,
+        "sh": 340,
+        "sw": 844,
+        "w": 844
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 80,
+          "disabled": false,
+          "h": 44,
+          "right": 679,
+          "text": "×",
+          "w": 41.078125,
+          "x": 637.921875,
+          "y": 36
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 223,
+        "sh": 441
+      },
+      "resourceOverflow": [
+        {
+          "sw": 96,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 96
+        },
+        {
+          "sw": 80,
+          "text": "灵石86",
+          "w": 80
+        },
+        {
+          "sw": 80,
+          "text": "精力46",
+          "w": 80
+        },
+        {
+          "sw": 80,
+          "text": "气血100",
+          "w": 80
+        },
+        {
+          "sw": 81,
+          "text": "悟性45",
+          "w": 81
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "main",
+      "w": 768,
+      "h": 1024,
+      "label": "run005-main",
+      "root": {
+        "h": 974,
+        "sh": 974,
+        "sw": 768,
+        "w": 768
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 952,
+          "disabled": false,
+          "h": 44,
+          "right": 512,
+          "text": "开始静室修炼　→",
+          "w": 170,
+          "x": 342,
+          "y": 908
+        }
+      ],
+      "cardHits": [
+        {
+          "bottom": 777,
+          "hit": true,
+          "text": "静室修炼"
+        },
+        {
+          "bottom": 777,
+          "hit": true,
+          "text": "入山采药"
+        },
+        {
+          "bottom": 777,
+          "hit": true,
+          "text": "坊市谋生"
+        },
+        {
+          "bottom": 873,
+          "hit": true,
+          "text": "调息养神"
+        },
+        {
+          "bottom": 873,
+          "hit": true,
+          "text": "开炉炼丹"
+        },
+        {
+          "bottom": 873,
+          "hit": true,
+          "text": "尝试突破"
+        }
+      ],
+      "footerGap": 17,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 150,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 150
+        },
+        {
+          "sw": 125,
+          "text": "灵石86",
+          "w": 125
+        },
+        {
+          "sw": 125,
+          "text": "精力46",
+          "w": 125
+        },
+        {
+          "sw": 125,
+          "text": "气血100",
+          "w": 125
+        },
+        {
+          "sw": 126,
+          "text": "悟性45",
+          "w": 126
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "edit",
+      "w": 768,
+      "h": 1024,
+      "label": "run005-edit",
+      "root": {
+        "h": 974,
+        "sh": 974,
+        "sw": 768,
+        "w": 768
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 265.265625,
+          "disabled": false,
+          "h": 44,
+          "right": 641,
+          "text": "×",
+          "w": 41.078125,
+          "x": 599.921875,
+          "y": 221.265625
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 486,
+        "sh": 486
+      },
+      "resourceOverflow": [
+        {
+          "sw": 150,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 150
+        },
+        {
+          "sw": 125,
+          "text": "灵石86",
+          "w": 125
+        },
+        {
+          "sw": 125,
+          "text": "精力46",
+          "w": 125
+        },
+        {
+          "sw": 125,
+          "text": "气血100",
+          "w": 125
+        },
+        {
+          "sw": 126,
+          "text": "悟性45",
+          "w": 126
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "complex",
+      "w": 768,
+      "h": 1024,
+      "label": "run005-complex",
+      "root": {
+        "h": 974,
+        "sh": 974,
+        "sw": 768,
+        "w": 768
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 281.015625,
+          "disabled": false,
+          "h": 44,
+          "right": 641,
+          "text": "×",
+          "w": 41.078125,
+          "x": 599.921875,
+          "y": 237.015625
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 455,
+        "sh": 455
+      },
+      "resourceOverflow": [
+        {
+          "sw": 150,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 150
+        },
+        {
+          "sw": 125,
+          "text": "灵石86",
+          "w": 125
+        },
+        {
+          "sw": 125,
+          "text": "精力46",
+          "w": 125
+        },
+        {
+          "sw": 125,
+          "text": "气血100",
+          "w": 125
+        },
+        {
+          "sw": 126,
+          "text": "悟性45",
+          "w": 126
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "main",
+      "w": 1366,
+      "h": 768,
+      "label": "run005-main",
+      "root": {
+        "h": 718,
+        "sh": 718,
+        "sw": 1366,
+        "w": 1366
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 696.1875,
+          "disabled": false,
+          "h": 44,
+          "right": 1055,
+          "text": "开始静室修炼　→",
+          "w": 170,
+          "x": 885,
+          "y": 652.1875
+        }
+      ],
+      "cardHits": [
+        {
+          "bottom": 538.09375,
+          "hit": true,
+          "text": "静室修炼"
+        },
+        {
+          "bottom": 538.09375,
+          "hit": true,
+          "text": "入山采药"
+        },
+        {
+          "bottom": 538.09375,
+          "hit": true,
+          "text": "坊市谋生"
+        },
+        {
+          "bottom": 626.1875,
+          "hit": true,
+          "text": "调息养神"
+        },
+        {
+          "bottom": 626.1875,
+          "hit": true,
+          "text": "开炉炼丹"
+        },
+        {
+          "bottom": 626.1875,
+          "hit": true,
+          "text": "尝试突破"
+        }
+      ],
+      "footerGap": 13,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 232,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 232
+        },
+        {
+          "sw": 193,
+          "text": "灵石86",
+          "w": 193
+        },
+        {
+          "sw": 193,
+          "text": "精力46",
+          "w": 193
+        },
+        {
+          "sw": 193,
+          "text": "气血100",
+          "w": 193
+        },
+        {
+          "sw": 194,
+          "text": "悟性45",
+          "w": 194
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "edit",
+      "w": 1366,
+      "h": 768,
+      "label": "run005-edit",
+      "root": {
+        "h": 718,
+        "sh": 718,
+        "sw": 1366,
+        "w": 1366
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 137.265625,
+          "disabled": false,
+          "h": 44,
+          "right": 940,
+          "text": "×",
+          "w": 41.078125,
+          "x": 898.921875,
+          "y": 93.265625
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 486,
+        "sh": 486
+      },
+      "resourceOverflow": [
+        {
+          "sw": 232,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 232
+        },
+        {
+          "sw": 193,
+          "text": "灵石86",
+          "w": 193
+        },
+        {
+          "sw": 193,
+          "text": "精力46",
+          "w": 193
+        },
+        {
+          "sw": 193,
+          "text": "气血100",
+          "w": 193
+        },
+        {
+          "sw": 194,
+          "text": "悟性45",
+          "w": 194
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "complex",
+      "w": 1366,
+      "h": 768,
+      "label": "run005-complex",
+      "root": {
+        "h": 718,
+        "sh": 718,
+        "sw": 1366,
+        "w": 1366
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 153.015625,
+          "disabled": false,
+          "h": 44,
+          "right": 940,
+          "text": "×",
+          "w": 41.078125,
+          "x": 898.921875,
+          "y": 109.015625
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 455,
+        "sh": 455
+      },
+      "resourceOverflow": [
+        {
+          "sw": 232,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 232
+        },
+        {
+          "sw": 193,
+          "text": "灵石86",
+          "w": 193
+        },
+        {
+          "sw": 193,
+          "text": "精力46",
+          "w": 193
+        },
+        {
+          "sw": 193,
+          "text": "气血100",
+          "w": 193
+        },
+        {
+          "sw": 194,
+          "text": "悟性45",
+          "w": 194
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "main",
+      "w": 1440,
+      "h": 900,
+      "label": "run005-main",
+      "root": {
+        "h": 850,
+        "sh": 850,
+        "sw": 1440,
+        "w": 1440
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 826,
+          "disabled": false,
+          "h": 44,
+          "right": 1123,
+          "text": "开始静室修炼　→",
+          "w": 170,
+          "x": 953,
+          "y": 782
+        }
+      ],
+      "cardHits": [
+        {
+          "bottom": 651,
+          "hit": true,
+          "text": "静室修炼"
+        },
+        {
+          "bottom": 651,
+          "hit": true,
+          "text": "入山采药"
+        },
+        {
+          "bottom": 651,
+          "hit": true,
+          "text": "坊市谋生"
+        },
+        {
+          "bottom": 747,
+          "hit": true,
+          "text": "调息养神"
+        },
+        {
+          "bottom": 747,
+          "hit": true,
+          "text": "开炉炼丹"
+        },
+        {
+          "bottom": 747,
+          "hit": true,
+          "text": "尝试突破"
+        }
+      ],
+      "footerGap": 17,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 245,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 245
+        },
+        {
+          "sw": 204,
+          "text": "灵石86",
+          "w": 204
+        },
+        {
+          "sw": 204,
+          "text": "精力46",
+          "w": 204
+        },
+        {
+          "sw": 204,
+          "text": "气血100",
+          "w": 204
+        },
+        {
+          "sw": 205,
+          "text": "悟性45",
+          "w": 205
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "edit",
+      "w": 1440,
+      "h": 900,
+      "label": "run005-edit",
+      "root": {
+        "h": 850,
+        "sh": 850,
+        "sw": 1440,
+        "w": 1440
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 203.265625,
+          "disabled": false,
+          "h": 44,
+          "right": 977,
+          "text": "×",
+          "w": 41.078125,
+          "x": 935.921875,
+          "y": 159.265625
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 486,
+        "sh": 486
+      },
+      "resourceOverflow": [
+        {
+          "sw": 245,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 245
+        },
+        {
+          "sw": 204,
+          "text": "灵石86",
+          "w": 204
+        },
+        {
+          "sw": 204,
+          "text": "精力46",
+          "w": 204
+        },
+        {
+          "sw": 204,
+          "text": "气血100",
+          "w": 204
+        },
+        {
+          "sw": 205,
+          "text": "悟性45",
+          "w": 205
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "complex",
+      "w": 1440,
+      "h": 900,
+      "label": "run005-complex",
+      "root": {
+        "h": 850,
+        "sh": 850,
+        "sw": 1440,
+        "w": 1440
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 219.015625,
+          "disabled": false,
+          "h": 44,
+          "right": 977,
+          "text": "×",
+          "w": 41.078125,
+          "x": 935.921875,
+          "y": 175.015625
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": {
+        "h": 455,
+        "sh": 455
+      },
+      "resourceOverflow": [
+        {
+          "sw": 245,
+          "text": "27.3 岁 · 女修云岫",
+          "w": 245
+        },
+        {
+          "sw": 204,
+          "text": "灵石86",
+          "w": 204
+        },
+        {
+          "sw": 204,
+          "text": "精力46",
+          "w": 204
+        },
+        {
+          "sw": 204,
+          "text": "气血100",
+          "w": 204
+        },
+        {
+          "sw": 205,
+          "text": "悟性45",
+          "w": 205
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "result",
+      "w": 360,
+      "h": 640,
+      "label": "run005-result",
+      "root": {
+        "h": 591,
+        "sh": 591,
+        "sw": 360,
+        "w": 360
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 561.5,
+          "disabled": false,
+          "h": 44,
+          "right": 329,
+          "text": "继续仙途　→",
+          "w": 130,
+          "x": 199,
+          "y": 517.5
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 65,
+          "text": "27.5 岁 · 女修云岫",
+          "w": 63
+        },
+        {
+          "sw": 52,
+          "text": "灵石86",
+          "w": 52
+        },
+        {
+          "sw": 52,
+          "text": "精力100",
+          "w": 52
+        },
+        {
+          "sw": 52,
+          "text": "气血100",
+          "w": 52
+        },
+        {
+          "sw": 53,
+          "text": "悟性45",
+          "w": 53
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "result",
+      "w": 390,
+      "h": 844,
+      "label": "run005-result",
+      "root": {
+        "h": 795,
+        "sh": 795,
+        "sw": 390,
+        "w": 390
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 763,
+          "disabled": false,
+          "h": 44,
+          "right": 357,
+          "text": "继续仙途　→",
+          "w": 130,
+          "x": 227,
+          "y": 719
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 70,
+          "text": "27.5 岁 · 女修云岫",
+          "w": 70
+        },
+        {
+          "sw": 58,
+          "text": "灵石86",
+          "w": 58
+        },
+        {
+          "sw": 58,
+          "text": "精力100",
+          "w": 58
+        },
+        {
+          "sw": 58,
+          "text": "气血100",
+          "w": 58
+        },
+        {
+          "sw": 59,
+          "text": "悟性45",
+          "w": 59
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "result",
+      "w": 430,
+      "h": 932,
+      "label": "run005-result",
+      "root": {
+        "h": 883,
+        "sh": 883,
+        "sw": 430,
+        "w": 430
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 851,
+          "disabled": false,
+          "h": 44,
+          "right": 397,
+          "text": "继续仙途　→",
+          "w": 130,
+          "x": 267,
+          "y": 807
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 79,
+          "text": "27.5 岁 · 女修云岫",
+          "w": 79
+        },
+        {
+          "sw": 66,
+          "text": "灵石86",
+          "w": 66
+        },
+        {
+          "sw": 66,
+          "text": "精力100",
+          "w": 66
+        },
+        {
+          "sw": 66,
+          "text": "气血100",
+          "w": 66
+        },
+        {
+          "sw": 67,
+          "text": "悟性45",
+          "w": 67
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "result",
+      "w": 844,
+      "h": 390,
+      "label": "run005-result",
+      "root": {
+        "h": 340,
+        "sh": 340,
+        "sw": 844,
+        "w": 844
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 314.5,
+          "disabled": false,
+          "h": 44,
+          "right": 805,
+          "text": "继续仙途　→",
+          "w": 120,
+          "x": 685,
+          "y": 270.5
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 96,
+          "text": "27.5 岁 · 女修云岫",
+          "w": 96
+        },
+        {
+          "sw": 80,
+          "text": "灵石86",
+          "w": 80
+        },
+        {
+          "sw": 80,
+          "text": "精力100",
+          "w": 80
+        },
+        {
+          "sw": 80,
+          "text": "气血100",
+          "w": 80
+        },
+        {
+          "sw": 81,
+          "text": "悟性45",
+          "w": 81
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "result",
+      "w": 768,
+      "h": 1024,
+      "label": "run005-result",
+      "root": {
+        "h": 974,
+        "sh": 974,
+        "sw": 768,
+        "w": 768
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 928,
+          "disabled": false,
+          "h": 44,
+          "right": 486,
+          "text": "继续仙途　→",
+          "w": 170,
+          "x": 316,
+          "y": 884
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 150,
+          "text": "27.5 岁 · 女修云岫",
+          "w": 150
+        },
+        {
+          "sw": 125,
+          "text": "灵石86",
+          "w": 125
+        },
+        {
+          "sw": 125,
+          "text": "精力100",
+          "w": 125
+        },
+        {
+          "sw": 125,
+          "text": "气血100",
+          "w": 125
+        },
+        {
+          "sw": 126,
+          "text": "悟性45",
+          "w": 126
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "result",
+      "w": 1366,
+      "h": 768,
+      "label": "run005-result",
+      "root": {
+        "h": 718,
+        "sh": 718,
+        "sw": 1366,
+        "w": 1366
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 672,
+          "disabled": false,
+          "h": 44,
+          "right": 1029,
+          "text": "继续仙途　→",
+          "w": 170,
+          "x": 859,
+          "y": 628
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 232,
+          "text": "27.5 岁 · 女修云岫",
+          "w": 232
+        },
+        {
+          "sw": 193,
+          "text": "灵石86",
+          "w": 193
+        },
+        {
+          "sw": 193,
+          "text": "精力100",
+          "w": 193
+        },
+        {
+          "sw": 193,
+          "text": "气血100",
+          "w": 193
+        },
+        {
+          "sw": 194,
+          "text": "悟性45",
+          "w": 194
+        }
+      ],
+      "scrollbar": "thin"
+    },
+    {
+      "kind": "result",
+      "w": 1440,
+      "h": 900,
+      "label": "run005-result",
+      "root": {
+        "h": 850,
+        "sh": 850,
+        "sw": 1440,
+        "w": 1440
+      },
+      "horizontal": [],
+      "primary": [
+        {
+          "bottom": 802,
+          "disabled": false,
+          "h": 44,
+          "right": 1097,
+          "text": "继续仙途　→",
+          "w": 170,
+          "x": 927,
+          "y": 758
+        }
+      ],
+      "cardHits": [],
+      "footerGap": null,
+      "modalScroll": null,
+      "resourceOverflow": [
+        {
+          "sw": 245,
+          "text": "27.5 岁 · 女修云岫",
+          "w": 245
+        },
+        {
+          "sw": 204,
+          "text": "灵石86",
+          "w": 204
+        },
+        {
+          "sw": 204,
+          "text": "精力100",
+          "w": 204
+        },
+        {
+          "sw": 204,
+          "text": "气血100",
+          "w": 204
+        },
+        {
+          "sw": 205,
+          "text": "悟性45",
+          "w": 205
+        }
+      ],
+      "scrollbar": "thin"
+    }
+  ]
+}

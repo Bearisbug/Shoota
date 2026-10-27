@@ -1,0 +1,18 @@
+{
+  "engine": {
+    "checks": 80674,
+    "runs": 144,
+    "minTurns": 106,
+    "maxTurns": 184,
+    "naturalEvents": 30,
+    "stories": 25
+  },
+  "branches": {
+    "checks": 2740,
+    "basicRoutes": 18,
+    "naturalCompanions": 6
+  },
+  "appSyntax": "node --check src/app.js passed",
+  "testDocLint": "passed without warnings",
+  "sourceRebuildSha256": "d6a4b12cf3ba90dd8d808f6c0d2c25399770d74dbd99c098af79d1e36f3f32fd"
+}

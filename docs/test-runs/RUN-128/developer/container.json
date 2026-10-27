@@ -1,0 +1,11 @@
+{
+  "base": "/Users/leizhang/Documents/shoota/tmp/wt-portrait/public",
+  "commit": "6ddac865eccb8eabfb0af9995714e7fa03a480ca",
+  "originalIndexSha256": "7cf0859d480ee7e51341c662e0bd454e99a97ec6c054ec088a242690567f6904",
+  "copy": "/private/tmp/immortal-platform-20261027/public",
+  "port": 8786,
+  "changes": "临时目录项、当前游戏HTML、既有山水图临时封面；原发布仓库未改；扩展名省略路径为同字节HTML别名，以适配平台静态路由。 最终目录项使用构建指纹文件名和 size=915533 避免旧缓存。",
+  "gameSha256": "d6a4b12cf3ba90dd8d808f6c0d2c25399770d74dbd99c098af79d1e36f3f32fd",
+  "initialGameSha256": "1457f2ddf56dfd5e2353123d0c9a65cd01695215598f8c798b6afec20dc63aeb",
+  "qaGameSrc": "games/one-thought-immortal-d6a4b12cf3ba.html"
+}

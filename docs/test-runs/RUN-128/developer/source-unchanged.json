@@ -1,0 +1,22 @@
+{
+  "platformIndexUnchanged": true,
+  "platformIndexSha256": "7cf0859d480ee7e51341c662e0bd454e99a97ec6c054ec088a242690567f6904",
+  "gameBuildSha256": "d6a4b12cf3ba90dd8d808f6c0d2c25399770d74dbd99c098af79d1e36f3f32fd",
+  "gameSourceChanged": true,
+  "changedGameFiles": [
+    "src/app.js",
+    "src/style.css"
+  ],
+  "unchangedGameplayFiles": {
+    "engine.js": true,
+    "world.js": true,
+    "stories.js": true,
+    "index.html": true,
+    "landscape.jpg": true
+  },
+  "additionalProjectFiles": [
+    "AGENTS.md",
+    "CLAUDE.md"
+  ],
+  "cover": "发布统筹提供最终封面；本机使用既有山水图，未验证最终封面。"
+}
