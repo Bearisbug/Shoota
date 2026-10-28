@@ -1,0 +1,222 @@
+{
+  "searches": [
+    {
+      "name": "足球巨星",
+      "links": [
+        "#game-football-career"
+      ],
+      "start": "#play-football-career"
+    },
+    {
+      "name": "足球巨星",
+      "links": [
+        "#game-football-career"
+      ],
+      "start": "#play-football-career"
+    },
+    {
+      "name": "绿茵经理",
+      "links": [
+        "#game-football-manager"
+      ],
+      "start": "#play-football-manager"
+    }
+  ],
+  "afterReload": {
+    "clipped": [],
+    "featured": [
+      "薯光 · Spud Dawn",
+      "此生",
+      "打造全球最佳航司",
+      "F1-Driver",
+      "NBA-经理",
+      "绿茵经理",
+      "F1-Team Principal",
+      "篮球巨星",
+      "我要当首富",
+      "脚踩神州，拳打一嗨",
+      "斗罗·万相",
+      "CBA-经理",
+      "lol电竞经理",
+      "杀穿娱乐圈",
+      "足球巨星",
+      "一念长生",
+      "一克之差",
+      "后宫生死簿",
+      "重生之我是夜宵摊摊主"
+    ],
+    "height": 844,
+    "order": [
+      "spud-dawn",
+      "one-in-billions",
+      "airline-empire",
+      "f1-driver",
+      "nba",
+      "football-manager",
+      "f1",
+      "basketball-star",
+      "wealth-reborn",
+      "rental-empire",
+      "douluo",
+      "cba",
+      "lol",
+      "entertainment-career",
+      "football-career",
+      "one-thought-immortal",
+      "yike",
+      "hougong",
+      "yexiao"
+    ],
+    "rects": [
+      {
+        "h": 137.953125,
+        "id": "#game-spud-dawn",
+        "w": 187,
+        "x": 8,
+        "y": 796.2421875
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-one-in-billions",
+        "w": 187,
+        "x": 195,
+        "y": 796.2421875
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-airline-empire",
+        "w": 187,
+        "x": 8,
+        "y": 938.1953125
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-f1-driver",
+        "w": 187,
+        "x": 195,
+        "y": 938.1953125
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-nba",
+        "w": 187,
+        "x": 8,
+        "y": 1080.1484375
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-football-manager",
+        "w": 187,
+        "x": 195,
+        "y": 1080.1484375
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-f1",
+        "w": 187,
+        "x": 8,
+        "y": 1222.1015625
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-basketball-star",
+        "w": 187,
+        "x": 195,
+        "y": 1222.1015625
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-wealth-reborn",
+        "w": 187,
+        "x": 8,
+        "y": 1364.0546875
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-rental-empire",
+        "w": 187,
+        "x": 195,
+        "y": 1364.0546875
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-douluo",
+        "w": 187,
+        "x": 8,
+        "y": 1506.0078125
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-cba",
+        "w": 187,
+        "x": 195,
+        "y": 1506.0078125
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-lol",
+        "w": 187,
+        "x": 8,
+        "y": 1647.9609375
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-entertainment-career",
+        "w": 187,
+        "x": 195,
+        "y": 1647.9609375
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-football-career",
+        "w": 187,
+        "x": 8,
+        "y": 1789.9140625
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-one-thought-immortal",
+        "w": 187,
+        "x": 195,
+        "y": 1789.9140625
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-yike",
+        "w": 187,
+        "x": 8,
+        "y": 1931.8671875
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-hougong",
+        "w": 187,
+        "x": 195,
+        "y": 1931.8671875
+      },
+      {
+        "h": 137.953125,
+        "id": "#game-yexiao",
+        "w": 187,
+        "x": 8,
+        "y": 2073.8203125
+      }
+    ],
+    "rootWidth": 390,
+    "scroll": [
+      {
+        "class": "page",
+        "cw": 366,
+        "sw": 378
+      },
+      {
+        "class": "grid",
+        "cw": 366,
+        "sw": 370
+      }
+    ],
+    "scrollWidth": 390,
+    "text": [],
+    "width": 390
+  }
+}
