@@ -1,0 +1,19 @@
+{
+  "release": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-fcbac2e5f9a0",
+  "verifiedManifestEntries": 117,
+  "manifestSha256": "be1d26e8ff942a96225bd802422d5498dc928a890890916a211451c0851ec0a7",
+  "files": {
+    "云际航空.html": {
+      "bytes": 1398891,
+      "sha256": "fcbac2e5f9a0f9edb94f97cc326cc5a16981018a8ddc2bdb70fe2958d05e949a",
+      "rootMatches": true
+    },
+    "云际航空-离线版.zip": {
+      "bytes": 779794,
+      "sha256": "6097ea651885f22911317d7fec9743e56d1915ae359f7ae57c2a0d7da228c732",
+      "rootMatches": true
+    }
+  },
+  "zipHtmlEntry": "云际航空.html",
+  "zipHtmlMatches": true
+}
