@@ -1,0 +1,40 @@
+{
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-596e3f1e1a0d",
+  "gameBytes": 1383369,
+  "gameSha256": "596e3f1e1a0db95c2164cc82c9895c678af05011cf7cbbd39365e0ac9ed2ab71",
+  "zipSha256": "1568585c2ba04cc12bc22b75aefd7badab00ad67f9a85a6279d5f4153a0a8ac7",
+  "zipHtmlMatches": true,
+  "references": {
+    "release-handoff.md": {
+      "path": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-596e3f1e1a0d/release-handoff.md",
+      "sha256": "2ec9c2e1f0e6420166212647198c154cf79ca398522b15b68f688aeb6f6357aa",
+      "bytes": 5528
+    },
+    "manifest.json": {
+      "path": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-596e3f1e1a0d/manifest.json",
+      "sha256": "2a9ad42ea678ab2d2ddc5fcd5aa6e997b0e73b79adbedd55c5c54899d99e6e32",
+      "bytes": 10643
+    },
+    "evidence/all-tests.txt": {
+      "path": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-596e3f1e1a0d/evidence/all-tests.txt",
+      "sha256": "5eb4d4113008deb6a44a7130c4aa76a591e10f25ea621ce1cc52a52f282065bd",
+      "bytes": 30773
+    },
+    "evidence/final-layout.json": {
+      "path": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-596e3f1e1a0d/evidence/final-layout.json",
+      "sha256": "cc62650ba5e29b32a2d6b317bc9d79ff590d67bb1f67e00259cbc474538a9422",
+      "bytes": 3289
+    },
+    "evidence/browser-loops.json": {
+      "path": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-596e3f1e1a0d/evidence/browser-loops.json",
+      "sha256": "bcbd79ef2097145408a7fd392d26263a10a790bfe1d62008fbb3beab1645cce8",
+      "bytes": 1260
+    },
+    "evidence/400-browser-result.json": {
+      "path": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-596e3f1e1a0d/evidence/400-browser-result.json",
+      "sha256": "a0f6bbd0e56cb3357b44ab0a7810a45cc4271f597973064b45309bcbd78c1c05",
+      "bytes": 366
+    }
+  },
+  "scope": "Integration only; browser and 318 tests are developer evidence, not rerun here; supplemental acceptance pending release coordinator"
+}
