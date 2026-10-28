@@ -1,0 +1,260 @@
+{
+  "base": "b7f6b7f8eddb29997fc10988d087d709eddacdce",
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-c807e76a1024/云际航空.html",
+  "order": [
+    "spud-dawn",
+    "one-in-billions",
+    "airline-empire",
+    "f1-driver",
+    "nba",
+    "football-manager",
+    "f1",
+    "basketball-star",
+    "wealth-reborn",
+    "rental-empire",
+    "douluo",
+    "cba",
+    "lol",
+    "entertainment-career",
+    "football-career",
+    "one-thought-immortal",
+    "yike",
+    "hougong",
+    "yexiao"
+  ],
+  "changedRuntimeFiles": [
+    "public/index.html",
+    "public/games/airline-empire.html"
+  ],
+  "onlyCatalogFieldChanged": "airline-empire.size",
+  "fingerprints": {
+    ".github/workflows/deploy.yml": {
+      "bytes": 4661,
+      "sha256": "cb7e27de4bc1a8a8470feace5aba2a37d02c16a03ef6d21d114251665c2036ee"
+    },
+    "public/brand/assets/icons/arrow-left.svg": {
+      "bytes": 262,
+      "sha256": "c5f4b88076108eb1a0d95336e1aa7e7bb1419a3a92af96f6247d88cd3456f933"
+    },
+    "public/brand/assets/icons/check.svg": {
+      "bytes": 239,
+      "sha256": "7f33acc9a77a61659531044525fc008edebe215bf4dcf1c789c8674ad3277db0"
+    },
+    "public/brand/assets/icons/copy.svg": {
+      "bytes": 339,
+      "sha256": "ea80e566c7a12628a447cb53179b19aea4f60b9143e2becd0d0f20bf260e5718"
+    },
+    "public/brand/assets/icons/download.svg": {
+      "bytes": 318,
+      "sha256": "3daeee13ded5a3afa2198b1bb4e2262d163922f97d96ac6ff9953e8ed4fe039d"
+    },
+    "public/brand/assets/icons/file-up.svg": {
+      "bytes": 427,
+      "sha256": "0bd753699aed9b50bcbde59b12e1409329bb9291c0aa523dd4553497cd665c0b"
+    },
+    "public/brand/assets/icons/maximize.svg": {
+      "bytes": 366,
+      "sha256": "1f790856b0de805ab62e871609f1990b89d227d472022e57a11fde015aad4826"
+    },
+    "public/brand/assets/icons/search.svg": {
+      "bytes": 275,
+      "sha256": "283d371c2e433817bb9c0c8310caa6c77fa4177c0f4f1168d9c83b97af7389dc"
+    },
+    "public/brand/assets/logo/app-icon.svg": {
+      "bytes": 507,
+      "sha256": "041f1677bd31da0b6e29cb20b503acdf5c7d954f6b5a0361a8b9be9cf70920fd"
+    },
+    "public/brand/assets/logo/wordmark-cream.svg": {
+      "bytes": 6226,
+      "sha256": "dce7ac403152c818f68da2db73d96e5108f36bd5ad97f80dae11fd0a9839abe2"
+    },
+    "public/brand/fonts/fonts.css": {
+      "bytes": 443,
+      "sha256": "169d90faad7d712d45388249c4ad290b4d0702d7a00fc529fc0ef01811ae12ac"
+    },
+    "public/brand/fonts/fredoka-latin.woff2": {
+      "bytes": 27436,
+      "sha256": "0c5d1f699905114a7965caf317e545516a86872a94b3cc71c3957a4f2fe71c34"
+    },
+    "public/brand/state-layer.css": {
+      "bytes": 2174,
+      "sha256": "cde172ca0ec4ef33e8fc4e0ea0c81ae17a8712d7f2bd259f8da7b6b268e9a293"
+    },
+    "public/brand/tokens.css": {
+      "bytes": 24296,
+      "sha256": "9f92438186a4dc4d1c8c14d689ed8e0a0ab7a125c19719538f12b8ec39dec514"
+    },
+    "public/covers/airline-empire.jpg": {
+      "bytes": 326336,
+      "sha256": "e0b201edecfc8b2dec7079df2fce6e049493660d2d64f4c66501e7a9df43a823"
+    },
+    "public/covers/basketball-star.jpg": {
+      "bytes": 167921,
+      "sha256": "6ae2f82b04f0b446e5fabc1fcf9e7c8481bda50894e2f891f65e57c06a923745"
+    },
+    "public/covers/cba-manager.jpg": {
+      "bytes": 189880,
+      "sha256": "ec493730a7c9cf4d05fb401926b533cdf278e3f9a822b5aea0d4a89da2248b72"
+    },
+    "public/covers/douluo.jpg": {
+      "bytes": 318278,
+      "sha256": "29486391885ef13a449ccccc7b325ea4b4840391858ed8c1a7147ab04eb3ddff"
+    },
+    "public/covers/entertainment-career.jpg": {
+      "bytes": 156193,
+      "sha256": "0c76c83d074f6da4a64276967eda4e6cda341b607be068404c2ec7a139c77370"
+    },
+    "public/covers/f1-driver.jpg": {
+      "bytes": 227391,
+      "sha256": "f4ee29b33c2cf6167f9402d8e38583022d57887768e80a455e184414652d7bfc"
+    },
+    "public/covers/f1-manager.jpg": {
+      "bytes": 184138,
+      "sha256": "9ea8e94459ee5a1a9b4c4f6b156ede2a94da822da80c1dda83b6b78423b7b3f7"
+    },
+    "public/covers/football-career.jpg": {
+      "bytes": 187638,
+      "sha256": "fa412b0119ae966e9449ad7752bad20e73657030a444935ae07bf38ca1f50bc2"
+    },
+    "public/covers/football-manager.jpg": {
+      "bytes": 171248,
+      "sha256": "000f0371b8196778b69ff930b6c4d151273bac077946130912ab05e68ab293bd"
+    },
+    "public/covers/hougong.jpg": {
+      "bytes": 236923,
+      "sha256": "b2844054731aadd4541d8337f2a6ddf1d06dca21d373e4eab3e9178445c4f53a"
+    },
+    "public/covers/lol.jpg": {
+      "bytes": 119279,
+      "sha256": "6eb1ff54c7fc94a6d12cbe2fbe5ba8235b319897f3f8cc385c1b61f98fbee452"
+    },
+    "public/covers/nba-manager.jpg": {
+      "bytes": 204885,
+      "sha256": "aee847f107f57c4624c6ec20a0ce9aef6f1826540c782f0fe282a99803795c20"
+    },
+    "public/covers/one-in-billions.jpg": {
+      "bytes": 334108,
+      "sha256": "b026d8acd7a8603f2c8e467eafcaf4cc52a7f288cff8d396881e42dfc259c2a0"
+    },
+    "public/covers/one-thought-immortal.jpg": {
+      "bytes": 442942,
+      "sha256": "80fe964db3c3c006be0ab7e6c17b70eef200786231b3bc58e74f69e808649535"
+    },
+    "public/covers/rental-empire.jpg": {
+      "bytes": 363213,
+      "sha256": "6a71c0210d39cd39f291d8e44ea9414f112b9efa1c96ef2ee985e255859847a4"
+    },
+    "public/covers/spud-dawn.jpg": {
+      "bytes": 538083,
+      "sha256": "335e6c5398f4ec6db5bfd16fcad9063c4b79491753f6a2c162c0da9e14754784"
+    },
+    "public/covers/wealth-reborn.jpg": {
+      "bytes": 250301,
+      "sha256": "4f9133f4d41d9d343b4e94b4a12974dbf379855ea894f53858f55623dfc01db7"
+    },
+    "public/covers/yexiao.jpg": {
+      "bytes": 276467,
+      "sha256": "d2dd2b5dd0a730f846395c1f76509ad8aea52fc34f1c4cb75cae43a320f86fed"
+    },
+    "public/covers/yike.jpg": {
+      "bytes": 217161,
+      "sha256": "086a5414bcef40ae217d59be095b423c7c35ea8d91d2f17672bc104d2b4a0214"
+    },
+    "public/games/airline-empire.html": {
+      "bytes": 1392513,
+      "sha256": "c807e76a102484f83dea18e409395ca870fefe429af735a431015ea35ac052b8"
+    },
+    "public/games/basketball-star.html": {
+      "bytes": 518286,
+      "sha256": "14aeb620a34b87ae4175a7b6620f7df6d74bd42c8aa962fbe7f1746d2d048266"
+    },
+    "public/games/cba.html": {
+      "bytes": 606245,
+      "sha256": "65a82c43b8f6b7d38534421d0b62afdbbb060dbea614d84e521765690f77c8c3"
+    },
+    "public/games/douluo.html": {
+      "bytes": 1494139,
+      "sha256": "f0d19f0280fb5eab5ec8ce5f7fbbfb85e61130371a2b326e580bd53755bb669d"
+    },
+    "public/games/entertainment-career.html": {
+      "bytes": 7630643,
+      "sha256": "e8edc0abf8ab970e8538a73f564df076c97e9d3d4120afd09e87d076026fbf15"
+    },
+    "public/games/f1-driver.html": {
+      "bytes": 648115,
+      "sha256": "463d732855a20afe16cc9bc8d6c30be12cea59f7fb2589e39929572c1626535d"
+    },
+    "public/games/f1.html": {
+      "bytes": 516979,
+      "sha256": "3af4f4cfc0aa2dcc7644554cdb435e5821a22d8bfbe32f042994b9df1cba3fbf"
+    },
+    "public/games/football-career.html": {
+      "bytes": 418040,
+      "sha256": "48acf09ab202062c46f507a4809a0f51b967adac279ac953824188dab6fffc51"
+    },
+    "public/games/football-manager.html": {
+      "bytes": 434921,
+      "sha256": "468da2c78f7e251adc990cc4973eda0536928ef73b0f0ed17fe0abd5f3e11df3"
+    },
+    "public/games/hougong.html": {
+      "bytes": 2375792,
+      "sha256": "66f05bdd4aed973ba0f97bda1659d4380f57bca351be516acc918a62a89c4998"
+    },
+    "public/games/lol.html": {
+      "bytes": 275681,
+      "sha256": "0e9fa8b9b771f67e769d6dbda21c6fcff6638faa5c1b2c609196b7a31ac9ee9f"
+    },
+    "public/games/nba.html": {
+      "bytes": 556569,
+      "sha256": "a2137c320aab74d076a1c39883b92c9103a3f05278ca42bce95028aff132af8f"
+    },
+    "public/games/one-in-billions.html": {
+      "bytes": 442420,
+      "sha256": "03ead76cf58e97f195e80b5b67a46a99345b6b4d1ae1094a08b36922f90e26e1"
+    },
+    "public/games/one-thought-immortal.html": {
+      "bytes": 915533,
+      "sha256": "d6a4b12cf3ba90dd8d808f6c0d2c25399770d74dbd99c098af79d1e36f3f32fd"
+    },
+    "public/games/rental-empire.html": {
+      "bytes": 343448,
+      "sha256": "71ca331f886e05357c68a8ea75c386cf8a440dd1f3dc38573ab96db9fab56b33"
+    },
+    "public/games/spud-dawn.html": {
+      "bytes": 3080669,
+      "sha256": "497631f4e272baeac2e21d94fe50b77b3a9cee52c98e799e3dd75e2c4064777b"
+    },
+    "public/games/wealth-reborn.html": {
+      "bytes": 2271842,
+      "sha256": "a41674b1625412a049b607192dd2e52271008a0fb60637d7f711953af53c1616"
+    },
+    "public/games/yexiao.html": {
+      "bytes": 213212,
+      "sha256": "67fc7672579525f585391582a21858b670ac47bedcf94792e91fd11d3f1e10cf"
+    },
+    "public/games/yike.html": {
+      "bytes": 43397,
+      "sha256": "1aca197be36024fba21fdae9bacd19b9867866e178c3e87eed9251de9a2eda10"
+    },
+    "public/index.html": {
+      "bytes": 126153,
+      "sha256": "a7173f7abb418290eed482ad8d922ffdb23230c76572bfd2fbf743255d62c226"
+    },
+    "public/move.html": {
+      "bytes": 2949,
+      "sha256": "419fbc2f9c7a4af04f4bb719373dfd32a483b478f11f318c314f6408d1a0046b"
+    },
+    "src/kanban.html": {
+      "bytes": 21204,
+      "sha256": "4a3f363843280f0bca4417fae1861efe72c32ef8e5b0f159d679c3c830dd1b82"
+    },
+    "src/worker.js": {
+      "bytes": 19421,
+      "sha256": "72a8f1c641d89094cb8fd941f8213283782d5b6a5b62f173a93e7083b5388492"
+    },
+    "wrangler.jsonc": {
+      "bytes": 1121,
+      "sha256": "7acbfbc91b46d64cfb2c9aad62932ef9287b56919998be168eb2a342ed2cb24e"
+    }
+  }
+}
