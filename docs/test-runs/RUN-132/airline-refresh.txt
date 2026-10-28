@@ -1,0 +1,103 @@
+Browser tab: 9, Title: "shoota 游戏平台", URL: "http://127.0.0.1:8844/#play-airline-empire".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8844/#play-airline-empire
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:8844/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:8844/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:8844/#library
+			7 link Description: 存档, Value: 127.0.0.1:8844/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container player
+		12 button 退出游戏, ID: pExit
+		13 text 打造全球最佳航司
+		14 button (disabled) 已读取存档, ID: pSaved
+		101 text 本次 0 分钟
+		16 button 全屏, ID: pFull
+		17 container 打造全球最佳航司
+			18 AXWebArea 打造全球最佳航司, URL: about:srcdoc
+				19 container app
+					20 container
+						21 text 打造全球最佳航司 SKYBOUND AIRLINES AIRLINE MANAGEMENT
+						22 container 主导航
+							23 button 经营总览
+							24 button 航线网络
+							25 button 航班排班
+							26 button 市场洞察
+							27 button 机队管理
+							28 button 飞机采购
+							29 button 旅客服务
+							30 button 世界动态
+							31 button 财务中心
+							32 button 航司排行榜
+							33 button 公司发展
+							34 button 机库经营
+						35 text WORKSPACE
+						36 button 存档与设置
+						37 button 资料与规则
+						38 text 联 联合发布验收1028 杭州基地 · 董事长
+					39 container
+						40 text 航空经营模拟 经营总览 本机自动存档 2026.01.12
+						41 text W02
+						42 button 经营下一周
+						43 button 直接连续经营 5 周
+						44 container workspace-content
+							45 container
+								46 text 联合发布验收1028 · FLIGHT OPERATIONS
+								47 heading 让每一次起飞，都有远方。, Value: 1
+									48 text 让每一次起飞，都有远方。
+								49 text 杭州始发 · 全球排名 #152 · 你的天空，正在延伸
+								50 button 致有蓝天梦的人
+								51 text HGH 30.23° N
+							52 text 可用现金
+							53 container
+								54 text 2140 万
+							55 text 周利润 +140 万 在役飞机
+							56 container
+								57 text 2 架
+							58 text 0 架待交付 运营航线
+							59 container
+								60 text 2 条
+							61 text 覆盖 3 座机场 旅客口碑
+							62 container
+								63 text 56.1 /100
+							64 text 可靠性 93.8%
+							65 container 经营调整
+								66 button 航线
+								67 button 排班
+								68 button 采购
+								69 button 服务
+								70 button 顾问
+							71 tab group 运营总览分区
+								72 tab (selected, settable, boolean) 本周运营, Value: 1
+								73 tab (selectable, settable, boolean) 航线地图, Value: 0
+								74 tab (selectable, settable, boolean) 世界动态, Value: 0
+							75 container
+								76 heading 本周起飞计划, Value: 2
+									77 text 本周起飞计划
+								78 button 完整排班
+								79 text 07:00
+								80 text 周一
+								81 text HGH  →  CAN 杭州至广州 · Airbus A320neo 已计划 07:00
+								82 text 周一
+								83 text HGH  →  CKG 杭州至重庆 · Boeing 737-8 已计划 09:40
+								84 text 周一
+								85 text CAN  →  HGH 广州至杭州 · Airbus A320neo 已计划
+							86 container
+								87 heading 运营简报, Value: 2
+									88 text 运营简报
+								89 text W2
+								90 heading 本周航班计划已准备, Value: 3
+									91 text 本周航班计划已准备
+								92 text 2 条在营航线 · 28 个计划航段
+								93 button 检查排班
+								94 heading 为下一程做准备, Value: 3
+									95 text 为下一程做准备
+								96 text 比较市场需求，再决定下一条航线。
+								97 button 寻找机会
+								98 button 查看经营周报
+							99 container
+								100 text 联合发布验收1028 · 中国民营航空公司 · 全球综合排名 #152 经营与外交剧情为模拟设定 · 非实时航空数据
+
+The focused UI element is 1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8844/#play-airline-empire

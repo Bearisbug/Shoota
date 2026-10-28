@@ -1,0 +1,103 @@
+Browser tab: 9, Title: "shoota 游戏平台", URL: "http://127.0.0.1:8844/#play-airline-empire".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8844/#play-airline-empire
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:8844/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:8844/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:8844/#library
+			7 link Description: 存档, Value: 127.0.0.1:8844/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		74 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container view
+		13 link Description: 商店, Value: 127.0.0.1:8844/#store
+		14 text ›
+		15 link Description: 模拟经营, Value: 127.0.0.1:8844/#store
+		16 text › 打造全球最佳航司
+		17 heading 打造全球最佳航司, Value: 1
+			18 text 打造全球最佳航司
+		19 text 从第一条航线 · 飞向全球
+		20 container
+			21 text 打造全球
+			22 text 最佳航司 从第一条航线 · 飞向全球
+		23 container
+			24 text 创建自己的航司，规划航线与机队，平衡服务、成本和扩张，向世界最佳航司迈进。
+			25 definition list
+				26 container 类型
+					27 text 类型
+				28 text 模拟经营
+				29 container 一局
+					30 text 一局
+				31 text 按周经营
+				32 container 存档
+					33 text 存档
+				34 text 自动存档，支持导入与导出
+				35 container 大小
+					36 text 大小
+				37 text 1.3 MB
+			38 button 模拟经营
+			39 button 航空
+			40 button 策略
+			41 text 可玩
+		42 container
+			43 heading 开始玩《打造全球最佳航司》, Value: 3
+				44 text 开始玩《打造全球最佳航司》
+			45 text 点开就能玩，存档自动保存。
+			46 link Description: 开始游戏, Value: 127.0.0.1:8844/#play-airline-empire
+		47 container
+			48 heading 关于这款游戏, Value: 2
+				49 text 关于这款游戏
+			50 text 从公司命名和基地机场选择开始，带领两架全新自有飞机开启运营。 购买或租赁飞机，安排航线与全天排班，调整客舱、票价和旅客服务。 应对天气、航路与延误事件，规划保障预算，在每周经营结果中发展航司。
+		51 container
+			52 heading 一局怎么玩, Value: 2
+				53 text 一局怎么玩
+			54 content list
+				55 container
+					75 text 1 1 命名航司并选择基地机场
+				57 container
+					76 text 2 2 配置机队、航线与旅客服务
+				59 container
+					77 text 3 3 运营一周，处理事件与延误保障
+				61 container
+					78 text 4 4 复盘收益与满意度，扩大航线网络
+		63 heading 你的记录, Value: 3
+			64 text 你的记录
+		65 text 游玩时间
+		66 text 还没玩过
+		67 text 上次游玩
+		68 text —
+		69 button 加入愿望单
+		70 heading 成就, Value: 3
+			71 text 成就
+		72 container
+			73 text 这款游戏还没接入平台成就。游戏调用  Platform.unlock()  后，成就会出现在这里。
+	79 container player
+		80 button 退出游戏, ID: pExit
+		81 text 打造全球最佳航司
+		82 button (disabled) 已存档 13:12, ID: pSaved
+		108 text 本次 0 分钟
+		84 button 全屏, ID: pFull
+		85 container 打造全球最佳航司
+			86 AXWebArea 打造全球最佳航司, URL: about:srcdoc
+				88 container 第 1 周 · 经营简报
+					89 heading 第 1 周 · 经营简报, Value: 2, ID: dialog-title
+						90 text 第 1 周 · 经营简报
+					91 text 2026.01.05
+					92 button 关闭
+					93 container 结算内容
+						94 checkbox 概览, Value: 1
+						95 checkbox 收支明细, Value: 0
+					96 text 本周净利润
+					97 text +140 万
+					98 text 当前现金
+					99 text 2140 万
+					100 text 承运旅客
+					101 text 4,096 人次
+					102 text 本周口碑变化
+					103 text +0.09
+					104 text 28 班已执行 · 自动保障与检修支出已计入利润
+					105 text 本次没有新的经营提醒。
+					106 button 返回经营
+					107 button 经营下一周
+
+The focused UI element is 92 button 关闭

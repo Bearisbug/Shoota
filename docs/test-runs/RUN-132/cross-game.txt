@@ -1,0 +1,124 @@
+Browser tab: 9, Title: "shoota 游戏平台", URL: "http://127.0.0.1:8844/#play-one-in-billions".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8844/#play-one-in-billions
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:8844/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:8844/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:8844/#library
+			7 link Description: 存档, Value: 127.0.0.1:8844/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		37 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container view
+		13 heading 我的游戏库, Value: 1
+			14 text 我的游戏库
+		15 text 2 款 · 共 1 分钟
+		16 content list
+			17 container
+				18 text 打造全球最佳航司
+				19 text 不到 1 分钟
+			20 container
+				21 text 此生
+				22 text 1 分钟
+		23 container
+			24 text 此生 八十亿分之一
+		25 link Description: 继续游戏, Value: 127.0.0.1:8844/#play-one-in-billions
+		26 text 游玩时间
+		27 text 1 分钟
+		28 text 上次游玩
+		29 text 刚刚
+		30 link Description: 商店页面, Value: 127.0.0.1:8844/#game-one-in-billions
+		31 heading 关于存档, Value: 3
+			32 text 关于存档
+		33 container
+			34 text 《此生》的存档自动保存在这台设备的浏览器里，下次打开接着玩。换浏览器或清除网站数据后进度会丢失，
+			35 link Description: 先复制一份存档码, Value: 127.0.0.1:8844/#backup
+			36 text ，到新设备上粘贴就能恢复。
+	38 container player
+		39 button 退出游戏, ID: pExit
+		40 text 此生
+		41 button (disabled) 已读取存档, ID: pSaved
+		42 text 本次 0 分钟
+		43 button 全屏, ID: pFull
+		44 container 此生
+			45 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc
+				46 container app
+					47 container
+						48 button 此生首页
+							49 text ı
+							50 text 此生
+							51 text  ONE IN BILLIONS
+						52 container 主要导航
+							53 button 人生收藏
+							54 button 实验室
+							55 button 关于此生
+							56 button 切换明暗
+							57 button 开启轻音乐
+					58 container
+						59 heading 山姆 童年, Value: 1
+							60 text 山姆 童年
+						61 text 🇲🇿 莫桑比克  · 2026 年出生 · 未入学 1 岁 2027 年
+						62 container 人生调整工具栏
+							63 button ◌ 重心
+							64 button ⌂ 出身
+							65 button ▤ 安排
+							66 checkbox ◌ 自动抉择, Value: 0
+							67 button ⋯ 更多
+							68 button ▷ 播放
+							69 button 切换时间速度
+						70 text 有灯亮着的地方
+						71 text 2027
+						72 image 山姆，1岁，有灯亮着的地方
+						73 text 🇲🇿 莫桑比克
+						74 text 在家人的怀抱里 ♡ 健康
+						75 container
+							76 text 78  / 100
+						77 level indicator Description: 健康, Value: 78
+						78 text ☀ 幸福
+						79 container
+							80 text 56  / 100
+						81 level indicator Description: 幸福, Value: 56
+						82 text ⌘ 知识
+						83 container
+							84 text 1  / 100
+						85 level indicator Description: 知识, Value: 1
+						86 text ♧ 关系
+						87 container
+							88 text 74  / 100
+						89 level indicator Description: 关系, Value: 74
+						90 container 人生信息
+							91 button 故事
+							92 button 状态
+							93 button 家人
+							94 button 财务
+							95 button 世界
+							96 button 记录
+						97 container
+							98 text THE FIRST CHAPTER 1 岁 · 童年
+							99 heading 一件坏掉的玩具, Value: 2
+								100 text 一件坏掉的玩具
+							101 text 玩具坏了，你把它交给家人。有人蹲下来解释里面的零件，你第一次意识到物品也有自己的秘密。
+							102 text 世界一点点变大，你也一点点长大。
+							103 text 最近走过的日子
+							104 button 完整记录 ↗
+							105 text 0 岁 世界多了一个你 你出生在莫桑比克 · Maputo周边乡村（村镇未细分）。家境：收支紧绷；住在租住的小公寓。母亲是商店店员，父亲是维修学徒。
+						106 text 与你同一秒来到世界
+						107 text 🇵🇰 阿里  · 巴基斯坦 · 女
+						108 text 在家人的怀抱里
+						109 text 🇾🇪 山姆  · 也门 · 男
+						110 text 在家人的怀抱里
+						111 text 🇮🇳 拉维  · 印度 · 男
+						112 text 在家人的怀抱里
+						113 text 🇫🇷 艾玛  · 法国 · 女
+						114 text 在家人的怀抱里
+						115 container
+							116 text 不同的起点，相同的时间。
+							117 text 他们也在经历属于自己的一生。
+						118 text ● 已交给平台保存
+						119 button ✧ 那些有回声的选择
+					120 container
+						121 text 停留在此刻
+						122 button 下个抉择 »
+						123 button 下一年　→
+
+The focused UI element is 45 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc

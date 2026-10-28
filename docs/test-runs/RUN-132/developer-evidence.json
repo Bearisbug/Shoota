@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/Users/leizhang/Documents/ChatGPT/shoota/one-in-billions/output/releases/2026-10-28-v1.3.2-03ead76cf58e/release-handoff.md",
+    "sha256": "8c6f9dbfd18b137c6547a692f22a1ef36d27375c3d9e094ca5277c7fcf4ebdfa",
+    "scope": "developer evidence; not re-executed in RUN-132"
+  },
+  {
+    "path": "/Users/leizhang/Documents/ChatGPT/shoota/one-in-billions/output/releases/2026-10-28-v1.3.2-03ead76cf58e/qa/report.md",
+    "sha256": "02aeb9fc8d492bc831d49fa3f88bf116a7c133d9b114e21d35b249bfb924cab1",
+    "scope": "developer evidence; not re-executed in RUN-132"
+  },
+  {
+    "path": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-16aaba838c19/release-handoff.md",
+    "sha256": "24fe95696c0cb5dd6a5c670cb63c5cb4c0bf83a4c510f180d314fd3d4e23f394",
+    "scope": "developer evidence; not re-executed in RUN-132"
+  },
+  {
+    "path": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/host-d14f12a-qa/report.md",
+    "sha256": "0d79c25505da510430e90be129ceaa43fd0efc92e6ff8d1f8a03c7f1b731fdee",
+    "scope": "developer evidence; not re-executed in RUN-132"
+  }
+]

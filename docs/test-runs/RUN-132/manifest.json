@@ -1,0 +1,46 @@
+{
+  "base": "d14f12a0f7c5814aa05b85325d57893a61842989",
+  "files": {
+    "public/games/airline-empire.html": {
+      "sha256": "16aaba838c19cfa1a7626397ed4e233e445a250e59cce65f285ecf26d9d6af7d",
+      "bytes": 1378006
+    },
+    "public/games/one-in-billions.html": {
+      "sha256": "03ead76cf58e97f195e80b5b67a46a99345b6b4d1ae1094a08b36922f90e26e1",
+      "bytes": 442420
+    },
+    "public/covers/one-in-billions.jpg": {
+      "sha256": "b026d8acd7a8603f2c8e467eafcaf4cc52a7f288cff8d396881e42dfc259c2a0",
+      "bytes": 334108
+    },
+    "public/index.html": {
+      "sha256": "d17c0d197eb925507118759164f819891a0e12688bc35c7f507efcca500abed0",
+      "bytes": 126163
+    }
+  },
+  "gameCount": 19,
+  "order": [
+    "spud-dawn",
+    "airline-empire",
+    "rental-empire",
+    "f1-driver",
+    "nba",
+    "football-manager",
+    "f1",
+    "basketball-star",
+    "wealth-reborn",
+    "douluo",
+    "cba",
+    "lol",
+    "entertainment-career",
+    "football-career",
+    "one-thought-immortal",
+    "one-in-billions",
+    "yike",
+    "hougong",
+    "yexiao"
+  ],
+  "oldEntriesUnchangedExceptAirlineSize": true,
+  "hostOutsideCatalogUnchanged": true,
+  "allOtherTrackedGamesCoversWorkerWorkflowsUnchanged": true
+}

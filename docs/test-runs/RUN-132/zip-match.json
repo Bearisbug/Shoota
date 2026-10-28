@@ -1,0 +1,16 @@
+[
+  {
+    "zip": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-16aaba838c19/云际航空-离线版.zip",
+    "sha256": "9ad8421fbb6354608db1813e41f629f165ff3e7f399148fd79c6da2d8043de7c",
+    "matchedHtml": [
+      "云际航空.html"
+    ]
+  },
+  {
+    "zip": "/Users/leizhang/Documents/ChatGPT/shoota/one-in-billions/output/releases/2026-10-28-v1.3.2-03ead76cf58e/此生-离线版.zip",
+    "sha256": "92f4875aebe67a32750dcf15715f7ec6e183b918ba34a491a5f446d9fb2fa6af",
+    "matchedHtml": [
+      "此生.html"
+    ]
+  }
+]

@@ -1,0 +1,3 @@
+Browser tab: 9, Title: "shoota 游戏平台", URL: "http://127.0.0.1:8844/".
+There has been no change in the accessibility tree.
+The focused UI element is 8 search text field (settable) 搜索游戏, Value: 此生, ID: q

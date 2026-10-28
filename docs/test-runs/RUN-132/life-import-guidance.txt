@@ -1,0 +1,28 @@
+Browser tab: 9, Title: "shoota 游戏平台", URL: "http://127.0.0.1:8844/#play-one-in-billions".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:8844/#play-one-in-billions
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:8844/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:8844/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:8844/#library
+			7 link Description: 存档, Value: 127.0.0.1:8844/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container player
+		12 button 退出游戏, ID: pExit
+		13 text 此生
+		14 button (disabled) 已读取存档, ID: pSaved
+		22 text 本次 0 分钟
+		16 button 全屏, ID: pFull
+		17 container 此生
+			18 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc
+				21 container 在平台恢复进度, ID: dialog
+					23 heading 在平台恢复进度, Value: 2, ID: dialog-title
+						24 text 在平台恢复进度
+					25 button 关闭弹窗
+					26 text 平台内暂不支持恢复JSON，原进度不会改变。
+					27 text 请退出游戏，在平台“存档”页恢复CJ1；JSON备份请在独立版导入。
+					28 button 知道了
+
+The focused UI element is 18 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc
