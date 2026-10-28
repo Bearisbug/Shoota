@@ -1,0 +1,12 @@
+{
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-28-198d04e63ab9",
+  "expectedSha256": "198d04e63ab984d4510691ae9e526d09d10dbd289109e5bfc61c25230547cacb",
+  "bytes": 1383979,
+  "rootHtmlMatches": true,
+  "rootZipMatches": true,
+  "zipHtmlMatches": true,
+  "manifestFilesVerified": 169,
+  "manifestSha256": "6c9d450fa737fd5d486480517598ab4ce224da21846684712acc9df6f8504980",
+  "handoffSha256": "bdee779343d0185670e3d746a23bef84fea3531b33da3c498b102f0f09bc192c",
+  "zipSha256": "0f34929d31fc23ff10968cf60b70c1aab881f7c998ae1634f7228a80bd39e157"
+}
