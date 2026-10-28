@@ -14,6 +14,7 @@
 
 | 日期 | 改动 | 作者 |
 | --- | --- | --- |
+| 2026-10-28 | 新增TC-JOINT-005，覆盖看板读取十九款目录名称 | Codex |
 | 2026-10-28 | 新增TC-JOINT-001至TC-JOINT-004，覆盖联合成品一致性、目录入口及平台存档冒烟；同步TC-IMMORTAL-001目录数量 | Codex |
 | 2026-10-28 | 新增 TC-SAVE-001 至 TC-SAVE-005，覆盖即时刷新、提交确认、失败重试与存档隔离 | Codex |
 | 2026-10-27 | 新增TC-IMMORTAL-001至TC-IMMORTAL-004，覆盖修仙上架、存档与适配 | Codex |
@@ -1820,6 +1821,16 @@
 
 后置：保留两款隔离测试存档，关闭本轮页面。
 
+#### `TC-JOINT-005` 看板目录名称完整 — 对应 `REQ-007`、`REQ-010` · 级别: 回归 · 执行者: AI · 源自缺陷 2026-10-28 此生看板中文名漏读
+
+前置：本地十九款游戏候选，Node支持Request及Response；ASSETS仅使用本地首页夹具，无线上请求。
+
+| # | 操作 | 预期 |
+| --- | --- | --- |
+| 1 | 运行 `node scripts/catalog-titles.test.cjs`，执行Worker真实名称读取函数 | 返回十九个标识及目录原名，此生对应one-in-billions；与实际CATALOG逐项相同 |
+
+后置：保留执行日志与首页指纹，失败轮不得覆盖。
+
 ## 5. 回归策略
 
 - **全量轮**：首次成稿、看板或上报接口改版、数据表结构变更。
@@ -1834,6 +1845,8 @@
 
 | 轮次 | 日期 | 环境 | 被测版本 | 执行者 | 范围 | 结果 |
 | --- | --- | --- | --- | --- | --- | --- |
+| RUN-134 | 2026-10-28 | 本地 | 宿主8c9e1ce8a6e0 | AI(Node) | 复测(RUN-133:TC-JOINT-005) | 通过 1/1 |
+| RUN-133 | 2026-10-28 | 本地 | f85fcac，宿主d17c0d197eb9 | AI(Node) | 局部(TC-JOINT-005) | 通过 0/1 · 失败 1 |
 | RUN-132 | 2026-10-28 | 本地 | 宿主d17c0d197eb9＋两款冻结成品 | AI(CUA、Node) | 局部(TC-JOINT-001、TC-JOINT-002、TC-JOINT-003、TC-JOINT-004) | 通过 4/4 |
 | RUN-128 | 2026-10-27 | 本地 | d6a4b12c平台容器 | AI(IAB/Node) | 复测(RUN-127:TC-IMMORTAL-003、TC-IMMORTAL-004) | 通过 1/2 · 跳过 1 |
 | RUN-129 | 2026-10-28 | 本地 | 776a5fe | AI(CUA、Node) | 局部(TC-SAVE-001、TC-SAVE-002) | 通过 0/2 · 失败 2 |
@@ -2212,6 +2225,7 @@ RUN-129 证据：`docs/test-runs/RUN-129/immediate-refresh.txt`、`immediate-ref
 
 | 轮次 | 用例 | 结果 | 现象 / 证据 | 跟进 |
 | --- | --- | --- | --- | --- |
+| RUN-133 | TC-JOINT-005 | 失败 | 第1步预期十九款名称，实际十八款，缺此生；证据：`docs/test-runs/RUN-133/catalog-titles.txt` | 修复后新轮复测 |
 | RUN-129 | TC-SAVE-002 | 失败 | 第1步事务未完成已显示已存档，失败后重试写入次数仍为1；证据：`docs/test-runs/RUN-129/transaction-before.json` | RUN-130 复测通过 |
 | RUN-130 | TC-SAVE-005 | 失败 | 第1步手机重试按钮命中高度17.4px；证据：`docs/test-runs/RUN-130/fault-matrix.json` | 扩大命中区域后新轮复测 |
 | RUN-129 | TC-SAVE-001 | 失败 | 第2步预期家庭2/3，实际出生地1/3；见本轮证据 | 待修复并新轮复测 |
@@ -2221,6 +2235,10 @@ RUN-130 证据：`docs/test-runs/RUN-130/version.json` 固定初版宿主指纹�
 RUN-131 证据：`docs/test-runs/RUN-131/manifest.json` 固定最终宿主及冻结游戏指纹；17项逻辑测试通过。`life-matrix.json` 与 `airline-matrix.json` 记录实际测得四视口，均执行保存→立即刷新→退出重进。`fault-matrix.json` 记录11视口44px命中区，截图检查文字与焦点；`pending-transaction.txt`、`failed-transaction.txt`、`retry-refresh.txt`、`both-stores-fail.txt`、`burst-refresh.txt`、`journal-refresh.txt` 覆盖故障和百次连续写入。`backup-restored.txt` 记录125275字符CJ1恢复后同一人物第三页。此轮只验宿主受影响流程，不代表两款游戏全部上线适配完成；真机、200%文字、软键盘与http搬家完整路径未验证。
 
 RUN-132 证据：`docs/test-runs/RUN-132/manifest.json`与`zip-match.json`核对指定冻结HTML、ZIP、封面，原18款顺序与配置仅航司大小变化，宿主目录之外逐字节不变。`quality.txt`记录22页61段脚本解析通过，`save-tests.txt`记录17/17通过。`search.txt`、四尺寸详情及入口截图、`catalog-layout.json`、`detail-overflow.json`核对320×568、390×844、768×1024、1366×768实际尺寸及文字边界。此生山姆/莫桑比克0→1岁后立即刷新与重进保留；游戏导入显示CJ1指引。航司联合发布验收1028经营至W02、2140万元后刷新重进保持，再切回此生仍1岁。`browser-logs.json`为空。只登记本轮候选集成四项，不重写历史失败；开发完整矩阵引用及真机、200%文字、软键盘、线上等待验收项见本轮`release-handoff.md`。
+
+RUN-133 证据：`docs/test-runs/RUN-133/version.json`绑定f85fcac宿主；`catalog-titles.txt`执行Worker真实函数，十九项目录仅得到十八项，此生遗漏，断言退出1。修复前记录原样保留。
+
+RUN-134 证据：`docs/test-runs/RUN-134/catalog-titles.txt`记录同一断言十九项全部通过；`quality.txt`记录22页61段脚本解析通过。`manifest.json`记录新宿主指纹及范围审计：只替换此生条目的首字段格式，所有目录值、其余首页字节、游戏、封面、Worker与工作流不变。按统筹指定，本轮复用RUN-132实际浏览器证据，不重新执行全视口或全量冒烟，不将复用记录计为本轮执行。线上发布与健康检查仍由统筹执行。
 
 ## 7. 遗留问题
 

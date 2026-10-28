@@ -1,0 +1,27 @@
+{
+  "expected": 19,
+  "actual": 19,
+  "missing": [],
+  "titles": {
+    "spud-dawn": "薯光 · Spud Dawn",
+    "airline-empire": "打造全球最佳航司",
+    "rental-empire": "脚踩神州，拳打一嗨",
+    "f1-driver": "F1-Driver",
+    "nba": "NBA-经理",
+    "football-manager": "绿茵经理",
+    "f1": "F1-Team Principal",
+    "basketball-star": "篮球巨星",
+    "wealth-reborn": "我要当首富",
+    "douluo": "斗罗·万相",
+    "cba": "CBA-经理",
+    "lol": "lol电竞经理",
+    "entertainment-career": "杀穿娱乐圈",
+    "football-career": "足球巨星",
+    "one-thought-immortal": "一念长生",
+    "one-in-billions": "此生",
+    "yike": "一克之差",
+    "hougong": "后宫生死簿",
+    "yexiao": "重生之我是夜宵摊摊主"
+  }
+}
+PASS: all 19 catalog titles, including 此生, match the Worker output.

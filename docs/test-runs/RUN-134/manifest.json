@@ -1,0 +1,16 @@
+{
+  "baseCommit": "f85fcac2d3f9779e371889b73a4f808bf66abae3",
+  "designBaseline": "26f382f624bdbd280101a4aa178eab80535a7012",
+  "sha256": "8c9e1ce8a6e0f6537bfc08b3c41b6f6d4c30ac5d5a082a96c74456bf5daec198",
+  "bytes": 126153,
+  "exactPrefixReplacementOnly": true,
+  "unchanged": [
+    "src/worker.js",
+    "public/games",
+    "public/covers",
+    ".github/workflows"
+  ],
+  "browserEvidence": "RUN-132, reused by release coordinator request; catalog values and host runtime unchanged",
+  "regression": "19/19 titles; TC-JOINT-005 pass",
+  "deployment": "not pushed"
+}
