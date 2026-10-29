@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "managerAssertions": 346,
+  "managerFullSeasons": 13,
+  "playerTestGroups": 7,
+  "initialLog": "independent-rules.json",
+  "ratingRetry": "player-rating-calibration-retry.log",
+  "fixtureFix": "Copied unchanged v1.4.1 source fixture into independent snapshot; no game changes."
+}

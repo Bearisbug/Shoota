@@ -1,0 +1,212 @@
+[
+  {
+    "game": "lol",
+    "width": 360,
+    "height": 800,
+    "metrics": {
+      "frame": [
+        {
+          "h": 751,
+          "w": 360
+        }
+      ],
+      "scroll": 360,
+      "width": 360
+    }
+  },
+  {
+    "game": "lol",
+    "width": 390,
+    "height": 844,
+    "metrics": {
+      "frame": [
+        {
+          "h": 795,
+          "w": 390
+        }
+      ],
+      "scroll": 390,
+      "width": 390
+    }
+  },
+  {
+    "game": "lol",
+    "width": 768,
+    "height": 1024,
+    "metrics": {
+      "frame": [
+        {
+          "h": 974,
+          "w": 768
+        }
+      ],
+      "scroll": 768,
+      "width": 768
+    }
+  },
+  {
+    "game": "lol",
+    "width": 844,
+    "height": 390,
+    "metrics": {
+      "frame": [
+        {
+          "h": 340,
+          "w": 844
+        }
+      ],
+      "scroll": 844,
+      "width": 844
+    }
+  },
+  {
+    "game": "lol",
+    "width": 1024,
+    "height": 768,
+    "metrics": {
+      "frame": [
+        {
+          "h": 718,
+          "w": 1024
+        }
+      ],
+      "scroll": 1024,
+      "width": 1024
+    }
+  },
+  {
+    "game": "lol",
+    "width": 1366,
+    "height": 768,
+    "metrics": {
+      "frame": [
+        {
+          "h": 718,
+          "w": 1366
+        }
+      ],
+      "scroll": 1366,
+      "width": 1366
+    }
+  },
+  {
+    "game": "lol",
+    "width": 1440,
+    "height": 900,
+    "metrics": {
+      "frame": [
+        {
+          "h": 850,
+          "w": 1440
+        }
+      ],
+      "scroll": 1440,
+      "width": 1440
+    }
+  },
+  {
+    "game": "lol-player",
+    "width": 360,
+    "height": 800,
+    "metrics": {
+      "frame": [
+        {
+          "h": 751,
+          "w": 360
+        }
+      ],
+      "scroll": 360,
+      "width": 360
+    }
+  },
+  {
+    "game": "lol-player",
+    "width": 390,
+    "height": 844,
+    "metrics": {
+      "frame": [
+        {
+          "h": 795,
+          "w": 390
+        }
+      ],
+      "scroll": 390,
+      "width": 390
+    }
+  },
+  {
+    "game": "lol-player",
+    "width": 768,
+    "height": 1024,
+    "metrics": {
+      "frame": [
+        {
+          "h": 974,
+          "w": 768
+        }
+      ],
+      "scroll": 768,
+      "width": 768
+    }
+  },
+  {
+    "game": "lol-player",
+    "width": 844,
+    "height": 390,
+    "metrics": {
+      "frame": [
+        {
+          "h": 340,
+          "w": 844
+        }
+      ],
+      "scroll": 844,
+      "width": 844
+    }
+  },
+  {
+    "game": "lol-player",
+    "width": 1024,
+    "height": 768,
+    "metrics": {
+      "frame": [
+        {
+          "h": 718,
+          "w": 1024
+        }
+      ],
+      "scroll": 1024,
+      "width": 1024
+    }
+  },
+  {
+    "game": "lol-player",
+    "width": 1366,
+    "height": 768,
+    "metrics": {
+      "frame": [
+        {
+          "h": 718,
+          "w": 1366
+        }
+      ],
+      "scroll": 1366,
+      "width": 1366
+    }
+  },
+  {
+    "game": "lol-player",
+    "width": 1440,
+    "height": 900,
+    "metrics": {
+      "frame": [
+        {
+          "h": 850,
+          "w": 1440
+        }
+      ],
+      "scroll": 1440,
+      "width": 1440
+    }
+  }
+]

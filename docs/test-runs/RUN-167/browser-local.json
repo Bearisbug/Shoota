@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "games": {
+    "lol": {
+      "sha256": "79aa053b8f049181ef9b4c32e6c44b0b0567c226d58a85ce0644faf928e8cfe5",
+      "savedAndReloaded": true,
+      "result": "BLG spring rounds3-7,4W1L"
+    },
+    "lol-player": {
+      "sha256": "ad800c9eb2280a8a9da17f6f5abc50079be93a427c85d2ac5772dd8ce4117183",
+      "savedAndReloaded": true,
+      "result": "Echo390 manual03:00→05:00 then5/5 rounds5-9;round10,ability79"
+    }
+  },
+  "matrix": "local-matrix.json",
+  "limitations": [
+    "real phones",
+    "native keyboard",
+    "system200%text",
+    "historical hero availability"
+  ]
+}

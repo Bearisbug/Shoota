@@ -1,0 +1,210 @@
+Browser tab: 5, Title: "shoota 游戏平台", URL: "http://127.0.0.1:63865/#play-lol-player".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:63865/#play-lol-player
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:63865/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:63865/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:63865/#library
+			7 link Description: 存档, Value: 127.0.0.1:63865/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container player
+		12 button 退出游戏, ID: pExit
+		13 text 我是职业通天代
+		14 text 16岁 · 逐光竞技390 · 能力79
+		15 button (disabled) 已读取存档, ID: pSaved
+		16 text 本次 0 分钟
+		17 button 全屏, ID: pFull
+		18 container 我是职业通天代
+			19 AXWebArea LOL 选手生涯 · 我的主场, URL: about:srcdoc
+				20 container app
+					21 container
+						22 text Echo390  · 16 岁 2027 春季赛 · 第 10/13 轮
+						23 pop up button (disabled, collapsed, settable) Description: 快速模拟场数, Value: 5场, ID: quick-count, Secondary Actions: Expand
+							24 menu
+								25 (disabled) 1场
+								26 (disabled) 5场
+						27 button ▶ 继续下一场
+					28 container 生涯导航
+						29 button 主页
+						30 button 我的选手
+						31 button 战队阵容
+						32 button 赛程
+						33 button 积分榜
+						34 button 季后赛
+						35 button MSI
+						36 button 世界赛
+						37 button 选手库
+						38 button 参与招募
+						39 button 合同与转会
+						40 button 赛季总结
+						41 button 历史
+						42 button 存档
+					43 container 比赛工作区
+						44 container 连续模拟汇总
+							45 heading 快速模拟 · 完成 5/5 场, Value: 2
+								46 text 快速模拟 · 完成 5/5 场
+							47 text 已完成计划场次 · 每场为一轮完整系列赛，已自动保存。
+							48 text 0胜 5负
+							49 text 战队战绩
+							50 text 5/5
+							51 text 首发场数
+							52 text 79 → 79
+							53 text 能力变化
+							54 text 14万
+							55 text 累计收入 负 春季赛第 5 轮 · ThunderTalk Gaming 2:1 逐光竞技390 评分 5.8 负 春季赛第 6 轮 · 逐光竞技390 0:2 哔哩哔哩 BLG 评分 4.7 负 春季赛第 7 轮 · Team WE 2:0 逐光竞技390 评分 4.8 负 春季赛第 8 轮 · 微博 WBG 2:0 逐光竞技390 评分 5.4 负 春季赛第 9 轮 · 逐光竞技390 1:2 Ninjas in Pyjamas 评分 4.9
+						56 container
+							57 heading 最后一场复盘, Value: 1
+								58 text 最后一场复盘
+							59 text 右上角继续下一场 · 本场已自动保存 春季赛第 9 轮 · 首发出场 4.9 我的评分 79 → 79 能力变化 13.7 声望 3万 本轮收入
+						60 container
+							61 heading 本场版本表现, Value: 3
+								62 text 本场版本表现
+							63 text 开团协作 · 2027.2.3 · 版本修正已计入比赛能力，胜负仍由双方整体表现决定。 第 1 局 阿卡丽 · 熟练 89 · 版本修正 +0.0 · 位置影响力 89% 第 2 局 兰博 · 熟练 68 · 版本修正 +2.0 · 位置影响力 89% 第 3 局 卡尔玛 · 熟练 86 · 版本修正 +0.0 · 位置影响力 89%
+						64 heading 战报, Value: 2
+							65 text 战报
+						66 text 1 场系列赛 · 0 胜 1 负 负
+						67 text 春季赛第 9 轮
+						68 button Description: 查看逐光竞技390, Help: 逐光竞技390
+						69 text 1 : 2
+						70 button Description: 查看Ninjas in Pyjamas, Help: Ninjas in Pyjamas
+							71 image NIP 战队 Logo
+						72 table
+							73 row
+								74 cell
+									75 text 局
+								76 cell
+									77 text 阵营
+								78 cell
+									79 text 结果
+								80 cell
+									81 text 时长
+								82 cell
+									83 text 击杀（我:敌）
+								84 cell
+									85 text 本局 MVP
+							86 row
+								87 cell
+									88 text G1
+								89 cell
+									90 text 蓝色方
+								91 cell
+									92 text 负
+								93 cell
+									94 text 31:42
+								95 cell
+									96 text 5  : 10
+								97 cell
+									98 button Description: 查看Ninjas in Pyjamas, Help: Ninjas in Pyjamas
+										99 image NIP 战队 Logo
+									100 text  Care  发条 4/1/6
+								101 cell
+									102 button 详情
+							103 row
+								104 cell
+									105 text G2
+								106 cell
+									107 text 蓝色方
+								108 cell
+									109 text 胜
+								110 cell
+									111 text 32:26
+								112 cell
+									113 text 19  : 13
+								114 cell
+									115 button Description: 查看逐光竞技390, Help: 逐光竞技390
+									116 text  Chenxi  芮尔 1/1/14
+								117 cell
+									118 button 详情
+							119 row
+								120 cell
+									121 text G3
+								122 cell
+									123 text 红色方
+								124 cell
+									125 text 负
+								126 cell
+									127 text 27:22
+								128 cell
+									129 text 5  : 20
+								130 cell
+									131 button Description: 查看Ninjas in Pyjamas, Help: Ninjas in Pyjamas
+										132 image NIP 战队 Logo
+									133 text  HOYA  杰斯 6/0/6
+								134 cell
+									135 button 详情
+						136 table
+							137 row
+								138 cell
+									139 button Description: 查看逐光竞技390, Help: 逐光竞技390
+									140 text  选手
+								141 cell
+									142 text 使用英雄
+								143 cell
+									144 text K/D/A
+								145 cell
+									146 text KDA
+								147 cell
+									148 text 场均评分
+								149 cell
+									150 text MVP
+							151 row
+								152 cell
+									153 text 上单  Lumen
+								154 cell
+									155 text 塞恩、刀妹、船长
+								156 cell
+									157 text 4/7/2
+								158 cell
+									159 text 0.9
+								160 cell
+									161 text 5.4
+							162 row
+								163 cell
+									164 text 打野  Juno
+								165 cell
+									166 text 猴子、酒桶、猪妹
+								167 cell
+									168 text 5/8/9
+								169 cell
+									170 text 1.8
+								171 cell
+									172 text 5.9
+							173 row
+								174 cell
+									175 text 中单  Echo390
+								176 cell
+									177 text 阿卡丽、兰博、卡尔玛
+								178 cell
+									179 text 4/13/7
+								180 cell
+									181 text 0.8
+								182 cell
+									183 text 4.9
+							184 row
+								185 cell
+									186 text 下路  Zhiyuan
+								187 cell
+									188 text 伊泽瑞尔、厄斐琉斯、女警
+								189 cell
+									190 text 15/9/7
+								191 cell
+									192 text 2.4
+								193 cell
+									194 text 6.4
+							195 row
+								196 cell
+									197 text 辅助  Chenxi
+								198 cell
+									199 text 拉克丝、芮尔、赛娜
+								200 cell
+									201 text 1/6/19
+								202 cell
+									203 text 3.3
+								204 cell
+									205 text 7.1
+								206 cell
+									207 text 1
+
+The focused UI element is 1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:63865/#play-lol-player
