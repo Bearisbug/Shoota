@@ -1,0 +1,75 @@
+Browser tab: 1, Title: "shoota 游戏平台", URL: "http://127.0.0.1:53118/#game-lol-player".
+0 AXWebArea shoota 游戏平台, URL: 127.0.0.1:53118/#game-lol-player
+	1 container
+		2 link Description: shoota 首页, Value: 127.0.0.1:53118/#store
+		3 container 主导航
+			4 link Description: 商店, Value: 127.0.0.1:53118/#store
+			5 link Description: 游戏库, Value: 127.0.0.1:53118/#library
+			6 link Description: 存档, Value: 127.0.0.1:53118/#backup
+		7 text 搜索游戏
+		8 search text field (settable) 搜索游戏, Value: 我是职业通天代, ID: q
+		11 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	10 container view
+		12 link Description: 商店, Value: 127.0.0.1:53118/#store
+		13 text ›
+		14 link Description: 电竞生涯, Value: 127.0.0.1:53118/#store
+		15 text › 我是职业通天代
+		16 heading 我是职业通天代, Value: 1
+			17 text 我是职业通天代
+		18 text 16岁启程 · 逐局书写职业生涯
+		19 container
+			20 text 我是职业通天代 16岁启程 · 逐局书写职业生涯
+		21 container
+			22 text 以16岁、潜力98的新秀身份踏入赛场，用个人比赛行动、成长徽章与每一次签约，写下属于你的职业生涯。
+			23 definition list
+				24 container 类型
+					25 text 类型
+				26 text 电竞生涯
+				27 container 一局
+					28 text 一局
+				29 text 按比赛与赛季推进
+				30 container 存档
+					31 text 存档
+				32 text 自动存档，支持备份恢复
+				33 container 大小
+					34 text 大小
+				35 text 3.4 MB
+			36 button 电竞
+			37 button 选手生涯
+			38 button 成长
+			39 button 策略
+			40 text 可玩
+		41 container
+			42 heading 开始玩《我是职业通天代》, Value: 3
+				43 text 开始玩《我是职业通天代》
+			44 text 点开就能玩，存档自动保存。
+			45 link Description: 开始游戏, Value: 127.0.0.1:53118/#play-lol-player
+		46 container
+			47 heading 关于这款游戏, Value: 2
+				48 text 关于这款游戏
+			49 text 选择2014至2026的历史年度，或从2027平行赛季开始。确定自己的位置，加入现有战队争取首发，或创建队伍与招募的队友共同起步。 BP交给教练，在比赛节点选择自己的留线、刷野、游走、支援或撤退，影响个人发育与参战位置。查看能力、成长徽章和逐局数据，也可模拟比赛后复盘表现。 自动训练与实战共同影响成长，首发竞争综合能力、状态、徽章和战队目标。经历续约、转会与国际赛事，观察满16岁的真人新秀进入模拟市场。历史年度决定开局阵容，后续赛季随游戏演化；能力与潜力为游戏估值。
+		50 container
+			51 heading 一局怎么玩, Value: 2
+				52 text 一局怎么玩
+			53 content list
+				54 container
+					55 text 1 1 选择年度与位置，以16岁新秀加入战队或创建队伍
+				56 container
+					57 text 2 2 查看能力、训练成长与首发依据，争取出场机会
+				58 container
+					59 text 3 3 在比赛中决定自己的行动，查看个人数据与系列赛复盘
+				60 container
+					61 text 4 4 推进赛季，处理续约和转会，积累职业荣誉
+		62 heading 你的记录, Value: 3
+			63 text 你的记录
+		64 text 游玩时间
+		65 text 还没玩过
+		66 text 上次游玩
+		67 text —
+		68 button 加入愿望单
+		69 heading 成就, Value: 3
+			70 text 成就
+		71 container
+			72 text 这款游戏还没接入平台成就。游戏调用  Platform.unlock()  后，成就会出现在这里。
+
+The focused UI element is 0 AXWebArea shoota 游戏平台, URL: 127.0.0.1:53118/#game-lol-player

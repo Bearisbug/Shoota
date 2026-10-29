@@ -1,0 +1,13 @@
+{
+  "source": "127.0.0.1:53118",
+  "destination": "127.0.0.1:55308",
+  "initiallyEmpty": true,
+  "games": {
+    "lol": {
+      "exact": true
+    },
+    "lol-player": {
+      "exact": true
+    }
+  }
+}

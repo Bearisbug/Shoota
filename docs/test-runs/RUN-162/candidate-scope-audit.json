@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "base": "81f69f75c23e6f42e4c3b650e2cb94c0854b283c",
+  "publicAllowlist": [
+    "public/index.html",
+    "public/games/lol.html",
+    "public/games/lol-player.html"
+  ],
+  "unchangedFiles": 57,
+  "order": [
+    "spud-dawn",
+    "one-in-billions",
+    "airline-empire",
+    "f1-driver",
+    "nba",
+    "football-manager",
+    "f1",
+    "basketball-star",
+    "wealth-reborn",
+    "rental-empire",
+    "douluo",
+    "cba",
+    "lol",
+    "lol-player",
+    "entertainment-career",
+    "football-career",
+    "one-thought-immortal",
+    "yike",
+    "hougong",
+    "yexiao"
+  ],
+  "hostSha256": "9b90238650f96241bc05d3c0ca3a6d92476f531712ebf386a2040d6d8455bd08",
+  "games": {
+    "lol": {
+      "title": "我在LOL建银河战队",
+      "bytes": 1945249,
+      "sha256": "b91ec05721a938a3b50e1110500cfc8b0e5c4c54ef918638de920efb82cb3d83"
+    },
+    "lol-player": {
+      "title": "我是职业通天代",
+      "bytes": 3594596,
+      "sha256": "5410ce745716ae02e0b4e52b8c6430bac0005ef967cc45785288b757af8c12fd"
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "fixture": "Current candidate with only two titles reverted to 81f names; same CSS, same game files",
+  "rows": [
+    {
+      "barHeight": 49,
+      "game": "lol-player",
+      "height": 640,
+      "stageHeight": 591,
+      "width": 360,
+      "newBarHeight": 49,
+      "newStageHeight": 591,
+      "equal": true
+    },
+    {
+      "barHeight": 49,
+      "game": "lol-player",
+      "height": 844,
+      "stageHeight": 795,
+      "width": 390,
+      "newBarHeight": 49,
+      "newStageHeight": 795,
+      "equal": true
+    },
+    {
+      "barHeight": 49,
+      "game": "lol-player",
+      "height": 932,
+      "stageHeight": 883,
+      "width": 430,
+      "newBarHeight": 49,
+      "newStageHeight": 883,
+      "equal": true
+    },
+    {
+      "barHeight": 50.25,
+      "game": "lol-player",
+      "height": 390,
+      "stageHeight": 339.75,
+      "width": 844,
+      "newBarHeight": 50.25,
+      "newStageHeight": 339.75,
+      "equal": true
+    },
+    {
+      "barHeight": 50.25,
+      "game": "lol-player",
+      "height": 1024,
+      "stageHeight": 973.75,
+      "width": 768,
+      "newBarHeight": 50.25,
+      "newStageHeight": 973.75,
+      "equal": true
+    },
+    {
+      "barHeight": 50.25,
+      "game": "lol-player",
+      "height": 768,
+      "stageHeight": 717.75,
+      "width": 1366,
+      "newBarHeight": 50.25,
+      "newStageHeight": 717.75,
+      "equal": true
+    },
+    {
+      "barHeight": 50.25,
+      "game": "lol-player",
+      "height": 900,
+      "stageHeight": 849.75,
+      "width": 1440,
+      "newBarHeight": 50.25,
+      "newStageHeight": 849.75,
+      "equal": true
+    },
+    {
+      "barHeight": 49,
+      "game": "lol-player",
+      "height": 568,
+      "stageHeight": 519,
+      "width": 320,
+      "newBarHeight": 49,
+      "newStageHeight": 519,
+      "equal": true
+    },
+    {
+      "barHeight": 49,
+      "game": "lol-player",
+      "height": 600,
+      "stageHeight": 551,
+      "width": 390,
+      "newBarHeight": 49,
+      "newStageHeight": 551,
+      "equal": true
+    },
+    {
+      "barHeight": 49,
+      "game": "lol",
+      "height": 640,
+      "stageHeight": 591,
+      "width": 360,
+      "newBarHeight": 49,
+      "newStageHeight": 591,
+      "equal": true
+    },
+    {
+      "barHeight": 49,
+      "game": "lol",
+      "height": 844,
+      "stageHeight": 795,
+      "width": 390,
+      "newBarHeight": 49,
+      "newStageHeight": 795,
+      "equal": true
+    },
+    {
+      "barHeight": 49,
+      "game": "lol",
+      "height": 932,
+      "stageHeight": 883,
+      "width": 430,
+      "newBarHeight": 49,
+      "newStageHeight": 883,
+      "equal": true
+    },
+    {
+      "barHeight": 50.25,
+      "game": "lol",
+      "height": 390,
+      "stageHeight": 339.75,
+      "width": 844,
+      "newBarHeight": 50.25,
+      "newStageHeight": 339.75,
+      "equal": true
+    },
+    {
+      "barHeight": 50.25,
+      "game": "lol",
+      "height": 1024,
+      "stageHeight": 973.75,
+      "width": 768,
+      "newBarHeight": 50.25,
+      "newStageHeight": 973.75,
+      "equal": true
+    },
+    {
+      "barHeight": 50.25,
+      "game": "lol",
+      "height": 768,
+      "stageHeight": 717.75,
+      "width": 1366,
+      "newBarHeight": 50.25,
+      "newStageHeight": 717.75,
+      "equal": true
+    },
+    {
+      "barHeight": 50.25,
+      "game": "lol",
+      "height": 900,
+      "stageHeight": 849.75,
+      "width": 1440,
+      "newBarHeight": 50.25,
+      "newStageHeight": 849.75,
+      "equal": true
+    },
+    {
+      "barHeight": 49,
+      "game": "lol",
+      "height": 568,
+      "stageHeight": 519,
+      "width": 320,
+      "newBarHeight": 49,
+      "newStageHeight": 519,
+      "equal": true
+    },
+    {
+      "barHeight": 49,
+      "game": "lol",
+      "height": 600,
+      "stageHeight": 551,
+      "width": 390,
+      "newBarHeight": 49,
+      "newStageHeight": 551,
+      "equal": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "unfrozen local candidate only",
+  "games": {
+    "lol": {
+      "source": "/Users/leizhang/Documents/ChatGPT/shoota/lol-manager/public/games/lol.html",
+      "sha256": "b91ec05721a938a3b50e1110500cfc8b0e5c4c54ef918638de920efb82cb3d83",
+      "bytes": 1945249,
+      "frozen": false
+    },
+    "lol-player": {
+      "source": "/Users/leizhang/Documents/ChatGPT/shoota/lol-player/dist/lol-player.html",
+      "sha256": "5410ce745716ae02e0b4e52b8c6430bac0005ef967cc45785288b757af8c12fd",
+      "bytes": 3594596,
+      "frozen": false
+    }
+  },
+  "hostSha256": "9b90238650f96241bc05d3c0ca3a6d92476f531712ebf386a2040d6d8455bd08",
+  "browser": "built-in background browser only"
+}

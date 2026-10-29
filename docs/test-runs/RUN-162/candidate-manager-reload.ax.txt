@@ -1,0 +1,163 @@
+Browser tab: 1, Title: "shoota 游戏平台", URL: "http://127.0.0.1:53118/#play-lol".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:53118/#play-lol
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:53118/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:53118/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:53118/#library
+			7 link Description: 存档, Value: 127.0.0.1:53118/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container player
+		12 button 退出游戏, ID: pExit
+		13 text 我在LOL建银河战队
+		14 button (disabled) 已读取存档, ID: pSaved
+		161 text 本次 0 分钟
+		16 button 全屏, ID: pFull
+		17 container 我在LOL建银河战队
+			18 AXWebArea lol, URL: about:srcdoc
+				19 container app
+					20 container
+						21 text BLG
+						22 text 整场复盘
+						23 button 回到球队
+						24 container 推进赛程
+							25 button ▶ 进入下一场比赛
+					26 container main
+						27 container
+							28 heading 整场复盘, Value: 1
+								29 text 整场复盘
+							30 text 春季赛第 1 轮已结束。查看整场表现后，点击右上角继续赛程。
+						31 text 右上角继续下一场或下一阶段，战报会保留。
+						32 heading 战报, Value: 2
+							33 text 战报
+						34 text 1 场系列赛 · 1 胜 0 负 胜
+						35 text 春季赛第 1 轮
+						36 text BLG
+						37 text 2 : 0
+						38 text EDG
+						39 button (collapsed) 版本 2027.1 · 下路压制 · 下路核心, Secondary Actions: Expand
+							40 text 版本 2027.1 · 下路压制 · 下路核心
+						41 table
+							42 row
+								43 cell
+									44 text 局
+								45 cell
+									46 text 阵营
+								47 cell
+									48 text 结果
+								49 cell
+									50 text 时长
+								51 cell
+									52 text 击杀（我:敌）
+								53 cell
+									54 text 本局 MVP
+							55 row
+								56 cell
+									57 text G1
+								58 cell
+									59 text 红色方
+								60 cell
+									61 text 胜
+								62 cell
+									63 text 26:39
+								64 cell
+									65 text 26  : 18
+								66 cell
+									67 text BLG
+									68 text  knight  辛德拉 13/5/7
+								69 cell
+									70 text 详情
+							71 row
+								72 cell
+									73 text G2
+								74 cell
+									75 text 红色方
+								76 cell
+									77 text 胜
+								78 cell
+									79 text 28:49
+								80 cell
+									81 text 20  : 10
+								82 cell
+									83 text BLG
+									84 text  Bin  奎桑提 5/1/4
+								85 cell
+									86 text 详情
+						87 table
+							88 row
+								89 cell
+									90 text BLG
+									91 text  选手
+								92 cell
+									93 text 使用英雄
+								94 cell
+									95 text K/D/A
+								96 cell
+									97 text KDA
+								98 cell
+									99 text 场均评分
+								100 cell
+									101 text MVP
+							102 row
+								103 cell
+									104 text 上单  Bin
+								105 cell
+									106 text 酒桶、奎桑提
+								107 cell
+									108 text 9/3/12
+								109 cell
+									110 text 7.0
+								111 cell
+									112 text 9.1
+								113 cell
+									114 text 1
+							115 row
+								116 cell
+									117 text 打野  Xun
+								118 cell
+									119 text 塞拉斯、皇子
+								120 cell
+									121 text 7/7/24
+								122 cell
+									123 text 4.4
+								124 cell
+									125 text 8.9
+							126 row
+								127 cell
+									128 text 中单  knight
+								129 cell
+									130 text 辛德拉、飞机
+								131 cell
+									132 text 17/9/13
+								133 cell
+									134 text 3.3
+								135 cell
+									136 text 8.9
+								137 cell
+									138 text 1
+							139 row
+								140 cell
+									141 text 下路  Viper
+								142 cell
+									143 text 韦鲁斯、厄斐琉斯
+								144 cell
+									145 text 10/4/13
+								146 cell
+									147 text 5.8
+								148 cell
+									149 text 8.7
+							150 row
+								151 cell
+									152 text 辅助  ON
+								153 cell
+									154 text 机器人、洛
+								155 cell
+									156 text 3/5/32
+								157 cell
+									158 text 7.0
+								159 cell
+									160 text 9.6
+
+The focused UI element is 1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:53118/#play-lol

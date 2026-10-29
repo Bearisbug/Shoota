@@ -1,0 +1,27 @@
+{
+  "game": "lol",
+  "frozenDirectory": "/Users/leizhang/Documents/ChatGPT/shoota/lol-manager/output/frozen/lol-manager-7ae76e62-20261030",
+  "sha256": "7ae76e6278d6cc15408497c58cb309e1bb7c54068d09101be7965d8249ee9cb9",
+  "bytes": 1945522,
+  "allManifestFilesVerified": 211,
+  "zipSha256": "3df97a26eaded9352b00d62697113e487c49a988bb9563e4b3989cd0ff239def",
+  "zipHtmlMatches": true,
+  "status": "final manager and player synced; local integration verified",
+  "singleFileBuildOutputMatches": true,
+  "scriptsEqualIndependentlyTestedB91": true,
+  "localBrowserSmoke": {
+    "viewport": "360x640",
+    "decisionLastBottom": 519.9765625,
+    "decisionButtonHeight": 48,
+    "iframeHeight": 591,
+    "lastDecisionClicked": true,
+    "finishedSeries": "BLG2:0LGD",
+    "reloadResultRetained": true,
+    "evidence": [
+      "manager-decision-360.json",
+      "manager-live-360.png",
+      "manager-final-reload.ax.txt",
+      "manager-final-reload.png"
+    ]
+  }
+}

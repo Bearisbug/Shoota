@@ -1,0 +1,12 @@
+{
+  "game": "lol-player",
+  "frozenDirectory": "/Users/leizhang/Documents/ChatGPT/shoota/lol-player/output/releases/lol-player-v1.4.1",
+  "sha256": "952009b5d239dd32ebe7c48ddf069ceb5c4a9d5bb58c2849799d9b791fa87496",
+  "bytes": 3594915,
+  "allManifestFilesVerified": 639,
+  "zipSha256": "91a7a09cf6504033097f20b7d29fef247858ee1f218c36018c2700835cdd9501",
+  "zipHtmlMatches": true,
+  "version": "1.4.1",
+  "independentRebuildMatches": true,
+  "rebuiltPath": "/tmp/shoota-player-final-t28w7l30/dist/lol-player.html"
+}

@@ -1,0 +1,67 @@
+Browser tab: 1, Title: "shoota 游戏平台", URL: "http://127.0.0.1:53118/#play-lol-player".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:53118/#play-lol-player
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:53118/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:53118/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:53118/#library
+			7 link Description: 存档, Value: 127.0.0.1:53118/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container player
+		12 button 退出游戏, ID: pExit
+		13 text 我是职业通天代
+		14 text 16岁 · 逐光竞技390 · 能力79
+		15 button (disabled) 已读取存档, ID: pSaved
+		16 text 本次 0 分钟
+		17 button 全屏, ID: pFull
+		18 container 我是职业通天代
+			19 AXWebArea LOL 选手生涯 · 我的主场, URL: about:srcdoc
+				20 container app
+					21 container
+						22 text 峡谷生涯 LOL PLAYER
+						23 button Description: 查看逐光竞技390, Help: 逐光竞技390
+						24 text Echo390  · 16 岁 · 逐光竞技390 2027 春季赛 · 第 5/13 轮
+						25 button ▶ 进入比赛日
+					26 container 生涯导航
+						27 button 主页
+						28 button 我的选手
+						29 button 战队阵容
+						30 button 赛程
+						31 button 积分榜
+						32 button 季后赛
+						33 button MSI
+						34 button 世界赛
+						35 button 选手库
+						36 button 参与招募
+						37 button 合同与转会
+						38 button 赛季总结
+						39 button 历史
+						40 button 存档
+					41 container main
+						42 container
+							43 button Description: 查看逐光竞技390, Help: 逐光竞技390
+							44 heading 逐光竞技390, Value: 1
+								45 text 逐光竞技390
+							46 text LPL · Echo390 / 中单 · 建队核心 0-3 大场战绩 1-6 小场 #12 LPL 排名 79 我的能力
+						47 container 比赛分页
+							48 checkbox 赛事, Value: 1
+							49 checkbox 阵容, Value: 0
+							50 checkbox 选手, Value: 0
+							51 checkbox 积分, Value: 0
+							52 checkbox 动态, Value: 0
+						53 container
+							54 text 版本 2027.2.2 · 中路突袭 我的适配 73 · 强势英雄 1/3 熟练
+							55 button 版本情报
+							56 heading 下一场, Value: 3
+								57 text 下一场
+							58 button Description: 查看逐光竞技390, Help: 逐光竞技390
+							59 text 74 vs 74
+							60 button Description: 查看ThunderTalk Gaming, Help: ThunderTalk Gaming
+								61 image TT 战队 Logo
+							62 text BO3 ThunderTalk Gaming · 春季赛第 5 轮
+							63 button 对手情报 →
+							64 text 本场首发 以你的表现争取胜利
+
+The focused UI element is 1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:53118/#play-lol-player

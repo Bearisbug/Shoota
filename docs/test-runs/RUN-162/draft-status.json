@@ -1,0 +1,34 @@
+{
+  "status": "DRAFT: new contents plus new names; awaiting final frozen artifacts",
+  "base": "81f69f75c23e6f42e4c3b650e2cb94c0854b283c",
+  "browserPolicy": "Only built-in background browser. External Chrome historical script MUST NOT be rerun.",
+  "publicAllowlist": [
+    "index.html",
+    "games/lol.html",
+    "games/lol-player.html"
+  ],
+  "currentDeveloperArtifacts": {
+    "lol": {
+      "source": "/Users/leizhang/Documents/ChatGPT/shoota/lol-manager/public/games/lol.html",
+      "bytes": 1945249,
+      "sha256": "b91ec05721a938a3b50e1110500cfc8b0e5c4c54ef918638de920efb82cb3d83",
+      "frozen": false
+    },
+    "lol-player": {
+      "source": "/Users/leizhang/Documents/ChatGPT/shoota/lol-player/dist/lol-player.html",
+      "bytes": 3594596,
+      "sha256": "5410ce745716ae02e0b4e52b8c6430bac0005ef967cc45785288b757af8c12fd",
+      "frozen": false
+    }
+  },
+  "platformGames": "Unfrozen candidates copied byte-identically; see candidate-manifest.json",
+  "checks": "Candidate IAB search/detail/library/restore labels, 18 viewport headers and old-save match/reload/export completed. Final content still blocked on developer layout fixes and frozen manifests.",
+  "browserEvidence": [
+    "candidate-name-matrix.json",
+    "candidate-old-save-comparison.json",
+    "candidate-manager-reload.ax.txt",
+    "candidate-player-reload.ax.txt"
+  ],
+  "candidateSupplement": "18 old/new title height comparisons equal; 18 hero states no root overflow; second-origin CJ1 restored exact game strings; player contract and old logs retained. All evidence remains unfrozen.",
+  "finalBlocker": "Waiting developer final layout fix builds/manifests and coordinator selection."
+}

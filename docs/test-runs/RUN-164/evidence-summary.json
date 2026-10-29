@@ -1,0 +1,28 @@
+{
+  "base": "81f69f75c23e6f42e4c3b650e2cb94c0854b283c",
+  "hostSha256": "efa79091133d6ce46e7284f6b868ff5ef8dfadec87bbcc2d8d087b34c203020c",
+  "candidateHostIdenticalExceptTwoFinalSizes": true,
+  "finalHeaderRecords": 18,
+  "oldAndNewTitleHeightsEqual": true,
+  "finalRestoreExact": {
+    "source": "127.0.0.1:53118",
+    "destination": "127.0.0.1:55308",
+    "initiallyEmpty": true,
+    "games": {
+      "lol": {
+        "exact": true
+      },
+      "lol-player": {
+        "exact": true
+      }
+    }
+  },
+  "developerReports": [
+    "manager-handoff.md",
+    "player-handoff.md"
+  ],
+  "reusedCatalogEvidence": "RUN-162 candidate search/detail/hero/library names; exact same host except sizes",
+  "oldSaveVersionBoundary": "Initial old v1/v2 migrated in candidate RUN-163; final continues same saves. Developer final direct legacy import also recorded.",
+  "noRemotePush": true,
+  "noDeploy": true
+}

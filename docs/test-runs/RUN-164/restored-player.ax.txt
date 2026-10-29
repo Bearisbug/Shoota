@@ -1,0 +1,158 @@
+Browser tab: 3, Title: "shoota 游戏平台", URL: "http://127.0.0.1:55308/#play-lol-player".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:55308/#play-lol-player
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:55308/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:55308/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:55308/#library
+			7 link Description: 存档, Value: 127.0.0.1:55308/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container player
+		12 button 退出游戏, ID: pExit
+		13 text 我是职业通天代
+		14 text 16岁 · 逐光竞技390 · 能力79
+		15 button (disabled) 已读取存档, ID: pSaved
+		16 text 本次 0 分钟
+		17 button 全屏, ID: pFull
+		18 container 我是职业通天代
+			19 AXWebArea LOL 选手生涯 · 我的主场, URL: about:srcdoc
+				20 container app
+					21 container
+						22 text 峡谷生涯 LOL PLAYER
+						23 button Description: 查看逐光竞技390, Help: 逐光竞技390
+						24 text Echo390  · 16 岁 · 逐光竞技390 2027 春季赛 · 第 5/13 轮
+						25 button ▶ 进入比赛日
+					26 container 生涯导航
+						27 button 主页 HQ
+							28 text 主页
+							29 text HQ
+						30 button 我的选手 PLAYER
+							31 text 我的选手
+							32 text PLAYER
+						33 button 战队阵容 ROSTER
+							34 text 战队阵容
+							35 text ROSTER
+						36 button 赛程 SCHED
+							37 text 赛程
+							38 text SCHED
+						39 button 积分榜 TABLE
+							40 text 积分榜
+							41 text TABLE
+						42 button 季后赛 PO
+							43 text 季后赛
+							44 text PO
+						45 button MSI MSI
+							46 text MSI
+							47 text MSI
+						48 button 世界赛 WORLDS
+							49 text 世界赛
+							50 text WORLDS
+						51 button 选手库 PLAYERS
+							52 text 选手库
+							53 text PLAYERS
+						54 button 参与招募 SCOUT
+							55 text 参与招募
+							56 text SCOUT
+						57 button 合同与转会 CONTRACT
+							58 text 合同与转会
+							59 text CONTRACT
+						60 button 赛季总结 AWARDS
+							61 text 赛季总结
+							62 text AWARDS
+						63 button 历史 HIST
+							64 text 历史
+							65 text HIST
+						66 button 存档 SAVE
+							67 text 存档
+							68 text SAVE
+					69 container main
+						70 container
+							71 button Description: 查看逐光竞技390, Help: 逐光竞技390
+							72 heading 逐光竞技390, Value: 1
+								73 text 逐光竞技390
+							74 text LPL · Echo390 / 中单 · 建队核心 0-3 大场战绩 1-6 小场 #12 LPL 排名 79 我的能力
+						75 container
+							76 text 版本 2027.2.2 · 中路突袭 我的适配 73 · 强势英雄 1/3 熟练
+							77 button 版本情报
+							78 heading 下一场, Value: 3
+								79 text 下一场
+							80 button Description: 查看逐光竞技390, Help: 逐光竞技390
+							81 text 74 vs 74
+							82 button Description: 查看ThunderTalk Gaming, Help: ThunderTalk Gaming
+								83 image TT 战队 Logo
+							84 text BO3 ThunderTalk Gaming · 春季赛第 5 轮 上单
+							85 button Keshi
+							86 text  · 24 岁 
+							87 text 单带战士
+							88 text 74 打野
+							89 button Junhao
+							90 text  · 24 岁 
+							91 text 节奏 Gank
+							92 text 74 中单
+							93 button Heru
+							94 text  · 23 岁 
+							95 text 功能型中单
+							96 text 76 下路
+							97 button Ahn
+							98 text  · 23 岁 
+							99 text 前期强势
+							100 text 74 辅助
+							101 button Feather
+							102 text  · 24 岁 
+							103 text 开团硬辅
+							104 text 74 本场首发 以你的表现争取胜利
+						105 container
+							106 heading 首发阵容, Value: 3
+								107 text 首发阵容
+							108 text 上单
+							109 button Lumen
+							110 text 70 打野
+							111 button Juno
+							112 text 74 中单
+							113 button Echo390
+							114 text 你 79 下路
+							115 button Zhiyuan
+							116 text 73 辅助
+							117 button Chenxi
+							118 text 72 默契 10% · 主教练 NEW 教练组
+							119 button 查看完整阵容 →
+						120 container
+							121 heading 我的赛季, Value: 3
+								122 text 我的赛季
+							123 text 79
+							124 text 控线法师
+							125 text 状态 0
+							126 text 3 首发系列赛 14.7 个人声望 8万 累计收入 建队核心 · 同位置 暂无
+							127 button 完整能力与徽章
+							128 button 合同与转会
+						129 container
+							130 heading LPL 积分榜, Value: 3
+								131 text LPL 积分榜
+							132 text 1
+							133 button Description: 查看滔搏 TES, Help: 滔搏 TES
+								134 image TES 战队 Logo
+							135 text 滔搏 TES 4-0 2
+							136 button Description: 查看Invictus Gaming, Help: Invictus Gaming
+								137 image IG 战队 Logo
+							138 text Invictus Gaming 4-0 3
+							139 button Description: 查看Anyone's Legend, Help: Anyone's Legend
+								140 image AL 战队 Logo
+							141 text Anyone's Legend 3-1 4
+							142 button Description: 查看哔哩哔哩 BLG, Help: 哔哩哔哩 BLG
+								143 image BLG 战队 Logo
+							144 text 哔哩哔哩 BLG 2-1 5
+							145 button Description: 查看Team WE, Help: Team WE
+								146 image WE 战队 Logo
+							147 text Team WE 2-1 6
+							148 button Description: 查看京东 JDG, Help: 京东 JDG
+								149 image JDG 战队 Logo
+							150 text 京东 JDG 2-2
+							151 button 完整积分榜 →
+						152 container
+							153 heading 联盟动态, Value: 3
+								154 text 联盟动态
+							155 text 2027 版本 2027.2.2 · 中路突袭：刺客与战士更活跃，单线压制能放大到全图。 你的版本适配 73。 2027 春季赛第 3 轮：NEW 0-2 TES 2027 游戏剧情 · Prism：训练透支，需要恢复：短期状态 -3，持续两场系列赛。 2027 Echo390 在比赛中成长：OVR 78 → 79 2027 春季赛第 2 轮：NEW 1-2 JDG 2027 版本 2027.2.1 · 野辅提速：前期入侵、游走开团更有效，擅长节奏英雄的选手受益。 你的版本适配 64。 2027 你已向经纪人申请转会。赛季结束时，他会带来可接受的买断与签约报价。 2027 Prism 接受邀请，已加入 逐光竞技390。
+
+The focused UI element is 1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:55308/#play-lol-player

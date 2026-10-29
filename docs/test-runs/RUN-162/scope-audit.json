@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "base": "81f69f75c23e6f42e4c3b650e2cb94c0854b283c",
+  "onlyPublicFile": "public/index.html",
+  "changes": [
+    {
+      "id": "lol",
+      "before": "lol电竞经理",
+      "after": "我在LOL建银河战队"
+    },
+    {
+      "id": "lol-player",
+      "before": "LOL 选手生涯",
+      "after": "我是职业通天代"
+    }
+  ],
+  "unchangedFiles": 59,
+  "order": [
+    "spud-dawn",
+    "one-in-billions",
+    "airline-empire",
+    "f1-driver",
+    "nba",
+    "football-manager",
+    "f1",
+    "basketball-star",
+    "wealth-reborn",
+    "rental-empire",
+    "douluo",
+    "cba",
+    "lol",
+    "lol-player",
+    "entertainment-career",
+    "football-career",
+    "one-thought-immortal",
+    "yike",
+    "hougong",
+    "yexiao"
+  ],
+  "hostSha256": "8dc9d69c790a4277b972c6985f491788e732c07b689b502cb3de00c5b12bc76a",
+  "gameHashes": {
+    "lol": "9684d3903e70c3a33455b2d8ce0db49435ab82686a81e55f813c191ecebd8554",
+    "lol-player": "4be445446780e3a4f1b13cfc3c50b362eb052c0945875138f779527c55dc0786"
+  }
+}

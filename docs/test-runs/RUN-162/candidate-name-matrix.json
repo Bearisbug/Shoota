@@ -1,0 +1,704 @@
+[
+  {
+    "game": "lol",
+    "barHeight": 49,
+    "height": 640,
+    "pExit": {
+      "bottom": 44,
+      "height": 40,
+      "right": 48,
+      "width": 40,
+      "x": 8,
+      "y": 4
+    },
+    "pFull": {
+      "bottom": 44,
+      "height": 40,
+      "right": 352,
+      "width": 40,
+      "x": 312,
+      "y": 4
+    },
+    "pStage": {
+      "bottom": 640,
+      "height": 591,
+      "right": 360,
+      "width": 360,
+      "x": 0,
+      "y": 49
+    },
+    "pTitle": {
+      "bottom": 23.78125,
+      "height": 18.84375,
+      "right": 226.421875,
+      "text": "我在LOL建银河战队",
+      "width": 170.421875,
+      "x": 56,
+      "y": 4.9375
+    },
+    "width": 360
+  },
+  {
+    "game": "lol",
+    "barHeight": 49,
+    "height": 844,
+    "pExit": {
+      "bottom": 44,
+      "height": 40,
+      "right": 48,
+      "width": 40,
+      "x": 8,
+      "y": 4
+    },
+    "pFull": {
+      "bottom": 44,
+      "height": 40,
+      "right": 382,
+      "width": 40,
+      "x": 342,
+      "y": 4
+    },
+    "pStage": {
+      "bottom": 844,
+      "height": 795,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 49
+    },
+    "pTitle": {
+      "bottom": 23.78125,
+      "height": 18.84375,
+      "right": 256.421875,
+      "text": "我在LOL建银河战队",
+      "width": 200.421875,
+      "x": 56,
+      "y": 4.9375
+    },
+    "width": 390
+  },
+  {
+    "game": "lol",
+    "barHeight": 49,
+    "height": 932,
+    "pExit": {
+      "bottom": 44,
+      "height": 40,
+      "right": 48,
+      "width": 40,
+      "x": 8,
+      "y": 4
+    },
+    "pFull": {
+      "bottom": 44,
+      "height": 40,
+      "right": 422,
+      "width": 40,
+      "x": 382,
+      "y": 4
+    },
+    "pStage": {
+      "bottom": 932,
+      "height": 883,
+      "right": 430,
+      "width": 430,
+      "x": 0,
+      "y": 49
+    },
+    "pTitle": {
+      "bottom": 23.78125,
+      "height": 18.84375,
+      "right": 296.421875,
+      "text": "我在LOL建银河战队",
+      "width": 240.421875,
+      "x": 56,
+      "y": 4.9375
+    },
+    "width": 430
+  },
+  {
+    "game": "lol",
+    "barHeight": 50.25,
+    "height": 390,
+    "pExit": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 122,
+      "width": 110,
+      "x": 12,
+      "y": 8
+    },
+    "pFull": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 832,
+      "width": 80,
+      "x": 752,
+      "y": 8
+    },
+    "pStage": {
+      "bottom": 390,
+      "height": 339.75,
+      "right": 844,
+      "width": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "pTitle": {
+      "bottom": 36.25,
+      "height": 23.25,
+      "right": 272.390625,
+      "text": "我在LOL建银河战队",
+      "width": 134.390625,
+      "x": 138,
+      "y": 13
+    },
+    "width": 844
+  },
+  {
+    "game": "lol",
+    "barHeight": 50.25,
+    "height": 1024,
+    "pExit": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 122,
+      "width": 110,
+      "x": 12,
+      "y": 8
+    },
+    "pFull": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 756,
+      "width": 80,
+      "x": 676,
+      "y": 8
+    },
+    "pStage": {
+      "bottom": 1024,
+      "height": 973.75,
+      "right": 768,
+      "width": 768,
+      "x": 0,
+      "y": 50.25
+    },
+    "pTitle": {
+      "bottom": 36.25,
+      "height": 23.25,
+      "right": 272.390625,
+      "text": "我在LOL建银河战队",
+      "width": 134.390625,
+      "x": 138,
+      "y": 13
+    },
+    "width": 768
+  },
+  {
+    "game": "lol",
+    "barHeight": 50.25,
+    "height": 768,
+    "pExit": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 122,
+      "width": 110,
+      "x": 12,
+      "y": 8
+    },
+    "pFull": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 1354,
+      "width": 80,
+      "x": 1274,
+      "y": 8
+    },
+    "pStage": {
+      "bottom": 768,
+      "height": 717.75,
+      "right": 1366,
+      "width": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "pTitle": {
+      "bottom": 36.25,
+      "height": 23.25,
+      "right": 272.390625,
+      "text": "我在LOL建银河战队",
+      "width": 134.390625,
+      "x": 138,
+      "y": 13
+    },
+    "width": 1366
+  },
+  {
+    "game": "lol",
+    "barHeight": 50.25,
+    "height": 900,
+    "pExit": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 122,
+      "width": 110,
+      "x": 12,
+      "y": 8
+    },
+    "pFull": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 1428,
+      "width": 80,
+      "x": 1348,
+      "y": 8
+    },
+    "pStage": {
+      "bottom": 900,
+      "height": 849.75,
+      "right": 1440,
+      "width": 1440,
+      "x": 0,
+      "y": 50.25
+    },
+    "pTitle": {
+      "bottom": 36.25,
+      "height": 23.25,
+      "right": 272.390625,
+      "text": "我在LOL建银河战队",
+      "width": 134.390625,
+      "x": 138,
+      "y": 13
+    },
+    "width": 1440
+  },
+  {
+    "game": "lol",
+    "barHeight": 49,
+    "height": 568,
+    "pExit": {
+      "bottom": 44,
+      "height": 40,
+      "right": 48,
+      "width": 40,
+      "x": 8,
+      "y": 4
+    },
+    "pFull": {
+      "bottom": 44,
+      "height": 40,
+      "right": 312,
+      "width": 40,
+      "x": 272,
+      "y": 4
+    },
+    "pStage": {
+      "bottom": 568,
+      "height": 519,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 49
+    },
+    "pTitle": {
+      "bottom": 23.78125,
+      "height": 18.84375,
+      "right": 186.421875,
+      "text": "我在LOL建银河战队",
+      "width": 130.421875,
+      "x": 56,
+      "y": 4.9375
+    },
+    "width": 320
+  },
+  {
+    "game": "lol",
+    "barHeight": 49,
+    "height": 600,
+    "pExit": {
+      "bottom": 44,
+      "height": 40,
+      "right": 48,
+      "width": 40,
+      "x": 8,
+      "y": 4
+    },
+    "pFull": {
+      "bottom": 44,
+      "height": 40,
+      "right": 382,
+      "width": 40,
+      "x": 342,
+      "y": 4
+    },
+    "pStage": {
+      "bottom": 600,
+      "height": 551,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 49
+    },
+    "pTitle": {
+      "bottom": 23.78125,
+      "height": 18.84375,
+      "right": 256.421875,
+      "text": "我在LOL建银河战队",
+      "width": 200.421875,
+      "x": 56,
+      "y": 4.9375
+    },
+    "width": 390
+  },
+  {
+    "game": "lol-player",
+    "barHeight": 49,
+    "height": 640,
+    "pExit": {
+      "bottom": 44,
+      "height": 40,
+      "right": 48,
+      "width": 40,
+      "x": 8,
+      "y": 4
+    },
+    "pFull": {
+      "bottom": 44,
+      "height": 40,
+      "right": 352,
+      "width": 40,
+      "x": 312,
+      "y": 4
+    },
+    "pStage": {
+      "bottom": 640,
+      "height": 591,
+      "right": 360,
+      "width": 360,
+      "x": 0,
+      "y": 49
+    },
+    "pTitle": {
+      "bottom": 23.78125,
+      "height": 18.84375,
+      "right": 232.8046875,
+      "text": "我是职业通天代",
+      "width": 176.8046875,
+      "x": 56,
+      "y": 4.9375
+    },
+    "width": 360
+  },
+  {
+    "game": "lol-player",
+    "barHeight": 49,
+    "height": 844,
+    "pExit": {
+      "bottom": 44,
+      "height": 40,
+      "right": 48,
+      "width": 40,
+      "x": 8,
+      "y": 4
+    },
+    "pFull": {
+      "bottom": 44,
+      "height": 40,
+      "right": 382,
+      "width": 40,
+      "x": 342,
+      "y": 4
+    },
+    "pStage": {
+      "bottom": 844,
+      "height": 795,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 49
+    },
+    "pTitle": {
+      "bottom": 23.78125,
+      "height": 18.84375,
+      "right": 262.8046875,
+      "text": "我是职业通天代",
+      "width": 206.8046875,
+      "x": 56,
+      "y": 4.9375
+    },
+    "width": 390
+  },
+  {
+    "game": "lol-player",
+    "barHeight": 49,
+    "height": 932,
+    "pExit": {
+      "bottom": 44,
+      "height": 40,
+      "right": 48,
+      "width": 40,
+      "x": 8,
+      "y": 4
+    },
+    "pFull": {
+      "bottom": 44,
+      "height": 40,
+      "right": 422,
+      "width": 40,
+      "x": 382,
+      "y": 4
+    },
+    "pStage": {
+      "bottom": 932,
+      "height": 883,
+      "right": 430,
+      "width": 430,
+      "x": 0,
+      "y": 49
+    },
+    "pTitle": {
+      "bottom": 23.78125,
+      "height": 18.84375,
+      "right": 302.8046875,
+      "text": "我是职业通天代",
+      "width": 246.8046875,
+      "x": 56,
+      "y": 4.9375
+    },
+    "width": 430
+  },
+  {
+    "game": "lol-player",
+    "barHeight": 50.25,
+    "height": 390,
+    "pExit": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 122,
+      "width": 110,
+      "x": 12,
+      "y": 8
+    },
+    "pFull": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 832,
+      "width": 80,
+      "x": 752,
+      "y": 8
+    },
+    "pStage": {
+      "bottom": 390,
+      "height": 339.75,
+      "right": 844,
+      "width": 844,
+      "x": 0,
+      "y": 50.25
+    },
+    "pTitle": {
+      "bottom": 36.25,
+      "height": 23.25,
+      "right": 243,
+      "text": "我是职业通天代",
+      "width": 105,
+      "x": 138,
+      "y": 13
+    },
+    "width": 844
+  },
+  {
+    "game": "lol-player",
+    "barHeight": 50.25,
+    "height": 1024,
+    "pExit": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 122,
+      "width": 110,
+      "x": 12,
+      "y": 8
+    },
+    "pFull": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 756,
+      "width": 80,
+      "x": 676,
+      "y": 8
+    },
+    "pStage": {
+      "bottom": 1024,
+      "height": 973.75,
+      "right": 768,
+      "width": 768,
+      "x": 0,
+      "y": 50.25
+    },
+    "pTitle": {
+      "bottom": 36.25,
+      "height": 23.25,
+      "right": 243,
+      "text": "我是职业通天代",
+      "width": 105,
+      "x": 138,
+      "y": 13
+    },
+    "width": 768
+  },
+  {
+    "game": "lol-player",
+    "barHeight": 50.25,
+    "height": 768,
+    "pExit": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 122,
+      "width": 110,
+      "x": 12,
+      "y": 8
+    },
+    "pFull": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 1354,
+      "width": 80,
+      "x": 1274,
+      "y": 8
+    },
+    "pStage": {
+      "bottom": 768,
+      "height": 717.75,
+      "right": 1366,
+      "width": 1366,
+      "x": 0,
+      "y": 50.25
+    },
+    "pTitle": {
+      "bottom": 36.25,
+      "height": 23.25,
+      "right": 243,
+      "text": "我是职业通天代",
+      "width": 105,
+      "x": 138,
+      "y": 13
+    },
+    "width": 1366
+  },
+  {
+    "game": "lol-player",
+    "barHeight": 50.25,
+    "height": 900,
+    "pExit": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 122,
+      "width": 110,
+      "x": 12,
+      "y": 8
+    },
+    "pFull": {
+      "bottom": 41.25,
+      "height": 33.25,
+      "right": 1428,
+      "width": 80,
+      "x": 1348,
+      "y": 8
+    },
+    "pStage": {
+      "bottom": 900,
+      "height": 849.75,
+      "right": 1440,
+      "width": 1440,
+      "x": 0,
+      "y": 50.25
+    },
+    "pTitle": {
+      "bottom": 36.25,
+      "height": 23.25,
+      "right": 243,
+      "text": "我是职业通天代",
+      "width": 105,
+      "x": 138,
+      "y": 13
+    },
+    "width": 1440
+  },
+  {
+    "game": "lol-player",
+    "barHeight": 49,
+    "height": 568,
+    "pExit": {
+      "bottom": 44,
+      "height": 40,
+      "right": 48,
+      "width": 40,
+      "x": 8,
+      "y": 4
+    },
+    "pFull": {
+      "bottom": 44,
+      "height": 40,
+      "right": 312,
+      "width": 40,
+      "x": 272,
+      "y": 4
+    },
+    "pStage": {
+      "bottom": 568,
+      "height": 519,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 49
+    },
+    "pTitle": {
+      "bottom": 23.78125,
+      "height": 18.84375,
+      "right": 192.8046875,
+      "text": "我是职业通天代",
+      "width": 136.8046875,
+      "x": 56,
+      "y": 4.9375
+    },
+    "width": 320
+  },
+  {
+    "game": "lol-player",
+    "barHeight": 49,
+    "height": 600,
+    "pExit": {
+      "bottom": 44,
+      "height": 40,
+      "right": 48,
+      "width": 40,
+      "x": 8,
+      "y": 4
+    },
+    "pFull": {
+      "bottom": 44,
+      "height": 40,
+      "right": 382,
+      "width": 40,
+      "x": 342,
+      "y": 4
+    },
+    "pStage": {
+      "bottom": 600,
+      "height": 551,
+      "right": 390,
+      "width": 390,
+      "x": 0,
+      "y": 49
+    },
+    "pTitle": {
+      "bottom": 23.78125,
+      "height": 18.84375,
+      "right": 262.8046875,
+      "text": "我是职业通天代",
+      "width": 206.8046875,
+      "x": 56,
+      "y": 4.9375
+    },
+    "width": 390
+  }
+]

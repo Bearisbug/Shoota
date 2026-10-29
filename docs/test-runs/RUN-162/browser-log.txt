@@ -1,0 +1,10 @@
+page.waitForURL: Timeout 30000ms exceeded.
+=========================== logs ===========================
+waiting for navigation to "**/#library" until "load"
+  navigated to "http://127.0.0.1:52540/?baseline=1#library"
+============================================================
+    at restore (/Users/leizhang/Documents/ChatGPT/shoota/tmp/platform-save-reliability-20261028/docs/test-runs/RUN-162/browser.cjs:9:404)
+    at async /Users/leizhang/Documents/ChatGPT/shoota/tmp/platform-save-reliability-20261028/docs/test-runs/RUN-162/browser.cjs:16:43 {
+  log: [],
+  name: 'TimeoutError'
+}

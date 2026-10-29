@@ -14,8 +14,8 @@ async function main() {
   assert.equal(catalog.length, 20);
   assert.equal(Object.keys(expected).length, 20, 'Catalog IDs must be unique');
   assert.equal(expected['one-in-billions'], '此生');
-  assert.equal(expected['lol'], 'lol电竞经理');
-  assert.equal(expected['lol-player'], 'LOL 选手生涯');
+  assert.equal(expected['lol'], '我在LOL建银河战队');
+  assert.equal(expected['lol-player'], '我是职业通天代');
 
   // Run the production extractor, including its real regex; never duplicate it here.
   const functionSource = worker.match(/async function catalogTitles\(req, env\) \{[\s\S]*?\n\}/);

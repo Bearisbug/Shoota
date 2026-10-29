@@ -1,0 +1,91 @@
+Browser tab: 1, Title: "shoota 游戏平台", URL: "http://127.0.0.1:53118/#play-lol-player".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:53118/#play-lol-player
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:53118/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:53118/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:53118/#library
+			7 link Description: 存档, Value: 127.0.0.1:53118/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		37 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container view
+		13 heading 我的游戏库, Value: 1
+			14 text 我的游戏库
+		15 text 2 款
+		16 content list
+			17 container
+				18 text 我在LOL建银河战队
+				19 text 不到 1 分钟
+			20 container
+				21 text 我是职业通天代
+				22 text 还没玩过
+		23 container
+			24 text 我是职业通天代 16岁启程 · 逐局书写职业生涯
+		25 link Description: 开始游戏, Value: 127.0.0.1:53118/#play-lol-player
+		26 text 游玩时间
+		27 text 还没玩过
+		28 text 上次游玩
+		29 text 刚刚
+		30 link Description: 商店页面, Value: 127.0.0.1:53118/#game-lol-player
+		31 heading 关于存档, Value: 3
+			32 text 关于存档
+		33 container
+			34 text 《我是职业通天代》的存档自动保存在这台设备的浏览器里，下次打开接着玩。换浏览器或清除网站数据后进度会丢失，
+			35 link Description: 先复制一份存档码, Value: 127.0.0.1:53118/#backup
+			36 text ，到新设备上粘贴就能恢复。
+	38 container player
+		39 button 退出游戏, ID: pExit
+		40 text 我是职业通天代
+		41 button (disabled) 已读取存档, ID: pSaved
+		91 text 本次 0 分钟
+		43 button 全屏, ID: pFull
+		44 container 我是职业通天代
+			45 AXWebArea LOL 选手生涯 · 我的主场, URL: about:srcdoc
+				46 container app
+					47 container
+						48 text 峡谷生涯 LOL PLAYER
+						49 button Description: 查看逐光竞技390, Help: 逐光竞技390
+						50 text Echo390  · 16 岁 · 逐光竞技390 2027 春季赛 · 第 2/13 轮
+						51 button ▶ 进入比赛日
+					52 container 生涯导航
+						53 button 主页
+						54 button 我的选手
+						55 button 战队阵容
+						56 button 赛程
+						57 button 积分榜
+						58 button 季后赛
+						59 button MSI
+						60 button 世界赛
+						61 button 选手库
+						62 button 参与招募
+						63 button 合同与转会
+						64 button 赛季总结
+						65 button 历史
+						66 button 存档
+					67 container main
+						68 container
+							69 button Description: 查看逐光竞技390, Help: 逐光竞技390
+							70 heading 逐光竞技390, Value: 1
+								71 text 逐光竞技390
+							72 text LPL · Echo390 / 中单 · 建队核心 0-1 大场战绩 0-2 小场 #13 LPL 排名 78 我的能力
+						73 container 比赛分页
+							74 checkbox 赛事, Value: 1
+							75 checkbox 阵容, Value: 0
+							76 checkbox 选手, Value: 0
+							77 checkbox 积分, Value: 0
+							78 checkbox 动态, Value: 0
+						79 container
+							80 text 版本 2027.2.1 · 野辅提速 我的适配 64 · 强势英雄 0/3 熟练
+							81 button 版本情报
+							82 heading 下一场, Value: 3
+								83 text 下一场
+							84 button Description: 查看逐光竞技390, Help: 逐光竞技390
+							85 text 74 vs 81
+							86 button Description: 查看京东 JDG, Help: 京东 JDG
+								87 image JDG 战队 Logo
+							88 text BO3 京东 JDG · 春季赛第 2 轮
+							89 button 对手情报 →
+							90 text 本场首发 以你的表现争取胜利
+
+The focused UI element is 25 link Description: 开始游戏, URL: 127.0.0.1:53118/#play-lol-player

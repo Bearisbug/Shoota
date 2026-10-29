@@ -1,0 +1,49 @@
+{
+  "files": [
+    "public/index.html"
+  ],
+  "findings": [],
+  "counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0
+  },
+  "notCovered": [
+    {
+      "check": "真实横向溢出：撑破页面、被祖先裁掉、被内部滚动区吞掉、行内不撑盒",
+      "see": "references/flow-verification.md「溢出检测」 · RESP-004 RESP-005 I18N-003"
+    },
+    {
+      "check": "文字、图上文字与图表系列色的对比度，暗色模式白底残留",
+      "see": "A11Y-001 VIS-010 VIS-014 · references/flow-verification.md 第 10 步"
+    },
+    {
+      "check": "版面对齐与视觉还原度",
+      "see": "references/flow-visual-alignment.md"
+    },
+    {
+      "check": "sticky 元素滚动后的实际吸附位置与重叠，贴边栏在非零安全区下的位置",
+      "see": "RESP-018 RESP-019 RESP-020 各卡「验证」"
+    },
+    {
+      "check": "开启 reduced-motion 后首屏每个区块都可见",
+      "see": "MOTION-004「验证」"
+    },
+    {
+      "check": "横滑手势与页面纵向滚动是否互抢",
+      "see": "MOTION-030「验证」"
+    },
+    {
+      "check": "加载、空、错误等非 happy-path 状态",
+      "see": "IA-004 IA-006 · references/flow-verification.md「加载态的可观测窗口」"
+    },
+    {
+      "check": "CSS-in-JS（styled-components、css``）与 JSX style 对象里的样式，脚本不解析",
+      "see": "按本脚本 RULES 对应的卡人工核对"
+    },
+    {
+      "check": "console 报错、多视口截图、核心交互、滚动条槽位与外观",
+      "see": "references/flow-verification.md 全流程 · RESP-007 RESP-015 RESP-016"
+    }
+  ]
+}
