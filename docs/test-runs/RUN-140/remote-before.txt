@@ -1,0 +1,4 @@
+GitHub direct ls-remote, read-only, 2026-10-29
+7157e29f4dbe40848cd50187c4a0035c8cc779d5 refs/heads/main
+7157e29f4dbe40848cd50187c4a0035c8cc779d5 refs/heads/test
+Isolated origin is a local checkout; its stale local main ref is not the GitHub release baseline. Shared checkout HEAD is 7157e29. No shared files modified.

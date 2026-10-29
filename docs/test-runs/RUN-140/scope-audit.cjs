@@ -1,0 +1,36 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const cp = require('node:child_process');
+const vm = require('node:vm');
+const crypto = require('node:crypto');
+const base = '7157e29f4dbe40848cd50187c4a0035c8cc779d5';
+const gamePath = 'public/games/airline-empire.html';
+const source = '/Users/leizhang/Documents/ChatGPT/shoota/airline-empire/output/releases/2026-10-29-bfaca668cd9e/云际航空.html';
+const sha = data => crypto.createHash('sha256').update(data).digest('hex');
+const old = cp.execFileSync('git',['show',`${base}:public/index.html`],{encoding:'utf8'});
+const html = fs.readFileSync('public/index.html','utf8');
+const match = /const CATALOG = (\[[\s\S]*?\n\]);/;
+const catalog = text => JSON.parse(JSON.stringify(vm.runInNewContext(text.match(match)[1])));
+const before = catalog(old), after = catalog(html);
+assert.equal(after.length,19);
+assert.deepEqual(after.map(g=>g.id),before.map(g=>g.id));
+assert.equal(after[1].id,'one-in-billions');
+assert.equal(after[2].id,'airline-empire');
+assert.equal(after[9].id,'rental-empire');
+const originalSize = before.find(g=>g.id==='airline-empire').size;
+assert.equal(originalSize,1398891);
+const game = fs.readFileSync(gamePath);
+assert.equal(game.length,1414610);
+assert.equal(sha(game),'bfaca668cd9e887964909bc8550083d3de6dc6858b7ba8a534c720576274f932');
+assert.ok(game.equals(fs.readFileSync(source)));
+before.find(g=>g.id==='airline-empire').size=game.length;
+assert.deepEqual(after,before);
+assert.equal(html,old.replace(/(\{ id:'airline-empire',[\s\S]*?size:)1398891/, (_, prefix) => prefix + '1414610'));
+const fingerprints = {};
+const paths=cp.execFileSync('git',['ls-tree','-r','--name-only',base,'public','src','.github/workflows','wrangler.jsonc'],{encoding:'utf8'}).trim().split('\n');
+for(const file of paths){
+  const data=fs.readFileSync(file);
+  if(!['public/index.html',gamePath].includes(file))assert.ok(data.equals(cp.execFileSync('git',['show',`${base}:${file}`],{maxBuffer:20*1024*1024})),file);
+  fingerprints[file]={bytes:data.length,sha256:sha(data)};
+}
+console.log(JSON.stringify({base,source,order:after.map(g=>g.id),changedRuntimeFiles:['public/index.html',gamePath],onlyCatalogFieldChanged:'airline-empire.size',fingerprints},null,2));

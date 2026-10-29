@@ -1,0 +1,402 @@
+{
+  "云际航空.html": {
+    "sha256": "bfaca668cd9e887964909bc8550083d3de6dc6858b7ba8a534c720576274f932",
+    "bytes": 1414610
+  },
+  "release-handoff.md": {
+    "sha256": "84e465c26004925cb04b57a6c6e4911f347581855d5dc84def79dcb3258af67f",
+    "bytes": 6340
+  },
+  "云际航空-离线版.zip": {
+    "sha256": "0e85bccf4308773aead1921201bdfb61d5d648aaf4078e406fffb89e6dc61dd4",
+    "bytes": 784479
+  },
+  "evidence/fixture.json": {
+    "sha256": "4a9f8c64e76b66efa006f7a0cbe8080e500a59044593210adbe925d8798b4e83",
+    "bytes": 2234
+  },
+  "evidence/final-growth-768x1024.png": {
+    "sha256": "48a8ecf838287669348ebfdf785f7933355793ba9260c49f859de4e7f9b0a233",
+    "bytes": 75611
+  },
+  "evidence/final-growth-320x568.png": {
+    "sha256": "5bde7a70eebc36e590dbe0eddb545bc8ee6aafd0e76cc464ac8df1642628d395",
+    "bytes": 30644
+  },
+  "evidence/growth-430x932.png": {
+    "sha256": "b5f835d05d068449d7fc82d84a92f06813f9146a00b67134a546b2b0fc41f7eb",
+    "bytes": 53942
+  },
+  "evidence/final-growth-1366x768.png": {
+    "sha256": "7404fc10baf063b7a86d712db3d478469c8bf0f89bf1b8aad27a9c06d6eb9bcc",
+    "bytes": 63594
+  },
+  "evidence/fixture.cj1": {
+    "sha256": "324f75ef0209f378286fcf8f0da72bc7a17c1fbfc1782f25e1938677666a0a26",
+    "bytes": 1119
+  },
+  "evidence/tests.txt": {
+    "sha256": "269d980caf1cbc47c47e44fad5c3c44e9c8550717fb800c85216e2454e7526ab",
+    "bytes": 33452
+  },
+  "evidence/report.md": {
+    "sha256": "84e465c26004925cb04b57a6c6e4911f347581855d5dc84def79dcb3258af67f",
+    "bytes": 6340
+  },
+  "evidence/open-applied.cj1": {
+    "sha256": "acf9a157bef007652f6165bcddcb94f8ccff822e06d38501a5de16dbfbdfa695",
+    "bytes": 2999
+  },
+  "evidence/final-growth-667x375.png": {
+    "sha256": "5b2f7b5ce9990e603d3ebddf3574bf9941309a5716c0e0ed1f11f331ad9f20fa",
+    "bytes": 28333
+  },
+  "evidence/idle-replacement-phone.png": {
+    "sha256": "84c883ee6f191a27aa40639e5ff2a2a14906b485fc2c684d27f1f27dc3fdfe4c",
+    "bytes": 41910
+  },
+  "evidence/manual-replacement-applied.cj1": {
+    "sha256": "850693ef71356d6c56199dcbed42ea47ac326812da893baccd7ebd89160ad61e",
+    "bytes": 1803
+  },
+  "evidence/final-growth-1024x768.png": {
+    "sha256": "0d8c2a72238cc1502f7ad1cd029f3fc6f29612e8e8264df31d2e1a2ea52e3326",
+    "bytes": 58794
+  },
+  "evidence/growth-390x844.png": {
+    "sha256": "23704c544e9983c6d56a9cd6c5cb6f2c26b1f5cc882676affec904024fa46293",
+    "bytes": 46266
+  },
+  "evidence/growth-360x640.png": {
+    "sha256": "1b4b48b37c354ba9fce24ec8bb3932dcbcfc8afea31d39562bd434a7087c8340",
+    "bytes": 34819
+  },
+  "evidence/growth-844x390.png": {
+    "sha256": "5553161875ffcbd6966076e44a3f9e802bccaf481ea808408086ad01074bf6a0",
+    "bytes": 38269
+  },
+  "evidence/growth-phone.png": {
+    "sha256": "571b9890aa9235a47fdd08349f0b8d10c43668fa4c7945caecb93b9bd63eb5b2",
+    "bytes": 46662
+  },
+  "evidence/final-growth-390x844.png": {
+    "sha256": "25b499819bbf2a7598d1b903ed73fd141c29acf771496e377d090ecdc1ca458d",
+    "bytes": 46724
+  },
+  "evidence/ui-save-check.json": {
+    "sha256": "a6bcf66dfab216bb501965855782e4e60a3bad2488908c4cabe255f99651c38f",
+    "bytes": 370
+  },
+  "evidence/performance.json": {
+    "sha256": "e6c4312d9e344dbc3899bb2d0c3f6a4a458a4e452631f42bbec156fc71db9fba",
+    "bytes": 379
+  },
+  "evidence/final-idle-phone.png": {
+    "sha256": "84c883ee6f191a27aa40639e5ff2a2a14906b485fc2c684d27f1f27dc3fdfe4c",
+    "bytes": 41910
+  },
+  "evidence/delivered-growth-phone.png": {
+    "sha256": "80e05ba3c5de55f274d1ab294be8861251c9eff8a6f8103d126723b688d60c78",
+    "bytes": 47932
+  },
+  "evidence/final-growth-360x640.png": {
+    "sha256": "f3fc5bddf62c539d8243f68930635051cd79315f760bb2b3dec48d917810c3e2",
+    "bytes": 35017
+  },
+  "evidence/final-growth-844x390.png": {
+    "sha256": "0ef763f793237c588dbb1259a4cb8b609422c460ddc81a94d54d7a750cd8dc78",
+    "bytes": 38451
+  },
+  "evidence/growth-768x1024.png": {
+    "sha256": "8646c6812d5a35bad6b962f3aacd92a5fb4f97ff7861f7f95de341e4f89c8e90",
+    "bytes": 75366
+  },
+  "evidence/performance-final.json": {
+    "sha256": "178818a5568a194f5bbc2615c840be4750518461a1d4c41198ce2387d9b44bd2",
+    "bytes": 347
+  },
+  "evidence/browser-errors.json": {
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2
+  },
+  "evidence/final-manual-phone.png": {
+    "sha256": "e7da227ee112252492b6839bf97bdea482fc1f0d1dc1b978212077f33a0b34c8",
+    "bytes": 46201
+  },
+  "evidence/growth-1366x768.png": {
+    "sha256": "756f7c017dab44dfedfa054b84473fd2f7762ce69f2ca6e8b3ca0e82fe370919",
+    "bytes": 63908
+  },
+  "evidence/growth-1024x768.png": {
+    "sha256": "d5dda95b0f0ff1f390689493c3a5c180204c6ed3beb3c0b7e2eb10e30c07000f",
+    "bytes": 58812
+  },
+  "evidence/growth-applied.cj1": {
+    "sha256": "f3d4969a7550ab78e430afbdd0039cd80b487d939fce7dc9b63c8471e4a86ce7",
+    "bytes": 2691
+  },
+  "evidence/final-applied-phone.png": {
+    "sha256": "70e638c339d04a6421a74f59820c6d98e35a1b38e892a8ba424c2771e69e66c2",
+    "bytes": 27290
+  },
+  "evidence/final-growth-430x932.png": {
+    "sha256": "571ef57b1bdf8ca468d8a58de8510771a99250bb9e1b5c04f44bac69ecd6df2c",
+    "bytes": 54329
+  },
+  "evidence/growth-layout.json": {
+    "sha256": "8b8f946b2942ef890de9c2df6e1d98464e7ce817a4ad8b16a2e281588ef589b4",
+    "bytes": 3401
+  },
+  "evidence/final-layout.json": {
+    "sha256": "f7659c9f098350f9dc84abd08383b061fa4499be36df7949d6ffddb66494532c",
+    "bytes": 4378
+  },
+  "source/README.txt": {
+    "sha256": "673bd4e414882d46c9cbb2fd2777a2e9e3db3c2990007c3e326b7a1e9c8282a4",
+    "bytes": 44859
+  },
+  "source/build-local.py": {
+    "sha256": "98d18a115f4e5570be3235e8ce4a54271c50e4a5473054df33c49fbf4e8b0fc4",
+    "bytes": 1309
+  },
+  "source/dist/automation.js": {
+    "sha256": "e2773489a1fe5a2469cfab6795d87a80db59e665adb0f13768d4011f4f7261cf",
+    "bytes": 32095
+  },
+  "source/dist/competition.js": {
+    "sha256": "0724395502238563881cc40c7f5d3189c6fa848657d67785d81aa08d0434ef43",
+    "bytes": 13297
+  },
+  "source/dist/advisor.js": {
+    "sha256": "3a3755c469a31f300291f169f23f0fe4432e1323e39a96fbf6669f389c32c3b6",
+    "bytes": 14252
+  },
+  "source/dist/index.html": {
+    "sha256": "8e6d357676a0d7d866cbe169c4fb0e8aaea6334759e234ad8d1c6b3d2cbb902a",
+    "bytes": 1077
+  },
+  "source/dist/fleet-profiles.js": {
+    "sha256": "2b0491da7cd2788de675228e7e859a75914347e079415f7f9a97e3e5f052458f",
+    "bytes": 28844
+  },
+  "source/dist/world.js": {
+    "sha256": "836a332d87c6de84e8426cdd2fc9eb5569f73908f780d97acdf2821dab189809",
+    "bytes": 56474
+  },
+  "source/dist/save.js": {
+    "sha256": "24cae60b51376d651c48731b5cce6eaef3d7f54519a2034f0a310408e9d5d254",
+    "bytes": 6452
+  },
+  "source/dist/selection.js": {
+    "sha256": "904527ac29ff6b22e6495b9db9210e2949f643bcb6c87925583ade1ddcf0062f",
+    "bytes": 2191
+  },
+  "source/dist/data.js": {
+    "sha256": "bfcfcdaf23a177b3d121f615beda77540fc032409c127cf903d7521e35a563c3",
+    "bytes": 129423
+  },
+  "source/dist/style.css": {
+    "sha256": "6c22174a839fa758bda15b4c5f62d66c79f5b7b2474fb25d556d1987af55d281",
+    "bytes": 86731
+  },
+  "source/dist/engine.js": {
+    "sha256": "19bf61fa0673e4555266d6e8d710f6c327c1a1c0a3f5ba4ea717fc0e9dc8d0ea",
+    "bytes": 104800
+  },
+  "source/dist/calendar.js": {
+    "sha256": "b7f5acdd180f40445e95901ace8d384f3a8587d3359dd30a0d575ae3e01e9439",
+    "bytes": 1111
+  },
+  "source/dist/map.js": {
+    "sha256": "81ddc4520b8801b7759c0b2e114dba146c84228a19c3872170a60e8f36455411",
+    "bytes": 10652
+  },
+  "source/dist/network.js": {
+    "sha256": "79bfde765f3caf1e9af845328fa47ece3464fa035e6806f1b2e946c5f8f4ba4f",
+    "bytes": 15134
+  },
+  "source/dist/app.js": {
+    "sha256": "7367bf9d5eb822fd9149d464dca2937d2351a73908316fea81e0d89403e327a5",
+    "bytes": 225678
+  },
+  "source/dist/assets/a350.jpg": {
+    "sha256": "9e4ba1ebf93a34f0f5b4568374ff7c135a00f5ea7067184e4a1a5c1955741339",
+    "bytes": 161357
+  },
+  "source/dist/assets/embraer-logo.svg": {
+    "sha256": "026cd6e7b822c7084b3fd1c5a66a046633b2ee7ec7d91daff14d1d978f1fcc64",
+    "bytes": 1807
+  },
+  "source/dist/assets/boeing-logo.png": {
+    "sha256": "c343243b2200817de12e97f11468c57cd1380a57ad02f400756e68a31ad8d512",
+    "bytes": 3581
+  },
+  "source/dist/assets/CREDITS.txt": {
+    "sha256": "a5e15d2fb5b55f00d88aeb7782151053bd737c0ac82d0f12197fd040e0165d1d",
+    "bytes": 1461
+  },
+  "source/dist/assets/comac-logo.jpg": {
+    "sha256": "b121f4e9ee6a13168002c255ca3f2792a972f39f61d8c687a82bf99f1babbf81",
+    "bytes": 18148
+  },
+  "source/dist/assets/BOUNDARIES.txt": {
+    "sha256": "a1d4eddf7df1255cb29147904b2bf29058dd74c258cbdaa3d9e1a4051a38bd5a",
+    "bytes": 362
+  },
+  "source/dist/assets/airbus-logo.png": {
+    "sha256": "398d4b02eaf04d9cb7bddda227de6d61ea3436cc3efe11904d8169fc4628726b",
+    "bytes": 7347
+  },
+  "source/tests/operations.test.cjs": {
+    "sha256": "53ddbc410abb9f8b9ec58533c8634e94c054f603107d1703f9ac17f20f9b900b",
+    "bytes": 5514
+  },
+  "source/tests/airport-compatibility-baseline.json": {
+    "sha256": "ce50666362a6f206b91215f137cc10be04e1179478b877086f54c970584d1ae6",
+    "bytes": 80787
+  },
+  "source/tests/browser-qa-backup.json": {
+    "sha256": "4f9e299e7b6d4cb7da4d00737d0bb15740a11ab0ab0c62c57c922b17c14ea24b",
+    "bytes": 7893
+  },
+  "source/tests/operating-list.test.cjs": {
+    "sha256": "dabcfe3f29fca906a34615cabc838b94c7ecc088be305ab86e6cab6d4e745140",
+    "bytes": 3941
+  },
+  "source/tests/world-airports.test.cjs": {
+    "sha256": "903e4993a625065e88e3c91c8e3b7718b8d01b1b5147742e1ba7bf52d73b733c",
+    "bytes": 2994
+  },
+  "source/tests/save.test.cjs": {
+    "sha256": "ebbb62bab7934366c4de12e91d724b1cc7ec783039537eb85c24215d3b641c65",
+    "bytes": 7140
+  },
+  "source/tests/performance-context.test.cjs": {
+    "sha256": "ad4306ac7c3a06e258c2ddc35ccf46a863080adf5b57b5aff6d095bf32c3db43",
+    "bytes": 1158
+  },
+  "source/tests/selection.test.cjs": {
+    "sha256": "32df92962afea50932692d6b9f9da490cabcdcd643681eb8e54bbbacfceaed6e",
+    "bytes": 1470
+  },
+  "source/tests/briefing-priority.test.cjs": {
+    "sha256": "493aa938fe0d2dfed018d5db5944024a8d776fe977272066190967ba26d14214",
+    "bytes": 5744
+  },
+  "source/tests/capacity-recommendation.test.cjs": {
+    "sha256": "0cab914a97115013ba9a66125735a7dbd3cfc5cc761ddffdf5ccf4589fb6faea",
+    "bytes": 4660
+  },
+  "source/tests/hangar-growth.test.cjs": {
+    "sha256": "c5f263af9a80071b18b5672cd435571210ba3acf0e6c3e991c6bf44836682e11",
+    "bytes": 1044
+  },
+  "source/tests/globe.test.cjs": {
+    "sha256": "ed617b3623b4555719d19be5cbd6dce6b5bd588c28730c0a0b755a4f4b8d9b53",
+    "bytes": 900
+  },
+  "source/tests/fast-economy.test.cjs": {
+    "sha256": "88b23be3bef22ffd6f8f57452acef87a2c67acc3269d67408dac539547ed6526",
+    "bytes": 6564
+  },
+  "source/tests/fleet-breakdown.test.cjs": {
+    "sha256": "d7cdb71898e64082f81f8840db678165ef0020b1630e18d4e9fc634979d4a247",
+    "bytes": 2292
+  },
+  "source/tests/calendar.test.cjs": {
+    "sha256": "bbaa7d28b08fcb2f4f4886ba743da469a85c23c2df2ec91cb413884b75253f85",
+    "bytes": 2328
+  },
+  "source/tests/automation-lifecycle.test.cjs": {
+    "sha256": "2a011cb0270bb41e883bdddb174b84bb2e6031a63281ede7efd151685c71c51c",
+    "bytes": 8353
+  },
+  "source/tests/overseas-airports-provenance.json": {
+    "sha256": "5d24503eb2c28fcc3794b62291a77928c153aa57c49fdb7e56bd5fa27ce376c2",
+    "bytes": 20426
+  },
+  "source/tests/traffic-maintenance.test.cjs": {
+    "sha256": "9d35bfad7df694d8f53b66ba964ae7e6c40a4b05d185b531aecd866a7ffb4cf0",
+    "bytes": 6510
+  },
+  "source/tests/route-competition.test.cjs": {
+    "sha256": "5a91209c59e0c52286f8308de880f9ee2c127e26ed911710fb3004a7c5b4c6fa",
+    "bytes": 4121
+  },
+  "source/tests/direct-operating.test.cjs": {
+    "sha256": "c5727d03ba587bd7e5396dad4bf18e283daf47ec510449da3e12ce379439fb15",
+    "bytes": 3870
+  },
+  "source/tests/growth.test.cjs": {
+    "sha256": "600a7759c78b21dc4ca41b17b562d378fbc43981c839783b5c9c35012ce9f461",
+    "bytes": 5331
+  },
+  "source/tests/reputation.test.cjs": {
+    "sha256": "fa7e1794e3ad10774a21987770a6dc606fdb045d2c72002a1bdf01304e705ed9",
+    "bytes": 7334
+  },
+  "source/tests/world-airports-provenance.json": {
+    "sha256": "5a210a6f9325d4ff2393322498cedf5f30e734c9b920824f2e72aed7a3757c94",
+    "bytes": 217775
+  },
+  "source/tests/advisor-async.test.cjs": {
+    "sha256": "6960904d6714a2c79a6b9cc0ab10e323af60f9450493851ed24445f88957ef86",
+    "bytes": 2637
+  },
+  "source/tests/airport-provenance.json": {
+    "sha256": "788f281a61f4cdc1323c75d75f079df2833622d790143e4bf873fa8de5f80c71",
+    "bytes": 62371
+  },
+  "source/tests/growth-safety.test.cjs": {
+    "sha256": "0c627319474a97ec6a91c2573cdc15f64d6dd394c194fe7f4e167bd55a905aab",
+    "bytes": 6383
+  },
+  "source/tests/network.test.cjs": {
+    "sha256": "fd017017e515e8d7451e163bdde25f99da1a739ec106f6eab1f5fc7fd7bd2a15",
+    "bytes": 8768
+  },
+  "source/tests/competition.test.cjs": {
+    "sha256": "00a0c82fe75ea37318e51a614dd9a0b171373108941c4f022350c693206ddd75",
+    "bytes": 5349
+  },
+  "source/tests/retirement.test.cjs": {
+    "sha256": "395dd65fa08cb21f0fd229d7f39896a3d057ba71f9c3a18819941e4f6d0fd90b",
+    "bytes": 5288
+  },
+  "source/tests/scheduling.test.cjs": {
+    "sha256": "cc34c49455b69d3cc3e1d919f810dde7edbcc5886feed89935f3457d9389990b",
+    "bytes": 6970
+  },
+  "source/tests/ranking.test.cjs": {
+    "sha256": "07be38dd9e8d65631a72168d6121374c649fdef268ab2336d64899f1c64c254e",
+    "bytes": 3353
+  },
+  "source/tests/feeder-frequency.test.cjs": {
+    "sha256": "5d11a22a87855d4df604cb5a571e399376ee00094637e8e1c479282d98062d23",
+    "bytes": 4083
+  },
+  "source/tests/engine.test.cjs": {
+    "sha256": "37a7469fda6f24f81afc6b30c39d2c326ca1d1588c3cc22091a946ab2b274ee0",
+    "bytes": 54564
+  },
+  "source/tests/cabin-entry.test.cjs": {
+    "sha256": "f32dcfac8f988cadb540797789eee1f709082749a2d85aaf3e8681b3350d6c55",
+    "bytes": 3289
+  },
+  "source/tests/thousand-speed.test.cjs": {
+    "sha256": "3a99d23c26f08f8a6d2d8c32ccdf81d53a971499b53d86d78f61077104e20f65",
+    "bytes": 3747
+  },
+  "source/tests/full-growth.test.cjs": {
+    "sha256": "91118c4987278365bc82dfbd0c89ea36b9d4bbb2b1b4d45fce2991a33f3bc038",
+    "bytes": 6241
+  },
+  "source/tests/aircraft-speed.test.cjs": {
+    "sha256": "78ed0d8bd59c66cb58253abfb17b9de5dec4234342f4d5e50066e71a6ca8d1ad",
+    "bytes": 4636
+  },
+  "source/tests/fixtures/advisor-reference.js": {
+    "sha256": "f09216d1ac8cf4619893d8f8625398099f30ff66922417aa6b04d73fa87519fc",
+    "bytes": 12194
+  }
+}
