@@ -1,0 +1,7 @@
+{
+  "baselineExit": 1,
+  "currentExit": 1,
+  "sameExistingWarnings": true,
+  "newWarnings": [],
+  "notes": "Historical TC-035/073/074 defect markers and RUN-035 result/evidence formatting preserved; no new TC or RUN warnings."
+}

@@ -1,0 +1,72 @@
+{
+  "base": "c26dee1d7e56be6ed94927684d4efd13da573d38",
+  "status": "local integration verified; not pushed or deployed",
+  "publicFiles": [
+    {
+      "path": "public/index.html",
+      "bytes": 127248,
+      "sha256": "b3e9f19b0c68c170b72092deb4b09f44191d28c82597f9812ff6d34abae33fcd"
+    },
+    {
+      "path": "public/games/lol.html",
+      "bytes": 363817,
+      "sha256": "9684d3903e70c3a33455b2d8ce0db49435ab82686a81e55f813c191ecebd8554"
+    },
+    {
+      "path": "public/games/lol-player.html",
+      "bytes": 2950923,
+      "sha256": "4be445446780e3a4f1b13cfc3c50b362eb052c0945875138f779527c55dc0786"
+    },
+    {
+      "path": "public/covers/lol-player.jpg",
+      "bytes": 166084,
+      "sha256": "b1e44af36de36ae34ecf2700ab6c86df6f341f89f1533232019dfced4988fa60"
+    }
+  ],
+  "order": [
+    "spud-dawn",
+    "one-in-billions",
+    "airline-empire",
+    "f1-driver",
+    "nba",
+    "football-manager",
+    "f1",
+    "basketball-star",
+    "wealth-reborn",
+    "rental-empire",
+    "douluo",
+    "cba",
+    "lol",
+    "lol-player",
+    "entertainment-career",
+    "football-career",
+    "one-thought-immortal",
+    "yike",
+    "hougong",
+    "yexiao"
+  ],
+  "checks": {
+    "scope": true,
+    "quality": true,
+    "catalogNames": 20,
+    "browserRecords": 16,
+    "heroViewports": 11,
+    "uiScanFindings": 0,
+    "designLint": true,
+    "testLintNewWarnings": 0,
+    "testLintExistingExit": 1
+  },
+  "airline": {
+    "sha256": "bfaca668cd9e887964909bc8550083d3de6dc6858b7ba8a534c720576274f932",
+    "bytes": 1414610,
+    "unchanged": true,
+    "previousDualSiteReleaseComplete": true
+  },
+  "f1": "User clarified no update",
+  "unverified": [
+    "test and production deployment of LOL integration",
+    "real iOS Safari/Android Chrome",
+    "real soft keyboard/safe-area",
+    "200% native text"
+  ]
+}

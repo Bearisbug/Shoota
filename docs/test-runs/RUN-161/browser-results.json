@@ -1,0 +1,165 @@
+{
+  "passed": true,
+  "browser": "156.0.8078.73",
+  "service": "http://127.0.0.1:50359",
+  "hostSha256": "b3e9f19b0c68c170b72092deb4b09f44191d28c82597f9812ff6d34abae33fcd",
+  "records": [
+    {
+      "name": "store-390",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "detail-390",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "new-player-390",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "manager-entry-390",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "catalog-entry-390",
+      "passed": true,
+      "cover": [
+        {
+          "loaded": true,
+          "width": 1380,
+          "height": 627
+        }
+      ],
+      "sandbox": "allow-scripts allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox"
+    },
+    {
+      "name": "store-1366",
+      "viewport": [
+        1366,
+        768
+      ],
+      "rootWidth": 1366,
+      "visualWidth": 1366
+    },
+    {
+      "name": "detail-1366",
+      "viewport": [
+        1366,
+        768
+      ],
+      "rootWidth": 1366,
+      "visualWidth": 1366
+    },
+    {
+      "name": "new-player-1366",
+      "viewport": [
+        1366,
+        768
+      ],
+      "rootWidth": 1366,
+      "visualWidth": 1366
+    },
+    {
+      "name": "manager-entry-1366",
+      "viewport": [
+        1366,
+        768
+      ],
+      "rootWidth": 1366,
+      "visualWidth": 1366
+    },
+    {
+      "name": "catalog-entry-1366",
+      "passed": true,
+      "cover": [
+        {
+          "loaded": true,
+          "width": 1380,
+          "height": 627
+        }
+      ],
+      "sandbox": "allow-scripts allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox"
+    },
+    {
+      "name": "manager-old-save",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "player-old-v1-reload",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "two-game-backup",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "restored-lol",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "restored-lol-player",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "old-save-isolation-CJ1-reload",
+      "passed": true,
+      "managerState": {
+        "season": 2027,
+        "day": 0,
+        "userTid": "BLG",
+        "cash": 6440
+      },
+      "playerName": "Echo390",
+      "backupBytes": 70255,
+      "managerSaveSha256": "0a930abe516f805119fab607ac0e479491cfb61cdf76e4a0b4527f056a44f58e",
+      "playerSaveSha256": "4f9cc0ed018a34e828e1d2fe7c0bebeaa62cdb56e943f81f6d9776d5667df551"
+    }
+  ],
+  "errors": [],
+  "scope": "Actual platform local integration smoke; game full matrices attributed to developer frozen handoffs; real phones and live sites unverified"
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "candidate": false,
+    "width": 390,
+    "root": 390,
+    "body": 390,
+    "offending": [
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n"
+    ]
+  },
+  {
+    "candidate": true,
+    "width": 390,
+    "root": 393,
+    "body": 393,
+    "offending": [
+      "state-layer focus-ring",
+      "state-layer focus-ring",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n",
+      "state-layer focus-ring chip",
+      "n"
+    ]
+  }
+]

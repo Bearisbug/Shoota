@@ -1,0 +1,5 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: store-390 overflow\n    at shot (/Users/leizhang/Documents/ChatGPT/shoota/tmp/platform-save-reliability-20261028/docs/test-runs/RUN-160/platform-browser.cjs:7:220)\n    at async /Users/leizhang/Documents/ChatGPT/shoota/tmp/platform-save-reliability-20261028/docs/test-runs/RUN-160/platform-browser.cjs:15:226",
+  "records": [],
+  "errors": []
+}

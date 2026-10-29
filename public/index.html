@@ -128,7 +128,7 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .hero-info{padding:var(--primitive-dimension-space-6);display:flex;flex-direction:column;gap:var(--primitive-dimension-space-3);min-width:0}
 .hero-info p{margin:0;color:var(--semantic-color-text-secondary)}
 .hero-info .grow{flex:1}
-.hero-nav{display:flex;justify-content:center;gap:var(--primitive-dimension-space-1);margin-top:var(--primitive-dimension-space-3)}
+.hero-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--primitive-dimension-space-1);margin-top:var(--primitive-dimension-space-3)}
 .hero-nav button{flex:0 1 var(--primitive-dimension-space-8);min-width:var(--primitive-dimension-space-4);height:var(--primitive-dimension-space-5);padding:var(--primitive-dimension-space-2) 0;border:0;border-radius:var(--semantic-radius-pill);background:var(--semantic-color-border-subtle);background-clip:content-box;color:var(--semantic-color-text-primary);cursor:pointer}
 .hero-nav button[aria-pressed="true"]{background-color:var(--semantic-color-action-primary)}
 @media (max-width:820px){.hero{grid-template-columns:minmax(0,1fr)}.hero-art .cv{aspect-ratio:46/21;min-height:0}.hero-info{padding:var(--primitive-dimension-space-5)}}
@@ -550,15 +550,24 @@ const CATALOG = [
     loop:['选一支球队：争冠队即战力强但薪资紧，重建队有工资空间和更高的选秀顺位','休赛期：交易、续约、逛自由市场，在预算内请外援','常规赛：安排首发轮换、战术和外援上场节次，逐场模拟','季后赛按 3-5-5-7 一路打到总决赛'] },
 
 { id:'lol', title:'lol电竞经理', sub:'电竞战队经理', genre:'电竞经理', tags:['电竞经理','体育','策略','长线经营'],
-    src:'games/lol.html', cover:'covers/lol.jpg', size:275681, status:'ok', session:'按赛季推进', saves:'自动存档',
-    tagline:'招募一位新生传奇、经营赞助与阵容，在关键节点拍板，带队争夺全球总决赛。',
+    src:'games/lol.html', cover:'covers/lol.jpg', size:363817, status:'ok', session:'按赛季推进', saves:'自动存档',
+    tagline:'从历史赛季启程，执教豪门或自建战队，培养核心、经营转会，在版本变化中争夺世界冠军。',
     about:[
-      '成为 LPL、LCK 等赛区一支战队的经理，接续真实的 2026 赛季结果，从 2027 赛季开打。',
-      '先查看对手五人阵容与招牌英雄，再由教练组完成 BP，选手拿不顺手的英雄熟练度会很低。开局后比赛停在对线期、每条龙、团战爆发前这些节点，由你决定接团、换线还是让资源；不想操心可以全部交给教练组。',
-      '选手有操作、运营、团战、英雄池、稳定等评分，达到条件会点亮徽章。大赛成长更快，23至24岁明显放缓；训练投入与生活剧情会影响成长和状态，持续松懈也会退步。Fearless 赛制下，英雄池深的选手后几局不掉状态。',
-      '管理收入、工资、转会和交易，与三类赞助商谈判保底或成绩合同。签约人数和薪资不限，每场系列赛结束先看整场复盘，再准备下一场。'
+      '选择2014历史开局或现代赛季，执教不同赛区的现有战队，也可以创建自己的俱乐部。挑选传奇新人、补齐阵容，为战队找到长期发展的方向。',
+      '查看选手能力、徽章与英雄熟练度，结合版本强弱安排首发与战术。由教练组完成BP，在比赛关键节点决定接团、换线或让资源，也可选择快速模拟。',
+      '经营赞助、薪资与转会，让训练、比赛经历和人才流动共同塑造阵容。每场系列赛后查看复盘，再准备季后赛、MSI与全球总决赛。'
     ],
-    loop:['选择赛区和战队，再选位置、翻三张卡，招募一位 17 岁退役传奇','经营俱乐部：签约、转会、收入明细与赞助谈判','查看对手阵容、准备战术，观看比赛或快速模拟','整场复盘后回到主页，准备季后赛、MSI 和全球总决赛的下一场'] },
+    loop:['选择历史年度、赛区与战队，或创建自己的俱乐部','招募与培养选手，处理合同、转会及赞助','查看版本与英雄池，安排首发战术，观看比赛或快速模拟','复盘系列赛表现，调整阵容并推进下一阶段赛事'] },
+
+{ id:'lol-player', title:'LOL 选手生涯', sub:'17岁启程 · 逐局书写职业生涯', genre:'电竞生涯', tags:['电竞','选手生涯','成长','策略'],
+    src:'games/lol-player.html', cover:'covers/lol-player.jpg', size:2950923, status:'ok', session:'按比赛与赛季推进', saves:'自动存档，支持备份恢复',
+    tagline:'以17岁新秀的身份踏入赛场，让逐局表现、成长徽章与每一次签约，写下属于你的职业生涯。',
+    about:[
+      '选择2014至2026的历史年度，或从2027平行赛季开始。确定自己的位置，加入现有战队争取首发，或创建队伍与招募的队友共同起步。',
+      '查看个人能力、成长徽章和逐局数据，在赛前安排战术，在比赛关键时刻作出选择。可以观看比赛、模拟单局或整场系列赛，再从复盘中了解自己的表现。',
+      '经历常规赛、季后赛与国际赛事，积累声望和荣誉。面对续约、合同到期与转会选择，在战队机会和个人成长之间寻找下一站。历史年度决定开局阵容，后续赛季由你的游戏进程演化。'
+    ],
+    loop:['选择年度与位置，以17岁新秀加入战队或创建队伍','查看能力与徽章，准备战术并争取出场机会','逐局参赛、作出关键决策，查看个人数据与系列赛复盘','推进赛季，处理续约和转会，积累职业荣誉'] },
 
 { id:'entertainment-career', title:'杀穿娱乐圈', sub:"五章人生 · 作品与选择塑造星途", genre:'演艺经营', tags:['模拟经营','演艺生涯','剧情','策略'],
     src:'games/entertainment-career.html', cover:'covers/entertainment-career.jpg', size:7630643, status:'ok', session:"每月4周、每周3个行程", saves:"自动存档，支持旧版继承或新开",

@@ -1,0 +1,477 @@
+{
+  "passed": false,
+  "browser": "156.0.8078.73",
+  "service": "http://127.0.0.1:50117",
+  "hostSha256": "ce56fb652f35cf08800ba1c0d4622729671226636c01a238c424d28d95d553de",
+  "records": [
+    {
+      "name": "store-390",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 393,
+      "visualWidth": 390,
+      "overflowElements": [
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring",
+          "rect": {
+            "x": -3,
+            "y": -608.09375,
+            "width": 16,
+            "height": 20,
+            "top": -608.09375,
+            "right": 13,
+            "bottom": -588.09375,
+            "left": -3
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring",
+          "rect": {
+            "x": 377,
+            "y": -608.09375,
+            "width": 16,
+            "height": 20,
+            "top": -608.09375,
+            "right": 393,
+            "bottom": -588.09375,
+            "left": 377
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring chip",
+          "rect": {
+            "x": 331.625,
+            "y": -535.4453125,
+            "width": 81.203125,
+            "height": 28.8984375,
+            "top": -535.4453125,
+            "right": 412.828125,
+            "bottom": -506.546875,
+            "left": 331.625
+          }
+        },
+        {
+          "tag": "SPAN",
+          "cls": "n",
+          "rect": {
+            "x": 396.625,
+            "y": -528.9453125,
+            "width": 7.203125,
+            "height": 17.3984375,
+            "top": -528.9453125,
+            "right": 403.828125,
+            "bottom": -511.546875,
+            "left": 396.625
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring chip",
+          "rect": {
+            "x": 416.828125,
+            "y": -535.4453125,
+            "width": 81.203125,
+            "height": 28.8984375,
+            "top": -535.4453125,
+            "right": 498.03125,
+            "bottom": -506.546875,
+            "left": 416.828125
+          }
+        },
+        {
+          "tag": "SPAN",
+          "cls": "n",
+          "rect": {
+            "x": 481.828125,
+            "y": -528.9453125,
+            "width": 7.203125,
+            "height": 17.3984375,
+            "top": -528.9453125,
+            "right": 489.03125,
+            "bottom": -511.546875,
+            "left": 481.828125
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring chip",
+          "rect": {
+            "x": 502.03125,
+            "y": -535.4453125,
+            "width": 81.203125,
+            "height": 28.8984375,
+            "top": -535.4453125,
+            "right": 583.234375,
+            "bottom": -506.546875,
+            "left": 502.03125
+          }
+        },
+        {
+          "tag": "SPAN",
+          "cls": "n",
+          "rect": {
+            "x": 567.03125,
+            "y": -528.9453125,
+            "width": 7.203125,
+            "height": 17.3984375,
+            "top": -528.9453125,
+            "right": 574.234375,
+            "bottom": -511.546875,
+            "left": 567.03125
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring chip",
+          "rect": {
+            "x": 587.234375,
+            "y": -535.4453125,
+            "width": 78.8125,
+            "height": 28.8984375,
+            "top": -535.4453125,
+            "right": 666.046875,
+            "bottom": -506.546875,
+            "left": 587.234375
+          }
+        },
+        {
+          "tag": "SPAN",
+          "cls": "n",
+          "rect": {
+            "x": 652.234375,
+            "y": -528.9453125,
+            "width": 4.8125,
+            "height": 17.3984375,
+            "top": -528.9453125,
+            "right": 657.046875,
+            "bottom": -511.546875,
+            "left": 652.234375
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring chip",
+          "rect": {
+            "x": 670.046875,
+            "y": -535.4453125,
+            "width": 78.8125,
+            "height": 28.8984375,
+            "top": -535.4453125,
+            "right": 748.859375,
+            "bottom": -506.546875,
+            "left": 670.046875
+          }
+        },
+        {
+          "tag": "SPAN",
+          "cls": "n",
+          "rect": {
+            "x": 735.046875,
+            "y": -528.9453125,
+            "width": 4.8125,
+            "height": 17.3984375,
+            "top": -528.9453125,
+            "right": 739.859375,
+            "bottom": -511.546875,
+            "left": 735.046875
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring chip",
+          "rect": {
+            "x": 752.859375,
+            "y": -535.4453125,
+            "width": 78.8125,
+            "height": 28.8984375,
+            "top": -535.4453125,
+            "right": 831.671875,
+            "bottom": -506.546875,
+            "left": 752.859375
+          }
+        },
+        {
+          "tag": "SPAN",
+          "cls": "n",
+          "rect": {
+            "x": 817.859375,
+            "y": -528.9453125,
+            "width": 4.8125,
+            "height": 17.3984375,
+            "top": -528.9453125,
+            "right": 822.671875,
+            "bottom": -511.546875,
+            "left": 817.859375
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring chip",
+          "rect": {
+            "x": 835.671875,
+            "y": -535.4453125,
+            "width": 78.8125,
+            "height": 28.8984375,
+            "top": -535.4453125,
+            "right": 914.484375,
+            "bottom": -506.546875,
+            "left": 835.671875
+          }
+        },
+        {
+          "tag": "SPAN",
+          "cls": "n",
+          "rect": {
+            "x": 900.671875,
+            "y": -528.9453125,
+            "width": 4.8125,
+            "height": 17.3984375,
+            "top": -528.9453125,
+            "right": 905.484375,
+            "bottom": -511.546875,
+            "left": 900.671875
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring chip",
+          "rect": {
+            "x": 918.484375,
+            "y": -535.4453125,
+            "width": 78.8125,
+            "height": 28.8984375,
+            "top": -535.4453125,
+            "right": 997.296875,
+            "bottom": -506.546875,
+            "left": 918.484375
+          }
+        },
+        {
+          "tag": "SPAN",
+          "cls": "n",
+          "rect": {
+            "x": 983.484375,
+            "y": -528.9453125,
+            "width": 4.8125,
+            "height": 17.3984375,
+            "top": -528.9453125,
+            "right": 988.296875,
+            "bottom": -511.546875,
+            "left": 983.484375
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring chip",
+          "rect": {
+            "x": 1001.296875,
+            "y": -535.4453125,
+            "width": 78.8125,
+            "height": 28.8984375,
+            "top": -535.4453125,
+            "right": 1080.109375,
+            "bottom": -506.546875,
+            "left": 1001.296875
+          }
+        },
+        {
+          "tag": "SPAN",
+          "cls": "n",
+          "rect": {
+            "x": 1066.296875,
+            "y": -528.9453125,
+            "width": 4.8125,
+            "height": 17.3984375,
+            "top": -528.9453125,
+            "right": 1071.109375,
+            "bottom": -511.546875,
+            "left": 1066.296875
+          }
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "state-layer focus-ring chip",
+          "rect": {
+            "x": 1084.109375,
+            "y": -535.4453125,
+            "width": 78.8125,
+            "height": 28.8984375,
+            "top": -535.4453125,
+            "right": 1162.921875,
+            "bottom": -506.546875,
+            "left": 1084.109375
+          }
+        },
+        {
+          "tag": "SPAN",
+          "cls": "n",
+          "rect": {
+            "x": 1149.109375,
+            "y": -528.9453125,
+            "width": 4.8125,
+            "height": 17.3984375,
+            "top": -528.9453125,
+            "right": 1153.921875,
+            "bottom": -511.546875,
+            "left": 1149.109375
+          }
+        }
+      ]
+    },
+    {
+      "name": "detail-390",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "new-player-390",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "manager-entry-390",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "catalog-entry-390",
+      "passed": true,
+      "cover": [
+        {
+          "loaded": true,
+          "width": 1380,
+          "height": 627
+        }
+      ],
+      "sandbox": "allow-scripts allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox"
+    },
+    {
+      "name": "store-1366",
+      "viewport": [
+        1366,
+        768
+      ],
+      "rootWidth": 1366,
+      "visualWidth": 1366
+    },
+    {
+      "name": "detail-1366",
+      "viewport": [
+        1366,
+        768
+      ],
+      "rootWidth": 1366,
+      "visualWidth": 1366
+    },
+    {
+      "name": "new-player-1366",
+      "viewport": [
+        1366,
+        768
+      ],
+      "rootWidth": 1366,
+      "visualWidth": 1366
+    },
+    {
+      "name": "manager-entry-1366",
+      "viewport": [
+        1366,
+        768
+      ],
+      "rootWidth": 1366,
+      "visualWidth": 1366
+    },
+    {
+      "name": "catalog-entry-1366",
+      "passed": true,
+      "cover": [
+        {
+          "loaded": true,
+          "width": 1380,
+          "height": 627
+        }
+      ],
+      "sandbox": "allow-scripts allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox"
+    },
+    {
+      "name": "manager-old-save",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "player-old-v1-reload",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "two-game-backup",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "restored-lol",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "restored-lol-player",
+      "viewport": [
+        390,
+        844
+      ],
+      "rootWidth": 390,
+      "visualWidth": 390
+    },
+    {
+      "name": "old-save-isolation-CJ1-reload",
+      "passed": true,
+      "managerState": {
+        "season": 2027,
+        "day": 0,
+        "userTid": "BLG",
+        "cash": 6440
+      },
+      "playerName": "Echo390",
+      "backupBytes": 70251,
+      "managerSaveSha256": "0a930abe516f805119fab607ac0e479491cfb61cdf76e4a0b4527f056a44f58e",
+      "playerSaveSha256": "4f9cc0ed018a34e828e1d2fe7c0bebeaa62cdb56e943f81f6d9776d5667df551"
+    }
+  ],
+  "errors": [],
+  "scope": "Actual platform local integration smoke; game full matrices attributed to developer frozen handoffs; real phones and live sites unverified",
+  "functionalChecksPassed": true,
+  "failure": "TC-LOLPLATFORM-003: 390px store rootWidth=393; new 20th hero navigator button overflows. Baseline rootWidth=390."
+}

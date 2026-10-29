@@ -1,0 +1,698 @@
+[
+  {
+    "candidate": false,
+    "width": 390,
+    "root": 390,
+    "body": 390,
+    "overflow": [
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "体育生涯2",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育生涯\" aria-pressed=\"false\">体育生涯<span class=\"n\">2</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">19</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 329.234375,
+          "y": -535.4453125,
+          "width": 81.203125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 410.4375,
+          "bottom": -506.546875,
+          "left": 329.234375
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "2",
+        "html": "<span class=\"n\">2</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育生涯\" aria-pressed=\"false\">体育生涯<span class=\"n\">2</span></button>",
+        "rect": {
+          "x": 394.234375,
+          "y": -528.9453125,
+          "width": 7.203125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 401.4375,
+          "bottom": -511.546875,
+          "left": 394.234375
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "体育经理2",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育经理\" aria-pressed=\"false\">体育经理<span class=\"n\">2</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">19</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 414.4375,
+          "y": -535.4453125,
+          "width": 81.203125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 495.640625,
+          "bottom": -506.546875,
+          "left": 414.4375
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "2",
+        "html": "<span class=\"n\">2</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育经理\" aria-pressed=\"false\">体育经理<span class=\"n\">2</span></button>",
+        "rect": {
+          "x": 479.4375,
+          "y": -528.9453125,
+          "width": 7.203125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 486.640625,
+          "bottom": -511.546875,
+          "left": 479.4375
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "体育模拟2",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育模拟\" aria-pressed=\"false\">体育模拟<span class=\"n\">2</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">19</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 499.640625,
+          "y": -535.4453125,
+          "width": 81.203125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 580.84375,
+          "bottom": -506.546875,
+          "left": 499.640625
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "2",
+        "html": "<span class=\"n\">2</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育模拟\" aria-pressed=\"false\">体育模拟<span class=\"n\">2</span></button>",
+        "rect": {
+          "x": 564.640625,
+          "y": -528.9453125,
+          "width": 7.203125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 571.84375,
+          "bottom": -511.546875,
+          "left": 564.640625
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "赛车经理1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"赛车经理\" aria-pressed=\"false\">赛车经理<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">19</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 584.84375,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 663.65625,
+          "bottom": -506.546875,
+          "left": 584.84375
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"赛车经理\" aria-pressed=\"false\">赛车经理<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 649.84375,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 654.65625,
+          "bottom": -511.546875,
+          "left": 649.84375
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "电竞经理1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"电竞经理\" aria-pressed=\"false\">电竞经理<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">19</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 667.65625,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 746.46875,
+          "bottom": -506.546875,
+          "left": 667.65625
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"电竞经理\" aria-pressed=\"false\">电竞经理<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 732.65625,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 737.46875,
+          "bottom": -511.546875,
+          "left": 732.65625
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "演艺经营1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"演艺经营\" aria-pressed=\"false\">演艺经营<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">19</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 750.46875,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 829.28125,
+          "bottom": -506.546875,
+          "left": 750.46875
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"演艺经营\" aria-pressed=\"false\">演艺经营<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 815.46875,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 820.28125,
+          "bottom": -511.546875,
+          "left": 815.46875
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "修仙养成1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"修仙养成\" aria-pressed=\"false\">修仙养成<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">19</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 833.28125,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 912.09375,
+          "bottom": -506.546875,
+          "left": 833.28125
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"修仙养成\" aria-pressed=\"false\">修仙养成<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 898.28125,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 903.09375,
+          "bottom": -511.546875,
+          "left": 898.28125
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "益智解谜1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"益智解谜\" aria-pressed=\"false\">益智解谜<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">19</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 916.09375,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 994.90625,
+          "bottom": -506.546875,
+          "left": 916.09375
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"益智解谜\" aria-pressed=\"false\">益智解谜<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 981.09375,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 985.90625,
+          "bottom": -511.546875,
+          "left": 981.09375
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "宫廷养成1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"宫廷养成\" aria-pressed=\"false\">宫廷养成<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">19</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 998.90625,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 1077.71875,
+          "bottom": -506.546875,
+          "left": 998.90625
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"宫廷养成\" aria-pressed=\"false\">宫廷养成<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 1063.90625,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 1068.71875,
+          "bottom": -511.546875,
+          "left": 1063.90625
+        }
+      }
+    ]
+  },
+  {
+    "candidate": true,
+    "width": 390,
+    "root": 393,
+    "body": 393,
+    "overflow": [
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring",
+        "text": "",
+        "html": "<button class=\"state-layer focus-ring\" type=\"button\" data-hero=\"0\" aria-pressed=\"true\" aria-label=\"薯光 · Spud Dawn\"></button>",
+        "parent": "<div class=\"hero-nav\"><button class=\"state-layer focus-ring\" type=\"button\" data-hero=\"0\" aria-pressed=\"true\" aria-label=\"薯光 · Spud Dawn\"></button><button class=\"state-layer focus-ring\" type=\"button\" data-hero=\"1\" aria-pressed=\"false\" aria-label=\"此生\"></button><button class=\"state-layer focus-ring\" type=\"button\" data-hero=\"2\" aria-pressed=\"false\" aria-label=\"打造全球最佳航司\"></button><button class=\"state-layer focus-ring\" type=\"button\" data-hero=\"3\" aria-pressed=\"false\" aria-label=\"F1-Driver\"></button><b",
+        "rect": {
+          "x": -3,
+          "y": -608.09375,
+          "width": 16,
+          "height": 20,
+          "top": -608.09375,
+          "right": 13,
+          "bottom": -588.09375,
+          "left": -3
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring",
+        "text": "",
+        "html": "<button class=\"state-layer focus-ring\" type=\"button\" data-hero=\"19\" aria-pressed=\"false\" aria-label=\"重生之我是夜宵摊摊主\"></button>",
+        "parent": "<div class=\"hero-nav\"><button class=\"state-layer focus-ring\" type=\"button\" data-hero=\"0\" aria-pressed=\"true\" aria-label=\"薯光 · Spud Dawn\"></button><button class=\"state-layer focus-ring\" type=\"button\" data-hero=\"1\" aria-pressed=\"false\" aria-label=\"此生\"></button><button class=\"state-layer focus-ring\" type=\"button\" data-hero=\"2\" aria-pressed=\"false\" aria-label=\"打造全球最佳航司\"></button><button class=\"state-layer focus-ring\" type=\"button\" data-hero=\"3\" aria-pressed=\"false\" aria-label=\"F1-Driver\"></button><b",
+        "rect": {
+          "x": 377,
+          "y": -608.09375,
+          "width": 16,
+          "height": 20,
+          "top": -608.09375,
+          "right": 393,
+          "bottom": -588.09375,
+          "left": 377
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "体育生涯2",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育生涯\" aria-pressed=\"false\">体育生涯<span class=\"n\">2</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">20</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 331.625,
+          "y": -535.4453125,
+          "width": 81.203125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 412.828125,
+          "bottom": -506.546875,
+          "left": 331.625
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "2",
+        "html": "<span class=\"n\">2</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育生涯\" aria-pressed=\"false\">体育生涯<span class=\"n\">2</span></button>",
+        "rect": {
+          "x": 396.625,
+          "y": -528.9453125,
+          "width": 7.203125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 403.828125,
+          "bottom": -511.546875,
+          "left": 396.625
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "体育经理2",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育经理\" aria-pressed=\"false\">体育经理<span class=\"n\">2</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">20</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 416.828125,
+          "y": -535.4453125,
+          "width": 81.203125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 498.03125,
+          "bottom": -506.546875,
+          "left": 416.828125
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "2",
+        "html": "<span class=\"n\">2</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育经理\" aria-pressed=\"false\">体育经理<span class=\"n\">2</span></button>",
+        "rect": {
+          "x": 481.828125,
+          "y": -528.9453125,
+          "width": 7.203125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 489.03125,
+          "bottom": -511.546875,
+          "left": 481.828125
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "体育模拟2",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育模拟\" aria-pressed=\"false\">体育模拟<span class=\"n\">2</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">20</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 502.03125,
+          "y": -535.4453125,
+          "width": 81.203125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 583.234375,
+          "bottom": -506.546875,
+          "left": 502.03125
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "2",
+        "html": "<span class=\"n\">2</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"体育模拟\" aria-pressed=\"false\">体育模拟<span class=\"n\">2</span></button>",
+        "rect": {
+          "x": 567.03125,
+          "y": -528.9453125,
+          "width": 7.203125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 574.234375,
+          "bottom": -511.546875,
+          "left": 567.03125
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "赛车经理1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"赛车经理\" aria-pressed=\"false\">赛车经理<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">20</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 587.234375,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 666.046875,
+          "bottom": -506.546875,
+          "left": 587.234375
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"赛车经理\" aria-pressed=\"false\">赛车经理<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 652.234375,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 657.046875,
+          "bottom": -511.546875,
+          "left": 652.234375
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "电竞经理1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"电竞经理\" aria-pressed=\"false\">电竞经理<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">20</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 670.046875,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 748.859375,
+          "bottom": -506.546875,
+          "left": 670.046875
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"电竞经理\" aria-pressed=\"false\">电竞经理<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 735.046875,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 739.859375,
+          "bottom": -511.546875,
+          "left": 735.046875
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "电竞生涯1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"电竞生涯\" aria-pressed=\"false\">电竞生涯<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">20</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 752.859375,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 831.671875,
+          "bottom": -506.546875,
+          "left": 752.859375
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"电竞生涯\" aria-pressed=\"false\">电竞生涯<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 817.859375,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 822.671875,
+          "bottom": -511.546875,
+          "left": 817.859375
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "演艺经营1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"演艺经营\" aria-pressed=\"false\">演艺经营<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">20</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 835.671875,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 914.484375,
+          "bottom": -506.546875,
+          "left": 835.671875
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"演艺经营\" aria-pressed=\"false\">演艺经营<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 900.671875,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 905.484375,
+          "bottom": -511.546875,
+          "left": 900.671875
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "修仙养成1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"修仙养成\" aria-pressed=\"false\">修仙养成<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">20</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 918.484375,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 997.296875,
+          "bottom": -506.546875,
+          "left": 918.484375
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"修仙养成\" aria-pressed=\"false\">修仙养成<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 983.484375,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 988.296875,
+          "bottom": -511.546875,
+          "left": 983.484375
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "益智解谜1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"益智解谜\" aria-pressed=\"false\">益智解谜<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">20</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 1001.296875,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 1080.109375,
+          "bottom": -506.546875,
+          "left": 1001.296875
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"益智解谜\" aria-pressed=\"false\">益智解谜<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 1066.296875,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 1071.109375,
+          "bottom": -511.546875,
+          "left": 1066.296875
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "cls": "state-layer focus-ring chip",
+        "text": "宫廷养成1",
+        "html": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"宫廷养成\" aria-pressed=\"false\">宫廷养成<span class=\"n\">1</span></button>",
+        "parent": "<div class=\"chips\"><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"全部\" aria-pressed=\"true\">全部<span class=\"n\">20</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"生存冒险\" aria-pressed=\"false\">生存冒险<span class=\"n\">1</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"人生模拟\" aria-pressed=\"false\">人生模拟<span class=\"n\">2</span></button><button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"模拟经营\" aria-pr",
+        "rect": {
+          "x": 1084.109375,
+          "y": -535.4453125,
+          "width": 78.8125,
+          "height": 28.8984375,
+          "top": -535.4453125,
+          "right": 1162.921875,
+          "bottom": -506.546875,
+          "left": 1084.109375
+        }
+      },
+      {
+        "tag": "SPAN",
+        "cls": "n",
+        "text": "1",
+        "html": "<span class=\"n\">1</span>",
+        "parent": "<button class=\"state-layer focus-ring chip\" type=\"button\" data-genre=\"宫廷养成\" aria-pressed=\"false\">宫廷养成<span class=\"n\">1</span></button>",
+        "rect": {
+          "x": 1149.109375,
+          "y": -528.9453125,
+          "width": 4.8125,
+          "height": 17.3984375,
+          "top": -528.9453125,
+          "right": 1153.921875,
+          "bottom": -511.546875,
+          "left": 1149.109375
+        }
+      }
+    ]
+  }
+]

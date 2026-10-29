@@ -1,0 +1,31 @@
+{
+  "lol": {
+    "source": "/Users/leizhang/Documents/ChatGPT/shoota/lol-manager/public/games/lol.html",
+    "bytes": 363817,
+    "sha256": "9684d3903e70c3a33455b2d8ce0db49435ab82686a81e55f813c191ecebd8554",
+    "archive": {
+      "path": "/Users/leizhang/Documents/ChatGPT/shoota/lol-manager/output/frozen/lol-manager-9684d390-20261029.zip",
+      "bytes": 18058838,
+      "sha256": "9fb58181dc66eb5db083323b4be0f0034d19f6a044dba54b90b264e15d9adb35",
+      "entry": "lol-manager-9684d390-20261029/public/games/lol.html"
+    }
+  },
+  "lol-player": {
+    "source": "/Users/leizhang/Documents/ChatGPT/shoota/lol-player/dist/lol-player.html",
+    "bytes": 2950923,
+    "sha256": "4be445446780e3a4f1b13cfc3c50b362eb052c0945875138f779527c55dc0786",
+    "archive": {
+      "path": "/Users/leizhang/Documents/ChatGPT/shoota/lol-player/output/releases/lol-player-v1.3.3.zip",
+      "sha256": "8530af05be399d2323cf0d56263ddb8bf2c7d9396e352838c6613f27876a5e97",
+      "bytes": 51604790,
+      "entry": "lol-player-v1.3.3/dist/lol-player.html"
+    }
+  },
+  "cover": {
+    "source": "/Users/leizhang/Documents/ChatGPT/shoota/output/releases/lol-manager-player-2026-10-30/lol-player.jpg",
+    "bytes": 166084,
+    "sha256": "b1e44af36de36ae34ecf2700ab6c86df6f341f89f1533232019dfced4988fa60"
+  },
+  "status": "final HTML and ZIP verified; local integration only",
+  "base": "c26dee1d7e56be6ed94927684d4efd13da573d38"
+}

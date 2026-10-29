@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "base": "c26dee1d7e56be6ed94927684d4efd13da573d38",
+  "order": [
+    "spud-dawn",
+    "one-in-billions",
+    "airline-empire",
+    "f1-driver",
+    "nba",
+    "football-manager",
+    "f1",
+    "basketball-star",
+    "wealth-reborn",
+    "rental-empire",
+    "douluo",
+    "cba",
+    "lol",
+    "lol-player",
+    "entertainment-career",
+    "football-career",
+    "one-thought-immortal",
+    "yike",
+    "hougong",
+    "yexiao"
+  ],
+  "unchangedFiles": 56,
+  "unchangedCatalogObjects": 18,
+  "publicAllowlist": [
+    "public/index.html",
+    "public/games/lol.html",
+    "public/games/lol-player.html",
+    "public/covers/lol-player.jpg"
+  ],
+  "indexSha256": "ce56fb652f35cf08800ba1c0d4622729671226636c01a238c424d28d95d553de"
+}
