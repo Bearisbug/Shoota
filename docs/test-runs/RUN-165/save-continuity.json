@@ -1,0 +1,20 @@
+{
+  "oldVersion": "1.3.2",
+  "newVersion": "1.3.2",
+  "oldAge": 1,
+  "newAge": 3,
+  "identity": {
+    "id": true,
+    "name": true,
+    "born": true,
+    "country": true,
+    "sex": true,
+    "tier": true,
+    "parents": true,
+    "origin": true
+  },
+  "oldLogsPreserved": true,
+  "oldLogCount": 2,
+  "newLogCount": 5,
+  "publicBackupOnly": true
+}

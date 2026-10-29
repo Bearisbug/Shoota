@@ -1,0 +1,39 @@
+[
+  {
+    "test": "pathways",
+    "exitCode": 0,
+    "seconds": 0.47
+  },
+  {
+    "test": "engine",
+    "exitCode": 0,
+    "seconds": 1.7
+  },
+  {
+    "test": "origins-storage",
+    "exitCode": 0,
+    "seconds": 0.83
+  },
+  {
+    "test": "course",
+    "exitCode": 0,
+    "seconds": 0.2
+  },
+  {
+    "test": "story",
+    "exitCode": 0,
+    "seconds": 0.07
+  },
+  {
+    "test": "storage-session",
+    "exitCode": 1,
+    "seconds": 0.1
+  },
+  {
+    "test": "storage-session",
+    "exitCode": 0,
+    "note": "Initial run missing external fixture; copied unchanged original QA fixture, rerun passed",
+    "fixture": "one-in-billions/output/host-d14f12a-qa/stress-100.json",
+    "fixtureSha256": "85fdacfe32e26f9e72d8b6bafa839444527e12ae9ce84de46f56bd9469c451c7"
+  }
+]

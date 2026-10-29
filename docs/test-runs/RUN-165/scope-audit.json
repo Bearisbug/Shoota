@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "base": "a38de8cc12d03137f4c43c38ae9466e9e0b46655",
+  "publicAllowlist": [
+    "public/index.html",
+    "public/games/one-in-billions.html"
+  ],
+  "unchangedFiles": 58,
+  "order": [
+    "spud-dawn",
+    "one-in-billions",
+    "airline-empire",
+    "f1-driver",
+    "nba",
+    "football-manager",
+    "f1",
+    "basketball-star",
+    "wealth-reborn",
+    "rental-empire",
+    "douluo",
+    "cba",
+    "lol",
+    "lol-player",
+    "entertainment-career",
+    "football-career",
+    "one-thought-immortal",
+    "yike",
+    "hougong",
+    "yexiao"
+  ],
+  "hostSha256": "00b603e88a8fb0fca39411b297b37656a2ac1dac549243e2cbb246999232d0fe",
+  "game": {
+    "title": "此生",
+    "bytes": 481206,
+    "sha256": "a73cf0c5b3016905ab2fecf3bc5f41ea8129fc453aa5e048fe77b1336e9d7996"
+  }
+}

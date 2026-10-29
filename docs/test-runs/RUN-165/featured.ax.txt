@@ -1,0 +1,97 @@
+Browser tab: 4, Title: "shoota 游戏平台", URL: "http://127.0.0.1:56371/#store".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:56371/#store
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:56371/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:56371/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:56371/#library
+			7 link Description: 存档, Value: 127.0.0.1:56371/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		12 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container view
+		13 container 精选
+			14 heading 精选与推荐, Value: 2
+				15 text 精选与推荐
+			16 text 20 款游戏
+			17 link Description: 此生 八十亿分之一, Value: 127.0.0.1:56371/#game-one-in-billions
+			18 heading 此生, Value: 3
+				19 text 此生
+			20 container
+				21 text 可玩
+			22 text 在217个国家和地区中迎来自己的出生，经历成长、求学与人生抉择，把走过的路留进纪念册。
+			23 button 人生模拟
+			24 button 像素
+			25 button 成长
+			26 button 选择
+			27 link Description: 开始游戏, Value: 127.0.0.1:56371/#play-one-in-billions
+			28 link Description: 查看详情, Value: 127.0.0.1:56371/#game-one-in-billions
+			29 checkbox Description: 薯光 · Spud Dawn, Value: 0
+			30 checkbox Description: 此生, Value: 1
+			31 checkbox Description: 打造全球最佳航司, Value: 0
+			32 checkbox Description: F1-Driver, Value: 0
+			33 checkbox Description: NBA-经理, Value: 0
+			34 checkbox Description: 绿茵经理, Value: 0
+			35 checkbox Description: F1-Team Principal, Value: 0
+			36 checkbox Description: 篮球巨星, Value: 0
+			37 checkbox Description: 我要当首富, Value: 0
+			38 checkbox Description: 脚踩神州，拳打一嗨, Value: 0
+			39 checkbox Description: 斗罗·万相, Value: 0
+			40 checkbox Description: CBA-经理, Value: 0
+			41 checkbox Description: 我在LOL建银河战队, Value: 0
+			42 checkbox Description: 我是职业通天代, Value: 0
+			43 checkbox Description: 杀穿娱乐圈, Value: 0
+			44 checkbox Description: 足球巨星, Value: 0
+			45 checkbox Description: 一念长生, Value: 0
+			46 checkbox Description: 一克之差, Value: 0
+			47 checkbox Description: 后宫生死簿, Value: 0
+			48 checkbox Description: 重生之我是夜宵摊摊主, Value: 0
+		49 container
+			50 heading 继续游玩, Value: 2
+				51 text 继续游玩
+			52 link Description: 此生 3 分钟 · 刚刚, Value: 127.0.0.1:56371/#play-one-in-billions
+		53 container
+			54 heading 全部游戏, Value: 2
+				55 text 全部游戏
+			56 text 20 款
+			57 checkbox 全部 20, Value: 1
+			58 checkbox 生存冒险 1, Value: 0
+			59 checkbox 人生模拟 2, Value: 0
+			60 checkbox 模拟经营 4, Value: 0
+			61 checkbox 体育生涯 2, Value: 0
+			62 checkbox 体育经理 2, Value: 0
+			63 checkbox 体育模拟 2, Value: 0
+			64 checkbox 赛车经理 1, Value: 0
+			65 checkbox 电竞经理 1, Value: 0
+			66 checkbox 电竞生涯 1, Value: 0
+			67 checkbox 演艺经营 1, Value: 0
+			68 checkbox 修仙养成 1, Value: 0
+			69 checkbox 益智解谜 1, Value: 0
+			70 checkbox 宫廷养成 1, Value: 0
+			71 link Description: 薯光 · Spud Dawn 薯光 · Spud Dawn 可玩 生存冒险, Value: 127.0.0.1:56371/#game-spud-dawn
+			72 link Description: 此生 此生 可玩 人生模拟 · 已玩 3 分钟, Value: 127.0.0.1:56371/#game-one-in-billions
+			73 link Description: 打造全球 最佳航司 打造全球最佳航司 可玩 模拟经营, Value: 127.0.0.1:56371/#game-airline-empire
+			74 link Description: F1-Driver F1-Driver 可玩 体育生涯, Value: 127.0.0.1:56371/#game-f1-driver
+			75 link Description: NBA-经理 NBA-经理 可玩 体育经理, Value: 127.0.0.1:56371/#game-nba
+			76 link Description: 绿茵经理 绿茵经理 可玩 体育模拟, Value: 127.0.0.1:56371/#game-football-manager
+			77 link Description: F1-Team Principal F1-Team Principal 可玩 赛车经理, Value: 127.0.0.1:56371/#game-f1
+			78 link Description: 篮球巨星 篮球巨星 可玩 体育生涯, Value: 127.0.0.1:56371/#game-basketball-star
+			79 link Description: 我要当首富 我要当首富 可玩 模拟经营, Value: 127.0.0.1:56371/#game-wealth-reborn
+			80 link Description: 脚踩神州 拳打一嗨 脚踩神州，拳打一嗨 可玩 模拟经营, Value: 127.0.0.1:56371/#game-rental-empire
+			81 link Description: 斗罗·万相 斗罗·万相 可玩 人生模拟, Value: 127.0.0.1:56371/#game-douluo
+			82 link Description: CBA-经理 CBA-经理 可玩 体育经理, Value: 127.0.0.1:56371/#game-cba
+			83 link Description: 我在LOL建银河战队 我在LOL建银河战队 可玩 电竞经理, Value: 127.0.0.1:56371/#game-lol
+			84 link Description: 我是职业通天代 我是职业通天代 可玩 电竞生涯, Value: 127.0.0.1:56371/#game-lol-player
+			85 link Description: 杀穿娱乐圈 杀穿娱乐圈 可玩 演艺经营, Value: 127.0.0.1:56371/#game-entertainment-career
+			86 link Description: 足球巨星 足球巨星 可玩 体育模拟, Value: 127.0.0.1:56371/#game-football-career
+			87 link Description: 一念长生 一念长生 可玩 修仙养成, Value: 127.0.0.1:56371/#game-one-thought-immortal
+			88 link Description: 一克之差 一克之差 可玩 益智解谜, Value: 127.0.0.1:56371/#game-yike
+			89 link Description: 后宫生死簿 后宫生死簿 可玩 宫廷养成, Value: 127.0.0.1:56371/#game-hougong
+			90 link Description: 重生之我是夜宵摊摊主 重生之我是夜宵摊摊主 可玩 模拟经营, Value: 127.0.0.1:56371/#game-yexiao
+		91 container
+			92 heading 进度只存在这台设备上, Value: 3
+				93 text 进度只存在这台设备上
+			94 text 不用注册，存档自动保存在这个浏览器里。换手机、换浏览器或清理缓存前，先复制一份存档码，到新设备上粘贴回来就能接着玩。
+			95 link Description: 备份 / 恢复进度, Value: 127.0.0.1:56371/#backup
+
+The focused UI element is 1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:56371/#store

@@ -1,0 +1,10 @@
+{
+  "sha256": "5e701831623629cb690b94e53644990abed592e4bcc96f93d11038d116363126",
+  "bytes": 481372,
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/one-in-billions/dist/index.html",
+  "sourceDifferencesFromA73": [
+    "style.css"
+  ],
+  "inlineScriptsIdentical": true,
+  "status": "awaiting final frozen package"
+}

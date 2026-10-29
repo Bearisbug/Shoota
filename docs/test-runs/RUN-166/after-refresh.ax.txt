@@ -1,0 +1,63 @@
+Browser tab: 4, Title: "shoota 游戏平台", URL: "http://127.0.0.1:56371/#play-one-in-billions".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:56371/#play-one-in-billions
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:56371/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:56371/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:56371/#library
+			7 link Description: 存档, Value: 127.0.0.1:56371/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container player
+		12 button 退出游戏, ID: pExit
+		13 text 此生
+		14 button (disabled) 已读取存档, ID: pSaved
+		20 text 本次 0 分钟
+		16 button 全屏, ID: pFull
+		17 container 此生
+			18 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc
+				19 container app
+					21 container
+						22 heading 亚历克斯 童年, Value: 1
+							23 text 亚历克斯 童年
+						24 text 🇦🇱 阿尔巴尼亚 4 岁 2030 年
+						25 container 人生调整工具栏
+							26 button ◌ 重心
+							27 button ⌂ 出身
+							28 button ▤ 安排
+							29 button ⋯ 更多
+							30 button ▷ 播放
+							31 button 切换时间速度
+						32 text 有灯亮着的地方
+						33 image 亚历克斯，4岁，有灯亮着的地方
+						34 text ♡ 健康
+						35 text 82
+						36 level indicator Description: 健康, Value: 82
+						37 text ☀ 幸福
+						38 text 71
+						39 level indicator Description: 幸福, Value: 71
+						40 text ⌘ 知识
+						41 text 5
+						42 level indicator Description: 知识, Value: 5
+						43 text ♧ 关系
+						44 text 52
+						45 level indicator Description: 关系, Value: 52
+						46 container 人生信息
+							47 button 故事
+							48 button 状态
+							49 button 家人
+							50 button 财务
+							51 button 世界
+							52 button 记录
+						53 container
+							54 text THE FIRST CHAPTER 4 岁 · 童年
+							55 heading 小小的脚步, Value: 2
+								56 text 小小的脚步
+							57 text 你开始记住Tirane窗外每天响起的声音。家人牵着你，走过门口那段不算长的路。 世界一点点变大，你也一点点长大。
+					58 container
+						59 text 停留在此刻
+						60 button 下个抉择 »
+						61 button 下一年　→
+
+The focused UI element is 18 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc

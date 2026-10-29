@@ -1,0 +1,20 @@
+{
+  "places.js": true,
+  "index.html": true,
+  "memorial.js": true,
+  "stories.js": true,
+  "pixels.js": true,
+  "origins.js": true,
+  "social-data.js": true,
+  "home-world.js": true,
+  "life-course.js": true,
+  "lab.js": true,
+  "style.css": false,
+  "engine.js": true,
+  "world-data.js": true,
+  "pathways.js": true,
+  "public-save.js": true,
+  "app.js": true,
+  "storage.js": true,
+  "mortality.js": true
+}

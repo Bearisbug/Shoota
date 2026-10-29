@@ -1,0 +1,31 @@
+{
+  "id": "one-in-billions",
+  "files": 215,
+  "fullSourceZipSha256": "e029ea154cf9468753ca7dbd387d97bef4fb63cd7676b7b2b7177388305b2676",
+  "allManifestAndZipEntriesEqual": true,
+  "rebuildMatches": true,
+  "htmlSha256": "5e701831623629cb690b94e53644990abed592e4bcc96f93d11038d116363126",
+  "ruleSourceBytesIdentical": true,
+  "sourceComparison": {
+    "places.js": true,
+    "index.html": true,
+    "memorial.js": true,
+    "stories.js": true,
+    "pixels.js": true,
+    "origins.js": true,
+    "social-data.js": true,
+    "home-world.js": true,
+    "life-course.js": true,
+    "lab.js": true,
+    "style.css": false,
+    "engine.js": true,
+    "world-data.js": true,
+    "pathways.js": true,
+    "public-save.js": true,
+    "app.js": true,
+    "storage.js": true,
+    "mortality.js": true
+  },
+  "offlineZipHtmlIdentical": true,
+  "offlineZipSha256": "fed0f2b9d3891af48566c360291cd2f73c277a09a6dfd64e5a70cf623b569f84"
+}

@@ -1,0 +1,125 @@
+Browser tab: 4, Title: "shoota 游戏平台", URL: "http://127.0.0.1:56371/#play-one-in-billions".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:56371/#play-one-in-billions
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:56371/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:56371/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:56371/#library
+			7 link Description: 存档, Value: 127.0.0.1:56371/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, Value: 此生, ID: q
+		74 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container view
+		13 link Description: 商店, Value: 127.0.0.1:56371/#store
+		14 text ›
+		15 link Description: 人生模拟, Value: 127.0.0.1:56371/#store
+		16 text › 此生
+		17 heading 此生, Value: 1
+			18 text 此生
+		19 text 八十亿分之一
+		20 container
+			21 text 此生 八十亿分之一
+		22 container
+			23 text 在217个国家和地区中迎来自己的出生，经历成长、求学与人生抉择，把走过的路留进纪念册。
+			24 definition list
+				25 container 类型
+					26 text 类型
+				27 text 人生模拟
+				28 container 一局
+					29 text 一局
+				30 text 按年成长
+				31 container 存档
+					32 text 存档
+				33 text 自动存档，支持平台CJ1备份与恢复
+				34 container 大小
+					35 text 大小
+				36 text 470 KB
+			37 button 人生模拟
+			38 button 像素
+			39 button 成长
+			40 button 选择
+			41 text 可玩
+		42 container
+			43 heading 开始玩《此生》, Value: 3
+				44 text 开始玩《此生》
+			45 text 你已玩 1 分钟，上次 1 分钟前。存档会接着上次。
+			46 link Description: 继续游戏, Value: 127.0.0.1:56371/#play-one-in-billions
+		47 container
+			48 heading 关于这款游戏, Value: 2
+				49 text 关于这款游戏
+			50 text 从世界各地的出生背景出发，在像素场景里认识家人、经历童年，面对不同的成长条件。 选择专业与学校，收到录取结果后决定下一步；寻找对口或跨专业岗位，也可以创业经营。学校、公司和经济事件均为游戏设定。 在首页阅读模拟生成的人生示例，回顾自己的经历并收入纪念册。出生与离世计数为估算；平台内可通过存档页备份和恢复进度。
+		51 container
+			52 heading 一局怎么玩, Value: 2
+				53 text 一局怎么玩
+			54 content list
+				55 container
+					94 text 1 1 认识出生地与家庭，开始这一生
+				57 container
+					95 text 2 2 推进年龄，面对事件并做出选择
+				59 container
+					96 text 3 3 安排成长、求学与留学方向
+				61 container
+					97 text 4 4 回顾人生，将经历收入纪念册
+		63 heading 你的记录, Value: 3
+			64 text 你的记录
+		65 text 游玩时间
+		66 text 1 分钟
+		67 text 上次游玩
+		68 text 1 分钟前
+		69 button 加入愿望单
+		70 heading 成就, Value: 3
+			71 text 成就
+		72 container
+			73 text 这款游戏还没接入平台成就。游戏调用  Platform.unlock()  后，成就会出现在这里。
+	79 container player
+		80 button 退出游戏, ID: pExit
+		81 text 此生
+		82 button (disabled) 已存档 02:03, ID: pSaved
+		98 text 本次 1 分钟
+		84 button 全屏, ID: pFull
+		86 container 此生
+			87 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc
+				88 container app
+					99 container
+						100 heading 亚历克斯 童年, Value: 1
+							101 text 亚历克斯 童年
+						102 text 3 岁 2029 年
+						103 container 人生调整工具栏
+							104 button ◌ 重心
+							105 button ⌂ 出身
+							106 button ▤ 安排
+							107 button ⋯ 更多
+							108 button ▷ 播放
+							109 button 切换时间速度
+						110 text 有灯亮着的地方
+						111 image 亚历克斯，3岁，有灯亮着的地方
+						112 text ♡ 健康
+						113 text 82
+						114 level indicator Description: 健康, Value: 82
+						115 text ☀ 幸福
+						116 text 69
+						117 level indicator Description: 幸福, Value: 69
+						118 text ⌘ 知识
+						119 text 5
+						120 level indicator Description: 知识, Value: 5
+						121 text ♧ 关系
+						122 text 48
+						123 level indicator Description: 关系, Value: 48
+						124 container 当前人生抉择
+							125 heading 门口那一级台阶, Value: 2
+								126 text 门口那一级台阶
+							127 button 读完整故事 ↗
+							128 text 你扶着门框，想自己走下那一级台阶。楼道里有邻居上楼的脚步声。大人伸出手，又停在半空。
+							129 checkbox 试着自己迈过去 健康 +3 · 留下一份勇气 ↗, Value: 0
+								130 text 试着自己迈过去
+								131 text 健康 +3 · 留下一份勇气
+								132 text ↗
+							133 checkbox 握住伸来的手 关系 +4 · 记得有人接住你 ↗, Value: 0
+								134 text 握住伸来的手
+								135 text 关系 +4 · 记得有人接住你
+								136 text ↗
+					137 container
+						138 text 有一个抉择在等你
+						139 button (disabled) 确认选择　→
+
+The focused UI element is 87 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc

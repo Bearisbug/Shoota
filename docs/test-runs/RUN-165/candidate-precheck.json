@@ -1,0 +1,12 @@
+{
+  "status": "candidate only; final platform acceptance pending",
+  "source": "/Users/leizhang/Documents/ChatGPT/shoota/one-in-billions/output/releases/2026-10-30-v1.4.0-a73cf0c5b301",
+  "filesVerified": 109,
+  "bytes": 481206,
+  "sha256": "a73cf0c5b3016905ab2fecf3bc5f41ea8129fc453aa5e048fe77b1336e9d7996",
+  "offlineZipHtmlMatches": true,
+  "baselineCommit": "a38de8cc12d03137f4c43c38ae9466e9e0b46655",
+  "designBaseline": "cfbc84b854807e6d7e1b7324592e84248f19f00f",
+  "rebuildMatches": true,
+  "rebuildPath": "/private/tmp/shoota-life-precheck-tdlc5bw1/dist/index.html"
+}

@@ -1,0 +1,148 @@
+Browser tab: 4, Title: "shoota 游戏平台", URL: "http://127.0.0.1:56371/#play-one-in-billions".
+0 AXWebArea shoota 游戏平台, URL: 127.0.0.1:56371/#play-one-in-billions
+	1 container
+		2 link Description: shoota 首页, Value: 127.0.0.1:56371/#store
+		3 container 主导航
+			4 link Description: 商店, Value: 127.0.0.1:56371/#store
+			5 link Description: 游戏库, Value: 127.0.0.1:56371/#library
+			6 link Description: 存档, Value: 127.0.0.1:56371/#backup
+		7 text 搜索游戏
+		8 search text field (settable) 搜索游戏, ID: q
+		9 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	10 container view
+		11 container 精选
+			12 heading 精选与推荐, Value: 2
+				13 text 精选与推荐
+			14 text 20 款游戏
+			15 link Description: 薯光 · Spud Dawn 挖到天黑 · 熬到薯光, Value: 127.0.0.1:56371/#game-spud-dawn
+			16 heading 薯光 · Spud Dawn, Value: 3
+				17 text 薯光 · Spud Dawn
+			18 container
+				19 text 可玩
+			20 text 白天采集矿石与资源，黄昏赶回营火，夜里抵御怪物。扛过长夜，用黎明换来的材料打造下一天的装备与营地。
+			21 button 生存冒险
+			22 button 肉鸽
+			23 button 动作
+			24 button 建造
+			25 link Description: 开始游戏, Value: 127.0.0.1:56371/#play-spud-dawn
+			26 link Description: 查看详情, Value: 127.0.0.1:56371/#game-spud-dawn
+			27 checkbox Description: 薯光 · Spud Dawn, Value: 1
+			28 checkbox Description: 此生, Value: 0
+			29 checkbox Description: 打造全球最佳航司, Value: 0
+			30 checkbox Description: F1-Driver, Value: 0
+			31 checkbox Description: NBA-经理, Value: 0
+			32 checkbox Description: 绿茵经理, Value: 0
+			33 checkbox Description: F1-Team Principal, Value: 0
+			34 checkbox Description: 篮球巨星, Value: 0
+			35 checkbox Description: 我要当首富, Value: 0
+			36 checkbox Description: 脚踩神州，拳打一嗨, Value: 0
+			37 checkbox Description: 斗罗·万相, Value: 0
+			38 checkbox Description: CBA-经理, Value: 0
+			39 checkbox Description: 我在LOL建银河战队, Value: 0
+			40 checkbox Description: 我是职业通天代, Value: 0
+			41 checkbox Description: 杀穿娱乐圈, Value: 0
+			42 checkbox Description: 足球巨星, Value: 0
+			43 checkbox Description: 一念长生, Value: 0
+			44 checkbox Description: 一克之差, Value: 0
+			45 checkbox Description: 后宫生死簿, Value: 0
+			46 checkbox Description: 重生之我是夜宵摊摊主, Value: 0
+		47 container
+			48 heading 继续游玩, Value: 2
+				49 text 继续游玩
+			50 link Description: 此生 3 分钟 · 13 分钟前, Value: 127.0.0.1:56371/#play-one-in-billions
+		51 container
+			52 heading 全部游戏, Value: 2
+				53 text 全部游戏
+			54 text 20 款
+			55 checkbox 全部 20, Value: 1
+			56 checkbox 生存冒险 1, Value: 0
+			57 checkbox 人生模拟 2, Value: 0
+			58 checkbox 模拟经营 4, Value: 0
+			59 checkbox 体育生涯 2, Value: 0
+			60 checkbox 体育经理 2, Value: 0
+			61 checkbox 体育模拟 2, Value: 0
+			62 checkbox 赛车经理 1, Value: 0
+			63 checkbox 电竞经理 1, Value: 0
+			64 checkbox 电竞生涯 1, Value: 0
+			65 checkbox 演艺经营 1, Value: 0
+			66 checkbox 修仙养成 1, Value: 0
+			67 checkbox 益智解谜 1, Value: 0
+			68 checkbox 宫廷养成 1, Value: 0
+			69 link Description: 薯光 · Spud Dawn 薯光 · Spud Dawn 可玩 生存冒险, Value: 127.0.0.1:56371/#game-spud-dawn
+			70 link Description: 此生 此生 可玩 人生模拟 · 已玩 3 分钟, Value: 127.0.0.1:56371/#game-one-in-billions
+			71 link Description: 打造全球 最佳航司 打造全球最佳航司 可玩 模拟经营, Value: 127.0.0.1:56371/#game-airline-empire
+			72 link Description: F1-Driver F1-Driver 可玩 体育生涯, Value: 127.0.0.1:56371/#game-f1-driver
+			73 link Description: NBA-经理 NBA-经理 可玩 体育经理, Value: 127.0.0.1:56371/#game-nba
+			74 link Description: 绿茵经理 绿茵经理 可玩 体育模拟, Value: 127.0.0.1:56371/#game-football-manager
+			75 link Description: F1-Team Principal F1-Team Principal 可玩 赛车经理, Value: 127.0.0.1:56371/#game-f1
+			76 link Description: 篮球巨星 篮球巨星 可玩 体育生涯, Value: 127.0.0.1:56371/#game-basketball-star
+			77 link Description: 我要当首富 我要当首富 可玩 模拟经营, Value: 127.0.0.1:56371/#game-wealth-reborn
+			78 link Description: 脚踩神州 拳打一嗨 脚踩神州，拳打一嗨 可玩 模拟经营, Value: 127.0.0.1:56371/#game-rental-empire
+			79 link Description: 斗罗·万相 斗罗·万相 可玩 人生模拟, Value: 127.0.0.1:56371/#game-douluo
+			80 link Description: CBA-经理 CBA-经理 可玩 体育经理, Value: 127.0.0.1:56371/#game-cba
+			81 link Description: 我在LOL建银河战队 我在LOL建银河战队 可玩 电竞经理, Value: 127.0.0.1:56371/#game-lol
+			82 link Description: 我是职业通天代 我是职业通天代 可玩 电竞生涯, Value: 127.0.0.1:56371/#game-lol-player
+			83 link Description: 杀穿娱乐圈 杀穿娱乐圈 可玩 演艺经营, Value: 127.0.0.1:56371/#game-entertainment-career
+			84 link Description: 足球巨星 足球巨星 可玩 体育模拟, Value: 127.0.0.1:56371/#game-football-career
+			85 link Description: 一念长生 一念长生 可玩 修仙养成, Value: 127.0.0.1:56371/#game-one-thought-immortal
+			86 link Description: 一克之差 一克之差 可玩 益智解谜, Value: 127.0.0.1:56371/#game-yike
+			87 link Description: 后宫生死簿 后宫生死簿 可玩 宫廷养成, Value: 127.0.0.1:56371/#game-hougong
+			88 link Description: 重生之我是夜宵摊摊主 重生之我是夜宵摊摊主 可玩 模拟经营, Value: 127.0.0.1:56371/#game-yexiao
+		89 container
+			90 heading 进度只存在这台设备上, Value: 3
+				91 text 进度只存在这台设备上
+			92 text 不用注册，存档自动保存在这个浏览器里。换手机、换浏览器或清理缓存前，先复制一份存档码，到新设备上粘贴回来就能接着玩。
+			93 link Description: 备份 / 恢复进度, Value: 127.0.0.1:56371/#backup
+	94 container player
+		95 button 退出游戏, ID: pExit
+		96 text 此生
+		97 button (disabled) 已读取存档, ID: pSaved
+		145 text 本次 0 分钟
+		99 button 全屏, ID: pFull
+		100 container 此生
+			101 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc
+				102 container app
+					103 container
+						104 heading 亚历克斯 童年, Value: 1
+							105 text 亚历克斯 童年
+						106 text 🇦🇱 阿尔巴尼亚 3 岁 2029 年
+						107 container 人生调整工具栏
+							108 button ◌ 重心
+							109 button ⌂ 出身
+							110 button ▤ 安排
+							111 button ⋯ 更多
+							112 button ▷ 播放
+							113 button 切换时间速度
+						114 text 有灯亮着的地方
+						115 image 亚历克斯，3岁，有灯亮着的地方
+						116 text ♡ 健康
+						117 text 82
+						118 level indicator Description: 健康, Value: 82
+						119 text ☀ 幸福
+						120 text 69
+						121 level indicator Description: 幸福, Value: 69
+						122 text ⌘ 知识
+						123 text 5
+						124 level indicator Description: 知识, Value: 5
+						125 text ♧ 关系
+						126 text 48
+						127 level indicator Description: 关系, Value: 48
+						128 container 当前人生抉择
+							129 text 童年 · 第一段记忆 3 岁 · 时间已暂停
+							130 heading 门口那一级台阶, Value: 2
+								131 text 门口那一级台阶
+							132 button 读完整故事 ↗
+							133 text 你扶着门框，想自己走下那一级台阶。楼道里有邻居上楼的脚步声。大人伸出手，又停在半空。
+							134 checkbox 试着自己迈过去 健康 +3 · 留下一份勇气 ↗, Value: 0
+								135 text 试着自己迈过去
+								136 text 健康 +3 · 留下一份勇气
+								137 text ↗
+							138 checkbox 握住伸来的手 关系 +4 · 记得有人接住你 ↗, Value: 0
+								139 text 握住伸来的手
+								140 text 关系 +4 · 记得有人接住你
+								141 text ↗
+					142 container
+						143 text 有一个抉择在等你
+						144 button (disabled) 确认选择　→
+
+The focused UI element is 101 AXWebArea 此生 · 八十亿分之一, URL: about:srcdoc
