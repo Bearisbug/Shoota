@@ -1,0 +1,45 @@
+[
+  {
+    "script": "dossiers-growth.cjs",
+    "exit": 0
+  },
+  {
+    "script": "star-eligibility.cjs",
+    "exit": 0
+  },
+  {
+    "script": "offseason.cjs",
+    "exit": 0
+  },
+  {
+    "script": "recruitment-requests.cjs",
+    "exit": 0
+  },
+  {
+    "script": "market-window.cjs",
+    "exit": 0
+  },
+  {
+    "script": "historical-formats.cjs",
+    "exit": 0
+  },
+  {
+    "script": "season-ecology.cjs",
+    "exit": 0
+  },
+  {
+    "script": "inline-match.cjs",
+    "exit": 0
+  },
+  {
+    "script": "player-perspective.cjs",
+    "exit": 0
+  },
+  {
+    "script": "manager-ratings.cjs",
+    "exit": 1
+  },
+  {
+    "rebuiltSha256": "6fa445ba2045ccaad68bd70bd222ea269f96005071175faaae0a62298fd9f12e"
+  }
+]

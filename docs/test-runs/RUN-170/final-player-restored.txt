@@ -1,0 +1,212 @@
+- banner:
+  - link "shoota 首页":
+    - /url: "#store"
+  - navigation "主导航":
+    - link "商店":
+      - /url: "#store"
+    - link "游戏库":
+      - /url: "#library"
+    - link "存档":
+      - /url: "#backup"
+  - generic: 搜索游戏
+  - searchbox "搜索游戏"
+  - button "账号菜单": 玩
+- main
+- button "退出游戏":
+  - generic: 退出游戏
+- generic: 我是职业通天代
+- generic: 17岁 · EDward Gaming · 能力78
+- button "已读取存档" [disabled]
+- generic: 本次 0 分钟
+- button "全屏":
+  - generic: 全屏
+- iframe:
+  - banner:
+    - generic: 峡谷生涯LOL PLAYER
+    - button "查看EDward Gaming":
+      - img "EDG 战队 Logo"
+    - text: 休赛验收 · 17 岁 · EDward Gaming
+    - generic: 2018 春季赛 · 第 5/13 轮
+    - combobox "快速模拟场数":
+      - option "1场" [selected]
+      - option "5场"
+    - button "▶ 快速模拟"
+  - navigation "生涯导航":
+    - button "主页 HQ":
+      - text: 主页
+      - generic: HQ
+    - button "我的选手 PLAYER":
+      - text: 我的选手
+      - generic: PLAYER
+    - button "战队阵容 ROSTER":
+      - text: 战队阵容
+      - generic: ROSTER
+    - button "赛程 SCHED":
+      - text: 赛程
+      - generic: SCHED
+    - button "积分榜 TABLE":
+      - text: 积分榜
+      - generic: TABLE
+    - button "季后赛 PO":
+      - text: 季后赛
+      - generic: PO
+    - button "MSI MSI":
+      - text: MSI
+      - generic: MSI
+    - button "世界赛 WORLDS":
+      - text: 世界赛
+      - generic: WORLDS
+    - button "选手库 PLAYERS":
+      - text: 选手库
+      - generic: PLAYERS
+    - button "参与招募 SCOUT":
+      - text: 参与招募
+      - generic: SCOUT
+    - button "合同与转会 CONTRACT":
+      - text: 合同与转会
+      - generic: CONTRACT
+    - button "赛季总结 AWARDS":
+      - text: 赛季总结
+      - generic: AWARDS
+    - button "历史 HIST":
+      - text: 历史
+      - generic: HIST
+    - button "存档 SAVE":
+      - text: 存档
+      - generic: SAVE
+  - main:
+    - button "查看EDward Gaming":
+      - img "EDG 战队 Logo"
+    - heading "EDward Gaming" [level=1]
+    - generic: LPL · 休赛验收 / 上单 · 首发竞争优势
+    - generic: 0-4
+    - generic: 大场战绩
+    - generic: 1-8
+    - generic: 小场
+    - generic: "#13"
+    - generic: LPL 排名
+    - generic: "78"
+    - generic: 我的能力
+    - text: 版本 2018.2.2 · 中路控场
+    - generic: 我的适配 84 · 强势英雄 1/3 熟练
+    - button "版本情报"
+    - heading "下一场" [level=3]
+    - button "查看EDward Gaming":
+      - img "EDG 战队 Logo"
+    - generic: "81"
+    - generic: vs
+    - generic: "80"
+    - button "查看LGD Gaming":
+      - img "LGD 战队 Logo"
+    - generic: BO3
+    - generic "首发综合 · 评分怎么算"
+    - generic: LGD Gaming · 春季赛第 5 轮
+    - button "比赛日 · 手动观看"
+    - generic: 上单
+    - button "369"
+    - text: · 17 岁
+    - generic "后期 +1，击杀 +20%": 单带战士
+    - generic: "77"
+    - generic: 打野
+    - button "Tarzan"
+    - text: · 19 岁
+    - generic "前期 +0.5，后期 +0.5": 控图运营
+    - generic: "78"
+    - generic: 中单
+    - button "Maple"
+    - text: · 22 岁
+    - generic "前期 +0.5，后期 +0.5，助攻 +20%": 功能型中单
+    - generic: "90"
+    - generic: 下路
+    - button "imp"
+    - text: · 23 岁
+    - generic "前期 +2，后期 −0.5": 前期强势
+    - generic: "78"
+    - generic: 辅助
+    - button "pyl"
+    - text: · 27 岁
+    - generic "前期 +1.5，助攻 +20%": 游走辅助
+    - generic: "78"
+    - generic: 本场首发
+    - generic: 以你的表现争取胜利
+    - heading "首发阵容" [level=3]
+    - generic: 上单
+    - button "休赛验收"
+    - generic: 你
+    - generic: "78"
+    - generic: 打野
+    - button "Mountain"
+    - generic: "81"
+    - generic: 中单
+    - button "Doinb"
+    - generic: "82"
+    - generic: 下路
+    - button "Zet"
+    - generic: "83"
+    - generic: 辅助
+    - button "CL0UD"
+    - generic: "83"
+    - paragraph: 默契 70% · 主教练 EDG 教练组
+    - button "查看完整阵容 →"
+    - heading "我的赛季" [level=3]
+    - generic: "78"
+    - generic "前期 +2，后期 −0.5": 压制型上单
+    - generic "游戏状态，不改变基础OVR": 状态 0
+    - generic: "3"
+    - generic: 首发系列赛
+    - generic: "14.0"
+    - generic: 个人声望
+    - generic: 32万
+    - generic: 累计收入
+    - paragraph: 首发竞争优势 · 同位置 Mouse
+    - button "完整能力与徽章"
+    - button "合同与转会"
+    - heading "LPL 积分榜" [level=3]
+    - generic: "1"
+    - button "查看Invictus Gaming":
+      - img "IG 战队 Logo"
+    - generic: Invictus Gaming
+    - generic: 3-1
+    - generic: "2"
+    - button "查看Rogue Warriors":
+      - img "RW 战队 Logo"
+    - generic: Rogue Warriors
+    - generic: 3-1
+    - generic: "3"
+    - button "查看FunPlus Phoenix":
+      - img "FPX 战队 Logo"
+    - generic: FunPlus Phoenix
+    - generic: 3-1
+    - generic: "4"
+    - button "查看Oh My God":
+      - img "OMG 战队 Logo"
+    - generic: Oh My God
+    - generic: 3-1
+    - generic: "5"
+    - button "查看Suning":
+      - generic: SN
+    - generic: Suning
+    - generic: 3-1
+    - generic: "6"
+    - button "查看Team WE":
+      - img "WE 战队 Logo"
+    - generic: Team WE
+    - generic: 2-2
+    - button "完整积分榜 →"
+    - heading "联盟动态" [level=3]
+    - generic: "2018"
+    - generic: 版本 2018.2.2 · 中路控场：中路法师与团战控制主导地图节奏。 你的版本适配 84。
+    - generic: "2018"
+    - generic: 春季赛第 4 轮：EDG 0-2 RNG
+    - generic: "2018"
+    - generic: 春季赛第 3 轮：EDG 0-2 OMG
+    - generic: "2018"
+    - generic: 春季赛第 2 轮：EDG 1-2 VG
+    - generic: "2018"
+    - generic: 春季赛第 1 轮：EDG 0-2 IG
+    - generic: "2018"
+    - generic: 版本 2018.2.1 · 野核发育：打野发育与野区资源更重要，中路线权帮助野核接管比赛。 你的版本适配 73。
+    - generic: "2018"
+    - generic: 2018 赛季开始！
+    - generic: "2017"
+    - generic: KDM 签下 Ggoong（中单，OVR 78），3 年 90万/年

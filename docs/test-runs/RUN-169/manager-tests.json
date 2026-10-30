@@ -1,0 +1,17 @@
+[
+  {
+    "script": "test-lol-alignment.cjs",
+    "exit": 0
+  },
+  {
+    "script": "build-lol-history.py",
+    "exit": 0
+  },
+  {
+    "script": "build-lol-alignment.py",
+    "exit": 0
+  },
+  {
+    "rebuiltSha256": "0258d860d8be31550b084b7fed19ba7818ca4d6e27274a800d613a28ad3ba68c"
+  }
+]

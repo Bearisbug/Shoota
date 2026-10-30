@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "years": 14,
+  "count": 5537,
+  "numericalPolicyAndPotentialsAndFuturesMatch": true,
+  "note": "Whole HTML dependency hash moved a6ebc4b0 to 0258d860; Imported rating numeric values match; manager policy metadata now version2 and eliteScope opening. Player report and separate regression verify same opening-only behavior."
+}

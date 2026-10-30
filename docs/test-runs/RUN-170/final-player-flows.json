@@ -1,0 +1,38 @@
+[
+  {
+    "width": 360,
+    "height": 640,
+    "actual": {
+      "height": 591,
+      "width": 360
+    },
+    "review": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "actual": {
+      "height": 795,
+      "width": 390
+    },
+    "review": true
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "actual": {
+      "height": 340,
+      "width": 844
+    },
+    "review": true
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "actual": {
+      "height": 718,
+      "width": 1366
+    },
+    "review": true
+  }
+]

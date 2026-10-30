@@ -1,0 +1,10 @@
+{
+  "managerManifestFiles": 111,
+  "managerAllHashesAndZipVerified": true,
+  "playerSourceSnapshot": "/Users/leizhang/Documents/ChatGPT/shoota/output/releases/lol-dossier-2026-10-30/checks/lol-player",
+  "playerBuild": {
+    "version": "1.6.0",
+    "sha256": "6fa445ba2045ccaad68bd70bd222ea269f96005071175faaae0a62298fd9f12e",
+    "bytes": 6727559
+  }
+}

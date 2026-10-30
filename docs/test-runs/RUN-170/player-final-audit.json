@@ -1,0 +1,35 @@
+{
+  "manifestFiles": 516,
+  "zipAllEntriesMatch": true,
+  "rebuiltSha256": "af6b84fe3d8bd5d32d16bb0710e60cfb786715429534ce86a00ce28c5d20ea8b",
+  "tests": [
+    {
+      "script": "contract-flow.cjs",
+      "exit": 0
+    },
+    {
+      "script": "offseason.cjs",
+      "exit": 0
+    },
+    {
+      "script": "market-window.cjs",
+      "exit": 0
+    },
+    {
+      "script": "recruitment-requests.cjs",
+      "exit": 0
+    },
+    {
+      "script": "inline-match.cjs",
+      "exit": 0
+    },
+    {
+      "script": "manager-ratings.cjs",
+      "exit": 0
+    },
+    {
+      "script": "build.py",
+      "exit": 0
+    }
+  ]
+}
