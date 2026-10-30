@@ -2122,6 +2122,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | RUN-162 | 2026-10-30 | 本地 | 81f旧游戏加新名准备夹具 | AI(Node、Chrome) | 局部(TC-LOLNAME-001、TC-LOLNAME-002、TC-LOLNAME-003) | 通过 1/3 · 阻塞 2 |
 | RUN-163 | 2026-10-30 | 本地 | 未冻结b91ec057与5410ce74，首页9b902386 | AI(内置后台浏览器) | 局部(TC-LOLNAME-002、TC-LOLNAME-005) | 通过 0/2 · 跳过 2 |
+| RUN-171 | 2026-10-31 | 本地 | 经理f9dcfbcc、选手b8a4e6a8冻结 | AI(发布统筹，后台IAB/Node/Python) | 局部(TC-LOLREFRESH-001，旧档返还及合同专项) | 通过；线上TC-LOLREFRESH-002见发布记录 |
 | RUN-170 | 2026-10-30 | 本地 | 经理0258d860、选手af6b84fe最终冻结 | AI(发布统筹，内置后台浏览器/Node/Python) | 复测(RUN-169:TC-LOLREFRESH-001、TC-LOLREFRESH-002、TC-LOLREFRESH-003) | 通过 3/3 |
 | RUN-169 | 2026-10-30 | 本地 | 经理0258d860、选手6fa445ba候选 | AI(发布统筹，内置后台浏览器/Node/Python) | 局部(TC-LOLREFRESH-001、TC-LOLREFRESH-003) | 通过 0/2 · 失败 2 |
 | RUN-168 | 2026-10-30 | 本地 | 经理a6ebc4b0、选手eedf3d2b最终冻结 | AI(发布统筹，内置后台浏览器/Node/Python) | 局部(TC-LOLREFRESH-001、TC-LOLREFRESH-002) | 通过 2/2 |

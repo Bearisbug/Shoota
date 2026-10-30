@@ -2580,7 +2580,7 @@ document.addEventListener('click',ev=>{
     case'dotrade':doTrade();save();render();break;
     case'trclear':UI.tm=[];UI.tt=[];UI.cash=0;render();break;
     case'copy':{const ta=document.getElementById('exp');const done=()=>toast('已复制存档');try{navigator.clipboard.writeText(ta.value).then(done,()=>{ta.select();toast('已选中，请手动复制')})}catch(e){ta.select();toast('已选中，请手动复制')}break}
-    case'import':{try{const o=JSON.parse(document.getElementById('imp').value);if(!o||o.v!==2||!o.teams)throw 0;S=o;LIVE=null;migrateRatingPolicy();migrateCalendar();observeClubHistory();migrate();migrate2();migrateClub();migrateDevelopment();migrateEcosystem();migrateCareerRatings();migrateBadges();migrateMeta();save();R={p:S.review?'review':'home'};render();window.scrollTo(0,0);toast('存档已载入')}catch(e){toast('存档格式不对，请粘贴完整的导出文本')}break}
+    case'import':{try{const o=JSON.parse(document.getElementById('imp').value);if(!o||o.v!==2||!o.teams)throw 0;S=o;LIVE=null;migrateRatingPolicy();migrateSeasonReviews();migrateCalendar();observeClubHistory();migrate();migrate2();migrateClub();migrateDevelopment();migrateEcosystem();migrateCareerRatings();migrateBadges();migrateMeta();save();R={p:S.review?'review':'home'};render();window.scrollTo(0,0);toast('存档已载入')}catch(e){toast('存档格式不对，请粘贴完整的导出文本')}break}
     case'newask':UI.confirmNew=true;render();break;
     case'newcancel':UI.confirmNew=false;render();break;
     case'newconfirm':UI.confirmNew=false;S=null;try{localStorage.removeItem(KEY)}catch(e){}render();break;
@@ -2773,20 +2773,45 @@ function realHistoryPanel(p){const d=realDossier(p);if(!d)return`<section class=
 function reviewSeasonAbility(p){
  const d=development(p);if(d.seasonReview?.s===S.season)return d.seasonReview;
  const x=p.st?sumLines(p.st.reg,p.st.po,p.st.wld):emptyLine(),r=x.g?x.rt/x.g:0,win=x.g?x.w/x.g:0;
- const peers=Object.values(S.players).filter(q=>q.pos===p.pos&&q.st).map(q=>sumLines(q.st.reg,q.st.po,q.st.wld)).filter(q=>q.g>=10);
- const baseline=peers.length?peers.reduce((a,q)=>a+q.rt/q.g,0)/peers.length:6.7;
- // A sustained weak season must end below its starting level, not merely erase a tiny XP tick.
- const personal=x.g>=10&&r<baseline-.35,team=x.g>=20&&win<.45;
- let loss=personal?(r<baseline-.85?3:r<baseline-.6?2:1):0;
- if(team)loss+=win<.3?2:1;
- if(!x.g&&age(p)>=25)loss=1;
- loss=Math.min(4,loss);const before=p.ovr,start=d.growthYear?.season===S.season?d.growthYear.start:before;
- const target=loss?Math.max(25,Math.min(before-loss,(personal||team)?start-1:before-loss)):before;
- if(target<before){setOverall(p,target);refreshBadges(p);p.sg=(p.sg||0)+p.ovr-before;p.xp=0;}
- const reasons=[personal?`个人场均评分 ${r.toFixed(2)}，同位置基准 ${baseline.toFixed(2)}`:null,team?`所参加比赛胜率 ${Math.round(win*100)}%` :null,!x.g&&age(p)>=25?'成熟选手整季未出场':null].filter(Boolean);
- const result={s:S.season,from:before,to:p.ovr,start,g:x.g,r,win,baseline,reasons:reasons.length?reasons:['表现未触发能力下调；成长仍由训练和比赛积累']};d.seasonReview=result;(p.abilityReviews||(p.abilityReviews=[])).push(result);return result;
+ const before=p.ovr,start=d.growthYear?.season===S.season?d.growthYear.start:before,a=age(p);
+ const previous=(p.abilityReviews||[]).find(q=>q.s===S.season-1);
+ const peers=Object.values(S.players).filter(q=>q.id!==p.id&&q.pos===p.pos&&q.tid!=='RET'&&q.st&&Math.abs((q.dev?.growthYear?.season===S.season?q.dev.growthYear.start:q.ovr)-start)<=5).map(q=>sumLines(q.st.reg,q.st.po,q.st.wld)).filter(q=>q.g>=20);
+ const baseline=peers.length>=3?peers.reduce((v,q)=>v+q.rt/q.g,0)/peers.length:previous?.g>=20?previous.r:null;
+ const basis=peers.length>=3?'同位置同档选手':baseline!=null?'本人上赛季':'暂无可靠样本';
+ const personalLow=a>=24&&x.g>=20&&baseline!=null&&r<baseline-.6;
+ const poorStreak=personalLow?1+(previous?.policyVersion===2&&previous.personalLow?previous.poorStreak||1:0):0;
+ const loss=poorStreak>=2?(poorStreak>=3&&baseline-r>=1?2:1):0;
+ if(loss){setOverall(p,Math.max(25,before-loss));refreshBadges(p);p.sg=(p.sg||0)+p.ovr-before;}
+ const reasons=a<=23?['成长期保护：23岁及以下不因评分、低胜率或少出场永久扣能力，已获得成长保留']:
+ x.g<20?['样本不足20局：继续观察，不扣能力']:
+ baseline==null?['缺少同档或本人上一季的可比样本：不扣能力']:
+ personalLow?[`${basis}基准 ${baseline.toFixed(2)}，个人评分 ${r.toFixed(2)}`,poorStreak===1?'首个低迷赛季：适应与观察，不扣能力':`连续 ${poorStreak} 季个人低迷，本季回落 ${before-p.ovr} 点`]:['个人表现未持续下滑，能力保留；队伍胜率不单独扣分'];
+ const result={policyVersion:2,s:S.season,from:before,to:p.ovr,start,age:a,g:x.g,r,win,baseline,basis,personalLow,poorStreak,reasons};
+ d.seasonReview=result;(p.abilityReviews||(p.abilityReviews=[])).push(result);return result;
 }
-function seasonReviewPanel(p){const rows=(p.abilityReviews||[]).slice().reverse();return`<h3>赛季能力复评</h3><p class="small muted">开局 90+ 名额最多 20 人；后续不设人数上限。个人低迷或参赛胜率差会降低实际能力，潜力保留；少于 10 局不作个人负面定论，少于 20 局不按战绩降级。</p><div class="list small">${rows.map(x=>`<div><b>${x.s} · ${x.from} → ${x.to}</b><span class="grow">${x.g} 局 · ${x.reasons.map(esc).join('；')}</span></div>`).join('')||'<p class="muted">尚未进行赛季末复评。</p>'}</div>`;}
+function migrateSeasonReviews(){
+ if(!S)return;
+ for(const p of Object.values(S.players)){
+  const reviews=p.abilityReviews||[],d=development(p);
+  for(const rec of reviews.slice().sort((a,b)=>a.s-b.s)){
+   if(rec.policyVersion===2||rec.repairVersion===2)continue;
+   rec.repairVersion=2;
+   const lost=Math.max(0,(rec.from||0)-(rec.to||0));
+   if(!lost||rec.s<S.season-1||rec.s>S.season||p.tid==='RET')continue;
+   const prior=reviews.find(x=>x.s===rec.s-1),mature=rec.s-p.by>=24;
+   const weak=x=>x&&x.g>=20&&Number.isFinite(x.baseline)&&x.r<x.baseline-.6;
+   // Legacy records cannot establish a modern same-tier baseline; only retain a small
+   // decline when both consecutive mature seasons explicitly recorded low performance.
+   const sustained=mature&&prior&&prior.s-p.by>=24&&weak(rec)&&weak(prior);
+   const allowed=sustained?Math.min(2,lost):0,refund=lost-allowed,old=p.ovr;
+   const target=Math.min(rec.from,p.pot,ratingCeiling(p),old+refund);
+   if(target>old){setOverall(p,target);p.peak=Math.max(p.peak||0,p.ovr);refreshBadges(p);if(rec.s===S.season)p.sg=(p.sg||0)+p.ovr-old;else if(d.growthYear?.season===S.season)d.growthYear.start+=p.ovr-old;}
+   rec.restored=Math.max(0,p.ovr-old);rec.repairReason=rec.restored?'旧版复评误扣已返还，保留其他正常能力变化':'已核对旧复评，当前已恢复、达到上限或属于持续低迷';
+   if(d.seasonReview?.s===rec.s)d.seasonReview={...rec};
+  }
+ }
+}
+function seasonReviewPanel(p){const rows=(p.abilityReviews||[]).slice().reverse();return`<h3>赛季能力复评</h3><p class="small muted">23岁及以下处于成长期，不因差战绩、低评分或少出场永久扣能力。队伍胜率不单独扣分；成熟选手需每季至少20局、连续两季个人明显低迷才回落，首季观察，年度最多2点。已获得成长不再强制撤回。</p><div class="list small">${rows.map(x=>`<div><b>${x.s} · ${x.from} → ${x.to}${x.restored?` · 误扣返还 +${x.restored}`:''}</b><span class="grow">${x.g} 局 · ${(x.reasons||[]).map(esc).join('；')}${x.repairReason?`<br>${esc(x.repairReason)}`:''}</span></div>`).join('')||'<p class="muted">尚未进行赛季末复评。年轻选手的训练和比赛成长会保留。</p>'}</div>`;}
 
 function retirementChance(p,a){
  if(a>=40)return 1;
@@ -2931,7 +2956,7 @@ function simulateStageBatch(scope='1',emptyOnly=false){
 }
 
 /* ALIGNMENT_MODULES_END */
-function start(data){S=(data&&data.S)||load();migrateRatingPolicy();migrateCalendar();observeClubHistory();migrate();migrate2();migrateClub();migrateDevelopment();migrateEcosystem();migrateCareerRatings();migrateBadges();migrateMeta();if(data&&data.R)R=data.R;if(S?.review)R={p:'review'};else if(S?.legendDraft&&(S.legendDraft.welcomePending||(!S.legendDraft.done&&S.legendDraft.pos)))R={p:'legend'};render()}
+function start(data){S=(data&&data.S)||load();migrateRatingPolicy();migrateSeasonReviews();migrateCalendar();observeClubHistory();migrate();migrate2();migrateClub();migrateDevelopment();migrateEcosystem();migrateCareerRatings();migrateBadges();migrateMeta();if(data&&data.R)R=data.R;if(S?.review)R={p:'review'};else if(S?.legendDraft&&(S.legendDraft.welcomePending||(!S.legendDraft.done&&S.legendDraft.pos)))R={p:'legend'};render()}
 if(window.claude&&window.claude.hot&&window.claude.hot.snapshot)window.claude.hot.snapshot(()=>({S,R}));
 window.claude?.hot?.ready?window.claude.hot.ready(start):start(window.claude?.hot?.data??{});
 </script>
