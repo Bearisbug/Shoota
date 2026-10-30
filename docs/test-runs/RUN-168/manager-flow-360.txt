@@ -1,0 +1,49 @@
+Browser tab: 8, Title: "shoota 游戏平台", URL: "http://127.0.0.1:59478/#play-lol".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 55-92
+~		41 button (disabled) 已存档 13:41, ID: pSaved
++		47 text 本次 0 分钟
+~						50 text 整场复盘
+~							53 button ▶ 进入下一场比赛
+~							54 button 快速模拟5场
++					55 container main
++						56 container
++							57 heading 快速模拟 · 5 场, Value: 1
++								58 text 快速模拟 · 5 场
++							59 text 已完成5场 · 赛程推进 5 轮。每场均已结算，点击右上角继续。
++						60 heading 战报, Value: 2
++							61 text 战报
++						62 text 5 场系列赛 · 2 胜 3 负
++						63 button (collapsed) 负 春季赛第 3 轮 BLG 1 : 2 JDG, Secondary Actions: Expand
++							64 text 负
++							65 text 春季赛第 3 轮
++							66 text BLG
++							67 text 1 : 2
++							68 text JDG
++						69 button (collapsed) 负 春季赛第 4 轮 BLG 0 : 2 IG, Secondary Actions: Expand
++							70 text 负
++							71 text 春季赛第 4 轮
++							72 text BLG
++							73 text 0 : 2
++							74 text IG
++						75 button (collapsed) 胜 春季赛第 5 轮 BLG 2 : 0 NIP, Secondary Actions: Expand
++							76 text 胜
++							77 text 春季赛第 5 轮
++							78 text BLG
++							79 text 2 : 0
++							80 text NIP
++						81 button (collapsed) 负 春季赛第 6 轮 BLG 1 : 2 WBG, Secondary Actions: Expand
++							82 text 负
++							83 text 春季赛第 6 轮
++							84 text BLG
++							85 text 1 : 2
++							86 text WBG
++						87 button (collapsed) 胜 春季赛第 7 轮 BLG 2 : 0 LNG, Secondary Actions: Expand
++							88 text 胜
++							89 text 春季赛第 7 轮
++							90 text BLG
++							91 text 2 : 0
++							92 text LNG
++						93 button (collapsed) 队内动态 · 1 条, Secondary Actions: Expand
++							94 text 队内动态 · 1 条
+The focused UI element is 45 AXWebArea lol, URL: about:srcdoc

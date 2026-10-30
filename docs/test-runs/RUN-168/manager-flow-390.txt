@@ -1,0 +1,31 @@
+Browser tab: 8, Title: "shoota 游戏平台", URL: "http://127.0.0.1:59478/#play-lol".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+~						62 text 5 场系列赛 · 4 胜 1 负
+~						63 button (collapsed) 胜 春季赛第 8 轮 BLG 2 : 0 WE, Secondary Actions: Expand
+~							64 text 胜
+~							65 text 春季赛第 8 轮
+~							67 text 2 : 0
+~							68 text WE
+~						69 button (collapsed) 胜 春季赛第 9 轮 BLG 2 : 1 TES, Secondary Actions: Expand
+~							70 text 胜
+~							71 text 春季赛第 9 轮
+~							73 text 2 : 1
+~							74 text TES
+~						75 button (collapsed) 负 春季赛第 10 轮 BLG 0 : 2 AL, Secondary Actions: Expand
+~							76 text 负
+~							77 text 春季赛第 10 轮
+~							79 text 0 : 2
+~							80 text AL
+~						81 button (collapsed) 胜 春季赛第 11 轮 BLG 2 : 0 TT, Secondary Actions: Expand
+~							82 text 胜
+~							83 text 春季赛第 11 轮
+~							85 text 2 : 0
+~							86 text TT
+~						87 button (collapsed) 胜 LPL 春季赛季后赛胜者组第一轮 BLG 3 : 0 TES, Secondary Actions: Expand
+~							89 text LPL 春季赛季后赛胜者组第一轮
+~							91 text 3 : 0
+~							92 text TES
+~						93 button (collapsed) 队内动态 · 2 条, Secondary Actions: Expand
+~							94 text 队内动态 · 2 条
++				95 text 春季赛常规赛结束，季后赛开启
+The focused UI element is 45 AXWebArea lol, URL: about:srcdoc

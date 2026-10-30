@@ -1,0 +1,21 @@
+lint: /Users/leizhang/Documents/shoota/tmp/wt-portrait/docs/DESIGN.md
+ℹ️ EVT:backup_copy 仅出现 1 次:埋点登记(§20)与指标引用(§3 等)未对上,请核对
+ℹ️ EVT:game_start 仅出现 1 次:埋点登记(§20)与指标引用(§3 等)未对上,请核对
+ℹ️ EVT:restore_done 仅出现 1 次:埋点登记(§20)与指标引用(§3 等)未对上,请核对
+ℹ️ 请核对以下 API-* 是否都在 §10 权限矩阵出现或有显式免列说明(读/列表/回调端点最易漏标):API-001 API-002 API-003 API-004 API-005 
+✓ 状态图带事件转移 ↔ 迁移表行数一致(按机分段: 6 6)
+ℹ️ 已画 2 台状态机;请核对:数据字典每个 ≥2 态 status/生命周期枚举实体,已建机或按三类出口(纯派生/投影态、状态由他机翻转、极简运营态)显式免建——见 CHECKLIST C1
+⚠️ REQ-016 无 Gherkin 验收场景(CHECKLIST B2)
+（以上为机械提示;REQ 覆盖矩阵、权限覆盖、免建核对等语义项按 references/CHECKLIST.md 逐条过)
+--- 链路层 lint ---
+lint: /Users/leizhang/Documents/shoota/tmp/wt-portrait/docs/DESIGN.md · 模式：完整 · 测试文档：/Users/leizhang/Documents/shoota/tmp/wt-portrait/docs/TEST.md（同目录自动带上）
+ℹ️ base.head DESIGN.md:1 基线 HEAD 0022837，不等于本轮增减 → 收尾报告用开工时记下的基线：--base <对象 ID>（SKILL.md 基线比对）
+ℹ️ base.counts DESIGN.md:102 FLOW-SAVE-MOVE 现状待确认 基线 0 → 现在 0；无用例 基线 4 → 现在 4（基线：HEAD 0022837）（SKILL.md 基线比对）
+ℹ️ base.counts DESIGN.md:183 L3/L4：现状待确认 基线 0 → 现在 0；无用例 基线 0 → 现在 0（基线：HEAD 0022837）（SKILL.md 基线比对）
+⚠️ W8 DESIGN.md:1761 「见§92」没写对象名 → 写成「见 §N <对象名>」，如「见 §16 竞态表」（TEMPLATE W8）
+合计：❌ 0 · ⚠️ 1 · ℹ️ 3
+--- 导览站 ---
+lint: /Users/leizhang/Documents/shoota/tmp/wt-portrait/docs/DESIGN.md · 模式：完整 · 测试文档：/Users/leizhang/Documents/shoota/tmp/wt-portrait/docs/TEST.md · ❌ 0 · ⚠️ 1（明细用 build-view.mjs --lint 查看）
+ℹ️ site.no-tour DESIGN.md:76 没有 docs/tour/：截图位置出文字卡片，文字取自卡上原文 → 走查截图与 shots.json 由 test-doc 的走查用例产出；人话文案由 project-workflow 收尾时写进 docs/tour/copy/（scripts/site.mjs）
+✓ 已生成 2 页（总览 1、功能页 1），编号残留 0 处：index.html 55 KB、FLOW-SAVE-MOVE.html 45 KB
+/Users/leizhang/.cache/design-view/wt-portrait-8a0837ac/site/index.html

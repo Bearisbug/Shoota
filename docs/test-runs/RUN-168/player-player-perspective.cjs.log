@@ -1,0 +1,7 @@
+TOP [["Steak",78,82],["Karsa",85,92],["Maple",85,92],["NL",80,83],["SwordArt",84,92]]
+JNG [["Steak",78,82],["Karsa",85,92],["Maple",85,92],["NL",80,83],["SwordArt",84,92]]
+MID [["Steak",78,82],["Karsa",85,92],["Maple",85,92],["NL",80,83],["SwordArt",84,92]]
+BOT [["Steak",78,82],["Karsa",85,92],["Maple",85,92],["NL",80,83],["SwordArt",84,92]]
+SUP [["Steak",78,82],["Karsa",85,92],["Maple",85,92],["NL",80,83],["SwordArt",84,92]]
+PASS [ 'TOP', 'JNG', 'MID', 'BOT', 'SUP' ] pot 98→100, training age25+ and duplicates, save roundtrip
+PASS in-match coach tactical rating has no effect

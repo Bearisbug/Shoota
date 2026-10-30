@@ -1,0 +1,275 @@
+[
+  {
+    "year": 2014,
+    "teams": {
+      "LCK": 16,
+      "LPL": 8,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 161,
+    "free": 226,
+    "snapshots": [
+      "LCK：2014 OGN 春季赛阵容",
+      "LPL：2014 春季赛登记阵容",
+      "EU：EU LCS Spring",
+      "NA：NA LCS Spring",
+      "PCS：2014 世界赛代表阵容"
+    ],
+    "rawSha256": "c10b0e86e6e2f80449bd7b56966e622530eba505c60bf037ee80f3e29b9696c9",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2014_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2015,
+    "teams": {
+      "LCK": 8,
+      "LPL": 12,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 141,
+    "free": 272,
+    "snapshots": [
+      "LCK：OGN Spring",
+      "LPL：2015 春季赛登记阵容",
+      "EU：EU LCS Spring",
+      "NA：NA LCS Spring",
+      "PCS：LMS Spring"
+    ],
+    "rawSha256": "d6d58e66fa0a5dcb73dbd1fa1a0690e6e1baaaba074ea5932120c4aad45f453e",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2015_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2016,
+    "teams": {
+      "LCK": 10,
+      "LPL": 12,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 150,
+    "free": 346,
+    "snapshots": [
+      "LCK：LCK Spring",
+      "LPL：LPL Summer",
+      "EU：EU LCS Spring",
+      "NA：NA LCS Spring",
+      "PCS：LMS Spring"
+    ],
+    "rawSha256": "6c586cf684f793c4b35365a07d9f8fa6234b0883fa09d426a76b1c47063abc27",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2016_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2017,
+    "teams": {
+      "LCK": 10,
+      "LPL": 12,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 150,
+    "free": 365,
+    "snapshots": [
+      "LCK：LCK Spring",
+      "LPL：LPL Spring",
+      "EU：EU LCS Spring",
+      "NA：NA LCS Spring",
+      "PCS：LMS Spring"
+    ],
+    "rawSha256": "54b432da6b41646c31bcbabaffe3ae6ef48c4fbed624675016a4c068b5d26cbd",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2017_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2018,
+    "teams": {
+      "LCK": 10,
+      "LPL": 14,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 160,
+    "free": 305,
+    "snapshots": [
+      "LCK：LCK Spring",
+      "LPL：LPL Spring",
+      "EU：EU LCS Spring",
+      "NA：NA LCS Spring",
+      "PCS：LMS Spring"
+    ],
+    "rawSha256": "8941b45c7b751bbdd006eac2388d14554a1829eaac01c82820e86dc85104cec3",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2018_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2019,
+    "teams": {
+      "LCK": 10,
+      "LPL": 16,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 170,
+    "free": 305,
+    "snapshots": [
+      "LCK：LCK Spring",
+      "LPL：LPL Spring",
+      "EU：LEC Spring",
+      "NA：LCS Spring",
+      "PCS：LMS Spring"
+    ],
+    "rawSha256": "31cf16a9d6d096828c00202cbe62060b77ed85f735c1f433b77e59ccb2258df9",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2019_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2020,
+    "teams": {
+      "LCK": 10,
+      "LPL": 17,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 175,
+    "free": 283,
+    "snapshots": [
+      "LCK：LCK Spring",
+      "LPL：LPL Spring",
+      "EU：LEC Spring",
+      "NA：LCS Spring",
+      "PCS：PCS Spring"
+    ],
+    "rawSha256": "0efe2fc8ed16df43c1b54be9d80db659ab9c059e17ff7901b66f4b08bd91c6c4",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2020_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2021,
+    "teams": {
+      "LCK": 10,
+      "LPL": 17,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 175,
+    "free": 256,
+    "snapshots": [
+      "LCK：LCK Spring",
+      "LPL：LPL Spring",
+      "EU：LEC Spring",
+      "NA：LCS Spring",
+      "PCS：PCS Spring"
+    ],
+    "rawSha256": "b0173294ffa515884221e33e8d6073ba419605aea601f8ee7cc2dad326dd8dce",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2021_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2022,
+    "teams": {
+      "LCK": 10,
+      "LPL": 17,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 175,
+    "free": 278,
+    "snapshots": [
+      "LCK：LCK Spring",
+      "LPL：LPL Spring",
+      "EU：LEC Spring",
+      "NA：LCS Spring",
+      "PCS：PCS Spring"
+    ],
+    "rawSha256": "13b811948dfc2fdaa52d19e3fd085a48088e2d4f68af53792ac684e49e063507",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2022_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2023,
+    "teams": {
+      "LCK": 10,
+      "LPL": 17,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 175,
+    "free": 239,
+    "snapshots": [
+      "LCK：LCK Spring",
+      "LPL：LPL Spring",
+      "EU：LEC Winter",
+      "NA：LCS Spring",
+      "PCS：PCS Spring"
+    ],
+    "rawSha256": "91744b665cab2fe6a4ba2a5fa1647fbcd8a2268abbfd30461a2ecce95ba80662",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2023_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2024,
+    "teams": {
+      "LCK": 10,
+      "LPL": 17,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 175,
+    "free": 216,
+    "snapshots": [
+      "LCK：LCK Spring",
+      "LPL：LPL Spring",
+      "EU：LEC Winter",
+      "NA：LCS Spring",
+      "PCS：PCS Spring"
+    ],
+    "rawSha256": "09ae4db6d3b7b6ed8bea77a03f66da82dbbd932f395a9b4634e4a67c75b507f8",
+    "source": "https://media.githubusercontent.com/media/Samuel-Kelly-hub/Esports-Results-Project/585fd47690c59f579295efd7c867f96848340634/data/2024_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2025,
+    "teams": {
+      "LCK": 10,
+      "LPL": 16,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 170,
+    "free": 295,
+    "snapshots": [
+      "LCK：LCK Cup",
+      "LPL：LPL Split 1",
+      "EU：LEC Winter",
+      "NA：LTA N Split 1",
+      "PCS：LCP Split 1"
+    ],
+    "rawSha256": "ce53b0b2df69a078a641d88f1a7910cb2ec542d337711e7292998c7d3699ccf5",
+    "source": "https://media.githubusercontent.com/media/Matthew-Paoletta/The-Snowballing-Effect/37f850b4608cfbd6ed1c64191f29d6f6f2ad8aca/data/2025_LoL_esports_match_data_from_OraclesElixir.csv"
+  },
+  {
+    "year": 2026,
+    "teams": {
+      "LCK": 10,
+      "LPL": 14,
+      "EU": 3,
+      "NA": 3,
+      "PCS": 2
+    },
+    "players": 160,
+    "free": 110,
+    "snapshots": [
+      "LCK：LCK Cup",
+      "LPL：LPL Split 1",
+      "EU：LEC Versus",
+      "NA：LCS Lock-In",
+      "PCS：LCP Split 1"
+    ],
+    "rawSha256": "cde5accd2025e1f9678183d295b7220af10c82ee1b58e14ed2b1909935d570e2",
+    "source": "https://media.githubusercontent.com/media/Matthew-Paoletta/The-Snowballing-Effect/37f850b4608cfbd6ed1c64191f29d6f6f2ad8aca/data/2026_LoL_esports_match_data_from_OraclesElixir.csv"
+  }
+]

@@ -1,0 +1,15 @@
+lint: /Users/leizhang/Documents/shoota/tmp/wt-portrait/docs/TEST.md
+⚠️ TC-035 「源自缺陷」之后出现 TC- 或「·」:该标记放在标题行最末,现象里不写用例编号与「·」(TEMPLATE 头部「源自缺陷」)
+⚠️ TC-035 源自缺陷标记须写成「· 源自缺陷 YYYY-MM-DD <一句话现象>」(TEMPLATE 头部「源自缺陷」)
+⚠️ TC-073 源自缺陷标记须写成「· 源自缺陷 YYYY-MM-DD <一句话现象>」(TEMPLATE 头部「源自缺陷」)
+⚠️ TC-074 源自缺陷标记须写成「· 源自缺陷 YYYY-MM-DD <一句话现象>」(TEMPLATE 头部「源自缺陷」)
+⚠️ RUN 汇总行不完整:
+  结果列须含计数串「通过 N/M …」或整轮「阻塞(原因)」:| RUN-035 | 2026-10-22 | 本地 | 改动前 01:41 创作成长版本 | AI(Node、源码流程检查) | 局部(TC-035 第 1–2 步) | 失败 |
+ℹ️ 登记顺序与编号不一致:编号最大的 RUN-168 不在汇总表末行(末行是 RUN-051)
+ℹ️ 其余 12 轮范围或结果格未按 TEMPLATE §6 收紧写法,导览站不计入进度(存量行不回改)
+⚠️ 执行记录明细行不合格:
+  失败项缺证据引用:| RUN-035 | TC-035 | 失败 | 选歌、发行报告和发文替换决策内容；双方无完整互动与倾向模型，新增模型断言失败 | RUN-036 同页工作区与持久互动模型复测通过 |
+ℹ️ 联检设计文档自动解析自元信息:/Users/leizhang/Documents/shoota/tmp/wt-portrait/docs/../docs/DESIGN.md
+✓ REQ 已双向联检(TEST→设计 悬空 + 设计→TEST 覆盖;设计文档 1 份)
+ℹ️ 用例 151 条(冒烟 30)· 轮次 139;覆盖与执行完整性按 references/CHECKLIST.md 核对
+(以上为机械提示;REQ/Gherkin 覆盖、冷启动实测等语义项按 references/CHECKLIST.md 逐条过)

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "scope": "current local platform, four core flow sizes and nine viewport matrix per game",
+  "games": [
+    "lol",
+    "lol-player"
+  ],
+  "consoleErrors": 0,
+  "consoleWarnings": 0,
+  "unverified": [
+    "physical mobile",
+    "system keyboard",
+    "safe area hardware",
+    "200% text/zoom"
+  ]
+}

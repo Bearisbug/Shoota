@@ -1,0 +1,191 @@
+- banner:
+  - link "shoota 首页":
+    - /url: "#store"
+  - navigation "主导航":
+    - link "商店":
+      - /url: "#store"
+    - link "游戏库":
+      - /url: "#library"
+    - link "存档":
+      - /url: "#backup"
+  - generic: 搜索游戏
+  - searchbox "搜索游戏"
+  - button "账号菜单": 玩
+- main
+- button "退出游戏":
+  - generic: 退出游戏
+- generic: 我是职业通天代
+- generic: 16岁 · 逐光竞技390 · 能力79
+- button "已存档 13:42" [disabled]
+- generic: 本次 0 分钟
+- button "全屏":
+  - generic: 全屏
+- iframe [active]:
+  - banner:
+    - text: Echo390 · 16 岁
+    - generic: 2027 夏季赛 · 第 2/13 轮
+    - combobox "快速模拟场数" [disabled]:
+      - option "1场"
+      - option "5场" [selected]
+    - button "▶ 继续下一场" [active]
+  - navigation "生涯导航":
+    - button "主页"
+    - button "我的选手"
+    - button "战队阵容"
+    - button "赛程"
+    - button "积分榜"
+    - button "季后赛"
+    - button "MSI"
+    - button "世界赛"
+    - button "选手库"
+    - button "参与招募"
+    - button "合同与转会"
+    - button "赛季总结"
+    - button "历史"
+    - button "存档"
+  - main:
+    - region "比赛工作区":
+      - region "连续模拟汇总":
+        - heading "快速模拟 · 完成 5/5 场" [level=2]
+        - paragraph: 已完成计划场次 · 每场为一轮完整系列赛，已自动保存。
+        - generic: 0胜 5负
+        - generic: 战队战绩
+        - generic: 5/5
+        - generic: 首发场数
+        - generic: 79 → 79
+        - generic: 能力变化
+        - generic: 14万
+        - generic: 累计收入
+        - generic: 负
+        - generic: 春季赛第 10 轮 · EDward Gaming 2:1 逐光竞技390
+        - generic: 评分 5.2
+        - generic: 负
+        - generic: 春季赛第 11 轮 · 逐光竞技390 0:2 Anyone's Legend
+        - generic: 评分 5.3
+        - generic: 负
+        - generic: 春季赛第 12 轮 · LNG Esports 2:0 逐光竞技390
+        - generic: 评分 4.0
+        - generic: 负
+        - generic: 春季赛第 13 轮 · 逐光竞技390 0:2 LGD Gaming
+        - generic: 评分 5.0
+        - generic: 负
+        - generic: 夏季赛第 1 轮 · 逐光竞技390 0:2 LNG Esports
+        - generic: 评分 5.3
+      - heading "最后一场复盘" [level=1]
+      - generic: 右上角继续下一场 · 本场已自动保存
+      - paragraph: 夏季赛第 1 轮 · 首发出场
+      - generic: "5.3"
+      - generic: 我的评分
+      - generic: 79 → 79
+      - generic: 能力变化
+      - generic: "12.4"
+      - generic: 声望
+      - generic: 3万
+      - generic: 本轮收入
+      - heading "本场版本表现" [level=3]
+      - paragraph: 野核发育 · 2027.3.1 · 版本修正已计入比赛能力，胜负仍由双方整体表现决定。
+      - generic: 第 1 局
+      - generic: 维克托 · 熟练 83 · 版本修正 +3.2 · 位置影响力 107%
+      - generic: 第 2 局
+      - generic: 阿卡丽 · 熟练 92 · 版本修正 +0.0 · 位置影响力 107%
+      - heading "战报" [level=2]
+      - generic: 1 场系列赛 · 0 胜 1 负
+      - generic: 负
+      - generic: 夏季赛第 1 轮
+      - button "查看逐光竞技390":
+      - generic: "0 : 2"
+      - button "查看LNG Esports":
+        - img "LNG 战队 Logo"
+      - table:
+        - rowgroup:
+          - row "局 阵营 结果 时长 击杀（我:敌） 本局 MVP":
+            - columnheader "局"
+            - columnheader "阵营"
+            - columnheader "结果"
+            - columnheader "时长"
+            - columnheader "击杀（我:敌）"
+            - columnheader "本局 MVP"
+            - columnheader
+        - rowgroup:
+          - 'row "G1 蓝色方 负 30:23 5 : 10 查看LNG Esports Weiwei 豹女 4/0/3 详情"':
+            - cell "G1"
+            - cell "蓝色方"
+            - cell "负"
+            - cell "30:23"
+            - 'cell "5 : 10"'
+            - cell "查看LNG Esports Weiwei 豹女 4/0/3":
+              - button "查看LNG Esports":
+                - img "LNG 战队 Logo"
+              - text: Weiwei 豹女 4/0/3
+            - cell "详情":
+              - button "详情"
+          - 'row "G2 蓝色方 负 36:37 6 : 12 查看LNG Esports Missing 慎 0/1/10 详情"':
+            - cell "G2"
+            - cell "蓝色方"
+            - cell "负"
+            - cell "36:37"
+            - 'cell "6 : 12"'
+            - cell "查看LNG Esports Missing 慎 0/1/10":
+              - button "查看LNG Esports":
+                - img "LNG 战队 Logo"
+              - text: Missing 慎 0/1/10
+            - cell "详情":
+              - button "详情"
+      - table:
+        - rowgroup:
+          - row "查看逐光竞技390 选手 使用英雄 K/D/A KDA 场均评分 MVP":
+            - columnheader "查看逐光竞技390 选手":
+              - button "查看逐光竞技390":
+              - text: 选手
+            - columnheader "使用英雄"
+            - columnheader "K/D/A"
+            - columnheader "KDA"
+            - columnheader "场均评分"
+            - columnheader "MVP"
+        - rowgroup:
+          - row "上单 Lumen 酒桶、塞恩 0/5/2 0.4 4.6":
+            - cell "上单 Lumen":
+              - generic: 上单
+              - text: Lumen
+            - cell "酒桶、塞恩"
+            - cell "0/5/2"
+            - cell "0.4"
+            - cell "4.6"
+            - cell
+          - row "打野 Juno 千珏、莉莉娅 2/2/6 4.0 5.5":
+            - cell "打野 Juno":
+              - generic: 打野
+              - text: Juno
+            - cell "千珏、莉莉娅"
+            - cell "2/2/6"
+            - cell "4.0"
+            - cell "5.5"
+            - cell
+          - row "中单 Echo390 维克托、阿卡丽 5/4/3 2.0 5.3":
+            - cell "中单 Echo390":
+              - generic: 中单
+              - text: Echo390
+            - cell "维克托、阿卡丽"
+            - cell "5/4/3"
+            - cell "2.0"
+            - cell "5.3"
+            - cell
+          - row "下路 Zhiyuan 女警、金克丝 4/5/0 0.8 5.0":
+            - cell "下路 Zhiyuan":
+              - generic: 下路
+              - text: Zhiyuan
+            - cell "女警、金克丝"
+            - cell "4/5/0"
+            - cell "0.8"
+            - cell "5.0"
+            - cell
+          - row "辅助 Chenxi 萨勒芬妮、芮尔 0/6/3 0.5 4.6":
+            - cell "辅助 Chenxi":
+              - generic: 辅助
+              - text: Chenxi
+            - cell "萨勒芬妮、芮尔"
+            - cell "0/6/3"
+            - cell "0.5"
+            - cell "4.6"
+            - cell
+  - status: 春季赛常规赛结束，季后赛开启

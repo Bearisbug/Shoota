@@ -1,0 +1,218 @@
+[
+  {
+    "game": "lol",
+    "requested": [
+      360,
+      640
+    ],
+    "metrics": {
+      "h": 640,
+      "sw": 360,
+      "w": 360
+    }
+  },
+  {
+    "game": "lol",
+    "requested": [
+      390,
+      844
+    ],
+    "metrics": {
+      "h": 844,
+      "sw": 390,
+      "w": 390
+    }
+  },
+  {
+    "game": "lol",
+    "requested": [
+      430,
+      932
+    ],
+    "metrics": {
+      "h": 932,
+      "sw": 430,
+      "w": 430
+    }
+  },
+  {
+    "game": "lol",
+    "requested": [
+      844,
+      390
+    ],
+    "metrics": {
+      "h": 390,
+      "sw": 844,
+      "w": 844
+    }
+  },
+  {
+    "game": "lol",
+    "requested": [
+      768,
+      1024
+    ],
+    "metrics": {
+      "h": 1024,
+      "sw": 768,
+      "w": 768
+    }
+  },
+  {
+    "game": "lol",
+    "requested": [
+      1366,
+      768
+    ],
+    "metrics": {
+      "h": 768,
+      "sw": 1366,
+      "w": 1366
+    }
+  },
+  {
+    "game": "lol",
+    "requested": [
+      1440,
+      900
+    ],
+    "metrics": {
+      "h": 900,
+      "sw": 1440,
+      "w": 1440
+    }
+  },
+  {
+    "game": "lol",
+    "requested": [
+      320,
+      568
+    ],
+    "metrics": {
+      "h": 568,
+      "sw": 320,
+      "w": 320
+    }
+  },
+  {
+    "game": "lol",
+    "requested": [
+      390,
+      600
+    ],
+    "metrics": {
+      "h": 600,
+      "sw": 390,
+      "w": 390
+    }
+  },
+  {
+    "game": "lol-player",
+    "requested": [
+      360,
+      640
+    ],
+    "metrics": {
+      "h": 640,
+      "sw": 360,
+      "w": 360
+    }
+  },
+  {
+    "game": "lol-player",
+    "requested": [
+      390,
+      844
+    ],
+    "metrics": {
+      "h": 844,
+      "sw": 390,
+      "w": 390
+    }
+  },
+  {
+    "game": "lol-player",
+    "requested": [
+      430,
+      932
+    ],
+    "metrics": {
+      "h": 932,
+      "sw": 430,
+      "w": 430
+    }
+  },
+  {
+    "game": "lol-player",
+    "requested": [
+      844,
+      390
+    ],
+    "metrics": {
+      "h": 390,
+      "sw": 844,
+      "w": 844
+    }
+  },
+  {
+    "game": "lol-player",
+    "requested": [
+      768,
+      1024
+    ],
+    "metrics": {
+      "h": 1024,
+      "sw": 768,
+      "w": 768
+    }
+  },
+  {
+    "game": "lol-player",
+    "requested": [
+      1366,
+      768
+    ],
+    "metrics": {
+      "h": 768,
+      "sw": 1366,
+      "w": 1366
+    }
+  },
+  {
+    "game": "lol-player",
+    "requested": [
+      1440,
+      900
+    ],
+    "metrics": {
+      "h": 900,
+      "sw": 1440,
+      "w": 1440
+    }
+  },
+  {
+    "game": "lol-player",
+    "requested": [
+      320,
+      568
+    ],
+    "metrics": {
+      "h": 568,
+      "sw": 320,
+      "w": 320
+    }
+  },
+  {
+    "game": "lol-player",
+    "requested": [
+      390,
+      600
+    ],
+    "metrics": {
+      "h": 600,
+      "sw": 390,
+      "w": 390
+    }
+  }
+]

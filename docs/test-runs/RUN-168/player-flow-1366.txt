@@ -1,0 +1,23 @@
+- banner:
+  - link "shoota 首页":
+    - /url: "#store"
+  - navigation "主导航":
+    - link "商店":
+      - /url: "#store"
+    - link "游戏库":
+      - /url: "#library"
+    - link "存档":
+      - /url: "#backup"
+  - generic: 搜索游戏
+  - searchbox "搜索游戏"
+  - button "账号菜单": 玩
+- main
+- button "退出游戏":
+  - generic: 退出游戏
+- generic: 我是职业通天代
+- generic: 16岁 · 逐光竞技390 · 能力79
+- button "已存档 13:42" [disabled]
+- generic: 本次 0 分钟
+- button "全屏":
+  - generic: 全屏
+- iframe [active]

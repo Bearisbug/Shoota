@@ -1,0 +1,65 @@
+- banner:
+  - link "shoota 首页":
+    - /url: "#store"
+  - navigation "主导航":
+    - link "商店":
+      - /url: "#store"
+    - link "游戏库":
+      - /url: "#library"
+    - link "存档":
+      - /url: "#backup"
+  - generic: 搜索游戏
+  - searchbox "搜索游戏"
+  - button "账号菜单": 玩
+- main
+- button "退出游戏":
+  - generic: 退出游戏
+- generic: 我在LOL建银河战队
+- button "已读取存档" [disabled]
+- generic: 本次 0 分钟
+- button "全屏":
+  - generic: 全屏
+- iframe:
+  - banner:
+    - generic "哔哩哔哩 BLG": BLG
+    - text: 整场复盘
+    - button "回到球队"
+    - generic "推进赛程":
+      - button "▶ 进入下一场比赛"
+      - button "快速模拟5场"
+  - main:
+    - heading "快速模拟 · 5 场" [level=1]
+    - paragraph: 已完成5场 · 赛程推进 5 轮。每场均已结算，点击右上角继续。
+    - heading "战报" [level=2]
+    - generic: 5 场系列赛 · 5 胜 0 负
+    - 'generic "胜 夏季赛第 3 轮 BLG 2 : 0 TT"':
+      - generic: 胜
+      - generic: 夏季赛第 3 轮
+      - generic "哔哩哔哩 BLG": BLG
+      - generic: "2 : 0"
+      - generic "ThunderTalk Gaming": TT
+    - 'generic "胜 夏季赛第 4 轮 BLG 2 : 0 EDG"':
+      - generic: 胜
+      - generic: 夏季赛第 4 轮
+      - generic "哔哩哔哩 BLG": BLG
+      - generic: "2 : 0"
+      - generic "EDward Gaming": EDG
+    - 'generic "胜 夏季赛第 5 轮 BLG 2 : 0 LNG"':
+      - generic: 胜
+      - generic: 夏季赛第 5 轮
+      - generic "哔哩哔哩 BLG": BLG
+      - generic: "2 : 0"
+      - generic "LNG Esports": LNG
+    - 'generic "胜 夏季赛第 6 轮 BLG 2 : 1 TES"':
+      - generic: 胜
+      - generic: 夏季赛第 6 轮
+      - generic "哔哩哔哩 BLG": BLG
+      - generic: "2 : 1"
+      - generic "滔搏 TES": TES
+    - 'generic "胜 夏季赛第 7 轮 BLG 2 : 0 IG"':
+      - generic: 胜
+      - generic: 夏季赛第 7 轮
+      - generic "哔哩哔哩 BLG": BLG
+      - generic: "2 : 0"
+      - generic "Invictus Gaming": IG
+    - generic "队内动态 · 3 条"

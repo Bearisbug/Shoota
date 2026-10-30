@@ -1,0 +1,229 @@
+- banner:
+  - link "shoota 首页":
+    - /url: "#store"
+  - navigation "主导航":
+    - link "商店":
+      - /url: "#store"
+    - link "游戏库":
+      - /url: "#library"
+    - link "存档":
+      - /url: "#backup"
+  - generic: 搜索游戏
+  - searchbox "搜索游戏"
+  - button "账号菜单": 玩
+- main
+- button "退出游戏":
+  - generic: 退出游戏
+- generic: 我是职业通天代
+- generic: 16岁 · 逐光竞技390 · 能力80
+- button "已读取存档" [disabled]
+- generic: 本次 0 分钟
+- button "全屏":
+  - generic: 全屏
+- iframe:
+  - banner:
+    - generic: 峡谷生涯LOL PLAYER
+    - button "查看逐光竞技390":
+    - text: Echo390 · 16 岁 · 逐光竞技390
+    - generic: 2027 夏季赛 · 第 13/13 轮
+    - combobox "快速模拟场数" [disabled]:
+      - option "1场"
+      - option "5场" [selected]
+    - button "▶ 继续下一场"
+  - navigation "生涯导航":
+    - button "主页 HQ":
+      - text: 主页
+      - generic: HQ
+    - button "我的选手 PLAYER":
+      - text: 我的选手
+      - generic: PLAYER
+    - button "战队阵容 ROSTER":
+      - text: 战队阵容
+      - generic: ROSTER
+    - button "赛程 SCHED":
+      - text: 赛程
+      - generic: SCHED
+    - button "积分榜 TABLE":
+      - text: 积分榜
+      - generic: TABLE
+    - button "季后赛 PO":
+      - text: 季后赛
+      - generic: PO
+    - button "MSI MSI":
+      - text: MSI
+      - generic: MSI
+    - button "世界赛 WORLDS":
+      - text: 世界赛
+      - generic: WORLDS
+    - button "选手库 PLAYERS":
+      - text: 选手库
+      - generic: PLAYERS
+    - button "参与招募 SCOUT":
+      - text: 参与招募
+      - generic: SCOUT
+    - button "合同与转会 CONTRACT":
+      - text: 合同与转会
+      - generic: CONTRACT
+    - button "赛季总结 AWARDS":
+      - text: 赛季总结
+      - generic: AWARDS
+    - button "历史 HIST":
+      - text: 历史
+      - generic: HIST
+    - button "存档 SAVE":
+      - text: 存档
+      - generic: SAVE
+  - main:
+    - button "查看逐光竞技390":
+    - heading "逐光竞技390" [level=1]
+    - generic: LPL · Echo390 / 中单 · 建队核心
+    - generic: 1-10
+    - generic: 大场战绩
+    - generic: 5-20
+    - generic: 小场
+    - generic: "#13"
+    - generic: LPL 排名
+    - generic: "80"
+    - generic: 我的能力
+    - region "比赛工作区":
+      - region "连续模拟汇总":
+        - heading "快速模拟 · 完成 5/5 场" [level=2]
+        - paragraph: 已完成计划场次 · 每场为一轮完整系列赛，已自动保存。
+        - generic: 1胜 4负
+        - generic: 战队战绩
+        - generic: 5/5
+        - generic: 首发场数
+        - generic: 79 → 80
+        - generic: 能力变化
+        - generic: 14万
+        - generic: 累计收入
+        - generic: 负
+        - generic: 夏季赛第 7 轮 · Team WE 2:1 逐光竞技390
+        - generic: 评分 5.7
+        - generic: 负
+        - generic: 夏季赛第 8 轮 · 逐光竞技390 0:2 哔哩哔哩 BLG
+        - generic: 评分 4.8
+        - generic: 负
+        - generic: 夏季赛第 9 轮 · 逐光竞技390 0:2 京东 JDG
+        - generic: 评分 4.6
+        - generic: 负
+        - generic: 夏季赛第 10 轮 · Invictus Gaming 2:1 逐光竞技390
+        - generic: 评分 6.5
+        - generic: 胜
+        - generic: 夏季赛第 12 轮 · ThunderTalk Gaming 0:2 逐光竞技390
+        - generic: 评分 7.9
+      - heading "最后一场复盘" [level=1]
+      - generic: 右上角继续下一场 · 本场已自动保存
+      - paragraph: 夏季赛第 12 轮 · 首发出场
+      - generic: "7.9"
+      - generic: 我的评分
+      - generic: 80 → 80
+      - generic: 能力变化
+      - generic: "13.5"
+      - generic: 声望
+      - generic: 3万
+      - generic: 本轮收入
+      - heading "本场版本表现" [level=3]
+      - paragraph: 下路大核 · 2027.3.3 · 版本修正已计入比赛能力，胜负仍由双方整体表现决定。
+      - generic: 第 1 局
+      - generic: 妖姬 · 熟练 87 · 版本修正 +0.0 · 位置影响力 88%
+      - generic: 第 2 局
+      - generic: 加里奥 · 熟练 83 · 版本修正 +0.0 · 位置影响力 88%
+      - heading "战报" [level=2]
+      - generic: 1 场系列赛 · 1 胜 0 负
+      - generic: 胜
+      - generic: 夏季赛第 12 轮
+      - button "查看逐光竞技390":
+      - generic: "2 : 0"
+      - button "查看ThunderTalk Gaming":
+        - img "TT 战队 Logo"
+      - table:
+        - rowgroup:
+          - row "局 阵营 结果 时长 击杀（我:敌） 本局 MVP":
+            - columnheader "局"
+            - columnheader "阵营"
+            - columnheader "结果"
+            - columnheader "时长"
+            - columnheader "击杀（我:敌）"
+            - columnheader "本局 MVP"
+            - columnheader
+        - rowgroup:
+          - 'row "G1 红色方 胜 32:47 15 : 8 查看逐光竞技390 Chenxi 芮尔 1/0/12 详情"':
+            - cell "G1"
+            - cell "红色方"
+            - cell "胜"
+            - cell "32:47"
+            - 'cell "15 : 8"'
+            - cell "查看逐光竞技390 Chenxi 芮尔 1/0/12":
+              - button "查看逐光竞技390":
+              - text: Chenxi 芮尔 1/0/12
+            - cell "详情":
+              - button "详情"
+          - 'row "G2 红色方 胜 31:59 15 : 10 查看逐光竞技390 Juno 雷克塞 5/3/7 详情"':
+            - cell "G2"
+            - cell "红色方"
+            - cell "胜"
+            - cell "31:59"
+            - 'cell "15 : 10"'
+            - cell "查看逐光竞技390 Juno 雷克塞 5/3/7":
+              - button "查看逐光竞技390":
+              - text: Juno 雷克塞 5/3/7
+            - cell "详情":
+              - button "详情"
+      - table:
+        - rowgroup:
+          - row "查看逐光竞技390 选手 使用英雄 K/D/A KDA 场均评分 MVP":
+            - columnheader "查看逐光竞技390 选手":
+              - button "查看逐光竞技390":
+              - text: 选手
+            - columnheader "使用英雄"
+            - columnheader "K/D/A"
+            - columnheader "KDA"
+            - columnheader "场均评分"
+            - columnheader "MVP"
+        - rowgroup:
+          - row "上单 Lumen 大树、塞恩 1/6/6 1.2 6.5":
+            - cell "上单 Lumen":
+              - generic: 上单
+              - text: Lumen
+            - cell "大树、塞恩"
+            - cell "1/6/6"
+            - cell "1.2"
+            - cell "6.5"
+            - cell
+          - row "打野 Juno 男枪、雷克塞 7/5/16 4.6 8.5 1":
+            - cell "打野 Juno":
+              - generic: 打野
+              - text: Juno
+            - cell "男枪、雷克塞"
+            - cell "7/5/16"
+            - cell "4.6"
+            - cell "8.5"
+            - cell "1"
+          - row "中单 Echo390 妖姬、加里奥 7/3/11 6.0 7.9":
+            - cell "中单 Echo390":
+              - generic: 中单
+              - text: Echo390
+            - cell "妖姬、加里奥"
+            - cell "7/3/11"
+            - cell "6.0"
+            - cell "7.9"
+            - cell
+          - row "下路 Zhiyuan 卡莎、厄斐琉斯 13/3/7 6.7 8.5":
+            - cell "下路 Zhiyuan":
+              - generic: 下路
+              - text: Zhiyuan
+            - cell "卡莎、厄斐琉斯"
+            - cell "13/3/7"
+            - cell "6.7"
+            - cell "8.5"
+            - cell
+          - row "辅助 Chenxi 芮尔、娜美 2/1/20 22.0 8.4 1":
+            - cell "辅助 Chenxi":
+              - generic: 辅助
+              - text: Chenxi
+            - cell "芮尔、娜美"
+            - cell "2/1/20"
+            - cell "22.0"
+            - cell "8.4"
+            - cell "1"

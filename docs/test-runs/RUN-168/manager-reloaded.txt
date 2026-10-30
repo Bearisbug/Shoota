@@ -1,0 +1,69 @@
+Browser tab: 8, Title: "shoota 游戏平台", URL: "http://127.0.0.1:59478/#play-lol".
+1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:59478/#play-lol
+	2 container
+		3 link Description: shoota 首页, Value: 127.0.0.1:59478/#store
+		4 container 主导航
+			5 link Description: 商店, Value: 127.0.0.1:59478/#store
+			6 link Description: 游戏库, Value: 127.0.0.1:59478/#library
+			7 link Description: 存档, Value: 127.0.0.1:59478/#backup
+		8 text 搜索游戏
+		9 search text field (settable) 搜索游戏, ID: q
+		10 pop up button (collapsed) Description: 账号菜单, Secondary Actions: Expand
+	11 container player
+		12 button 退出游戏, ID: pExit
+		13 text 我在LOL建银河战队
+		14 button (disabled) 已读取存档, ID: pSaved
+		15 text 本次 0 分钟
+		16 button 全屏, ID: pFull
+		17 container 我在LOL建银河战队
+			18 AXWebArea lol, URL: about:srcdoc
+				19 container app
+					20 container
+						21 text BLG
+						22 text 整场复盘
+						23 button 回到球队
+						24 container 推进赛程
+							25 button ▶ 进入下一场比赛
+							26 button 快速模拟5场
+					27 container main
+						28 container
+							29 heading 快速模拟 · 5 场, Value: 1
+								30 text 快速模拟 · 5 场
+							31 text 已完成5场 · 赛程推进 5 轮。每场均已结算，点击右上角继续。
+						32 heading 战报, Value: 2
+							33 text 战报
+						34 text 5 场系列赛 · 5 胜 0 负
+						35 button (collapsed) 胜 夏季赛第 3 轮 BLG 2 : 0 TT, Secondary Actions: Expand
+							36 text 胜
+							37 text 夏季赛第 3 轮
+							38 text BLG
+							39 text 2 : 0
+							40 text TT
+						41 button (collapsed) 胜 夏季赛第 4 轮 BLG 2 : 0 EDG, Secondary Actions: Expand
+							42 text 胜
+							43 text 夏季赛第 4 轮
+							44 text BLG
+							45 text 2 : 0
+							46 text EDG
+						47 button (collapsed) 胜 夏季赛第 5 轮 BLG 2 : 0 LNG, Secondary Actions: Expand
+							48 text 胜
+							49 text 夏季赛第 5 轮
+							50 text BLG
+							51 text 2 : 0
+							52 text LNG
+						53 button (collapsed) 胜 夏季赛第 6 轮 BLG 2 : 1 TES, Secondary Actions: Expand
+							54 text 胜
+							55 text 夏季赛第 6 轮
+							56 text BLG
+							57 text 2 : 1
+							58 text TES
+						59 button (collapsed) 胜 夏季赛第 7 轮 BLG 2 : 0 IG, Secondary Actions: Expand
+							60 text 胜
+							61 text 夏季赛第 7 轮
+							62 text BLG
+							63 text 2 : 0
+							64 text IG
+						65 button (collapsed) 队内动态 · 3 条, Secondary Actions: Expand
+							66 text 队内动态 · 3 条
+
+The focused UI element is 1 AXWebArea shoota 游戏平台, URL: 127.0.0.1:59478/#play-lol

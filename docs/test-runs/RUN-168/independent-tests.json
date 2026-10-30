@@ -1,0 +1,60 @@
+{
+  "manager": [
+    {
+      "suite": "lol-rating-policy.test.cjs",
+      "exit": 0
+    },
+    {
+      "suite": "lol-quick-five.test.cjs",
+      "exit": 0
+    },
+    {
+      "suite": "lol-ratings-training.test.cjs",
+      "missing": true
+    },
+    {
+      "suite": "lol-annual.test.cjs",
+      "exit": 0
+    },
+    {
+      "build": "scripts/build-lol-history.py",
+      "exit": 0
+    },
+    {
+      "rebuiltSha256": "a6ebc4b084a4ef9790a4ab81eb7fa22070263dbb135c64ec9979803b31a81e04"
+    }
+  ],
+  "player": [
+    {
+      "suite": "manager-ratings.cjs",
+      "exit": 0
+    },
+    {
+      "suite": "market-cap.cjs",
+      "exit": 0
+    },
+    {
+      "suite": "inline-match.cjs",
+      "exit": 0
+    },
+    {
+      "suite": "selection.cjs",
+      "exit": 0
+    },
+    {
+      "suite": "player-perspective.cjs",
+      "exit": 0
+    },
+    {
+      "build": "scripts/build-history.py",
+      "exit": 0
+    },
+    {
+      "build": "scripts/build.py",
+      "exit": 0
+    },
+    {
+      "rebuiltSha256": "eedf3d2b8620069e2721f12aae7285a74cf88cb7748168194cede07fd76c2122"
+    }
+  ]
+}

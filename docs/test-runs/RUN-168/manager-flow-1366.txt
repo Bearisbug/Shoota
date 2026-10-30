@@ -1,0 +1,25 @@
+Browser tab: 8, Title: "shoota 游戏平台", URL: "http://127.0.0.1:59478/#play-lol".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+~							107 text 已完成5场 · 赛程推进 5 轮。每场均已结算，点击右上角继续。
+~						111 button (collapsed) 胜 夏季赛第 3 轮 BLG 2 : 0 TT, Secondary Actions: Expand
+~							113 text 夏季赛第 3 轮
+~							115 text 2 : 0
+~							116 text TT
+~						117 button (collapsed) 胜 夏季赛第 4 轮 BLG 2 : 0 EDG, Secondary Actions: Expand
+~							119 text 夏季赛第 4 轮
+~							121 text 2 : 0
+~							122 text EDG
+~						123 button (collapsed) 胜 夏季赛第 5 轮 BLG 2 : 0 LNG, Secondary Actions: Expand
+~							125 text 夏季赛第 5 轮
+~							127 text 2 : 0
+~							128 text LNG
+~						129 button (collapsed) 胜 夏季赛第 6 轮 BLG 2 : 1 TES, Secondary Actions: Expand
+~							131 text 夏季赛第 6 轮
+~							133 text 2 : 1
+~							134 text TES
+~						135 button (collapsed) 胜 夏季赛第 7 轮 BLG 2 : 0 IG, Secondary Actions: Expand
+~							137 text 夏季赛第 7 轮
+~							140 text IG
+~						141 button (collapsed) 队内动态 · 3 条, Secondary Actions: Expand
+~							142 text 队内动态 · 3 条
+The focused UI element is 45 AXWebArea lol, URL: about:srcdoc

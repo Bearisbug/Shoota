@@ -1,0 +1,334 @@
+- banner:
+  - link "shoota 首页":
+    - /url: "#store"
+  - navigation "主导航":
+    - link "商店":
+      - /url: "#store"
+    - link "游戏库":
+      - /url: "#library"
+    - link "存档":
+      - /url: "#backup"
+  - generic: 搜索游戏
+  - searchbox "搜索游戏"
+  - button "账号菜单": 玩
+- main
+- button "退出游戏":
+  - generic: 退出游戏
+- generic: 我是职业通天代
+- generic: 16岁 · 逐光竞技390 · 能力80
+- button "已读取存档" [disabled]
+- generic: 本次 0 分钟
+- button "全屏":
+  - generic: 全屏
+- iframe [active]:
+  - banner:
+    - text: Echo390 · 16 岁
+    - generic: 2027 夏季赛 · 第 13/13 轮
+    - combobox "快速模拟场数" [disabled]:
+      - option "1场"
+      - option "5场" [selected]
+    - button "▶ 继续下一场"
+  - navigation "生涯导航":
+    - button "主页"
+    - button "我的选手"
+    - button "战队阵容"
+    - button "赛程"
+    - button "积分榜"
+    - button "季后赛"
+    - button "MSI"
+    - button "世界赛"
+    - button "选手库"
+    - button "参与招募"
+    - button "合同与转会"
+    - button "赛季总结"
+    - button "历史"
+    - button "存档"
+  - main:
+    - heading "Echo390" [level=1]
+    - button "查看逐光竞技390":
+    - generic: 16 岁 · 中单
+    - paragraph: 建队核心 · 23 场系列赛 · 23 场首发 · 0 场替补
+    - heading "能力总览" [level=3]
+    - img "六维能力：操作 81，对线 78，团战 79，运营 81，英雄池 83，稳定 81":
+      - generic: 操作81
+      - generic: 对线78
+      - generic: 团战79
+      - generic: 运营81
+      - generic: 英雄池83
+      - generic: 稳定81
+    - strong: "80"
+    - generic: 综合能力 · 蓝阶
+    - strong: "98"
+    - generic: 成长上限
+    - generic: 操作
+    - generic: "81"
+    - generic: 对线
+    - generic: "78"
+    - generic: 团战
+    - generic: "79"
+    - generic: 运营
+    - generic: "81"
+    - generic: 英雄池
+    - generic: "83"
+    - generic: 稳定
+    - generic: "81"
+    - paragraph:
+      - text: 蓝 ＜85 · 紫 85+ · 橙 90+ · 红 95+
+      - text: 传奇是独立身份，当前能力仍按数值分阶。
+    - generic "数值来源 · 六项能力加权"
+    - heading "特长徽章" [level=3]
+    - generic: 10 枚徽章
+    - generic: 铜 8
+    - generic: 银 1
+    - generic: 金 1
+    - generic: 名人堂 0
+    - paragraph: 随能力自动解锁和升级，可同时生效，无需装备。铜 74 · 银 82 · 金 90 · 名人堂 96。
+    - heading "操作与对线 3" [level=4]
+    - article:
+      - generic: 操作怪
+      - text: 铜徽章
+      - paragraph: 个人前期 +0.17、后期 +0.35；击杀权重 +11%
+      - generic: 操作 81.0 · 82 升银
+    - article:
+      - generic: 对线压制
+      - text: 铜徽章
+      - paragraph: 前期对线 +0.52
+      - generic: 对线 78.0 · 82 升银
+    - article:
+      - generic: 英雄海
+      - text: 银徽章
+      - paragraph: 本位置英雄熟练度 +1.95（最高 99）
+      - generic: 英雄池 83.0 · 90 升金
+    - heading "团战与协作 3" [level=4]
+    - article:
+      - generic: 团战指挥
+      - text: 铜徽章
+      - paragraph: 全队后期强度 +0.21
+      - generic: 运营与团战均值 80.0 · 82 升银
+    - article:
+      - generic: 小规模作战
+      - text: 铜徽章
+      - paragraph: 个人前期强度 +0.28
+      - generic: 操作与团战均值 80.0 · 82 升银
+    - article:
+      - generic: 团战收割
+      - text: 铜徽章
+      - paragraph: 个人后期强度 +0.42
+      - generic: 团战双倍加权、操作 79.7 · 82 升银
+    - heading "节奏与运营 1" [level=4]
+    - article:
+      - generic: 游走支援
+      - text: 铜徽章
+      - paragraph: 全队前期强度 +0.10
+      - generic: 运营与操作均值 81.0 · 82 升银
+    - heading "心态与成长 3" [level=4]
+    - article:
+      - generic: 大心脏
+      - text: 铜徽章
+      - paragraph: 季后赛、国际赛个人状态 +0.70
+      - generic: 稳定与团战均值 80.0 · 82 升银
+    - article:
+      - generic: 新星
+      - text: 金徽章
+      - paragraph: 比赛成长经验 +5.0%
+      - generic: 23 岁以内、潜力差 ≥8；潜力减 8 90.0 · 96 升名人堂
+    - article:
+      - generic: 稳如磐石
+      - text: 铜徽章
+      - paragraph: 个人发挥随机波动减少 18%
+      - generic: 稳定 81.0 · 82 升银
+    - generic "待解锁徽章"
+    - heading "生涯荣誉" [level=3]
+    - generic: 尚无荣誉
+    - heading "版本适配 · 97 · 英雄海适应" [level=3]
+    - paragraph: 野辅提速 · 中单影响力 88% · 11 个可用熟练英雄（熟练度 ≥80）
+    - generic: 阿卡丽
+    - generic: 版本强势 · 熟练 95 · 版本修正 +4.1
+    - generic: 妖姬
+    - generic: 版本强势 · 熟练 88 · 版本修正 +3.7
+    - generic: 加里奥
+    - generic: 版本强势 · 熟练 83 · 版本修正 +3.2
+    - generic: 卡尔玛
+    - generic: 常规 · 熟练 94 · 版本修正 +0.0
+    - generic: 辛德拉
+    - generic: 常规 · 熟练 85 · 版本修正 +0.0
+    - paragraph: 擅长类型：刺客（游戏模拟） · 强势绝活 1 个 · 强势英雄掌握 3/3。
+    - paragraph: 若当前前三选择全部被禁：适配 66，仍有 8 个熟练英雄。英雄海更容易跨版本发挥；绝活选手也可能迎来自己的强势版本。熟练度随实战自动积累。
+    - heading "成长轨迹" [level=3]
+    - heading "成长与状态" [level=3]
+    - generic: 训练投入 90/100
+    - generic: 学习效率 ×1.20
+    - generic "游戏状态，不改变基础OVR": 状态 0
+    - paragraph: 日常训练随赛程自动进行，未出场也能积累经验；出场额外获得实战经验。最近训练 +0.29 经验。
+    - paragraph: 16 岁 · 年龄成长系数 ×0.5 · 经验 6.2/16 · 本季能力变化 +2。常规成长型 · 本季成长空间最多 +3 OVR（非保证收益）。16–18 岁仍在适应职业赛；85、90、95 以上逐级放缓，接近潜力也会减速。潜力是理论上限，不保证兑现；训练与出场持续积累，休赛期不重复发放成长。
+    - heading "最近一局 · +0.56 经验" [level=3]
+    - paragraph: 夏季赛第 12 轮 · 赛事基础 0.85
+    - generic: 核心贡献 +0%
+    - generic: 强敌挑战 +0%
+    - paragraph: 奖励按本局贡献与对手强度计算，输掉比赛也能获得挑战经验。
+    - paragraph: 学习效率、投入及生活剧情均为游戏设定，不代表选手的现实经历。
+    - paragraph: 潜力 98/100 · 以场均 7.8+ 赢下 3 场战力 85+ 的强敌系列赛，可突破至 99；之后声望达到 50，以场均 8+ 赢下国际赛系列赛，可突破至 100。潜力是成长上限，不直接增加当前能力。
+    - heading "赛季数据" [level=3]
+    - table:
+      - rowgroup:
+        - row "阶段 局数 胜负 击杀/阵亡/助攻 KDA 参团 补刀/分 评分 MVP":
+          - columnheader "阶段"
+          - columnheader "局数"
+          - columnheader "胜负"
+          - columnheader "击杀/阵亡/助攻"
+          - columnheader "KDA"
+          - columnheader "参团"
+          - columnheader "补刀/分"
+          - columnheader "评分"
+          - columnheader "MVP"
+      - rowgroup:
+        - row "常规赛 53 9-44 100/102/61 1.58 48% 6.7 5.4 4":
+          - cell "常规赛"
+          - cell "53"
+          - cell "9-44"
+          - cell "100/102/61"
+          - cell "1.58"
+          - cell "48%"
+          - cell "6.7"
+          - cell "5.4"
+          - cell "4"
+        - row "季后赛 0 0-0 0/0/0 - - - - 0":
+          - cell "季后赛"
+          - cell "0"
+          - cell "0-0"
+          - cell "0/0/0"
+          - cell "-"
+          - cell "-"
+          - cell "-"
+          - cell "-"
+          - cell "0"
+        - row "国际赛 0 0-0 0/0/0 - - - - 0":
+          - cell "国际赛"
+          - cell "0"
+          - cell "0-0"
+          - cell "0/0/0"
+          - cell "-"
+          - cell "-"
+          - cell "-"
+          - cell "-"
+          - cell "0"
+        - row "合计 53 9-44 100/102/61 1.58 48% 6.7 5.4 4":
+          - cell "合计"
+          - cell "53"
+          - cell "9-44"
+          - cell "100/102/61"
+          - cell "1.58"
+          - cell "48%"
+          - cell "6.7"
+          - cell "5.4"
+          - cell "4"
+    - heading "逐局记录 · 53 局" [level=3]
+    - table:
+      - rowgroup:
+        - row "比赛 对手 结果 英雄 K/D/A 参团 补刀/分 评分 时长":
+          - columnheader "比赛"
+          - columnheader "对手"
+          - columnheader "结果"
+          - columnheader "英雄"
+          - columnheader "K/D/A"
+          - columnheader "参团"
+          - columnheader "补刀/分"
+          - columnheader "评分"
+          - columnheader "时长"
+      - rowgroup:
+        - row "夏季赛第 12 轮 G2 查看ThunderTalk Gaming 胜 加里奥 3/3/7 67% 7.7 7.7 32′":
+          - cell "夏季赛第 12 轮 G2":
+            - button "夏季赛第 12 轮 G2"
+          - cell "查看ThunderTalk Gaming":
+            - button "查看ThunderTalk Gaming":
+              - img "TT 战队 Logo"
+          - cell "胜"
+          - cell "加里奥"
+          - cell "3/3/7"
+          - cell "67%"
+          - cell "7.7"
+          - cell "7.7"
+          - cell "32′"
+        - row "夏季赛第 12 轮 G1 查看ThunderTalk Gaming 胜 妖姬 4/0/4 53% 7.8 8.2 33′":
+          - cell "夏季赛第 12 轮 G1":
+            - button "夏季赛第 12 轮 G1"
+          - cell "查看ThunderTalk Gaming":
+            - button "查看ThunderTalk Gaming":
+              - img "TT 战队 Logo"
+          - cell "胜"
+          - cell "妖姬"
+          - cell "4/0/4"
+          - cell "53%"
+          - cell "7.8"
+          - cell "8.2"
+          - cell "33′"
+        - row "夏季赛第 10 轮 G3 查看Invictus Gaming 负 发条 0/0/1 25% 6.2 5.5 27′":
+          - cell "夏季赛第 10 轮 G3":
+            - button "夏季赛第 10 轮 G3"
+          - cell "查看Invictus Gaming":
+            - button "查看Invictus Gaming":
+              - img "IG 战队 Logo"
+          - cell "负"
+          - cell "发条"
+          - cell "0/0/1"
+          - cell "25%"
+          - cell "6.2"
+          - cell "5.5"
+          - cell "27′"
+        - row "夏季赛第 10 轮 G2 查看Invictus Gaming 负 阿卡丽 1/0/0 50% 6.6 5.4 24′":
+          - cell "夏季赛第 10 轮 G2":
+            - button "夏季赛第 10 轮 G2"
+          - cell "查看Invictus Gaming":
+            - button "查看Invictus Gaming":
+              - img "IG 战队 Logo"
+          - cell "负"
+          - cell "阿卡丽"
+          - cell "1/0/0"
+          - cell "50%"
+          - cell "6.6"
+          - cell "5.4"
+          - cell "24′"
+        - row "夏季赛第 10 轮 G1 查看Invictus Gaming 胜 妖姬 3/0/2 42% 7.7 8.6 MVP 32′":
+          - cell "夏季赛第 10 轮 G1":
+            - button "夏季赛第 10 轮 G1"
+          - cell "查看Invictus Gaming":
+            - button "查看Invictus Gaming":
+              - img "IG 战队 Logo"
+          - cell "胜"
+          - cell "妖姬"
+          - cell "3/0/2"
+          - cell "42%"
+          - cell "7.7"
+          - cell "8.6 MVP"
+          - cell "32′"
+        - row "夏季赛第 9 轮 G2 查看京东 JDG 负 飞机 2/1/0 40% 6.5 5.2 31′":
+          - cell "夏季赛第 9 轮 G2":
+            - button "夏季赛第 9 轮 G2"
+          - cell "查看京东 JDG":
+            - button "查看京东 JDG":
+              - img "JDG 战队 Logo"
+          - cell "负"
+          - cell "飞机"
+          - cell "2/1/0"
+          - cell "40%"
+          - cell "6.5"
+          - cell "5.2"
+          - cell "31′"
+    - button "上一页" [disabled]
+    - generic: 1/9
+    - button "下一页"
+    - heading "生涯赛季" [level=3]
+    - table:
+      - rowgroup:
+        - row "赛季 队伍 局数 胜率 K/D/A KDA 评分 国际赛局数":
+          - columnheader "赛季"
+          - columnheader "队伍"
+          - columnheader "局数"
+          - columnheader "胜率"
+          - columnheader "K/D/A"
+          - columnheader "KDA"
+          - columnheader "评分"
+          - columnheader "国际赛局数"
+      - rowgroup:
+        - row "完整赛季结束后记录":
+          - cell "完整赛季结束后记录"
