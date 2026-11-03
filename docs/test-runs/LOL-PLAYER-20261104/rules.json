@@ -1,0 +1,61 @@
+[
+  {
+    "script": "lol-ranking-test.cjs",
+    "code": 0,
+    "tail": "PASS honor weights, first-team alias dedup, no future honors, stats cap, OVR independence, read-only views, legacy event splitting, no season double count, retirement archive, 3 all-pro teams, awards idempotence, match stats and save roundtrip\n"
+  },
+  {
+    "script": "lol-ranking-rollover.cjs",
+    "code": 0,
+    "tail": "PASS real season rollover retains competition stats and archives removed veteran, including save reload\n"
+  },
+  {
+    "script": "lol-growth-test.cjs",
+    "code": 0,
+    "tail": "xp\":0.7100156249999998},\"after\":{\"ovr\":95,\"xp\":13.972499999999998}},{\"start\":97,\"bench\":false,\"before\":{\"ovr\":97,\"xp\":1.1620589062499993},\"after\":{\"ovr\":98,\"xp\":0}},{\"start\":97,\"bench\":true,\"before\":{\"ovr\":97,\"xp\":0.23667187499999984},\"after\":{\"ovr\":97,\"xp\":4.657500000000001}}]\nPASS player acceleration, NPC parity, legacy annual cap release, preserved XP/training count, duplicate training guard, starter faster than bench, potential 98/100 bounds\n"
+  },
+  {
+    "script": "lol-final-boundary.cjs",
+    "code": 0,
+    "tail": "PASS repeated direct five-round buttons stop at stage end, preserve receipt, reject stale clicks: 12 total series\n"
+  },
+  {
+    "script": "scripts/market-speed.cjs",
+    "code": 0,
+    "tail": "PASS: cached/uncached five rounds + season start identical; retention protected, stale/repeated clicks inert, scoped index restored.\n"
+  },
+  {
+    "script": "scripts/automanager.cjs",
+    "code": 1,
+    "tail": "le (node:internal/modules/cjs/loader:1942:20)\n    at Object..js (node:internal/modules/cjs/loader:2108:10)\n    at Module.load (node:internal/modules/cjs/loader:1690:32)\n    at Module._load (node:internal/modules/cjs/loader:1480:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:173:5)\n    at node:internal/main/run_main_module:33:47\n\nNode.js v26.12.0\n",
+    "rerun": {
+      "code": 0,
+      "note": "Only isolated QA copy: corrected invalid quote in harness split delimiter. Game unchanged."
+    }
+  },
+  {
+    "script": "scripts/coaches-offers.cjs",
+    "code": 0,
+    "tail": "PASS coach growth/cap, save roundtrip, budgeted coach transfer + history, autonomous vacancy fill, invitation refusal/dedup, legacy migration, inline offer roster and pure rendering\n"
+  },
+  {
+    "script": "scripts/coach-invites.cjs",
+    "code": 0,
+    "tail": "PASS invitation success through public action 2 / 3\n"
+  },
+  {
+    "script": "scripts/inline-match.cjs",
+    "code": 1,
+    "tail": ".load (node:internal/modules/cjs/loader:1690:32)\n    at Module._load (node:internal/modules/cjs/loader:1480:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:173:5)\n    at node:internal/main/run_main_module:33:47 {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: 'output/prepublish-v1.4.0/fixtures/legacy-v133-live.json'\n}\n\nNode.js v26.12.0\n",
+    "rerun": {
+      "code": 0,
+      "note": "Restored original historical fixture into isolated source. All inline and batch assertions passed."
+    }
+  },
+  {
+    "script": "scripts/legacy-live.cjs",
+    "code": 1,
+    "tail": "\n    '  - <launched> pid=35454',\n    '  - [pid=35454] <process did exit: exitCode=null, signal=SIGABRT>',\n    '  - [pid=35454] starting temporary directories cleanup',\n    '  - [pid=35454] <gracefully close start>',\n    '  - [pid=35454] <kill>',\n    '  - [pid=35454] <skipped force kill spawnedProcess.killed=false processClosed=true>',\n    '  - [pid=35454] finished temporary directories cleanup',\n    '  - [pid=35454] <gracefully close end>'\n  ]\n}\n",
+    "replacement": "Legacy live engine coverage passed in inline-match; current browser platform coverage runs separately. This obsolete script was not rerun."
+  }
+]
