@@ -1,0 +1,173 @@
+[
+  {
+    "width": 360,
+    "height": 640,
+    "metrics": {
+      "rootOverflow": false,
+      "detailWidth": 336,
+      "ddRightSpread": 0,
+      "cash": 4000,
+      "room": 140
+    },
+    "contact": {
+      "ok": false,
+      "message": "预算新人 暂时婉拒：仍在等待更合适的争冠或首发机会。",
+      "chance": 57,
+      "managementDeclined": false
+    },
+    "refresh": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "metrics": {
+      "rootOverflow": false,
+      "detailWidth": 366,
+      "ddRightSpread": 0,
+      "cash": 4000,
+      "room": 140
+    },
+    "contact": {
+      "ok": false,
+      "message": "预算新人 暂时婉拒：仍在等待更合适的争冠或首发机会。",
+      "chance": 57,
+      "managementDeclined": false
+    },
+    "refresh": true,
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "metrics": {
+      "rootOverflow": false,
+      "detailWidth": 406,
+      "ddRightSpread": 0,
+      "cash": 4000,
+      "room": 140
+    },
+    "contact": {
+      "ok": false,
+      "message": "预算新人 暂时婉拒：仍在等待更合适的争冠或首发机会。",
+      "chance": 57,
+      "managementDeclined": false
+    },
+    "refresh": true,
+    "errors": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "metrics": {
+      "rootOverflow": false,
+      "detailWidth": 668,
+      "ddRightSpread": 0,
+      "cash": 4000,
+      "room": 140
+    },
+    "contact": {
+      "ok": false,
+      "message": "预算新人 暂时婉拒：仍在等待更合适的争冠或首发机会。",
+      "chance": 57,
+      "managementDeclined": false
+    },
+    "refresh": true,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "metrics": {
+      "rootOverflow": false,
+      "detailWidth": 736,
+      "ddRightSpread": 0,
+      "cash": 4000,
+      "room": 140
+    },
+    "contact": {
+      "ok": false,
+      "message": "预算新人 暂时婉拒：仍在等待更合适的争冠或首发机会。",
+      "chance": 57,
+      "managementDeclined": false
+    },
+    "refresh": true,
+    "errors": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "metrics": {
+      "rootOverflow": false,
+      "detailWidth": 1158,
+      "ddRightSpread": 0,
+      "cash": 4000,
+      "room": 140
+    },
+    "contact": {
+      "ok": true,
+      "message": "预算新人 接受邀请，管理层批准签约，已加入 预算测试队。",
+      "chance": 57,
+      "managementDeclined": false
+    },
+    "refresh": true,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "metrics": {
+      "rootOverflow": false,
+      "detailWidth": 1208,
+      "ddRightSpread": 0,
+      "cash": 4000,
+      "room": 140
+    },
+    "contact": {
+      "ok": true,
+      "message": "预算新人 接受邀请，管理层批准签约，已加入 预算测试队。",
+      "chance": 57,
+      "managementDeclined": false
+    },
+    "refresh": true,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "metrics": {
+      "rootOverflow": false,
+      "detailWidth": 296,
+      "ddRightSpread": 0,
+      "cash": 4000,
+      "room": 140
+    },
+    "contact": {
+      "ok": false,
+      "message": "预算新人 暂时婉拒：仍在等待更合适的争冠或首发机会。",
+      "chance": 57,
+      "managementDeclined": false
+    },
+    "refresh": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 600,
+    "metrics": {
+      "rootOverflow": false,
+      "detailWidth": 366,
+      "ddRightSpread": 0,
+      "cash": 4000,
+      "room": 140
+    },
+    "contact": {
+      "ok": true,
+      "message": "预算新人 接受邀请，管理层批准签约，已加入 预算测试队。",
+      "chance": 57,
+      "managementDeclined": false
+    },
+    "refresh": true,
+    "errors": []
+  }
+]

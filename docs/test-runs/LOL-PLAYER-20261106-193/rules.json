@@ -1,0 +1,37 @@
+[
+  {
+    "script": "lol-193-test.cjs",
+    "code": 0,
+    "tail": "PASS reproduces old budget zero, rookie now affordable {\"oldRoom\":0,\"newRoom\":140,\"ask\":75}\nPASS wins, domestic/MSI/Worlds and actual star status add income; capped at three stars\nPASS budget reads do not mutate save or pay cash\nPASS annual payout once and next-season carryover\nPASS potential does not inflate rookie ask; proven stars/strong players not discounted\nPASS old FA rookie asks repaired once, contracts and cash preserved\nPASS debt respected and exact shortage explained\nALL ECONOMY PASS\n"
+  },
+  {
+    "script": "lol-193-mutation.cjs",
+    "code": 0,
+    "tail": "[\n  {\n    check: 'budget-zero regression',\n    original: 'pass',\n    mutated: 'fail',\n    stillGreen: []\n  },\n  {\n    check: 'rookie pricing',\n    original: 'pass',\n    mutated: 'fail',\n    stillGreen: []\n  },\n  {\n    check: 'settlement once',\n    original: 'pass',\n    mutated: 'fail',\n    stillGreen: []\n  }\n]\n"
+  },
+  {
+    "script": "lol-191-simulation.cjs",
+    "code": 0,
+    "tail": "[\n  {\n    \"route\": \"NEW\",\n    \"age\": 18,\n    \"ovr\": 96,\n    \"series\": 87,\n    \"played\": 39,\n    \"team\": \"GEN\"\n  },\n  {\n    \"route\": \"T1\",\n    \"age\": 18,\n    \"ovr\": 88,\n    \"series\": 91,\n    \"played\": 0,\n    \"team\": \"GEN\"\n  },\n  {\n    \"route\": \"LNG\",\n    \"age\": 18,\n    \"ovr\": 96,\n    \"series\": 88,\n    \"played\": 39,\n    \"team\": \"GEN\"\n  },\n  {\n    \"recruitment\": {\n      \"low\": 68,\n      \"high\": 95\n    },\n    \"deduplication\": true,\n    \"roundtrip\": true\n  }\n]\n"
+  },
+  {
+    "script": "lol-191-test.cjs",
+    "code": 0,
+    "tail": "PASS qualification 2014\nPASS qualification 2015\nPASS qualification 2016\nPASS qualification 2017\nPASS qualification 2020\nPASS qualification 2021\nPASS qualification 2022\nPASS qualification 2025\nPASS qualification 2027\nPASS player series, partial 5 batch stops before Worlds, archive and save\nPASS lineup preference, position validation, live lock, sole-role sale rejected, duplicate request\nPASS successful sale accounting, replacement retained, idempotent\nPASS recruitment cancellation\nALL PASS\n"
+  },
+  {
+    "script": "lol-ranking-test.cjs",
+    "code": 0,
+    "tail": "PASS honor weights, first-team alias dedup, no future honors, stats cap, OVR independence, read-only views, legacy event splitting, no season double count, retirement archive, 3 all-pro teams, awards idempotence, match stats and save roundtrip\n"
+  },
+  {
+    "script": "scripts/market-speed.cjs",
+    "code": 0,
+    "tail": "PASS: cached/uncached five rounds + season start identical; retention protected, stale/repeated clicks inert, scoped index restored.\n"
+  },
+  {
+    "script": "scripts/coaches-offers.cjs",
+    "code": 0,
+    "tail": "PASS coach growth/cap, save roundtrip, budgeted coach transfer + history, autonomous vacancy fill, invitation refusal/dedup, legacy migration, inline offer roster and pure rendering\n"
+  }
+]

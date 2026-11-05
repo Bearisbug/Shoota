@@ -1,0 +1,16 @@
+{
+  "src/app.js": "e38288e9aebe6794193bba8b6e037893d4b2ba49468de739d23a91059b3c9df6",
+  "src/badges.js": "77407280480fd65b4bcb7f81128628056f10d43dc3f2893aa4042de34880e831",
+  "src/career.js": "fa93a94b4e0b5b41cdfabfa19c126221ef58c634a74b41af87d18db4cbc961cf",
+  "src/dossier-data.js": "76ddcaf8bcc3bacc4c49922ba04b6c1a4e9e867874d5e613dab2f0c2c599852f",
+  "src/dossiers.js": "3231fc810aa879d8b82f732ca7f1d056f34d26f24bf44bbea847e761beac453e",
+  "src/engine.js": "02e156a5e4389f46b626c578a0748273c18e6925cd9ee9ace8b08339fc11dd16",
+  "src/eras.js": "ca1e7603489c85fadaaf29b0217320432acf5d2d92a1340dc193302cc02e040f",
+  "src/formats-data.js": "9b5fb1e504cb05bde47d3741116acf41b2d64c868dd36966a81a865854a870cf",
+  "src/formats.js": "fea66e15243f515e0e596b2c0286877bbf9b3e36c5859e104876c069fd77bf52",
+  "src/history-data.js": "328c328e26ad821d079dc9ae52d4a54352433e35f405a29f43254fa8177cdcf5",
+  "src/index.html": "0157daff08094ef3ec3f6ece73beab881f8a23b69c54471d8cf7a22a2706100c",
+  "src/logos.js": "c1d526a43e928562bec7a4d64d4284841899edfedf1c56321596c3a117a4ef8a",
+  "src/meta.js": "f3e6b68c88d15ae2574a3fdf8174a268c9b423e3dff96fb0c9da963e968ac148",
+  "src/style.css": "8c3d778829f05f42b2b04719296955563c38df98c32fde01cccb988a36c9c4d6"
+}
