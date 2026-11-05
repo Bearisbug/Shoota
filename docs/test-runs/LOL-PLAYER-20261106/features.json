@@ -1,0 +1,488 @@
+[
+  {
+    "width": 360,
+    "height": 640,
+    "initial": {
+      "frameHeight": 591,
+      "submitY": 495,
+      "submitBottom": 539,
+      "rootOverflow": false,
+      "mainScroll": 0,
+      "mainHeight": 394,
+      "mainScrollHeight": 394,
+      "fields": [
+        {
+          "top": 197.328125,
+          "bottom": 241.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 241.328125,
+          "bottom": 285.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 285.328125,
+          "bottom": 329.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 329.328125,
+          "bottom": 373.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 373.328125,
+          "bottom": 417.328125,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    "management": true,
+    "draftPreserved": true,
+    "savedPreference": true,
+    "saleCancel": true,
+    "recruitCancel": true,
+    "qualifierReadOnly": true,
+    "qualifierMatch": true,
+    "archiveRefresh": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "initial": {
+      "frameHeight": 795,
+      "submitY": 699,
+      "submitBottom": 743,
+      "rootOverflow": false,
+      "mainScroll": 0,
+      "mainHeight": 598,
+      "mainScrollHeight": 598,
+      "fields": [
+        {
+          "top": 197.328125,
+          "bottom": 241.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 241.328125,
+          "bottom": 285.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 285.328125,
+          "bottom": 329.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 329.328125,
+          "bottom": 373.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 373.328125,
+          "bottom": 417.328125,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    "management": true,
+    "draftPreserved": true,
+    "savedPreference": true,
+    "saleCancel": true,
+    "recruitCancel": true,
+    "qualifierReadOnly": true,
+    "qualifierMatch": true,
+    "archiveRefresh": true,
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "initial": {
+      "frameHeight": 883,
+      "submitY": 787,
+      "submitBottom": 831,
+      "rootOverflow": false,
+      "mainScroll": 0,
+      "mainHeight": 686,
+      "mainScrollHeight": 686,
+      "fields": [
+        {
+          "top": 197.328125,
+          "bottom": 241.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 241.328125,
+          "bottom": 285.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 285.328125,
+          "bottom": 329.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 329.328125,
+          "bottom": 373.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 373.328125,
+          "bottom": 417.328125,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    "management": true,
+    "draftPreserved": true,
+    "savedPreference": true,
+    "saleCancel": true,
+    "recruitCancel": true,
+    "qualifierReadOnly": true,
+    "qualifierMatch": true,
+    "archiveRefresh": true,
+    "errors": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "initial": {
+      "frameHeight": 340,
+      "submitY": 288,
+      "submitBottom": 332,
+      "rootOverflow": false,
+      "mainScroll": 0,
+      "mainHeight": 283,
+      "mainScrollHeight": 283,
+      "fields": [
+        {
+          "top": 113,
+          "bottom": 157,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 113,
+          "bottom": 157,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 157,
+          "bottom": 201,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 157,
+          "bottom": 201,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 201,
+          "bottom": 245,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    "management": true,
+    "draftPreserved": true,
+    "savedPreference": true,
+    "saleCancel": true,
+    "recruitCancel": true,
+    "qualifierReadOnly": true,
+    "qualifierMatch": true,
+    "archiveRefresh": true,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "initial": {
+      "frameHeight": 974,
+      "submitY": 922,
+      "submitBottom": 966,
+      "rootOverflow": false,
+      "mainScroll": 0,
+      "mainHeight": 598,
+      "mainScrollHeight": 598,
+      "fields": [
+        {
+          "top": 432.5,
+          "bottom": 476.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 476.5,
+          "bottom": 520.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 520.5,
+          "bottom": 564.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 564.5,
+          "bottom": 608.5,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 608.5,
+          "bottom": 652.5,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    "management": true,
+    "draftPreserved": true,
+    "savedPreference": true,
+    "saleCancel": true,
+    "recruitCancel": true,
+    "qualifierReadOnly": true,
+    "qualifierMatch": true,
+    "archiveRefresh": true,
+    "errors": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "initial": {
+      "frameHeight": 718,
+      "submitY": 666,
+      "submitBottom": 710,
+      "rootOverflow": false,
+      "mainScroll": 0,
+      "mainHeight": 653,
+      "mainScrollHeight": 653,
+      "fields": [
+        {
+          "top": 121,
+          "bottom": 165,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 165,
+          "bottom": 209,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 209,
+          "bottom": 253,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 253,
+          "bottom": 297,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 297,
+          "bottom": 341,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    "management": true,
+    "draftPreserved": true,
+    "savedPreference": true,
+    "saleCancel": true,
+    "recruitCancel": true,
+    "qualifierReadOnly": true,
+    "qualifierMatch": true,
+    "archiveRefresh": true,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "initial": {
+      "frameHeight": 850,
+      "submitY": 798,
+      "submitBottom": 842,
+      "rootOverflow": false,
+      "mainScroll": 0,
+      "mainHeight": 785,
+      "mainScrollHeight": 785,
+      "fields": [
+        {
+          "top": 121,
+          "bottom": 165,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 165,
+          "bottom": 209,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 209,
+          "bottom": 253,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 253,
+          "bottom": 297,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 297,
+          "bottom": 341,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    "management": true,
+    "draftPreserved": true,
+    "savedPreference": true,
+    "saleCancel": true,
+    "recruitCancel": true,
+    "qualifierReadOnly": true,
+    "qualifierMatch": true,
+    "archiveRefresh": true,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "initial": {
+      "frameHeight": 519,
+      "submitY": 423,
+      "submitBottom": 467,
+      "rootOverflow": false,
+      "mainScroll": 0,
+      "mainHeight": 322,
+      "mainScrollHeight": 322,
+      "fields": [
+        {
+          "top": 197.328125,
+          "bottom": 241.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 241.328125,
+          "bottom": 285.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 285.328125,
+          "bottom": 329.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 329.328125,
+          "bottom": 373.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 373.328125,
+          "bottom": 417.328125,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    "management": true,
+    "draftPreserved": true,
+    "savedPreference": true,
+    "saleCancel": true,
+    "recruitCancel": true,
+    "qualifierReadOnly": true,
+    "qualifierMatch": true,
+    "archiveRefresh": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 600,
+    "initial": {
+      "frameHeight": 551,
+      "submitY": 455,
+      "submitBottom": 499,
+      "rootOverflow": false,
+      "mainScroll": 0,
+      "mainHeight": 354,
+      "mainScrollHeight": 354,
+      "fields": [
+        {
+          "top": 197.328125,
+          "bottom": 241.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 241.328125,
+          "bottom": 285.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 285.328125,
+          "bottom": 329.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 329.328125,
+          "bottom": 373.328125,
+          "height": 44,
+          "hit": true
+        },
+        {
+          "top": 373.328125,
+          "bottom": 417.328125,
+          "height": 44,
+          "hit": true
+        }
+      ]
+    },
+    "management": true,
+    "draftPreserved": true,
+    "savedPreference": true,
+    "saleCancel": true,
+    "recruitCancel": true,
+    "qualifierReadOnly": true,
+    "qualifierMatch": true,
+    "archiveRefresh": true,
+    "errors": []
+  }
+]

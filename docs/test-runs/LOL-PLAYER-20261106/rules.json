@@ -1,0 +1,52 @@
+[
+  {
+    "script": "lol-191-test.cjs",
+    "code": 0,
+    "tail": "PASS qualification 2014\nPASS qualification 2015\nPASS qualification 2016\nPASS qualification 2017\nPASS qualification 2020\nPASS qualification 2021\nPASS qualification 2022\nPASS qualification 2025\nPASS qualification 2027\nPASS player series, partial 5 batch stops before Worlds, archive and save\nPASS lineup preference, position validation, live lock, sole-role sale rejected, duplicate request\nPASS successful sale accounting, replacement retained, idempotent\nPASS recruitment cancellation\nALL PASS\n"
+  },
+  {
+    "script": "lol-191-simulation.cjs",
+    "code": 0,
+    "tail": "[\n  {\n    \"route\": \"NEW\",\n    \"age\": 18,\n    \"ovr\": 95,\n    \"series\": 85,\n    \"played\": 39,\n    \"team\": \"GEN\"\n  },\n  {\n    \"route\": \"T1\",\n    \"age\": 18,\n    \"ovr\": 99,\n    \"series\": 93,\n    \"played\": 48,\n    \"team\": \"GEN\"\n  },\n  {\n    \"route\": \"LNG\",\n    \"age\": 18,\n    \"ovr\": 99,\n    \"series\": 87,\n    \"played\": 87,\n    \"team\": \"GEN\"\n  },\n  {\n    \"recruitment\": {\n      \"low\": 68,\n      \"high\": 95\n    },\n    \"deduplication\": true,\n    \"roundtrip\": true\n  }\n]\n"
+  },
+  {
+    "script": "lol-ranking-test.cjs",
+    "code": 0,
+    "tail": "PASS honor weights, first-team alias dedup, no future honors, stats cap, OVR independence, read-only views, legacy event splitting, no season double count, retirement archive, 3 all-pro teams, awards idempotence, match stats and save roundtrip\n"
+  },
+  {
+    "script": "lol-ranking-rollover.cjs",
+    "code": 0,
+    "tail": "PASS real season rollover retains competition stats and archives removed veteran, including save reload\n"
+  },
+  {
+    "script": "lol-growth-test.cjs",
+    "code": 0,
+    "tail": ":{\"ovr\":91,\"xp\":0.1684184374999944},\"after\":{\"ovr\":96,\"xp\":0.5404921249999922}},{\"start\":90,\"bench\":true,\"before\":{\"ovr\":90,\"xp\":3.442499999999998},\"after\":{\"ovr\":92,\"xp\":0.6025000000000063}},{\"start\":95,\"bench\":false,\"before\":{\"ovr\":95,\"xp\":3.4861767187500026},\"after\":{\"ovr\":97,\"xp\":5.736617500000002}},{\"start\":95,\"bench\":true,\"before\":{\"ovr\":95,\"xp\":0.7100156249999998},\"after\":{\"ovr\":95,\"xp\":13.972499999999998}},{\"start\":97,\"bench\":false,\"before\":{\"ovr\":97,\"xp\":1.1620589062499993},\"after\":{\"ovr\":98,\"xp\":0}},{\"start\":97,\"bench\":true,\"before\":{\"ovr\":97,\"xp\":0.23667187499999984},\"after\":{\"ovr\":97,\"xp\":4.657500000000001}}]\nPASS player acceleration, NPC parity, legacy annual cap release, preserved XP/training count, duplicate training guard, starter faster than bench, potential 98/100 bounds\n"
+  },
+  {
+    "script": "lol-final-boundary.cjs",
+    "code": 0,
+    "tail": "PASS repeated direct five-round buttons stop at stage end, preserve receipt, reject stale clicks: 12 total series\n"
+  },
+  {
+    "script": "scripts/market-speed.cjs",
+    "code": 0,
+    "tail": "PASS: cached/uncached five rounds + season start identical; retention protected, stale/repeated clicks inert, scoped index restored.\n"
+  },
+  {
+    "script": "scripts/coaches-offers.cjs",
+    "code": 0,
+    "tail": "PASS coach growth/cap, save roundtrip, budgeted coach transfer + history, autonomous vacancy fill, invitation refusal/dedup, legacy migration, inline offer roster and pure rendering\n"
+  },
+  {
+    "script": "scripts/coach-invites.cjs",
+    "code": 0,
+    "tail": "PASS invitation success through public action 2 / 3\n"
+  },
+  {
+    "script": "qualification-guards.cjs",
+    "code": 0,
+    "tail": "PASS no redraw of existing Worlds and corrupt qualifier save rejects without changing state\n"
+  }
+]
